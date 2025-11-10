@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Personalization</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 35px 45px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .approaches-box {
+            background: #f8f9fa;
+            border: 2.5px solid #1E64C8;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .approach-item {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+        }
+        .balance-box {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border: 2.5px solid #ff9800;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .balance-text {
+            font-size: 22px;
+            font-weight: 600;
+            color: #e65100;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Model Personalization</div>
+        <div class="approaches-box"><div class="approach-item">✓ Fine-tune last layers locally</div><div class="approach-item">✓ Meta-learning (MAML)</div><div class="approach-item">✓ Mixture of global & local models</div><div class="approach-item">✓ Clustered federated learning</div></div>
+        <div class="balance-box">
+            <div class="balance-text">Global knowledge ⚖️ Local adaptation</div>
+        </div>
+    </div>
+</body>
+</html>

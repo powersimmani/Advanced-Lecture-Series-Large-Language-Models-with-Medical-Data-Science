@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waveform Signal Processing</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Aptos,'Segoe UI',sans-serif;background:white;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+        .container{width:960px;padding:35px 45px;}
+        .title{font-size:20px;font-weight:600;color:#1E64C8;margin-bottom:25px;text-align:center;}
+        .card{background:white;border:2.5px solid #1E64C8;border-radius:8px;padding:20px;margin-bottom:15px;}
+        .card-title{font-size:17px;font-weight:700;color:#1E64C8;margin-bottom:10px;}
+        .card-content{font-size:15px;color:#333;line-height:1.6;}
+        .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+        .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
+        .part-banner{background:linear-gradient(135deg,#1E64C8 0%,#5088d4 100%);color:white;padding:80px 60px;border-radius:12px;height:460px;display:flex;flex-direction:column;justify-content:center;}
+        .part-label{font-size:32px;font-weight:700;margin-bottom:30px;}
+        .part-title{font-size:44px;font-weight:700;margin-bottom:60px;line-height:1.2;}
+        .part-topics{font-size:20px;margin-left:40px;line-height:2;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="title">Waveform Signal Processing</div>
+        <div class="grid-2" style="margin-bottom:20px;">
+            <div class="card">
+                <div class="card-title">ECG (심전도)</div>
+                <div class="card-content">
+                    • 샘플링: 250-500 Hz<br>
+                    • P, QRS, T 파형 탐지<br>
+                    • 부정맥 분류<br>
+                    • R-R 간격 계산
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">EEG (뇌파)</div>
+                <div class="card-content">
+                    • 샘플링: 256-512 Hz<br>
+                    • 주파수 대역 분석<br>
+                    • 아티팩트 제거<br>
+                    • 발작 탐지
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">처리 파이프라인</div>
+            <div class="card-content">
+                1. <strong>전처리</strong>: Bandpass filter (0.5-40 Hz)<br>
+                2. <strong>노이즈 제거</strong>: Notch filter (60 Hz)<br>
+                3. <strong>특징 추출</strong>: Peak detection, FFT<br>
+                4. <strong>정규화</strong>: Z-score normalization
+            </div>
+        </div>
+    
+    </div>
+</body>
+</html>

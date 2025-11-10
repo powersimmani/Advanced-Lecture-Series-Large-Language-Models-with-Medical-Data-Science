@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDA AI/ML Regulatory Pathway</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 28px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        
+        .intro-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .intro-text {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        
+        .intro-highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .features-grid, .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .feature-card, .req-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px 16px;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover, .req-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .feature-title, .req-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 6px;
+        }
+        
+        .feature-desc, .req-desc {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .pathway-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        
+        .step-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 16px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .step-number {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 6px;
+        }
+        
+        .step-text {
+            font-size: 13px;
+            color: #555;
+        }
+        
+        .arrow {
+            font-size: 20px;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .timeline-box {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-top: 12px;
+        }
+        
+        .timeline-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .timeline-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 4px;
+        }
+        
+        .timeline-desc {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .pma-requirements {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        
+        .req-category {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px;
+        }
+        
+        .category-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .req-item {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+        
+        .comparison-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px;
+        }
+        
+        .comparison-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .comparison-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .comp-item {
+            display: grid;
+            grid-template-columns: 120px 1fr 1fr;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .comp-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .comp-510k, .comp-pma {
+            font-size: 12px;
+            color: #555;
+            padding: 6px;
+            background: white;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .denovo-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        
+        .feature-box {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .process-flow {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .flow-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .flow-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .step-num {
+            width: 30px;
+            height: 30px;
+            background: #1E64C8;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .step-content {
+            text-align: center;
+        }
+        
+        .step-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 2px;
+        }
+        
+        .step-detail {
+            font-size: 11px;
+            color: #666;
+        }
+        
+        .flow-arrow {
+            font-size: 18px;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .note-box {
+            background: #fff4e6;
+            border-left: 4px solid #ff9800;
+            border-radius: 4px;
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">FDA AI/ML Regulatory Pathway</div>
+        
+        <div class="intro-box">
+            <div class="intro-text">
+                FDA는 <span class="intro-highlight">지속적으로 학습하는 AI/ML 기반 의료기기</span>를 위한 
+                <span class="intro-highlight">적응형 규제 프레임워크</span>를 개발하고 있습니다
+            </div>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-title">🔄 Continuous Learning</div>
+                <div class="feature-desc">모델이 새로운 데이터로 지속적으로 업데이트</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-title">📋 Pre-Specified Changes</div>
+                <div class="feature-desc">사전 승인된 변경 범위 내에서 업데이트 허용</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-title">🎯 Performance Monitoring</div>
+                <div class="feature-desc">실시간 성능 추적 및 보고 시스템</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-title">🔍 Transparency Requirements</div>
+                <div class="feature-desc">알고리즘 변경사항의 투명한 공개</div>
+            </div>
+        </div>
+        
+        <div class="pathway-steps">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-text">사전 정의된 변경 계획 제출</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-text">실세계 성능 모니터링</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-text">계획 내 변경 구현</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-text">변경사항 보고</div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

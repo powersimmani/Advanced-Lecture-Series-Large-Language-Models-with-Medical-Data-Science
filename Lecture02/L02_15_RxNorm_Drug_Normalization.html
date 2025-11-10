@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxNorm Drug Normalization</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Aptos,'Segoe UI',sans-serif;background:white;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+        .container{width:960px;padding:35px 45px;}
+        .title{font-size:20px;font-weight:600;color:#1E64C8;margin-bottom:25px;text-align:center;}
+        .card{background:white;border:2.5px solid #1E64C8;border-radius:8px;padding:20px;margin-bottom:15px;}
+        .card-title{font-size:17px;font-weight:700;color:#1E64C8;margin-bottom:10px;}
+        .card-content{font-size:15px;color:#333;line-height:1.6;}
+        .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+        .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
+        .highlight{background:#f0f5fc;border-left:4px solid #1E64C8;padding:15px;border-radius:6px;margin-bottom:20px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">RxNorm Drug Normalization</div>
+        
+        <div class="card" style="margin-bottom:20px;">
+            <div class="card-title">RxNorm 개념 모델</div>
+            <div class="card-content">
+                • <strong>Ingredient</strong>: 활성 성분 (aspirin)<br>
+                • <strong>Clinical Drug</strong>: 성분 + 용량 (aspirin 81 MG)<br>
+                • <strong>Branded Drug</strong>: 제품명 (Bayer Aspirin 81 MG)<br>
+                • <strong>RxCUI</strong>: 고유 식별자
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title">NDC 매핑</div>
+                <div class="card-content">
+                    National Drug Code와 연결<br>제조사, 패키지 정보 포함
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">상호작용 체크</div>
+                <div class="card-content">
+                    약물 간 상호작용 데이터<br>금기사항 확인
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</body>
+</html>

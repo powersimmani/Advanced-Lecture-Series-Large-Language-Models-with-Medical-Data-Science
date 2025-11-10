@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulatory Compliance</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 35px 45px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .regulations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .regulation-card {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border: 3px solid #ff9800;
+            border-radius: 12px;
+            padding: 25px;
+        }
+        .regulation-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e65100;
+            margin-bottom: 12px;
+        }
+        .regulation-desc {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .requirement-item {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 6px;
+            padding-left: 15px;
+        }
+        .checklist-box {
+            background: #f8f9fa;
+            border: 2.5px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .checklist-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 12px;
+        }
+        .check-item {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Regulatory Compliance</div>
+        <div class="regulations-grid">
+            <div class="regulation-card">
+                <div class="regulation-name">🇪🇺 GDPR</div>
+                <div class="regulation-desc">European Union General Data Protection Regulation</div>
+                <div class="requirement-item">• Right to explanation</div>
+                <div class="requirement-item">• Data minimization</div>
+                <div class="requirement-item">• Privacy by design</div>
+                <div class="requirement-item">• Cross-border transfer rules</div>
+            </div>
+            <div class="regulation-card">
+                <div class="regulation-name">🇺🇸 HIPAA</div>
+                <div class="regulation-desc">Health Insurance Portability and Accountability Act</div>
+                <div class="requirement-item">• PHI protection</div>
+                <div class="requirement-item">• Security safeguards</div>
+                <div class="requirement-item">• Breach notification</div>
+                <div class="requirement-item">• Business associate agreements</div>
+            </div>
+        </div>
+        <div class="checklist-box">
+            <div class="checklist-title">✓ Compliance Checklist</div>
+            <div class="check-item">☑ Encrypted communication channels</div>
+            <div class="check-item">☑ Audit logs and monitoring</div>
+            <div class="check-item">☑ Data anonymization techniques</div>
+            <div class="check-item">☑ Consent management</div>
+            <div class="check-item">☑ Regular security assessments</div>
+        </div>
+    </div>
+</body>
+</html>

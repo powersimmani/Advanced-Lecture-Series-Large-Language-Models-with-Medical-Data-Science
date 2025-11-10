@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Mobile Diagnostics</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { width: 960px; padding: 25px 35px; background: white; }
+        .title { font-size: 30px; font-weight: 700; color: #1E64C8; margin-bottom: 20px; text-align: center; }
+        
+        /* Common intro boxes */
+        .tradeoff-intro, .preservation-intro, .case-intro, .handson-intro, .deployment-intro {
+            background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 18px; margin-bottom: 20px; text-align: center;
+        }
+        .intro-title { font-size: 22px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .intro-desc { font-size: 15px; color: #555; line-height: 1.5; }
+        
+        /* Section titles */
+        .chart-title, .criteria-title, .curve-title, .strategies-title, .statement-title, .timeline-title,
+        .results-title, .code-title, .tools-title, .flow-title, .checklist-title, .matrix-title,
+        .summary-title, .practices-title, .tools-title {
+            font-size: 20px; font-weight: 700; color: #1E64C8; margin: 15px 0 12px 0; text-align: center;
+        }
+        
+        /* Pareto chart */
+        .pareto-chart { margin: 20px 0; }
+        .chart-area { background: #f8f9fa; border: 2px solid #1E64C8; border-radius: 8px; padding: 30px; }
+        .chart-content { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .model-point { 
+            background: white; border: 3px solid #1E64C8; border-radius: 10px;
+            padding: 15px; text-align: center;
+        }
+        .large { border-color: #ff6b6b; }
+        .medium { border-color: #ffa500; }
+        .small { border-color: #51cf66; }
+        .tiny { border-color: #339af0; }
+        .point-label { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .point-stats { font-size: 14px; color: #555; line-height: 1.6; }
+        
+        /* Selection criteria */
+        .criteria-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0; }
+        .criteria-card { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center;
+        }
+        .card-header { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .card-choice { font-size: 15px; color: #333; font-weight: 600; margin-bottom: 5px; }
+        .card-reason { font-size: 13px; color: #666; font-style: italic; }
+        
+        /* Degradation curve */
+        .degradation-curve { margin: 20px 0; }
+        .curve-visual { display: flex; flex-direction: column; gap: 10px; position: relative; }
+        .curve-row { display: flex; align-items: center; gap: 15px; }
+        .curve-row.critical { border: 2px dashed #ff6b6b; border-radius: 6px; padding: 5px; }
+        .compression-level { min-width: 120px; font-weight: 600; color: #333; font-size: 14px; }
+        .accuracy-bar { 
+            height: 35px; border-radius: 6px; display: flex; align-items: center;
+            justify-content: center; color: white; font-weight: 700; font-size: 16px;
+        }
+        .critical-line { 
+            color: #ff6b6b; font-weight: 700; font-size: 14px; margin-top: 5px;
+            padding-left: 135px;
+        }
+        
+        /* Strategy boxes */
+        .preservation-strategies { margin: 20px 0; }
+        .strategies-list { display: flex; flex-direction: column; gap: 12px; }
+        .strategy-box { 
+            display: flex; align-items: center; gap: 15px;
+            background: white; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px;
+        }
+        .strategy-num { font-size: 24px; min-width: 40px; }
+        .strategy-info { flex: 1; }
+        .strategy-name { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 5px; }
+        .strategy-desc { font-size: 14px; color: #555; }
+        
+        /* Problem statement */
+        .problem-statement { margin: 15px 0; }
+        .statement-content { display: flex; flex-direction: column; gap: 10px; }
+        .problem-item { 
+            display: flex; align-items: center; gap: 12px;
+            background: #f8f9fa; border-left: 4px solid #1E64C8; padding: 12px 15px; border-radius: 6px;
+        }
+        .problem-icon { font-size: 24px; }
+        .problem-text { font-size: 15px; color: #333; }
+        
+        /* Timeline */
+        .approach-timeline { margin: 20px 0; }
+        .timeline-steps { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+        .timeline-step { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; width: 100%; text-align: center;
+        }
+        .timeline-step.success { border: 3px solid #51cf66; background: #f8fff9; }
+        .step-header { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .step-content { font-size: 14px; color: #555; line-height: 1.6; }
+        .arrow-down { font-size: 24px; color: #1E64C8; }
+        
+        /* Results */
+        .results-summary { margin: 20px 0; }
+        .results-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .metric-box { 
+            background: white; border: 3px solid #1E64C8; border-radius: 10px;
+            padding: 20px; text-align: center;
+        }
+        .metric-value { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .metric-label { font-size: 15px; color: #666; }
+        
+        /* Code examples */
+        .code-example { margin: 20px 0; }
+        .code-block { 
+            background: #2d2d2d; color: #f8f8f2; border-radius: 8px;
+            padding: 15px; font-family: 'Courier New', monospace; font-size: 13px;
+            line-height: 1.6; overflow-x: auto;
+        }
+        
+        /* Tools grid */
+        .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .tool-card { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 12px; text-align: center;
+        }
+        .tool-name { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .tool-desc { font-size: 13px; color: #555; line-height: 1.4; }
+        
+        /* Deployment flow */
+        .deployment-flow { margin: 20px 0; }
+        .flow-diagram { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .flow-stage { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; min-width: 140px;
+        }
+        .stage-name { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .stage-tasks { font-size: 13px; color: #555; line-height: 1.6; text-align: left; }
+        .flow-arrow { font-size: 24px; color: #1E64C8; font-weight: 700; }
+        
+        /* Checklist */
+        .checklist-section { margin: 20px 0; }
+        .checklist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .checklist-category { background: #f8f9fa; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px; }
+        .category-name { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .check-item { font-size: 14px; color: #333; padding: 6px 0; }
+        
+        /* Matrix table */
+        .strategy-matrix { margin: 20px 0; }
+        .matrix-table { background: white; border: 2px solid #1E64C8; border-radius: 8px; overflow: hidden; }
+        .matrix-row { display: grid; grid-template-columns: repeat(3, 1fr); }
+        .matrix-row.header { background: #1E64C8; color: white; font-weight: 700; }
+        .matrix-row:not(.header):nth-child(even) { background: #f8f9fa; }
+        .matrix-cell { padding: 12px 15px; border: 1px solid #e0e0e0; font-size: 14px; text-align: center; }
+        
+        /* Summary section */
+        .summary-section { margin: 20px 0; }
+        .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .summary-card { 
+            background: white; border: 3px solid #1E64C8; border-radius: 10px;
+            padding: 20px; text-align: center;
+        }
+        .card-number { 
+            font-size: 18px; font-weight: 700; color: white; background: #1E64C8;
+            border-radius: 50%; width: 60px; height: 60px; display: flex;
+            align-items: center; justify-content: center; margin: 0 auto 12px auto;
+        }
+        .card-title { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .card-points { font-size: 14px; color: #555; line-height: 1.7; text-align: left; }
+        
+        /* Best practices summary */
+        .best-practices-summary { margin: 20px 0; }
+        .practices-list { display: flex; flex-direction: column; gap: 8px; }
+        .practice { font-size: 15px; color: #333; padding: 10px; background: #f8f9fa; border-radius: 6px; }
+        
+        /* Tools list */
+        .tools-list { 
+            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px;
+            padding: 18px; margin: 20px 0;
+        }
+        .tools-content { font-size: 15px; color: #333; line-height: 1.8; }
+        
+        /* Thank you message */
+        .thankyou-message { 
+            background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
+            border-radius: 12px; padding: 40px; text-align: center; color: white; margin-top: 20px;
+        }
+        .thankyou-title { font-size: 42px; font-weight: 700; margin-bottom: 15px; }
+        .thankyou-subtitle { font-size: 20px; margin-bottom: 10px; opacity: 0.95; }
+        .contact-info { font-size: 16px; opacity: 0.9; }
+        
+        /* Notes */
+        .decision-note, .medical-warning, .practice-note {
+            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; font-size: 15px; color: #333; margin-top: 15px; line-height: 1.6;
+        }
+        .medical-warning { background: #fff5f5; border-color: #ff6b6b; }
+        .warning-icon { font-size: 24px; margin-right: 10px; }
+        .warning-text { display: inline-block; text-align: left; }
+        .highlight { color: #1E64C8; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Case Study: Mobile Diagnostics</div>
+        
+        <div class="case-intro">
+            <div class="intro-title">사례 연구: 모바일 피부암 진단 앱</div>
+            <div class="intro-desc">딥러닝 모델 압축을 통한 실시간 모바일 진단 시스템 구현</div>
+        </div>
+        <div class="problem-statement">
+            <div class="statement-title">문제 정의</div>
+            <div class="statement-content">
+                <div class="problem-item">
+                    <span class="problem-icon">🎯</span>
+                    <span class="problem-text"><strong>목표:</strong> 피부 병변 사진으로 양성/악성 분류</span>
+                </div>
+                <div class="problem-item">
+                    <span class="problem-icon">📱</span>
+                    <span class="problem-text"><strong>플랫폼:</strong> iOS/Android 모바일 앱</span>
+                </div>
+                <div class="problem-item">
+                    <span class="problem-icon">⚡</span>
+                    <span class="problem-text"><strong>요구사항:</strong> 3초 이내 결과, 오프라인 동작</span>
+                </div>
+            </div>
+        </div>
+        <div class="approach-timeline">
+            <div class="timeline-title">압축 접근법</div>
+            <div class="timeline-steps">
+                <div class="timeline-step">
+                    <div class="step-header">Step 1: Base Model</div>
+                    <div class="step-content">
+                        ResNet-50 (98MB, FP32)<br>
+                        정확도: 94.5%<br>
+                        추론: 2.5초
+                    </div>
+                </div>
+                <div class="arrow-down">↓</div>
+                <div class="timeline-step">
+                    <div class="step-header">Step 2: Knowledge Distillation</div>
+                    <div class="step-content">
+                        MobileNetV3 Student<br>
+                        크기: 24MB<br>
+                        정확도: 93.2%
+                    </div>
+                </div>
+                <div class="arrow-down">↓</div>
+                <div class="timeline-step">
+                    <div class="step-header">Step 3: INT8 Quantization</div>
+                    <div class="step-content">
+                        크기: 6MB (75% 감소)<br>
+                        정확도: 92.8%<br>
+                        추론: 0.8초
+                    </div>
+                </div>
+                <div class="arrow-down">↓</div>
+                <div class="timeline-step success">
+                    <div class="step-header">Final: TFLite Optimization</div>
+                    <div class="step-content">
+                        최종 크기: 5.2MB<br>
+                        정확도: 92.5%<br>
+                        추론: 0.6초 ✅
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="results-summary">
+            <div class="results-title">최종 결과</div>
+            <div class="results-metrics">
+                <div class="metric-box">
+                    <div class="metric-value">94.7%</div>
+                    <div class="metric-label">크기 감소</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">76%</div>
+                    <div class="metric-label">속도 향상</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">-2.0%</div>
+                    <div class="metric-label">정확도 변화</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

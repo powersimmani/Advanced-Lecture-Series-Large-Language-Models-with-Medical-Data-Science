@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiology Report Generation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        
+        .pipeline-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .pipeline-step {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .step-box {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px 12px;
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .arrow {
+            font-size: 24px;
+            color: #1E64C8;
+            font-weight: bold;
+            flex: 0 0 30px;
+            text-align: center;
+        }
+        
+        .modality-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .modality-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+        
+        .modality-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .modality-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .modality-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+        .report-structure {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px 20px;
+        }
+        
+        .report-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .report-sections {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        
+        .section-box {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 6px;
+            padding: 10px 8px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Radiology Report Generation: 자동 의료 리포트 작성</div>
+        
+        <div class="pipeline-flow">
+            <div class="pipeline-step">
+                <div class="step-box">의료 영상 입력<br>(X-ray, CT, MRI)</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="pipeline-step">
+                <div class="step-box">영상 인코더<br>(CNN/ViT)</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="pipeline-step">
+                <div class="step-box">특징 추출<br>(Visual Features)</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="pipeline-step">
+                <div class="step-box">텍스트 디코더<br>(Transformer)</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="pipeline-step">
+                <div class="step-box">구조화된<br>진단 보고서</div>
+            </div>
+        </div>
+        
+        <div class="modality-grid">
+            <div class="modality-card">
+                <div class="modality-name">Chest X-ray</div>
+                <div class="modality-desc">폐렴, 결핵, 흉수 등 흉부 질환 자동 기술</div>
+            </div>
+            
+            <div class="modality-card">
+                <div class="modality-name">CT Scan</div>
+                <div class="modality-desc">장기별 병변 위치, 크기, 특성 상세 설명</div>
+            </div>
+            
+            <div class="modality-card">
+                <div class="modality-name">MRI</div>
+                <div class="modality-desc">뇌, 척추, 관절 이상 소견 문장 생성</div>
+            </div>
+            
+            <div class="modality-card">
+                <div class="modality-name">Mammography</div>
+                <div class="modality-desc">유방 석회화, 종괴 판독 보고서</div>
+            </div>
+            
+            <div class="modality-card">
+                <div class="modality-name">Ultrasound</div>
+                <div class="modality-desc">초음파 소견 자동 문서화</div>
+            </div>
+            
+            <div class="modality-card">
+                <div class="modality-name">Multi-View</div>
+                <div class="modality-desc">여러 각도 영상 통합 분석</div>
+            </div>
+        </div>
+        
+        <div class="report-structure">
+            <div class="report-title">구조화된 보고서 섹션</div>
+            <div class="report-sections">
+                <div class="section-box">Findings<br>(소견)</div>
+                <div class="section-box">Impression<br>(판단)</div>
+                <div class="section-box">Comparison<br>(비교)</div>
+                <div class="section-box">Recommendation<br>(권고)</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

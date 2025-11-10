@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Constraints in Medical RLHF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 18px;
+        }
+        
+        .section-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .section-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .item {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 18px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Safety Constraints in Medical RLHF</div>
+        
+        <div class="section">
+            <div class="section-title">Why Safety Constraints?</div>
+            <div class="section-text">Medical AI requires hard constraints to prevent harmful outputs that could endanger patients, regardless of reward optimization.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Constraint Types</div>
+            <div class="items-list">
+                <div class="item">Hard Medical Rules: Never violate established clinical guidelines</div>
+                <div class="item">Dosage Limits: Enforce safe medication dosing ranges</div>
+                <div class="item">Contraindication Checking: Prevent dangerous drug interactions</div>
+                <div class="item">Appropriate Scope: Stay within system's trained competency</div>
+                <div class="item">Referral Triggers: Recommend specialist consultation when needed</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Implementation Methods</div>
+            <div class="items-list">
+                <div class="item">Constrained Optimization: Add penalty terms for constraint violations</div>
+                <div class="item">Rejection Sampling: Filter out unsafe outputs during generation</div>
+                <div class="item">Rule-Based Filters: Apply deterministic safety checks</div>
+                <div class="item">Multi-Objective RL: Balance reward with safety objectives</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Monitoring & Enforcement</div>
+            <div class="items-list">
+                <div class="item">Real-time constraint checking during inference</div>
+                <div class="item">Logging all constraint violations for review</div>
+                <div class="item">Automatic escalation for high-risk situations</div>
+                <div class="item">Regular safety audits by medical experts</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

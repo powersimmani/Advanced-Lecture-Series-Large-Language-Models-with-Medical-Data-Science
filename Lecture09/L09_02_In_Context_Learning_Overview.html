@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-Context Learning Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .intro-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .intro-text {
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .mechanism-section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .mechanism-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .mechanism-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .mechanism-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .mechanism-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .mechanism-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .mechanism-desc {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .medical-applications {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .application-item {
+            background: #f8fbff;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .app-icon {
+            font-size: 24px;
+        }
+        
+        .app-text {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">In-Context Learning Overview</div>
+        
+        <div class="intro-box">
+            <div class="intro-text">
+                <span class="highlight">In-Context Learning (ICL)</span>은 모델을 재학습하지 않고 
+                <span class="highlight">프롬프트에 예시를 포함</span>하여 작업을 수행하는 기법입니다.
+            </div>
+        </div>
+        
+        <div class="mechanism-section">
+            <div class="section-title">ICL 메커니즘</div>
+            <div class="mechanism-grid">
+                <div class="mechanism-card">
+                    <div class="mechanism-icon">📝</div>
+                    <div class="mechanism-name">Prompt Design</div>
+                    <div class="mechanism-desc">작업 지시문과 예시를 구조화</div>
+                </div>
+                
+                <div class="mechanism-card">
+                    <div class="mechanism-icon">🎯</div>
+                    <div class="mechanism-name">Example Selection</div>
+                    <div class="mechanism-desc">적절한 예시를 선택하여 제공</div>
+                </div>
+                
+                <div class="mechanism-card">
+                    <div class="mechanism-icon">🔄</div>
+                    <div class="mechanism-name">Pattern Learning</div>
+                    <div class="mechanism-desc">예시에서 패턴을 학습</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">의료 분야 적용</div>
+        <div class="medical-applications">
+            <div class="application-item">
+                <div class="app-icon">🏥</div>
+                <div class="app-text">질병 진단 및 분류</div>
+            </div>
+            
+            <div class="application-item">
+                <div class="app-icon">💊</div>
+                <div class="app-text">약물 부작용 탐지</div>
+            </div>
+            
+            <div class="application-item">
+                <div class="app-icon">📋</div>
+                <div class="app-text">의료 기록 분석</div>
+            </div>
+            
+            <div class="application-item">
+                <div class="app-icon">🔬</div>
+                <div class="app-text">임상시험 매칭</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Architecture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .info-box {
+            background: #f8f9fb; border-left: 4px solid #1E64C8;
+            padding: 20px 24px; border-radius: 6px;
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
+        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Security Architecture</div>
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <div class="info-title">보안 레이어</div>
+                <div class="info-content">
+                    <div class="bullet">네트워크 보안 (방화벽, VPN)</div><div class="bullet">애플리케이션 보안 (인증/인가)</div><div class="bullet">데이터 보안 (암호화)</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">위협 모델</div>
+                <div class="info-content">
+                    <div class="bullet">SQL Injection 방지</div><div class="bullet">XSS/CSRF 공격 차단</div><div class="bullet">데이터 유출 방지</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">접근 제어</div>
+                <div class="info-content">
+                    <div class="bullet">역할 기반 접근 제어 (RBAC)</div><div class="bullet">다중 인증 (MFA)</div><div class="bullet">감사 로깅</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">규정 준수</div>
+                <div class="info-content">
+                    <div class="bullet">HIPAA 준수</div><div class="bullet">GDPR 준수</div><div class="bullet">데이터 보호 정책</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

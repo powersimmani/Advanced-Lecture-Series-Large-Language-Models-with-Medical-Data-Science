@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 6 Contents</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .contents-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .part-section {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .part-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .topic-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .topic-item {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .topic-item::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 6px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Lecture 6: Chain-of-Thought for Clinical Reasoning</div>
+        
+        <div class="contents-grid">
+            <!-- Part 1 -->
+            <div class="part-section">
+                <div class="part-header">Part 1<br>Reasoning Fundamentals</div>
+                <div class="topic-list">
+                    <div class="topic-item">Clinical Reasoning Process</div>
+                    <div class="topic-item">Diagnostic Reasoning Chains</div>
+                    <div class="topic-item">Zero-Shot CoT Medical</div>
+                    <div class="topic-item">Few-Shot CoT Examples</div>
+                    <div class="topic-item">Self-Consistency Voting</div>
+                    <div class="topic-item">Reasoning Path Selection</div>
+                    <div class="topic-item">Medical Knowledge Integration</div>
+                </div>
+            </div>
+            
+            <!-- Part 2 -->
+            <div class="part-section">
+                <div class="part-header">Part 2<br>Advanced CoT Methods</div>
+                <div class="topic-list">
+                    <div class="topic-item">Tree of Thoughts Medical</div>
+                    <div class="topic-item">Graph of Thoughts</div>
+                    <div class="topic-item">Differential Diagnosis Trees</div>
+                    <div class="topic-item">Bayesian Reasoning Integration</div>
+                    <div class="topic-item">Uncertainty Propagation</div>
+                    <div class="topic-item">Counterfactual Reasoning</div>
+                </div>
+            </div>
+            
+            <!-- Part 3 -->
+            <div class="part-section">
+                <div class="part-header">Part 3<br>Clinical Applications</div>
+                <div class="topic-list">
+                    <div class="topic-item">Emergency Triage CoT</div>
+                    <div class="topic-item">Treatment Planning Chains</div>
+                    <div class="topic-item">Drug Interaction Reasoning</div>
+                    <div class="topic-item">Lab Result Interpretation</div>
+                    <div class="topic-item">Clinical Note Generation</div>
+                    <div class="topic-item">Error Analysis Patterns</div>
+                    <div class="topic-item">Reasoning Verification</div>
+                    <div class="topic-item">Performance Comparison</div>
+                    <div class="topic-item">Case Studies Analysis</div>
+                    <div class="topic-item">Hands-on Implementation</div>
+                    <div class="topic-item">Best Practices Guidelines</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

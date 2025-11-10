@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Monitoring</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 32px 42px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 7px;
+        }
+        
+        .section-text {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .item {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Performance Monitoring</div>
+        
+        <div class="section">
+            <div class="section-title">Continuous Surveillance</div>
+            <div class="section-text">Real-time monitoring detects performance degradation, safety issues, and opportunities for improvement in deployed RLHF systems.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Key Performance Indicators (KPIs)</div>
+            <div class="items-list">
+                <div class="item">Accuracy Metrics: Diagnostic accuracy, treatment appropriateness</div>
+                <div class="item">Safety Metrics: Error rates, adverse event reports</div>
+                <div class="item">Efficiency Metrics: Response time, query resolution rate</div>
+                <div class="item">User Metrics: Satisfaction scores, engagement rates</div>
+                <div class="item">Technical Metrics: Latency, uptime, system load</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Monitoring Dashboard</div>
+            <div class="items-list">
+                <div class="item">Real-Time Alerts: Immediate notification of critical issues</div>
+                <div class="item">Trend Visualization: Charts showing metric evolution over time</div>
+                <div class="item">Anomaly Detection: Automated identification of unusual patterns</div>
+                <div class="item">Drill-Down Analysis: Investigate specific cases or time periods</div>
+                <div class="item">Comparative Views: Compare across versions, time periods, demographics</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Alert Types</div>
+            <div class="items-list">
+                <div class="item">Critical: Immediate safety concerns (page on-call team)</div>
+                <div class="item">High: Performance degradation above threshold</div>
+                <div class="item">Medium: Unusual patterns worth investigating</div>
+                <div class="item">Low: Minor deviations for routine review</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

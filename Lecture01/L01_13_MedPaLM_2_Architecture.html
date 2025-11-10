@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedPaLM 2 Architecture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px 50px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">MedPaLM 2 Architecture</div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div style="background:white;border:3px solid #1E64C8;border-radius:10px;padding:20px;">
+                <h3 style="color:#1E64C8;margin-bottom:15px;">Model Specifications</h3>
+                <div style="font-size:14px;color:#333;line-height:1.8;">
+                    <div><strong>Parameters:</strong> 540B</div>
+                    <div><strong>Base Model:</strong> Flan-PaLM</div>
+                    <div><strong>Training:</strong> Instruction fine-tuning</div>
+                    <div><strong>Medical QA:</strong> 86.5% accuracy</div>
+                </div>
+            </div>
+            <div style="background:white;border:3px solid #1E64C8;border-radius:10px;padding:20px;">
+                <h3 style="color:#1E64C8;margin-bottom:15px;">Key Features</h3>
+                <div style="font-size:14px;color:#333;">
+                    <div style="margin-bottom:8px;">✓ MultiMedQA benchmark leader</div>
+                    <div style="margin-bottom:8px;">✓ Expert-level medical reasoning</div>
+                    <div style="margin-bottom:8px;">✓ Safety-tuned responses</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

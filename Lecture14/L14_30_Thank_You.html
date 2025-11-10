@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .thank-you {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .section {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .item {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #1E64C8;
+        }
+        
+        .contact {
+            font-size: 18px;
+            color: #1E64C8;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="thank-you">Thank You!</div>
+            <div class="subtitle">지속학습 및 모델 업데이트</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">📌 핵심 정리</div>
+            <div class="item-list">
+                <div class="item">의료 AI는 지속적으로 진화하는 지식에 적응해야 합니다</div>
+                <div class="item">개념 드리프트 탐지와 대응이 핵심입니다</div>
+                <div class="item">안전하고 규제를 준수하는 업데이트 전략이 필요합니다</div>
+                <div class="item">자동화된 모니터링과 검증 시스템 구축이 중요합니다</div>
+
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">🔮 미래 전망</div>
+            <div class="item-list">
+                <div class="item">실시간 적응형 AI 시스템</div>
+                <div class="item">연합 학습을 통한 지속적 개선</div>
+                <div class="item">AI 규제 프레임워크의 발전</div>
+                <div class="item">자가 진화하는 의료 AI</div>
+
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">📚 참고 자료</div>
+            <div class="item-list">
+                <div class="item">논문: "Continual Learning in Medical Imaging"</div>
+                <div class="item">도구: MLflow, DVC, Evidently AI</div>
+                <div class="item">표준: FDA's Predetermined Change Control Plan</div>
+                <div class="item">커뮤니티: MLOps Community, Healthcare AI Forums</div>
+
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="contact">Ho-min Park | homin.park@ghent.ac.kr</div>
+        </div>
+    </div>
+</body>
+</html>

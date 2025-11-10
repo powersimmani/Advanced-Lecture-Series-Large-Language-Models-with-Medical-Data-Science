@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Few-Shot CoT Examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .info-section {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .content-item {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+            padding: 8px;
+        }
+        
+        .example-box {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .example-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .example-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .example-line {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .highlight-box {
+            background: #fff4e6;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px 25px;
+            text-align: center;
+        }
+        
+        .highlight-text {
+            font-size: 17px;
+            color: #333;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="title">Few-Shot Chain-of-Thought Examples</div>
+        
+        <div class="info-section">
+            <div class="section-title">Few-Shot CoT Structure</div>
+            <div class="content-grid">
+                <div class="content-item">
+                    <strong style="color: #1E64C8;">2-5 Examples:</strong> Provide diverse medical cases
+                </div>
+                <div class="content-item">
+                    <strong style="color: #1E64C8;">Show Reasoning:</strong> Include step-by-step clinical thinking
+                </div>
+                <div class="content-item">
+                    <strong style="color: #1E64C8;">Format Consistency:</strong> Use same structure across examples
+                </div>
+            </div>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">Example Template</div>
+            <div class="example-content">
+                <div class="example-line"><strong>Case:</strong> [Patient presentation]</div>
+                <div class="example-line"><strong>Step 1:</strong> Identify key symptoms and risk factors</div>
+                <div class="example-line"><strong>Step 2:</strong> Generate differential diagnosis list</div>
+                <div class="example-line"><strong>Step 3:</strong> Determine discriminating tests</div>
+                <div class="example-line"><strong>Step 4:</strong> Integrate results and reach conclusion</div>
+                <div class="example-line"><strong>Diagnosis:</strong> [Final diagnosis]</div>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <div class="highlight-text">
+                <strong style="color: #1E64C8;">Key:</strong> Examples teach the LLM both the format and the medical reasoning process
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

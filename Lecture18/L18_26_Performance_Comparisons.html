@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Comparisons & Benchmarks</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .content-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        
+        .card-text {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-top: 20px;
+        }
+        
+        .highlight-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .highlight-text {
+            font-size: 15px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Performance Comparisons & Benchmarks</div>
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-title">MoE vs Dense</div>
+                <div class="card-text">• 10x parameters, 2x compute</div>
+                <div class="card-text">• Better specialization</div>
+                <div class="card-text">• Complex deployment</div>
+            </div>
+            <div class="content-card">
+                <div class="card-title">Long-Context Methods</div>
+                <div class="card-text">• Flash Attention: 5-9x faster</div>
+                <div class="card-text">• Mamba: O(n) vs O(n²)</div>
+                <div class="card-text">• RAG: cost-effective scaling</div>
+            </div>
+            <div class="content-card">
+                <div class="card-title">Novel Architectures</div>
+                <div class="card-text">• Graph Transformers: +30% on relational tasks</div>
+                <div class="card-text">• Neural ODEs: superior for time-series</div>
+                <div class="card-text">• Quantum: TBD (future)</div>
+            </div>
+            <div class="content-card">
+                <div class="card-title">Medical Benchmarks</div>
+                <div class="card-text">• MedQA accuracy: 85-92%</div>
+                <div class="card-text">• Imaging F1: 0.90-0.96</div>
+                <div class="card-text">• Clinical NER: 0.88-0.94</div>
+            </div>
+        </div>
+        <div class="highlight-box">
+            <div class="highlight-title">📊 Comparative Analysis</div>
+            <div class="highlight-text">Different architectures excel at different tasks. MoE for scale, long-context for history, graphs for relationships. Hybrid approaches often yield best results.</div>
+        </div>
+    </div>
+</body>
+</html>

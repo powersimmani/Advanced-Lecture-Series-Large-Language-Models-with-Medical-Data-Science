@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch Update Strategies</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .item {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">배치 업데이트 전략 (Batch Update Strategies)</div>
+        
+        <div class="section">
+            <div class="section-title">📅 업데이트 주기</div>
+            <div class="item-list">
+                <div class="item">Daily Updates: 매일 자정 업데이트</div>
+                <div class="item">Weekly Updates: 주말 또는 주간 업데이트</div>
+                <div class="item">Monthly Updates: 월간 주요 업데이트</div>
+                <div class="item">Triggered Updates: 임계값 도달 시 업데이트</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">📦 배치 크기 결정</div>
+            <div class="item-list">
+                <div class="item">Small Batch (100-1000): 빠른 적응, 불안정</div>
+                <div class="item">Medium Batch (1K-10K): 균형잡힌 선택</div>
+                <div class="item">Large Batch (10K+): 안정적, 느린 적응</div>
+                <div class="item">Adaptive Batch: 데이터 양에 따라 조정</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">⚖️ 성능 영향</div>
+            <div class="item-list">
+                <div class="item">업데이트 빈도 vs 안정성 트레이드오프</div>
+                <div class="item">계산 비용: 배치 크기에 비례</div>
+                <div class="item">다운타임 최소화: Blue-Green 배포</div>
+                <div class="item">롤백 계획: 이전 버전 유지</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

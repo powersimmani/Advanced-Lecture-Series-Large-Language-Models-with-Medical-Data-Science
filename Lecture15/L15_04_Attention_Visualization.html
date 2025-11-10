@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attention Visualization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 60px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .content-card {
+            background: #f8f9fa;
+            border-left: 4px solid #1E64C8;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .content-card:hover {
+            background: #e8f2ff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+        }
+        
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        
+        .card-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 20px 30px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .highlight-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .highlight-text {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Attention Visualization</div>
+        
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-title">🧠 Attention Mechanism</div>
+                <div class="card-text">Neural network component showing where the model focuses when making predictions</div>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-title">🎨 Heatmap Visualization</div>
+                <div class="card-text">Color-coded maps indicating attention weights across different input regions</div>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-title">🏥 Medical Image Analysis</div>
+                <div class="card-text">Highlighting relevant regions in X-rays, CT scans, and MRI images</div>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-title">⚕️ Clinical Application</div>
+                <div class="card-text">Identifying pathological features automatically and visualizing model focus areas</div>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <div class="highlight-title">💡 Key Benefit</div>
+            <div class="highlight-text">Allows clinicians to verify that AI models are focusing on medically relevant features</div>
+        </div>
+    </div>
+</body>
+</html>

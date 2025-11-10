@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficence & Non-maleficence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 60px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .principle-section {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 25px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f5fc;
+        }
+        
+        .section-icon {
+            font-size: 40px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
+        .concept-item {
+            margin-bottom: 15px;
+        }
+        
+        .concept-label {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .concept-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            padding-left: 15px;
+            border-left: 3px solid #f0f5fc;
+        }
+        
+        .matrix-section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .matrix-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .matrix-cell {
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .high-benefit-low-risk {
+            background: #c8e6c9;
+            color: #2e7d32;
+            border: 2px solid #4caf50;
+        }
+        
+        .high-benefit-high-risk {
+            background: #fff9c4;
+            color: #f57c00;
+            border: 2px solid #ffc107;
+        }
+        
+        .low-benefit-low-risk {
+            background: #e3f2fd;
+            color: #1976d2;
+            border: 2px solid #2196f3;
+        }
+        
+        .low-benefit-high-risk {
+            background: #ffcdd2;
+            color: #c62828;
+            border: 2px solid #f44336;
+        }
+        
+        .axis-label {
+            font-size: 12px;
+            color: #666;
+            font-weight: 600;
+            text-align: center;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Beneficence & Non-maleficence: 이익과 해악의 균형</div>
+        
+        <div class="comparison-grid">
+            <div class="principle-section">
+                <div class="section-header">
+                    <div class="section-icon">💚</div>
+                    <div class="section-title">이익 최대화</div>
+                </div>
+                
+                <div class="concept-item">
+                    <div class="concept-label">• 진단 정확도 향상</div>
+                    <div class="concept-desc">AI로 조기 발견 및 정밀 진단</div>
+                </div>
+                
+                <div class="concept-item">
+                    <div class="concept-label">• 치료 효과 개선</div>
+                    <div class="concept-desc">개인화된 치료 계획 수립</div>
+                </div>
+                
+                <div class="concept-item">
+                    <div class="concept-label">• 의료 접근성 확대</div>
+                    <div class="concept-desc">원격 진료 및 자동화 지원</div>
+                </div>
+                
+                <div class="concept-item">
+                    <div class="concept-label">• 의료진 부담 경감</div>
+                    <div class="concept-desc">반복 업무 자동화</div>
+                </div>
+            </div>
+            
+            <div class="principle-section">
+                <div class="section-header">
+                    <div class="section-icon">🛡️</div>
+                    <div class="section-title">해악 최소화</div>
+                </div>
+                
+                <div class="concept-item">
+                    <div class="concept-label">• 오진 방지</div>
+                    <div class="concept-desc">False Positive/Negative 최소화</div>
+                </div>
+                
+                <div class="concept-item">
+                    <div class="concept-label">• 부작용 예방</div>
+                    <div class="concept-desc">약물 상호작용 체크</div>
+                </div>
+                
+                <div class="concept-item">
+                    <div class="concept-label">• 과잉 진료 방지</div>
+                    <div class="concept-desc">불필요한 검사/처치 감소</div>
+                </div>
+                
+                <div class="concept-item">
+                    <div class="concept-label">• 프라이버시 침해 방지</div>
+                    <div class="concept-desc">데이터 보안 강화</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="matrix-section">
+            <div class="matrix-title">⚖️ 이익-위험 매트릭스 (Risk-Benefit Matrix)</div>
+            <div class="axis-label">← 낮은 위험                    높은 위험 →</div>
+            <div class="matrix-grid">
+                <div class="matrix-cell low-benefit-low-risk">
+                    낮은 이익<br>낮은 위험<br>→ 신중 검토
+                </div>
+                <div class="matrix-cell low-benefit-high-risk">
+                    낮은 이익<br>높은 위험<br>→ 사용 금지
+                </div>
+                <div class="matrix-cell high-benefit-low-risk">
+                    높은 이익<br>낮은 위험<br>→ 적극 도입
+                </div>
+                <div class="matrix-cell high-benefit-high-risk">
+                    높은 이익<br>높은 위험<br>→ 신중한 관리
+                </div>
+            </div>
+            <div class="axis-label" style="margin-top: 10px;">↑ 낮은 이익                    높은 이익 ↑</div>
+        </div>
+    </div>
+</body>
+</html>

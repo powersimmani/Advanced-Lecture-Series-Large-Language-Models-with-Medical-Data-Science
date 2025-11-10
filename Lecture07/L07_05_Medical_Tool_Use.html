@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Tool Use</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .tool-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.25);
+            background: #f8fbff;
+        }
+        
+        .tool-name {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .tool-desc {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .tool-examples {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: #555;
+        }
+        
+        .feature-item::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Medical Tool Use</div>
+        
+        <div class="tools-grid">
+            
+            <div class="tool-card">
+                <div class="tool-name">API Calls</div>
+                <div class="tool-desc">외부 시스템 연동</div>
+                <div class="tool-examples">
+                    <div class="feature-item">FHIR API</div><div class="feature-item">Lab System API</div><div class="feature-item">Drug DB API</div>
+                </div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-name">Database Query</div>
+                <div class="tool-desc">의료 데이터 조회</div>
+                <div class="tool-examples">
+                    <div class="feature-item">환자 이력</div><div class="feature-item">검사 결과</div><div class="feature-item">약물 정보</div>
+                </div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-name">Calculation Tools</div>
+                <div class="tool-desc">임상 계산</div>
+                <div class="tool-examples">
+                    <div class="feature-item">GFR 계산</div><div class="feature-item">Risk Score</div><div class="feature-item">Drug Dosing</div>
+                </div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-name">Guideline Access</div>
+                <div class="tool-desc">가이드라인 참조</div>
+                <div class="tool-examples">
+                    <div class="feature-item">진료 지침</div><div class="feature-item">약물 상호작용</div><div class="feature-item">알고리즘</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

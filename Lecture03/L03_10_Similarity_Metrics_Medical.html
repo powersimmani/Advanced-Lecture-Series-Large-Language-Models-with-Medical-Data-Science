@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Similarity Metrics for Medical Text</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .architecture-box {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .arch-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .arch-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .arch-layer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+        }
+        .arch-layer.dual {
+            justify-content: space-around;
+        }
+        .layer-box {
+            padding: 15px 30px;
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1E64C8;
+            text-align: center;
+        }
+        .layer-box.dense {
+            border-color: #2874d8;
+            background: #e8f2ff;
+        }
+        .layer-box.sparse {
+            border-color: #4a90e2;
+            background: #f0f8ff;
+        }
+        .layer-box.result {
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+            color: white;
+            font-size: 16px;
+        }
+        .arch-arrows {
+            font-size: 20px;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        .fusion-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .method-card {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .method-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        .method-formula {
+            font-size: 13px;
+            color: #555;
+            font-family: 'Courier New', monospace;
+        }
+        .performance-box {
+            background: #fff8e6;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .perf-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .perf-stats {
+            display: flex;
+            justify-content: space-around;
+        }
+        .stat {
+            font-size: 14px;
+            color: #333;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .metric-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.3);
+        }
+        .metric-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        .metric-formula {
+            font-size: 14px;
+            color: #333;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 5px;
+        }
+        .metric-range, .metric-use {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .example-box {
+            background: #f0f5fc;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .example-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        .example-pair {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .text {
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #333;
+        }
+        .similarity-scores {
+            display: flex;
+            justify-content: space-around;
+        }
+        .score {
+            font-size: 14px;
+            color: #555;
+        }
+        .hierarchy-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .level {
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .level-1 {
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+            color: white;
+        }
+        .level-2 {
+            background: linear-gradient(135deg, #2874d8 0%, #4a90e2 100%);
+            color: white;
+        }
+        .level-3 {
+            background: linear-gradient(135deg, #4a90e2 0%, #6ba3e8 100%);
+            color: white;
+        }
+        .level-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .level-desc {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .level-time {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        .hierarchy-arrow {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1E64C8;
+        }
+        .tradeoff-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .tradeoff-card {
+            background: #f8f9fa;
+            border-left: 4px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .tradeoff-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        .tradeoff-value {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .tradeoff-benefit {
+            font-size: 13px;
+            color: #28a745;
+            font-weight: 600;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Similarity Metrics for Medical Text</div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-name">📐 Cosine Similarity</div>
+                <div class="metric-formula">cos(θ) = A·B / (||A|| ||B||)</div>
+                <div class="metric-range">Range: [-1, 1]</div>
+                <div class="metric-use">Best for: Dense embeddings</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-name">📏 Euclidean Distance</div>
+                <div class="metric-formula">d = √Σ(ai - bi)²</div>
+                <div class="metric-range">Range: [0, ∞]</div>
+                <div class="metric-use">Best for: Spatial similarity</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-name">🎯 Jaccard Index</div>
+                <div class="metric-formula">J = |A ∩ B| / |A ∪ B|</div>
+                <div class="metric-range">Range: [0, 1]</div>
+                <div class="metric-use">Best for: Set overlap</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-name">🧠 Semantic Similarity</div>
+                <div class="metric-formula">Based on medical ontology</div>
+                <div class="metric-range">Range: [0, 1]</div>
+                <div class="metric-use">Best for: Medical concepts</div>
+            </div>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">💡 Medical Text Example</div>
+            <div class="example-content">
+                <div class="example-pair">
+                    <div class="text">Text 1: "Patient has myocardial infarction"</div>
+                    <div class="text">Text 2: "Heart attack diagnosed"</div>
+                </div>
+                <div class="similarity-scores">
+                    <div class="score">Cosine: <strong>0.89</strong> ✅</div>
+                    <div class="score">Jaccard: <strong>0.12</strong> ❌</div>
+                    <div class="score">Semantic: <strong>0.95</strong> ✅</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

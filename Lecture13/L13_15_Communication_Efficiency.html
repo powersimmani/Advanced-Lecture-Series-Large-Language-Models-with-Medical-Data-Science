@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Efficiency</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 35px 45px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .tech-card {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            border: 2.5px solid #9c27b0;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(156, 39, 176, 0.3);
+        }
+        .tech-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #6a1b9a;
+            margin-bottom: 10px;
+        }
+        .tech-desc {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .tech-saving {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Communication Efficiency</div>
+        <div class="tech-grid">
+    <div class="tech-card">
+        <div class="tech-name">Gradient Compression</div>
+        <div class="tech-desc">Sparsification, quantization</div>
+        <div class="tech-saving">💾 10-100x reduction</div>
+    </div>
+    
+    <div class="tech-card">
+        <div class="tech-name">Local Updates</div>
+        <div class="tech-desc">More local epochs</div>
+        <div class="tech-saving">💾 Linear in E reduction</div>
+    </div>
+    
+    <div class="tech-card">
+        <div class="tech-name">Model Compression</div>
+        <div class="tech-desc">Pruning, distillation</div>
+        <div class="tech-saving">💾 2-10x reduction</div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>

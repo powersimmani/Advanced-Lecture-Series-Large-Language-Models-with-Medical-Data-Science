@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Knowledge Graph Integration</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 35px 50px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .stat-card {
+            background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .stat-label {
+            font-size: 18px;
+        }
+        .info-card {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .info-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        .info-item {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .info-item:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        .integration-box {
+            grid-column: 1 / -1;
+            background: #e8f2ff;
+            border: 2px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .integration-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        .integration-desc {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Medical Knowledge Graph Integration</div>
+        <div class="content-grid">
+            <div class="stat-card">
+                <div class="stat-number">2.8M</div>
+                <div class="stat-label">UMLS Concepts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15M+</div>
+                <div class="stat-label">Relationships</div>
+            </div>
+            <div class="info-card">
+                <div class="info-title">🧬 Triple Structure</div>
+                <div class="info-item">Disease → causes → Symptom</div>
+                <div class="info-item">Drug → treats → Disease</div>
+                <div class="info-item">Symptom → indicates → Disease</div>
+                <div class="info-item">Gene → associated with → Disease</div>
+            </div>
+            <div class="info-card">
+                <div class="info-title">🔧 Graph Embedding Techniques</div>
+                <div class="info-item">TransE, TransR for relation learning</div>
+                <div class="info-item">Node2Vec for node embeddings</div>
+                <div class="info-item">Graph Attention Networks (GAT)</div>
+                <div class="info-item">Knowledge Graph Embeddings (KGE)</div>
+            </div>
+            <div class="integration-box">
+                <div class="integration-title">🔗 LLM Integration Methods</div>
+                <div class="integration-desc">
+                    Retrieval-Augmented Generation (RAG) • Knowledge-enhanced prompting • Graph-guided reasoning • Entity linking and normalization • Hybrid knowledge retrieval
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

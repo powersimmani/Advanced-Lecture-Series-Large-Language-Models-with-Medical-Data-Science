@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 60px;
+        }
+        
+        .thank-you {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        
+        .summary-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 25px 35px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .summary-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .summary-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 16px;
+            opacity: 0.95;
+        }
+        
+        .author-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .author-name {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .author-email {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="thank-you">Thank you</div>
+        
+        <div class="summary-section">
+            <div class="summary-title">Key Takeaways</div>
+            <div class="summary-items">
+                <div>✓ RLHF aligns AI with medical expertise through expert feedback</div>
+                <div>✓ Safety constraints are critical in healthcare applications</div>
+                <div>✓ Continuous monitoring ensures long-term performance</div>
+                <div>✓ Ethical considerations guide responsible deployment</div>
+            </div>
+        </div>
+        
+        <div class="author-section">
+            <div class="author-name">Ho-min Park</div>
+            <div class="author-email">homin.park@ghent.ac.kr</div>
+            <div class="author-email">powersimmani@gmail.com</div>
+        </div>
+    </div>
+</body>
+</html>

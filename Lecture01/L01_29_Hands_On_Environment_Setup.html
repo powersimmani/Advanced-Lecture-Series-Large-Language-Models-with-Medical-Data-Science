@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-On Environment Setup</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px 50px; }
+        .title {
+            font-size: 34px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .requirements {
+            background: #f0f5fc;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        .req-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        .req-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .req-item {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+        .code-box {
+            background: #2d3748;
+            color: #68d391;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .command {
+            color: #90cdf4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">⚙️ Hands-On Environment Setup</div>
+        <div class="requirements">
+            <div class="req-title">📦 Required Software</div>
+            <div class="req-list">
+                <div class="req-item">✓ Python 3.9+</div>
+                <div class="req-item">✓ PyTorch 2.0</div>
+                <div class="req-item">✓ Transformers 4.30</div>
+                <div class="req-item">✓ Docker Desktop</div>
+                <div class="req-item">✓ CUDA 11.8+ (GPU)</div>
+                <div class="req-item">✓ Jupyter Notebook</div>
+            </div>
+        </div>
+        <div class="code-box">
+<span class="command"># Installation Commands</span>
+pip install torch transformers datasets
+pip install huggingface_hub accelerate
+pip install pandas numpy scikit-learn
+pip install jupyter notebook
+
+<span class="command"># Verify Installation</span>
+python -c "import torch; print(torch.cuda.is_available())"
+        </div>
+    </div>
+</body>
+</html>

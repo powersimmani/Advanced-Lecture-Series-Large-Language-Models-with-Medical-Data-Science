@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Generation Systems</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 35px 50px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .pipeline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 35px;
+        }
+        .step {
+            flex: 1;
+            background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .step:hover { transform: scale(1.05); }
+        .step-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .step-desc { font-size: 14px; }
+        .arrow {
+            font-size: 32px;
+            color: #1E64C8;
+            margin: 0 10px;
+        }
+        .example-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .example-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        .diagnosis-item {
+            background: white;
+            border-left: 4px solid #2ecc71;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+        .diagnosis-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #2ecc71;
+        }
+        .diagnosis-prob {
+            font-size: 15px;
+            color: #333;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Diagnosis Generation Systems</div>
+        <div class="pipeline">
+            <div class="step">
+                <div class="step-title">📋 Input</div>
+                <div class="step-desc">Symptoms, lab results, patient history</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+                <div class="step-title">🧠 Processing</div>
+                <div class="step-desc">LLM reasoning engine, knowledge retrieval</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="step">
+                <div class="step-title">📊 Output</div>
+                <div class="step-desc">Differential diagnosis, probabilities, evidence</div>
+            </div>
+        </div>
+        <div class="example-box">
+            <div class="example-title">Example Output: Differential Diagnosis</div>
+            <div class="diagnosis-item">
+                <div class="diagnosis-name">1. Community-Acquired Pneumonia</div>
+                <div class="diagnosis-prob">Probability: 78% | Evidence: Fever, cough, chest X-ray findings</div>
+            </div>
+            <div class="diagnosis-item">
+                <div class="diagnosis-name">2. Acute Bronchitis</div>
+                <div class="diagnosis-prob">Probability: 15% | Evidence: Cough, no infiltrates on imaging</div>
+            </div>
+            <div class="diagnosis-item">
+                <div class="diagnosis-name">3. Viral Upper Respiratory Infection</div>
+                <div class="diagnosis-prob">Probability: 7% | Evidence: Mild symptoms, no bacterial markers</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

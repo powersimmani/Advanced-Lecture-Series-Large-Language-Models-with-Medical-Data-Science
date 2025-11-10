@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Validation Requirements</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .item {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">임상 검증 요구사항 (Clinical Validation Requirements)</div>
+        
+        <div class="section">
+            <div class="section-title">🔬 검증 프로토콜</div>
+            <div class="item-list">
+                <div class="item">독립적인 테스트 데이터셋 (최소 100-500 케이스)</div>
+                <div class="item">다기관 검증 (Multi-center Validation)</div>
+                <div class="item">전문가 평가 (Gold Standard)</div>
+                <div class="item">Prospective vs Retrospective 연구</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">📊 재검증 기준</div>
+            <div class="item-list">
+                <div class="item">모델 아키텍처 변경 시</div>
+                <div class="item">학습 데이터 분포 10% 이상 변화</div>
+                <div class="item">새로운 질병 또는 하위 유형 추가</div>
+                <div class="item">성능 5% 이상 변동</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">⚖️ 성능 메트릭</div>
+            <div class="item-list">
+                <div class="item">민감도 (Sensitivity) ≥ 90%</div>
+                <div class="item">특이도 (Specificity) ≥ 85%</div>
+                <div class="item">AUC ≥ 0.90</div>
+                <div class="item">하위 그룹별 성능 평가 (연령, 성별, 인종)</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

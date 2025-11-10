@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-on: Preprocessing with MIMIC-III</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Aptos,'Segoe UI',sans-serif;background:white;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+        .container{width:960px;padding:35px 45px;}
+        .title{font-size:20px;font-weight:600;color:#1E64C8;margin-bottom:25px;text-align:center;}
+        .card{background:white;border:2.5px solid #1E64C8;border-radius:8px;padding:20px;margin-bottom:15px;}
+        .card-title{font-size:17px;font-weight:700;color:#1E64C8;margin-bottom:10px;}
+        .card-content{font-size:15px;color:#333;line-height:1.6;}
+        .code-box{background:#f0f5fc;border:2px solid #1E64C8;border-radius:8px;padding:15px;font-family:monospace;font-size:13px;line-height:1.8;margin-bottom:15px;}
+        .checklist{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+        .check-item{background:#f8f9fa;padding:12px;border-left:3px solid #1E64C8;border-radius:4px;font-size:14px;}
+        .check-item:before{content:"✓";color:#1E64C8;font-weight:700;margin-right:8px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Hands-on: Preprocessing with MIMIC-III</div>
+        
+        <div class="card">
+            <div class="card-title">Python 코드 예제</div>
+            <div class="code-box">
+import pandas as pd<br>
+from presidio_analyzer import AnalyzerEngine<br>
+from presidio_anonymizer import AnonymizerEngine<br>
+<br>
+# PHI 제거<br>
+analyzer = AnalyzerEngine()<br>
+anonymizer = AnonymizerEngine()<br>
+<br>
+text = "Patient John Doe, MRN 123456"<br>
+results = analyzer.analyze(text, language='en')<br>
+anonymized = anonymizer.anonymize(text, results)<br>
+<br>
+# 약어 확장<br>
+abbrev_dict = {'BP': 'blood pressure', 'HR': 'heart rate'}<br>
+text = text.replace('BP', abbrev_dict['BP'])<br>
+<br>
+# LOINC 매핑<br>
+loinc_code = '2339-0'  # Glucose [Mass/volume] in Blood
+            </div>
+        </div>
+        <div class="checklist">
+            <div class="check-item">PHI 탐지 및 제거</div>
+            <div class="check-item">텍스트 정규화</div>
+            <div class="check-item">약어 확장</div>
+            <div class="check-item">부정 탐지</div>
+            <div class="check-item">개념 링킹</div>
+            <div class="check-item">품질 검증</div>
+        </div>
+    
+    </div>
+</body>
+</html>

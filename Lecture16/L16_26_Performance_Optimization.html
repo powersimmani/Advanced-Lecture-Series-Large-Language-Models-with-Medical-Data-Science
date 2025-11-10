@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Optimization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .definition-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .item-card {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .item-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .item-desc {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .tools-section {
+            background: #fff8e6;
+            border: 2px solid #ffa500;
+            border-radius: 8px;
+            padding: 15px 20px;
+        }
+        
+        .tools-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ff8c00;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .tool-badge {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            border: 1.5px solid #ffa500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Performance Optimization</div>
+        
+        <div class="definition-box">
+            Optimize model inference speed and resource efficiency
+        </div>
+        
+        <div class="items-grid">
+            
+            <div class="item-card">
+                <div class="item-title">Model Quantization</div>
+                <div class="item-desc">INT8 inference for 4x speedup</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-title">Batching</div>
+                <div class="item-desc">Process multiple requests together</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-title">Caching</div>
+                <div class="item-desc">Cache frequent predictions or features</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-title">GPU Optimization</div>
+                <div class="item-desc">Use TensorRT, ONNX Runtime</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-title">Profiling</div>
+                <div class="item-desc">Identify bottlenecks in pipeline</div>
+            </div>
+
+        </div>
+        
+        <div class="tools-section">
+            <div class="tools-title">🛠️ Tools & Platforms</div>
+            <div class="tools-grid">
+                <div class="tool-badge">NVIDIA TensorRT</div>
+                <div class="tool-badge">ONNX Runtime</div>
+                <div class="tool-badge">PyTorch JIT</div>
+                <div class="tool-badge">TF Lite</div>
+                
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

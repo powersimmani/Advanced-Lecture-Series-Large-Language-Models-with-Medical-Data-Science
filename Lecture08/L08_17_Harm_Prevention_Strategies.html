@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harm Prevention Strategies</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Aptos, 'Segoe UI', sans-serif; background: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { width: 960px; height: 540px; padding: 40px 60px; }
+        .title { font-size: 28px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
+        
+    .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 20px; }
+    .content-card { background: white; border: 2px solid #1E64C8; border-radius: 10px; padding: 20px; }
+    .card-title { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
+    .card-icon { font-size: 32px; text-align: center; margin-bottom: 10px; }
+    .item-list { display: flex; flex-direction: column; gap: 8px; }
+    .list-item { font-size: 13px; color: #666; padding-left: 15px; position: relative; }
+    .list-item::before { content: "•"; position: absolute; left: 0; color: #1E64C8; font-weight: bold; }
+    
+        
+    </style>
+</head>
+<body><div class="container">
+        <div class="title">해악 방지 전략 (Harm Prevention Strategies)</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+            <div style="background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 10px; padding: 20px;">
+                <div style="font-size: 18px; font-weight: 700; color: #856404; margin-bottom: 15px;">🎯 위험 평가 (Risk Assessment)</div>
+                <div class="item-list">
+                    <div class="list-item">위험 식별 및 분류</div>
+                    <div class="list-item">발생 가능성 추정</div>
+                    <div class="list-item">영향도 분석</div>
+                    <div class="list-item">우선순위 결정</div>
+                </div>
+            </div>
+            <div style="background: #e3f2fd; border-left: 4px solid #2196f3; border-radius: 10px; padding: 20px;">
+                <div style="font-size: 18px; font-weight: 700; color: #1565c0; margin-bottom: 15px;">🛡️ 완화 전략 (Mitigation)</div>
+                <div class="item-list">
+                    <div class="list-item">기술적 안전장치</div>
+                    <div class="list-item">인간 감독 체계</div>
+                    <div class="list-item">점진적 배포</div>
+                    <div class="list-item">비상 중지 메커니즘</div>
+                </div>
+            </div>
+        </div>
+        <div style="background: white; border: 2px solid #1E64C8; border-radius: 12px; padding: 20px;">
+            <div style="font-size: 18px; font-weight: 700; color: #1E64C8; text-align: center; margin-bottom: 15px;">📊 위험 매트릭스 (Risk Matrix)</div>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <th style="border: 2px solid #1E64C8; padding: 10px; background: #f0f5fc; font-size: 14px;">위험 유형</th>
+                    <th style="border: 2px solid #1E64C8; padding: 10px; background: #f0f5fc; font-size: 14px;">발생 가능성</th>
+                    <th style="border: 2px solid #1E64C8; padding: 10px; background: #f0f5fc; font-size: 14px;">영향도</th>
+                    <th style="border: 2px solid #1E64C8; padding: 10px; background: #f0f5fc; font-size: 14px;">완화 방안</th>
+                </tr>
+                <tr>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px;">오진 (Misdiagnosis)</td>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px; text-align: center;">중간</td>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px; text-align: center; color: #c62828; font-weight: 700;">높음</td>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px;">의사 재확인 필수</td>
+                </tr>
+                <tr>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px;">개인정보 누출</td>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px; text-align: center;">낮음</td>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px; text-align: center; color: #c62828; font-weight: 700;">높음</td>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px;">암호화, 접근 제어</td>
+                </tr>
+                <tr>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px;">편향된 추천</td>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px; text-align: center; color: #f57c00; font-weight: 700;">높음</td>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px; text-align: center;">중간</td>
+                    <td style="border: 2px solid #ddd; padding: 10px; font-size: 13px;">공정성 테스트, 모니터링</td>
+                </tr>
+            </table>
+        </div>
+    </div></body>
+</html>

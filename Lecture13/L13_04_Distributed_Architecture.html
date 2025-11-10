@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributed Architecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .architecture-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .layer {
+            background: #f8f9fa;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .layer-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        
+        .layer-content {
+            display: flex;
+            justify-content: space-around;
+            gap: 15px;
+        }
+        
+        .node-box {
+            flex: 1;
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .node-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+            background: #f0f5fc;
+        }
+        
+        .node-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        .node-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 6px;
+        }
+        
+        .node-desc {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .communication-flow {
+            background: linear-gradient(135deg, #e8f2ff, #f0f5fc);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Distributed Architecture</div>
+        
+        <div class="architecture-diagram">
+            <div class="layer">
+                <div class="layer-title">🌐 Central Coordinator</div>
+                <div class="layer-content">
+                    <div class="node-box">
+                        <div class="node-icon">☁️</div>
+                        <div class="node-title">Aggregation Server</div>
+                        <div class="node-desc">Combines model updates</div>
+                    </div>
+                    <div class="node-box">
+                        <div class="node-icon">📊</div>
+                        <div class="node-title">Model Repository</div>
+                        <div class="node-desc">Stores global models</div>
+                    </div>
+                    <div class="node-box">
+                        <div class="node-icon">📋</div>
+                        <div class="node-title">Orchestrator</div>
+                        <div class="node-desc">Manages training rounds</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="communication-flow">
+                ⬇️ Model Distribution ⬇️
+            </div>
+            
+            <div class="layer">
+                <div class="layer-title">🏥 Client Nodes (Hospitals)</div>
+                <div class="layer-content">
+                    <div class="node-box">
+                        <div class="node-icon">🏥</div>
+                        <div class="node-title">Local Training</div>
+                        <div class="node-desc">Train on private data</div>
+                    </div>
+                    <div class="node-box">
+                        <div class="node-icon">💾</div>
+                        <div class="node-title">Data Storage</div>
+                        <div class="node-desc">Secure local database</div>
+                    </div>
+                    <div class="node-box">
+                        <div class="node-icon">🔐</div>
+                        <div class="node-title">Privacy Layer</div>
+                        <div class="node-desc">Encryption & DP</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="communication-flow">
+                ⬆️ Gradient Upload ⬆️
+            </div>
+        </div>
+    </div>
+</body>
+</html>

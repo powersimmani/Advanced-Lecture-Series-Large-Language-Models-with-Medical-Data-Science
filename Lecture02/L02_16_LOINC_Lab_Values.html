@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOINC Lab Values</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Aptos,'Segoe UI',sans-serif;background:white;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+        .container{width:960px;padding:35px 45px;}
+        .title{font-size:20px;font-weight:600;color:#1E64C8;margin-bottom:25px;text-align:center;}
+        .card{background:white;border:2.5px solid #1E64C8;border-radius:8px;padding:20px;margin-bottom:15px;}
+        .card-title{font-size:17px;font-weight:700;color:#1E64C8;margin-bottom:10px;}
+        .card-content{font-size:15px;color:#333;line-height:1.6;}
+        .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+        .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
+        .highlight{background:#f0f5fc;border-left:4px solid #1E64C8;padding:15px;border-radius:6px;margin-bottom:20px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">LOINC Lab Values</div>
+        
+        <div class="highlight">
+            <strong style="color:#1E64C8;">96,000+</strong> 검사 코드 | <strong style="color:#1E64C8;">6개 축</strong> 구조
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-title">Component</div>
+                <div class="card-content">측정 대상<br>(Glucose)</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Property</div>
+                <div class="card-content">속성 유형<br>(Mass concentration)</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Time</div>
+                <div class="card-content">시점<br>(Point in time)</div>
+            </div>
+            <div class="card">
+                <div class="card-title">System</div>
+                <div class="card-content">검체<br>(Serum)</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Scale</div>
+                <div class="card-content">척도<br>(Quantitative)</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Method</div>
+                <div class="card-content">검사 방법<br>(Enzymatic)</div>
+            </div>
+        </div>
+    
+    </div>
+</body>
+</html>

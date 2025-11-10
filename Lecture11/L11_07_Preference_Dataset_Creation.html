@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preference Dataset Creation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .section-text {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .item {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Preference Dataset Creation</div>
+        
+        <div class="section">
+            <div class="section-title">Dataset Structure</div>
+            <div class="section-text">Preference datasets contain pairs of model outputs with expert rankings, forming the foundation for reward model training.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Data Components</div>
+            <div class="items-list">
+                <div class="item">Input Prompt: Clinical query or task description</div>
+                <div class="item">Output A: First model-generated response</div>
+                <div class="item">Output B: Second model-generated response</div>
+                <div class="item">Preference Label: Which output is preferred (A > B or B > A)</div>
+                <div class="item">Confidence Score: Strength of preference (optional)</div>
+                <div class="item">Rationale: Expert's reasoning for choice</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Dataset Statistics</div>
+            <div class="items-list">
+                <div class="item">Size: 10K-100K+ preference pairs typical</div>
+                <div class="item">Balance: Equal distribution of A vs B preferences</div>
+                <div class="item">Coverage: Diverse clinical specialties and scenarios</div>
+                <div class="item">Quality Metrics: Agreement rates, annotation time</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

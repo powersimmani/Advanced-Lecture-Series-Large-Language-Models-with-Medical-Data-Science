@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Failure Mode Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 32px 42px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 7px;
+        }
+        
+        .section-text {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .item {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Failure Mode Analysis</div>
+        
+        <div class="section">
+            <div class="section-title">Understanding Failures</div>
+            <div class="section-text">Systematic analysis of failure modes helps prevent future errors and improves RLHF system robustness.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Common Failure Modes</div>
+            <div class="items-list">
+                <div class="item">Overconfidence: Model too certain about incorrect outputs</div>
+                <div class="item">Underspecification: Ambiguous queries lead to inappropriate responses</div>
+                <div class="item">Distribution Shift: Performance drops on out-of-distribution inputs</div>
+                <div class="item">Reward Hacking: Model exploits loopholes in reward function</div>
+                <div class="item">Bias Amplification: RLHF reinforces training data biases</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Root Cause Analysis</div>
+            <div class="items-list">
+                <div class="item">Data Issues: Insufficient or biased training data</div>
+                <div class="item">Model Limitations: Architecture can't capture necessary patterns</div>
+                <div class="item">Reward Misspecification: Reward doesn't capture true objectives</div>
+                <div class="item">Training Instability: Optimization issues during RLHF</div>
+                <div class="item">Deployment Mismatch: Different conditions than training</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Mitigation Strategies</div>
+            <div class="items-list">
+                <div class="item">Data Augmentation: Add examples covering failure cases</div>
+                <div class="item">Architecture Changes: Modify model to address limitations</div>
+                <div class="item">Reward Engineering: Refine reward function to close loopholes</div>
+                <div class="item">Ensemble Methods: Combine multiple models for robustness</div>
+                <div class="item">Human Oversight: Require expert review for high-risk predictions</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

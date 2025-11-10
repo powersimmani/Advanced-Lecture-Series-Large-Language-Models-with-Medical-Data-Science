@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Loop Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 32px 42px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 7px;
+        }
+        
+        .section-text {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .item {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Feedback Loop Design</div>
+        
+        <div class="section">
+            <div class="section-title">Closed-Loop Learning</div>
+            <div class="section-text">Effective feedback loops ensure continuous improvement from deployment experience back into the training process.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Loop Components</div>
+            <div class="items-list">
+                <div class="item">Deployment: Model serves real clinical interactions</div>
+                <div class="item">Monitoring: Log outputs, user interactions, outcomes</div>
+                <div class="item">Expert Review: Clinicians evaluate flagged cases</div>
+                <div class="item">Data Curation: Select valuable examples for training</div>
+                <div class="item">Model Update: Retrain with new feedback data</div>
+                <div class="item">Validation & Rollout: Test and deploy improved model</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Feedback Triggers</div>
+            <div class="items-list">
+                <div class="item">Low Confidence: Model uncertainty about output</div>
+                <div class="item">User Disagreement: User corrects or rejects output</div>
+                <div class="item">Adverse Events: Negative outcomes reported</div>
+                <div class="item">Novel Cases: Situations not seen during training</div>
+                <div class="item">Periodic Sampling: Random audit of routine cases</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Timing Considerations</div>
+            <div class="items-list">
+                <div class="item">Real-Time: Immediate feedback on user corrections</div>
+                <div class="item">Short-Term: Collect daily feedback for weekly review</div>
+                <div class="item">Long-Term: Outcome data collected over months</div>
+                <div class="item">Update Cadence: Balance frequency with validation needs</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

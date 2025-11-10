@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Selection Criteria</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .info-box {
+            background: #f8f9fb; border-left: 4px solid #1E64C8;
+            padding: 20px 24px; border-radius: 6px;
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
+        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Model Selection Criteria</div>
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <div class="info-title">모델 비교</div>
+                <div class="info-content">
+                    <div class="bullet">정확도 vs 속도 트레이드오프</div><div class="bullet">모델 크기 및 메모리 사용량</div><div class="bullet">추론 시간 및 처리량</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">선택 기준</div>
+                <div class="info-content">
+                    <div class="bullet">Task에 맞는 모델 아키텍처</div><div class="bullet">사전 학습 모델 활용</div><div class="bullet">Fine-tuning 전략</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">성능 메트릭</div>
+                <div class="info-content">
+                    <div class="bullet">Accuracy, Precision, Recall</div><div class="bullet">F1 Score, AUC-ROC</div><div class="bullet">추론 시간 및 FLOPs</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">실용적 고려사항</div>
+                <div class="info-content">
+                    <div class="bullet">배포 환경 제약</div><div class="bullet">유지보수 및 업데이트</div><div class="bullet">비용 효율성</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

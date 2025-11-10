@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가치 정렬 (Value Alignment)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 60px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+    .definition-box {
+        background: #f0f5fc;
+        border: 2px solid #1E64C8;
+        border-radius: 10px;
+        padding: 15px 25px;
+        margin-bottom: 25px;
+        text-align: center;
+        font-size: 16px;
+        color: #333;
+    }
+    .def-highlight {
+        color: #1E64C8;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .alignment-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+    .align-card {
+        background: white;
+        border: 2px solid #1E64C8;
+        border-radius: 10px;
+        padding: 18px;
+    }
+    .align-icon {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .align-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1E64C8;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+    .align-items {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .align-item {
+        font-size: 13px;
+        color: #666;
+        padding-left: 15px;
+        position: relative;
+    }
+    .align-item::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #1E64C8;
+        font-weight: bold;
+    }
+    .mapping-section {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .mapping-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1E64C8;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .metric-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .metric {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .metric-name {
+        width: 150px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+    }
+    .metric-bar {
+        height: 24px;
+        background: linear-gradient(90deg, #1E64C8, #2874d8);
+        border-radius: 12px;
+        transition: width 0.5s ease;
+    }
+    .metric-value {
+        width: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #1E64C8;
+        text-align: right;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">의료 AI의 가치 정렬 (Value Alignment)</div>
+    
+    <div class="definition-box">
+        <span class="def-highlight">가치 정렬</span>: AI 시스템의 행동이 인간의 가치관, 윤리 원칙, 문화적 규범과 일치하도록 하는 과정
+    </div>
+    
+    <div class="alignment-grid">
+        <div class="align-card">
+            <div class="align-icon">🌍</div>
+            <div class="align-title">문화적 민감성</div>
+            <div class="align-items">
+                <div class="align-item">종교적 신념 존중</div>
+                <div class="align-item">문화적 치료 선호도</div>
+                <div class="align-item">언어 및 의사소통 방식</div>
+                <div class="align-item">가족 참여 정도</div>
+            </div>
+        </div>
+        
+        <div class="align-card">
+            <div class="align-icon">🎯</div>
+            <div class="align-title">우선순위 설정</div>
+            <div class="align-items">
+                <div class="align-item">생명 vs 삶의 질</div>
+                <div class="align-item">비용 vs 효과</div>
+                <div class="align-item">개인 vs 공동체</div>
+                <div class="align-item">단기 vs 장기 이익</div>
+            </div>
+        </div>
+        
+        <div class="align-card">
+            <div class="align-icon">⚖️</div>
+            <div class="align-title">윤리적 딜레마</div>
+            <div class="align-items">
+                <div class="align-item">자원 배분 기준</div>
+                <div class="align-item">응급 상황 우선순위</div>
+                <div class="align-item">말기 환자 치료</div>
+                <div class="align-item">실험적 치료 적용</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mapping-section">
+        <div class="mapping-title">📊 가치 매핑 (Value Mapping) 메트릭</div>
+        <div class="metric-grid">
+            <div class="metric">
+                <div class="metric-name">문화적 적합성</div>
+                <div class="metric-bar" style="width: 85%;"></div>
+                <div class="metric-value">85%</div>
+            </div>
+            <div class="metric">
+                <div class="metric-name">윤리 원칙 준수</div>
+                <div class="metric-bar" style="width: 92%;"></div>
+                <div class="metric-value">92%</div>
+            </div>
+            <div class="metric">
+                <div class="metric-name">환자 선호도 반영</div>
+                <div class="metric-bar" style="width: 78%;"></div>
+                <div class="metric-value">78%</div>
+            </div>
+            <div class="metric">
+                <div class="metric-name">사회적 규범 정렬</div>
+                <div class="metric-bar" style="width: 88%;"></div>
+                <div class="metric-value">88%</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

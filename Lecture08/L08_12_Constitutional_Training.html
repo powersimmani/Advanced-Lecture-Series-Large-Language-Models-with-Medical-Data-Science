@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitutional Training</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 60px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+    .subtitle {
+        font-size: 16px;
+        color: #666;
+        text-align: center;
+        margin-bottom: 30px;
+        font-style: italic;
+    }
+    .training-process {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .process-card {
+        background: white;
+        border: 2px solid #1E64C8;
+        border-radius: 10px;
+        padding: 15px 20px;
+    }
+    .process-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 12px;
+    }
+    .process-number {
+        width: 35px;
+        height: 35px;
+        background: linear-gradient(135deg, #1E64C8, #2874d8);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .process-name {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1E64C8;
+    }
+    .process-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .process-icon {
+        font-size: 32px;
+        flex-shrink: 0;
+    }
+    .process-desc {
+        flex: 1;
+        font-size: 14px;
+        color: #333;
+        line-height: 1.5;
+    }
+    .process-example {
+        font-size: 13px;
+        color: #666;
+        background: #f0f5fc;
+        padding: 8px 12px;
+        border-radius: 6px;
+    }
+    .critique-item {
+        margin-bottom: 4px;
+    }
+    .arrow-down {
+        text-align: center;
+        font-size: 28px;
+        color: #1E64C8;
+        margin: 8px 0;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">헌법적 학습 (Constitutional Training)</div>
+    
+    <div class="subtitle">AI가 스스로 윤리적 원칙을 학습하고 적용하는 과정</div>
+    
+    <div class="training-process">
+        <div class="process-card">
+            <div class="process-header">
+                <div class="process-number">1</div>
+                <div class="process-name">초기 응답 생성</div>
+            </div>
+            <div class="process-content">
+                <div class="process-icon">💬</div>
+                <div class="process-desc">AI가 의료 질문에 대한 초기 답변을 생성</div>
+                <div class="process-example">예: 환자 치료 방법 추천</div>
+            </div>
+        </div>
+        
+        <div class="arrow-down">↓</div>
+        
+        <div class="process-card">
+            <div class="process-header">
+                <div class="process-number">2</div>
+                <div class="process-name">자기 비판 (Self-Critique)</div>
+            </div>
+            <div class="process-content">
+                <div class="process-icon">🔍</div>
+                <div class="process-desc">헌법(윤리 원칙)에 비추어 자신의 응답을 평가</div>
+                <div class="process-example">
+                    <div class="critique-item">✓ 환자 안전성 고려?</div>
+                    <div class="critique-item">✓ 형평성 유지?</div>
+                    <div class="critique-item">✓ 프라이버시 보호?</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow-down">↓</div>
+        
+        <div class="process-card">
+            <div class="process-header">
+                <div class="process-number">3</div>
+                <div class="process-name">개선 (Revision)</div>
+            </div>
+            <div class="process-content">
+                <div class="process-icon">✏️</div>
+                <div class="process-desc">비판을 바탕으로 응답을 개선</div>
+                <div class="process-example">윤리적 문제가 있다면 수정된 응답 생성</div>
+            </div>
+        </div>
+        
+        <div class="arrow-down">↓</div>
+        
+        <div class="process-card">
+            <div class="process-header">
+                <div class="process-number">4</div>
+                <div class="process-name">강화 학습 (RL)</div>
+            </div>
+            <div class="process-content">
+                <div class="process-icon">📈</div>
+                <div class="process-desc">개선된 응답을 선호하도록 모델 학습</div>
+                <div class="process-example">반복을 통해 윤리적 행동 내재화</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

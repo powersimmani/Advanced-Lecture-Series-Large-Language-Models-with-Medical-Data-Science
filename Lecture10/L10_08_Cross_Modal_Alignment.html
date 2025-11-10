@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Modal Alignment</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Aptos, 'Segoe UI', sans-serif; background: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { width: 960px; height: 540px; padding: 35px 45px; background: white; }
+        .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 22px; text-align: center; }
+        .concept-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px 25px; margin-bottom: 22px; text-align: center; font-size: 17px; color: #333; font-weight: 500; }
+        .highlight { color: #1E64C8; font-weight: 700; }
+        .alignment-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 20px; }
+        .align-card { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 18px; transition: all 0.3s; }
+        .align-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2); background: #f8fbff; }
+        .align-title { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .align-desc { font-size: 15px; color: #555; line-height: 1.5; }
+        .methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .method-box { background: #f8f9fb; border-left: 4px solid #1E64C8; padding: 12px 15px; border-radius: 6px; text-align: center; font-size: 15px; color: #333; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Cross-Modal Alignment: 모달 간 정렬</div>
+        <div class="concept-box">
+            <span class="highlight">공통 임베딩 공간</span>에서 서로 다른 모달리티를 
+            <span class="highlight">의미적으로 가까운 위치</span>에 배치하여 상호 이해 및 검색 가능
+        </div>
+        <div class="alignment-grid">
+            <div class="align-card">
+                <div class="align-title">Projection Layers</div>
+                <div class="align-desc">
+                    각 모달리티를 동일 차원의 공통 공간으로 투영하는 선형/비선형 변환
+                </div>
+            </div>
+            <div class="align-card">
+                <div class="align-title">Contrastive Loss</div>
+                <div class="align-desc">
+                    매칭 쌍은 가깝게, 비매칭 쌍은 멀게 학습하여 정렬 품질 향상
+                </div>
+            </div>
+            <div class="align-card">
+                <div class="align-title">Triplet Loss</div>
+                <div class="align-desc">
+                    Anchor, Positive, Negative 샘플로 상대적 거리 학습
+                </div>
+            </div>
+            <div class="align-card">
+                <div class="align-title">Cross-Attention</div>
+                <div class="align-desc">
+                    Transformer 기반 어텐션으로 모달 간 상호작용 강화
+                </div>
+            </div>
+        </div>
+        <div class="methods">
+            <div class="method-box">Zero-shot 분류</div>
+            <div class="method-box">텍스트→영상 검색</div>
+            <div class="method-box">영상→텍스트 검색</div>
+        </div>
+    </div>
+</body>
+</html>

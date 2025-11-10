@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Segmentation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; padding: 35px 45px; background: white; }
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .sections-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px; }
+        .section-card { background: #f0f5fc; border-left: 4px solid #1E64C8; padding: 15px; border-radius: 6px; }
+        .section-title { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 6px; }
+        .section-desc { font-size: 14px; color: #555; }
+        .detection-box { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 18px; }
+        .detection-title { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
+        .detection-methods { font-size: 15px; color: #333; line-height: 1.8; }
+        .method-item { margin-bottom: 6px; }
+        .stats-row { display: flex; gap: 20px; margin-bottom: 25px; justify-content: space-around; }
+        .stat-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 20px; flex: 1; text-align: center; }
+        .stat-num { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .stat-label { font-size: 15px; color: #333; }
+        .structure-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .structure-card { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 20px; }
+        .structure-title { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .structure-desc { font-size: 15px; color: #555; margin-bottom: 12px; line-height: 1.5; }
+        .structure-items { font-size: 14px; color: #333; line-height: 1.7; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Section Segmentation</div>
+        
+        <div class="sections-grid">
+            <div class="section-card"><div class="section-title">Chief Complaint</div><div class="section-desc">주호소 - 환자가 내원한 주된 이유</div></div>
+            <div class="section-card"><div class="section-title">HPI</div><div class="section-desc">현병력 - 현재 질병의 발병 과정</div></div>
+            <div class="section-card"><div class="section-title">Past Medical History</div><div class="section-desc">과거력 - 이전 질병 및 수술 기록</div></div>
+            <div class="section-card"><div class="section-title">Physical Exam</div><div class="section-desc">신체검사 - 활력징후 및 진찰 소견</div></div>
+            <div class="section-card"><div class="section-title">Assessment</div><div class="section-desc">평가 - 진단 및 임상 판단</div></div>
+            <div class="section-card"><div class="section-title">Plan</div><div class="section-desc">계획 - 치료 방침 및 추적 계획</div></div>
+        </div>
+        <div class="detection-box">
+            <div class="detection-title">경계 탐지 방법</div>
+            <div class="detection-methods">
+                <div class="method-item">• 헤더 키워드 매칭 (HISTORY:, ASSESSMENT:)</div>
+                <div class="method-item">• 머신러닝 기반 세그멘테이션</div>
+                <div class="method-item">• F1 Score: 92-96%</div>
+            </div>
+        </div>
+    
+    </div>
+</body>
+</html>

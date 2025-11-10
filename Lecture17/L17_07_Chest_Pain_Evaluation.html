@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chest Pain Evaluation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .algorithm-section {
+            background: #f8fbff;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .risk-levels {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .risk-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            border: 2px solid;
+        }
+        
+        .risk-high {
+            border-color: #d32f2f;
+        }
+        
+        .risk-medium {
+            border-color: #f57c00;
+        }
+        
+        .risk-low {
+            border-color: #388e3c;
+        }
+        
+        .risk-label {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .risk-high .risk-label {
+            color: #d32f2f;
+        }
+        
+        .risk-medium .risk-label {
+            color: #f57c00;
+        }
+        
+        .risk-low .risk-label {
+            color: #388e3c;
+        }
+        
+        .risk-desc {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .result-box {
+            background: #f8f9fb;
+            border-left: 4px solid #1E64C8;
+            padding: 20px;
+            border-radius: 6px;
+        }
+        
+        .result-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e8f4;
+            font-size: 15px;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-value {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">흉통 평가 (Chest Pain Evaluation)</div>
+        
+        <div class="algorithm-section">
+            <div class="section-title">위험 계층화 알고리즘 (Risk Stratification)</div>
+            <div class="risk-levels">
+                <div class="risk-card risk-high">
+                    <div class="risk-label">고위험 (High)</div>
+                    <div class="risk-desc">즉시 심도자술 준비</div>
+                    <div class="risk-desc">응급 관상동맥조영</div>
+                </div>
+                <div class="risk-card risk-medium">
+                    <div class="risk-label">중위험 (Medium)</div>
+                    <div class="risk-desc">집중 모니터링</div>
+                    <div class="risk-desc">심장 바이오마커 추적</div>
+                </div>
+                <div class="risk-card risk-low">
+                    <div class="risk-label">저위험 (Low)</div>
+                    <div class="risk-desc">외래 추적 관찰</div>
+                    <div class="risk-desc">조기 퇴원 가능</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="results-grid">
+            <div class="result-box">
+                <div class="result-title">AI 평가 결과</div>
+                <div class="result-item">
+                    <span>급성심근경색 감지율</span>
+                    <span class="result-value">98%</span>
+                </div>
+                <div class="result-item">
+                    <span>위음성률</span>
+                    <span class="result-value">0.5%</span>
+                </div>
+                <div class="result-item">
+                    <span>불필요한 입원 감소</span>
+                    <span class="result-value">30%</span>
+                </div>
+                <div class="result-item">
+                    <span>평가 시간</span>
+                    <span class="result-value">10분</span>
+                </div>
+            </div>
+            
+            <div class="result-box">
+                <div class="result-title">임상 개선 효과</div>
+                <div class="result-item">
+                    <span>조기 진단</span>
+                    <span class="result-value">2시간 단축</span>
+                </div>
+                <div class="result-item">
+                    <span>불필요한 검사</span>
+                    <span class="result-value">25% 감소</span>
+                </div>
+                <div class="result-item">
+                    <span>응급실 체류 시간</span>
+                    <span class="result-value">1.5시간 감소</span>
+                </div>
+                <div class="result-item">
+                    <span>환자 만족도</span>
+                    <span class="result-value">15% 증가</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

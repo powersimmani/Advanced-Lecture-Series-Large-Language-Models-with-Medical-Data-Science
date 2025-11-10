@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ED Triage System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .flow-container {
+            background: #f8fbff;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .flow-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .triage-levels {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .level-card {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .level-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+        }
+        
+        .level-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 5px;
+        }
+        
+        .level-name {
+            font-size: 14px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .performance-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .perf-box {
+            background: #f8f9fb;
+            border-left: 4px solid #1E64C8;
+            padding: 20px;
+            border-radius: 6px;
+        }
+        
+        .perf-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .perf-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .perf-item::before {
+            content: "▸";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .metric-highlight {
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">응급실 트리아지 시스템 (ED Triage)</div>
+        <div class="subtitle">ESI (Emergency Severity Index) 자동화</div>
+        
+        <div class="flow-container">
+            <div class="flow-title">트리아지 플로우</div>
+            <div class="triage-levels">
+                <div class="level-card">
+                    <div class="level-number">1</div>
+                    <div class="level-name">즉시</div>
+                </div>
+                <div class="level-card">
+                    <div class="level-number">2</div>
+                    <div class="level-name">긴급</div>
+                </div>
+                <div class="level-card">
+                    <div class="level-number">3</div>
+                    <div class="level-name">응급</div>
+                </div>
+                <div class="level-card">
+                    <div class="level-number">4</div>
+                    <div class="level-name">준응급</div>
+                </div>
+                <div class="level-card">
+                    <div class="level-number">5</div>
+                    <div class="level-name">비응급</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="performance-section">
+            <div class="perf-box">
+                <div class="perf-title">AI 시스템 성과</div>
+                <div class="perf-item">정확도: <span class="metric-highlight">92%</span></div>
+                <div class="perf-item">처리 시간: <span class="metric-highlight">30초 단축</span></div>
+                <div class="perf-item">간호사 부담: <span class="metric-highlight">40% 감소</span></div>
+                <div class="perf-item">오분류율: <span class="metric-highlight">5% 개선</span></div>
+            </div>
+            
+            <div class="perf-box">
+                <div class="perf-title">주요 특징</div>
+                <div class="perf-item">실시간 바이탈 사인 분석</div>
+                <div class="perf-item">증상 기반 우선순위 결정</div>
+                <div class="perf-item">과거 진료 기록 통합</div>
+                <div class="perf-item">의료진 최종 승인 시스템</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

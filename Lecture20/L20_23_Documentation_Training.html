@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation & Training</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .info-box {
+            background: #f8f9fb; border-left: 4px solid #1E64C8;
+            padding: 20px 24px; border-radius: 6px;
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
+        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Documentation & Training</div>
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <div class="info-title">기술 문서</div>
+                <div class="info-content">
+                    <div class="bullet">시스템 아키텍처 문서</div><div class="bullet">API 레퍼런스</div><div class="bullet">설치 및 배포 가이드</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">사용자 매뉴얼</div>
+                <div class="info-content">
+                    <div class="bullet">사용자 가이드</div><div class="bullet">FAQ 및 트러블슈팅</div><div class="bullet">비디오 튜토리얼</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">교육 자료</div>
+                <div class="info-content">
+                    <div class="bullet">온보딩 프로그램</div><div class="bullet">실습 워크샵</div><div class="bullet">온라인 교육 콘텐츠</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">문서 관리</div>
+                <div class="info-content">
+                    <div class="bullet">버전 관리</div><div class="bullet">정기적 업데이트</div><div class="bullet">다국어 지원</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

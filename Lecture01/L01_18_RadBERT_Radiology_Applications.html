@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadBERT - Radiology Applications</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 35px 50px; }
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .icon { font-size: 64px; margin-bottom: 15px; }
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 24px;
+            color: #666;
+            font-weight: 500;
+        }
+        .data-box {
+            background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+        .task-card {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            transition: all 0.3s;
+        }
+        .task-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(30, 100, 200, 0.2);
+        }
+        .task-text {
+            font-size: 17px;
+            color: #333;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">🩻</div>
+            <div class="title">RadBERT</div>
+            <div class="subtitle">Radiology Applications</div>
+        </div>
+        <div class="data-box">
+            📊 4.7M radiology reports
+        </div>
+        <div class="tasks-grid">
+            <div class="task-card">
+                <div class="task-text">✓ Chest X-ray abnormality detection: 94% AUC</div>
+            </div>
+            <div class="task-card">
+                <div class="task-text">✓ Automated report generation</div>
+            </div>
+            <div class="task-card">
+                <div class="task-text">✓ Finding classification & localization</div>
+            </div>
+            <div class="task-card">
+                <div class="task-text">✓ Report quality assessment</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

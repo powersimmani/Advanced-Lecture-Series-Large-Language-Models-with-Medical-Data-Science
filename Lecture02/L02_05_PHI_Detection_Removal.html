@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHI Detection and Removal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .phi-types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .phi-type {
+            background: #f0f5fc;
+            border-left: 4px solid #1E64C8;
+            padding: 12px 15px;
+            font-size: 15px;
+            color: #333;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .phi-type:hover {
+            background: #e8f2ff;
+            transform: translateX(4px);
+        }
+        
+        .phi-number {
+            font-weight: 700;
+            color: #1E64C8;
+            margin-right: 8px;
+        }
+        
+        .approach-section {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .approach-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .approach-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .approach-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        
+        .approach-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .approach-desc {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .process-step {
+            flex: 1;
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .process-step:not(:last-child):after {
+            content: "→";
+            position: absolute;
+            right: -22px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .step-number {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 6px;
+        }
+        
+        .step-name {
+            font-size: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">PHI Detection and Removal</div>
+        
+        <div class="phi-types-grid">
+            <div class="phi-type"><span class="phi-number">1.</span>이름</div>
+            <div class="phi-type"><span class="phi-number">2.</span>주소</div>
+            <div class="phi-type"><span class="phi-number">3.</span>날짜</div>
+            <div class="phi-type"><span class="phi-number">4.</span>전화번호</div>
+            <div class="phi-type"><span class="phi-number">5.</span>팩스번호</div>
+            <div class="phi-type"><span class="phi-number">6.</span>이메일</div>
+            <div class="phi-type"><span class="phi-number">7.</span>사회보장번호</div>
+            <div class="phi-type"><span class="phi-number">8.</span>의료기록번호</div>
+            <div class="phi-type"><span class="phi-number">9.</span>건강보험번호</div>
+            <div class="phi-type"><span class="phi-number">10.</span>계좌번호</div>
+            <div class="phi-type"><span class="phi-number">11.</span>면허번호</div>
+            <div class="phi-type"><span class="phi-number">12.</span>차량번호</div>
+            <div class="phi-type"><span class="phi-number">13.</span>기기 ID</div>
+            <div class="phi-type"><span class="phi-number">14.</span>웹 URL</div>
+            <div class="phi-type"><span class="phi-number">15.</span>IP 주소</div>
+            <div class="phi-type"><span class="phi-number">16.</span>생체인식정보</div>
+            <div class="phi-type"><span class="phi-number">17.</span>사진</div>
+            <div class="phi-type"><span class="phi-number">18.</span>기타 고유식별자</div>
+        </div>
+        
+        <div class="approach-section">
+            <div class="approach-title">하이브리드 접근법: 규칙 기반 + 머신러닝</div>
+            <div class="approach-content">
+                <div class="approach-item">
+                    <div class="approach-label">규칙 기반 (Rule-based)</div>
+                    <div class="approach-desc">
+                        정규표현식으로 명확한 패턴 탐지<br>
+                        • 날짜: MM/DD/YYYY<br>
+                        • 전화: (123) 456-7890<br>
+                        • 높은 정밀도, 낮은 재현율
+                    </div>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-label">머신러닝 (ML-based)</div>
+                    <div class="approach-desc">
+                        NER 모델로 문맥 기반 탐지<br>
+                        • BiLSTM-CRF, BERT<br>
+                        • spaCy, MedCAT<br>
+                        • 높은 재현율, 문맥 이해
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="process-flow">
+            <div class="process-step">
+                <div class="step-number">STEP 1</div>
+                <div class="step-name">원본 텍스트</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">STEP 2</div>
+                <div class="step-name">PHI 탐지</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">STEP 3</div>
+                <div class="step-name">마스킹/제거</div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">STEP 4</div>
+                <div class="step-name">검증</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

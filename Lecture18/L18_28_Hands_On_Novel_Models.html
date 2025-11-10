@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-on: Implementing Novel Models</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .content-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        
+        .card-text {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-top: 20px;
+        }
+        
+        .highlight-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .highlight-text {
+            font-size: 15px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Hands-on: Implementing Novel Models</div>
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-title">MoE Implementation</div>
+                <div class="card-text">• DeepSpeed-MoE</div>
+                <div class="card-text">• Fairseq Switch Transformer</div>
+                <div class="card-text">• PyTorch custom routing</div>
+            </div>
+            <div class="content-card">
+                <div class="card-title">Long-Context Tools</div>
+                <div class="card-text">• Flash Attention library</div>
+                <div class="card-text">• LongFormer</div>
+                <div class="card-text">• Rope positional encoding</div>
+            </div>
+            <div class="content-card">
+                <div class="card-title">Graph Libraries</div>
+                <div class="card-text">• PyTorch Geometric</div>
+                <div class="card-text">• DGL (Deep Graph Library)</div>
+                <div class="card-text">• Graph Transformer networks</div>
+            </div>
+            <div class="content-card">
+                <div class="card-title">Experimentation</div>
+                <div class="card-text">• Start with open-source models</div>
+                <div class="card-text">• Medical dataset adaptation</div>
+                <div class="card-text">• Benchmark on standard tasks</div>
+            </div>
+        </div>
+        <div class="highlight-box">
+            <div class="highlight-title">💻 Practical Implementation</div>
+            <div class="highlight-text">Modern libraries make novel architectures accessible. Start with pretrained models, fine-tune on medical data, and evaluate rigorously on clinical benchmarks.</div>
+        </div>
+    </div>
+</body>
+</html>

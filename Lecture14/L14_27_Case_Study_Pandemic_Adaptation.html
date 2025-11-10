@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Pandemic Adaptation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .item {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">사례 연구: 팬데믹 적응 (Pandemic Adaptation)</div>
+        
+        <div class="section">
+            <div class="section-title">🦠 COVID-19 모델 업데이트</div>
+            <div class="item-list">
+                <div class="item">초기: 폐렴 진단 모델 기반</div>
+                <div class="item">2020년 3월: COVID-19 특징 추가 학습</div>
+                <div class="item">2020년 중반: 변이 바이러스 대응</div>
+                <div class="item">2021년: 백신 접종 상태 통합</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">📊 적응 타임라인</div>
+            <div class="item-list">
+                <div class="item">Week 1-2: 초기 데이터 수집 (중국, 이탈리아)</div>
+                <div class="item">Week 3-4: 긴급 모델 업데이트 및 검증</div>
+                <div class="item">Month 2-3: 전 세계 배포 및 지역 적응</div>
+                <div class="item">Year 1+: 지속적 개선 및 변이 대응</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">📈 성능 변화</div>
+            <div class="item-list">
+                <div class="item">초기 모델: COVID-19 검출 AUC 0.75</div>
+                <div class="item">업데이트 후: AUC 0.92 (17% 개선)</div>
+                <div class="item">위음성률: 25% → 8%로 감소</div>
+                <div class="item">처리 시간: 유지 (< 50ms)</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

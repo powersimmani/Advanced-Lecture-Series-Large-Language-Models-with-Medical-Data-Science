@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher-Student Framework</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .framework-diagram {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .model-box {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .model-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .model-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .spec-item {
+            font-size: 16px;
+            color: #333;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        
+        .spec-label {
+            color: #1E64C8;
+            font-weight: 600;
+        }
+        
+        .arrow-section {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 40px;
+            color: #1E64C8;
+        }
+        
+        .knowledge-transfer {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .transfer-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .transfer-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .transfer-item {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Teacher-Student Framework</div>
+        
+        <div class="framework-diagram">
+            <div class="model-box">
+                <div class="model-title">🎓 Teacher Model</div>
+                <div class="model-specs">
+                    <div class="spec-item">
+                        <span class="spec-label">크기:</span> 대형 (수백만~수십억 파라미터)
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">성능:</span> 최고 정확도
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">용도:</span> 지식 제공
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">예시:</span> ResNet-152, BERT-Large
+                    </div>
+                </div>
+            </div>
+            
+            <div class="model-box">
+                <div class="model-title">🎯 Student Model</div>
+                <div class="model-specs">
+                    <div class="spec-item">
+                        <span class="spec-label">크기:</span> 소형 (10~100배 작음)
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">성능:</span> Teacher에 근접
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">용도:</span> 실제 배포
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">예시:</span> MobileNet, DistilBERT
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="arrow-section">
+            ⬇️ Knowledge Transfer ⬇️
+        </div>
+        
+        <div class="knowledge-transfer">
+            <div class="transfer-title">전달되는 지식</div>
+            <div class="transfer-items">
+                <div class="transfer-item">Soft Targets<br>(확률 분포)</div>
+                <div class="transfer-item">Feature Maps<br>(중간층 출력)</div>
+                <div class="transfer-item">Attention Maps<br>(주목 영역)</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

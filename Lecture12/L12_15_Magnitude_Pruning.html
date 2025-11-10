@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnitude Pruning</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { width: 960px; padding: 30px 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
+        
+        /* Common styles */
+        .quant-intro, .mixed-intro, .pruning-intro, .magnitude-intro, .hypothesis-intro, .dynamic-intro {
+            background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 20px; margin-bottom: 25px; text-align: center;
+        }
+        .intro-title { font-size: 22px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
+        .intro-desc { font-size: 16px; color: #555; line-height: 1.6; }
+        
+        /* Grid layouts */
+        .precision-grid, .benefits-grid, .strategy-grid, .types-grid, .strategy-grid, .methods-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
+        }
+        .comparison-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        
+        /* Cards */
+        .precision-card, .benefit-card, .strategy-card, .type-card, .strat-card, .method-box, .comp-card {
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; transition: all 0.3s;
+        }
+        .precision-card:hover, .strategy-card:hover, .type-card:hover, .strat-card:hover, .method-box:hover, .comp-card:hover {
+            transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30,100,200,0.2);
+        }
+        
+        /* Typography */
+        .prec-type, .strategy-name, .type-name, .strat-name, .method-name, .comp-type {
+            font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px;
+        }
+        .prec-bits, .prec-note, .strategy-precision, .strategy-reason, .type-visual, .strat-desc, .method-desc, .comp-desc {
+            font-size: 15px; color: #555; line-height: 1.5;
+        }
+        
+        /* Section titles */
+        .comparison-title, .benefits-title, .example-title, .types-title, .adv-title, .steps-title, 
+        .strategy-title, .example-title, .process-title, .findings-title, .methods-title, .comparison-title {
+            font-size: 20px; font-weight: 700; color: #1E64C8; margin-bottom: 15px; text-align: center;
+        }
+        
+        /* Special boxes */
+        .benefits-box, .tools-box, .advantages-box, .sparsity-example, .findings-box {
+            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px;
+            padding: 20px; margin-top: 20px;
+        }
+        .accuracy-note, .medical-example, .advantage-note {
+            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; font-size: 16px; color: #333; margin-top: 20px;
+        }
+        
+        /* Lists */
+        .adv-list, .findings-list { display: flex; flex-direction: column; gap: 10px; }
+        .adv-item, .finding-item { 
+            font-size: 16px; color: #333; padding: 10px; background: #f8f9fa; 
+            border-radius: 6px; display: flex; align-items: center; gap: 10px;
+        }
+        
+        /* Process flows */
+        .steps-flow { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .step-box { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; min-width: 120px;
+        }
+        .step-num { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .step-text { font-size: 14px; color: #555; }
+        .arrow-right { font-size: 24px; color: #1E64C8; }
+        
+        /* Discovery process */
+        .process-steps { display: flex; flex-direction: column; gap: 12px; }
+        .proc-step { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 12px 20px; display: flex; gap: 15px; align-items: center;
+        }
+        .proc-num { font-size: 16px; font-weight: 700; color: #1E64C8; min-width: 120px; }
+        .proc-desc { font-size: 15px; color: #555; }
+        
+        /* Analysis */
+        .analysis-content { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
+        .analysis-item { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; display: flex; align-items: center; justify-content: center; gap: 15px;
+            font-size: 16px;
+        }
+        .layer-name { color: #333; font-weight: 600; }
+        .arrow { color: #1E64C8; font-size: 20px; font-weight: 700; }
+        .precision-choice { color: #1E64C8; font-weight: 700; }
+        
+        /* Highlights */
+        .highlight { color: #1E64C8; font-weight: 700; }
+        .highlight-card { border: 3px solid #1E64C8; background: #f8fbff; }
+        .benefit-icon, .finding-icon { font-size: 24px; }
+        .tools-text { text-align: center; font-size: 16px; color: #333; font-weight: 500; }
+        .example-visual { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; font-size: 16px; color: #333; line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Magnitude Pruning</div>
+        
+        <div class="magnitude-intro">
+            <div class="intro-title">크기 기반 가지치기 (Magnitude Pruning)</div>
+            <div class="intro-desc">작은 가중치 값을 0으로 만들어 희소성(sparsity) 증가</div>
+        </div>
+        <div class="process-steps">
+            <div class="steps-title">가지치기 프로세스</div>
+            <div class="steps-flow">
+                <div class="step-box">
+                    <div class="step-num">1</div>
+                    <div class="step-text">모델 학습 완료</div>
+                </div>
+                <div class="arrow-right">→</div>
+                <div class="step-box">
+                    <div class="step-num">2</div>
+                    <div class="step-text">가중치 크기 계산<br>|w|</div>
+                </div>
+                <div class="arrow-right">→</div>
+                <div class="step-box">
+                    <div class="step-num">3</div>
+                    <div class="step-text">임계값 이하<br>가중치 제거</div>
+                </div>
+                <div class="arrow-right">→</div>
+                <div class="step-box">
+                    <div class="step-num">4</div>
+                    <div class="step-text">Fine-tuning</div>
+                </div>
+            </div>
+        </div>
+        <div class="threshold-strategy">
+            <div class="strategy-title">임계값 설정 전략</div>
+            <div class="strategy-grid">
+                <div class="strat-card">
+                    <div class="strat-name">Global Threshold</div>
+                    <div class="strat-desc">전체 네트워크 단일 임계값</div>
+                </div>
+                <div class="strat-card">
+                    <div class="strat-name">Layer-wise Threshold</div>
+                    <div class="strat-desc">레이어별 다른 임계값</div>
+                </div>
+                <div class="strat-card">
+                    <div class="strat-name">Top-k Pruning</div>
+                    <div class="strat-desc">상위 k% 가중치만 유지</div>
+                </div>
+            </div>
+        </div>
+        <div class="sparsity-example">
+            <div class="example-title">희소성 예시</div>
+            <div class="example-visual">
+                Dense: [0.8, 0.3, -0.5, 0.1, -0.9]<br>
+                ↓ Threshold = 0.4<br>
+                Sparse: [0.8, 0, -0.5, 0, -0.9]<br>
+                <span class="highlight">40% 희소성 달성</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration Points</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .info-box {
+            background: #f8f9fb; border-left: 4px solid #1E64C8;
+            padding: 20px 24px; border-radius: 6px;
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
+        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Integration Points</div>
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <div class="info-title">시스템 통합 맵</div>
+                <div class="info-content">
+                    <div class="bullet">Frontend ↔ API Gateway</div><div class="bullet">API Gateway ↔ ML Service</div><div class="bullet">ML Service ↔ Database</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">API 설계</div>
+                <div class="info-content">
+                    <div class="bullet">RESTful API 엔드포인트</div><div class="bullet">Request/Response 형식</div><div class="bullet">에러 핸들링 전략</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">인터페이스 정의</div>
+                <div class="info-content">
+                    <div class="bullet">데이터 교환 포맷 (JSON)</div><div class="bullet">인증 및 권한 관리</div><div class="bullet">버전 관리 전략</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">통합 테스트</div>
+                <div class="info-content">
+                    <div class="bullet">End-to-End 테스트</div><div class="bullet">성능 테스트</div><div class="bullet">부하 테스트</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

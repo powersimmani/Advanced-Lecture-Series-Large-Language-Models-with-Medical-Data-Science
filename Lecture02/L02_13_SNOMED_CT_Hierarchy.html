@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNOMED CT Hierarchy</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Aptos,'Segoe UI',sans-serif;background:white;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+        .container{width:960px;padding:35px 45px;}
+        .title{font-size:20px;font-weight:600;color:#1E64C8;margin-bottom:25px;text-align:center;}
+        .card{background:white;border:2.5px solid #1E64C8;border-radius:8px;padding:20px;margin-bottom:15px;}
+        .card-title{font-size:17px;font-weight:700;color:#1E64C8;margin-bottom:10px;}
+        .card-content{font-size:15px;color:#333;line-height:1.6;}
+        .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+        .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
+        .highlight{background:#f0f5fc;border-left:4px solid #1E64C8;padding:15px;border-radius:6px;margin-bottom:20px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">SNOMED CT Hierarchy</div>
+        
+        <div class="highlight">
+            <strong style="color:#1E64C8;">350,000+ 개념</strong> | <strong style="color:#1E64C8;">19개 최상위 계층</strong> | <strong style="color:#1E64C8;">150만+ 관계</strong>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-title">계층 구조</div>
+                <div class="card-content">
+                    • Clinical finding<br>• Procedure<br>• Body structure<br>• Organism<br>• Substance<br>• Pharmaceutical product
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title">관계 유형</div>
+                <div class="card-content">
+                    • IS-A (상위-하위 관계)<br>• Finding site<br>• Associated morphology<br>• Causative agent<br>• 후조합 표현 지원
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</body>
+</html>

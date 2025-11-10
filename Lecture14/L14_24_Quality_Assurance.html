@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Assurance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .item {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">품질 보증 (Quality Assurance)</div>
+        
+        <div class="section">
+            <div class="section-title">✅ QA 프로세스</div>
+            <div class="item-list">
+                <div class="item">Unit Testing: 개별 모듈 테스트</div>
+                <div class="item">Integration Testing: 전체 파이프라인 테스트</div>
+                <div class="item">Regression Testing: 기존 기능 유지 확인</div>
+                <div class="item">Stress Testing: 부하 및 극한 상황 테스트</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">📋 검증 체크리스트</div>
+            <div class="item-list">
+                <div class="item">✓ 모델 성능 기준 충족 (accuracy, AUC)</div>
+                <div class="item">✓ 추론 시간 < 100ms (실시간 시스템)</div>
+                <div class="item">✓ 하위 그룹 성능 균형 (no bias)</div>
+                <div class="item">✓ 보안 및 개인정보 보호 준수</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">🔍 테스트 유형</div>
+            <div class="item-list">
+                <div class="item">Shadow Mode Testing: 실제 배포 전 병렬 실행</div>
+                <div class="item">Adversarial Testing: 공격 시나리오 테스트</div>
+                <div class="item">Edge Case Testing: 극단적 사례 평가</div>
+                <div class="item">User Acceptance Testing (UAT): 임상 사용자 평가</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

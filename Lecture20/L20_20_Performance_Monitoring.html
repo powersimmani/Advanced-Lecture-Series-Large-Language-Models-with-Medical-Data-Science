@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Monitoring</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .info-box {
+            background: #f8f9fb; border-left: 4px solid #1E64C8;
+            padding: 20px 24px; border-radius: 6px;
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
+        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Performance Monitoring</div>
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <div class="info-title">모니터링 대시보드</div>
+                <div class="info-content">
+                    <div class="bullet">실시간 시스템 상태</div><div class="bullet">API 응답 시간</div><div class="bullet">에러율 추적</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">성능 메트릭</div>
+                <div class="info-content">
+                    <div class="bullet">처리량 (Throughput)</div><div class="bullet">지연 시간 (Latency)</div><div class="bullet">리소스 사용량</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">알림 시스템</div>
+                <div class="info-content">
+                    <div class="bullet">임계값 기반 알람</div><div class="bullet">이상 탐지</div><div class="bullet">Slack/Email 통합</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">모니터링 도구</div>
+                <div class="info-content">
+                    <div class="bullet">Prometheus</div><div class="bullet">Grafana</div><div class="bullet">ELK Stack</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

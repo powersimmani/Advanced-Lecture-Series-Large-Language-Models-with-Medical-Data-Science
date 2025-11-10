@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 2: State-of-the-Art Medical Models</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            color: white;
+        }
+        .part-label {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .part-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            line-height: 1.2;
+        }
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-left: 40px;
+        }
+        .model-item {
+            font-size: 20px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .model-icon { font-size: 24px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="part-label">Part 2/3:</div>
+        <div class="part-title">State-of-the-Art<br>Medical Models</div>
+        <div class="models-grid">
+            <div class="model-item"><span class="model-icon">🏥</span> MedPaLM 2</div>
+            <div class="model-item"><span class="model-icon">🐊</span> GatorTron</div>
+            <div class="model-item"><span class="model-icon">🧬</span> BioGPT</div>
+            <div class="model-item"><span class="model-icon">📚</span> PubMedGPT</div>
+            <div class="model-item"><span class="model-icon">🩻</span> RadBERT</div>
+            <div class="model-item"><span class="model-icon">🔬</span> PathLLM</div>
+            <div class="model-item"><span class="model-icon">🎭</span> Multimodal Systems</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical NLP Task Taxonomy</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 35px 50px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+        .task-card {
+            background: linear-gradient(135deg, #f0f5fc 0%, #ffffff 100%);
+            border-left: 5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            transition: all 0.3s;
+        }
+        .task-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(30, 100, 200, 0.2);
+        }
+        .task-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        .task-desc {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+        .example {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+            margin-top: 6px;
+            background: #f8f9fa;
+            padding: 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Clinical NLP Task Taxonomy</div>
+        <div class="tasks-grid">
+            <div class="task-card">
+                <div class="task-name">Named Entity Recognition (NER)</div>
+                <div class="task-desc">Identify diseases, medications, symptoms, procedures</div>
+                <div class="example">Ex: "Patient has <mark>diabetes</mark> and takes <mark>metformin</mark>"</div>
+            </div>
+            <div class="task-card">
+                <div class="task-name">Relation Extraction</div>
+                <div class="task-desc">Find relationships between medical entities</div>
+                <div class="example">Ex: "Drug X causes Side Effect Y"</div>
+            </div>
+            <div class="task-card">
+                <div class="task-name">Temporal Expression</div>
+                <div class="task-desc">Normalize time expressions and event sequences</div>
+                <div class="example">Ex: "2 weeks ago" → specific date</div>
+            </div>
+            <div class="task-card">
+                <div class="task-name">Negation Detection</div>
+                <div class="task-desc">Identify negated medical concepts</div>
+                <div class="example">Ex: "No signs of infection" vs "Infection present"</div>
+            </div>
+            <div class="task-card">
+                <div class="task-name">Medical Code Mapping</div>
+                <div class="task-desc">Map clinical text to ICD-10, CPT, SNOMED codes</div>
+                <div class="example">Ex: "Hypertension" → ICD-10: I10</div>
+            </div>
+            <div class="task-card">
+                <div class="task-name">Clinical Text Summarization</div>
+                <div class="task-desc">Generate concise summaries from clinical notes</div>
+                <div class="example">Ex: Discharge summary from hospital records</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Image Encoders</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .encoder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .encoder-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .encoder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .encoder-name {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .encoder-desc {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .encoder-features {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            font-size: 15px;
+            color: #555;
+        }
+        
+        .feature-item::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        
+        .preprocessing-section {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 18px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .preprocessing-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .preprocessing-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        
+        .step-box {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .comparison-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .compare-item {
+            background: #f8f9fb;
+            border-left: 4px solid #1E64C8;
+            padding: 15px 18px;
+            border-radius: 6px;
+        }
+        
+        .compare-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .compare-content {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Medical Image Encoders</div>
+        
+        <div class="encoder-grid">
+            <div class="encoder-card">
+                <div class="encoder-name">CNN (Convolutional Neural Networks)</div>
+                <div class="encoder-desc">
+                    전통적이지만 강력한 영상 특징 추출 방법
+                </div>
+                <div class="encoder-features">
+                    <div class="feature-item">공간적 계층 구조 학습</div>
+                    <div class="feature-item">로컬 패턴 인식에 강점</div>
+                    <div class="feature-item">ResNet, DenseNet, EfficientNet</div>
+                    <div class="feature-item">의료 영상의 텍스처, 경계 검출</div>
+                </div>
+            </div>
+            
+            <div class="encoder-card">
+                <div class="encoder-name">Vision Transformer (ViT)</div>
+                <div class="encoder-desc">
+                    패치 기반 어텐션으로 글로벌 관계 학습
+                </div>
+                <div class="encoder-features">
+                    <div class="feature-item">Self-attention 메커니즘</div>
+                    <div class="feature-item">긴 범위 의존성 포착</div>
+                    <div class="feature-item">대규모 데이터셋에서 우수</div>
+                    <div class="feature-item">병변 간 관계, 전체 맥락 이해</div>
+                </div>
+            </div>
+            
+            <div class="encoder-card">
+                <div class="encoder-name">의료 특화 인코더</div>
+                <div class="encoder-desc">
+                    의료 도메인에 사전 학습된 모델
+                </div>
+                <div class="encoder-features">
+                    <div class="feature-item">MedCLIP, BiomedCLIP</div>
+                    <div class="feature-item">대규모 의료 영상-텍스트 쌍 학습</div>
+                    <div class="feature-item">도메인 지식 내재화</div>
+                    <div class="feature-item">적은 데이터로 높은 성능</div>
+                </div>
+            </div>
+            
+            <div class="encoder-card">
+                <div class="encoder-name">Hybrid Architectures</div>
+                <div class="encoder-desc">
+                    CNN과 Transformer의 결합
+                </div>
+                <div class="encoder-features">
+                    <div class="feature-item">CNN: 로컬 특징 + ViT: 글로벌 관계</div>
+                    <div class="feature-item">CoAtNet, MaxViT</div>
+                    <div class="feature-item">계산 효율성과 성능 균형</div>
+                    <div class="feature-item">다양한 스케일의 병변 검출</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preprocessing-section">
+            <div class="preprocessing-title">의료 영상 전처리 파이프라인</div>
+            <div class="preprocessing-steps">
+                <div class="step-box">정규화<br>(Normalization)</div>
+                <div class="step-box">윈도잉<br>(Windowing)</div>
+                <div class="step-box">리샘플링<br>(Resampling)</div>
+                <div class="step-box">증강<br>(Augmentation)</div>
+            </div>
+        </div>
+        
+        <div class="comparison-box">
+            <div class="compare-item">
+                <div class="compare-title">특징 추출</div>
+                <div class="compare-content">
+                    고차원 영상을 저차원 벡터 표현으로 변환하여 의미 있는 임상 특징 포착
+                </div>
+            </div>
+            
+            <div class="compare-item">
+                <div class="compare-title">다운스트림 태스크</div>
+                <div class="compare-content">
+                    추출된 특징을 분류, 검출, 세분화, 리포트 생성 등에 활용
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

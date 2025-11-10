@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Instruction Datasets</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 28px 40px; background: white; }
+        .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 18px; text-align: center; }
+        .concept-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .concept-text { font-size: 17px; color: #333; font-weight: 500; }
+        .concept-highlight { color: #1E64C8; font-weight: 700; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .feature-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-align: center;
+        }
+        .feature-value { font-size: 24px; font-weight: 700; color: #1E64C8; margin-bottom: 6px; }
+        .feature-label { font-size: 13px; color: #555; font-weight: 500; }
+        .application-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 12px;
+        }
+        .app-title { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .app-list { display: flex; flex-direction: column; gap: 8px; }
+        .app-item { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: #333; line-height: 1.4; }
+        .bullet { color: #1E64C8; font-weight: 700; flex-shrink: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Medical Instruction Datasets</div>
+
+        <div class="concept-box">
+            <div class="concept-text">
+                <span class="concept-highlight">Public Medical Instruction Datasets</span><br>
+                High-quality data for medical LLM training
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">📚 Major Datasets</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>MedInstruct:</strong> 100K clinical instructions (diagnosis, treatment)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>HealthCareMagic:</strong> 200K patient-doctor conversations</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>MedQA:</strong> 60K medical exam questions with explanations</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>PubMedQA:</strong> 1K expert-annotated biomedical QA pairs</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>ChatDoctor:</strong> 100K patient-physician dialogues</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-value">40%</div>
+                <div class="feature-label">Diagnosis</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-value">30%</div>
+                <div class="feature-label">Treatment</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-value">30%</div>
+                <div class="feature-label">Education</div>
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">✅ Quality Metrics</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Expert validation rate: 85-95%</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Average response length: 150-300 tokens</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Domain coverage: 50+ medical specialties</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Language diversity: English, Chinese, Spanish</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

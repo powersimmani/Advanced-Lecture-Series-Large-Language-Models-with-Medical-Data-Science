@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Version Control for Models</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .item {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">모델 버전 관리 (Version Control for Models)</div>
+        
+        <div class="section">
+            <div class="section-title">🔢 버전 체계</div>
+            <div class="item-list">
+                <div class="item">Semantic Versioning: MAJOR.MINOR.PATCH</div>
+                <div class="item">MAJOR: 호환성 없는 변경 (아키텍처 변경)</div>
+                <div class="item">MINOR: 기능 추가, 하위 호환성 유지</div>
+                <div class="item">PATCH: 버그 수정, 성능 개선</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">📊 추적 정보</div>
+            <div class="item-list">
+                <div class="item">모델 가중치 및 아키텍처</div>
+                <div class="item">학습 데이터셋 버전 및 크기</div>
+                <div class="item">하이퍼파라미터 설정</div>
+                <div class="item">성능 메트릭 (accuracy, AUC, etc.)</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">🔧 MLOps 도구</div>
+            <div class="item-list">
+                <div class="item">DVC (Data Version Control): 데이터 + 모델 버전 관리</div>
+                <div class="item">MLflow: 실험 추적, 모델 레지스트리</div>
+                <div class="item">Weights & Biases: 실험 시각화, 협업</div>
+                <div class="item">Git + LFS: 대용량 파일 버전 관리</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

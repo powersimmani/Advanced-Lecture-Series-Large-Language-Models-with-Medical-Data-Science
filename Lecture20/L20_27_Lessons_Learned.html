@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons Learned</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .info-box {
+            background: #f8f9fb; border-left: 4px solid #1E64C8;
+            padding: 20px 24px; border-radius: 6px;
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
+        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Lessons Learned</div>
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <div class="info-title">기술적 교훈</div>
+                <div class="info-content">
+                    <div class="bullet">효과적인 아키텍처 패턴</div><div class="bullet">최적화 기법</div><div class="bullet">피해야 할 함정</div><div class="bullet">도구 선택의 중요성</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">프로젝트 관리</div>
+                <div class="info-content">
+                    <div class="bullet">시간 관리의 중요성</div><div class="bullet">리스크 대응 전략</div><div class="bullet">팀 커뮤니케이션</div><div class="bullet">일정 조정 경험</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">개선 권장사항</div>
+                <div class="info-content">
+                    <div class="bullet">더 나은 설계 방법</div><div class="bullet">테스트 전략 개선</div><div class="bullet">문서화 프로세스</div><div class="bullet">배포 자동화</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">개인 성장</div>
+                <div class="info-content">
+                    <div class="bullet">새로운 기술 습득</div><div class="bullet">문제 해결 능력</div><div class="bullet">협업 능력</div><div class="bullet">리더십 개발</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

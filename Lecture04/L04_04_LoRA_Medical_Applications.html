@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoRA: Medical Applications</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 28px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        
+        .concept-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .concept-text {
+            font-size: 17px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .concept-highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .feature-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.25);
+        }
+        
+        .feature-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 6px;
+        }
+        
+        .feature-label {
+            font-size: 13px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .application-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 12px;
+        }
+        
+        .app-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .app-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        
+        .app-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .bullet {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .formula-box {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 10px 16px;
+            text-align: center;
+        }
+        
+        .formula {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1E64C8;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">LoRA: Low-Rank Adaptation</div>
+        
+        <div class="concept-box">
+            <div class="concept-text">
+                <span class="concept-highlight">Matrix Decomposition:</span> W = W₀ + BA where rank(B) = rank(A) = r
+            </div>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-value">0.1%</div>
+                <div class="feature-label">Trainable Params</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-value">r=8-16</div>
+                <div class="feature-label">Typical Rank</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-value">100x</div>
+                <div class="feature-label">Memory Reduction</div>
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">🏥 Medical NER Application</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Disease entity recognition</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Medication extraction</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Symptom identification</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Procedure coding</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">⚙️ Configuration Guidelines</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>r=4:</strong> Simple tasks, limited data</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>r=8:</strong> Most medical NLP tasks</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>r=16:</strong> Complex reasoning</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>r=32-64:</strong> Multi-task learning</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="formula-box">
+            <div class="formula">Memory Saving = 1 - (2 × r × d) / (d × d) ≈ 99.9%</div>
+        </div>
+    </div>
+</body>
+</html>

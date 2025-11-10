@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Planning</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .info-box {
+            background: #f8f9fb; border-left: 4px solid #1E64C8;
+            padding: 20px 24px; border-radius: 6px;
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
+        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Maintenance Planning</div>
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <div class="info-title">유지보수 일정</div>
+                <div class="info-content">
+                    <div class="bullet">정기 업데이트 스케줄</div><div class="bullet">보안 패치 적용</div><div class="bullet">성능 최적화</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">모니터링 및 지원</div>
+                <div class="info-content">
+                    <div class="bullet">24/7 시스템 모니터링</div><div class="bullet">사용자 지원 체계</div><div class="bullet">이슈 트래킹</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">업데이트 프로세스</div>
+                <div class="info-content">
+                    <div class="bullet">새로운 기능 추가</div><div class="bullet">버그 수정</div><div class="bullet">모델 재학습 및 배포</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">장기 계획</div>
+                <div class="info-content">
+                    <div class="bullet">기술 부채 관리</div><div class="bullet">시스템 개선 로드맵</div><div class="bullet">확장성 계획</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

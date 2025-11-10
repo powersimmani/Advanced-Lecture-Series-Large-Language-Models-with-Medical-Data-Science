@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer Review Session</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .info-box {
+            background: #f8f9fb; border-left: 4px solid #1E64C8;
+            padding: 20px 24px; border-radius: 6px;
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
+        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Peer Review Session</div>
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <div class="info-title">평가 루브릭</div>
+                <div class="info-content">
+                    <div class="bullet">기능 완성도 (25%)</div><div class="bullet">코드 품질 (25%)</div><div class="bullet">문서화 (20%)</div><div class="bullet">창의성 (30%)</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">피드백 형식</div>
+                <div class="info-content">
+                    <div class="bullet">건설적인 비평</div><div class="bullet">구체적인 개선 제안</div><div class="bullet">긍정적인 측면 강조</div><div class="bullet">학습 포인트 공유</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">동료 평가</div>
+                <div class="info-content">
+                    <div class="bullet">각 팀 상호 평가</div><div class="bullet">피드백 문서 작성</div><div class="bullet">토론 및 질문</div><div class="bullet">베스트 프랙티스 공유</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">학습 효과</div>
+                <div class="info-content">
+                    <div class="bullet">다른 접근법 이해</div><div class="bullet">문제 해결 아이디어 획득</div><div class="bullet">협업 능력 향상</div><div class="bullet">비판적 사고 개발</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

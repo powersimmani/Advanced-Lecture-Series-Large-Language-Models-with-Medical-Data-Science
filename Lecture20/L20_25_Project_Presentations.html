@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Presentations</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .info-box {
+            background: #f8f9fb; border-left: 4px solid #1E64C8;
+            padding: 20px 24px; border-radius: 6px;
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
+        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Project Presentations</div>
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <div class="info-title">발표 구조</div>
+                <div class="info-content">
+                    <div class="bullet">프로젝트 개요 및 목표</div><div class="bullet">시스템 아키텍처 설명</div><div class="bullet">주요 기능 데모</div><div class="bullet">결과 및 성과</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">발표 팁</div>
+                <div class="info-content">
+                    <div class="bullet">명확하고 간결한 전달</div><div class="bullet">시각 자료 효과적 활용</div><div class="bullet">청중과의 상호작용</div><div class="bullet">질의응답 준비</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">평가 기준</div>
+                <div class="info-content">
+                    <div class="bullet">기술적 완성도</div><div class="bullet">프레젠테이션 품질</div><div class="bullet">창의성과 혁신</div><div class="bullet">팀워크와 협업</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">시간 배정</div>
+                <div class="info-content">
+                    <div class="bullet">발표 15분</div><div class="bullet">데모 5분</div><div class="bullet">질의응답 5분</div><div class="bullet">총 25분</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

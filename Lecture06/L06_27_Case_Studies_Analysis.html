@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .info-section {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .content-item {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.4;
+            padding: 4px;
+        }
+        
+        .highlight-box {
+            background: #fff4e6;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px 25px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Real-World Case Studies</div>
+        
+        <div class="info-section">
+            <div class="section-title">Case 1: Sepsis Detection</div>
+            <div class="content-grid">
+                <div class="content-item">
+                    <strong>Presentation:</strong> 72yo, fever 39.2°C, confusion, HR 125, BP 85/50
+                </div>
+                <div class="content-item">
+                    <strong>CoT Process:</strong> SIRS criteria → infection source → SOFA score → sepsis diagnosis
+                </div>
+                <div class="content-item">
+                    <strong>Outcome:</strong> Early recognition → prompt antibiotics → improved survival
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="section-title">Case 2: Atypical Presentation</div>
+            <div class="content-grid">
+                <div class="content-item">
+                    <strong>Presentation:</strong> 45yo female, fatigue, no chest pain, mild dyspnea
+                </div>
+                <div class="content-item">
+                    <strong>CoT Process:</strong> Atypical symptoms → considered MI (women present differently) → ECG → troponin → diagnosed NSTEMI
+                </div>
+                <div class="content-item">
+                    <strong>Outcome:</strong> CoT helped recognize atypical presentation, standard prompting missed it
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="section-title">Case 3: Complex Comorbidity</div>
+            <div class="content-grid">
+                <div class="content-item">
+                    <strong>Presentation:</strong> DM + CKD + CHF patient with worsening shortness of breath
+                </div>
+                <div class="content-item">
+                    <strong>CoT Process:</strong> Multiple potential causes → systematically evaluated each → identified CHF exacerbation + UTI
+                </div>
+                <div class="content-item">
+                    <strong>Outcome:</strong> Treated both conditions appropriately, avoided missing secondary diagnosis
+                </div>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <strong style="color: #1E64C8;">Lesson:</strong> CoT excels at complex, atypical cases requiring careful reasoning
+        </div>
+    </div>
+</body>
+</html>

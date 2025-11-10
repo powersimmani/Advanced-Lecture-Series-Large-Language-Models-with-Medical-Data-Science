@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compression Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .necessity-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+        }
+        
+        .necessity-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .necessity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .necessity-item {
+            font-size: 18px;
+            color: #333;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .necessity-item::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .methods-section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .method-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .method-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .method-desc {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .tradeoff-section {
+            background: #fff4e6;
+            border: 2px dashed #1E64C8;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .tradeoff-text {
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .tradeoff-highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Model Compression Overview</div>
+        
+        <div class="necessity-box">
+            <div class="necessity-title">왜 압축이 필요한가?</div>
+            <div class="necessity-list">
+                <div class="necessity-item">의료 현장의 제한된 컴퓨팅 리소스 (모바일, 웨어러블, POC 장비)</div>
+                <div class="necessity-item">실시간 진단 요구사항 (저지연 추론)</div>
+                <div class="necessity-item">배터리 효율성 및 전력 소비 최소화</div>
+                <div class="necessity-item">개인정보 보호를 위한 온-디바이스 처리</div>
+            </div>
+        </div>
+        
+        <div class="methods-section">
+            <div class="section-title">주요 압축 방법론</div>
+            <div class="methods-grid">
+                <div class="method-card">
+                    <div class="method-name">Knowledge<br>Distillation</div>
+                    <div class="method-desc">Teacher 모델의 지식을 작은 Student 모델로 전달</div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-name">Quantization</div>
+                    <div class="method-desc">가중치 비트 수 감소<br>(FP32→INT8)</div>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-name">Pruning</div>
+                    <div class="method-desc">불필요한 가중치 및 뉴런 제거</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tradeoff-section">
+            <div class="tradeoff-text">
+                <span class="tradeoff-highlight">핵심 트레이드오프:</span> 모델 크기/속도 향상 ↔ 정확도 유지
+            </div>
+        </div>
+    </div>
+</body>
+</html>

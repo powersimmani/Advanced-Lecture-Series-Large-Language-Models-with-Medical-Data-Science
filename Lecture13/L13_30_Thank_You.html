@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 60px;
+        }
+        .thank-you {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .summary-box {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        .summary-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .key-points {
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        .resources {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="thank-you">Thank You! 🎉</div>
+        
+        <div class="summary-box">
+            <div class="summary-title">Key Takeaways</div>
+            <div class="key-points">
+                ✓ FL enables privacy-preserving multi-hospital collaboration<br>
+                ✓ Differential privacy & secure aggregation protect data<br>
+                ✓ Heterogeneity requires specialized algorithms (FedProx, SCAFFOLD)<br>
+                ✓ GDPR/HIPAA compliance is achievable with proper design<br>
+                ✓ Real-world deployments show promising results
+            </div>
+        </div>
+        
+        <div class="resources">
+            📚 Resources: Flower Framework • PySyft • NVIDIA FLARE<br>
+            🔗 Papers: FedAvg • FedProx • Secure Aggregation
+        </div>
+    </div>
+</body>
+</html>

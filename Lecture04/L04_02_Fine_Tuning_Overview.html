@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine-Tuning Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 28px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        
+        .overview-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .overview-text {
+            font-size: 17px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .overview-highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .methods-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 16px;
+        }
+        
+        .method-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px 18px;
+            transition: all 0.3s;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.25);
+        }
+        
+        .method-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .method-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .characteristics {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px 20px;
+        }
+        
+        .char-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .char-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .char-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .bullet {
+            color: #1E64C8;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Fine-Tuning Overview</div>
+        
+        <div class="overview-box">
+            <div class="overview-text">
+                <span class="overview-highlight">Full Fine-Tuning vs Parameter-Efficient Methods</span><br>
+                Adapting pre-trained models to medical domain
+            </div>
+        </div>
+        
+        <div class="methods-grid">
+            <div class="method-card">
+                <div class="method-title">Full Fine-Tuning</div>
+                <div class="method-desc">
+                    • Updates all model parameters<br>
+                    • Requires large GPU memory<br>
+                    • Best performance on large datasets<br>
+                    • High computational cost
+                </div>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-title">Parameter-Efficient (PEFT)</div>
+                <div class="method-desc">
+                    • Updates only small subset<br>
+                    • 10-100x less memory<br>
+                    • Faster training<br>
+                    • Good for limited resources
+                </div>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-title">Medical Data Characteristics</div>
+                <div class="method-desc">
+                    • Limited labeled data<br>
+                    • High annotation cost<br>
+                    • Domain-specific terminology<br>
+                    • Privacy constraints
+                </div>
+            </div>
+            
+            <div class="method-card">
+                <div class="method-title">Resource Requirements</div>
+                <div class="method-desc">
+                    • GPU memory: 24-80GB<br>
+                    • Training time: hours to days<br>
+                    • Dataset size: 1K-1M samples<br>
+                    • Storage: 10-500GB
+                </div>
+            </div>
+        </div>
+        
+        <div class="characteristics">
+            <div class="char-title">⚡ Key Considerations</div>
+            <div class="char-list">
+                <div class="char-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Trade-off:</strong> Performance vs. Efficiency vs. Resource availability</span>
+                </div>
+                <div class="char-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Strategy:</strong> Start with PEFT methods, scale to full fine-tuning if needed</span>
+                </div>
+                <div class="char-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Safety:</strong> Medical domain requires careful validation and testing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

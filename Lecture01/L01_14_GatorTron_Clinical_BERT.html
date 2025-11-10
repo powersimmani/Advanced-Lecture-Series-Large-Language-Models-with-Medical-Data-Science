@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GatorTron - Clinical BERT</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px 50px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">GatorTron - Clinical BERT</div>
+        
+        <div style="background:linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);color:white;border-radius:10px;padding:25px;margin-bottom:20px;">
+            <h3 style="font-size:24px;text-align:center;margin-bottom:15px;">8.9B Parameter Clinical Language Model</h3>
+            <div style="text-align:center;font-size:16px;">Trained on 90 billion words from UF Health clinical notes</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:15px;">
+            <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;border-radius:8px;">
+                <h4 style="color:#1E64C8;margin-bottom:8px;">NER Performance</h4>
+                <div style="font-size:32px;font-weight:700;color:#28a745;">96%</div>
+                <div style="font-size:13px;color:#666;">F1 Score</div>
+            </div>
+            <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;border-radius:8px;">
+                <h4 style="color:#1E64C8;margin-bottom:8px;">Relation Extract</h4>
+                <div style="font-size:32px;font-weight:700;color:#28a745;">94%</div>
+                <div style="font-size:13px;color:#666;">F1 Score</div>
+            </div>
+            <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;border-radius:8px;">
+                <h4 style="color:#1E64C8;margin-bottom:8px;">Parameters</h4>
+                <div style="font-size:32px;font-weight:700;color:#1E64C8;">8.9B</div>
+                <div style="font-size:13px;color:#666;">Largest clinical</div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

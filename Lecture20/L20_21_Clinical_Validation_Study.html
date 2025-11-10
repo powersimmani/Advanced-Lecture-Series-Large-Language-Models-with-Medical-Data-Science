@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Validation Study</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .info-box {
+            background: #f8f9fb; border-left: 4px solid #1E64C8;
+            padding: 20px 24px; border-radius: 6px;
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
+        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Clinical Validation Study</div>
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <div class="info-title">연구 프로토콜</div>
+                <div class="info-content">
+                    <div class="bullet">연구 설계 및 목적</div><div class="bullet">포함/제외 기준</div><div class="bullet">샘플 크기 계산</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">검증 메트릭</div>
+                <div class="info-content">
+                    <div class="bullet">진단 정확도</div><div class="bullet">민감도와 특이도</div><div class="bullet">양성/음성 예측도</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">임상 평가</div>
+                <div class="info-content">
+                    <div class="bullet">전문의 비교 연구</div><div class="bullet">실제 임상 환경 테스트</div><div class="bullet">환자 안전성 평가</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">규제 준수</div>
+                <div class="info-content">
+                    <div class="bullet">IRB 승인</div><div class="bullet">FDA/CE 인증 준비</div><div class="bullet">임상 시험 문서화</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

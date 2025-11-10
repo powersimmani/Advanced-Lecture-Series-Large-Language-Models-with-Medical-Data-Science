@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incremental Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .item {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">증분 학습 (Incremental Learning)</div>
+        
+        <div class="section">
+            <div class="section-title">🔄 증분 학습 개념</div>
+            <div class="item-list">
+                <div class="item">새로운 데이터를 점진적으로 통합</div>
+                <div class="item">전체 데이터 재학습 없이 모델 업데이트</div>
+                <div class="item">메모리 효율적인 학습 방식</div>
+                <div class="item">온라인/오프라인 학습 모두 지원</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">📊 데이터 스트림 처리</div>
+            <div class="item-list">
+                <div class="item">Mini-batch Updates: 작은 배치로 지속 학습</div>
+                <div class="item">Sliding Window: 최근 데이터에 가중치</div>
+                <div class="item">Class Incremental: 새로운 클래스 추가 학습</div>
+                <div class="item">Task Incremental: 새로운 작업 추가</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">⚡ 증분 프로세스</div>
+            <div class="item-list">
+                <div class="item">1단계: 새 데이터 배치 수집</div>
+                <div class="item">2단계: 현재 모델로 사전 검증</div>
+                <div class="item">3단계: 점진적 파라미터 업데이트</div>
+                <div class="item">4단계: 성능 모니터링 및 검증</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

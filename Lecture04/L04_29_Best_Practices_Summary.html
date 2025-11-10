@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practices Summary</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 28px 40px; background: white; }
+        .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 18px; text-align: center; }
+        .concept-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .concept-text { font-size: 17px; color: #333; font-weight: 500; }
+        .concept-highlight { color: #1E64C8; font-weight: 700; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .feature-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-align: center;
+        }
+        .feature-value { font-size: 24px; font-weight: 700; color: #1E64C8; margin-bottom: 6px; }
+        .feature-label { font-size: 13px; color: #555; font-weight: 500; }
+        .application-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 12px;
+        }
+        .app-title { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .app-list { display: flex; flex-direction: column; gap: 8px; }
+        .app-item { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: #333; line-height: 1.4; }
+        .bullet { color: #1E64C8; font-weight: 700; flex-shrink: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Best Practices Summary</div>
+
+        <div class="concept-box">
+            <div class="concept-text">
+                <span class="concept-highlight">10 Key Best Practices</span><br>
+                Lessons learned from medical LLM fine-tuning
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">✅ Do's</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Start Small:</strong> Begin with PEFT methods (LoRA r=8)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Validate Extensively:</strong> Use multiple medical benchmarks</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Monitor Safety:</strong> Track harmful output rates continuously</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Use Mixed Precision:</strong> FP16 for memory efficiency</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Document Everything:</strong> Model cards, training logs</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">❌ Don'ts</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Don't Skip Validation:</strong> Always use held-out test sets</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Don't Ignore Forgetting:</strong> Monitor general capabilities</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Don't Over-tune:</strong> Stop at validation peak</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Don't Deploy Untested:</strong> Require expert review</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Don't Forget Privacy:</strong> De-identify training data</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">🔍 Common Mistakes</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Using too high learning rates (causes instability)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Insufficient data preprocessing (noise in medical texts)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Ignoring class imbalance (rare diseases underrepresented)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Not using gradient accumulation (memory constraints)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">📋 Pre-Deployment Checklist</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">☑</span>
+                    <span>Performance validated on multiple test sets</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">☑</span>
+                    <span>Safety metrics within acceptable thresholds</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">☑</span>
+                    <span>Expert review completed (3+ medical professionals)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">☑</span>
+                    <span>Regulatory compliance documented</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

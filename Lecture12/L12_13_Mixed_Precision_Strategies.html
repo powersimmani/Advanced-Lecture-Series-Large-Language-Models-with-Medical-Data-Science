@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixed Precision Strategies</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { width: 960px; padding: 30px 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
+        
+        /* Common styles */
+        .quant-intro, .mixed-intro, .pruning-intro, .magnitude-intro, .hypothesis-intro, .dynamic-intro {
+            background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 20px; margin-bottom: 25px; text-align: center;
+        }
+        .intro-title { font-size: 22px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
+        .intro-desc { font-size: 16px; color: #555; line-height: 1.6; }
+        
+        /* Grid layouts */
+        .precision-grid, .benefits-grid, .strategy-grid, .types-grid, .strategy-grid, .methods-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
+        }
+        .comparison-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        
+        /* Cards */
+        .precision-card, .benefit-card, .strategy-card, .type-card, .strat-card, .method-box, .comp-card {
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; transition: all 0.3s;
+        }
+        .precision-card:hover, .strategy-card:hover, .type-card:hover, .strat-card:hover, .method-box:hover, .comp-card:hover {
+            transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30,100,200,0.2);
+        }
+        
+        /* Typography */
+        .prec-type, .strategy-name, .type-name, .strat-name, .method-name, .comp-type {
+            font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px;
+        }
+        .prec-bits, .prec-note, .strategy-precision, .strategy-reason, .type-visual, .strat-desc, .method-desc, .comp-desc {
+            font-size: 15px; color: #555; line-height: 1.5;
+        }
+        
+        /* Section titles */
+        .comparison-title, .benefits-title, .example-title, .types-title, .adv-title, .steps-title, 
+        .strategy-title, .example-title, .process-title, .findings-title, .methods-title, .comparison-title {
+            font-size: 20px; font-weight: 700; color: #1E64C8; margin-bottom: 15px; text-align: center;
+        }
+        
+        /* Special boxes */
+        .benefits-box, .tools-box, .advantages-box, .sparsity-example, .findings-box {
+            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px;
+            padding: 20px; margin-top: 20px;
+        }
+        .accuracy-note, .medical-example, .advantage-note {
+            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; font-size: 16px; color: #333; margin-top: 20px;
+        }
+        
+        /* Lists */
+        .adv-list, .findings-list { display: flex; flex-direction: column; gap: 10px; }
+        .adv-item, .finding-item { 
+            font-size: 16px; color: #333; padding: 10px; background: #f8f9fa; 
+            border-radius: 6px; display: flex; align-items: center; gap: 10px;
+        }
+        
+        /* Process flows */
+        .steps-flow { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .step-box { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; min-width: 120px;
+        }
+        .step-num { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .step-text { font-size: 14px; color: #555; }
+        .arrow-right { font-size: 24px; color: #1E64C8; }
+        
+        /* Discovery process */
+        .process-steps { display: flex; flex-direction: column; gap: 12px; }
+        .proc-step { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 12px 20px; display: flex; gap: 15px; align-items: center;
+        }
+        .proc-num { font-size: 16px; font-weight: 700; color: #1E64C8; min-width: 120px; }
+        .proc-desc { font-size: 15px; color: #555; }
+        
+        /* Analysis */
+        .analysis-content { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
+        .analysis-item { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; display: flex; align-items: center; justify-content: center; gap: 15px;
+            font-size: 16px;
+        }
+        .layer-name { color: #333; font-weight: 600; }
+        .arrow { color: #1E64C8; font-size: 20px; font-weight: 700; }
+        .precision-choice { color: #1E64C8; font-weight: 700; }
+        
+        /* Highlights */
+        .highlight { color: #1E64C8; font-weight: 700; }
+        .highlight-card { border: 3px solid #1E64C8; background: #f8fbff; }
+        .benefit-icon, .finding-icon { font-size: 24px; }
+        .tools-text { text-align: center; font-size: 16px; color: #333; font-weight: 500; }
+        .example-visual { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; font-size: 16px; color: #333; line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Mixed Precision Strategies</div>
+        
+        <div class="mixed-intro">
+            <div class="intro-title">혼합 정밀도 전략</div>
+            <div class="intro-desc">레이어별로 다른 정밀도를 사용하여 성능과 효율성의 균형 달성</div>
+        </div>
+        <div class="strategy-examples">
+            <div class="example-title">전략 예시</div>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <div class="strategy-name">입력층</div>
+                    <div class="strategy-precision">INT8/FP16</div>
+                    <div class="strategy-reason">빠른 처리 가능</div>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-name">중간층</div>
+                    <div class="strategy-precision">INT8</div>
+                    <div class="strategy-reason">대부분의 연산</div>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-name">출력층</div>
+                    <div class="strategy-precision">FP16/FP32</div>
+                    <div class="strategy-reason">정확한 확률 계산</div>
+                </div>
+            </div>
+        </div>
+        <div class="sensitivity-analysis">
+            <div class="analysis-title">레이어 민감도 분석</div>
+            <div class="analysis-content">
+                <div class="analysis-item">
+                    <span class="layer-name">민감한 레이어</span>
+                    <span class="arrow">→</span>
+                    <span class="precision-choice">FP16/FP32 유지</span>
+                </div>
+                <div class="analysis-item">
+                    <span class="layer-name">덜 민감한 레이어</span>
+                    <span class="arrow">→</span>
+                    <span class="precision-choice">INT8/INT4 적용</span>
+                </div>
+            </div>
+        </div>
+        <div class="tools-box">
+            <div class="tools-title">도구</div>
+            <div class="tools-text">PyTorch Quantization, TensorRT, ONNX Runtime</div>
+        </div>
+    </div>
+</body>
+</html>

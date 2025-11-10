@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPO in Medical Applications</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 18px;
+        }
+        
+        .section-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .section-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .item {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 18px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">PPO in Medical Applications</div>
+        
+        <div class="section">
+            <div class="section-title">Proximal Policy Optimization (PPO)</div>
+            <div class="section-text">PPO is the most widely used algorithm for RLHF, providing stable updates that prevent catastrophic policy changes in medical AI systems.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Key Features</div>
+            <div class="items-list">
+                <div class="item">Clipped Objective: Limits policy updates to prevent drastic changes</div>
+                <div class="item">Trust Region: Maintains proximity to previous policy</div>
+                <div class="item">Stability: Reduces training instability compared to vanilla policy gradient</div>
+                <div class="item">Sample Efficiency: Reuses data multiple times per iteration</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Medical Applications</div>
+            <div class="items-list">
+                <div class="item">Clinical Decision Support: Optimize treatment recommendations</div>
+                <div class="item">Diagnostic Assistance: Refine diagnostic suggestions</div>
+                <div class="item">Report Generation: Improve medical report quality</div>
+                <div class="item">Patient Communication: Enhance patient-facing chatbots</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Training Process</div>
+            <div class="items-list">
+                <div class="item">Collect rollouts using current policy</div>
+                <div class="item">Compute advantages using reward model</div>
+                <div class="item">Update policy with clipped objective</div>
+                <div class="item">Apply KL penalty to maintain similarity to base model</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

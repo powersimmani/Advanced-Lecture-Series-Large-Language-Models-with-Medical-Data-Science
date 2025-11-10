@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIP Medical Variants</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .clip-overview {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px 25px;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        
+        .clip-text {
+            font-size: 17px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .clip-highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .architecture-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+            padding: 0 20px;
+        }
+        
+        .flow-box {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .flow-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .flow-content {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 15px;
+            color: #555;
+        }
+        
+        .arrow {
+            font-size: 28px;
+            color: #1E64C8;
+            font-weight: bold;
+            flex: 0 0 40px;
+            text-align: center;
+        }
+        
+        .variants-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .variant-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+        
+        .variant-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .variant-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .variant-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+        .learning-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .learning-box {
+            background: #f8f9fb;
+            border-left: 4px solid #1E64C8;
+            padding: 15px 18px;
+            border-radius: 6px;
+        }
+        
+        .learning-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .learning-content {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .bullet {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 4px;
+        }
+        
+        .bullet::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">CLIP Medical Variants: Contrastive Learning</div>
+        
+        <div class="clip-overview">
+            <div class="clip-text">
+                <span class="clip-highlight">CLIP (Contrastive Language-Image Pre-training)</span>:
+                영상과 텍스트를 공통 임베딩 공간에 정렬하여 <span class="clip-highlight">제로샷 학습</span> 가능
+            </div>
+        </div>
+        
+        <div class="architecture-flow">
+            <div class="flow-box">
+                <div class="flow-label">Image Encoder</div>
+                <div class="flow-content">ResNet / ViT<br>영상 특징 추출</div>
+            </div>
+            
+            <div class="arrow">→</div>
+            
+            <div class="flow-box">
+                <div class="flow-label">Projection</div>
+                <div class="flow-content">공통<br>임베딩 공간</div>
+            </div>
+            
+            <div class="arrow">←</div>
+            
+            <div class="flow-box">
+                <div class="flow-label">Text Encoder</div>
+                <div class="flow-content">Transformer<br>텍스트 특징 추출</div>
+            </div>
+        </div>
+        
+        <div class="variants-grid">
+            <div class="variant-card">
+                <div class="variant-name">MedCLIP</div>
+                <div class="variant-desc">의료 영상-텍스트 쌍으로 학습, 일반 질환 진단</div>
+            </div>
+            
+            <div class="variant-card">
+                <div class="variant-name">BiomedCLIP</div>
+                <div class="variant-desc">1500만 생의학 영상-텍스트, 광범위 도메인 커버</div>
+            </div>
+            
+            <div class="variant-card">
+                <div class="variant-name">PubMedCLIP</div>
+                <div class="variant-desc">PubMed 논문 기반, 과학적 영상 이해</div>
+            </div>
+            
+            <div class="variant-card">
+                <div class="variant-name">RadCLIP</div>
+                <div class="variant-desc">방사선 영상 특화, X-ray/CT 리포트</div>
+            </div>
+            
+            <div class="variant-card">
+                <div class="variant-name">PathCLIP</div>
+                <div class="variant-desc">병리 슬라이드 전용, 조직 분류</div>
+            </div>
+            
+            <div class="variant-card">
+                <div class="variant-name">CXR-CLIP</div>
+                <div class="variant-desc">흉부 X-ray 초점, 폐질환 검출</div>
+            </div>
+        </div>
+        
+        <div class="learning-section">
+            <div class="learning-box">
+                <div class="learning-title">대조 학습 (Contrastive Learning)</div>
+                <div class="learning-content">
+                    <div class="bullet">매칭 영상-텍스트 쌍: 높은 유사도</div>
+                    <div class="bullet">비매칭 쌍: 낮은 유사도</div>
+                    <div class="bullet">InfoNCE loss로 구분 학습</div>
+                </div>
+            </div>
+            
+            <div class="learning-box">
+                <div class="learning-title">영상-텍스트 정렬 효과</div>
+                <div class="learning-content">
+                    <div class="bullet">제로샷 분류 가능</div>
+                    <div class="bullet">텍스트 쿼리로 영상 검색</div>
+                    <div class="bullet">멀티모달 표현 학습</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

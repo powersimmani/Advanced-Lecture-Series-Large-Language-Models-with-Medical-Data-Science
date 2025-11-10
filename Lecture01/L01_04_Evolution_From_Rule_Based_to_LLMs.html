@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolution From Rule-Based to LLMs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 50px;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .era {
+            background: linear-gradient(90deg, #f0f5fc 0%, #ffffff 100%);
+            border-left: 5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px 24px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .era:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
+        }
+        
+        .era-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .era-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
+        .era-period {
+            font-size: 16px;
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .era-tech {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        
+        .era-tech strong {
+            color: #1E64C8;
+        }
+        
+        .era-limit {
+            font-size: 15px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .complexity-indicator {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Evolution From Rule-Based Systems to LLMs</div>
+        
+        <div class="timeline">
+            <div class="era">
+                <div class="era-header">
+                    <div class="era-name">1️⃣ Rule-Based Systems</div>
+                    <div class="era-period">1970s - 1990s</div>
+                </div>
+                <div class="era-tech"><strong>Technology:</strong> Expert systems, decision trees, if-then rules</div>
+                <div class="era-limit"><strong>Limitation:</strong> Cannot handle uncertainty, requires manual rule creation</div>
+                <div class="complexity-indicator">📊</div>
+            </div>
+            
+            <div class="era">
+                <div class="era-header">
+                    <div class="era-name">2️⃣ Statistical Machine Learning</div>
+                    <div class="era-period">2000s - 2010s</div>
+                </div>
+                <div class="era-tech"><strong>Technology:</strong> SVM, Random Forest, Naive Bayes</div>
+                <div class="era-limit"><strong>Limitation:</strong> Requires feature engineering, limited generalization</div>
+                <div class="complexity-indicator">📈</div>
+            </div>
+            
+            <div class="era">
+                <div class="era-header">
+                    <div class="era-name">3️⃣ Deep Learning Era</div>
+                    <div class="era-period">2010s - 2020</div>
+                </div>
+                <div class="era-tech"><strong>Technology:</strong> CNN, RNN, LSTM, attention mechanisms</div>
+                <div class="era-limit"><strong>Limitation:</strong> Task-specific models, large labeled data needed</div>
+                <div class="complexity-indicator">🧠</div>
+            </div>
+            
+            <div class="era">
+                <div class="era-header">
+                    <div class="era-name">4️⃣ Large Language Models</div>
+                    <div class="era-period">2020s - Present</div>
+                </div>
+                <div class="era-tech"><strong>Technology:</strong> Transformers, self-attention, pre-training + fine-tuning</div>
+                <div class="era-limit"><strong>Strength:</strong> Few-shot learning, broad medical knowledge, natural language understanding</div>
+                <div class="complexity-indicator">🚀</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

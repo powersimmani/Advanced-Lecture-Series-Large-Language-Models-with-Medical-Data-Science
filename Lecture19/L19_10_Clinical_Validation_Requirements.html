@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Validation Requirements</title>
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Aptos, 'Segoe UI', sans-serif;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    
+    .container {
+        width: 960px;
+        height: 540px;
+        padding: 28px 40px;
+        background: white;
+    }
+    
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1E64C8;
+        margin-bottom: 18px;
+        text-align: center;
+    }
+    
+    .intro-box {
+        background: #f0f5fc;
+        border: 2px solid #1E64C8;
+        border-radius: 10px;
+        padding: 12px 20px;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+    
+    .intro-text {
+        font-size: 16px;
+        color: #333;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+    
+    .intro-highlight {
+        color: #1E64C8;
+        font-weight: 700;
+    }
+    
+    .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+    
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+    
+    .card {
+        background: white;
+        border: 2.5px solid #1E64C8;
+        border-radius: 8px;
+        padding: 14px 16px;
+        transition: all 0.3s;
+    }
+    
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+        background: #f8fbff;
+    }
+    
+    .card-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #1E64C8;
+        margin-bottom: 6px;
+    }
+    
+    .card-desc {
+        font-size: 13px;
+        color: #555;
+        line-height: 1.4;
+    }
+    
+    .info-box {
+        background: #f8f9fa;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin-bottom: 12px;
+    }
+    
+    .info-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1E64C8;
+        margin-bottom: 8px;
+    }
+    
+    .info-item {
+        font-size: 13px;
+        color: #555;
+        margin-bottom: 4px;
+        line-height: 1.4;
+    }
+    
+    .highlight-box {
+        background: #fff4e6;
+        border-left: 4px solid #ff9800;
+        border-radius: 4px;
+        padding: 10px 14px;
+        font-size: 13px;
+        color: #555;
+        line-height: 1.5;
+        margin-top: 10px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Clinical Validation Requirements</div>
+        <div class="intro-box">
+
+        <div class="intro-text">
+            임상 검증은 <span class="intro-highlight">의료 AI의 안전성과 효과성</span>을 
+            <span class="intro-highlight">실제 임상 환경</span>에서 입증하는 과정입니다
+        </div>
+    </div>
+    
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">🎯 분석적 검증</div>
+            <div class="card-desc">알고리즘이 의도한 대로 정확하게 작동하는지 확인</div>
+        </div>
+        <div class="card">
+            <div class="card-title">🏥 임상적 검증</div>
+            <div class="card-desc">실제 임상 환경에서 의미 있는 결과를 제공하는지 평가</div>
+        </div>
+    </div>
+    
+    <div class="info-box">
+        <div class="info-title">검증 설계 고려사항</div>
+        <div class="info-item"><strong>연구 설계:</strong> Prospective vs. Retrospective</div>
+        <div class="info-item"><strong>샘플 크기:</strong> 통계적 검정력 확보를 위한 충분한 데이터</div>
+        <div class="info-item"><strong>대조군:</strong> 기존 표준 치료 또는 임상의 판단과 비교</div>
+        <div class="info-item"><strong>엔드포인트:</strong> 민감도, 특이도, AUC, 임상적 결과</div>
+        <div class="info-item"><strong>하위그룹 분석:</strong> 인구통계학적 다양성 평가</div>
+    </div>
+    
+    <div class="grid-3">
+        <div class="card">
+            <div class="card-title">📊 성능 메트릭</div>
+            <div class="card-desc">Sensitivity, Specificity, PPV, NPV, AUC</div>
+        </div>
+        <div class="card">
+            <div class="card-title">🎯 임상 영향</div>
+            <div class="card-desc">진단 정확도, 치료 결과, 환자 안전성</div>
+        </div>
+        <div class="card">
+            <div class="card-title">⚖️ 편향 평가</div>
+            <div class="card-desc">인종, 성별, 연령별 성능 일관성</div>
+        </div>
+    </div>
+    
+    <div class="info-box">
+        <div class="info-title">실세계 증거 (Real-World Evidence)</div>
+        <div class="info-item">• 실제 임상 환경에서의 성능 데이터</div>
+        <div class="info-item">• 시판 후 감시 데이터</div>
+        <div class="info-item">• 레지스트리 연구</div>
+        <div class="info-item">• 전자건강기록(EHR) 분석</div>
+    </div>
+    
+    <div class="highlight-box">
+        <strong>💡 Key Point:</strong> 임상 검증은 단순한 알고리즘 정확도를 넘어, 
+        실제 임상 워크플로우에서 환자 결과를 개선하는지 입증해야 합니다
+    </div>
+    
+    </div>
+</body>
+</html>

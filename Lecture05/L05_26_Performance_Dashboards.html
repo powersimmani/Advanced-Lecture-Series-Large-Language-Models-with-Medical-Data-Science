@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Dashboards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 60px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .features-section {
+            background: #f8f9fa;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .features-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .feature-item {
+            font-size: 15px;
+            color: #333;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-icon {
+            font-size: 20px;
+        }
+        
+        .performance-box {
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+            border-radius: 8px;
+            padding: 15px 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        .performance-text {
+            font-size: 17px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Performance Dashboards</div>
+        
+        <div class="features-section" style="margin-bottom: 20px;">
+            <div class="features-title">Key Performance Indicators</div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">📊</span>
+                    <span>Accuracy and error rates</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⏱️</span>
+                    <span>Response time and latency</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <span>Clinical relevance scores</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⚠️</span>
+                    <span>Safety incidents and hallucinations</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features-section" style="margin-bottom: 20px;">
+            <div class="features-title">Dashboard Features</div>
+            <div style="font-size: 16px; color: #333; line-height: 1.6; padding: 10px 0;">
+                • <strong>Real-time monitoring:</strong> Live metric updates<br>
+                • <strong>Alert system:</strong> Automatic threshold notifications<br>
+                • <strong>Trend analysis:</strong> Historical performance tracking<br>
+                • <strong>Drill-down capabilities:</strong> Case-level investigation
+            </div>
+        </div>
+        
+        <div class="performance-box">
+            <div class="performance-text">
+                Visualization: Time series graphs, heatmaps, distribution charts, comparison tables
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Control</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .definition-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .item-card {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .item-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .item-desc {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .tools-section {
+            background: #fff8e6;
+            border: 2px solid #ffa500;
+            border-radius: 8px;
+            padding: 15px 20px;
+        }
+        
+        .tools-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ff8c00;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .tool-badge {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            border: 1.5px solid #ffa500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Access Control</div>
+        
+        <div class="definition-box">
+            Role-Based Access Control (RBAC) ensures only authorized users access resources
+        </div>
+        
+        <div class="items-grid">
+            
+            <div class="item-card">
+                <div class="item-title">Principle of Least Privilege</div>
+                <div class="item-desc">Grant minimum permissions needed</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-title">Role Definitions</div>
+                <div class="item-desc">Data Scientist, ML Engineer, Clinician, Auditor</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-title">Multi-Factor Authentication</div>
+                <div class="item-desc">Require MFA for production access</div>
+            </div>
+
+            <div class="item-card">
+                <div class="item-title">Session Management</div>
+                <div class="item-desc">Timeout inactive sessions, logging</div>
+            </div>
+
+        </div>
+        
+        <div class="tools-section">
+            <div class="tools-title">🛠️ Tools & Platforms</div>
+            <div class="tools-grid">
+                <div class="tool-badge">AWS IAM</div>
+                <div class="tool-badge">Azure AD</div>
+                <div class="tool-badge">OAuth 2.0</div>
+                <div class="tool-badge">SAML</div>
+                
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

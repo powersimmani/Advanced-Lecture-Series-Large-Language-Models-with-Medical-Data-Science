@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Integration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .item {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">피드백 통합 (Feedback Integration)</div>
+        
+        <div class="section">
+            <div class="section-title">👨‍⚕️ 사용자 피드백 수집</div>
+            <div class="item-list">
+                <div class="item">Explicit Feedback: 의료진의 명시적 평가 (정확/부정확)</div>
+                <div class="item">Implicit Feedback: 예측 무시/수용 행동</div>
+                <div class="item">주석 (Annotations): 수정 사항 기록</div>
+                <div class="item">만족도 설문: 정기적인 사용자 조사</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">🔄 피드백 루프</div>
+            <div class="item-list">
+                <div class="item">1단계: 실시간 피드백 수집</div>
+                <div class="item">2단계: 피드백 검증 및 필터링</div>
+                <div class="item">3단계: 재학습 데이터셋에 통합</div>
+                <div class="item">4단계: 모델 재학습 및 검증</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">📊 처리 과정</div>
+            <div class="item-list">
+                <div class="item">품질 필터링: 신뢰할 수 있는 피드백만 선택</div>
+                <div class="item">Aggregation: 여러 의료진 의견 종합</div>
+                <div class="item">Prioritization: 중요한 오류부터 처리</div>
+                <div class="item">Active Learning: 불확실한 케이스 우선 재학습</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

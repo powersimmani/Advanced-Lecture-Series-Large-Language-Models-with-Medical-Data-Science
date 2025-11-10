@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Task Learning</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 28px 40px; background: white; }
+        .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 18px; text-align: center; }
+        .concept-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .concept-text { font-size: 17px; color: #333; font-weight: 500; }
+        .concept-highlight { color: #1E64C8; font-weight: 700; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .feature-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-align: center;
+        }
+        .feature-value { font-size: 24px; font-weight: 700; color: #1E64C8; margin-bottom: 6px; }
+        .feature-label { font-size: 13px; color: #555; font-weight: 500; }
+        .application-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 12px;
+        }
+        .app-title { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .app-list { display: flex; flex-direction: column; gap: 8px; }
+        .app-item { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: #333; line-height: 1.4; }
+        .bullet { color: #1E64C8; font-weight: 700; flex-shrink: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Multi-Task Learning</div>
+
+        <div class="concept-box">
+            <div class="concept-text">
+                <span class="concept-highlight">Simultaneous Training on Multiple Medical Tasks</span><br>
+                Share representations while preventing negative transfer
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">🎯 Multi-Task Architecture</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Shared Backbone:</strong> Common medical knowledge representation</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Task-Specific Heads:</strong> Specialized output layers per task</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Task Routing:</strong> Conditional computation based on task ID</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Gradient Balancing:</strong> Prevent task dominance</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">⚖️ Task Weighting Strategies</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Uniform:</strong> Equal weight for all tasks</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Loss-based:</strong> Weight by inverse of loss magnitude</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Uncertainty:</strong> Weight by task uncertainty/difficulty</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Dynamic:</strong> Adjust weights during training</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">🚫 Preventing Negative Transfer</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Monitor per-task validation performance</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Use task-specific batch normalization</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Implement task clustering (group similar tasks)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Apply gradient surgery techniques</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

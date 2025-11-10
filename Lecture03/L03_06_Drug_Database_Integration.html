@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Database Integration</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .databases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .db-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .db-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.3);
+            background: #f8fbff;
+        }
+        .db-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        .db-count {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .db-desc {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.4;
+        }
+        .knowledge-graph {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .graph-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .graph-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .graph-node {
+            width: 140px;
+            padding: 15px;
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1E64C8;
+        }
+        .graph-connector {
+            font-size: 20px;
+            color: #1E64C8;
+        }
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .feature-item {
+            background: #fff8e6;
+            border-radius: 8px;
+            padding: 12px;
+            border-left: 4px solid #1E64C8;
+        }
+        .feature-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 5px;
+        }
+        .feature-value {
+            font-size: 12px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Drug Database Integration</div>
+        
+        <div class="databases-grid">
+            <div class="db-card">
+                <div class="db-name">💊 DrugBank</div>
+                <div class="db-count">13,000+</div>
+                <div class="db-desc">Comprehensive drug data with molecular structures</div>
+            </div>
+            
+            <div class="db-card">
+                <div class="db-name">🏥 RxNorm</div>
+                <div class="db-count">150,000+</div>
+                <div class="db-desc">Standardized medication nomenclature</div>
+            </div>
+            
+            <div class="db-card">
+                <div class="db-name">📋 FDA Labels</div>
+                <div class="db-count">100,000+</div>
+                <div class="db-desc">Official prescribing information</div>
+            </div>
+        </div>
+        
+        <div class="knowledge-graph">
+            <div class="graph-title">🕸️ Drug Knowledge Graph</div>
+            <div class="graph-items">
+                <div class="graph-node">Drug Entity</div>
+                <div class="graph-connector">↔</div>
+                <div class="graph-node">Interactions</div>
+                <div class="graph-connector">↔</div>
+                <div class="graph-node">Side Effects</div>
+                <div class="graph-connector">↔</div>
+                <div class="graph-node">Indications</div>
+            </div>
+        </div>
+        
+        <div class="features-section">
+            <div class="feature-item">
+                <div class="feature-label">⚠️ Interaction Matrix</div>
+                <div class="feature-value">Drug-drug, drug-food, drug-disease interaction checking</div>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-label">🔬 Pharmacokinetics</div>
+                <div class="feature-value">ADME properties, half-life, metabolism pathways</div>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-label">📊 Adverse Events</div>
+                <div class="feature-value">FDA FAERS database with 10M+ reports</div>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-label">💰 Pricing & Access</div>
+                <div class="feature-value">Cost information and formulary status</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

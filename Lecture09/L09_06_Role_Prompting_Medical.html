@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Prompting for Medical AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 32px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .intro-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .intro-text {
+            font-size: 17px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .roles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .role-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 16px 20px;
+            transition: all 0.3s;
+        }
+        
+        .role-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .role-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .role-icon {
+            font-size: 28px;
+        }
+        
+        .role-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
+        .role-desc {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+        
+        .role-example {
+            background: #f8fbff;
+            border-left: 3px solid #4a90e2;
+            padding: 8px 12px;
+            font-size: 13px;
+            color: #333;
+            font-style: italic;
+            border-radius: 4px;
+        }
+        
+        .performance-comparison {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 14px 18px;
+        }
+        
+        .comparison-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .comparison-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            color: #333;
+        }
+        
+        .item-label {
+            font-weight: 600;
+        }
+        
+        .item-value {
+            font-weight: 700;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Role Prompting for Medical Contexts</div>
+        
+        <div class="intro-box">
+            <div class="intro-text">
+                <span class="highlight">역할 프롬프팅</span>은 AI에게 전문가 페르소나를 부여하여 
+                더 정확하고 맥락에 적합한 응답을 유도합니다.
+            </div>
+        </div>
+        
+        <div class="roles-grid">
+            <div class="role-card">
+                <div class="role-header">
+                    <div class="role-icon">👨‍⚕️</div>
+                    <div class="role-name">Clinical Specialist</div>
+                </div>
+                <div class="role-desc">
+                    특정 임상 분야 전문의 역할
+                </div>
+                <div class="role-example">
+                    "You are a cardiologist with 15 years of experience..."
+                </div>
+            </div>
+            
+            <div class="role-card">
+                <div class="role-header">
+                    <div class="role-icon">🔬</div>
+                    <div class="role-name">Research Analyst</div>
+                </div>
+                <div class="role-desc">
+                    의학 연구 및 문헌 분석 전문가
+                </div>
+                <div class="role-example">
+                    "You are a medical researcher analyzing clinical trials..."
+                </div>
+            </div>
+            
+            <div class="role-card">
+                <div class="role-header">
+                    <div class="role-icon">💊</div>
+                    <div class="role-name">Pharmacologist</div>
+                </div>
+                <div class="role-desc">
+                    약물 작용 및 상호작용 전문가
+                </div>
+                <div class="role-example">
+                    "You are a clinical pharmacologist evaluating drug interactions..."
+                </div>
+            </div>
+            
+            <div class="role-card">
+                <div class="role-header">
+                    <div class="role-icon">📊</div>
+                    <div class="role-name">Medical Coder</div>
+                </div>
+                <div class="role-desc">
+                    의료 코딩 및 분류 전문가
+                </div>
+                <div class="role-example">
+                    "You are a certified medical coder specializing in ICD-10..."
+                </div>
+            </div>
+        </div>
+        
+        <div class="performance-comparison">
+            <div class="comparison-title">성능 차이 (역할 부여 vs 일반 프롬프트)</div>
+            <div class="comparison-grid">
+                <div class="comparison-item">
+                    <span class="item-label">진단 정확도:</span>
+                    <span class="item-value">+18%</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="item-label">응답 관련성:</span>
+                    <span class="item-value">+25%</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="item-label">전문 용어 사용:</span>
+                    <span class="item-value">+32%</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="item-label">맥락 이해도:</span>
+                    <span class="item-value">+22%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

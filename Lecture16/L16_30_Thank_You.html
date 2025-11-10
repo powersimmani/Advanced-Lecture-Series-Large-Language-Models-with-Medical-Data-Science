@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 50px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .summary-box {
+            background: #f0f5fc;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+        }
+        
+        .summary-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .point-item {
+            font-size: 15px;
+            color: #333;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 6px;
+            border-left: 4px solid #1E64C8;
+        }
+        
+        .point-item::before {
+            content: "✓";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .resources-section {
+            background: #fff8e6;
+            border: 2px solid #ffa500;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+        }
+        
+        .resources-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff8c00;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .resource-item {
+            font-size: 14px;
+            color: #333;
+            padding: 6px 12px;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        .resource-item::before {
+            content: "📚";
+            margin-right: 8px;
+        }
+        
+        .contact-box {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .contact-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .contact-email {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Thank You!</div>
+        
+        <div class="summary-box">
+            <div class="summary-title">🎯 Key Takeaways: Medical MLOps</div>
+            <div class="key-points">
+                <div class="point-item">Infrastructure: Containers & K8s</div>
+                <div class="point-item">Versioning: Models, Data, Features</div>
+                <div class="point-item">CI/CD: Automated pipelines</div>
+                <div class="point-item">Monitoring: Performance & Drift</div>
+                <div class="point-item">Compliance: Audit & Governance</div>
+                <div class="point-item">Security: Access control & Backups</div>
+            </div>
+        </div>
+        
+        <div class="resources-section">
+            <div class="resources-title">📖 Additional Resources</div>
+            <div class="resource-list">
+                <div class="resource-item">MLOps: Continuous delivery and automation pipelines in ML (Google)</div>
+                <div class="resource-item">Practitioners guide to MLOps (Google Cloud)</div>
+                <div class="resource-item">ML Engineering for Production (MLOps) Specialization (Coursera)</div>
+            </div>
+        </div>
+        
+        <div class="contact-box">
+            <div class="contact-name">Ho-min Park</div>
+            <div class="contact-email">homin.park@ghent.ac.kr | powersimmani@gmail.com</div>
+        </div>
+    </div>
+</body>
+</html>

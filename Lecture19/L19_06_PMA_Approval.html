@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMA (Premarket Approval) - High-Risk Devices</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 28px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        
+        .intro-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .intro-text {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+        
+        .intro-highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .features-grid, .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .feature-card, .req-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px 16px;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover, .req-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .feature-title, .req-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 6px;
+        }
+        
+        .feature-desc, .req-desc {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .pathway-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        
+        .step-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 16px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .step-number {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 6px;
+        }
+        
+        .step-text {
+            font-size: 13px;
+            color: #555;
+        }
+        
+        .arrow {
+            font-size: 20px;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .timeline-box {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-top: 12px;
+        }
+        
+        .timeline-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        
+        .timeline-step {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .timeline-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 4px;
+        }
+        
+        .timeline-desc {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .pma-requirements {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        
+        .req-category {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px;
+        }
+        
+        .category-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .req-item {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+        
+        .comparison-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px;
+        }
+        
+        .comparison-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .comparison-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .comp-item {
+            display: grid;
+            grid-template-columns: 120px 1fr 1fr;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .comp-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .comp-510k, .comp-pma {
+            font-size: 12px;
+            color: #555;
+            padding: 6px;
+            background: white;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .denovo-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+        
+        .feature-box {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .process-flow {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .flow-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .flow-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .flow-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .step-num {
+            width: 30px;
+            height: 30px;
+            background: #1E64C8;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .step-content {
+            text-align: center;
+        }
+        
+        .step-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 2px;
+        }
+        
+        .step-detail {
+            font-size: 11px;
+            color: #666;
+        }
+        
+        .flow-arrow {
+            font-size: 18px;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .note-box {
+            background: #fff4e6;
+            border-left: 4px solid #ff9800;
+            border-radius: 4px;
+            padding: 10px 14px;
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">PMA (Premarket Approval) - High-Risk Devices</div>
+        
+        <div class="intro-box">
+            <div class="intro-text">
+                PMA는 <span class="intro-highlight">Class III 고위험 의료기기</span>에 요구되는 
+                <span class="intro-highlight">가장 엄격한 규제 경로</span>입니다
+            </div>
+        </div>
+        
+        <div class="pma-requirements">
+            <div class="req-category">
+                <div class="category-title">📋 필수 제출 자료</div>
+                <div class="category-items">
+                    <div class="req-item">• 전임상(Pre-clinical) 연구 데이터</div>
+                    <div class="req-item">• 임상시험(Clinical trial) 결과</div>
+                    <div class="req-item">• 제조 및 품질관리 정보</div>
+                    <div class="req-item">• 라벨링 및 사용 지침</div>
+                    <div class="req-item">• 위험-편익 분석</div>
+                </div>
+            </div>
+            
+            <div class="req-category">
+                <div class="category-title">⏰ 심사 기간</div>
+                <div class="category-items">
+                    <div class="req-item">• Standard: 180일 (filing decision)</div>
+                    <div class="req-item">• 전체 프로세스: 1-3년</div>
+                    <div class="req-item">• Advisory panel 심사 가능</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comparison-box">
+            <div class="comparison-title">510(k) vs PMA 비교</div>
+            <div class="comparison-grid">
+                <div class="comp-item">
+                    <div class="comp-label">증거 수준</div>
+                    <div class="comp-510k">실질적 동등성</div>
+                    <div class="comp-pma">안전성·효과성 입증</div>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-label">임상시험</div>
+                    <div class="comp-510k">선택적</div>
+                    <div class="comp-pma">필수</div>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-label">심사 기간</div>
+                    <div class="comp-510k">~90일</div>
+                    <div class="comp-pma">~180일 (1-3년)</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

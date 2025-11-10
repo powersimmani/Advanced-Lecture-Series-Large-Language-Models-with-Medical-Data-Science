@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Medical Challenges Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 50px;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .challenge-card {
+            background: linear-gradient(135deg, #f0f5fc 0%, #ffffff 100%);
+            border-left: 5px solid #e74c3c;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .challenge-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2);
+        }
+        
+        .challenge-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .challenge-icon {
+            font-size: 28px;
+        }
+        
+        .challenge-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+        
+        .challenge-desc {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .risk-level {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Key Medical AI Challenges</div>
+        
+        <div class="challenges-grid">
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <span class="challenge-icon">🔒</span>
+                    <span class="challenge-title">Data Privacy</span>
+                </div>
+                <div class="challenge-desc">
+                    HIPAA compliance, patient data protection, secure data handling and storage
+                </div>
+                <span class="risk-level">Critical Risk</span>
+            </div>
+            
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <span class="challenge-icon">⚠️</span>
+                    <span class="challenge-title">Medical Errors</span>
+                </div>
+                <div class="challenge-desc">
+                    Hallucinations, incorrect diagnoses, liability concerns, patient safety
+                </div>
+                <span class="risk-level">High Risk</span>
+            </div>
+            
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <span class="challenge-icon">📋</span>
+                    <span class="challenge-title">Regulatory Approval</span>
+                </div>
+                <div class="challenge-desc">
+                    FDA clearance process, clinical validation, compliance documentation
+                </div>
+                <span class="risk-level">High Complexity</span>
+            </div>
+            
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <span class="challenge-icon">🔍</span>
+                    <span class="challenge-title">Explainability</span>
+                </div>
+                <div class="challenge-desc">
+                    Model interpretability, decision transparency, clinical reasoning clarity
+                </div>
+                <span class="risk-level">Medium Risk</span>
+            </div>
+            
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <span class="challenge-icon">⚖️</span>
+                    <span class="challenge-title">Bias & Fairness</span>
+                </div>
+                <div class="challenge-desc">
+                    Demographic bias, training data representation, equitable healthcare access
+                </div>
+                <span class="risk-level">High Risk</span>
+            </div>
+            
+            <div class="challenge-card">
+                <div class="challenge-header">
+                    <span class="challenge-icon">💰</span>
+                    <span class="challenge-title">Implementation Cost</span>
+                </div>
+                <div class="challenge-desc">
+                    Infrastructure investment, training costs, maintenance and updates
+                </div>
+                <span class="risk-level">Medium Complexity</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

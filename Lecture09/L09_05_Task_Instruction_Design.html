@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Instruction Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 32px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .intro-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .intro-text {
+            font-size: 17px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .patterns-section {
+            margin-bottom: 18px;
+        }
+        
+        .section-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        
+        .pattern-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .pattern-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .pattern-icon {
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+        
+        .pattern-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 4px;
+        }
+        
+        .pattern-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.3;
+        }
+        
+        .effectiveness-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .effectiveness-card {
+            background: #f8fbff;
+            border: 2px solid #4a90e2;
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+        
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .card-items {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .card-item {
+            font-size: 14px;
+            color: #333;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .card-item::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: bold;
+        }
+        
+        .good::before {
+            content: "✓";
+            color: #4caf50;
+        }
+        
+        .bad::before {
+            content: "✗";
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Task Instruction Design</div>
+        
+        <div class="intro-box">
+            <div class="intro-text">
+                효과적인 <span class="highlight">태스크 지시문</span>은 명확성, 구조, 맥락을 포함해야 합니다.
+            </div>
+        </div>
+        
+        <div class="patterns-section">
+            <div class="section-title">지시문 패턴</div>
+            <div class="pattern-grid">
+                <div class="pattern-card">
+                    <div class="pattern-icon">🎯</div>
+                    <div class="pattern-name">Direct</div>
+                    <div class="pattern-desc">직접적인 명령형 지시</div>
+                </div>
+                
+                <div class="pattern-card">
+                    <div class="pattern-icon">🔄</div>
+                    <div class="pattern-name">Step-by-Step</div>
+                    <div class="pattern-desc">단계별 수행 절차</div>
+                </div>
+                
+                <div class="pattern-card">
+                    <div class="pattern-icon">📊</div>
+                    <div class="pattern-name">Conditional</div>
+                    <div class="pattern-desc">조건부 논리 포함</div>
+                </div>
+                
+                <div class="pattern-card">
+                    <div class="pattern-icon">🎭</div>
+                    <div class="pattern-name">Role-Based</div>
+                    <div class="pattern-desc">역할 기반 지시</div>
+                </div>
+                
+                <div class="pattern-card">
+                    <div class="pattern-icon">📝</div>
+                    <div class="pattern-name">Template</div>
+                    <div class="pattern-desc">템플릿 기반 생성</div>
+                </div>
+                
+                <div class="pattern-card">
+                    <div class="pattern-icon">🔍</div>
+                    <div class="pattern-name">Contextual</div>
+                    <div class="pattern-desc">맥락 정보 활용</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">효과성 요소</div>
+        <div class="effectiveness-section">
+            <div class="effectiveness-card">
+                <div class="card-title">
+                    <span>✓</span>
+                    <span>효과적인 지시</span>
+                </div>
+                <div class="card-items">
+                    <div class="card-item good">구체적이고 측정 가능한 목표</div>
+                    <div class="card-item good">명확한 입출력 형식 정의</div>
+                    <div class="card-item good">필요한 제약 조건 명시</div>
+                    <div class="card-item good">도메인 특화 용어 사용</div>
+                </div>
+            </div>
+            
+            <div class="effectiveness-card">
+                <div class="card-title">
+                    <span>✗</span>
+                    <span>비효과적인 지시</span>
+                </div>
+                <div class="card-items">
+                    <div class="card-item bad">모호하고 추상적인 요청</div>
+                    <div class="card-item bad">출력 형식 미지정</div>
+                    <div class="card-item bad">과도하게 복잡한 멀티 태스크</div>
+                    <div class="card-item bad">일반적이고 비전문적인 표현</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

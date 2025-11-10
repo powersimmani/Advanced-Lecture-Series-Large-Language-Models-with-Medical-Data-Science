@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follow-Up Care Coordination</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 18px;
+        }
+        
+        .feature-card, .option-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover, .option-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.25);
+            background: #f8fbff;
+        }
+        
+        .feature-name, .option-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .feature-item {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .feature-item::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .pros-section, .cons-section {
+            margin-top: 10px;
+        }
+        
+        .pro-item {
+            font-size: 14px;
+            color: #2d7a2d;
+            margin-bottom: 5px;
+        }
+        
+        .con-item {
+            font-size: 14px;
+            color: #c53030;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Follow-Up Care Coordination</div>
+        
+        <div class="content-grid">
+            
+        <div class="feature-card">
+            <div class="feature-name">Appointment Scheduling</div>
+            <div class="feature-list">
+                <div class="feature-item">추적 관찰 일정</div>
+<div class="feature-item">자동 예약</div>
+<div class="feature-item">리마인더</div>
+<div class="feature-item">알림 설정</div>
+
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-name">Test Follow-up</div>
+            <div class="feature-list">
+                <div class="feature-item">결과 확인</div>
+<div class="feature-item">추가 검사</div>
+<div class="feature-item">이상치 알림</div>
+<div class="feature-item">트렌드 분석</div>
+
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-name">Care Transition</div>
+            <div class="feature-list">
+                <div class="feature-item">퇴원 계획</div>
+<div class="feature-item">의뢰 관리</div>
+<div class="feature-item">타과 연계</div>
+<div class="feature-item">연속성 유지</div>
+
+            </div>
+        </div>
+        
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulatory Considerations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        
+        .feature-card, .option-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover, .option-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.25);
+            background: #f8fbff;
+        }
+        
+        .feature-name, .option-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .feature-item {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .feature-item::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .pros-section, .cons-section {
+            margin-top: 10px;
+        }
+        
+        .pro-item {
+            font-size: 14px;
+            color: #2d7a2d;
+            margin-bottom: 5px;
+        }
+        
+        .con-item {
+            font-size: 14px;
+            color: #c53030;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Regulatory Considerations</div>
+        
+        <div class="content-grid">
+            
+        <div class="feature-card">
+            <div class="feature-name">FDA Regulation</div>
+            <div class="feature-list">
+                <div class="feature-item">SaMD 분류</div>
+<div class="feature-item">임상 시험 요구</div>
+<div class="feature-item">승인 경로</div>
+<div class="feature-item">Post-market Surveillance</div>
+
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-name">Liability</div>
+            <div class="feature-list">
+                <div class="feature-item">책임 소재 명확화</div>
+<div class="feature-item">의료 배상 보험</div>
+<div class="feature-item">면책 범위</div>
+<div class="feature-item">법적 검토</div>
+
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-name">Audit & Validation</div>
+            <div class="feature-list">
+                <div class="feature-item">상세한 로그 기록</div>
+<div class="feature-item">완전한 추적성</div>
+<div class="feature-item">정기적 검증</div>
+<div class="feature-item">성능 모니터링</div>
+
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-name">Data Privacy</div>
+            <div class="feature-list">
+                <div class="feature-item">HIPAA 준수</div>
+<div class="feature-item">GDPR 준수</div>
+<div class="feature-item">개인정보보호</div>
+<div class="feature-item">데이터 암호화</div>
+
+            </div>
+        </div>
+        
+        </div>
+    </div>
+</body>
+</html>

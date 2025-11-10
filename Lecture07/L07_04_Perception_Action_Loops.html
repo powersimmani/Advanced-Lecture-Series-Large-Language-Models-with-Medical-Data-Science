@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perception-Action Loops</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .component-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.25);
+            background: #f8fbff;
+        }
+        
+        .component-name {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .component-desc {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+        .component-features {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: #555;
+        }
+        
+        .feature-item::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        
+        .highlight-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px 20px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .highlight-text {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1E64C8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Perception-Action Loops</div>
+        
+        <div class="architecture-grid">
+            
+            <div class="component-card">
+                <div class="component-name">Observation</div>
+                <div class="component-desc">환자 데이터 수집</div>
+                <div class="component-features">
+                    <div class="feature-item">실시간 모니터링</div><div class="feature-item">증상 관찰</div><div class="feature-item">검사 결과 확인</div>
+                </div>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-name">Reasoning</div>
+                <div class="component-desc">임상 추론</div>
+                <div class="component-features">
+                    <div class="feature-item">증상 분석</div><div class="feature-item">진단 가설</div><div class="feature-item">치료 계획</div>
+                </div>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-name">Action</div>
+                <div class="component-desc">의료 행동</div>
+                <div class="component-features">
+                    <div class="feature-item">처방 작성</div><div class="feature-item">검사 오더</div><div class="feature-item">치료 개입</div>
+                </div>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-name">Feedback</div>
+                <div class="component-desc">결과 평가</div>
+                <div class="component-features">
+                    <div class="feature-item">효과 확인</div><div class="feature-item">부작용 모니터링</div><div class="feature-item">계획 조정</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="highlight-box">
+            <div class="highlight-text">Continuous Learning Loop in Medical Practice</div>
+        </div>
+    </div>
+</body>
+</html>

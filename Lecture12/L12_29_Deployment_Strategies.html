@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Strategies</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { width: 960px; padding: 25px 35px; background: white; }
+        .title { font-size: 30px; font-weight: 700; color: #1E64C8; margin-bottom: 20px; text-align: center; }
+        
+        /* Common intro boxes */
+        .tradeoff-intro, .preservation-intro, .case-intro, .handson-intro, .deployment-intro {
+            background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 18px; margin-bottom: 20px; text-align: center;
+        }
+        .intro-title { font-size: 22px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .intro-desc { font-size: 15px; color: #555; line-height: 1.5; }
+        
+        /* Section titles */
+        .chart-title, .criteria-title, .curve-title, .strategies-title, .statement-title, .timeline-title,
+        .results-title, .code-title, .tools-title, .flow-title, .checklist-title, .matrix-title,
+        .summary-title, .practices-title, .tools-title {
+            font-size: 20px; font-weight: 700; color: #1E64C8; margin: 15px 0 12px 0; text-align: center;
+        }
+        
+        /* Pareto chart */
+        .pareto-chart { margin: 20px 0; }
+        .chart-area { background: #f8f9fa; border: 2px solid #1E64C8; border-radius: 8px; padding: 30px; }
+        .chart-content { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .model-point { 
+            background: white; border: 3px solid #1E64C8; border-radius: 10px;
+            padding: 15px; text-align: center;
+        }
+        .large { border-color: #ff6b6b; }
+        .medium { border-color: #ffa500; }
+        .small { border-color: #51cf66; }
+        .tiny { border-color: #339af0; }
+        .point-label { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .point-stats { font-size: 14px; color: #555; line-height: 1.6; }
+        
+        /* Selection criteria */
+        .criteria-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 15px 0; }
+        .criteria-card { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center;
+        }
+        .card-header { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .card-choice { font-size: 15px; color: #333; font-weight: 600; margin-bottom: 5px; }
+        .card-reason { font-size: 13px; color: #666; font-style: italic; }
+        
+        /* Degradation curve */
+        .degradation-curve { margin: 20px 0; }
+        .curve-visual { display: flex; flex-direction: column; gap: 10px; position: relative; }
+        .curve-row { display: flex; align-items: center; gap: 15px; }
+        .curve-row.critical { border: 2px dashed #ff6b6b; border-radius: 6px; padding: 5px; }
+        .compression-level { min-width: 120px; font-weight: 600; color: #333; font-size: 14px; }
+        .accuracy-bar { 
+            height: 35px; border-radius: 6px; display: flex; align-items: center;
+            justify-content: center; color: white; font-weight: 700; font-size: 16px;
+        }
+        .critical-line { 
+            color: #ff6b6b; font-weight: 700; font-size: 14px; margin-top: 5px;
+            padding-left: 135px;
+        }
+        
+        /* Strategy boxes */
+        .preservation-strategies { margin: 20px 0; }
+        .strategies-list { display: flex; flex-direction: column; gap: 12px; }
+        .strategy-box { 
+            display: flex; align-items: center; gap: 15px;
+            background: white; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px;
+        }
+        .strategy-num { font-size: 24px; min-width: 40px; }
+        .strategy-info { flex: 1; }
+        .strategy-name { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 5px; }
+        .strategy-desc { font-size: 14px; color: #555; }
+        
+        /* Problem statement */
+        .problem-statement { margin: 15px 0; }
+        .statement-content { display: flex; flex-direction: column; gap: 10px; }
+        .problem-item { 
+            display: flex; align-items: center; gap: 12px;
+            background: #f8f9fa; border-left: 4px solid #1E64C8; padding: 12px 15px; border-radius: 6px;
+        }
+        .problem-icon { font-size: 24px; }
+        .problem-text { font-size: 15px; color: #333; }
+        
+        /* Timeline */
+        .approach-timeline { margin: 20px 0; }
+        .timeline-steps { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+        .timeline-step { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; width: 100%; text-align: center;
+        }
+        .timeline-step.success { border: 3px solid #51cf66; background: #f8fff9; }
+        .step-header { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .step-content { font-size: 14px; color: #555; line-height: 1.6; }
+        .arrow-down { font-size: 24px; color: #1E64C8; }
+        
+        /* Results */
+        .results-summary { margin: 20px 0; }
+        .results-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .metric-box { 
+            background: white; border: 3px solid #1E64C8; border-radius: 10px;
+            padding: 20px; text-align: center;
+        }
+        .metric-value { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .metric-label { font-size: 15px; color: #666; }
+        
+        /* Code examples */
+        .code-example { margin: 20px 0; }
+        .code-block { 
+            background: #2d2d2d; color: #f8f8f2; border-radius: 8px;
+            padding: 15px; font-family: 'Courier New', monospace; font-size: 13px;
+            line-height: 1.6; overflow-x: auto;
+        }
+        
+        /* Tools grid */
+        .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .tool-card { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 12px; text-align: center;
+        }
+        .tool-name { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .tool-desc { font-size: 13px; color: #555; line-height: 1.4; }
+        
+        /* Deployment flow */
+        .deployment-flow { margin: 20px 0; }
+        .flow-diagram { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .flow-stage { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; min-width: 140px;
+        }
+        .stage-name { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .stage-tasks { font-size: 13px; color: #555; line-height: 1.6; text-align: left; }
+        .flow-arrow { font-size: 24px; color: #1E64C8; font-weight: 700; }
+        
+        /* Checklist */
+        .checklist-section { margin: 20px 0; }
+        .checklist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        .checklist-category { background: #f8f9fa; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px; }
+        .category-name { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .check-item { font-size: 14px; color: #333; padding: 6px 0; }
+        
+        /* Matrix table */
+        .strategy-matrix { margin: 20px 0; }
+        .matrix-table { background: white; border: 2px solid #1E64C8; border-radius: 8px; overflow: hidden; }
+        .matrix-row { display: grid; grid-template-columns: repeat(3, 1fr); }
+        .matrix-row.header { background: #1E64C8; color: white; font-weight: 700; }
+        .matrix-row:not(.header):nth-child(even) { background: #f8f9fa; }
+        .matrix-cell { padding: 12px 15px; border: 1px solid #e0e0e0; font-size: 14px; text-align: center; }
+        
+        /* Summary section */
+        .summary-section { margin: 20px 0; }
+        .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .summary-card { 
+            background: white; border: 3px solid #1E64C8; border-radius: 10px;
+            padding: 20px; text-align: center;
+        }
+        .card-number { 
+            font-size: 18px; font-weight: 700; color: white; background: #1E64C8;
+            border-radius: 50%; width: 60px; height: 60px; display: flex;
+            align-items: center; justify-content: center; margin: 0 auto 12px auto;
+        }
+        .card-title { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .card-points { font-size: 14px; color: #555; line-height: 1.7; text-align: left; }
+        
+        /* Best practices summary */
+        .best-practices-summary { margin: 20px 0; }
+        .practices-list { display: flex; flex-direction: column; gap: 8px; }
+        .practice { font-size: 15px; color: #333; padding: 10px; background: #f8f9fa; border-radius: 6px; }
+        
+        /* Tools list */
+        .tools-list { 
+            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px;
+            padding: 18px; margin: 20px 0;
+        }
+        .tools-content { font-size: 15px; color: #333; line-height: 1.8; }
+        
+        /* Thank you message */
+        .thankyou-message { 
+            background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
+            border-radius: 12px; padding: 40px; text-align: center; color: white; margin-top: 20px;
+        }
+        .thankyou-title { font-size: 42px; font-weight: 700; margin-bottom: 15px; }
+        .thankyou-subtitle { font-size: 20px; margin-bottom: 10px; opacity: 0.95; }
+        .contact-info { font-size: 16px; opacity: 0.9; }
+        
+        /* Notes */
+        .decision-note, .medical-warning, .practice-note {
+            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; font-size: 15px; color: #333; margin-top: 15px; line-height: 1.6;
+        }
+        .medical-warning { background: #fff5f5; border-color: #ff6b6b; }
+        .warning-icon { font-size: 24px; margin-right: 10px; }
+        .warning-text { display: inline-block; text-align: left; }
+        .highlight { color: #1E64C8; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Deployment Strategies</div>
+        
+        <div class="deployment-intro">
+            <div class="intro-title">배포 전략 및 체크리스트</div>
+            <div class="intro-desc">압축 모델의 성공적인 프로덕션 배포를 위한 전략</div>
+        </div>
+        <div class="deployment-flow">
+            <div class="flow-title">배포 워크플로우</div>
+            <div class="flow-diagram">
+                <div class="flow-stage">
+                    <div class="stage-name">개발</div>
+                    <div class="stage-tasks">
+                        • 모델 압축<br>
+                        • 로컬 테스트<br>
+                        • 벤치마킹
+                    </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-stage">
+                    <div class="stage-name">검증</div>
+                    <div class="stage-tasks">
+                        • A/B 테스트<br>
+                        • 임상 검증<br>
+                        • 규제 승인
+                    </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-stage">
+                    <div class="stage-name">배포</div>
+                    <div class="stage-tasks">
+                        • 점진적 출시<br>
+                        • 모니터링<br>
+                        • 피드백 수집
+                    </div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-stage">
+                    <div class="stage-name">유지보수</div>
+                    <div class="stage-tasks">
+                        • 성능 추적<br>
+                        • 모델 업데이트<br>
+                        • 버전 관리
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="checklist-section">
+            <div class="checklist-title">배포 전 체크리스트 ✅</div>
+            <div class="checklist-grid">
+                <div class="checklist-category">
+                    <div class="category-name">성능</div>
+                    <div class="check-item">□ 정확도 목표 달성</div>
+                    <div class="check-item">□ 지연시간 요구사항 충족</div>
+                    <div class="check-item">□ 메모리 제약 내</div>
+                </div>
+                <div class="checklist-category">
+                    <div class="category-name">안정성</div>
+                    <div class="check-item">□ Edge case 테스트</div>
+                    <div class="check-item">□ 에러 핸들링</div>
+                    <div class="check-item">□ Fallback 메커니즘</div>
+                </div>
+                <div class="checklist-category">
+                    <div class="category-name">규제</div>
+                    <div class="check-item">□ FDA/CE 인증 (필요시)</div>
+                    <div class="check-item">□ 개인정보 보호</div>
+                    <div class="check-item">□ 설명 가능성</div>
+                </div>
+                <div class="checklist-category">
+                    <div class="category-name">운영</div>
+                    <div class="check-item">□ 로깅/모니터링</div>
+                    <div class="check-item">□ OTA 업데이트</div>
+                    <div class="check-item">□ 사용자 교육</div>
+                </div>
+            </div>
+        </div>
+        <div class="strategy-matrix">
+            <div class="matrix-title">플랫폼별 권장 전략</div>
+            <div class="matrix-table">
+                <div class="matrix-row header">
+                    <div class="matrix-cell">플랫폼</div>
+                    <div class="matrix-cell">압축 방법</div>
+                    <div class="matrix-cell">프레임워크</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell">iOS</div>
+                    <div class="matrix-cell">증류 + INT8</div>
+                    <div class="matrix-cell">Core ML</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell">Android</div>
+                    <div class="matrix-cell">증류 + INT8</div>
+                    <div class="matrix-cell">TF Lite</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell">Web</div>
+                    <div class="matrix-cell">경량 압축</div>
+                    <div class="matrix-cell">TensorFlow.js</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-cell">Embedded</div>
+                    <div class="matrix-cell">INT4 + 가지치기</div>
+                    <div class="matrix-cell">TF Lite Micro</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

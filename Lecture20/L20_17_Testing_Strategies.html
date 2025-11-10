@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Strategies</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px; background: white; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .info-box {
+            background: #f8f9fb; border-left: 4px solid #1E64C8;
+            padding: 20px 24px; border-radius: 6px;
+        }
+        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
+        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Testing Strategies</div>
+        <div class="info-grid">
+            
+            <div class="info-box">
+                <div class="info-title">단위 테스트</div>
+                <div class="info-content">
+                    <div class="bullet">함수 레벨 테스트</div><div class="bullet">모듈별 독립 테스트</div><div class="bullet">Pytest, Jest 활용</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">통합 테스트</div>
+                <div class="info-content">
+                    <div class="bullet">컴포넌트 간 상호작용</div><div class="bullet">API 엔드포인트 테스트</div><div class="bullet">데이터베이스 통합</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">E2E 테스트</div>
+                <div class="info-content">
+                    <div class="bullet">사용자 시나리오 테스트</div><div class="bullet">전체 워크플로우 검증</div><div class="bullet">Selenium, Cypress</div>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="info-title">테스트 커버리지</div>
+                <div class="info-content">
+                    <div class="bullet">코드 커버리지 > 80%</div><div class="bullet">Critical Path 100% 커버</div><div class="bullet">자동화된 테스트 실행</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

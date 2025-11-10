@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보 보호와 비밀 유지</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 60px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .layer-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .layer-box {
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 5px solid #1E64C8;
+        }
+        .layer1 { background: #e3f2fd; }
+        .layer2 { background: #bbdefb; }
+        .layer3 { background: #90caf9; }
+        .layer4 { background: #64b5f6; }
+        .layer-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 6px;
+        }
+        .layer-desc {
+            font-size: 14px;
+            color: #666;
+        }
+        .protection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .protection-card {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+        }
+        .protection-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .protection-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        .protection-items .item {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 6px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="title">개인정보 보호 (Privacy) & 비밀 유지 (Confidentiality)</div>
+        
+        <div class="layer-diagram">
+            <div class="layer-box layer1">
+                <div class="layer-title">Layer 1: 데이터 수집</div>
+                <div class="layer-desc">최소 필요 데이터만 수집, 명시적 동의</div>
+            </div>
+            <div class="layer-box layer2">
+                <div class="layer-title">Layer 2: 저장 및 전송</div>
+                <div class="layer-desc">암호화, 접근 제어, 감사 로그</div>
+            </div>
+            <div class="layer-box layer3">
+                <div class="layer-title">Layer 3: 사용 및 분석</div>
+                <div class="layer-desc">비식별화, 차등 프라이버시, 권한 관리</div>
+            </div>
+            <div class="layer-box layer4">
+                <div class="layer-title">Layer 4: 공유 및 폐기</div>
+                <div class="layer-desc">제한적 공유, 안전한 삭제</div>
+            </div>
+        </div>
+        
+        <div class="protection-grid">
+            <div class="protection-card">
+                <div class="protection-icon">🔒</div>
+                <div class="protection-title">기술적 보호</div>
+                <div class="protection-items">
+                    <div class="item">암호화 (Encryption)</div>
+                    <div class="item">익명화 (Anonymization)</div>
+                    <div class="item">차등 프라이버시</div>
+                </div>
+            </div>
+            <div class="protection-card">
+                <div class="protection-icon">📋</div>
+                <div class="protection-title">관리적 보호</div>
+                <div class="protection-items">
+                    <div class="item">접근 권한 관리</div>
+                    <div class="item">보안 정책 수립</div>
+                    <div class="item">직원 교육</div>
+                </div>
+            </div>
+            <div class="protection-card">
+                <div class="protection-icon">⚖️</div>
+                <div class="protection-title">법적 보호</div>
+                <div class="protection-items">
+                    <div class="item">GDPR, HIPAA 준수</div>
+                    <div class="item">개인정보보호법</div>
+                    <div class="item">의료법 준수</div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

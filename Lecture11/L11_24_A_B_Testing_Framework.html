@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A/B Testing Framework</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 32px 42px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 7px;
+        }
+        
+        .section-text {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .item {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">A/B Testing Framework</div>
+        
+        <div class="section">
+            <div class="section-title">Experimental Design</div>
+            <div class="section-text">A/B testing allows safe evaluation of RLHF model updates by comparing new versions against existing systems.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Test Setup</div>
+            <div class="items-list">
+                <div class="item">Control Group: Existing model (baseline)</div>
+                <div class="item">Treatment Group: New RLHF model variant</div>
+                <div class="item">Randomization: Assign users/cases randomly to groups</div>
+                <div class="item">Sample Size: Calculate based on expected effect size</div>
+                <div class="item">Duration: Run until statistical significance achieved</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Evaluation Metrics</div>
+            <div class="items-list">
+                <div class="item">Primary: Clinical accuracy, safety events</div>
+                <div class="item">Secondary: User satisfaction, efficiency, cost</div>
+                <div class="item">Guardrail: Metrics that must not worsen (safety)</div>
+                <div class="item">Exploratory: Additional insights (e.g., bias, fairness)</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Statistical Analysis</div>
+            <div class="items-list">
+                <div class="item">Hypothesis Testing: t-test, chi-square for metric comparison</div>
+                <div class="item">Effect Size: Cohen's d, relative risk ratios</div>
+                <div class="item">Confidence Intervals: 95% CI for key metrics</div>
+                <div class="item">Multiple Testing Correction: Bonferroni, FDR control</div>
+                <div class="item">Subgroup Analysis: Performance across patient demographics</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Decision Criteria</div>
+            <div class="items-list">
+                <div class="item">Launch: Significantly better on primary, no guardrail violations</div>
+                <div class="item">Iterate: Mixed results, identify improvement areas</div>
+                <div class="item">Abandon: Worse performance or safety concerns</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

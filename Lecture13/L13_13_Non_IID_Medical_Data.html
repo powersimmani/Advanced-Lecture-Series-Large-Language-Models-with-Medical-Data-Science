@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-IID Medical Data</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 35px 45px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .problems-container {
+            background: #f8f9fa;
+            border: 2.5px solid #1E64C8;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .problem-item {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+        }
+        .impact-box {
+            background: linear-gradient(135deg, #ffebee, #ffcdd2);
+            border: 2.5px solid #d32f2f;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .impact-text {
+            font-size: 20px;
+            font-weight: 600;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Non-IID Medical Data</div>
+        <div class="problems-container"><div class="problem-item">⚠️ Different patient demographics</div><div class="problem-item">⚠️ Varying disease prevalence</div><div class="problem-item">⚠️ Hospital-specific protocols</div><div class="problem-item">⚠️ Equipment differences</div><div class="problem-item">⚠️ Regional health patterns</div></div>
+        <div class="impact-box">
+            <div class="impact-text">Impact: Model bias • Slower convergence • Reduced accuracy</div>
+        </div>
+    </div>
+</body>
+</html>

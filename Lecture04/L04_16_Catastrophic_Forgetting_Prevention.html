@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catastrophic Forgetting Prevention</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 28px 40px; background: white; }
+        .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 18px; text-align: center; }
+        .concept-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .concept-text { font-size: 17px; color: #333; font-weight: 500; }
+        .concept-highlight { color: #1E64C8; font-weight: 700; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .feature-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-align: center;
+        }
+        .feature-value { font-size: 24px; font-weight: 700; color: #1E64C8; margin-bottom: 6px; }
+        .feature-label { font-size: 13px; color: #555; font-weight: 500; }
+        .application-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 12px;
+        }
+        .app-title { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .app-list { display: flex; flex-direction: column; gap: 8px; }
+        .app-item { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: #333; line-height: 1.4; }
+        .bullet { color: #1E64C8; font-weight: 700; flex-shrink: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Catastrophic Forgetting Prevention</div>
+
+        <div class="concept-box">
+            <div class="concept-text">
+                <span class="concept-highlight">Preserve General Medical Knowledge</span><br>
+                While adapting to specialized domains
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">🛡️ Prevention Techniques</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Elastic Weight Consolidation (EWC):</strong> Protect important parameters</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>L2 Regularization:</strong> Stay close to pre-trained weights</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Replay Buffer:</strong> Mix old and new data (10-20% ratio)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Knowledge Distillation:</strong> Maintain original model behavior</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-value">90%+</div>
+                <div class="feature-label">Knowledge Retention</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-value">10-20%</div>
+                <div class="feature-label">Replay Data</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-value">λ=0.1-1.0</div>
+                <div class="feature-label">EWC Penalty</div>
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">📊 Monitoring Strategy</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Track performance on general medical benchmarks</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Measure forgetting rate: Δ = Acc_initial - Acc_final</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Set threshold: Stop if forgetting > 5%</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span>Periodic evaluation on held-out general tasks</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

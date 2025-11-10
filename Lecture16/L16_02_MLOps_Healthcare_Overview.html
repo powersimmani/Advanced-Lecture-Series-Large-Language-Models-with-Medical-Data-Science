@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLOps Healthcare Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .definition-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .definition-text {
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .definition-highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .comparison-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .card-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .card-content {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .feature-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-item::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .requirements-box {
+            background: #fff8e6;
+            border: 2px solid #ffa500;
+            border-radius: 10px;
+            padding: 15px 25px;
+        }
+        
+        .requirements-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff8c00;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .requirement-item {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            border: 1.5px solid #ffa500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">MLOps in Healthcare: Overview</div>
+        
+        <div class="definition-box">
+            <span class="definition-text"><span class="definition-highlight">Medical MLOps</span>: Production deployment and lifecycle management of ML models in </span>
+            <span class="definition-highlight">healthcare environments</span>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="comparison-card">
+                <div class="card-title">Traditional DevOps</div>
+                <div class="card-content">
+                    <div class="feature-item">Code versioning</div>
+                    <div class="feature-item">CI/CD pipelines</div>
+                    <div class="feature-item">Infrastructure automation</div>
+                    <div class="feature-item">Deployment strategies</div>
+                </div>
+            </div>
+            
+            <div class="comparison-card">
+                <div class="card-title">Medical MLOps</div>
+                <div class="card-content">
+                    <div class="feature-item">Code + Data + Model versioning</div>
+                    <div class="feature-item">Continuous training pipelines</div>
+                    <div class="feature-item">Model monitoring & drift detection</div>
+                    <div class="feature-item">Regulatory compliance tracking</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="requirements-box">
+            <div class="requirements-title">🏥 Healthcare-Specific Requirements</div>
+            <div class="requirements-grid">
+                <div class="requirement-item">HIPAA Compliance</div>
+                <div class="requirement-item">FDA Validation</div>
+                <div class="requirement-item">Audit Trails</div>
+                <div class="requirement-item">Explainability</div>
+                <div class="requirement-item">Safety Monitoring</div>
+                <div class="requirement-item">Version Control</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

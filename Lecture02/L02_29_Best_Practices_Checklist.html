@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practices Checklist</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Aptos,'Segoe UI',sans-serif;background:white;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+        .container{width:960px;padding:35px 45px;}
+        .title{font-size:20px;font-weight:600;color:#1E64C8;margin-bottom:25px;text-align:center;}
+        .card{background:white;border:2.5px solid #1E64C8;border-radius:8px;padding:20px;margin-bottom:15px;}
+        .card-title{font-size:17px;font-weight:700;color:#1E64C8;margin-bottom:10px;}
+        .card-content{font-size:15px;color:#333;line-height:1.6;}
+        .code-box{background:#f0f5fc;border:2px solid #1E64C8;border-radius:8px;padding:15px;font-family:monospace;font-size:13px;line-height:1.8;margin-bottom:15px;}
+        .checklist{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+        .check-item{background:#f8f9fa;padding:12px;border-left:3px solid #1E64C8;border-radius:4px;font-size:14px;}
+        .check-item:before{content:"✓";color:#1E64C8;font-weight:700;margin-right:8px;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Best Practices Checklist</div>
+        
+        <div class="card" style="margin-bottom:15px;">
+            <div class="card-title">전처리 체크리스트</div>
+            <div class="checklist">
+                <div class="check-item">PHI 완전 제거 확인</div>
+                <div class="check-item">약어 일관성 검증</div>
+                <div class="check-item">날짜/단위 표준화</div>
+                <div class="check-item">부정 표현 처리</div>
+                <div class="check-item">온톨로지 매핑</div>
+                <div class="check-item">결측값 처리</div>
+                <div class="check-item">이상치 탐지</div>
+                <div class="check-item">편향 평가</div>
+                <div class="check-item">품질 메트릭 계산</div>
+                <div class="check-item">문서화 완료</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">품질 보증 프로세스</div>
+            <div class="card-content">
+                1. 샘플 검증: 무작위 100건 수동 검토<br>
+                2. 자동 테스트: 단위 테스트 및 통합 테스트<br>
+                3. 성능 벤치마크: 처리 속도 및 정확도<br>
+                4. 문서화: 처리 단계 및 의사결정 기록
+            </div>
+        </div>
+    
+    </div>
+</body>
+</html>

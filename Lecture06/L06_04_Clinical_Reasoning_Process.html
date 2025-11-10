@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Reasoning Process</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .process-step {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(30, 100, 200, 0.25);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #1E64C8;
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .step-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .step-description {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .cycle-diagram {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .cycle-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .cycle-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cycle-item {
+            text-align: center;
+            font-size: 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .arrow {
+            font-size: 24px;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .highlight-box {
+            background: #fff4e6;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px 25px;
+            text-align: center;
+        }
+        
+        .highlight-text {
+            font-size: 17px;
+            color: #333;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Clinical Reasoning Process</div>
+        
+        <div class="process-flow">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-title">Hypothesis<br>Generation</div>
+                <div class="step-description">Initial differential diagnosis based on presenting symptoms</div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-title">Data<br>Collection</div>
+                <div class="step-description">Gather history, physical exam, lab results</div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-title">Hypothesis<br>Verification</div>
+                <div class="step-description">Test hypotheses against collected evidence</div>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-title">Diagnostic<br>Decision</div>
+                <div class="step-description">Final diagnosis and treatment plan</div>
+            </div>
+        </div>
+        
+        <div class="cycle-diagram">
+            <div class="cycle-title">Iterative Clinical Reasoning Cycle</div>
+            <div class="cycle-content">
+                <div class="cycle-item">Symptoms</div>
+                <div class="arrow">→</div>
+                <div class="cycle-item">Hypotheses</div>
+                <div class="arrow">→</div>
+                <div class="cycle-item">Tests</div>
+                <div class="arrow">→</div>
+                <div class="cycle-item">Evidence</div>
+                <div class="arrow">→</div>
+                <div class="cycle-item">Refined<br>Diagnosis</div>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <div class="highlight-text">
+                <strong style="color: #1E64C8;">Key Insight:</strong> Clinical reasoning is iterative and hypothesis-driven, continuously updating based on new evidence
+            </div>
+        </div>
+    </div>
+</body>
+</html>

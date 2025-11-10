@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero-Shot CoT in Medical Context</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .prompt-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .prompt-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .prompt-text {
+            font-size: 15px;
+            color: #333;
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            line-height: 1.5;
+        }
+        
+        .magic-phrase {
+            background: #fff4e6;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px 25px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .magic-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .comparison-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .card-header {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .card-content {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .success {
+            border-color: #28a745;
+        }
+        
+        .success .card-header {
+            color: #28a745;
+        }
+        
+        .failure {
+            border-color: #dc3545;
+        }
+        
+        .failure .card-header {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Zero-Shot Chain-of-Thought in Medical Context</div>
+        
+        <div class="prompt-box">
+            <div class="prompt-title">Standard Medical Query:</div>
+            <div class="prompt-text">
+                Patient presents with fever (39°C), productive cough, and pleuritic chest pain.<br>
+                What is the most likely diagnosis?
+            </div>
+        </div>
+        
+        <div class="magic-phrase">
+            <div class="magic-text">"Let's think step by step"</div>
+        </div>
+        
+        <div class="prompt-box">
+            <div class="prompt-title">Zero-Shot CoT Medical Prompt:</div>
+            <div class="prompt-text">
+                Patient presents with fever (39°C), productive cough, and pleuritic chest pain.<br>
+                What is the most likely diagnosis? <strong style="color: #1E64C8;">Let's think step by step.</strong>
+            </div>
+        </div>
+        
+        <div class="comparison">
+            <div class="comparison-card success">
+                <div class="card-header">✓ Success Case</div>
+                <div class="card-content">
+                    <strong>Query:</strong> Fever + cough + pleuritic pain<br>
+                    <strong>With CoT:</strong> Systematic evaluation of symptoms → ruled out alternatives → pneumonia diagnosis<br>
+                    <strong>Accuracy:</strong> 85% → 92%
+                </div>
+            </div>
+            
+            <div class="comparison-card failure">
+                <div class="card-header">✗ Limitation Case</div>
+                <div class="card-content">
+                    <strong>Query:</strong> Rare genetic syndrome<br>
+                    <strong>With CoT:</strong> Detailed reasoning but incorrect conclusion<br>
+                    <strong>Issue:</strong> Limited knowledge, not reasoning problem
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

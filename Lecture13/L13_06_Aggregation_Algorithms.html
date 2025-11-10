@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggregation Algorithms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .protocol-grid, .algo-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .protocol-card, .algo-card {
+            background: #f8f9fa;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .protocol-card:hover, .algo-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+        }
+        
+        .protocol-header, .algo-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        
+        .protocol-item, .flow-step {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .security-box, .process-diagram {
+            background: linear-gradient(135deg, #e8f2ff, #f0f5fc);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .security-title, .process-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        
+        .security-content, .process-steps {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .algo-formula {
+            font-size: 16px;
+            color: #1E64C8;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .algo-desc {
+            font-size: 15px;
+            color: #666;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #e8f2ff, #d4e9ff);
+            border-color: #1E64C8;
+            border-width: 3px;
+        }
+        
+        .step {
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Aggregation Algorithms</div>
+        
+        <div class="algo-comparison">
+            <div class="algo-card">
+                <div class="algo-name">⚖️ Weighted Average</div>
+                <div class="algo-formula">w_global = Σ(n_i/N × w_i)</div>
+                <div class="algo-desc">Weight by dataset size</div>
+            </div>
+            
+            <div class="algo-card highlight">
+                <div class="algo-name">🎯 FedAvg</div>
+                <div class="algo-formula">Most popular algorithm</div>
+                <div class="algo-desc">Simple & effective</div>
+            </div>
+            
+            <div class="algo-card">
+                <div class="algo-name">🔧 FedProx</div>
+                <div class="algo-formula">Adds proximal term</div>
+                <div class="algo-desc">Handles heterogeneity</div>
+            </div>
+        </div>
+        
+        <div class="process-diagram">
+            <div class="process-title">Aggregation Process</div>
+            <div class="process-steps">
+                <div class="step">Collect updates → Verify integrity → Apply weights → Merge models → Validate → Distribute</div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

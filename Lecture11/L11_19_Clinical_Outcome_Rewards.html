@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Outcome Rewards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 32px 42px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 7px;
+        }
+        
+        .section-text {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .item {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Clinical Outcome Rewards</div>
+        
+        <div class="section">
+            <div class="section-title">Outcome-Based Reward Design</div>
+            <div class="section-text">Reward models can be trained not just on preferences, but on actual clinical outcomes to align AI with real-world treatment success.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Outcome Metrics</div>
+            <div class="items-list">
+                <div class="item">Survival Rates: Long-term patient outcomes</div>
+                <div class="item">Readmission Rates: 30-day hospital readmissions</div>
+                <div class="item">Symptom Improvement: Patient-reported outcomes</div>
+                <div class="item">Complication Rates: Post-treatment adverse events</div>
+                <div class="item">Quality of Life: QALY, functional status measures</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Implementation Challenges</div>
+            <div class="items-list">
+                <div class="item">Long Feedback Loops: Outcomes take time to materialize</div>
+                <div class="item">Confounding Factors: Many variables affect outcomes</div>
+                <div class="item">Sample Size: Need large datasets for statistical power</div>
+                <div class="item">Ethical Considerations: Can't experiment with patient health</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Hybrid Approaches</div>
+            <div class="items-list">
+                <div class="item">Combine expert preferences with outcome data</div>
+                <div class="item">Use surrogate markers for faster feedback</div>
+                <div class="item">Weight recent outcomes more heavily</div>
+                <div class="item">Adjust rewards based on outcome correlations</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

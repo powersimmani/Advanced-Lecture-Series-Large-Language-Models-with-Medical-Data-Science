@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitutional AI Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 60px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .definition-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .definition-text {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .definition-highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .process-diagram {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .process-step {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .step-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E64C8, #2874d8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.3);
+        }
+        
+        .step-number {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .step-icon {
+            font-size: 32px;
+        }
+        
+        .step-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .step-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .arrow {
+            font-size: 28px;
+            color: #1E64C8;
+            margin: 0 10px;
+        }
+        
+        .key-concepts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .concept-card {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .concept-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .concept-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .concept-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Constitutional AI (CAI) Overview</div>
+        
+        <div class="definition-box">
+            <span class="definition-text">
+                <span class="definition-highlight">Constitutional AI</span>는 명시적인 윤리 원칙(constitution)을 기반으로 
+                <span class="definition-highlight">자기 개선(self-improvement)</span>하는 AI 시스템
+            </span>
+        </div>
+        
+        <div class="process-diagram">
+            <div class="process-step">
+                <div class="step-circle">
+                    <div class="step-number">Step 1</div>
+                    <div class="step-icon">📝</div>
+                </div>
+                <div class="step-title">Constitution 정의</div>
+                <div class="step-desc">윤리 원칙 명시</div>
+            </div>
+            
+            <div class="arrow">→</div>
+            
+            <div class="process-step">
+                <div class="step-circle">
+                    <div class="step-number">Step 2</div>
+                    <div class="step-icon">🔄</div>
+                </div>
+                <div class="step-title">자기 비판</div>
+                <div class="step-desc">응답 평가 & 개선</div>
+            </div>
+            
+            <div class="arrow">→</div>
+            
+            <div class="process-step">
+                <div class="step-circle">
+                    <div class="step-number">Step 3</div>
+                    <div class="step-icon">✓</div>
+                </div>
+                <div class="step-title">강화학습</div>
+                <div class="step-desc">피드백 반영</div>
+            </div>
+        </div>
+        
+        <div class="key-concepts">
+            <div class="concept-card">
+                <div class="concept-icon">🎯</div>
+                <div class="concept-name">자기 개선</div>
+                <div class="concept-desc">스스로 응답을 평가하고 개선</div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-icon">⚖️</div>
+                <div class="concept-name">윤리 정렬</div>
+                <div class="concept-desc">명시적 원칙에 맞춰 정렬</div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-icon">🔁</div>
+                <div class="concept-name">피드백 루프</div>
+                <div class="concept-desc">지속적인 학습과 개선</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

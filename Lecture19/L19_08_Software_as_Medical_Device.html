@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software as Medical Device (SaMD)</title>
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Aptos, 'Segoe UI', sans-serif;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    
+    .container {
+        width: 960px;
+        height: 540px;
+        padding: 28px 40px;
+        background: white;
+    }
+    
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1E64C8;
+        margin-bottom: 18px;
+        text-align: center;
+    }
+    
+    .intro-box {
+        background: #f0f5fc;
+        border: 2px solid #1E64C8;
+        border-radius: 10px;
+        padding: 12px 20px;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+    
+    .intro-text {
+        font-size: 16px;
+        color: #333;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+    
+    .intro-highlight {
+        color: #1E64C8;
+        font-weight: 700;
+    }
+    
+    .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+    
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+    
+    .card {
+        background: white;
+        border: 2.5px solid #1E64C8;
+        border-radius: 8px;
+        padding: 14px 16px;
+        transition: all 0.3s;
+    }
+    
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+        background: #f8fbff;
+    }
+    
+    .card-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #1E64C8;
+        margin-bottom: 6px;
+    }
+    
+    .card-desc {
+        font-size: 13px;
+        color: #555;
+        line-height: 1.4;
+    }
+    
+    .info-box {
+        background: #f8f9fa;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin-bottom: 12px;
+    }
+    
+    .info-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1E64C8;
+        margin-bottom: 8px;
+    }
+    
+    .info-item {
+        font-size: 13px;
+        color: #555;
+        margin-bottom: 4px;
+        line-height: 1.4;
+    }
+    
+    .highlight-box {
+        background: #fff4e6;
+        border-left: 4px solid #ff9800;
+        border-radius: 4px;
+        padding: 10px 14px;
+        font-size: 13px;
+        color: #555;
+        line-height: 1.5;
+        margin-top: 10px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Software as Medical Device (SaMD)</div>
+        <div class="intro-box">
+
+        <div class="intro-text">
+            SaMD는 <span class="intro-highlight">하드웨어 없이 독립적으로 작동</span>하는 
+            <span class="intro-highlight">의료 목적 소프트웨어</span>를 의미합니다
+        </div>
+    </div>
+    
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">🏥 정의</div>
+            <div class="card-desc">의료 기기의 일부가 아닌 독립형 소프트웨어로 의료 목적에 사용</div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">📊 IMDRF 프레임워크</div>
+            <div class="card-desc">국제적으로 조화된 SaMD 분류 및 규제 체계</div>
+        </div>
+    </div>
+    
+    <div class="info-box">
+        <div class="info-title">위험도 분류 (IMDRF Framework)</div>
+        <div class="grid-3" style="margin-top: 10px;">
+            <div class="card">
+                <div class="card-title" style="color: #4caf50;">Level I</div>
+                <div class="card-desc">정보 제공 목적</div>
+            </div>
+            <div class="card">
+                <div class="card-title" style="color: #ff9800;">Level II</div>
+                <div class="card-desc">진단 지원</div>
+            </div>
+            <div class="card">
+                <div class="card-title" style="color: #f44336;">Level III</div>
+                <div class="card-desc">치료 결정</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="info-box">
+        <div class="info-title">SaMD 예시</div>
+        <div class="info-item">• 영상 분석 소프트웨어 (병변 검출, 측정)</div>
+        <div class="info-item">• 임상 의사결정 지원 시스템 (CDSS)</div>
+        <div class="info-item">• 원격 환자 모니터링 앱</div>
+        <div class="info-item">• AI 기반 진단 알고리즘</div>
+    </div>
+    
+    <div class="highlight-box">
+        <strong>💡 Key Point:</strong> SaMD는 일반 건강 앱(wellness app)과 구별되며, 
+        질병의 진단, 예방, 모니터링, 치료 또는 완화에 사용되는 경우 의료기기로 규제됩니다
+    </div>
+    
+    </div>
+</body>
+</html>

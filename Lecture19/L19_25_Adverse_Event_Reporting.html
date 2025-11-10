@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adverse Event Reporting</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Aptos, 'Segoe UI', sans-serif;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 960px;
+    height: 540px;
+    padding: 28px 40px;
+    background: white;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1E64C8;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.intro-box {
+    background: #f0f5fc;
+    border: 2px solid #1E64C8;
+    border-radius: 10px;
+    padding: 12px 20px;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.intro-highlight {
+    color: #1E64C8;
+    font-weight: 700;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+    margin-bottom: 12px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.card {
+    background: white;
+    border: 2.5px solid #1E64C8;
+    border-radius: 8px;
+    padding: 12px 14px;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+    background: #f8fbff;
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1E64C8;
+    margin-bottom: 6px;
+}
+
+.card-desc {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.info-box {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 11px 14px;
+    margin-bottom: 11px;
+}
+
+.info-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1E64C8;
+    margin-bottom: 7px;
+}
+
+.info-item {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 3px;
+    line-height: 1.4;
+}
+
+.highlight-box {
+    background: #fff4e6;
+    border-left: 4px solid #ff9800;
+    border-radius: 4px;
+    padding: 9px 13px;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Adverse Event Reporting</div>
+        
+    <div class="intro-box">
+        <div class="intro-text">
+            부작용 보고는 <span class="intro-highlight">환자 안전을 보장</span>하고 
+            <span class="intro-highlight">규제 컴플라이언스</span>를 유지하는 필수 요소입니다
+        </div>
+    </div>
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">⚠️ Adverse Event 정의</div>
+            <div class="card-desc">기기 사용과 관련된 사망, 심각한 상해, 오작동</div>
+        </div>
+        <div class="card">
+            <div class="card-title">📋 보고 의무</div>
+            <div class="card-desc">제조업체, 의료기관, 수입업체 모두 보고 책임</div>
+        </div>
+    </div>
+    <div class="info-box">
+        <div class="info-title">보고 기한 (FDA MDR)</div>
+        <div class="info-item"><strong>• 사망 사건:</strong> 30 calendar days (제조업체가 FDA 및 사용자에게)</div>
+        <div class="info-item"><strong>• 심각한 상해:</strong> 30 calendar days (제조업체가 FDA에게)</div>
+        <div class="info-item"><strong>• 오작동:</strong> 30 calendar days (제조업체가 FDA에게)</div>
+        <div class="info-item"><strong>• 5-day report:</strong> 즉각적인 공중보건 위험 시</div>
+    </div>
+    <div class="info-box">
+        <div class="info-title">보고 채널</div>
+        <div class="info-item"><strong>• 미국:</strong> FDA MedWatch, MAUDE 데이터베이스</div>
+        <div class="info-item"><strong>• EU:</strong> EUDAMED, Competent Authority</div>
+        <div class="info-item"><strong>• 캐나다:</strong> Health Canada MedEffect</div>
+        <div class="info-item"><strong>• 한국:</strong> MFDS 의료기기 이상사례 보고</div>
+    </div>
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">📝 보고 내용</div>
+            <div class="card-desc">사건 상세, 기기 정보, 환자 정보 (익명화), 조사 결과</div>
+        </div>
+        <div class="card">
+            <div class="card-title">🔄 Follow-up</div>
+            <div class="card-desc">추가 정보 발견 시 보충 보고 제출</div>
+        </div>
+    </div>
+    <div class="highlight-box">
+        <strong>⚠️ Key Point:</strong> 적시에 정확한 보고를 하지 않으면 규제 제재를 받을 수 있으며, 
+        환자 안전을 위협할 수 있습니다. 명확한 내부 프로세스 구축이 필수입니다
+    </div>
+    </div>
+</body>
+</html>

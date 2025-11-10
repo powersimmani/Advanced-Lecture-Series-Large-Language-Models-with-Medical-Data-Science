@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 사용 동의 (Informed Consent)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 60px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+    .consent-flow {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 30px;
+        justify-content: space-between;
+    }
+    .flow-item {
+        flex: 1;
+        background: #f8f9fa;
+        border: 2px solid #1E64C8;
+        border-radius: 12px;
+        padding: 20px;
+        position: relative;
+        padding-top: 50px;
+    }
+    .flow-number {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 35px;
+        height: 35px;
+        background: linear-gradient(135deg, #1E64C8, #2874d8);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .flow-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1E64C8;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .flow-desc {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+    .transparency-section {
+        background: #f0f5fc;
+        border-radius: 12px;
+        padding: 20px;
+    }
+    .transparency-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1E64C8;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .transparency-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    .trans-item {
+        background: white;
+        border-left: 3px solid #1E64C8;
+        border-radius: 6px;
+        padding: 12px;
+    }
+    .trans-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1E64C8;
+        margin-bottom: 5px;
+    }
+    .trans-desc {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.4;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">AI 사용에 대한 정보 제공 동의 (Informed Consent)</div>
+    
+    <div class="consent-flow">
+        <div class="flow-item">
+            <div class="flow-number">1</div>
+            <div class="flow-content">
+                <div class="flow-title">정보 제공</div>
+                <div class="flow-desc">• AI 사용 목적 및 방법<br>• 예상 이익과 위험<br>• 대안적 치료 방법</div>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-number">2</div>
+            <div class="flow-content">
+                <div class="flow-title">이해도 확인</div>
+                <div class="flow-desc">• 질문 기회 제공<br>• 이해 여부 검증<br>• 명확한 언어 사용</div>
+            </div>
+        </div>
+        <div class="flow-item">
+            <div class="flow-number">3</div>
+            <div class="flow-content">
+                <div class="flow-title">자발적 동의</div>
+                <div class="flow-desc">• 강압 없이 선택<br>• 거부 권리 보장<br>• 충분한 고려 시간</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="transparency-section">
+        <div class="transparency-title">🔍 투명성 요구사항</div>
+        <div class="transparency-grid">
+            <div class="trans-item">
+                <div class="trans-label">알고리즘</div>
+                <div class="trans-desc">어떤 AI 모델을 사용하는가?</div>
+            </div>
+            <div class="trans-item">
+                <div class="trans-label">정확도</div>
+                <div class="trans-desc">성능 지표는 어느 정도인가?</div>
+            </div>
+            <div class="trans-item">
+                <div class="trans-label">데이터</div>
+                <div class="trans-desc">어떤 데이터로 학습했는가?</div>
+            </div>
+            <div class="trans-item">
+                <div class="trans-label">한계</div>
+                <div class="trans-desc">어떤 상황에서 오류가 발생하는가?</div>
+            </div>
+            <div class="trans-item">
+                <div class="trans-label">역할</div>
+                <div class="trans-desc">AI가 최종 결정을 하는가, 보조하는가?</div>
+            </div>
+            <div class="trans-item">
+                <div class="trans-label">프라이버시</div>
+                <div class="trans-desc">데이터는 어떻게 보호되는가?</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

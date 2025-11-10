@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-hop Reasoning</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .multihop-example {
+            background: #f0f5fc;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .example-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        .query-box {
+            padding: 12px;
+            background: white;
+            border-left: 4px solid #1E64C8;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #333;
+        }
+        .reasoning-chain {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .hop {
+            width: 100%;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #1E64C8;
+        }
+        .hop-number {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 5px;
+        }
+        .hop-query {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .hop-result {
+            font-size: 14px;
+            color: #333;
+            font-weight: 600;
+        }
+        .chain-arrow {
+            font-size: 20px;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        .final-answer {
+            background: #fff8e6;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .answer-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        .answer-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .evidence-chain {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Multi-hop Reasoning</div>
+        
+        <div class="multihop-example">
+            <div class="example-title">🔍 Multi-hop Query Example</div>
+            <div class="query-box">
+                <strong>Q:</strong> "Treatment for pneumonia in diabetic patients?"
+            </div>
+        </div>
+        
+        <div class="reasoning-chain">
+            <div class="hop">
+                <div class="hop-number">Hop 1</div>
+                <div class="hop-query">Search: "pneumonia treatment"</div>
+                <div class="hop-result">→ Antibiotics: Amoxicillin, Azithromycin</div>
+            </div>
+            
+            <div class="chain-arrow">↓</div>
+            
+            <div class="hop">
+                <div class="hop-number">Hop 2</div>
+                <div class="hop-query">Search: "diabetes drug interactions"</div>
+                <div class="hop-result">→ Fluoroquinolones affect glucose control</div>
+            </div>
+            
+            <div class="chain-arrow">↓</div>
+            
+            <div class="hop">
+                <div class="hop-number">Hop 3</div>
+                <div class="hop-query">Search: "safe antibiotics diabetes"</div>
+                <div class="hop-result">→ Amoxicillin preferred, monitor glucose</div>
+            </div>
+        </div>
+        
+        <div class="final-answer">
+            <div class="answer-title">📋 Evidence-Based Answer</div>
+            <div class="answer-text">
+                Amoxicillin is recommended for diabetic patients with pneumonia. 
+                Avoid fluoroquinolones due to glucose control interference. 
+                Monitor blood sugar during treatment.
+            </div>
+            <div class="evidence-chain">Evidence chain: 3 sources, 95% confidence</div>
+        </div>
+        
+    </div>
+</body>
+</html>

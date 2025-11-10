@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 60px;
+        }
+        
+        .thank-you {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        
+        .summary-box {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 24px 32px;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+        
+        .summary-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+        
+        .summary-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: left;
+        }
+        
+        .summary-item {
+            font-size: 16px;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .bullet {
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .author-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .author-name {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .author-email {
+            font-size: 22px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="thank-you">Thank you</div>
+        
+        <div class="summary-box">
+            <div class="summary-title">핵심 포인트</div>
+            <div class="summary-items">
+                <div class="summary-item">
+                    <div class="bullet"></div>
+                    <span>FDA, EU, 국제 규제 프레임워크 이해</span>
+                </div>
+                <div class="summary-item">
+                    <div class="bullet"></div>
+                    <span>적절한 규제 경로 선택 및 전략 수립</span>
+                </div>
+                <div class="summary-item">
+                    <div class="bullet"></div>
+                    <span>법적 책임과 리스크 관리</span>
+                </div>
+                <div class="summary-item">
+                    <div class="bullet"></div>
+                    <span>시판 후 감시 및 컴플라이언스 유지</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="author-section">
+            <div class="author-name">Ho-min Park</div>
+            <div class="author-email">homin.park@ghent.ac.kr</div>
+            <div class="author-email">powersimmani@gmail.com</div>
+        </div>
+    </div>
+</body>
+</html>

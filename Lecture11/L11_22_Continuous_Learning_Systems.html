@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Learning Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 32px 42px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 7px;
+        }
+        
+        .section-text {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .item {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Continuous Learning Systems</div>
+        
+        <div class="section">
+            <div class="section-title">Adaptive Medical AI</div>
+            <div class="section-text">Continuous learning allows RLHF systems to adapt to new medical knowledge, evolving guidelines, and emerging conditions.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Learning Pipeline</div>
+            <div class="items-list">
+                <div class="item">Data Collection: Continuously gather new preferences and outcomes</div>
+                <div class="item">Quality Control: Validate and filter incoming feedback</div>
+                <div class="item">Incremental Training: Periodically update models</div>
+                <div class="item">Validation: Test updated models before deployment</div>
+                <div class="item">Staged Rollout: Gradual deployment with monitoring</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Update Frequency</div>
+            <div class="items-list">
+                <div class="item">Critical Updates: Immediate for safety issues</div>
+                <div class="item">Guideline Changes: When major clinical guidelines update</div>
+                <div class="item">Performance Improvement: Monthly or quarterly cycles</div>
+                <div class="item">Seasonal Adjustments: For seasonal conditions (e.g., flu)</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Challenges</div>
+            <div class="items-list">
+                <div class="item">Catastrophic Forgetting: New training erases old knowledge</div>
+                <div class="item">Distribution Shift: Training data may not match deployment</div>
+                <div class="item">Validation Burden: Each update requires extensive testing</div>
+                <div class="item">Regulatory Approval: Updates may need regulatory review</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

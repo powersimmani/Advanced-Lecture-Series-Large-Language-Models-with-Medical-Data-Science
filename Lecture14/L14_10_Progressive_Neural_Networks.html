@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Neural Networks</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            width: 960px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .item {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Progressive Neural Networks (PNN)</div>
+        
+        <div class="section">
+            <div class="section-title">🏗️ PNN 구조</div>
+            <div class="item-list">
+                <div class="item">Column Architecture: 각 작업마다 새 네트워크 컬럼 추가</div>
+                <div class="item">Lateral Connections: 이전 컬럼에서 특성 전이</div>
+                <div class="item">Frozen Columns: 이전 작업 가중치 고정</div>
+                <div class="item">Adapter Layers: 작업 간 특성 변환</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">➕ 확장 과정</div>
+            <div class="item-list">
+                <div class="item">1단계: 초기 작업 학습 (Column 1)</div>
+                <div class="item">2단계: 새 작업 시 Column 2 추가</div>
+                <div class="item">3단계: Lateral connection으로 지식 전이</div>
+                <div class="item">4단계: 필요 시 추가 컬럼 계속 확장</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">⚖️ 장단점</div>
+            <div class="item-list">
+                <div class="item">장점: 완전히 망각 방지, 지식 전이 가능</div>
+                <div class="item">장점: 작업 간 간섭 최소화</div>
+                <div class="item">단점: 모델 크기 선형 증가</div>
+                <div class="item">단점: 메모리 및 계산 비용 증가</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

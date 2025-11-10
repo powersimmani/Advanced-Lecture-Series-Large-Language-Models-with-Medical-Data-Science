@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        
+        .info-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .info-box {
+            background: #f8f9fb;
+            border-left: 4px solid #1E64C8;
+            padding: 20px 24px;
+            border-radius: 6px;
+            height: 100%;
+        }
+        
+        .info-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .info-content {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        .bullet {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .bullet::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .milestone {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .milestone-number {
+            width: 30px;
+            height: 30px;
+            background: #1E64C8;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Project Overview</div>
+        
+        <div class="info-section">
+            <div class="info-box">
+                <div class="info-title">프로젝트 범위</div>
+                <div class="info-content">
+                    <div class="bullet">의료 AI 시스템 전체 개발 과정 경험</div>
+                    <div class="bullet">데이터 수집부터 배포까지 End-to-End 구현</div>
+                    <div class="bullet">실제 임상 환경을 고려한 설계</div>
+                    <div class="bullet">팀 협업 및 프로젝트 관리 실습</div>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">최종 목표</div>
+                <div class="info-content">
+                    <div class="bullet">완성된 의료 AI 시스템 프로토타입</div>
+                    <div class="bullet">상세한 기술 문서 및 발표 자료</div>
+                    <div class="bullet">성능 평가 및 검증 결과</div>
+                    <div class="bullet">배포 가능한 수준의 코드</div>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">평가 기준</div>
+                <div class="info-content">
+                    <div class="bullet">시스템 설계 및 구현 품질 (40%)</div>
+                    <div class="bullet">성능 및 안정성 (30%)</div>
+                    <div class="bullet">문서화 및 발표 (20%)</div>
+                    <div class="bullet">창의성 및 혁신성 (10%)</div>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">주요 마일스톤</div>
+                <div class="info-content">
+                    <div class="milestone">
+                        <div class="milestone-number">1</div>
+                        <div>시스템 설계 및 계획 (Week 1-2)</div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-number">2</div>
+                        <div>구현 및 개발 (Week 3-6)</div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-number">3</div>
+                        <div>배포 및 검증 (Week 7-8)</div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-number">4</div>
+                        <div>최종 발표 및 평가 (Week 9)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

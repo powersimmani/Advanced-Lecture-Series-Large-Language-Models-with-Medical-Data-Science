@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Teaming for Medical AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 60px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+    .definition-box {
+        background: #f0f5fc;
+        border: 2px solid #1E64C8;
+        border-radius: 10px;
+        padding: 15px 25px;
+        margin-bottom: 25px;
+        text-align: center;
+        font-size: 16px;
+        color: #333;
+    }
+    .def-highlight {
+        color: #1E64C8;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .testing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+    .test-category {
+        background: white;
+        border: 2px solid #1E64C8;
+        border-radius: 10px;
+        padding: 18px;
+    }
+    .category-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #f0f5fc;
+    }
+    .category-icon {
+        font-size: 36px;
+        margin-bottom: 8px;
+    }
+    .category-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1E64C8;
+    }
+    .scenario-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .scenario-item {
+        font-size: 13px;
+        color: #666;
+        padding: 8px 12px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        border-left: 3px solid #1E64C8;
+    }
+    .findings-section {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .findings-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1E64C8;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .findings-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+    }
+    .finding-card {
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        border: 2px solid;
+    }
+    .finding-severity {
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+    .finding-desc {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    .critical {
+        background: #ffebee;
+        border-color: #f44336;
+        color: #c62828;
+    }
+    .high {
+        background: #fff3e0;
+        border-color: #ff9800;
+        color: #e65100;
+    }
+    .medium {
+        background: #fff9c4;
+        border-color: #ffc107;
+        color: #f57c00;
+    }
+    .low {
+        background: #e8f5e9;
+        border-color: #4caf50;
+        color: #2e7d32;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">레드팀 테스트 (Red Teaming) in Medical AI</div>
+    
+    <div class="definition-box">
+        <span class="def-highlight">Red Teaming</span>: 의도적으로 AI 시스템의 취약점을 찾고 공격하여 안전성을 검증하는 방법
+    </div>
+    
+    <div class="testing-grid">
+        <div class="test-category">
+            <div class="category-header">
+                <div class="category-icon">🎯</div>
+                <div class="category-title">공격 시나리오</div>
+            </div>
+            <div class="scenario-list">
+                <div class="scenario-item">잘못된 진단 유도 시도</div>
+                <div class="scenario-item">개인정보 추출 시도</div>
+                <div class="scenario-item">해로운 치료 권장 유도</div>
+                <div class="scenario-item">편향된 결정 강요</div>
+            </div>
+        </div>
+        
+        <div class="test-category">
+            <div class="category-header">
+                <div class="category-icon">🔍</div>
+                <div class="category-title">탐지 방법</div>
+            </div>
+            <div class="scenario-list">
+                <div class="scenario-item">Adversarial prompts</div>
+                <div class="scenario-item">Edge case testing</div>
+                <div class="scenario-item">Stress testing</div>
+                <div class="scenario-item">Cross-lingual attacks</div>
+            </div>
+        </div>
+        
+        <div class="test-category">
+            <div class="category-header">
+                <div class="category-icon">🛡️</div>
+                <div class="category-title">방어 전략</div>
+            </div>
+            <div class="scenario-list">
+                <div class="scenario-item">Input validation</div>
+                <div class="scenario-item">Output filtering</div>
+                <div class="scenario-item">Rate limiting</div>
+                <div class="scenario-item">Human oversight</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="findings-section">
+        <div class="findings-title">🔬 주요 발견 사항 (Typical Findings)</div>
+        <div class="findings-grid">
+            <div class="finding-card critical">
+                <div class="finding-severity">Critical</div>
+                <div class="finding-desc">심각한 오진 가능성</div>
+            </div>
+            <div class="finding-card high">
+                <div class="finding-severity">High</div>
+                <div class="finding-desc">프라이버시 누출 위험</div>
+            </div>
+            <div class="finding-card medium">
+                <div class="finding-severity">Medium</div>
+                <div class="finding-desc">편향된 추천</div>
+            </div>
+            <div class="finding-card low">
+                <div class="finding-severity">Low</div>
+                <div class="finding-desc">경미한 부정확성</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

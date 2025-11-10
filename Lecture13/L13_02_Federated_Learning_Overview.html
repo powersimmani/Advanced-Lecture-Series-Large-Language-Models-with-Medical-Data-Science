@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federated Learning Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .concept-card {
+            background: linear-gradient(135deg, #f0f5fc 0%, #e8f2ff 100%);
+            border: 2.5px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+        }
+        
+        .concept-header {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        
+        .concept-desc {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .architecture-diagram {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .diagram-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1E64C8;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .node-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .server-node {
+            width: 120px;
+            height: 80px;
+            background: linear-gradient(135deg, #1E64C8, #2874d8);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .client-nodes {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .client-node {
+            width: 90px;
+            height: 60px;
+            background: white;
+            border: 2.5px solid #1E64C8;
+            color: #1E64C8;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .arrow {
+            font-size: 24px;
+            color: #1E64C8;
+        }
+        
+        .privacy-highlight {
+            background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+            border: 2.5px solid #d32f2f;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .privacy-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Federated Learning Overview</div>
+        
+        <div class="concept-grid">
+            <div class="concept-card">
+                <div class="concept-header">📚 FL Principle</div>
+                <div class="concept-desc">
+                    Collaborative learning without centralizing data. 
+                    Models travel to data, not vice versa.
+                </div>
+            </div>
+            
+            <div class="concept-card">
+                <div class="concept-header">🔒 Medical Privacy</div>
+                <div class="concept-desc">
+                    HIPAA & GDPR compliant. Patient data never leaves 
+                    the hospital premises.
+                </div>
+            </div>
+        </div>
+        
+        <div class="architecture-diagram">
+            <div class="diagram-title">FL Architecture</div>
+            
+            <div class="node-container">
+                <div class="client-nodes">
+                    <div class="client-node">
+                        <div>🏥</div>
+                        <div>Hospital 1</div>
+                    </div>
+                    <div class="client-node">
+                        <div>🏥</div>
+                        <div>Hospital 2</div>
+                    </div>
+                    <div class="client-node">
+                        <div>🏥</div>
+                        <div>Hospital 3</div>
+                    </div>
+                </div>
+                
+                <div class="arrow">⬆️</div>
+                
+                <div class="server-node">
+                    <div>☁️</div>
+                    <div>Central Server</div>
+                </div>
+                
+                <div class="arrow">⬇️</div>
+                
+                <div class="client-nodes">
+                    <div class="client-node">
+                        <div>📊</div>
+                        <div>Gradients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="privacy-highlight">
+            <div class="privacy-text">
+                🔐 Data stays distributed • Models aggregate learnings • Privacy preserved
+            </div>
+        </div>
+    </div>
+</body>
+</html>

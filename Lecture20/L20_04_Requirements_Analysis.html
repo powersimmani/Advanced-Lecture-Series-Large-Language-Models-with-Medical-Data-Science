@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requirements Analysis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .info-box {
+            background: #f8f9fb;
+            border-left: 4px solid #1E64C8;
+            padding: 20px 24px;
+            border-radius: 6px;
+        }
+        
+        .info-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .info-content {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        .bullet {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .bullet::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .matrix-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        
+        .priority-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .high {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .medium {
+            background: #fff3e0;
+            color: #e65100;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Requirements Analysis</div>
+        
+        <div class="content-grid">
+            <div class="info-box">
+                <div class="info-title">기능적 요구사항 (Functional)</div>
+                <div class="info-content">
+                    <div class="bullet">의료 이미지 분석 및 진단 지원</div>
+                    <div class="bullet">실시간 예측 결과 제공</div>
+                    <div class="bullet">사용자 친화적 인터페이스</div>
+                    <div class="bullet">데이터 관리 및 저장 기능</div>
+                    <div class="bullet">성능 모니터링 대시보드</div>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">비기능적 요구사항 (Non-Functional)</div>
+                <div class="info-content">
+                    <div class="bullet">응답 시간 < 5초</div>
+                    <div class="bullet">99.9% 시스템 가용성</div>
+                    <div class="bullet">HIPAA 규정 준수</div>
+                    <div class="bullet">확장 가능한 아키텍처</div>
+                    <div class="bullet">데이터 암호화 및 보안</div>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">요구사항 매트릭스</div>
+                <div class="info-content">
+                    <div class="matrix-item">
+                        <span>정확도 (Accuracy > 95%)</span>
+                        <span class="priority-badge high">HIGH</span>
+                    </div>
+                    <div class="matrix-item">
+                        <span>응답 속도 (< 5s)</span>
+                        <span class="priority-badge high">HIGH</span>
+                    </div>
+                    <div class="matrix-item">
+                        <span>데이터 보안</span>
+                        <span class="priority-badge high">HIGH</span>
+                    </div>
+                    <div class="matrix-item">
+                        <span>사용자 경험</span>
+                        <span class="priority-badge medium">MEDIUM</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-title">우선순위 설정</div>
+                <div class="info-content">
+                    <div class="bullet">필수 (Must Have): 핵심 진단 기능</div>
+                    <div class="bullet">중요 (Should Have): 모니터링 시스템</div>
+                    <div class="bullet">선택 (Nice to Have): 고급 시각화</div>
+                    <div class="bullet">미래 (Future): AI 모델 자동 업데이트</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

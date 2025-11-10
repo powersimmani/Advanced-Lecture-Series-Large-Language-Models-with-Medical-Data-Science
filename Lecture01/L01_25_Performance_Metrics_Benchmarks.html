@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Metrics & Benchmarks</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px 50px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Performance Metrics & Benchmarks</div>
+        
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:20px;">
+            <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:18px;border-radius:8px;">
+                <h4 style="color:#1E64C8;margin-bottom:10px;">Clinical Metrics</h4>
+                <div style="font-size:14px;color:#333;line-height:1.8;">
+                    <div><strong>AUROC:</strong> Discrimination ability</div>
+                    <div><strong>Sensitivity:</strong> True positive rate</div>
+                    <div><strong>Specificity:</strong> True negative rate</div>
+                    <div><strong>PPV/NPV:</strong> Predictive values</div>
+                </div>
+            </div>
+            <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:18px;border-radius:8px;">
+                <h4 style="color:#1E64C8;margin-bottom:10px;">NLP Benchmarks</h4>
+                <div style="font-size:14px;color:#333;line-height:1.8;">
+                    <div><strong>MedQA:</strong> 87% (GPT-4)</div>
+                    <div><strong>PubMedQA:</strong> 78% accuracy</div>
+                    <div><strong>MMLU-Medical:</strong> 91% score</div>
+                    <div><strong>Clinical IE:</strong> 0.89 F1</div>
+                </div>
+            </div>
+        </div>
+        <div style="background:linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);color:white;padding:20px;border-radius:10px;">
+            <h4 style="text-align:center;margin-bottom:15px;">Benchmark Leaderboard (USMLE)</h4>
+            <div style="display:flex;justify-content:space-around;">
+                <div><strong>Gemini:</strong> 90%</div>
+                <div><strong>GPT-4:</strong> 87%</div>
+                <div><strong>Claude:</strong> 85%</div>
+                <div><strong>MedPaLM 2:</strong> 86.5%</div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

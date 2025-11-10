@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 2: Medical Data Preprocessing and Curation - Slideshow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
+        .nav-info {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .iframe-wrapper {
+            width: 960px;
+            height: 540px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .controls {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-prev {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-prev:hover:not(:disabled) {
+            background: #5a6268;
+        }
+        
+        .btn-next {
+            background: #1E64C8;
+            color: white;
+        }
+        
+        .btn-next:hover:not(:disabled) {
+            background: #1557b0;
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .slide-counter {
+            padding: 12px 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="title">Lecture 2: Medical Data Preprocessing and Curation</div>
+            <div class="nav-info">Use ← → arrow keys to navigate</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="iframe-wrapper">
+            <iframe id="slideFrame" src=""></iframe>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <button class="btn-prev" id="prevBtn">← Previous</button>
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">30</span>
+        </div>
+        <button class="btn-next" id="nextBtn">Next →</button>
+    </div>
+    
+    <script>
+        const slides = [
+            'L02_01_Title_Medical_Data_Engineering.html',
+            'L02_02_Lecture_Overview.html',
+            'L02_03_Part1_Clinical_Text_Processing.html',
+            'L02_04_De_identification_Techniques.html',
+            'L02_05_PHI_Detection_Removal.html',
+            'L02_06_Clinical_Text_Normalization.html',
+            'L02_07_Abbreviation_Expansion.html',
+            'L02_08_Negation_Detection.html',
+            'L02_09_Temporal_Expression_Extraction.html',
+            'L02_10_Section_Segmentation.html',
+            'L02_11_Part2_Medical_Ontologies.html',
+            'L02_12_UMLS_Metathesaurus.html',
+            'L02_13_SNOMED_CT_Hierarchy.html',
+            'L02_14_ICD_10_11_Coding.html',
+            'L02_15_RxNorm_Drug_Normalization.html',
+            'L02_16_LOINC_Lab_Values.html',
+            'L02_17_Entity_Linking_Techniques.html',
+            'L02_18_Part3_Multimodal_Processing.html',
+            'L02_19_DICOM_Image_Handling.html',
+            'L02_20_HL7_FHIR_Integration.html',
+            'L02_21_Waveform_Signal_Processing.html',
+            'L02_22_Lab_Value_Normalization.html',
+            'L02_23_Data_Quality_Assessment.html',
+            'L02_24_Bias_Detection_Mitigation.html',
+            'L02_25_Missing_Data_Strategies.html',
+            'L02_26_Data_Augmentation_Techniques.html',
+            'L02_27_Pipeline_Orchestration.html',
+            'L02_28_Hands_On_Preprocessing.html',
+            'L02_29_Best_Practices_Checklist.html',
+            'L02_30_Thank_You.html'
+        ];
+        
+        let currentIndex = 0;
+        const slideFrame = document.getElementById('slideFrame');
+        const currentSlideSpan = document.getElementById('currentSlide');
+        const totalSlidesSpan = document.getElementById('totalSlides');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        totalSlidesSpan.textContent = slides.length;
+        
+        function loadSlide(index) {
+            if (index >= 0 && index < slides.length) {
+                currentIndex = index;
+                slideFrame.src = slides[index];
+                currentSlideSpan.textContent = index + 1;
+                
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === slides.length - 1;
+            }
+        }
+        
+        prevBtn.addEventListener('click', () => loadSlide(currentIndex - 1));
+        nextBtn.addEventListener('click', () => loadSlide(currentIndex + 1));
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') loadSlide(currentIndex - 1);
+            if (e.key === 'ArrowRight') loadSlide(currentIndex + 1);
+        });
+        
+        // Load first slide
+        loadSlide(0);
+    </script>
+</body>
+</html>

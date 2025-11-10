@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Architecture Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .component-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.25);
+            background: #f8fbff;
+        }
+        
+        .component-name {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .component-desc {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .component-features {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            color: #555;
+        }
+        
+        .feature-item::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        
+        .loop-diagram {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px 25px;
+            text-align: center;
+        }
+        
+        .loop-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+        }
+        
+        .loop-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .flow-arrow {
+            color: #1E64C8;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .flow-item {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 2px solid #1E64C8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Agent Architecture Overview</div>
+        
+        <div class="architecture-grid">
+            <div class="component-card">
+                <div class="component-name">Perception</div>
+                <div class="component-desc">환경 관찰 및 데이터 수집</div>
+                <div class="component-features">
+                    <div class="feature-item">센서 입력 처리</div>
+                    <div class="feature-item">상태 인식</div>
+                    <div class="feature-item">데이터 통합</div>
+                </div>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-name">Reasoning</div>
+                <div class="component-desc">의사결정 및 계획</div>
+                <div class="component-features">
+                    <div class="feature-item">목표 설정</div>
+                    <div class="feature-item">전략 수립</div>
+                    <div class="feature-item">최적화</div>
+                </div>
+            </div>
+            
+            <div class="component-card">
+                <div class="component-name">Action</div>
+                <div class="component-desc">실행 및 개입</div>
+                <div class="component-features">
+                    <div class="feature-item">도구 사용</div>
+                    <div class="feature-item">API 호출</div>
+                    <div class="feature-item">결과 생성</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="loop-diagram">
+            <div class="loop-title">Cognition-Action Loop</div>
+            <div class="loop-flow">
+                <div class="flow-item">Observe</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">Think</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">Act</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-item">Learn</div>
+                <span class="flow-arrow">↻</span>
+            </div>
+        </div>
+        
+        <div style="margin-top: 25px; padding: 15px 20px; background: #fff4e6; border-radius: 8px; border-left: 4px solid #1E64C8;">
+            <div style="font-size: 17px; color: #333; font-weight: 600; text-align: center;">
+                의료 환경에 특화된 자율 에이전트 시스템
+            </div>
+        </div>
+    </div>
+</body>
+</html>

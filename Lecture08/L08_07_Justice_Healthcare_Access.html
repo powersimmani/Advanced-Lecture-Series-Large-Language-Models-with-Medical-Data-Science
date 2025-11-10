@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice and Healthcare Access</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 60px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .equity-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .equity-card {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .equity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+        }
+        .equity-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .equity-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        .equity-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+        .inequality-section {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+        }
+        .inequality-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #856404;
+            margin-bottom: 12px;
+        }
+        .inequality-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        .inequality-item {
+            font-size: 13px;
+            color: #856404;
+            padding-left: 15px;
+        }
+        .inequality-item::before {
+            content: "⚠️";
+            margin-left: -15px;
+            margin-right: 5px;
+        }
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .solution-card {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .solution-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #155724;
+            margin-bottom: 8px;
+        }
+        .solution-desc {
+            font-size: 13px;
+            color: #155724;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">정의 (Justice): 의료 형평성과 접근성</div>
+        
+        <div class="equity-grid">
+            <div class="equity-card">
+                <div class="equity-icon">⚖️</div>
+                <div class="equity-title">형평성</div>
+                <div class="equity-desc">모든 환자에게<br>공정한 대우</div>
+            </div>
+            <div class="equity-card">
+                <div class="equity-icon">🌍</div>
+                <div class="equity-title">접근성</div>
+                <div class="equity-desc">지리/경제적<br>장벽 제거</div>
+            </div>
+            <div class="equity-card">
+                <div class="equity-icon">📊</div>
+                <div class="equity-title">자원 분배</div>
+                <div class="equity-desc">합리적인<br>우선순위 설정</div>
+            </div>
+        </div>
+        
+        <div class="inequality-section">
+            <div class="inequality-title">🚨 AI 의료에서의 불평등 위험</div>
+            <div class="inequality-list">
+                <div class="inequality-item">특정 인구 집단 데이터 부족</div>
+                <div class="inequality-item">소수 인종/민족 편향</div>
+                <div class="inequality-item">농어촌 지역 접근성 제한</div>
+                <div class="inequality-item">디지털 격차 (Digital Divide)</div>
+                <div class="inequality-item">경제적 장벽 (비용)</div>
+                <div class="inequality-item">언어/문화적 장벽</div>
+            </div>
+        </div>
+        
+        <div class="solution-grid">
+            <div class="solution-card">
+                <div class="solution-title">✓ 다양한 데이터 수집</div>
+                <div class="solution-desc">
+                    모든 인구 집단을 대표하는 학습 데이터 확보
+                </div>
+            </div>
+            <div class="solution-card">
+                <div class="solution-title">✓ 편향 모니터링</div>
+                <div class="solution-desc">
+                    그룹별 성능 격차 지속적 측정 및 개선
+                </div>
+            </div>
+            <div class="solution-card">
+                <div class="solution-title">✓ 보편적 설계</div>
+                <div class="solution-desc">
+                    다양한 환경과 사용자를 고려한 UI/UX
+                </div>
+            </div>
+            <div class="solution-card">
+                <div class="solution-title">✓ 공공 투자</div>
+                <div class="solution-desc">
+                    취약 계층을 위한 AI 의료 서비스 지원
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

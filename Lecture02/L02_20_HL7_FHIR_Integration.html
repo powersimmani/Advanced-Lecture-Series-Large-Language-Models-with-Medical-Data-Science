@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HL7 FHIR Integration</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:Aptos,'Segoe UI',sans-serif;background:white;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+        .container{width:960px;padding:35px 45px;}
+        .title{font-size:20px;font-weight:600;color:#1E64C8;margin-bottom:25px;text-align:center;}
+        .card{background:white;border:2.5px solid #1E64C8;border-radius:8px;padding:20px;margin-bottom:15px;}
+        .card-title{font-size:17px;font-weight:700;color:#1E64C8;margin-bottom:10px;}
+        .card-content{font-size:15px;color:#333;line-height:1.6;}
+        .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+        .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
+        .part-banner{background:linear-gradient(135deg,#1E64C8 0%,#5088d4 100%);color:white;padding:80px 60px;border-radius:12px;height:460px;display:flex;flex-direction:column;justify-content:center;}
+        .part-label{font-size:32px;font-weight:700;margin-bottom:30px;}
+        .part-title{font-size:44px;font-weight:700;margin-bottom:60px;line-height:1.2;}
+        .part-topics{font-size:20px;margin-left:40px;line-height:2;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="title">HL7 FHIR Integration</div>
+        <div class="grid-3" style="margin-bottom:20px;">
+            <div class="card">
+                <div class="card-title">Patient</div>
+                <div class="card-content">인구통계 정보<br>이름, 생년월일<br>주소, 연락처</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Observation</div>
+                <div class="card-content">관찰/측정값<br>검사 결과<br>활력징후</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Medication</div>
+                <div class="card-content">약물 정보<br>처방, 조제<br>투약 기록</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title">RESTful API</div>
+            <div class="card-content">
+                • <strong>GET</strong> /Patient/123 - 환자 정보 조회<br>
+                • <strong>POST</strong> /Observation - 관찰 데이터 생성<br>
+                • <strong>JSON 형식</strong>으로 데이터 교환<br>
+                • 표준 리소스 구조
+            </div>
+        </div>
+    
+    </div>
+</body>
+</html>

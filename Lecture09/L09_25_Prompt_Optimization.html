@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Optimization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .intro-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .intro-text {
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .content-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px 22px;
+            transition: all 0.3s;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .card-icon {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .card-desc {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+        .key-points {
+            background: #f8fbff;
+            border: 2px solid #4a90e2;
+            border-radius: 8px;
+            padding: 18px 22px;
+        }
+        
+        .points-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .points-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .point-item {
+            font-size: 16px;
+            color: #333;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.4;
+        }
+        
+        .point-item::before {
+            content: "â€¢";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Prompt Optimization</div>
+        <div class="subtitle">프롬프트 최적화</div>
+        
+        <div class="intro-box">
+            <div class="intro-text">
+                <span class="highlight">프롬프트 최적화</span>의 핵심 개념과 의료 데이터 과학 적용에 대해 학습합니다.
+            </div>
+        </div>
+        
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-icon">🎯</div>
+                <div class="card-title">주요 개념</div>
+                <div class="card-desc">
+                    프롬프트 최적화의 이론적 배경과 핵심 원리
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">🏥</div>
+                <div class="card-title">의료 적용</div>
+                <div class="card-desc">
+                    실제 의료 환경에서의 활용 사례
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">📊</div>
+                <div class="card-title">성능 평가</div>
+                <div class="card-desc">
+                    효과성 측정 및 개선 방법론
+                </div>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">🔬</div>
+                <div class="card-title">실습 예제</div>
+                <div class="card-desc">
+                    실제 데이터를 활용한 구현
+                </div>
+            </div>
+        </div>
+        
+        <div class="key-points">
+            <div class="points-title">핵심 포인트</div>
+            <div class="points-list">
+                <div class="point-item">의료 데이터의 특수성을 고려한 접근</div>
+                <div class="point-item">제한된 데이터 환경에서의 효율적 학습</div>
+                <div class="point-item">안전성과 신뢰성을 보장하는 설계</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

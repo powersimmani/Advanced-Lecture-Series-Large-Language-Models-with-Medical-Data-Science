@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Considerations in Medical RLHF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 32px 42px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 7px;
+        }
+        
+        .section-text {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .item {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Ethical Considerations in Medical RLHF</div>
+        
+        <div class="section">
+            <div class="section-title">Ethical Imperatives</div>
+            <div class="section-text">RLHF in healthcare must navigate complex ethical terrain, balancing innovation with patient safety and equity.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Key Ethical Concerns</div>
+            <div class="items-list">
+                <div class="item">Bias & Fairness: Ensure equitable performance across demographics</div>
+                <div class="item">Transparency: Make AI reasoning understandable to clinicians</div>
+                <div class="item">Accountability: Clear responsibility when errors occur</div>
+                <div class="item">Privacy: Protect patient data in feedback loops</div>
+                <div class="item">Autonomy: Preserve patient and physician decision-making</div>
+                <div class="item">Beneficence: Ensure AI improves outcomes for all patients</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Bias Mitigation</div>
+            <div class="items-list">
+                <div class="item">Diverse Annotators: Include experts from various backgrounds</div>
+                <div class="item">Stratified Evaluation: Test performance across demographic groups</div>
+                <div class="item">Fairness Metrics: Monitor for disparate impact</div>
+                <div class="item">Bias Audits: Regular third-party fairness assessments</div>
+                <div class="item">Corrective Action: Retrain on underrepresented groups</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Transparency & Explainability</div>
+            <div class="items-list">
+                <div class="item">Interpretable Rewards: Make reward functions understandable</div>
+                <div class="item">Attention Visualization: Show what model focuses on</div>
+                <div class="item">Rationale Generation: Have model explain its reasoning</div>
+                <div class="item">Uncertainty Communication: Express confidence levels clearly</div>
+                <div class="item">Audit Trails: Log all decisions for review</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Governance</div>
+            <div class="items-list">
+                <div class="item">Ethics Review Board: Oversee RLHF system development</div>
+                <div class="item">Regulatory Compliance: Meet FDA, CE, other requirements</div>
+                <div class="item">Stakeholder Engagement: Include patients in design decisions</div>
+                <div class="item">Ongoing Monitoring: Continuously assess ethical implications</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

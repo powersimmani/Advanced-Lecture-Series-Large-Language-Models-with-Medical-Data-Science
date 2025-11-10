@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Balancing & Expert Utilization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .content-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        
+        .card-text {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-top: 20px;
+        }
+        
+        .highlight-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .highlight-text {
+            font-size: 15px;
+            color: #333;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Load Balancing & Expert Utilization</div>
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-title">Load Imbalance Problem</div>
+                <div class="card-text">• Some experts receive too many tokens</div>
+                <div class="card-text">• Others remain underutilized</div>
+                <div class="card-text">• Degrades to few-expert model</div>
+            </div>
+            <div class="content-card">
+                <div class="card-title">Auxiliary Loss</div>
+                <div class="card-text">• Encourages balanced routing</div>
+                <div class="card-text">• Penalizes uneven distribution</div>
+                <div class="card-text">• α * load_loss added to main loss</div>
+            </div>
+            <div class="content-card">
+                <div class="card-title">Expert Capacity</div>
+                <div class="card-text">• Limit tokens per expert</div>
+                <div class="card-text">• Drop excess tokens</div>
+                <div class="card-text">• Forces router to balance</div>
+            </div>
+            <div class="content-card">
+                <div class="card-title">Random Routing</div>
+                <div class="card-text">• Add noise to routing scores</div>
+                <div class="card-text">• Stochastic expert selection</div>
+                <div class="card-text">• Improves exploration</div>
+            </div>
+        </div>
+        <div class="highlight-box">
+            <div class="highlight-title">⚖️ Balancing Act</div>
+            <div class="highlight-text">Effective load balancing ensures all experts are utilized efficiently, preventing capacity bottlenecks while maintaining specialization quality.</div>
+        </div>
+    </div>
+</body>
+</html>

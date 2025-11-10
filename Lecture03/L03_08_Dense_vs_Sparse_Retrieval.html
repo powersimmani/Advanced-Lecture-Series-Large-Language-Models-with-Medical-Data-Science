@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dense vs Sparse Retrieval</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .strategy-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            transition: all 0.3s;
+        }
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.3);
+        }
+        .strategy-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .strategy-desc {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .strategy-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .metric-item {
+            font-size: 13px;
+            color: #333;
+            padding: 5px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .dimension-section {
+            background: #f0f5fc;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .dimension-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .dimension-options {
+            display: flex;
+            justify-content: space-around;
+        }
+        .dim-option {
+            padding: 12px 20px;
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1E64C8;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2px;
+            margin-bottom: 2px;
+        }
+        .comparison-row.header {
+            background: #1E64C8;
+            color: white;
+            font-weight: 700;
+        }
+        .col {
+            padding: 12px;
+            background: #f8f9fa;
+            font-size: 14px;
+            text-align: center;
+        }
+        .col.label {
+            background: #e8f2ff;
+            font-weight: 600;
+            color: #1E64C8;
+        }
+        .use-case-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .use-case {
+            background: #fff8e6;
+            border-left: 4px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .use-label {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        .use-text {
+            font-size: 14px;
+            color: #555;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Dense vs Sparse Retrieval</div>
+        
+        <div class="comparison-table">
+            <div class="comparison-row header">
+                <div class="col">Aspect</div>
+                <div class="col">Dense Retrieval</div>
+                <div class="col">Sparse Retrieval</div>
+            </div>
+            <div class="comparison-row">
+                <div class="col label">Similarity Type</div>
+                <div class="col">Semantic meaning</div>
+                <div class="col">Keyword matching</div>
+            </div>
+            <div class="comparison-row">
+                <div class="col label">Speed</div>
+                <div class="col">Medium (ANN search)</div>
+                <div class="col">Fast (inverted index)</div>
+            </div>
+            <div class="comparison-row">
+                <div class="col label">Accuracy</div>
+                <div class="col">High for concepts</div>
+                <div class="col">High for exact terms</div>
+            </div>
+            <div class="comparison-row">
+                <div class="col label">Medical Terms</div>
+                <div class="col">Understands synonyms</div>
+                <div class="col">Exact match required</div>
+            </div>
+        </div>
+        
+        <div class="use-case-section">
+            <div class="use-case">
+                <div class="use-label">Dense best for:</div>
+                <div class="use-text">"Patient with chest pain and shortness of breath"</div>
+            </div>
+            <div class="use-case">
+                <div class="use-label">Sparse best for:</div>
+                <div class="use-text">"ICD-10 code I21.0" or "Aspirin 81mg"</div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

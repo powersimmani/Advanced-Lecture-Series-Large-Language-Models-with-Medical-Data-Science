@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KL Divergence Control</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 18px;
+        }
+        
+        .section-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .section-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .item {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 18px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">KL Divergence Control</div>
+        
+        <div class="section">
+            <div class="section-title">Purpose of KL Divergence</div>
+            <div class="section-text">KL divergence measures how much the optimized policy deviates from the original base model, preventing harmful divergence from foundational knowledge.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Mathematical Formulation</div>
+            <div class="items-list">
+                <div class="item">KL(π_θ || π_ref) = E[log(π_θ(a|s)) - log(π_ref(a|s))]</div>
+                <div class="item">π_θ: Current policy being optimized</div>
+                <div class="item">π_ref: Reference policy (original base model)</div>
+                <div class="item">Measures distribution difference between policies</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Why KL Control Matters</div>
+            <div class="items-list">
+                <div class="item">Preserve Base Knowledge: Maintain general medical knowledge</div>
+                <div class="item">Prevent Mode Collapse: Avoid generating repetitive outputs</div>
+                <div class="item">Stability: Reduce training instability</div>
+                <div class="item">Generalization: Better performance on out-of-distribution inputs</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Tuning KL Penalty</div>
+            <div class="items-list">
+                <div class="item">High β: Strong constraint, minimal deviation from base model</div>
+                <div class="item">Low β: More freedom to optimize, risk of forgetting</div>
+                <div class="item">Adaptive β: Adjust penalty dynamically during training</div>
+                <div class="item">Typical Range: β ∈ [0.01, 0.1] for medical applications</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

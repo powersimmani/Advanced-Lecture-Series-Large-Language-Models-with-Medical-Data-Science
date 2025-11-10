@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+    body {
+        background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+    }
+    .container {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .title {
+        font-size: 48px;
+        color: white;
+        margin-bottom: 40px;
+    }
+    .summary-section {
+        margin-bottom: 25px;
+    }
+    .summary-title, .bp-title, .resources-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .takeaways {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .takeaway {
+        font-size: 16px;
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        border-left: 4px solid white;
+    }
+    .best-practices {
+        margin-bottom: 25px;
+    }
+    .practices-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    .practice {
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        font-size: 13px;
+        text-align: center;
+    }
+    .resources-section {
+        margin-bottom: 25px;
+    }
+    .resources {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .resource {
+        font-size: 14px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+    }
+    .qa-section {
+        margin-top: 30px;
+        text-align: center;
+    }
+    .qa-text {
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Thank You</div>
+        
+    <div class="summary-section">
+        <div class="summary-title">🎓 Key Takeaways</div>
+        <div class="takeaways">
+            <div class="takeaway">
+                ✅ RAG combines retrieval + generation for accurate medical AI
+            </div>
+            <div class="takeaway">
+                ✅ Hybrid search (dense + sparse) achieves 95%+ accuracy
+            </div>
+            <div class="takeaway">
+                ✅ Citation generation ensures evidence-based responses
+            </div>
+            <div class="takeaway">
+                ✅ Production systems require caching, monitoring, and scaling
+            </div>
+        </div>
+    </div>
+    
+    <div class="best-practices">
+        <div class="bp-title">💡 Best Practices</div>
+        <div class="practices-grid">
+            <div class="practice">Always cite sources</div>
+            <div class="practice">Use medical embeddings (BioBERT)</div>
+            <div class="practice">Implement confidence thresholds</div>
+            <div class="practice">Monitor hallucination rates</div>
+            <div class="practice">Keep knowledge base updated</div>
+            <div class="practice">A/B test before deployment</div>
+        </div>
+    </div>
+    
+    <div class="resources-section">
+        <div class="resources-title">📚 Additional Resources</div>
+        <div class="resources">
+            <div class="resource">LangChain Documentation: langchain.com</div>
+            <div class="resource">Medical Datasets: PubMed, MIMIC-III</div>
+            <div class="resource">Vector DBs: Pinecone, Weaviate, Qdrant</div>
+            <div class="resource">Research: arXiv.org (cs.CL, cs.IR)</div>
+        </div>
+    </div>
+    
+    <div class="qa-section">
+        <div class="qa-text">Questions & Answers</div>
+    </div>
+    
+    </div>
+</body>
+</html>

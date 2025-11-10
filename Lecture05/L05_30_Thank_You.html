@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 60px;
+        }
+        
+        .thank-you {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+        
+        .summary-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 25px 35px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .summary-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .summary-text {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
+        .resources {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="thank-you">Thank you</div>
+        
+        <div class="summary-section">
+            <div class="summary-title">Key Takeaways</div>
+            <div class="summary-text">
+                ✓ Medical benchmarks: MedQA, USMLE, PubMedQA, MedMCQA, MMLU<br>
+                ✓ Metrics: Accuracy, factuality, consistency, calibration, safety<br>
+                ✓ Human evaluation: Expert protocols, inter-rater agreement, clinical relevance<br>
+                ✓ Continuous monitoring: Dashboards, drift detection, reporting standards
+            </div>
+        </div>
+        
+        <div class="resources">
+            📚 Resources: Papers with Code | Medical AI Benchmarks | TRIPOD Guidelines
+        </div>
+    </div>
+</body>
+</html>

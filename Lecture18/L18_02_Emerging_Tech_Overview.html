@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emerging Technologies Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .roadmap-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .tech-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .tech-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .tech-desc {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .maturity-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        
+        .emerging {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .developing {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .mature {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .potential-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        
+        .potential-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .potential-text {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Emerging Technologies Overview: Medical AI Potential</div>
+        
+        <div class="roadmap-container">
+            <div class="tech-card">
+                <div class="tech-name">Mixture of Experts (MoE)</div>
+                <div class="tech-desc">Specialized sub-networks for different medical domains</div>
+                <div class="tech-desc">Efficient scaling with sparse activation</div>
+                <span class="maturity-badge developing">Developing</span>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-name">Long-Context Models</div>
+                <div class="tech-desc">Process entire patient histories (100K+ tokens)</div>
+                <div class="tech-desc">Comprehensive longitudinal analysis</div>
+                <span class="maturity-badge developing">Developing</span>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-name">Graph Transformers</div>
+                <div class="tech-desc">Model complex medical relationships</div>
+                <div class="tech-desc">Disease networks and interactions</div>
+                <span class="maturity-badge emerging">Emerging</span>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-name">State Space Models</div>
+                <div class="tech-desc">Efficient temporal sequence processing</div>
+                <div class="tech-desc">Linear complexity for long sequences</div>
+                <span class="maturity-badge emerging">Emerging</span>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-name">Neural ODEs</div>
+                <div class="tech-desc">Continuous-time modeling of disease progression</div>
+                <div class="tech-desc">Physiological dynamics simulation</div>
+                <span class="maturity-badge emerging">Emerging</span>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-name">Quantum ML</div>
+                <div class="tech-desc">Exponential speedup for specific problems</div>
+                <div class="tech-desc">Drug discovery optimization</div>
+                <span class="maturity-badge emerging">Early Stage</span>
+            </div>
+        </div>
+        
+        <div class="potential-box">
+            <div class="potential-title">🎯 Medical AI Potential</div>
+            <div class="potential-text">
+                These emerging architectures promise to enhance diagnostic accuracy, enable personalized treatment, 
+                and revolutionize healthcare delivery through more efficient and capable AI systems
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FDA Approved AI Systems</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px 50px; }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .icon { font-size: 72px; margin-bottom: 15px; }
+        .title {
+            font-size: 34px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .metric-card {
+            background: linear-gradient(135deg, #f0f5fc 0%, #ffffff 100%);
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(30, 100, 200, 0.3);
+        }
+        .metric-text {
+            font-size: 20px;
+            color: #333;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">✅</div>
+            <div class="title">FDA Approved AI Systems</div>
+        </div>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-text">520+ FDA cleared devices</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-text">IDx-DR (diabetic retinopathy)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-text">Caption Health (echocardiography)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-text">Rapid regulatory growth</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

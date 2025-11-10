@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Silo vs Cross-Device</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 35px 45px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        .compare-box {
+            background: linear-gradient(135deg, #f8f9fa, #e8f2ff);
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+        .compare-icon {
+            font-size: 64px;
+            margin-bottom: 15px;
+        }
+        .compare-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+        }
+        .compare-features {
+            font-size: 16px;
+            color: #333;
+            text-align: left;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Cross-Silo vs Cross-Device</div>
+        <div class="comparison-grid">
+            <div class="compare-box">
+                <div class="compare-icon">🏥</div>
+                <div class="compare-title">Cross-Silo (Hospital FL)</div>
+                <div class="compare-features">• Few clients (~10-100)<br>• Large datasets<br>• Reliable connectivity<br>• Powerful compute</div>
+            </div>
+            <div class="compare-box">
+                <div class="compare-icon">📱</div>
+                <div class="compare-title">Cross-Device (Mobile FL)</div>
+                <div class="compare-features">• Many clients (millions)<br>• Small local data<br>• Unreliable connectivity<br>• Limited resources</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

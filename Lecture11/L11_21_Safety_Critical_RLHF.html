@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety-Critical RLHF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 32px 42px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 7px;
+        }
+        
+        .section-text {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .item {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Safety-Critical RLHF</div>
+        
+        <div class="section">
+            <div class="section-title">Medical Error Prevention</div>
+            <div class="section-text">RLHF systems in healthcare must have multiple safety layers to prevent errors that could harm patients.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Safety Mechanisms</div>
+            <div class="items-list">
+                <div class="item">Pre-Deployment Testing: Extensive validation before clinical use</div>
+                <div class="item">Conservative Defaults: Err on side of caution when uncertain</div>
+                <div class="item">Human-in-the-Loop: Require expert confirmation for critical decisions</div>
+                <div class="item">Redundant Checks: Multiple independent safety verifications</div>
+                <div class="item">Fail-Safe Modes: Graceful degradation when errors detected</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Critical Failure Modes</div>
+            <div class="items-list">
+                <div class="item">Medication Errors: Wrong drug, dose, or timing</div>
+                <div class="item">Diagnostic Misses: Failing to identify serious conditions</div>
+                <div class="item">Inappropriate Reassurance: Downplaying concerning symptoms</div>
+                <div class="item">Scope Violations: Advising beyond system competency</div>
+                <div class="item">Harmful Content: Suggesting dangerous treatments</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Safety Culture</div>
+            <div class="items-list">
+                <div class="item">Encourage error reporting without punishment</div>
+                <div class="item">Regular safety audits and drills</div>
+                <div class="item">Transparent incident investigation</div>
+                <div class="item">Continuous safety training for all stakeholders</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

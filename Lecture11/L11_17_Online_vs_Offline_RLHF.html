@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online vs Offline RLHF</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 35px 45px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 18px;
+        }
+        
+        .section-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .section-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .item {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 18px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Online vs Offline RLHF</div>
+        
+        <div class="section">
+            <div class="section-title">Offline RLHF</div>
+            <div class="section-text">Train on fixed datasets of preferences collected in advance. More common in medical AI due to safety requirements.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Offline Advantages</div>
+            <div class="items-list">
+                <div class="item">Safety: All data reviewed before training</div>
+                <div class="item">Reproducibility: Fixed dataset enables consistent experiments</div>
+                <div class="item">Expert Efficiency: Collect preferences in batches</div>
+                <div class="item">Lower Risk: No live patient interaction during training</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Online RLHF</div>
+            <div class="section-text">Continuously collect new preferences during deployment and retrain. Riskier but more adaptive to evolving needs.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Online Advantages</div>
+            <div class="items-list">
+                <div class="item">Adaptation: Quickly respond to new medical knowledge</div>
+                <div class="item">Distribution Shift: Handle evolving patient populations</div>
+                <div class="item">Feedback Loop: Learn from real-world deployment</div>
+                <div class="item">Efficiency: Focus on most relevant cases</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Hybrid Approaches</div>
+            <div class="items-list">
+                <div class="item">Offline pre-training + online fine-tuning</div>
+                <div class="item">Simulation-based online learning before real deployment</div>
+                <div class="item">Staged rollout with increasing online learning</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

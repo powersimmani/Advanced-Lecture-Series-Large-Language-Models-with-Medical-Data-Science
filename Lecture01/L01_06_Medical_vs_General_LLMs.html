@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical vs General-Purpose LLMs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 50px;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .llm-section {
+            background: linear-gradient(135deg, #f0f5fc 0%, #ffffff 100%);
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 25px;
+        }
+        
+        .llm-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .overlap-section {
+            grid-column: 1 / -1;
+            background: #e8f2ff;
+            border: 2px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .overlap-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        
+        .overlap-content {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Medical vs General-Purpose LLMs</div>
+        
+        <div class="comparison">
+            <div class="llm-section">
+                <div class="llm-title">🏥 Medical LLMs</div>
+                <div class="feature-list">
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>Domain-specific knowledge</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>Clinical safety protocols</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>HIPAA/regulatory compliance</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>Medical terminology precision</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>Evidence-based responses</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>Rare disease understanding</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="llm-section">
+                <div class="llm-title">🌐 General-Purpose LLMs</div>
+                <div class="feature-list">
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>Broad knowledge coverage</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>Creative problem-solving</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>Multi-domain versatility</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>General reasoning ability</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>Larger training datasets</span>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">✓</span>
+                        <span>Conversational flexibility</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="overlap-section">
+                <div class="overlap-title">🔄 Common Ground</div>
+                <div class="overlap-content">
+                    Language understanding • Contextual reasoning • Pattern recognition • Natural language generation
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

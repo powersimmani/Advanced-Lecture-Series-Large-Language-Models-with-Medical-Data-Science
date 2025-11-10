@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Heterogeneity</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 35px 45px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .challenge-card {
+            background: linear-gradient(135deg, #f8f9fa, #e8f2ff);
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .challenge-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+        }
+        .challenge-icon { font-size: 48px; margin-bottom: 15px; }
+        .challenge-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        .challenge-desc {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Data Heterogeneity</div>
+        <div class="challenge-grid">
+    <div class="challenge-card">
+        <div class="challenge-icon">📊</div>
+        <div class="challenge-name">Statistical</div>
+        <div class="challenge-desc">Different data distributions across hospitals</div>
+    </div>
+    
+    <div class="challenge-card">
+        <div class="challenge-icon">⚙️</div>
+        <div class="challenge-name">System</div>
+        <div class="challenge-desc">Varying compute resources and network</div>
+    </div>
+    
+    <div class="challenge-card">
+        <div class="challenge-icon">📋</div>
+        <div class="challenge-name">Model</div>
+        <div class="challenge-desc">Different architectures and objectives</div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>

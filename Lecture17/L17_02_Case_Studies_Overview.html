@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies Overview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #ffffff;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 50px 80px;
+            position: relative;
+        }
+        
+        .main-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e8f4;
+        }
+        
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .case-item {
+            background: #f8f9fa;
+            border-left: 4px solid #1E64C8;
+            padding: 15px 20px;
+            border-radius: 6px;
+            font-size: 17px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .case-item:hover {
+            background: #e8f2ff;
+            transform: translateX(5px);
+        }
+        
+        .success-factors {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .factor-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 17px;
+            color: #333;
+        }
+        
+        .factor-item::before {
+            content: "✓";
+            color: #1E64C8;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-title">Case Studies Overview</div>
+        
+        <div class="section">
+            <div class="section-title">케이스 분류</div>
+            <div class="case-grid">
+                <div class="case-item">응급의학 분야</div>
+                <div class="case-item">영상의학 분야</div>
+                <div class="case-item">임상시험 및 신약개발</div>
+                <div class="case-item">인구 건강 관리</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">성공 요인</div>
+            <div class="success-factors">
+                <div class="factor-item">명확한 임상 문제 정의</div>
+                <div class="factor-item">데이터 품질과 접근성</div>
+                <div class="factor-item">의료진과의 긴밀한 협력</div>
+                <div class="factor-item">점진적 구현 및 검증</div>
+                <div class="factor-item">지속적인 모니터링과 개선</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

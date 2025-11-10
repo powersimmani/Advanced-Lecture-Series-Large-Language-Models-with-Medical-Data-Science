@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        body {{
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+        }}
+        .container {{
+            width: 960px;
+            height: 540px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 60px;
+        }}
+        .main-title {{
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }}
+        .summary {{
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 50px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }}
+        .resources {{
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 40px;
+        }}
+        .resource-item {{
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+        }}
+        .bullet {{ font-weight: 700; }}
+        .contact {{
+            font-size: 20px;
+            margin-top: 30px;
+        }}
+        .email {{
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-title">Thank You!</div>
+        
+        <div class="summary">
+            Master PEFT techniques for medical LLM adaptation<br>
+            Apply instruction tuning and advanced methods<br>
+            Deploy safe and effective medical AI systems
+        </div>
+        
+        <div class="resources">
+            <div class="resource-item">
+                <span class="bullet">📚</span>
+                <span>Hugging Face PEFT Documentation</span>
+            </div>
+            <div class="resource-item">
+                <span class="bullet">🔬</span>
+                <span>MedInstruct Dataset on GitHub</span>
+            </div>
+            <div class="resource-item">
+                <span class="bullet">💬</span>
+                <span>Join Medical AI Community</span>
+            </div>
+        </div>
+        
+        <div class="contact">
+            <strong>Questions?</strong>
+            <div class="email">homin.park@ghent.ac.kr | powersimmani@gmail.com</div>
+        </div>
+    </div>
+</body>
+</html>

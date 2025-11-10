@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-On: Building an RLHF Pipeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 32px 42px;
+            background: white;
+            overflow-y: auto;
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .section {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 7px;
+        }
+        
+        .section-text {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .item {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+            padding-left: 16px;
+            position: relative;
+        }
+        
+        .item:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1E64C8;
+            font-weight: 700;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Hands-On: Building an RLHF Pipeline</div>
+        
+        <div class="section">
+            <div class="section-title">Practical Implementation</div>
+            <div class="section-text">Step-by-step guide to implementing a basic RLHF pipeline for medical applications.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Setup & Prerequisites</div>
+            <div class="items-list">
+                <div class="item">Python 3.8+, PyTorch, Transformers library</div>
+                <div class="item">Pre-trained medical language model (e.g., BioBERT, ClinicalBERT)</div>
+                <div class="item">Preference dataset (or use publicly available data)</div>
+                <div class="item">GPU with 16GB+ VRAM recommended</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Pipeline Steps</div>
+            <div class="items-list">
+                <div class="item">Step 1: Load and prepare preference dataset</div>
+                <div class="item">Step 2: Train reward model on preferences</div>
+                <div class="item">Step 3: Set up PPO or DPO training loop</div>
+                <div class="item">Step 4: Optimize policy with reward guidance</div>
+                <div class="item">Step 5: Evaluate on held-out test set</div>
+                <div class="item">Step 6: Analyze outputs and iterate</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Code Example (Simplified)</div>
+            <div class="items-list">
+                <div class="item"># Load base model</div>
+                <div class="item">model = AutoModelForCausalLM.from_pretrained('microsoft/BioGPT')</div>
+                <div class="item"># Train reward model</div>
+                <div class="item">reward_model = train_reward_model(preference_data)</div>
+                <div class="item"># Run PPO</div>
+                <div class="item">ppo_trainer = PPOTrainer(model, reward_model, config)</div>
+                <div class="item">optimized_model = ppo_trainer.train()</div>
+                <div class="item"># Evaluate</div>
+                <div class="item">evaluate_model(optimized_model, test_set)</div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Resources</div>
+            <div class="items-list">
+                <div class="item">HuggingFace TRL library for RLHF</div>
+                <div class="item">OpenAI's RLHF blog posts and papers</div>
+                <div class="item">DeepSpeed for efficient training</div>
+                <div class="item">Example Colab notebooks (see course materials)</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

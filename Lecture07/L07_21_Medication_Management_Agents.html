@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Management Agents</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 18px;
+        }
+        
+        .function-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            transition: all 0.3s;
+        }
+        
+        .function-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.25);
+            background: #f8fbff;
+        }
+        
+        .function-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .task-item {
+            font-size: 15px;
+            color: #555;
+        }
+        
+        .task-item::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Medication Management Agents</div>
+        
+        <div class="content-grid">
+            <div class="function-card">
+                <div class="function-name">Prescription Review</div>
+                <div class="task-list">
+                    <div class="task-item">용법 확인</div>
+                    <div class="task-item">금기 검토</div>
+                    <div class="task-item">중복 확인</div>
+                    <div class="task-item">약물 상호작용</div>
+                </div>
+            </div>
+            
+            <div class="function-card">
+                <div class="function-name">Patient Education</div>
+                <div class="task-list">
+                    <div class="task-item">복약 지도</div>
+                    <div class="task-item">부작용 교육</div>
+                    <div class="task-item">주의사항</div>
+                    <div class="task-item">보관 방법</div>
+                </div>
+            </div>
+            
+            <div class="function-card">
+                <div class="function-name">Adherence Monitoring</div>
+                <div class="task-list">
+                    <div class="task-item">복약 순응도</div>
+                    <div class="task-item">리필 추적</div>
+                    <div class="task-item">복약 리마인더</div>
+                    <div class="task-item">효과 모니터링</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

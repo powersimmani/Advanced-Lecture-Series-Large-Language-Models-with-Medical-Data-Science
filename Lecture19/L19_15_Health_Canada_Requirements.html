@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Canada Requirements</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Aptos, 'Segoe UI', sans-serif;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 960px;
+    height: 540px;
+    padding: 28px 40px;
+    background: white;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1E64C8;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.intro-box {
+    background: #f0f5fc;
+    border: 2px solid #1E64C8;
+    border-radius: 10px;
+    padding: 12px 20px;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.intro-highlight {
+    color: #1E64C8;
+    font-weight: 700;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+    margin-bottom: 12px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.card {
+    background: white;
+    border: 2.5px solid #1E64C8;
+    border-radius: 8px;
+    padding: 12px 14px;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+    background: #f8fbff;
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1E64C8;
+    margin-bottom: 6px;
+}
+
+.card-desc {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.info-box {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 11px 14px;
+    margin-bottom: 11px;
+}
+
+.info-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1E64C8;
+    margin-bottom: 7px;
+}
+
+.info-item {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 3px;
+    line-height: 1.4;
+}
+
+.highlight-box {
+    background: #fff4e6;
+    border-left: 4px solid #ff9800;
+    border-radius: 4px;
+    padding: 9px 13px;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Health Canada Requirements</div>
+        
+    <div class="intro-box">
+        <div class="intro-text">
+            캐나다는 <span class="intro-highlight">Medical Devices Regulations</span>에 따라 
+            <span class="intro-highlight">위험 기반 분류 시스템</span>을 운영합니다
+        </div>
+    </div>
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">🍁 Health Canada</div>
+            <div class="card-desc">캐나다 보건부, 의료기기 규제 당국</div>
+        </div>
+        <div class="card">
+            <div class="card-title">📋 MDEL</div>
+            <div class="card-desc">의료기기 설립 허가 (Medical Device Establishment Licence)</div>
+        </div>
+    </div>
+    <div class="info-box">
+        <div class="info-title">캐나다 기기 분류 (Class I-IV)</div>
+        <div class="info-item"><strong>Class I:</strong> 저위험, 제조업체 자체 선언</div>
+        <div class="info-item"><strong>Class II:</strong> 중-저위험, 라이센스 필요</div>
+        <div class="info-item"><strong>Class III:</strong> 중-고위험, 라이센스 + 상세 검토</div>
+        <div class="info-item"><strong>Class IV:</strong> 고위험, 가장 엄격한 심사</div>
+    </div>
+    <div class="info-box">
+        <div class="info-title">승인 경로</div>
+        <div class="info-item"><strong>• Standard Pathway:</strong> 일반적인 검토 절차</div>
+        <div class="info-item"><strong>• Expedited Pathway:</strong> 신속 검토 (특정 조건 충족 시)</div>
+        <div class="info-item"><strong>• Agile Licensing:</strong> AI/ML 등 혁신 기기를 위한 유연한 경로</div>
+    </div>
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">⏱️ 심사 기간</div>
+            <div class="card-desc">Class II: 60일, Class III/IV: 75일 (목표)</div>
+        </div>
+        <div class="card">
+            <div class="card-title">🔄 갱신</div>
+            <div class="card-desc">MDEL은 연간 갱신 필요</div>
+        </div>
+    </div>
+    <div class="highlight-box">
+        <strong>💡 Key Point:</strong> Health Canada는 AI/ML 기기를 위한 Agile Licensing을 도입하여, 
+        지속적으로 학습하는 알고리즘에 대한 적응형 규제를 제공합니다
+    </div>
+    </div>
+</body>
+</html>

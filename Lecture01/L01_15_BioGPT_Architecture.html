@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioGPT Architecture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 35px 50px; }
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        .model-overview {
+            background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .model-stat {
+            display: inline-block;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+        .feature-card {
+            background: #f0f5fc;
+            border-left: 5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+        }
+        .feature-icon { font-size: 28px; margin-bottom: 8px; }
+        .feature-text {
+            font-size: 17px;
+            color: #333;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">BioGPT Architecture</div>
+        <div class="model-overview">
+            <div class="model-stat">📊 1.5B parameters</div>
+            <div class="model-stat">🏗️ GPT architecture</div>
+            <div class="model-stat">✅ SOTA on BioNLP tasks</div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-text">PubMed pre-training</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💡</div>
+                <div class="feature-text">Biomedical text generation</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <div class="feature-text">Strong on QA and summarization</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <div class="feature-text">Open-source availability</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

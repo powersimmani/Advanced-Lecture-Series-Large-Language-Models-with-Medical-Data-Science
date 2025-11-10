@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Drift Detection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .definition-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .definition-text {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .definition-highlight {
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .drift-types {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .drift-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+        
+        .drift-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .drift-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .drift-desc {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+        
+        .drift-example {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .methods-section {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 15px 20px;
+        }
+        
+        .methods-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .methods-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .method-badge {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            border: 1.5px solid #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Data Drift Detection</div>
+        
+        <div class="definition-box">
+            <span class="definition-text"><span class="definition-highlight">Data Drift</span>: When production data distribution </span>
+            <span class="definition-highlight">differs from training data</span>
+        </div>
+        
+        <div class="drift-types">
+            <div class="drift-card">
+                <div class="drift-title">Covariate Shift</div>
+                <div class="drift-desc">Input distribution P(X) changes</div>
+                <div class="drift-example">Example: New imaging equipment with different resolution/contrast</div>
+            </div>
+            
+            <div class="drift-card">
+                <div class="drift-title">Label Shift</div>
+                <div class="drift-desc">Output distribution P(Y) changes</div>
+                <div class="drift-example">Example: Seasonal disease prevalence changes</div>
+            </div>
+            
+            <div class="drift-card">
+                <div class="drift-title">Concept Drift</div>
+                <div class="drift-desc">Relationship P(Y|X) changes</div>
+                <div class="drift-example">Example: Treatment protocols evolve, outcomes change</div>
+            </div>
+            
+            <div class="drift-card">
+                <div class="drift-title">Feature Drift</div>
+                <div class="drift-desc">Individual feature distributions change</div>
+                <div class="drift-example">Example: Patient demographics shift over time</div>
+            </div>
+        </div>
+        
+        <div class="methods-section">
+            <div class="methods-title">🔍 Detection Methods</div>
+            <div class="methods-grid">
+                <div class="method-badge">KS Test (Kolmogorov-Smirnov)</div>
+                <div class="method-badge">Chi-Square Test</div>
+                <div class="method-badge">PSI (Population Stability Index)</div>
+                <div class="method-badge">Wasserstein Distance</div>
+                <div class="method-badge">KL Divergence</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

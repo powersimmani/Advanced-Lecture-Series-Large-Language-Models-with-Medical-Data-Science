@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EU MDR/IVDR - European Medical Device Regulations</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Aptos, 'Segoe UI', sans-serif;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 960px;
+    height: 540px;
+    padding: 28px 40px;
+    background: white;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1E64C8;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.intro-box {
+    background: #f0f5fc;
+    border: 2px solid #1E64C8;
+    border-radius: 10px;
+    padding: 12px 20px;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.intro-highlight {
+    color: #1E64C8;
+    font-weight: 700;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+    margin-bottom: 12px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.card {
+    background: white;
+    border: 2.5px solid #1E64C8;
+    border-radius: 8px;
+    padding: 12px 14px;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+    background: #f8fbff;
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1E64C8;
+    margin-bottom: 6px;
+}
+
+.card-desc {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.info-box {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 11px 14px;
+    margin-bottom: 11px;
+}
+
+.info-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1E64C8;
+    margin-bottom: 7px;
+}
+
+.info-item {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 3px;
+    line-height: 1.4;
+}
+
+.highlight-box {
+    background: #fff4e6;
+    border-left: 4px solid #ff9800;
+    border-radius: 4px;
+    padding: 9px 13px;
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">EU MDR/IVDR - European Medical Device Regulations</div>
+        
+    <div class="intro-box">
+        <div class="intro-text">
+            EU는 <span class="intro-highlight">MDR (Medical Device Regulation)</span>과 
+            <span class="intro-highlight">IVDR (In Vitro Diagnostic Regulation)</span>으로 
+            의료기기 규제를 강화했습니다
+        </div>
+    </div>
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">📅 MDR (EU 2017/745)</div>
+            <div class="card-desc">2021년 5월 완전 시행, 일반 의료기기 규제</div>
+        </div>
+        <div class="card">
+            <div class="card-title">🧪 IVDR (EU 2017/746)</div>
+            <div class="card-desc">2022년 5월 완전 시행, 체외진단 의료기기 규제</div>
+        </div>
+    </div>
+    <div class="info-box">
+        <div class="info-title">주요 변경사항</div>
+        <div class="info-item"><strong>• 위험 분류 강화:</strong> Class IIb/III 기기 증가</div>
+        <div class="info-item"><strong>• 임상 증거 요구 증가:</strong> 더 엄격한 임상평가</div>
+        <div class="info-item"><strong>• Notified Body 역할 확대:</strong> 독립 기관 심사 강화</div>
+        <div class="info-item"><strong>• UDI (Unique Device Identification):</strong> 기기 추적성 향상</div>
+        <div class="info-item"><strong>• EUDAMED 데이터베이스:</strong> 중앙화된 정보 시스템</div>
+        <div class="info-item"><strong>• 시판 후 감시 강화:</strong> PSUR, PMS 의무화</div>
+    </div>
+    <div class="grid-3">
+        <div class="card">
+            <div class="card-title">Class I</div>
+            <div class="card-desc">저위험, 자가 선언</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Class IIa/IIb</div>
+            <div class="card-desc">중위험, NB 심사</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Class III</div>
+            <div class="card-desc">고위험, NB 심사</div>
+        </div>
+    </div>
+    <div class="highlight-box">
+        <strong>💡 Key Point:</strong> MDR/IVDR은 환자 안전을 최우선으로 하며, 
+        AI/ML 기기도 이 프레임워크 내에서 적절히 분류되고 평가되어야 합니다
+    </div>
+    </div>
+</body>
+</html>

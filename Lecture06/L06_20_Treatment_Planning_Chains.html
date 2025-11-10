@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treatment Planning Chains</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 30px 40px;
+            background: white;
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(30, 100, 200, 0.25);
+        }
+        
+        .card-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .content-item {
+            font-size: 15px;
+            color: #333;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.4;
+        }
+        
+        .content-item::before {
+            content: "•";
+            color: #1E64C8;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .info-section {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .example-box {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .example-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .example-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .example-line {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .highlight-box {
+            background: #fff4e6;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px 25px;
+            text-align: center;
+        }
+        
+        .highlight-text {
+            font-size: 17px;
+            color: #333;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="title">Treatment Planning with CoT</div>
+        
+        <div class="info-section">
+            <div class="section-title">Sequential Decision Process</div>
+            <div class="content-grid">
+                <div class="content-item">
+                    <strong style="color: #1E64C8;">Treatment Options:</strong> List first-line, second-line alternatives
+                </div>
+                <div class="content-item">
+                    <strong style="color: #1E64C8;">Risk-Benefit Analysis:</strong> Weigh efficacy vs adverse effects
+                </div>
+                <div class="content-item">
+                    <strong style="color: #1E64C8;">Patient Factors:</strong> Consider comorbidities, preferences, adherence
+                </div>
+                <div class="content-item">
+                    <strong style="color: #1E64C8;">Monitoring Plan:</strong> Define follow-up and adjustment criteria
+                </div>
+            </div>
+        </div>
+        
+        <div class="example-box">
+            <div class="example-title">Example: Hypertension Management</div>
+            <div class="example-content">
+                <div class="example-line"><strong>Options:</strong> ACE-I, ARB, CCB, Diuretic, Beta-blocker</div>
+                <div class="example-line"><strong>Patient:</strong> 55yo, DM, no CAD, eGFR 60, K+ 4.2</div>
+                <div class="example-line"><strong>Reasoning:</strong> ACE-I preferred (DM protection) → check for contraindications (none) → assess tolerability risk (low)</div>
+                <div class="example-line"><strong>Plan:</strong> Start Lisinopril 10mg daily</div>
+                <div class="example-line"><strong>Monitoring:</strong> BP recheck 2 weeks, Cr/K+ 1 week, target BP <130/80</div>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <strong style="color: #1E64C8;">Guideline-based + personalized = optimal treatment</strong>
+        </div>
+    
+    </div>
+</body>
+</html>

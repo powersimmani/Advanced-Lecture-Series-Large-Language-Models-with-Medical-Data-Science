@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-On: Fine-Tuning Implementation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 28px 40px; background: white; }
+        .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 18px; text-align: center; }
+        .concept-box {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .concept-text { font-size: 17px; color: #333; font-weight: 500; }
+        .concept-highlight { color: #1E64C8; font-weight: 700; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .feature-card {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-align: center;
+        }
+        .feature-value { font-size: 24px; font-weight: 700; color: #1E64C8; margin-bottom: 6px; }
+        .feature-label { font-size: 13px; color: #555; font-weight: 500; }
+        .application-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 12px;
+        }
+        .app-title { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .app-list { display: flex; flex-direction: column; gap: 8px; }
+        .app-item { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: #333; line-height: 1.4; }
+        .bullet { color: #1E64C8; font-weight: 700; flex-shrink: 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Hands-On: Fine-Tuning Implementation</div>
+
+        <div class="concept-box">
+            <div class="concept-text">
+                <span class="concept-highlight">Practical Implementation with Hugging Face PEFT</span><br>
+                Step-by-step guide to medical LLM fine-tuning
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">🔧 Setup & Installation</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Libraries:</strong> transformers, peft, datasets, bitsandbytes</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Hardware:</strong> Single GPU with 24GB+ memory</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Environment:</strong> Python 3.9+, PyTorch 2.0+, CUDA 11.8+</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">💻 Code Implementation</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Step 1:</strong> Load pre-trained model (LLaMA-7B, Mistral-7B)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Step 2:</strong> Configure LoRA (rank=8, alpha=16)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Step 3:</strong> Prepare medical dataset (tokenization)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Step 4:</strong> Set training arguments (epochs=3, lr=3e-4)</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Step 5:</strong> Train with Trainer API</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Step 6:</strong> Merge LoRA weights and save</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="application-section">
+            <div class="app-title">📈 Monitoring & Logging</div>
+            <div class="app-list">
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>TensorBoard:</strong> Track loss curves and metrics</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>W&B:</strong> Experiment tracking and comparison</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>GPU Monitoring:</strong> nvidia-smi, watch -n1</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-value">30 min</div>
+                <div class="feature-label">Setup Time</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-value">2-8 hrs</div>
+                <div class="feature-label">Training Time</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-value">100 lines</div>
+                <div class="feature-label">Code</div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

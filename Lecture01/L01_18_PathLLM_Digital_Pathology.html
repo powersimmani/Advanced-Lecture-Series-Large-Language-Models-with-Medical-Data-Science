@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathLLM - Digital Pathology AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { width: 960px; height: 540px; padding: 40px 50px; }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">PathLLM - Digital Pathology AI</div>
+        
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+            <div>
+                <h3 style="color:#1E64C8;margin-bottom:15px;">WSI Processing Pipeline</h3>
+                <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;margin-bottom:12px;border-radius:5px;">
+                    <strong>1. Whole Slide Imaging</strong><br>
+                    <span style="font-size:13px;color:#666;">Gigapixel resolution scanning</span>
+                </div>
+                <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;margin-bottom:12px;border-radius:5px;">
+                    <strong>2. Tile Extraction</strong><br>
+                    <span style="font-size:13px;color:#666;">256×256 or 512×512 patches</span>
+                </div>
+                <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;border-radius:5px;">
+                    <strong>3. Deep Learning Analysis</strong><br>
+                    <span style="font-size:13px;color:#666;">CNN + Transformer hybrid</span>
+                </div>
+            </div>
+            <div>
+                <h3 style="color:#1E64C8;margin-bottom:15px;">Clinical Applications</h3>
+                <div style="background:white;border:3px solid #28a745;padding:15px;margin-bottom:12px;border-radius:10px;">
+                    <strong style="color:#28a745;">Cancer Grading</strong><br>
+                    <span style="font-size:13px;">Gleason score, Nottingham grade</span>
+                </div>
+                <div style="background:white;border:3px solid #28a745;padding:15px;margin-bottom:12px;border-radius:10px;">
+                    <strong style="color:#28a745;">Cell Counting</strong><br>
+                    <span style="font-size:13px;">Mitotic figures, lymphocytes</span>
+                </div>
+                <div style="background:white;border:3px solid #28a745;padding:15px;border-radius:10px;">
+                    <strong style="color:#28a745;">Tissue Segmentation</strong><br>
+                    <span style="font-size:13px;">Tumor vs normal regions</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

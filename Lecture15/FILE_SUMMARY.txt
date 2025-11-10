@@ -1,0 +1,190 @@
+================================================================================
+Lecture 15: Explainable Medical AI - File Summary
+================================================================================
+
+Course: Advanced Lecture Series - Large Language Models with Medical Data Science
+Instructor: Ho-min Park (homin.park@ghent.ac.kr)
+Total Files: 33 (30 slides + 3 navigation/documentation files)
+
+================================================================================
+MAIN FILES
+================================================================================
+
+📄 index.html                    - Main navigation page with all slides organized
+📄 lecture15_slideshow.html      - Slideshow viewer with keyboard navigation
+📄 README.md                     - Complete lecture documentation and guide
+
+================================================================================
+LECTURE SLIDES (30 slides)
+================================================================================
+
+INTRODUCTION (2 slides)
+------------------------
+01. L15_01_Title_Medical_XAI.html
+    → Title: "Explainable Medical AI: Building Trust Through Transparency"
+    
+02. L15_02_Interpretability_Overview.html
+    → Lecture contents overview (3 parts)
+
+PART 1: ATTENTION-BASED INTERPRETABILITY (8 slides)
+---------------------------------------------------
+03. L15_03_Part1_Attention_Analysis.html
+    → Part 1 introduction slide
+    
+04. L15_04_Attention_Visualization.html
+    → Attention mechanisms and heatmap visualization
+    
+05. L15_05_Layer_wise_Relevance.html
+    → LRP (Layer-wise Relevance Propagation)
+    
+06. L15_06_Gradient_Based_Attribution.html
+    → Gradient analysis and saliency maps
+    
+07. L15_07_Integrated_Gradients.html
+    → Path integration and robust attribution
+    
+08. L15_08_SHAP_Medical_Applications.html
+    → SHAP values for medical predictions
+    
+09. L15_09_LIME_Clinical_Text.html
+    → LIME for clinical text explanations
+    
+10. L15_10_Concept_Activation_Vectors.html
+    → CAV for high-level medical concepts
+
+PART 2: CLINICAL EXPLANATION GENERATION (7 slides)
+--------------------------------------------------
+11. L15_11_Part2_Clinical_Explanations.html
+    → Part 2 introduction slide
+    
+12. L15_12_Natural_Language_Explanations.html
+    → Text generation for clinical explanations
+    
+13. L15_13_Counterfactual_Generation.html
+    → What-if scenarios and counterfactuals
+    
+14. L15_14_Decision_Path_Visualization.html
+    → Decision trees and path tracing
+    
+15. L15_15_Uncertainty_Communication.html
+    → Confidence intervals and probabilistic outputs
+    
+16. L15_16_Evidence_Highlighting.html
+    → Feature marking and source attribution
+    
+17. L15_17_Contrastive_Explanations.html
+    → Comparison analysis and differential features
+
+PART 3: CLINICAL USER REQUIREMENTS (9 slides)
+---------------------------------------------
+18. L15_18_Part3_Clinical_Requirements.html
+    → Part 3 introduction slide
+    
+19. L15_19_Physician_Interpretability_Needs.html
+    → Clinical workflow integration
+    
+20. L15_20_Patient_Facing_Explanations.html
+    → Accessible language and visual communication
+    
+21. L15_21_Regulatory_Documentation.html
+    → FDA compliance and validation
+    
+22. L15_22_Audit_Trail_Generation.html
+    → Decision logging and temporal tracking
+    
+23. L15_23_Trust_Calibration.html
+    → Balancing trust and performance awareness
+    
+24. L15_24_Error_Analysis_Tools.html
+    → Failure detection and root cause analysis
+    
+25. L15_25_Debugging_Interfaces.html
+    → Interactive tools for developers
+    
+26. L15_26_Performance_vs_Interpretability.html
+    → Accuracy vs. transparency trade-offs
+
+APPLICATIONS & CONCLUSION (4 slides)
+------------------------------------
+27. L15_27_Case_Study_ICU_Predictions.html
+    → Real-world ICU mortality prediction example
+    
+28. L15_28_Hands_On_XAI_Tools.html
+    → SHAP, LIME, Captum implementation
+    
+29. L15_29_Future_Research.html
+    → Multimodal XAI and foundation models
+    
+30. L15_30_Thank_You.html
+    → Conclusion slide with contact information
+
+================================================================================
+DESIGN SPECIFICATIONS
+================================================================================
+
+Color Scheme:
+- Primary Blue: #1E64C8
+- Gradient Blue: #2874d8, #5088d4
+- Background: White (#ffffff)
+- Text: Dark gray (#333)
+- Accent: Light blue (#f8f9fa, #e8f2ff)
+
+Typography:
+- Font Family: Aptos, 'Segoe UI', sans-serif
+- Title Size: 36-48px (bold)
+- Body Size: 16-20px
+- Interactive elements with hover effects
+
+Layout:
+- Slide Dimensions: 960px × 540px (16:9 ratio)
+- Responsive design with flexbox/grid
+- Consistent padding and spacing
+
+================================================================================
+USAGE INSTRUCTIONS
+================================================================================
+
+1. BROWSE ALL SLIDES:
+   Open "index.html" in a web browser to see organized slide navigation
+
+2. PRESENT MODE:
+   Open "lecture15_slideshow.html" for full slideshow experience
+   - Use Arrow Keys (← →) or Space to navigate
+   - Press Home/End for first/last slide
+   - Use dropdown menu to jump to specific slides
+
+3. INDIVIDUAL SLIDES:
+   Each HTML file can be opened independently in any web browser
+
+4. DOCUMENTATION:
+   See "README.md" for:
+   - Complete learning objectives
+   - Detailed content breakdown
+   - Implementation examples
+   - Research resources
+
+================================================================================
+KEY FEATURES
+================================================================================
+
+✅ 30 professionally designed slides
+✅ Consistent design matching original template
+✅ Interactive hover effects
+✅ Responsive layout
+✅ Keyboard navigation in slideshow mode
+✅ Progress tracking
+✅ Organized by 3 main parts
+✅ Complete documentation
+
+================================================================================
+TECHNICAL NOTES
+================================================================================
+
+- All slides are pure HTML/CSS (no external dependencies)
+- Cross-browser compatible
+- Can be hosted on any web server
+- Works offline
+- Mobile-friendly responsive design
+- No JavaScript required for individual slides
+
+================================================================================

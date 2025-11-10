@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Overview and Prerequisites</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #ffffff;
+        }
+        
+        .container {
+            width: 960px;
+            height: 540px;
+            padding: 40px 60px;
+        }
+        
+        .main-title {
+            font-size: 38px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .section {
+            background: #f8f9fa;
+            border-left: 4px solid #1E64C8;
+            border-radius: 8px;
+            padding: 18px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+        }
+        
+        .section-content {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .bullet {
+            color: #1E64C8;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .assessment-item {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .percentage {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
+        .assessment-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 4px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .tech-badge {
+            background: #1E64C8;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-title">Course Overview and Prerequisites</div>
+        
+        <div class="content-grid">
+            <div class="section">
+                <div class="section-title">📚 Learning Objectives</div>
+                <div class="section-content">
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Understand medical LLM architectures</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Master clinical NLP techniques</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Deploy healthcare AI systems</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Ensure HIPAA compliance</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Evaluate model performance</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">📋 Prerequisites</div>
+                <div class="section-content">
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Python programming</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Machine learning basics</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Medical terminology</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Neural networks fundamentals</span>
+                    </div>
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-badge">PyTorch</div>
+                    <div class="tech-badge">Hugging Face</div>
+                    <div class="tech-badge">FHIR</div>
+                    <div class="tech-badge">Docker</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">📊 Assessment Breakdown</div>
+                <div class="assessment-grid">
+                    <div class="assessment-item">
+                        <div class="percentage">40%</div>
+                        <div class="assessment-label">Project</div>
+                    </div>
+                    <div class="assessment-item">
+                        <div class="percentage">30%</div>
+                        <div class="assessment-label">Assignments</div>
+                    </div>
+                    <div class="assessment-item">
+                        <div class="percentage">30%</div>
+                        <div class="assessment-label">Exam</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">🎯 Course Structure</div>
+                <div class="section-content">
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>20 comprehensive lectures</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Hands-on coding sessions</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Real-world case studies</span>
+                    </div>
+                    <div class="list-item">
+                        <span class="bullet">•</span>
+                        <span>Industry expert guest lectures</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
