@@ -91,14 +91,14 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">메모리 리플레이 전략 (Memory Replay Strategies)</div>
+        <div class="title">Memory Replay Strategies (Memory Replay Strategies)</div>
         
         <div class="diagram-section">
-            <div class="diagram-title">🔄 메모리 리플레이 시스템 구조</div>
+            <div class="diagram-title">🔄 Memory Replay System Architecture</div>
             <svg width="100%" height="240" viewBox="0 0 870 240">
                 <!-- New Data Stream -->
                 <rect x="20" y="20" width="120" height="60" fill="#1E64C8" rx="8"/>
-                <text x="80" y="45" text-anchor="middle" font-size="14" font-weight="600" fill="white">새 데이터</text>
+                <text x="80" y="45" text-anchor="middle" font-size="14" font-weight="600" fill="white">New Data</text>
                 <text x="80" y="65" text-anchor="middle" font-size="12" fill="white">New Data Stream</text>
                 
                 <!-- Arrow to Mixing -->
@@ -111,7 +111,7 @@
                 
                 <!-- Memory Buffer (Bottom) -->
                 <rect x="20" y="140" width="120" height="80" fill="white" stroke="#1E64C8" stroke-width="2" rx="8"/>
-                <text x="80" y="165" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">💾 메모리 버퍼</text>
+                <text x="80" y="165" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">💾 Memory Buffer</text>
                 <text x="80" y="183" text-anchor="middle" font-size="11" fill="#666">Memory Buffer</text>
                 <text x="80" y="198" text-anchor="middle" font-size="10" fill="#666">(5-10% of data)</text>
                 
@@ -143,7 +143,7 @@
                 
                 <!-- Training -->
                 <rect x="380" y="20" width="120" height="60" fill="#1E64C8" rx="8"/>
-                <text x="440" y="45" text-anchor="middle" font-size="14" font-weight="600" fill="white">⚙️ 모델 학습</text>
+                <text x="440" y="45" text-anchor="middle" font-size="14" font-weight="600" fill="white">⚙️ Model Training</text>
                 <text x="440" y="65" text-anchor="middle" font-size="12" fill="white">Model Training</text>
                 
                 <!-- Arrow to Updated Model -->
@@ -151,20 +151,20 @@
                 
                 <!-- Updated Model -->
                 <rect x="570" y="20" width="120" height="60" fill="white" stroke="#1E64C8" stroke-width="3" rx="8"/>
-                <text x="630" y="45" text-anchor="middle" font-size="14" font-weight="700" fill="#1E64C8">🎯 업데이트</text>
+                <text x="630" y="45" text-anchor="middle" font-size="14" font-weight="700" fill="#1E64C8">🎯 Updated</text>
                 <text x="630" y="65" text-anchor="middle" font-size="12" fill="#1E64C8">Updated Model</text>
                 
                 <!-- Benefits boxes -->
                 <g transform="translate(710, 20)">
                     <rect x="0" y="0" width="140" height="60" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2" rx="6"/>
-                    <text x="70" y="18" text-anchor="middle" font-size="12" font-weight="600" fill="#1E64C8">✅ 효과</text>
-                    <text x="70" y="35" text-anchor="middle" font-size="10" fill="#333">• 과거 지식 유지</text>
-                    <text x="70" y="50" text-anchor="middle" font-size="10" fill="#333">• 망각 방지</text>
+                    <text x="70" y="18" text-anchor="middle" font-size="12" font-weight="600" fill="#1E64C8">✅ Effects</text>
+                    <text x="70" y="35" text-anchor="middle" font-size="10" fill="#333">• Retain past knowledge</text>
+                    <text x="70" y="50" text-anchor="middle" font-size="10" fill="#333">• Prevent forgetting</text>
                 </g>
                 
                 <!-- Feedback loop -->
                 <path d="M 630,80 L 630,210 L 80,210" fill="none" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
-                <text x="350" y="225" text-anchor="middle" font-size="11" fill="#666">중요한 샘플 선택적 저장</text>
+                <text x="350" y="225" text-anchor="middle" font-size="11" fill="#666">Selective storage of important samples</text>
                 
                 <!-- Arrow marker definition -->
                 <defs>
@@ -176,32 +176,32 @@
         </div>
         
         <div class="section">
-            <div class="section-title">💾 리플레이 버퍼</div>
+            <div class="section-title">💾 Replay Buffer</div>
             <div class="item-list">
-                <div class="item">Reservoir Sampling: 균등 확률로 샘플 유지</div>
-                <div class="item">Class-balanced Buffer: 클래스별 균형 유지</div>
-                <div class="item">Importance-based Sampling: 중요 샘플 우선 저장</div>
-                <div class="item">Buffer Size: 전체 데이터의 5-10%</div>
+                <div class="item">Reservoir Sampling: Maintain samples with equal probability</div>
+                <div class="item">Class-balanced Buffer: Maintain class balance</div>
+                <div class="item">Importance-based Sampling: Prioritize important samples</div>
+                <div class="item">Buffer Size: 5-10% of total data</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">🔄 경험 재생 방법</div>
+            <div class="section-title">🔄 Experience Replay Methods</div>
             <div class="item-list">
-                <div class="item">Random Replay: 무작위로 과거 샘플 재학습</div>
-                <div class="item">Prioritized Replay: 어려운 샘플 우선 학습</div>
-                <div class="item">Generative Replay: GAN으로 과거 데이터 생성</div>
-                <div class="item">Mixed Replay: 새 데이터 + 저장된 샘플 혼합</div>
+                <div class="item">Random Replay: Randomly replay past samples</div>
+                <div class="item">Prioritized Replay: Prioritize difficult samples</div>
+                <div class="item">Generative Replay: Generate past data with GAN</div>
+                <div class="item">Mixed Replay: Mix new data + stored samples</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">⚖️ 샘플링 전략</div>
+            <div class="section-title">⚖️ Sampling Strategy</div>
             <div class="item-list">
-                <div class="item">Batch Composition: 50% 새 데이터 + 50% 리플레이</div>
-                <div class="item">Adaptive Sampling: 성능 저하 시 리플레이 비율 증가</div>
-                <div class="item">Stratified Sampling: 계층별 균형 샘플링</div>
-                <div class="item">Temporal Decay: 오래된 샘플 가중치 감소</div>
+                <div class="item">Batch Composition: 50% new data + 50% replay</div>
+                <div class="item">Adaptive Sampling: Increase replay ratio on performance drop</div>
+                <div class="item">Stratified Sampling: Stratified balanced sampling</div>
+                <div class="item">Temporal Decay: Decrease weight of old samples</div>
             </div>
         </div>
     </div>

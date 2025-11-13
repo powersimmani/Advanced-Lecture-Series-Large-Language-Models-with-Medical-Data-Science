@@ -91,10 +91,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">실습: 업데이트 파이프라인 구현</div>
+        <div class="title">실습: Updated 파이프라인 구현</div>
         
         <div class="diagram-section">
-            <div class="diagram-title">⚙️ 완전한 MLOps 업데이트 파이프라인</div>
+            <div class="diagram-title">⚙️ 완전한 MLOps Updated 파이프라인</div>
             <svg width="100%" height="550" viewBox="0 0 900 550">
                 <!-- Stage 1: Data Collection -->
                 <g transform="translate(50, 30)">
@@ -102,7 +102,7 @@
                     <text x="80" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="white">1️⃣ 데이터 수집</text>
                     <text x="80" y="45" text-anchor="middle" font-size="11" fill="white">📥 Data Collection</text>
                     <text x="10" y="65" font-size="9" fill="white">• 신규 의료 데이터</text>
-                    <text x="10" y="75" font-size="9" fill="white">• 피드백 통합</text>
+                    <text x="10" y="75" font-size="9" fill="white">• Feedback Integration</text>
                 </g>
                 
                 <path d="M 210,70 L 270,70" fill="none" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
@@ -113,7 +113,7 @@
                     <text x="80" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="white">2️⃣ 드리프트 탐지</text>
                     <text x="80" y="45" text-anchor="middle" font-size="11" fill="white">🔍 Drift Detection</text>
                     <text x="10" y="65" font-size="9" fill="white">• 분포 변화 감지</text>
-                    <text x="10" y="75" font-size="9" fill="white">• 성능 모니터링</text>
+                    <text x="10" y="75" font-size="9" fill="white">• Performance Monitoring</text>
                 </g>
                 
                 <path d="M 430,70 L 490,70" fill="none" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
@@ -130,7 +130,7 @@
                 <text x="645" y="65" font-size="10" fill="#666">No</text>
                 <g transform="translate(760, 10)">
                     <rect x="0" y="0" width="100" height="40" fill="#999" opacity="0.3" rx="6"/>
-                    <text x="50" y="25" text-anchor="middle" font-size="10" fill="#333">계속 모니터링</text>
+                    <text x="50" y="25" text-anchor="middle" font-size="10" fill="#333">계속 Monitoring</text>
                 </g>
                 
                 <!-- Yes path - retraining -->
@@ -140,9 +140,9 @@
                 <!-- Stage 3: Retraining -->
                 <g transform="translate(460, 150)">
                     <rect x="0" y="0" width="160" height="80" fill="#9C27B0" rx="8"/>
-                    <text x="80" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="white">3️⃣ 모델 재학습</text>
+                    <text x="80" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="white">3️⃣ Model Retraining</text>
                     <text x="80" y="45" text-anchor="middle" font-size="11" fill="white">⚙️ Retraining</text>
-                    <text x="10" y="65" font-size="9" fill="white">• 증분 학습</text>
+                    <text x="10" y="65" font-size="9" fill="white">• Incremental Learning</text>
                     <text x="10" y="75" font-size="9" fill="white">• 메모리 리플레이</text>
                 </g>
                 
@@ -153,7 +153,7 @@
                     <rect x="0" y="0" width="160" height="80" fill="#FF6B6B" rx="8"/>
                     <text x="80" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="white">4️⃣ 검증 게이트</text>
                     <text x="80" y="45" text-anchor="middle" font-size="11" fill="white">✅ Validation Gate</text>
-                    <text x="10" y="65" font-size="9" fill="white">• 성능 검증</text>
+                    <text x="10" y="65" font-size="9" fill="white">• Performance 검증</text>
                     <text x="10" y="75" font-size="9" fill="white">• A/B 테스트</text>
                 </g>
                 
@@ -183,12 +183,12 @@
                 
                 <!-- Continuous monitoring loop -->
                 <path d="M 790,360 L 790,70 L 430,70" fill="none" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
-                <text x="810" y="220" font-size="11" fill="#666">지속 모니터링</text>
+                <text x="810" y="220" font-size="11" fill="#666">지속 Monitoring</text>
                 
                 <!-- MLOps Tools Section -->
                 <g transform="translate(50, 150)">
                     <rect x="0" y="0" width="380" height="290" fill="white" stroke="#1E64C8" stroke-width="2" rx="8"/>
-                    <text x="190" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#1E64C8">🛠️ MLOps 도구 스택</text>
+                    <text x="190" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#1E64C8">🛠️ MLOps Tools 스택</text>
                     
                     <!-- Tools Grid -->
                     <g transform="translate(20, 40)">
@@ -200,7 +200,7 @@
                         
                         <!-- Monitoring -->
                         <rect x="170" y="0" width="160" height="50" fill="#f0f5fc" stroke="#1E64C8" stroke-width="1" rx="4"/>
-                        <text x="180" y="18" font-size="11" font-weight="600" fill="#333">📊 모니터링</text>
+                        <text x="180" y="18" font-size="11" font-weight="600" fill="#333">📊 Monitoring</text>
                         <text x="180" y="33" font-size="9" fill="#666">• Prometheus</text>
                         <text x="180" y="44" font-size="9" fill="#666">• Grafana</text>
                         
@@ -238,7 +238,7 @@
                 
                 <!-- Timing Info -->
                 <g transform="translate(50, 470)">
-                    <text x="0" y="0" font-size="11" fill="#666">⏱️ 전체 파이프라인 실행 시간: 데이터 수집(실시간) → 드리프트 탐지(5분) → 재학습(2-4시간) → 검증(1시간) → 배포(30분)</text>
+                    <text x="0" y="0" font-size="11" fill="#666">⏱️ 전체 파이프라인 실행 Time: 데이터 수집(Real-time) → 드리프트 탐지(5분) → 재학습(2-4Time) → 검증(1Time) → 배포(30분)</text>
                     <text x="0" y="20" font-size="11" fill="#666">🔄 자동화: 완전 자동화 파이프라인 / 인간 승인 게이트 (검증 단계)</text>
                 </g>
                 
@@ -254,9 +254,9 @@
             <div class="section-title">🔧 파이프라인 구성 요소</div>
             <div class="item-list">
                 <div class="item">Data Collection: 새로운 데이터 자동 수집</div>
-                <div class="item">Drift Detection: 모니터링 스크립트</div>
+                <div class="item">Drift Detection: Monitoring 스크립트</div>
                 <div class="item">Retraining Trigger: 자동 재학습 조건</div>
-                <div class="item">Validation Gate: 성능 검증 체크포인트</div>
+                <div class="item">Validation Gate: Performance 검증 체크포인트</div>
             </div>
         </div>
         

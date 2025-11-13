@@ -91,35 +91,35 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">롤백 메커니즘 (Rollback Mechanisms)</div>
+        <div class="title">Rollback Mechanisms (Rollback Mechanisms)</div>
         
         <div class="diagram-section">
-            <div class="diagram-title">🔄 롤백 프로세스 플로우</div>
+            <div class="diagram-title">🔄 Rollback Process Flow</div>
             <svg width="100%" height="420" viewBox="0 0 850 420">
                 <!-- Production Model -->
                 <g transform="translate(350, 20)">
                     <rect x="0" y="0" width="150" height="50" fill="#4CAF50" rx="8"/>
-                    <text x="75" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="white">✅ 프로덕션</text>
+                    <text x="75" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="white">✅ Production</text>
                     <text x="75" y="42" text-anchor="middle" font-size="12" fill="white">Model v2.0</text>
                 </g>
                 
                 <!-- Monitoring Arrow -->
                 <path d="M 425,70 L 425,110" fill="none" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
-                <text x="440" y="95" font-size="11" fill="#666">모니터링</text>
+                <text x="440" y="95" font-size="11" fill="#666">Monitoring</text>
                 
                 <!-- Issue Detection -->
                 <g transform="translate(325, 110)">
                     <rect x="0" y="0" width="200" height="60" fill="#FFA726" rx="8"/>
-                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="white">⚠️ 문제 감지</text>
-                    <text x="100" y="43" text-anchor="middle" font-size="11" fill="white">• 성능 저하</text>
-                    <text x="100" y="57" text-anchor="middle" font-size="11" fill="white">• 오류율 증가</text>
+                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="white">⚠️ Issue Detection</text>
+                    <text x="100" y="43" text-anchor="middle" font-size="11" fill="white">• Performance degradation</text>
+                    <text x="100" y="57" text-anchor="middle" font-size="11" fill="white">• Error rate increase</text>
                 </g>
                 
                 <!-- Decision Diamond -->
                 <g transform="translate(370, 190)">
                     <path d="M 55,0 L 110,35 L 55,70 L 0,35 Z" fill="#FF6B6B" stroke="#C62828" stroke-width="2"/>
-                    <text x="55" y="30" text-anchor="middle" font-size="13" font-weight="600" fill="white">임계값</text>
-                    <text x="55" y="47" text-anchor="middle" font-size="13" font-weight="600" fill="white">초과?</text>
+                    <text x="55" y="30" text-anchor="middle" font-size="13" font-weight="600" fill="white">Threshold</text>
+                    <text x="55" y="47" text-anchor="middle" font-size="13" font-weight="600" fill="white">Exceeded?</text>
                 </g>
                 
                 <!-- No Path - Continue -->
@@ -128,8 +128,8 @@
                 
                 <g transform="translate(650, 200)">
                     <rect x="0" y="0" width="130" height="50" fill="#4CAF50" opacity="0.7" rx="8"/>
-                    <text x="65" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="white">✓ 계속 운영</text>
-                    <text x="65" y="42" text-anchor="middle" font-size="11" fill="white">정상 모니터링</text>
+                    <text x="65" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="white">✓ Continue Operation</text>
+                    <text x="65" y="42" text-anchor="middle" font-size="11" fill="white">Normal Monitoring</text>
                 </g>
                 
                 <!-- Yes Path - Rollback Decision -->
@@ -139,18 +139,18 @@
                 <!-- Auto/Manual Decision -->
                 <g transform="translate(325, 295)">
                     <rect x="0" y="0" width="200" height="50" fill="#1E64C8" rx="8"/>
-                    <text x="100" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="white">🔀 롤백 결정</text>
-                    <text x="100" y="42" text-anchor="middle" font-size="11" fill="white">자동 / 수동</text>
+                    <text x="100" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="white">🔀 Rollback Decision</text>
+                    <text x="100" y="42" text-anchor="middle" font-size="11" fill="white">Auto / Manual</text>
                 </g>
                 
                 <!-- Rollback Arrow -->
                 <path d="M 425,345 L 425,370 L 300,370 L 300,45 L 350,45" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
-                <text x="250" y="385" font-size="11" font-weight="600" fill="#FF6B6B">🔙 이전 안정 버전으로 롤백</text>
+                <text x="250" y="385" font-size="11" font-weight="600" fill="#FF6B6B">🔙 Rollback to Previous Stable Version</text>
                 
                 <!-- Checkpoint Storage -->
                 <g transform="translate(50, 110)">
                     <rect x="0" y="0" width="200" height="150" fill="white" stroke="#1E64C8" stroke-width="2" rx="8"/>
-                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">💾 체크포인트 저장소</text>
+                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">💾 Checkpoint Storage</text>
                     
                     <!-- Version blocks -->
                     <g transform="translate(20, 40)">
@@ -170,10 +170,10 @@
                 <!-- Post-Rollback Analysis -->
                 <g transform="translate(50, 295)">
                     <rect x="0" y="0" width="200" height="100" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2" rx="8"/>
-                    <text x="100" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#1E64C8">🔍 사후 분석</text>
-                    <text x="15" y="50" font-size="11" fill="#333">1. 근본 원인 파악</text>
-                    <text x="15" y="68" font-size="11" fill="#333">2. 문제 해결</text>
-                    <text x="15" y="86" font-size="11" fill="#333">3. 재검증 및 재배포</text>
+                    <text x="100" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#1E64C8">🔍 Post-mortem Analysis</text>
+                    <text x="15" y="50" font-size="11" fill="#333">1. Root cause identification</text>
+                    <text x="15" y="68" font-size="11" fill="#333">2. Problem resolution</text>
+                    <text x="15" y="86" font-size="11" fill="#333">3. Re-validation and redeployment</text>
                 </g>
                 
                 <!-- Connection to Analysis -->
@@ -188,32 +188,32 @@
         </div>
         
         <div class="section">
-            <div class="section-title">🔔 롤백 트리거</div>
+            <div class="section-title">🔔 Rollback Triggers</div>
             <div class="item-list">
-                <div class="item">성능 임계값 이하 (예: accuracy < 90%)</div>
-                <div class="item">오류율 급증 (error rate > 5%)</div>
-                <div class="item">사용자 피드백 급증 (complaints spike)</div>
-                <div class="item">안전성 문제 발견</div>
+                <div class="item">Performance below threshold (e.g., accuracy < 90%)</div>
+                <div class="item">Error rate spike (error rate > 5%)</div>
+                <div class="item">User feedback spike (complaints spike)</div>
+                <div class="item">Safety issue discovered</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">⚡ 롤백 프로세스</div>
+            <div class="section-title">⚡ Rollback Process</div>
             <div class="item-list">
-                <div class="item">1단계: 문제 감지 및 경보</div>
-                <div class="item">2단계: 자동 또는 수동 롤백 결정</div>
-                <div class="item">3단계: 이전 안정 버전으로 전환</div>
-                <div class="item">4단계: 근본 원인 분석 (Root Cause Analysis)</div>
+                <div class="item">Step 1: Issue detection and alert</div>
+                <div class="item">Step 2: Automatic or manual rollback decision</div>
+                <div class="item">Step 3: Switch to previous stable version</div>
+                <div class="item">Step 4: Root Cause Analysis</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">💾 체크포인트 전략</div>
+            <div class="section-title">💾 Checkpoint Strategy</div>
             <div class="item-list">
-                <div class="item">Production Checkpoints: 배포된 안정 버전</div>
-                <div class="item">Validation Checkpoints: 검증 통과 버전</div>
-                <div class="item">Backup Frequency: 주요 업데이트마다</div>
-                <div class="item">Retention Policy: 최소 3개 이전 버전 유지</div>
+                <div class="item">Production Checkpoints: Deployed stable version</div>
+                <div class="item">Validation Checkpoints: Validated version</div>
+                <div class="item">Backup Frequency: Every major update</div>
+                <div class="item">Retention Policy: Keep at least 3 previous versions</div>
             </div>
         </div>
     </div>

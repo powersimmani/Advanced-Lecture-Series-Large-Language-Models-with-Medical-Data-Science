@@ -97,10 +97,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">개념 드리프트 탐지 (Concept Drift Detection)</div>
+        <div class="title">Concept Drift Detection (Concept Drift Detection)</div>
         
         <div class="section">
-            <div class="section-title">📊 드리프트 유형</div>
+            <div class="section-title">📊 Drift Types</div>
             <div class="drift-types">
                 <!-- Sudden Drift -->
                 <div class="drift-chart">
@@ -119,10 +119,10 @@
                         <polyline points="20,50 100,50 100,30 180,30" fill="none" stroke="#1E64C8" stroke-width="2.5"/>
                         <polyline points="20,50 100,50 100,30 180,30 180,80 20,80" fill="url(#suddenGrad)"/>
                         <!-- Labels -->
-                        <text x="100" y="95" text-anchor="middle" font-size="10" fill="#666">시간</text>
-                        <text x="10" y="25" font-size="10" fill="#666">성능</text>
+                        <text x="100" y="95" text-anchor="middle" font-size="10" fill="#666">Time</text>
+                        <text x="10" y="25" font-size="10" fill="#666">Performance</text>
                     </svg>
-                    <div style="font-size: 11px; color: #666; text-align: center;">급격한 변화 (예: 팬데믹)</div>
+                    <div style="font-size: 11px; color: #666; text-align: center;">Abrupt change (e.g., Pandemic)</div>
                 </div>
                 
                 <!-- Gradual Drift -->
@@ -142,10 +142,10 @@
                         <path d="M 20,50 Q 100,50 180,30" fill="none" stroke="#1E64C8" stroke-width="2.5"/>
                         <path d="M 20,50 Q 100,50 180,30 L 180,80 L 20,80 Z" fill="url(#gradualGrad)"/>
                         <!-- Labels -->
-                        <text x="100" y="95" text-anchor="middle" font-size="10" fill="#666">시간</text>
-                        <text x="10" y="25" font-size="10" fill="#666">성능</text>
+                        <text x="100" y="95" text-anchor="middle" font-size="10" fill="#666">Time</text>
+                        <text x="10" y="25" font-size="10" fill="#666">Performance</text>
                     </svg>
-                    <div style="font-size: 11px; color: #666; text-align: center;">점진적 변화 (예: 인구 고령화)</div>
+                    <div style="font-size: 11px; color: #666; text-align: center;">Progressive change (e.g., Population aging)</div>
                 </div>
                 
                 <!-- Incremental Drift -->
@@ -165,10 +165,10 @@
                         <polyline points="20,50 60,50 60,45 100,45 100,38 140,38 140,32 180,32" fill="none" stroke="#1E64C8" stroke-width="2.5"/>
                         <polyline points="20,50 60,50 60,45 100,45 100,38 140,38 140,32 180,32 180,80 20,80" fill="url(#incrGrad)"/>
                         <!-- Labels -->
-                        <text x="100" y="95" text-anchor="middle" font-size="10" fill="#666">시간</text>
-                        <text x="10" y="25" font-size="10" fill="#666">성능</text>
+                        <text x="100" y="95" text-anchor="middle" font-size="10" fill="#666">Time</text>
+                        <text x="10" y="25" font-size="10" fill="#666">Performance</text>
                     </svg>
-                    <div style="font-size: 11px; color: #666; text-align: center;">단계적 변화</div>
+                    <div style="font-size: 11px; color: #666; text-align: center;">Stepwise change</div>
                 </div>
                 
                 <!-- Recurring Drift -->
@@ -188,26 +188,26 @@
                         <path d="M 20,50 Q 40,30 60,50 T 100,50 T 140,50 T 180,50" fill="none" stroke="#1E64C8" stroke-width="2.5"/>
                         <path d="M 20,50 Q 40,30 60,50 T 100,50 T 140,50 T 180,50 L 180,80 L 20,80 Z" fill="url(#recurGrad)"/>
                         <!-- Labels -->
-                        <text x="100" y="95" text-anchor="middle" font-size="10" fill="#666">시간</text>
-                        <text x="10" y="25" font-size="10" fill="#666">성능</text>
+                        <text x="100" y="95" text-anchor="middle" font-size="10" fill="#666">Time</text>
+                        <text x="10" y="25" font-size="10" fill="#666">Performance</text>
                     </svg>
-                    <div style="font-size: 11px; color: #666; text-align: center;">주기적 패턴 (예: 계절성 질병)</div>
+                    <div style="font-size: 11px; color: #666; text-align: center;">Periodic pattern (e.g., Seasonal diseases)</div>
                 </div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">🔍 탐지 방법</div>
+            <div class="section-title">🔍 Detection Methods</div>
             <div class="item-list">
                 <div class="item">Statistical Tests: KS test, Chi-square test</div>
-                <div class="item">Performance Monitoring: 정확도, AUC 추적</div>
+                <div class="item">Performance Monitoring: Accuracy, AUC tracking</div>
                 <div class="item">Distribution Comparison: KL divergence, Wasserstein distance</div>
                 <div class="item">Window-based Methods: Sliding window, ADWIN</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">⚡ 탐지 알고리즘</div>
+            <div class="section-title">⚡ Detection Algorithms</div>
             <div class="item-list">
                 <div class="item">DDM (Drift Detection Method)</div>
                 <div class="item">EDDM (Early Drift Detection Method)</div>

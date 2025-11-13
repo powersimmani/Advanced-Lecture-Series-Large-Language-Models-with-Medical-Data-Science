@@ -91,15 +91,15 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">프로덕션 A/B 테스트 (A/B Testing in Production)</div>
+        <div class="title">A/B Testing in Production (A/B Testing in Production)</div>
         
         <div class="diagram-section">
-            <div class="diagram-title">🧪 A/B 테스팅 시스템 아키텍처</div>
+            <div class="diagram-title">🧪 A/B Testing System Architecture</div>
             <svg width="100%" height="360" viewBox="0 0 850 360">
                 <!-- User Traffic -->
                 <g transform="translate(50, 30)">
                     <ellipse cx="60" cy="30" rx="50" ry="25" fill="#1E64C8" opacity="0.2"/>
-                    <text x="60" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">👥 환자</text>
+                    <text x="60" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">👥 Patients</text>
                     <text x="60" y="42" text-anchor="middle" font-size="12" fill="#666">User Traffic</text>
                 </g>
                 
@@ -126,7 +126,7 @@
                 <g transform="translate(50, 140)">
                     <rect x="0" y="0" width="150" height="100" fill="#4CAF50" opacity="0.8" rx="8"/>
                     <text x="75" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="white">Group A (Control)</text>
-                    <text x="75" y="45" text-anchor="middle" font-size="13" fill="white">🏥 기존 모델</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="13" fill="white">🏥 Existing Model</text>
                     <text x="75" y="62" text-anchor="middle" font-size="11" fill="white">Model v1.0</text>
                     <text x="75" y="82" text-anchor="middle" font-size="10" fill="white">Proven Stable</text>
                 </g>
@@ -135,7 +135,7 @@
                 <g transform="translate(480, 140)">
                     <rect x="0" y="0" width="150" height="100" fill="#2196F3" opacity="0.8" rx="8"/>
                     <text x="75" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="white">Group B (Treatment)</text>
-                    <text x="75" y="45" text-anchor="middle" font-size="13" fill="white">✨ 새 모델</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="13" fill="white">✨ New Model</text>
                     <text x="75" y="62" text-anchor="middle" font-size="11" fill="white">Model v2.0</text>
                     <text x="75" y="82" text-anchor="middle" font-size="10" fill="white">Testing</text>
                 </g>
@@ -144,8 +144,8 @@
                 <g transform="translate(280, 155)">
                     <rect x="0" y="0" width="140" height="70" fill="#fff3cd" stroke="#FFA726" stroke-width="2" rx="6"/>
                     <text x="70" y="20" text-anchor="middle" font-size="12" font-weight="600" fill="#856404">🔒 Blinding</text>
-                    <text x="70" y="40" text-anchor="middle" font-size="10" fill="#856404">의료진은</text>
-                    <text x="70" y="55" text-anchor="middle" font-size="10" fill="#856404">모델 버전 모름</text>
+                    <text x="70" y="40" text-anchor="middle" font-size="10" fill="#856404">Clinicians</text>
+                    <text x="70" y="55" text-anchor="middle" font-size="10" fill="#856404">Unaware of model version</text>
                 </g>
                 
                 <!-- Results Collection -->
@@ -191,7 +191,7 @@
                         <rect x="30" y="75" width="95" height="15" fill="#2196F3" rx="3"/>
                     </g>
                     
-                    <text x="75" y="120" text-anchor="middle" font-size="9" fill="#666">점진적 트래픽 증가</text>
+                    <text x="75" y="120" text-anchor="middle" font-size="9" fill="#666">Progressive traffic increase</text>
                 </g>
                 
                 <defs>
@@ -203,32 +203,32 @@
         </div>
         
         <div class="section">
-            <div class="section-title">🧪 테스트 설계</div>
+            <div class="section-title">🧪 Test Design</div>
             <div class="item-list">
-                <div class="item">Control Group (A): 기존 모델 (50% 트래픽)</div>
-                <div class="item">Treatment Group (B): 새 모델 (50% 트래픽)</div>
-                <div class="item">Randomization: 환자별 무작위 할당</div>
-                <div class="item">Blinding: 의료진은 모델 버전 모름</div>
+                <div class="item">Control Group (A): Existing model (50% traffic)</div>
+                <div class="item">Treatment Group (B): New model (50% traffic)</div>
+                <div class="item">Randomization: Random assignment per patient</div>
+                <div class="item">Blinding: Clinicians unaware of model version</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">📊 평가 메트릭</div>
+            <div class="section-title">📊 Evaluation Metrics</div>
             <div class="item-list">
-                <div class="item">Primary Metrics: 진단 정확도, AUC</div>
-                <div class="item">Secondary Metrics: 추론 시간, 사용자 만족도</div>
-                <div class="item">Safety Metrics: 위양성/위음성률</div>
-                <div class="item">Business Metrics: 비용 효율성</div>
+                <div class="item">Primary Metrics: Diagnostic accuracy, AUC</div>
+                <div class="item">Secondary Metrics: Inference time, user satisfaction</div>
+                <div class="item">Safety Metrics: False positive/negative rates</div>
+                <div class="item">Business Metrics: Cost efficiency</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">🚦 트래픽 분할</div>
+            <div class="section-title">🚦 Traffic Split</div>
             <div class="item-list">
                 <div class="item">Canary Release: 5% → 25% → 50% → 100%</div>
-                <div class="item">Gradual Rollout: 천천히 트래픽 증가</div>
-                <div class="item">Geographic Split: 지역별 분할 테스트</div>
-                <div class="item">Risk-based Split: 저위험 환자부터 시작</div>
+                <div class="item">Gradual Rollout: Gradually increase traffic</div>
+                <div class="item">Geographic Split: Regional split testing</div>
+                <div class="item">Risk-based Split: Start with low-risk patients</div>
             </div>
         </div>
     </div>

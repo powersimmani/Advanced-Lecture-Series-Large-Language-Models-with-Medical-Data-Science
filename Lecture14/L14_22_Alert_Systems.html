@@ -91,16 +91,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">경보 시스템 (Alert Systems)</div>
+        <div class="title">Alert Systems (Alert Systems)</div>
         
         <div class="diagram-section">
-            <div class="diagram-title">🚨 다층 경보 시스템 아키텍처</div>
+            <div class="diagram-title">🚨 Multi-tier Alert System Architecture</div>
             <svg width="100%" height="400" viewBox="0 0 850 400">
                 <!-- Monitoring -->
                 <g transform="translate(350, 20)">
                     <rect x="0" y="0" width="150" height="50" fill="#1E64C8" rx="8"/>
-                    <text x="75" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="white">📊 실시간</text>
-                    <text x="75" y="42" text-anchor="middle" font-size="12" fill="white">모니터링</text>
+                    <text x="75" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="white">📊 Real-time</text>
+                    <text x="75" y="42" text-anchor="middle" font-size="12" fill="white">Monitoring</text>
                 </g>
                 
                 <path d="M 425,70 L 425,105" fill="none" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
@@ -108,7 +108,7 @@
                 <!-- Decision Logic -->
                 <g transform="translate(325, 105)">
                     <rect x="0" y="0" width="200" height="50" fill="#666" opacity="0.8" rx="8"/>
-                    <text x="100" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="white">🔍 임계값 평가</text>
+                    <text x="100" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="white">🔍 Threshold Evaluation</text>
                     <text x="100" y="43" text-anchor="middle" font-size="11" fill="white">Threshold Evaluation</text>
                 </g>
                 
@@ -117,78 +117,78 @@
                 <g transform="translate(50, 180)">
                     <rect x="0" y="0" width="180" height="70" fill="#4CAF50" opacity="0.3" stroke="#4CAF50" stroke-width="2" rx="8"/>
                     <text x="15" y="25" font-size="16" font-weight="700" fill="#2E7D32">Level 1</text>
-                    <text x="15" y="45" font-size="13" font-weight="600" fill="#333">📝 정보성 로그</text>
-                    <text x="15" y="62" font-size="11" fill="#666">자동 로그 기록만</text>
+                    <text x="15" y="45" font-size="13" font-weight="600" fill="#333">📝 Informational Log</text>
+                    <text x="15" y="62" font-size="11" fill="#666">Auto-log only</text>
                 </g>
                 <path d="M 425,155 L 425,170 L 140,170 L 140,180" fill="none" stroke="#4CAF50" stroke-width="2"/>
-                <text x="280" y="175" font-size="11" fill="#4CAF50">성능 95-100%</text>
+                <text x="280" y="175" font-size="11" fill="#4CAF50">Performance 95-100%</text>
                 
                 <!-- Level 2: Warning -->
                 <g transform="translate(260, 180)">
                     <rect x="0" y="0" width="180" height="70" fill="#FDD835" opacity="0.3" stroke="#FDD835" stroke-width="2" rx="8"/>
                     <text x="15" y="25" font-size="16" font-weight="700" fill="#F57F17">Level 2</text>
-                    <text x="15" y="45" font-size="13" font-weight="600" fill="#333">⚠️ 주의 (Yellow)</text>
-                    <text x="15" y="62" font-size="11" fill="#666">이메일/Slack 알림</text>
+                    <text x="15" y="45" font-size="13" font-weight="600" fill="#333">⚠️ Warning (Yellow)</text>
+                    <text x="15" y="62" font-size="11" fill="#666">Email/Slack notification</text>
                 </g>
                 <path d="M 425,155 L 425,170 L 350,170 L 350,180" fill="none" stroke="#FDD835" stroke-width="2"/>
-                <text x="385" y="175" font-size="11" fill="#F57F17">성능 90-95%</text>
+                <text x="385" y="175" font-size="11" fill="#F57F17">Performance 90-95%</text>
                 
                 <!-- Level 3: Critical -->
                 <g transform="translate(470, 180)">
                     <rect x="0" y="0" width="180" height="70" fill="#FF9800" opacity="0.3" stroke="#FF9800" stroke-width="2" rx="8"/>
                     <text x="15" y="25" font-size="16" font-weight="700" fill="#E65100">Level 3</text>
-                    <text x="15" y="45" font-size="13" font-weight="600" fill="#333">🔔 긴급 (Orange)</text>
-                    <text x="15" y="62" font-size="11" fill="#666">SMS/전화 알림</text>
+                    <text x="15" y="45" font-size="13" font-weight="600" fill="#333">🔔 Urgent (Orange)</text>
+                    <text x="15" y="62" font-size="11" fill="#666">SMS/Phone notification</text>
                 </g>
                 <path d="M 425,155 L 425,170 L 560,170 L 560,180" fill="none" stroke="#FF9800" stroke-width="2"/>
-                <text x="490" y="175" font-size="11" fill="#E65100">성능 85-90%</text>
+                <text x="490" y="175" font-size="11" fill="#E65100">Performance 85-90%</text>
                 
                 <!-- Level 4: Emergency -->
                 <g transform="translate(680, 180)">
                     <rect x="0" y="0" width="150" height="70" fill="#F44336" opacity="0.3" stroke="#F44336" stroke-width="2" rx="8"/>
                     <text x="15" y="25" font-size="16" font-weight="700" fill="#B71C1C">Level 4</text>
-                    <text x="15" y="45" font-size="13" font-weight="600" fill="#333">🚨 위급 (Red)</text>
-                    <text x="15" y="62" font-size="11" fill="#666">자동 롤백</text>
+                    <text x="15" y="45" font-size="13" font-weight="600" fill="#333">🚨 Critical (Red)</text>
+                    <text x="15" y="62" font-size="11" fill="#666">Auto rollback</text>
                 </g>
                 <path d="M 425,155 L 425,170 L 755,170 L 755,180" fill="none" stroke="#F44336" stroke-width="2"/>
-                <text x="590" y="175" font-size="11" fill="#B71C1C">성능 <85% or 안전문제</text>
+                <text x="590" y="175" font-size="11" fill="#B71C1C">Performance <85% or safety issue</text>
                 
                 <!-- Response Actions -->
                 <g transform="translate(50, 270)">
                     <rect x="0" y="0" width="780" height="110" fill="white" stroke="#1E64C8" stroke-width="2" rx="8"/>
-                    <text x="390" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#1E64C8">🎯 대응 액션</text>
+                    <text x="390" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#1E64C8">🎯 Response Actions</text>
                     
                     <!-- Action Grid -->
                     <g transform="translate(20, 40)">
                         <!-- Level 1 Actions -->
                         <rect x="0" y="0" width="170" height="55" fill="#4CAF50" opacity="0.1" rx="4"/>
-                        <text x="10" y="18" font-size="11" font-weight="600" fill="#333">✓ 자동 기록</text>
-                        <text x="10" y="35" font-size="10" fill="#666">• 메트릭 저장</text>
-                        <text x="10" y="48" font-size="10" fill="#666">• 대시보드 업데이트</text>
+                        <text x="10" y="18" font-size="11" font-weight="600" fill="#333">✓ Auto log</text>
+                        <text x="10" y="35" font-size="10" fill="#666">• Save metrics</text>
+                        <text x="10" y="48" font-size="10" fill="#666">• Update dashboard</text>
                         
                         <!-- Level 2 Actions -->
                         <rect x="185" y="0" width="170" height="55" fill="#FDD835" opacity="0.1" rx="4"/>
-                        <text x="195" y="18" font-size="11" font-weight="600" fill="#333">📧 팀 알림</text>
-                        <text x="195" y="35" font-size="10" fill="#666">• Email 발송</text>
-                        <text x="195" y="48" font-size="10" fill="#666">• Slack 메시지</text>
+                        <text x="195" y="18" font-size="11" font-weight="600" fill="#333">📧 Team notification</text>
+                        <text x="195" y="35" font-size="10" fill="#666">• Send email</text>
+                        <text x="195" y="48" font-size="10" fill="#666">• Slack message</text>
                         
                         <!-- Level 3 Actions -->
                         <rect x="370" y="0" width="170" height="55" fill="#FF9800" opacity="0.1" rx="4"/>
-                        <text x="380" y="18" font-size="11" font-weight="600" fill="#333">📞 On-call 호출</text>
-                        <text x="380" y="35" font-size="10" fill="#666">• SMS 전송</text>
-                        <text x="380" y="48" font-size="10" fill="#666">• 전화 알림</text>
+                        <text x="380" y="18" font-size="11" font-weight="600" fill="#333">📞 On-call notification</text>
+                        <text x="380" y="35" font-size="10" fill="#666">• Send SMS</text>
+                        <text x="380" y="48" font-size="10" fill="#666">• Phone notification</text>
                         
                         <!-- Level 4 Actions -->
                         <rect x="555" y="0" width="185" height="55" fill="#F44336" opacity="0.1" rx="4"/>
-                        <text x="565" y="18" font-size="11" font-weight="600" fill="#333">🔴 비상 대응</text>
-                        <text x="565" y="35" font-size="10" fill="#666">• 자동 롤백 실행</text>
-                        <text x="565" y="48" font-size="10" fill="#666">• 시스템 중지</text>
+                        <text x="565" y="18" font-size="11" font-weight="600" fill="#333">🔴 Emergency response</text>
+                        <text x="565" y="35" font-size="10" fill="#666">• Execute auto rollback</text>
+                        <text x="565" y="48" font-size="10" fill="#666">• System suspension</text>
                     </g>
                 </g>
                 
                 <!-- Escalation Timeline -->
                 <g transform="translate(50, 395)">
-                    <text x="0" y="0" font-size="11" fill="#666">⏱️ 에스컬레이션: Level 1 → 2 (5분) → 3 (15분) → 4 (30분 또는 즉시)</text>
+                    <text x="0" y="0" font-size="11" fill="#666">⏱️ Escalation: Level 1 → 2 (5min) → 3 (15min) → 4 (30min or immediate)</text>
                 </g>
                 
                 <defs>
@@ -200,32 +200,32 @@
         </div>
         
         <div class="section">
-            <div class="section-title">🚨 경보 유형</div>
+            <div class="section-title">🚨 Alert Types</div>
             <div class="item-list">
-                <div class="item">Performance Alerts: 정확도 하락, 지연시간 증가</div>
-                <div class="item">Data Drift Alerts: 입력 분포 변화 감지</div>
-                <div class="item">System Alerts: 서버 다운, 메모리 부족</div>
-                <div class="item">Safety Alerts: 위험한 예측 패턴</div>
+                <div class="item">Performance Alerts: Accuracy drop, latency increase</div>
+                <div class="item">Data Drift Alerts: Input distribution change detection</div>
+                <div class="item">System Alerts: Server down, memory shortage</div>
+                <div class="item">Safety Alerts: Dangerous prediction patterns</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">⚠️ 임계값 설정</div>
+            <div class="section-title">⚠️ Threshold Settings</div>
             <div class="item-list">
-                <div class="item">Warning (Yellow): 정확도 < 95%</div>
-                <div class="item">Critical (Orange): 정확도 < 90%</div>
-                <div class="item">Emergency (Red): 정확도 < 85% 또는 안전 문제</div>
-                <div class="item">Adaptive Thresholds: 통계적 이상치 탐지</div>
+                <div class="item">Warning (Yellow): Accuracy < 95%</div>
+                <div class="item">Critical (Orange): Accuracy < 90%</div>
+                <div class="item">Emergency (Red): Accuracy < 85% or safety issue</div>
+                <div class="item">Adaptive Thresholds: Statistical anomaly detection</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">📢 알림 플로우</div>
+            <div class="section-title">📢 Alert Flow</div>
             <div class="item-list">
-                <div class="item">Level 1: 자동 로그 기록</div>
-                <div class="item">Level 2: 이메일/Slack 알림</div>
-                <div class="item">Level 3: SMS/전화 알림 (On-call)</div>
-                <div class="item">Level 4: 자동 롤백 및 에스컬레이션</div>
+                <div class="item">Level 1: Auto log recording</div>
+                <div class="item">Level 2: Email/Slack notification</div>
+                <div class="item">Level 3: SMS/Phone notification (On-call)</div>
+                <div class="item">Level 4: Auto rollback and escalation</div>
             </div>
         </div>
     </div>

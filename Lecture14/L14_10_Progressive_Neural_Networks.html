@@ -94,7 +94,7 @@
         <div class="title">Progressive Neural Networks (PNN)</div>
         
         <div class="diagram-section">
-            <div class="diagram-title">🏗️ PNN 네트워크 구조 (점진적 확장)</div>
+            <div class="diagram-title">🏗️ PNN Network Architecture (Progressive Expansion)</div>
             <svg width="100%" height="380" viewBox="0 0 800 380">
                 <!-- Input Layer -->
                 <text x="400" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#666">Input Layer</text>
@@ -115,7 +115,7 @@
                     <rect x="15" y="140" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
                     <rect x="15" y="170" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
                     
-                    <text x="50" y="230" text-anchor="middle" font-size="11" fill="white">가중치 고정</text>
+                    <text x="50" y="230" text-anchor="middle" font-size="11" fill="white">Weights Fixed</text>
                     <text x="50" y="245" text-anchor="middle" font-size="10" fill="white">(No Update)</text>
                 </g>
                 
@@ -134,7 +134,7 @@
                     <rect x="15" y="140" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
                     <rect x="15" y="170" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
                     
-                    <text x="50" y="230" text-anchor="middle" font-size="11" fill="white">학습 완료</text>
+                    <text x="50" y="230" text-anchor="middle" font-size="11" fill="white">Training Complete</text>
                 </g>
                 
                 <!-- Column 3: Task 3 (Current) -->
@@ -160,7 +160,7 @@
                         <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" begin="0.9s" repeatCount="indefinite"/>
                     </rect>
                     
-                    <text x="50" y="230" text-anchor="middle" font-size="11" fill="white">현재 학습 중</text>
+                    <text x="50" y="230" text-anchor="middle" font-size="11" fill="white">Currently Training</text>
                     <text x="50" y="245" text-anchor="middle" font-size="10" fill="white">(Active)</text>
                 </g>
                 
@@ -181,15 +181,15 @@
                 
                 <!-- Legend -->
                 <g transform="translate(150, 320)">
-                    <text x="0" y="0" font-size="12" font-weight="600" fill="#1E64C8">범례:</text>
+                    <text x="0" y="0" font-size="12" font-weight="600" fill="#1E64C8">Legend:</text>
                     <line x1="50" y1="-5" x2="90" y2="-5" stroke="#FFA726" stroke-width="2" stroke-dasharray="3,3"/>
-                    <text x="95" y="0" font-size="11" fill="#666">Lateral Connections (지식 전이)</text>
+                    <text x="95" y="0" font-size="11" fill="#666">Lateral Connections (Knowledge Transfer)</text>
                     
                     <circle cx="240" cy="-5" r="6" fill="#FF6B6B"/>
-                    <text x="250" y="0" font-size="11" fill="#666">Frozen (고정)</text>
+                    <text x="250" y="0" font-size="11" fill="#666">Frozen (Frozen)</text>
                     
                     <circle cx="370" cy="-5" r="6" fill="#4CAF50"/>
-                    <text x="380" y="0" font-size="11" fill="#666">Training (학습 중)</text>
+                    <text x="380" y="0" font-size="11" fill="#666">Training (Training)</text>
                 </g>
                 
                 <!-- Output Labels -->
@@ -202,32 +202,32 @@
         </div>
         
         <div class="section">
-            <div class="section-title">🗏️ PNN 구조</div>
+            <div class="section-title">🗏️ PNN Architecture</div>
             <div class="item-list">
-                <div class="item">Column Architecture: 각 작업마다 새 네트워크 컬럼 추가</div>
-                <div class="item">Lateral Connections: 이전 컬럼에서 특징 전이</div>
-                <div class="item">Frozen Columns: 이전 작업 가중치 고정</div>
-                <div class="item">Adapter Layers: 작업 간 특징 변환</div>
+                <div class="item">Column Architecture: Add new network column for each task</div>
+                <div class="item">Lateral Connections: Transfer features from previous columns</div>
+                <div class="item">Frozen Columns: Freeze previous task weights</div>
+                <div class="item">Adapter Layers: Transform features between tasks</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">➕ 확장 과정</div>
+            <div class="section-title">➕ Expansion Process</div>
             <div class="item-list">
-                <div class="item">1단계: 초기 작업 학습 (Column 1)</div>
-                <div class="item">2단계: 새 작업 시 Column 2 추가</div>
-                <div class="item">3단계: Lateral connection으로 지식 전이</div>
-                <div class="item">4단계: 필요 시 추가 컬럼 계속 확장</div>
+                <div class="item">Step 1: Initial task learning (Column 1)</div>
+                <div class="item">Step 2: Add Column 2 for new task</div>
+                <div class="item">Step 3: Knowledge transfer via lateral connections</div>
+                <div class="item">Step 4: Continue expanding with additional columns as needed</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">⚖️ 장단점</div>
+            <div class="section-title">⚖️ Pros and Cons</div>
             <div class="item-list">
-                <div class="item">장점: 완전히 망각 방지, 지식 전이 가능</div>
-                <div class="item">장점: 작업 간 간섭 최소화</div>
-                <div class="item">단점: 모델 크기 선형 증가</div>
-                <div class="item">단점: 메모리 및 계산 비용 증가</div>
+                <div class="item">Pros: Complete forgetting prevention, knowledge transfer possible</div>
+                <div class="item">Pros: Minimize inter-task interference</div>
+                <div class="item">Cons: Linear model size growth</div>
+                <div class="item">Cons: Increased memory and computational cost</div>
             </div>
         </div>
     </div>

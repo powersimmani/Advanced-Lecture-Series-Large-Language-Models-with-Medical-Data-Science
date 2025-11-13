@@ -94,27 +94,27 @@
         <div class="title">Elastic Weight Consolidation (EWC)</div>
         
         <div class="diagram-section">
-            <div class="diagram-title">🎯 EWC 가중치 중요도 메커니즘</div>
+            <div class="diagram-title">🎯 EWC Weight Importance Mechanism</div>
             <svg width="100%" height="280" viewBox="0 0 870 280">
                 <!-- Task A (Previous) -->
                 <g transform="translate(50, 40)">
                     <rect x="0" y="0" width="200" height="80" fill="white" stroke="#1E64C8" stroke-width="2" rx="8"/>
-                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">Task A (이전 작업)</text>
+                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">Task A (Previous Task)</text>
                     
                     <!-- Weight importance visualization -->
                     <g transform="translate(20, 35)">
-                        <text x="0" y="10" font-size="11" fill="#333">가중치 중요도:</text>
+                        <text x="0" y="10" font-size="11" fill="#333">Weight Importance:</text>
                         <!-- High importance weights -->
                         <circle cx="20" cy="30" r="8" fill="#1E64C8" opacity="0.9"/>
                         <circle cx="40" cy="30" r="8" fill="#1E64C8" opacity="0.9"/>
                         <circle cx="60" cy="30" r="8" fill="#1E64C8" opacity="0.9"/>
-                        <text x="75" y="35" font-size="10" fill="#666">높음 (고정)</text>
+                        <text x="75" y="35" font-size="10" fill="#666">High (Fixed)</text>
                         
                         <!-- Low importance weights -->
                         <circle cx="120" cy="30" r="5" fill="#1E64C8" opacity="0.3"/>
                         <circle cx="135" cy="30" r="5" fill="#1E64C8" opacity="0.3"/>
                         <circle cx="150" cy="30" r="5" fill="#1E64C8" opacity="0.3"/>
-                        <text x="155" y="35" font-size="10" fill="#666">낮음</text>
+                        <text x="155" y="35" font-size="10" fill="#666">Low</text>
                     </g>
                 </g>
                 
@@ -131,27 +131,27 @@
                 <!-- New Task B -->
                 <g transform="translate(450, 40)">
                     <rect x="0" y="0" width="200" height="80" fill="white" stroke="#1E64C8" stroke-width="2" rx="8"/>
-                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">Task B (새 작업)</text>
+                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">Task B (New Task)</text>
                     
                     <g transform="translate(20, 35)">
-                        <text x="0" y="10" font-size="11" fill="#333">학습 제약:</text>
+                        <text x="0" y="10" font-size="11" fill="#333">Learning Constraints:</text>
                         <!-- Constrained weights -->
                         <circle cx="20" cy="30" r="8" fill="#1E64C8" opacity="0.9" stroke="#FF6B6B" stroke-width="2"/>
                         <circle cx="40" cy="30" r="8" fill="#1E64C8" opacity="0.9" stroke="#FF6B6B" stroke-width="2"/>
-                        <text x="55" y="35" font-size="10" fill="#FF6B6B">제약됨</text>
+                        <text x="55" y="35" font-size="10" fill="#FF6B6B">Constrained</text>
                         
                         <!-- Free weights -->
                         <circle cx="100" cy="30" r="5" fill="#4CAF50" opacity="0.7"/>
                         <circle cx="115" cy="30" r="5" fill="#4CAF50" opacity="0.7"/>
                         <circle cx="130" cy="30" r="5" fill="#4CAF50" opacity="0.7"/>
-                        <text x="145" y="35" font-size="10" fill="#4CAF50">자유</text>
+                        <text x="145" y="35" font-size="10" fill="#4CAF50">Free</text>
                     </g>
                 </g>
                 
                 <!-- Loss Function Visualization -->
                 <g transform="translate(50, 150)">
                     <rect x="0" y="0" width="600" height="110" fill="white" stroke="#1E64C8" stroke-width="2" rx="8"/>
-                    <text x="300" y="25" text-anchor="middle" font-size="15" font-weight="600" fill="#1E64C8">📐 EWC 손실 함수</text>
+                    <text x="300" y="25" text-anchor="middle" font-size="15" font-weight="600" fill="#1E64C8">📐 EWC Loss Function</text>
                     
                     <!-- Loss equation -->
                     <g transform="translate(50, 40)">
@@ -167,26 +167,26 @@
                     <g transform="translate(50, 65)">
                         <!-- L_new -->
                         <rect x="0" y="0" width="120" height="25" fill="#4CAF50" opacity="0.3" rx="4"/>
-                        <text x="60" y="17" text-anchor="middle" font-size="11" fill="#333">새 작업 손실</text>
+                        <text x="60" y="17" text-anchor="middle" font-size="11" fill="#333">New task loss</text>
                         
                         <text x="135" y="17" text-anchor="middle" font-size="14" fill="#333">+</text>
                         
                         <!-- L_EWC penalty -->
                         <rect x="160" y="0" width="180" height="25" fill="#FF6B6B" opacity="0.3" rx="4"/>
-                        <text x="250" y="17" text-anchor="middle" font-size="11" fill="#333">중요 가중치 보존 페널티</text>
+                        <text x="250" y="17" text-anchor="middle" font-size="11" fill="#333">Important weight preservation penalty</text>
                         
                         <text x="360" y="17" text-anchor="middle" font-size="14" fill="#333">=</text>
                         
                         <!-- Total -->
                         <rect x="385" y="0" width="120" height="25" fill="#1E64C8" opacity="0.3" rx="4"/>
-                        <text x="445" y="17" text-anchor="middle" font-size="11" fill="#333">균형잡힌 학습</text>
+                        <text x="445" y="17" text-anchor="middle" font-size="11" fill="#333">Balanced learning</text>
                     </g>
                 </g>
                 
                 <!-- Benefits -->
                 <g transform="translate(680, 150)">
                     <rect x="0" y="0" width="170" height="110" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2" rx="6"/>
-                    <text x="85" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#1E64C8">✨ 효과</text>
+                    <text x="85" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#1E64C8">✨ Effects</text>
                     <text x="10" y="48" font-size="11" fill="#333">✓ 중요 지식 보존</text>
                     <text x="10" y="68" font-size="11" fill="#333">✓ 유연한 학습</text>
                     <text x="10" y="88" font-size="11" fill="#333">✓ 메모리 효율적</text>
@@ -201,32 +201,32 @@
         </div>
         
         <div class="section">
-            <div class="section-title">🎯 EWC 메커니즘</div>
+            <div class="section-title">🎯 EWC Mechanism</div>
             <div class="item-list">
-                <div class="item">Fisher Information Matrix: 중요 가중치 식별</div>
-                <div class="item">가중치 중요도 계산: 이전 작업에 중요한 파라미터 파악</div>
-                <div class="item">제약 조건 추가: 중요 가중치 변경 제한</div>
-                <div class="item">유연성 유지: 덜 중요한 가중치는 자유롭게 업데이트</div>
+                <div class="item">Fisher Information Matrix: Identify important weights</div>
+                <div class="item">Weight importance calculation: Identify parameters important to previous tasks</div>
+                <div class="item">Add constraints: Limit important weight changes</div>
+                <div class="item">Maintain flexibility: Freely update less important weights</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">📐 손실 함수</div>
+            <div class="section-title">📐 Loss Function</div>
             <div class="item-list">
                 <div class="item">L_total = L_new + λ * L_EWC</div>
                 <div class="item">L_EWC = Σ F_i * (θ_i - θ*_i)²</div>
-                <div class="item">F_i: Fisher information (가중치 중요도)</div>
-                <div class="item">λ: 정규화 강도 (일반적으로 1-1000)</div>
+                <div class="item">F_i: Fisher information (weight importance)</div>
+                <div class="item">λ: Regularization strength (typically 1-1000)</div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">⚡ 페널티 적용</div>
+            <div class="section-title">⚡ Penalty Application</div>
             <div class="item-list">
-                <div class="item">중요 가중치 변경 시 높은 페널티</div>
-                <div class="item">덜 중요한 가중치는 자유롭게 학습</div>
-                <div class="item">다중 작업에서 누적 페널티</div>
-                <div class="item">메모리 효율적: Fisher matrix만 저장</div>
+                <div class="item">High penalty for important weight changes</div>
+                <div class="item">Freely learn less important weights</div>
+                <div class="item">Cumulative penalty across multiple tasks</div>
+                <div class="item">Memory efficient: Store only Fisher matrix</div>
             </div>
         </div>
     </div>
