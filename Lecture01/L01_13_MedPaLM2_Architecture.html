@@ -19,15 +19,15 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             text-align: center;
         }
         .model-overview {
             background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
             color: white;
             border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
+            padding: 20px;
+            margin-bottom: 20px;
             text-align: center;
         }
         .model-stat {
@@ -36,22 +36,80 @@
             font-size: 18px;
             font-weight: 600;
         }
+        .architecture-section {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 20px;
+        }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
+            grid-template-columns: 1fr;
+            gap: 12px;
         }
         .feature-card {
             background: #f0f5fc;
             border-left: 5px solid #1E64C8;
             border-radius: 10px;
-            padding: 18px;
+            padding: 15px;
+            transition: all 0.3s;
+            cursor: pointer;
         }
-        .feature-icon { font-size: 28px; margin-bottom: 8px; }
+        .feature-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+        }
+        .feature-icon { 
+            font-size: 24px; 
+            margin-bottom: 5px; 
+            display: block;
+        }
         .feature-text {
-            font-size: 17px;
+            font-size: 15px;
             color: #333;
-            font-weight: 500;
+            font-weight: 600;
+        }
+        .arch-svg-container {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 12px;
+            padding: 15px;
+        }
+        .arch-svg {
+            width: 100%;
+            height: 100%;
+        }
+        .layer-box {
+            fill: #1E64C8;
+            stroke: #0d3a7a;
+            stroke-width: 2;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .layer-box:hover {
+            fill: #2874d8;
+            stroke-width: 3;
+        }
+        .layer-text {
+            font-size: 13px;
+            fill: white;
+            font-weight: 600;
+            text-anchor: middle;
+        }
+        .layer-detail {
+            font-size: 10px;
+            fill: white;
+            text-anchor: middle;
+        }
+        .arrow-line {
+            stroke: #1E64C8;
+            stroke-width: 3;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+        .data-flow {
+            font-size: 11px;
+            fill: #666;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -63,22 +121,94 @@
             <div class="model-stat">🏗️ Flan-PaLM based</div>
             <div class="model-stat">✅ 86.5% on MedQA</div>
         </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <div class="feature-text">Instruction fine-tuning</div>
+        <div class="architecture-section">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <div class="feature-text">Instruction fine-tuning on medical tasks</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💡</span>
+                    <div class="feature-text">Medical domain adaptation with specialized corpus</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🚀</span>
+                    <div class="feature-text">Few-shot clinical reasoning capabilities</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <div class="feature-text">Safety-focused design with alignment</div>
+                </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">💡</div>
-                <div class="feature-text">Medical domain adaptation</div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <div class="feature-text">Few-shot clinical reasoning</div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🛡️</div>
-                <div class="feature-text">Safety-focused design</div>
+            
+            <div class="arch-svg-container">
+                <svg class="arch-svg" viewBox="0 0 480 290">
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
+                        </marker>
+                        <linearGradient id="layerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1E64C8;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#0d3a7a;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Input Layer -->
+                    <rect class="layer-box" x="140" y="10" width="200" height="35" rx="8" />
+                    <text class="layer-text" x="240" y="25">Medical Query Input</text>
+                    <text class="layer-detail" x="240" y="38">Patient symptoms, lab data</text>
+                    
+                    <!-- Arrow -->
+                    <path class="arrow-line" d="M 240 45 L 240 60" />
+                    <text class="data-flow" x="250" y="55">Tokenization</text>
+                    
+                    <!-- Flan-PaLM Base Layer -->
+                    <rect class="layer-box" x="120" y="65" width="240" height="40" rx="8" fill="url(#layerGrad)" />
+                    <text class="layer-text" x="240" y="80">Flan-PaLM Base Model</text>
+                    <text class="layer-detail" x="240" y="95">540B parameters • 64 layers</text>
+                    
+                    <!-- Arrow -->
+                    <path class="arrow-line" d="M 240 105 L 240 120" />
+                    <text class="data-flow" x="250" y="115">Embeddings</text>
+                    
+                    <!-- Medical Adaptation Layer -->
+                    <rect class="layer-box" x="100" y="125" width="280" height="40" rx="8" />
+                    <text class="layer-text" x="240" y="140">Medical Domain Adaptation</text>
+                    <text class="layer-detail" x="240" y="155">Fine-tuned on PubMed + Clinical notes</text>
+                    
+                    <!-- Arrow -->
+                    <path class="arrow-line" d="M 240 165 L 240 180" />
+                    <text class="data-flow" x="250" y="175">Contextual</text>
+                    
+                    <!-- Instruction Fine-tuning Layer -->
+                    <rect class="layer-box" x="120" y="185" width="240" height="40" rx="8" />
+                    <text class="layer-text" x="240" y="200">Instruction Fine-tuning</text>
+                    <text class="layer-detail" x="240" y="215">Medical QA • Diagnosis • Reasoning</text>
+                    
+                    <!-- Arrow -->
+                    <path class="arrow-line" d="M 240 225 L 240 240" />
+                    <text class="data-flow" x="250" y="235">Generation</text>
+                    
+                    <!-- Output Layer -->
+                    <rect class="layer-box" x="140" y="245" width="200" height="35" rx="8" fill="#2ecc71" stroke="#27ae60" />
+                    <text class="layer-text" x="240" y="260">Clinical Response</text>
+                    <text class="layer-detail" x="240" y="273">Diagnosis + Evidence + Confidence</text>
+                    
+                    <!-- Side annotations -->
+                    <text x="25" y="85" font-size="11px" fill="#666" font-weight="600">Pre-training</text>
+                    <text x="25" y="145" font-size="11px" fill="#666" font-weight="600">Adaptation</text>
+                    <text x="25" y="205" font-size="11px" fill="#666" font-weight="600">Fine-tuning</text>
+                    
+                    <!-- Right side: Data flow indicators -->
+                    <circle cx="410" cy="27" r="5" fill="#1E64C8" />
+                    <text x="420" y="32" font-size="10px" fill="#666">Input</text>
+                    
+                    <circle cx="410" cy="85" r="5" fill="#1E64C8" />
+                    <text x="420" y="90" font-size="10px" fill="#666">Processing</text>
+                    
+                    <circle cx="410" cy="262" r="5" fill="#2ecc71" />
+                    <text x="420" y="267" font-size="10px" fill="#666">Output</text>
+                </svg>
             </div>
         </div>
     </div>

@@ -13,17 +13,17 @@
         .card-title{font-size:17px;font-weight:700;color:#1E64C8;margin-bottom:10px;}
         .card-content{font-size:15px;color:#333;line-height:1.6;}
         .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-        .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
-        .part-banner{background:linear-gradient(135deg,#1E64C8 0%,#5088d4 100%);color:white;padding:80px 60px;border-radius:12px;height:460px;display:flex;flex-direction:column;justify-content:center;}
-        .part-label{font-size:32px;font-weight:700;margin-bottom:30px;}
-        .part-title{font-size:44px;font-weight:700;margin-bottom:60px;line-height:1.2;}
-        .part-topics{font-size:20px;margin-left:40px;line-height:2;}
+        .pipeline-svg {
+            width: 100%;
+            height: 260px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        
         <div class="title">Waveform Signal Processing</div>
+        
         <div class="grid-2" style="margin-bottom:20px;">
             <div class="card">
                 <div class="card-title">ECG (심전도)</div>
@@ -44,16 +44,81 @@
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-title">처리 파이프라인</div>
-            <div class="card-content">
-                1. <strong>전처리</strong>: Bandpass filter (0.5-40 Hz)<br>
-                2. <strong>노이즈 제거</strong>: Notch filter (60 Hz)<br>
-                3. <strong>특징 추출</strong>: Peak detection, FFT<br>
-                4. <strong>정규화</strong>: Z-score normalization
-            </div>
-        </div>
-    
+        
+        <svg class="pipeline-svg" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Title -->
+            <text x="450" y="30" text-anchor="middle" font-family="Aptos, sans-serif" font-size="18" font-weight="700" fill="#1E64C8">신호 처리 파이프라인</text>
+            
+            <!-- Raw Signal -->
+            <g id="raw-signal">
+                <rect x="50" y="60" width="150" height="180" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="3"/>
+                <text x="125" y="90" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">원본 신호</text>
+                
+                <!-- Simulated noisy waveform -->
+                <path d="M 70 150 Q 85 130 100 150 T 130 150 T 160 150 T 180 150" 
+                      stroke="#666" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <circle cx="75" cy="155" r="2" fill="#dc3545"/>
+                <circle cx="95" cy="145" r="2" fill="#dc3545"/>
+                <circle cx="140" cy="152" r="2" fill="#dc3545"/>
+                <text x="125" y="220" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">노이즈 포함</text>
+            </g>
+            
+            <!-- Step 1: Preprocessing -->
+            <g id="step1">
+                <path d="M 205 150 L 245 150" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)"/>
+                <rect x="250" y="60" width="150" height="180" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="325" cy="90" r="15" fill="#1E64C8"/>
+                <text x="325" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="white">1</text>
+                <text x="325" y="120" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">전처리</text>
+                <text x="325" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#555">Bandpass Filter</text>
+                <text x="325" y="163" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">(0.5-40 Hz)</text>
+                
+                <!-- Filtered waveform -->
+                <path d="M 270 190 Q 285 180 300 190 T 330 190 T 360 190 T 380 190" 
+                      stroke="#1E64C8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </g>
+            
+            <!-- Step 2: Noise Removal -->
+            <g id="step2">
+                <path d="M 405 150 L 445 150" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)"/>
+                <rect x="450" y="60" width="150" height="180" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="525" cy="90" r="15" fill="#1E64C8"/>
+                <text x="525" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="white">2</text>
+                <text x="525" y="120" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">노이즈 제거</text>
+                <text x="525" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#555">Notch Filter</text>
+                <text x="525" y="163" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">(60 Hz)</text>
+                
+                <!-- Cleaner waveform -->
+                <path d="M 470 190 Q 485 175 500 190 T 530 190 T 560 190 T 580 190" 
+                      stroke="#1E64C8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </g>
+            
+            <!-- Step 3: Feature Extraction -->
+            <g id="step3">
+                <path d="M 605 150 L 645 150" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)"/>
+                <rect x="650" y="60" width="200" height="85" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="750" cy="85" r="15" fill="#1E64C8"/>
+                <text x="750" y="90" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="white">3</text>
+                <text x="750" y="115" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">특징 추출</text>
+                <text x="750" y="135" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Peak Detection, FFT</text>
+            </g>
+            
+            <!-- Step 4: Normalization -->
+            <g id="step4">
+                <rect x="650" y="155" width="200" height="85" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="750" cy="180" r="15" fill="#1E64C8"/>
+                <text x="750" y="185" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="white">4</text>
+                <text x="750" y="210" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">정규화</text>
+                <text x="750" y="230" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Z-score Normalization</text>
+            </g>
+            
+            <!-- Arrow marker -->
+            <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                </marker>
+            </defs>
+        </svg>
     </div>
 </body>
 </html>

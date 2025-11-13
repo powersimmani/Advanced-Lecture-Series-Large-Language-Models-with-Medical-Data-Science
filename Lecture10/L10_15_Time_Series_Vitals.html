@@ -11,11 +11,15 @@
         .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 22px; text-align: center; }
         .concept-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px 25px; margin-bottom: 22px; text-align: center; font-size: 17px; color: #333; font-weight: 500; }
         .highlight { color: #1E64C8; font-weight: 700; }
-        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 20px; }
         .content-card { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 18px; transition: all 0.3s; }
         .content-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2); background: #f8fbff; }
         .card-title { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
-        .card-desc { font-size: 15px; color: #555; line-height: 1.5; }
+        .card-desc { font-size: 15px; color: #555; line-height: 1.5; margin-bottom: 8px; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 4px; font-size: 14px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 8px; }
+        .applications { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .app-box { background: #f8f9fb; border-left: 4px solid #1E64C8; padding: 12px 15px; border-radius: 6px; text-align: center; font-size: 14px; color: #333; font-weight: 500; }
     </style>
 </head>
 <body>
@@ -24,13 +28,42 @@
         <div class="concept-box">ICU 생체 신호(HR, BP, SpO2)를 RNN/LSTM/Transformer로 시계열 모델링하여 악화 예측</div>
         <div class="content-grid">
             <div class="content-card">
-                <div class="card-title">Key Concept 1</div>
-                <div class="card-desc">Detailed explanation of the first key concept</div>
+                <div class="card-title">주요 생체 신호</div>
+                <div class="card-desc">모니터링되는 바이탈 사인</div>
+                <div class="bullet">심박수 (HR): 분당 박동수</div>
+                <div class="bullet">혈압 (BP): 수축기/이완기</div>
+                <div class="bullet">산소포화도 (SpO2): 혈중 산소</div>
+                <div class="bullet">호흡수 (RR): 분당 호흡</div>
             </div>
             <div class="content-card">
-                <div class="card-title">Key Concept 2</div>
-                <div class="card-desc">Detailed explanation of the second key concept</div>
+                <div class="card-title">시계열 특성</div>
+                <div class="card-desc">생체 신호의 시간적 패턴</div>
+                <div class="bullet">불규칙 샘플링 간격</div>
+                <div class="bullet">결측값 (센서 오류)</div>
+                <div class="bullet">트렌드와 주기성</div>
+                <div class="bullet">급격한 변화 (이벤트)</div>
             </div>
+            <div class="content-card">
+                <div class="card-title">딥러닝 모델</div>
+                <div class="card-desc">시계열 예측 아키텍처</div>
+                <div class="bullet">LSTM: 장기 의존성</div>
+                <div class="bullet">GRU: 경량 순환 네트워크</div>
+                <div class="bullet">Temporal CNN: 확장 컨볼루션</div>
+                <div class="bullet">Transformer: 어텐션 기반</div>
+            </div>
+            <div class="content-card">
+                <div class="card-title">멀티모달 통합</div>
+                <div class="card-desc">생체 신호와 다른 데이터</div>
+                <div class="bullet">바이탈 + 실험실 검사</div>
+                <div class="bullet">바이탈 + 약물 투여 기록</div>
+                <div class="bullet">바이탈 + 임상 노트</div>
+                <div class="bullet">시간 정렬 필수</div>
+            </div>
+        </div>
+        <div class="applications">
+            <div class="app-box">패혈증 조기 경보</div>
+            <div class="app-box">심정지 위험 예측</div>
+            <div class="app-box">ICU 재원기간 추정</div>
         </div>
     </div>
 </body>

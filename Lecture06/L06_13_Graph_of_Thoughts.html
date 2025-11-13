@@ -86,54 +86,12 @@
             flex-shrink: 0;
         }
         
-        .info-section {
+        .graph-section {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 10px;
             padding: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
             margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .content-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .example-box {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .example-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .example-content {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .example-line {
-            font-size: 15px;
-            color: #333;
-            line-height: 1.5;
         }
         
         .highlight-box {
@@ -143,17 +101,37 @@
             padding: 15px 25px;
             text-align: center;
         }
-        
-        .highlight-text {
-            font-size: 17px;
-            color: #333;
-            font-weight: 600;
+
+        .graph-node {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .graph-node:hover {
+            transform: scale(1.1);
+        }
+
+        .graph-edge {
+            animation: edgeFlow 3s ease-in-out infinite;
+        }
+
+        @keyframes edgeFlow {
+            0%, 100% { stroke-opacity: 0.4; }
+            50% { stroke-opacity: 1; }
+        }
+
+        .bidirectional {
+            animation: bidirectionalFlow 2s ease-in-out infinite;
+        }
+
+        @keyframes bidirectionalFlow {
+            0%, 100% { stroke-dashoffset: 0; }
+            50% { stroke-dashoffset: -10; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        
         <div class="title">Graph of Thoughts (GoT)</div>
         
         <div class="comparison-grid">
@@ -178,21 +156,80 @@
             </div>
         </div>
         
-        <div class="example-box">
-            <div class="example-title">Example: Diabetes Management Network</div>
-            <div class="example-content">
-                <div class="example-line">Blood glucose ↔ Insulin dose ↔ Diet/Exercise</div>
-                <div class="example-line">↕</div>
-                <div class="example-line">HbA1c ↔ Medication efficacy ↔ Compliance</div>
-                <div class="example-line">↕</div>
-                <div class="example-line">Complications (retinopathy, nephropathy) ← Glycemic control</div>
-            </div>
+        <!-- SVG Graph Network -->
+        <div class="graph-section">
+            <svg width="840" height="180" viewBox="0 0 840 180">
+                <!-- Central Node: Blood Glucose -->
+                <g class="graph-node">
+                    <circle cx="420" cy="90" r="50" fill="#1E64C8" stroke="#1E64C8" stroke-width="3"/>
+                    <text x="420" y="90" text-anchor="middle" fill="white" font-size="14" font-weight="700">Blood</text>
+                    <text x="420" y="105" text-anchor="middle" fill="white" font-size="14" font-weight="700">Glucose</text>
+                </g>
+                
+                <!-- Surrounding Nodes -->
+                <!-- Insulin Dose -->
+                <g class="graph-node">
+                    <circle cx="250" cy="50" r="45" fill="white" stroke="#1E64C8" stroke-width="2.5"/>
+                    <text x="250" y="50" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">Insulin</text>
+                    <text x="250" y="65" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">Dose</text>
+                </g>
+                
+                <!-- Diet/Exercise -->
+                <g class="graph-node">
+                    <circle cx="590" cy="50" r="45" fill="white" stroke="#1E64C8" stroke-width="2.5"/>
+                    <text x="590" y="50" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">Diet/</text>
+                    <text x="590" y="65" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">Exercise</text>
+                </g>
+                
+                <!-- HbA1c -->
+                <g class="graph-node">
+                    <circle cx="150" cy="130" r="40" fill="white" stroke="#1E64C8" stroke-width="2.5"/>
+                    <text x="150" y="135" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">HbA1c</text>
+                </g>
+                
+                <!-- Medication Efficacy -->
+                <g class="graph-node">
+                    <circle cx="420" cy="30" r="40" fill="white" stroke="#1E64C8" stroke-width="2.5"/>
+                    <text x="420" y="30" text-anchor="middle" fill="#1E64C8" font-size="12" font-weight="700">Medication</text>
+                    <text x="420" y="43" text-anchor="middle" fill="#1E64C8" font-size="12" font-weight="700">Efficacy</text>
+                </g>
+                
+                <!-- Compliance -->
+                <g class="graph-node">
+                    <circle cx="690" cy="130" r="40" fill="white" stroke="#1E64C8" stroke-width="2.5"/>
+                    <text x="690" y="135" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">Compliance</text>
+                </g>
+                
+                <!-- Complications -->
+                <g class="graph-node">
+                    <circle cx="420" cy="150" r="40" fill="#fff4e6" stroke="#dc3545" stroke-width="2.5"/>
+                    <text x="420" y="150" text-anchor="middle" fill="#dc3545" font-size="12" font-weight="700">Complications</text>
+                </g>
+                
+                <!-- Edges (Bidirectional and Cyclic) -->
+                <path class="graph-edge bidirectional" d="M 295,60 L 375,85" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3" fill="none"/>
+                <polygon points="375,85 367,81 369,89" fill="#1E64C8"/>
+                <polygon points="295,60 303,64 301,56" fill="#1E64C8"/>
+                
+                <path class="graph-edge bidirectional" d="M 545,60 L 465,85" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3" fill="none"/>
+                <polygon points="465,85 473,89 471,81" fill="#1E64C8"/>
+                <polygon points="545,60 537,56 539,64" fill="#1E64C8"/>
+                
+                <path class="graph-edge bidirectional" d="M 190,120 L 375,95" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3" fill="none"/>
+                <polygon points="375,95 367,93 368,101" fill="#1E64C8"/>
+                
+                <path class="graph-edge" d="M 420,120 L 420,140" stroke="#dc3545" stroke-width="2.5" fill="none"/>
+                <polygon points="420,140 416,132 424,132" fill="#dc3545"/>
+                
+                <path class="graph-edge bidirectional" d="M 380,50 L 295,65" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3" fill="none"/>
+                
+                <path class="graph-edge bidirectional" d="M 640,120 L 545,65" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3" fill="none"/>
+            </svg>
         </div>
         
         <div class="highlight-box">
             <strong style="color: #1E64C8;">Key:</strong> Captures complex medical relationships beyond simple trees
         </div>
-    
     </div>
 </body>
 </html>

@@ -23,7 +23,7 @@
         .container {
             width: 960px;
             height: 540px;
-            padding: 35px 45px;
+            padding: 30px 45px;
             background: white;
         }
         
@@ -31,7 +31,7 @@
             font-size: 22px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 12px;
             text-align: center;
         }
         
@@ -39,7 +39,7 @@
             font-size: 18px;
             font-weight: 500;
             color: #555;
-            margin-bottom: 25px;
+            margin-bottom: 16px;
             text-align: center;
         }
         
@@ -47,16 +47,16 @@
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 10px;
-            padding: 18px 25px;
-            margin-bottom: 25px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
             text-align: center;
         }
         
         .intro-text {
-            font-size: 18px;
+            font-size: 16px;
             color: #333;
             font-weight: 500;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         
         .highlight {
@@ -64,84 +64,105 @@
             font-weight: 700;
         }
         
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-bottom: 20px;
+        .strategies-section {
+            margin-bottom: 16px;
         }
         
-        .content-card {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 10px;
-            padding: 18px 22px;
-            transition: all 0.3s;
-        }
-        
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
-            background: #f8fbff;
-        }
-        
-        .card-icon {
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-        
-        .card-title {
-            font-size: 18px;
+        .section-title {
+            font-size: 17px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 10px;
             text-align: center;
         }
         
-        .card-desc {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.5;
-            text-align: center;
+        .strategies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
         }
         
-        .key-points {
+        .strategy-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .strategy-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .strategy-icon {
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+        
+        .strategy-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 4px;
+        }
+        
+        .strategy-desc {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.3;
+        }
+        
+        .benefits-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .comparison-card {
             background: #f8fbff;
             border: 2px solid #4a90e2;
             border-radius: 8px;
-            padding: 18px 22px;
+            padding: 12px 14px;
         }
         
-        .points-title {
-            font-size: 18px;
+        .comparison-title {
+            font-size: 16px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        
-        .points-list {
+            margin-bottom: 8px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 8px;
         }
         
-        .point-item {
-            font-size: 16px;
-            color: #333;
-            padding-left: 20px;
-            position: relative;
-            line-height: 1.4;
+        .comparison-icon {
+            font-size: 20px;
         }
         
-        .point-item::before {
-            content: "â€¢";
-            position: absolute;
-            left: 0;
-            color: #1E64C8;
-            font-weight: bold;
-            font-size: 20px;
+        .comparison-items {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .comparison-item {
+            font-size: 13px;
+            color: #333;
+            padding: 6px 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #1E64C8;
+            line-height: 1.3;
+            transition: all 0.3s;
+        }
+        
+        .comparison-item:hover {
+            transform: translateX(3px);
+            box-shadow: 0 2px 8px rgba(30, 100, 200, 0.15);
         }
     </style>
 </head>
@@ -156,46 +177,73 @@
             </div>
         </div>
         
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-icon">🎯</div>
-                <div class="card-title">주요 개념</div>
-                <div class="card-desc">
-                    다양성 샘플링의 이론적 배경과 핵심 원리
+        <div class="strategies-section">
+            <div class="section-title">샘플링 전략</div>
+            <div class="strategies-grid">
+                <div class="strategy-card">
+                    <div class="strategy-icon">🎲</div>
+                    <div class="strategy-name">Random Sampling</div>
+                    <div class="strategy-desc">무작위 다양성 확보</div>
                 </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">🏥</div>
-                <div class="card-title">의료 적용</div>
-                <div class="card-desc">
-                    실제 의료 환경에서의 활용 사례
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon">🎯</div>
+                    <div class="strategy-name">Stratified</div>
+                    <div class="strategy-desc">계층적 균형 샘플링</div>
                 </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">📊</div>
-                <div class="card-title">성능 평가</div>
-                <div class="card-desc">
-                    효과성 측정 및 개선 방법론
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon">📊</div>
+                    <div class="strategy-name">Cluster-Based</div>
+                    <div class="strategy-desc">클러스터 기반 선택</div>
                 </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">🔬</div>
-                <div class="card-title">실습 예제</div>
-                <div class="card-desc">
-                    실제 데이터를 활용한 구현
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon">🔍</div>
+                    <div class="strategy-name">Maximal Diversity</div>
+                    <div class="strategy-desc">최대 다양성 추구</div>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon">⚖️</div>
+                    <div class="strategy-name">Balanced</div>
+                    <div class="strategy-desc">클래스 균형 유지</div>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-icon">🧬</div>
+                    <div class="strategy-name">Feature-Based</div>
+                    <div class="strategy-desc">특성 기반 다양화</div>
                 </div>
             </div>
         </div>
         
-        <div class="key-points">
-            <div class="points-title">핵심 포인트</div>
-            <div class="points-list">
-                <div class="point-item">의료 데이터의 특수성을 고려한 접근</div>
-                <div class="point-item">제한된 데이터 환경에서의 효율적 학습</div>
-                <div class="point-item">안전성과 신뢰성을 보장하는 설계</div>
+        <div class="section-title">핵심 이점</div>
+        <div class="benefits-comparison">
+            <div class="comparison-card">
+                <div class="comparison-title">
+                    <span class="comparison-icon">✅</span>
+                    <span>다양성의 장점</span>
+                </div>
+                <div class="comparison-items">
+                    <div class="comparison-item">일반화 성능 향상</div>
+                    <div class="comparison-item">편향 감소</div>
+                    <div class="comparison-item">포괄적 학습</div>
+                    <div class="comparison-item">견고성 증가</div>
+                </div>
+            </div>
+            
+            <div class="comparison-card">
+                <div class="comparison-title">
+                    <span class="comparison-icon">🏥</span>
+                    <span>의료 적용</span>
+                </div>
+                <div class="comparison-items">
+                    <div class="comparison-item">다양한 증상 패턴 커버</div>
+                    <div class="comparison-item">희귀 질환 포함</div>
+                    <div class="comparison-item">인구 통계학적 균형</div>
+                    <div class="comparison-item">치료 반응 다양성</div>
+                </div>
             </div>
         </div>
     </div>

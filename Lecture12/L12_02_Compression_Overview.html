@@ -104,6 +104,12 @@
             background: #f8fbff;
         }
         
+        .method-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+        }
+        
         .method-name {
             font-size: 20px;
             font-weight: 700;
@@ -151,20 +157,166 @@
             </div>
         </div>
         
+        <!-- Visual overview diagram -->
+        <div style="text-align: center; margin: 30px 0;">
+            <svg width="900" height="240" viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg">
+                <text x="450" y="25" font-family="Aptos" font-size="20" fill="#1E64C8" text-anchor="middle" font-weight="700">Compression Pipeline</text>
+                
+                <!-- Large model -->
+                <g transform="translate(50, 50)">
+                    <rect x="0" y="0" width="140" height="140" rx="10" fill="white" stroke="#ff6b6b" stroke-width="3"/>
+                    <text x="70" y="30" font-family="Aptos" font-size="16" fill="#ff6b6b" text-anchor="middle" font-weight="700">Large Model</text>
+                    
+                    <!-- Network representation -->
+                    <g transform="translate(30, 45)">
+                        <circle cx="10" cy="10" r="5" fill="#ff6b6b" opacity="0.7"/>
+                        <circle cx="30" cy="10" r="5" fill="#ff6b6b" opacity="0.7"/>
+                        <circle cx="50" cy="10" r="5" fill="#ff6b6b" opacity="0.7"/>
+                        <circle cx="70" cy="10" r="5" fill="#ff6b6b" opacity="0.7"/>
+                        
+                        <circle cx="10" cy="30" r="5" fill="#ff6b6b" opacity="0.5"/>
+                        <circle cx="30" cy="30" r="5" fill="#ff6b6b" opacity="0.5"/>
+                        <circle cx="50" cy="30" r="5" fill="#ff6b6b" opacity="0.5"/>
+                        <circle cx="70" cy="30" r="5" fill="#ff6b6b" opacity="0.5"/>
+                        
+                        <circle cx="20" cy="50" r="5" fill="#ff6b6b" opacity="0.8"/>
+                        <circle cx="40" cy="50" r="5" fill="#ff6b6b" opacity="0.8"/>
+                        <circle cx="60" cy="50" r="5" fill="#ff6b6b" opacity="0.8"/>
+                    </g>
+                    
+                    <text x="70" y="125" font-family="Aptos" font-size="13" fill="#666" text-anchor="middle">500MB, 500ms</text>
+                </g>
+                
+                <!-- Arrow with compression methods -->
+                <g transform="translate(200, 115)">
+                    <line x1="0" y1="0" x2="180" y2="0" stroke="#1E64C8" stroke-width="3"/>
+                    <polygon points="180,0 175,-5 175,5" fill="#1E64C8"/>
+                    
+                    <!-- Method labels -->
+                    <g transform="translate(30, -40)">
+                        <rect x="0" y="0" width="120" height="60" rx="5" fill="#f0f5fc" stroke="#1E64C8" stroke-width="1"/>
+                        <text x="60" y="15" font-family="Aptos" font-size="11" fill="#1E64C8" text-anchor="middle" font-weight="600">Compression</text>
+                        <text x="60" y="30" font-family="Aptos" font-size="10" fill="#666" text-anchor="middle">• Distillation</text>
+                        <text x="60" y="43" font-family="Aptos" font-size="10" fill="#666" text-anchor="middle">• Quantization</text>
+                        <text x="60" y="56" font-family="Aptos" font-size="10" fill="#666" text-anchor="middle">• Pruning</text>
+                    </g>
+                </g>
+                
+                <!-- Intermediate stages -->
+                <g transform="translate(270, 75)">
+                    <circle cx="40" cy="40" r="25" fill="#ffa500" opacity="0.2" stroke="#ffa500" stroke-width="2" stroke-dasharray="3,3"/>
+                    <text x="40" y="45" font-family="Aptos" font-size="16" text-anchor="middle">⚙️</text>
+                </g>
+                
+                <g transform="translate(330, 75)">
+                    <circle cx="40" cy="40" r="25" fill="#9b59b6" opacity="0.2" stroke="#9b59b6" stroke-width="2" stroke-dasharray="3,3"/>
+                    <text x="40" y="45" font-family="Aptos" font-size="16" text-anchor="middle">🔧</text>
+                </g>
+                
+                <!-- Arrow 2 -->
+                <g transform="translate(410, 115)">
+                    <line x1="0" y1="0" x2="100" y2="0" stroke="#1E64C8" stroke-width="3"/>
+                    <polygon points="100,0 95,-5 95,5" fill="#1E64C8"/>
+                </g>
+                
+                <!-- Compressed model -->
+                <g transform="translate(520, 70)">
+                    <rect x="0" y="0" width="110" height="100" rx="8" fill="white" stroke="#51cf66" stroke-width="3"/>
+                    <text x="55" y="25" font-family="Aptos" font-size="15" fill="#51cf66" text-anchor="middle" font-weight="700">Compressed</text>
+                    
+                    <!-- Smaller network -->
+                    <g transform="translate(25, 35)">
+                        <circle cx="10" cy="8" r="4" fill="#51cf66" opacity="0.7"/>
+                        <circle cx="30" cy="8" r="4" fill="#51cf66" opacity="0.7"/>
+                        <circle cx="50" cy="8" r="4" fill="#51cf66" opacity="0.7"/>
+                        
+                        <circle cx="20" cy="25" r="4" fill="#51cf66" opacity="0.5"/>
+                        <circle cx="40" cy="25" r="4" fill="#51cf66" opacity="0.5"/>
+                        
+                        <circle cx="30" cy="42" r="4" fill="#51cf66" opacity="0.8"/>
+                    </g>
+                    
+                    <text x="55" y="92" font-family="Aptos" font-size="12" fill="#666" text-anchor="middle">20MB, 50ms</text>
+                </g>
+                
+                <!-- Arrow 3 -->
+                <g transform="translate(640, 115)">
+                    <line x1="0" y1="0" x2="100" y2="0" stroke="#1E64C8" stroke-width="3"/>
+                    <polygon points="100,0 95,-5 95,5" fill="#1E64C8"/>
+                </g>
+                
+                <!-- Deployment -->
+                <g transform="translate(750, 80)">
+                    <rect x="0" y="0" width="100" height="80" rx="8" fill="#f8fbff" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="50" y="25" font-family="Aptos" font-size="14" fill="#1E64C8" text-anchor="middle" font-weight="700">Deploy</text>
+                    
+                    <!-- Device icons -->
+                    <g transform="translate(20, 35)">
+                        <rect x="0" y="0" width="18" height="28" rx="3" fill="#1E64C8" opacity="0.3"/>
+                        <text x="9" y="38" font-family="Aptos" font-size="8" fill="#666" text-anchor="middle">📱</text>
+                    </g>
+                    
+                    <g transform="translate(42, 38)">
+                        <circle cx="9" cy="9" r="9" fill="#1E64C8" opacity="0.3"/>
+                        <text x="9" y="38" font-family="Aptos" font-size="8" fill="#666" text-anchor="middle">⌚</text>
+                    </g>
+                </g>
+                
+                <!-- Benefit annotations -->
+                <g transform="translate(270, 210)">
+                    <text x="0" y="0" font-family="Aptos" font-size="12" fill="#51cf66" font-weight="600">✓ 25x smaller</text>
+                    <text x="100" y="0" font-family="Aptos" font-size="12" fill="#51cf66" font-weight="600">✓ 10x faster</text>
+                    <text x="200" y="0" font-family="Aptos" font-size="12" fill="#51cf66" font-weight="600">✓ 5x less power</text>
+                </g>
+            </svg>
+        </div>
+        
         <div class="methods-section">
             <div class="section-title">주요 압축 방법론</div>
             <div class="methods-grid">
                 <div class="method-card">
+                    <svg class="method-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Knowledge Distillation icon -->
+                        <circle cx="20" cy="20" r="12" fill="#ff6b6b" opacity="0.3"/>
+                        <text x="20" y="25" font-family="Aptos" font-size="14" fill="#ff6b6b" text-anchor="middle" font-weight="700">T</text>
+                        <path d="M 32 25 L 28 25 M 30 20 L 30 30" stroke="#1E64C8" stroke-width="2"/>
+                        <circle cx="40" cy="25" r="8" fill="#51cf66" opacity="0.3"/>
+                        <text x="40" y="29" font-family="Aptos" font-size="11" fill="#51cf66" text-anchor="middle" font-weight="700">S</text>
+                    </svg>
                     <div class="method-name">Knowledge<br>Distillation</div>
                     <div class="method-desc">Teacher 모델의 지식을 작은 Student 모델로 전달</div>
                 </div>
                 
                 <div class="method-card">
+                    <svg class="method-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Quantization icon -->
+                        <rect x="10" y="15" width="15" height="30" fill="#ffa500" opacity="0.3"/>
+                        <text x="17" y="35" font-family="Aptos" font-size="10" fill="#666" text-anchor="middle">32bit</text>
+                        <path d="M 28 30 L 32 30" stroke="#1E64C8" stroke-width="2"/>
+                        <polygon points="32,30 30,28 30,32" fill="#1E64C8"/>
+                        <rect x="35" y="20" width="15" height="20" fill="#51cf66" opacity="0.5"/>
+                        <text x="42" y="35" font-family="Aptos" font-size="10" fill="#666" text-anchor="middle">8bit</text>
+                    </svg>
                     <div class="method-name">Quantization</div>
                     <div class="method-desc">가중치 비트 수 감소<br>(FP32→INT8)</div>
                 </div>
                 
                 <div class="method-card">
+                    <svg class="method-icon" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Pruning icon -->
+                        <g transform="translate(15, 15)">
+                            <circle cx="5" cy="5" r="3" fill="#9b59b6"/>
+                            <circle cx="15" cy="5" r="3" fill="#ccc" opacity="0.3"/>
+                            <line x1="13" y1="3" x2="17" y2="7" stroke="#ff6b6b" stroke-width="2"/>
+                            <line x1="13" y1="7" x2="17" y2="3" stroke="#ff6b6b" stroke-width="2"/>
+                            <circle cx="25" cy="5" r="3" fill="#9b59b6"/>
+                            <circle cx="5" cy="15" r="3" fill="#9b59b6"/>
+                            <circle cx="15" cy="15" r="3" fill="#ccc" opacity="0.3"/>
+                            <line x1="13" y1="13" x2="17" y2="17" stroke="#ff6b6b" stroke-width="2"/>
+                            <line x1="13" y1="17" x2="17" y2="13" stroke="#ff6b6b" stroke-width="2"/>
+                            <circle cx="25" cy="15" r="3" fill="#9b59b6"/>
+                        </g>
+                    </svg>
                     <div class="method-name">Pruning</div>
                     <div class="method-desc">불필요한 가중치 및 뉴런 제거</div>
                 </div>

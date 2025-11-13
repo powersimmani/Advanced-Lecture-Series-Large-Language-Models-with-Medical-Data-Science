@@ -34,68 +34,77 @@
             text-align: center;
         }
         
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .timeline-svg {
+            width: 100%;
+            height: 420px;
         }
         
         .era {
-            background: linear-gradient(90deg, #f0f5fc 0%, #ffffff 100%);
-            border-left: 5px solid #1E64C8;
-            border-radius: 10px;
-            padding: 18px 24px;
+            cursor: pointer;
             transition: all 0.3s;
-            position: relative;
         }
         
-        .era:hover {
-            transform: translateX(10px);
-            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
+        .era:hover .era-bg {
+            fill: #1E64C8;
+            fill-opacity: 0.15;
         }
         
-        .era-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
+        .era:hover .era-line {
+            stroke-width: 6;
+        }
+        
+        .timeline-line {
+            stroke: #1E64C8;
+            stroke-width: 4;
+            fill: none;
+        }
+        
+        .era-line {
+            stroke: #1E64C8;
+            stroke-width: 5;
+            transition: all 0.3s;
+        }
+        
+        .era-dot {
+            fill: white;
+            stroke: #1E64C8;
+            stroke-width: 3;
         }
         
         .era-name {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 700;
-            color: #1E64C8;
+            fill: #1E64C8;
         }
         
         .era-period {
-            font-size: 16px;
-            color: #666;
+            font-size: 13px;
+            fill: #666;
             font-weight: 600;
         }
         
         .era-tech {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 6px;
+            font-size: 13px;
+            fill: #333;
         }
         
-        .era-tech strong {
-            color: #1E64C8;
+        .era-tech-label {
+            font-weight: 700;
+            fill: #1E64C8;
         }
         
         .era-limit {
-            font-size: 15px;
-            color: #666;
+            font-size: 12px;
+            fill: #666;
             font-style: italic;
         }
         
-        .complexity-indicator {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 40px;
-            opacity: 0.2;
+        .complexity-icon {
+            font-size: 32px;
+        }
+        
+        .arrow-marker {
+            fill: #1E64C8;
         }
     </style>
 </head>
@@ -103,47 +112,103 @@
     <div class="container">
         <div class="title">Evolution From Rule-Based Systems to LLMs</div>
         
-        <div class="timeline">
-            <div class="era">
-                <div class="era-header">
-                    <div class="era-name">1️⃣ Rule-Based Systems</div>
-                    <div class="era-period">1970s - 1990s</div>
-                </div>
-                <div class="era-tech"><strong>Technology:</strong> Expert systems, decision trees, if-then rules</div>
-                <div class="era-limit"><strong>Limitation:</strong> Cannot handle uncertainty, requires manual rule creation</div>
-                <div class="complexity-indicator">📊</div>
-            </div>
+        <svg class="timeline-svg" viewBox="0 0 860 380">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" class="arrow-marker" />
+                </marker>
+            </defs>
             
-            <div class="era">
-                <div class="era-header">
-                    <div class="era-name">2️⃣ Statistical Machine Learning</div>
-                    <div class="era-period">2000s - 2010s</div>
-                </div>
-                <div class="era-tech"><strong>Technology:</strong> SVM, Random Forest, Naive Bayes</div>
-                <div class="era-limit"><strong>Limitation:</strong> Requires feature engineering, limited generalization</div>
-                <div class="complexity-indicator">📈</div>
-            </div>
+            <!-- Main Timeline Arrow -->
+            <path d="M 50 340 L 810 340" class="timeline-line" marker-end="url(#arrowhead)" />
             
-            <div class="era">
-                <div class="era-header">
-                    <div class="era-name">3️⃣ Deep Learning Era</div>
-                    <div class="era-period">2010s - 2020</div>
-                </div>
-                <div class="era-tech"><strong>Technology:</strong> CNN, RNN, LSTM, attention mechanisms</div>
-                <div class="era-limit"><strong>Limitation:</strong> Task-specific models, large labeled data needed</div>
-                <div class="complexity-indicator">🧠</div>
-            </div>
+            <!-- Era 1: Rule-Based -->
+            <g class="era">
+                <rect class="era-bg" x="30" y="10" width="180" height="310" fill="#f0f5fc" fill-opacity="0" rx="10" />
+                <line class="era-line" x1="90" y1="280" x2="90" y2="340" />
+                <circle class="era-dot" cx="90" cy="340" r="8" />
+                <text class="era-name" x="90" y="30" text-anchor="middle">Rule-Based</text>
+                <text class="era-period" x="90" y="48" text-anchor="middle">1970s - 1990s</text>
+                
+                <!-- Icon -->
+                <text x="90" y="100" text-anchor="middle" font-size="48">📊</text>
+                
+                <text class="era-tech-label" x="90" y="140" text-anchor="middle">Technology:</text>
+                <text class="era-tech" x="90" y="158" text-anchor="middle">Expert systems</text>
+                <text class="era-tech" x="90" y="175" text-anchor="middle">Decision trees</text>
+                <text class="era-tech" x="90" y="192" text-anchor="middle">If-then rules</text>
+                
+                <text class="era-tech-label" x="90" y="220" text-anchor="middle">Limitation:</text>
+                <text class="era-limit" x="90" y="238" text-anchor="middle">Cannot handle</text>
+                <text class="era-limit" x="90" y="253" text-anchor="middle">uncertainty</text>
+            </g>
             
-            <div class="era">
-                <div class="era-header">
-                    <div class="era-name">4️⃣ Large Language Models</div>
-                    <div class="era-period">2020s - Present</div>
-                </div>
-                <div class="era-tech"><strong>Technology:</strong> Transformers, self-attention, pre-training + fine-tuning</div>
-                <div class="era-limit"><strong>Strength:</strong> Few-shot learning, broad medical knowledge, natural language understanding</div>
-                <div class="complexity-indicator">🚀</div>
-            </div>
-        </div>
+            <!-- Era 2: Statistical ML -->
+            <g class="era">
+                <rect class="era-bg" x="220" y="10" width="180" height="310" fill="#f0f5fc" fill-opacity="0" rx="10" />
+                <line class="era-line" x1="310" y1="260" x2="310" y2="340" />
+                <circle class="era-dot" cx="310" cy="340" r="8" />
+                <text class="era-name" x="310" y="30" text-anchor="middle">Statistical ML</text>
+                <text class="era-period" x="310" y="48" text-anchor="middle">2000s - 2010s</text>
+                
+                <!-- Icon -->
+                <text x="310" y="100" text-anchor="middle" font-size="48">📈</text>
+                
+                <text class="era-tech-label" x="310" y="140" text-anchor="middle">Technology:</text>
+                <text class="era-tech" x="310" y="158" text-anchor="middle">SVM, Random</text>
+                <text class="era-tech" x="310" y="175" text-anchor="middle">Forest, Naive</text>
+                <text class="era-tech" x="310" y="192" text-anchor="middle">Bayes</text>
+                
+                <text class="era-tech-label" x="310" y="220" text-anchor="middle">Limitation:</text>
+                <text class="era-limit" x="310" y="238" text-anchor="middle">Feature engineering</text>
+                <text class="era-limit" x="310" y="253" text-anchor="middle">required</text>
+            </g>
+            
+            <!-- Era 3: Deep Learning -->
+            <g class="era">
+                <rect class="era-bg" x="410" y="10" width="180" height="310" fill="#f0f5fc" fill-opacity="0" rx="10" />
+                <line class="era-line" x1="500" y1="240" x2="500" y2="340" />
+                <circle class="era-dot" cx="500" cy="340" r="8" />
+                <text class="era-name" x="500" y="30" text-anchor="middle">Deep Learning</text>
+                <text class="era-period" x="500" y="48" text-anchor="middle">2010s - 2020</text>
+                
+                <!-- Icon -->
+                <text x="500" y="100" text-anchor="middle" font-size="48">🧠</text>
+                
+                <text class="era-tech-label" x="500" y="140" text-anchor="middle">Technology:</text>
+                <text class="era-tech" x="500" y="158" text-anchor="middle">CNN, RNN</text>
+                <text class="era-tech" x="500" y="175" text-anchor="middle">LSTM, Attention</text>
+                <text class="era-tech" x="500" y="192" text-anchor="middle">mechanisms</text>
+                
+                <text class="era-tech-label" x="500" y="220" text-anchor="middle">Limitation:</text>
+                <text class="era-limit" x="500" y="238" text-anchor="middle">Task-specific</text>
+                <text class="era-limit" x="500" y="253" text-anchor="middle">Large labeled data</text>
+            </g>
+            
+            <!-- Era 4: LLMs -->
+            <g class="era">
+                <rect class="era-bg" x="600" y="10" width="180" height="310" fill="#f0f5fc" fill-opacity="0" rx="10" />
+                <line class="era-line" x1="690" y1="220" x2="690" y2="340" />
+                <circle class="era-dot" cx="690" cy="340" r="8" />
+                <text class="era-name" x="690" y="30" text-anchor="middle">Large LLMs</text>
+                <text class="era-period" x="690" y="48" text-anchor="middle">2020s - Present</text>
+                
+                <!-- Icon -->
+                <text x="690" y="100" text-anchor="middle" font-size="48">🚀</text>
+                
+                <text class="era-tech-label" x="690" y="140" text-anchor="middle">Technology:</text>
+                <text class="era-tech" x="690" y="158" text-anchor="middle">Transformers</text>
+                <text class="era-tech" x="690" y="175" text-anchor="middle">Self-attention</text>
+                <text class="era-tech" x="690" y="192" text-anchor="middle">Pre-train + Fine-tune</text>
+                
+                <text class="era-tech-label" x="690" y="220" text-anchor="middle">Strength:</text>
+                <text class="era-limit" x="690" y="238" text-anchor="middle" fill="#2ecc71" font-weight="600">Few-shot learning</text>
+                <text class="era-limit" x="690" y="253" text-anchor="middle" fill="#2ecc71" font-weight="600">Broad knowledge</text>
+            </g>
+            
+            <!-- Progress indicators -->
+            <path d="M 90 300 L 310 280 L 500 260 L 690 240" stroke="#1E64C8" stroke-width="2" fill="none" stroke-dasharray="5,5" opacity="0.3" />
+        </svg>
     </div>
 </body>
 </html>

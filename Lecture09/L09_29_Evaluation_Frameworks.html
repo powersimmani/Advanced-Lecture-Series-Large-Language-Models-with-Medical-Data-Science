@@ -23,7 +23,7 @@
         .container {
             width: 960px;
             height: 540px;
-            padding: 35px 45px;
+            padding: 30px 45px;
             background: white;
         }
         
@@ -31,7 +31,7 @@
             font-size: 22px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 12px;
             text-align: center;
         }
         
@@ -39,7 +39,7 @@
             font-size: 18px;
             font-weight: 500;
             color: #555;
-            margin-bottom: 25px;
+            margin-bottom: 16px;
             text-align: center;
         }
         
@@ -47,16 +47,16 @@
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 10px;
-            padding: 18px 25px;
-            margin-bottom: 25px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
             text-align: center;
         }
         
         .intro-text {
-            font-size: 18px;
+            font-size: 16px;
             color: #333;
             font-weight: 500;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         
         .highlight {
@@ -64,84 +64,106 @@
             font-weight: 700;
         }
         
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-bottom: 20px;
+        .framework-layers {
+            margin-bottom: 16px;
         }
         
-        .content-card {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 10px;
-            padding: 18px 22px;
-            transition: all 0.3s;
-        }
-        
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
-            background: #f8fbff;
-        }
-        
-        .card-icon {
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-        
-        .card-title {
-            font-size: 18px;
+        .section-title {
+            font-size: 17px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 10px;
             text-align: center;
         }
         
-        .card-desc {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.5;
-            text-align: center;
-        }
-        
-        .key-points {
-            background: #f8fbff;
-            border: 2px solid #4a90e2;
-            border-radius: 8px;
-            padding: 18px 22px;
-        }
-        
-        .points-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        
-        .points-list {
+        .layers-stack {
             display: flex;
             flex-direction: column;
             gap: 8px;
+            margin-bottom: 16px;
         }
         
-        .point-item {
+        .layer {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+        }
+        
+        .layer:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .layer-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        
+        .layer-content {
+            flex: 1;
+        }
+        
+        .layer-title {
             font-size: 16px;
-            color: #333;
-            padding-left: 20px;
-            position: relative;
-            line-height: 1.4;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 3px;
         }
         
-        .point-item::before {
-            content: "â€¢";
-            position: absolute;
-            left: 0;
+        .layer-desc {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.3;
+        }
+        
+        .dimensions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .dimension-card {
+            background: #f8fbff;
+            border: 2px solid #4a90e2;
+            border-radius: 8px;
+            padding: 12px 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .dimension-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+        }
+        
+        .dimension-icon {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        
+        .dimension-label {
+            font-size: 14px;
+            font-weight: 700;
             color: #1E64C8;
-            font-weight: bold;
-            font-size: 20px;
+            margin-bottom: 4px;
+        }
+        
+        .dimension-items {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        
+        .dimension-item {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.3;
         }
     </style>
 </head>
@@ -156,46 +178,65 @@
             </div>
         </div>
         
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-icon">🎯</div>
-                <div class="card-title">주요 개념</div>
-                <div class="card-desc">
-                    평가 프레임워크의 이론적 배경과 핵심 원리
+        <div class="framework-layers">
+            <div class="section-title">평가 레이어</div>
+            <div class="layers-stack">
+                <div class="layer">
+                    <div class="layer-icon">🎯</div>
+                    <div class="layer-content">
+                        <div class="layer-title">Task-Level Evaluation</div>
+                        <div class="layer-desc">작업별 성능 평가: 정확도, 완성도, 관련성</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">🏥</div>
-                <div class="card-title">의료 적용</div>
-                <div class="card-desc">
-                    실제 의료 환경에서의 활용 사례
+                
+                <div class="layer">
+                    <div class="layer-icon">🏥</div>
+                    <div class="layer-content">
+                        <div class="layer-title">Clinical Validation</div>
+                        <div class="layer-desc">임상적 타당성: 의학적 정확성, 안전성, 실용성</div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">📊</div>
-                <div class="card-title">성능 평가</div>
-                <div class="card-desc">
-                    효과성 측정 및 개선 방법론
-                </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">🔬</div>
-                <div class="card-title">실습 예제</div>
-                <div class="card-desc">
-                    실제 데이터를 활용한 구현
+                
+                <div class="layer">
+                    <div class="layer-icon">⚡</div>
+                    <div class="layer-content">
+                        <div class="layer-title">Efficiency Metrics</div>
+                        <div class="layer-desc">효율성 평가: 응답 시간, 리소스 사용, 비용</div>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="key-points">
-            <div class="points-title">핵심 포인트</div>
-            <div class="points-list">
-                <div class="point-item">의료 데이터의 특수성을 고려한 접근</div>
-                <div class="point-item">제한된 데이터 환경에서의 효율적 학습</div>
-                <div class="point-item">안전성과 신뢰성을 보장하는 설계</div>
+        <div class="section-title">평가 차원</div>
+        <div class="dimensions-grid">
+            <div class="dimension-card">
+                <div class="dimension-icon">📊</div>
+                <div class="dimension-label">정량적 평가</div>
+                <div class="dimension-items">
+                    <div class="dimension-item">F1-Score</div>
+                    <div class="dimension-item">AUROC</div>
+                    <div class="dimension-item">Specificity</div>
+                </div>
+            </div>
+            
+            <div class="dimension-card">
+                <div class="dimension-icon">🔍</div>
+                <div class="dimension-label">정성적 평가</div>
+                <div class="dimension-items">
+                    <div class="dimension-item">전문가 검토</div>
+                    <div class="dimension-item">사용성 평가</div>
+                    <div class="dimension-item">오류 분석</div>
+                </div>
+            </div>
+            
+            <div class="dimension-card">
+                <div class="dimension-icon">⚖️</div>
+                <div class="dimension-label">윤리적 평가</div>
+                <div class="dimension-items">
+                    <div class="dimension-item">공정성</div>
+                    <div class="dimension-item">투명성</div>
+                    <div class="dimension-item">책임성</div>
+                </div>
             </div>
         </div>
     </div>

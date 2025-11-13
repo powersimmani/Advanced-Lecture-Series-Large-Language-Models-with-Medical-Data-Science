@@ -24,59 +24,178 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 30px;
+        .main-content {
+            display: flex;
+            gap: 30px;
+            height: 380px;
+        }
+        .diagram-section {
+            flex: 1.4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         .content-card {
             background: #f8f9fa;
             border-left: 4px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             transition: all 0.3s;
         }
         .content-card:hover {
             background: #e8f2ff;
-            transform: translateY(-3px);
+            transform: translateX(5px);
             box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
         }
         .card-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         .card-text {
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
-            line-height: 1.5;
+            line-height: 1.4;
+        }
+        .cf-diagram {
+            width: 100%;
+            max-width: 560px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Counterfactual Explanations</div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-title">🔄 What-If Scenarios</div>
-                <div class="card-text">Showing minimal changes needed to alter the prediction</div>
+        <div class="main-content">
+            <div class="diagram-section">
+                <svg class="cf-diagram" viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Original Patient State -->
+                    <g id="original">
+                        <text x="140" y="25" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Current State</text>
+                        <rect x="40" y="40" width="200" height="130" fill="#fce4e4" rx="10" stroke="#d32f2f" stroke-width="3"/>
+                        
+                        <!-- Patient data -->
+                        <text x="140" y="65" text-anchor="middle" fill="#333" font-size="13" font-weight="700">Patient Profile</text>
+                        
+                        <g id="original-data">
+                            <text x="60" y="88" fill="#333" font-size="11">• Age: 68 years</text>
+                            <text x="60" y="105" fill="#333" font-size="11">• BP: 160/95 mmHg</text>
+                            <text x="60" y="122" fill="#333" font-size="11">• BMI: 32 kg/m²</text>
+                            <text x="60" y="139" fill="#333" font-size="11">• Exercise: None</text>
+                            <text x="60" y="156" fill="#333" font-size="11">• Smoking: Yes</text>
+                        </g>
+                        
+                        <!-- Prediction -->
+                        <rect x="60" y="180" width="160" height="45" fill="#d32f2f" rx="8" opacity="0.9"/>
+                        <text x="140" y="198" text-anchor="middle" fill="white" font-size="12" font-weight="700">Prediction</text>
+                        <text x="140" y="215" text-anchor="middle" fill="white" font-size="16" font-weight="700">High Risk: 85%</text>
+                    </g>
+                    
+                    <!-- Arrow with "What if?" -->
+                    <g id="transformation">
+                        <path d="M 250 120 L 310 120" stroke="#1E64C8" stroke-width="4" marker-end="url(#arrow)"/>
+                        <defs>
+                            <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+                                <polygon points="0 0, 12 4, 0 8" fill="#1E64C8"/>
+                            </marker>
+                        </defs>
+                        
+                        <rect x="255" y="85" width="50" height="30" fill="#1E64C8" rx="6"/>
+                        <text x="280" y="105" text-anchor="middle" fill="white" font-size="12" font-weight="700">What if?</text>
+                        
+                        <!-- Changes listed -->
+                        <rect x="240" y="135" width="80" height="85" fill="#fff9e6" rx="6" stroke="#f57c00" stroke-width="2"/>
+                        <text x="280" y="152" text-anchor="middle" fill="#f57c00" font-size="10" font-weight="700">Changes:</text>
+                        <text x="250" y="168" fill="#333" font-size="9">✓ BP → 130/85</text>
+                        <text x="250" y="182" fill="#333" font-size="9">✓ BMI → 26</text>
+                        <text x="250" y="196" fill="#333" font-size="9">✓ Exercise 3×/wk</text>
+                        <text x="250" y="210" fill="#333" font-size="9">✓ Quit smoking</text>
+                    </g>
+                    
+                    <!-- Counterfactual State -->
+                    <g id="counterfactual">
+                        <text x="420" y="25" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Alternative State</text>
+                        <rect x="320" y="40" width="200" height="130" fill="#e8f5e9" rx="10" stroke="#43a047" stroke-width="3"/>
+                        
+                        <!-- Modified patient data -->
+                        <text x="420" y="65" text-anchor="middle" fill="#333" font-size="13" font-weight="700">Modified Profile</text>
+                        
+                        <g id="cf-data">
+                            <text x="340" y="88" fill="#333" font-size="11">• Age: 68 years</text>
+                            <text x="340" y="105" fill="#43a047" font-size="11" font-weight="600">• BP: 130/85 mmHg ✓</text>
+                            <text x="340" y="122" fill="#43a047" font-size="11" font-weight="600">• BMI: 26 kg/m² ✓</text>
+                            <text x="340" y="139" fill="#43a047" font-size="11" font-weight="600">• Exercise: 3×/week ✓</text>
+                            <text x="340" y="156" fill="#43a047" font-size="11" font-weight="600">• Smoking: No ✓</text>
+                        </g>
+                        
+                        <!-- New prediction -->
+                        <rect x="340" y="180" width="160" height="45" fill="#43a047" rx="8" opacity="0.9"/>
+                        <text x="420" y="198" text-anchor="middle" fill="white" font-size="12" font-weight="700">New Prediction</text>
+                        <text x="420" y="215" text-anchor="middle" fill="white" font-size="16" font-weight="700">Low Risk: 25%</text>
+                    </g>
+                    
+                    <!-- Actionable insights -->
+                    <g id="insights">
+                        <rect x="40" y="245" width="480" height="120" fill="#e8f2ff" rx="10" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="280" y="270" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">🎯 Actionable Recommendations</text>
+                        
+                        <g id="recommendations">
+                            <circle cx="70" cy="295" r="5" fill="#1E64C8"/>
+                            <text x="85" y="299" fill="#333" font-size="11">
+                                <tspan font-weight="600">Reduce Blood Pressure:</tspan> Medication + diet can lower BP to 130/85
+                            </text>
+                            
+                            <circle cx="70" cy="318" r="5" fill="#1E64C8"/>
+                            <text x="85" y="322" fill="#333" font-size="11">
+                                <tspan font-weight="600">Weight Management:</tspan> Losing 6 kg (BMI 32→26) reduces risk by 20%
+                            </text>
+                            
+                            <circle cx="70" cy="341" r="5" fill="#1E64C8"/>
+                            <text x="85" y="345" fill="#333" font-size="11">
+                                <tspan font-weight="600">Lifestyle Changes:</tspan> Exercise 3×/week + smoking cessation → 60% risk reduction
+                            </text>
+                        </g>
+                    </g>
+                    
+                    <!-- Risk reduction visualization -->
+                    <line x1="150" y1="240" x2="410" y2="240" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow2)"/>
+                    <defs>
+                        <marker id="arrow2" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+                            <polygon points="0 0, 12 4, 0 8" fill="#43a047"/>
+                        </marker>
+                    </defs>
+                    <text x="280" y="235" text-anchor="middle" fill="#43a047" font-size="11" font-weight="700">Risk reduced by 60%</text>
+                </svg>
             </div>
-            <div class="content-card">
-                <div class="card-title">🎯 Actionable Insights</div>
-                <div class="card-text">Identifying modifiable factors that influence outcomes</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">📊 Clinical Utility</div>
-                <div class="card-text">Helping clinicians understand treatment alternatives</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">⚖️ Minimal Changes</div>
-                <div class="card-text">Finding smallest modifications for desired outcome changes</div>
+            
+            <div class="info-section">
+                <div class="content-card">
+                    <div class="card-title">🔄 What-If Scenarios</div>
+                    <div class="card-text">Showing minimal changes needed to alter the prediction</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">🎯 Actionable Insights</div>
+                    <div class="card-text">Identifying modifiable factors that influence outcomes</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">📊 Clinical Utility</div>
+                    <div class="card-text">Helping clinicians understand treatment alternatives</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">⚖️ Minimal Changes</div>
+                    <div class="card-text">Finding smallest modifications for desired outcome changes</div>
+                </div>
             </div>
         </div>
     </div>

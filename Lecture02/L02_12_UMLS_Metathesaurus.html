@@ -22,23 +22,50 @@
             margin-bottom: 25px;
             text-align: center;
         }
-        .sections-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px; }
-        .section-card { background: #f0f5fc; border-left: 4px solid #1E64C8; padding: 15px; border-radius: 6px; }
-        .section-title { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 6px; }
-        .section-desc { font-size: 14px; color: #555; }
-        .detection-box { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 18px; }
-        .detection-title { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
-        .detection-methods { font-size: 15px; color: #333; line-height: 1.8; }
-        .method-item { margin-bottom: 6px; }
         .stats-row { display: flex; gap: 20px; margin-bottom: 25px; justify-content: space-around; }
-        .stat-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 20px; flex: 1; text-align: center; }
+        .stat-box { 
+            background: #f0f5fc; 
+            border: 2px solid #1E64C8; 
+            border-radius: 8px; 
+            padding: 20px; 
+            flex: 1; 
+            text-align: center; 
+        }
         .stat-num { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
         .stat-label { font-size: 15px; color: #333; }
-        .structure-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .structure-card { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 20px; }
-        .structure-title { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
-        .structure-desc { font-size: 15px; color: #555; margin-bottom: 12px; line-height: 1.5; }
-        .structure-items { font-size: 14px; color: #333; line-height: 1.7; }
+        .structure-section { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+        }
+        .structure-card { 
+            background: white; 
+            border: 2.5px solid #1E64C8; 
+            border-radius: 8px; 
+            padding: 20px; 
+        }
+        .structure-title { 
+            font-size: 17px; 
+            font-weight: 700; 
+            color: #1E64C8; 
+            margin-bottom: 10px; 
+        }
+        .structure-desc { 
+            font-size: 15px; 
+            color: #555; 
+            margin-bottom: 12px; 
+            line-height: 1.5; 
+        }
+        .structure-items { 
+            font-size: 14px; 
+            color: #333; 
+            line-height: 1.7; 
+        }
+        .diagram-svg {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -46,10 +73,72 @@
         <div class="title">UMLS Metathesaurus</div>
         
         <div class="stats-row">
-            <div class="stat-box"><div class="stat-num">200+</div><div class="stat-label">소스 어휘</div></div>
-            <div class="stat-box"><div class="stat-num">380만</div><div class="stat-label">개념 (CUI)</div></div>
-            <div class="stat-box"><div class="stat-num">1400만</div><div class="stat-label">고유 이름</div></div>
+            <div class="stat-box">
+                <div class="stat-num">200+</div>
+                <div class="stat-label">소스 어휘</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">380만</div>
+                <div class="stat-label">개념 (CUI)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">1400만</div>
+                <div class="stat-label">고유 이름</div>
+            </div>
         </div>
+        
+        <svg class="diagram-svg" viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Central UMLS Hub -->
+            <circle cx="450" cy="100" r="60" fill="#1E64C8" stroke="#1E64C8" stroke-width="2"/>
+            <text x="450" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="18" font-weight="700" fill="white">UMLS</text>
+            <text x="450" y="115" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" fill="white">Metathesaurus</text>
+            
+            <!-- Source vocabularies -->
+            <g id="snomed">
+                <circle cx="200" cy="50" r="40" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="200" y="48" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#1E64C8">SNOMED</text>
+                <text x="200" y="63" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">CT</text>
+                <path d="M 240 60 L 395 90" stroke="#1E64C8" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+            </g>
+            
+            <g id="icd">
+                <circle cx="200" cy="150" r="40" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="200" y="148" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#1E64C8">ICD-10</text>
+                <text x="200" y="163" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">WHO</text>
+                <path d="M 240 140 L 395 110" stroke="#1E64C8" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+            </g>
+            
+            <g id="rxnorm">
+                <circle cx="700" cy="50" r="40" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="700" y="48" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#1E64C8">RxNorm</text>
+                <text x="700" y="63" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Drugs</text>
+                <path d="M 660 60 L 505 90" stroke="#1E64C8" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+            </g>
+            
+            <g id="loinc">
+                <circle cx="700" cy="150" r="40" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="700" y="148" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#1E64C8">LOINC</text>
+                <text x="700" y="163" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Lab Tests</text>
+                <path d="M 660 140 L 505 110" stroke="#1E64C8" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+            </g>
+            
+            <g id="mesh">
+                <circle cx="350" cy="20" r="35" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="350" y="25" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" font-weight="600" fill="#1E64C8">MeSH</text>
+                <path d="M 375 35 L 410 75" stroke="#1E64C8" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+            </g>
+            
+            <g id="cpt">
+                <circle cx="550" cy="20" r="35" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="550" y="25" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" font-weight="600" fill="#1E64C8">CPT</text>
+                <path d="M 525 35 L 490 75" stroke="#1E64C8" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+            </g>
+            
+            <!-- CUI indicator -->
+            <rect x="400" y="175" width="100" height="20" rx="4" fill="#1E64C8"/>
+            <text x="450" y="189" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" font-weight="600" fill="white">CUI Mapping</text>
+        </svg>
+        
         <div class="structure-section">
             <div class="structure-card">
                 <div class="structure-title">Metathesaurus</div>
@@ -62,7 +151,6 @@
                 <div class="structure-items">• is_a 관계<br>• associated_with<br>• treats, causes 등</div>
             </div>
         </div>
-    
     </div>
 </body>
 </html>

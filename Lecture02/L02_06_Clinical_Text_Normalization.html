@@ -24,15 +24,15 @@
         }
         .normalization-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
             margin-bottom: 25px;
         }
         .norm-card {
             background: white;
             border: 2.5px solid #1E64C8;
             border-radius: 10px;
-            padding: 20px;
+            padding: 18px;
             transition: all 0.3s;
         }
         .norm-card:hover {
@@ -40,50 +40,31 @@
             box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
         }
         .norm-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 12px;
+            text-align: center;
         }
         .norm-examples {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
         .example-row {
             display: grid;
             grid-template-columns: 1fr auto 1fr;
-            gap: 10px;
+            gap: 8px;
             align-items: center;
-            font-size: 15px;
+            font-size: 13px;
         }
         .before { color: #999; text-decoration: line-through; }
         .arrow { color: #1E64C8; font-weight: 700; }
         .after { color: #333; font-weight: 600; }
-        .pipeline {
-            background: #f0f5fc;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 20px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-        .pipeline-step {
-            text-align: center;
-            font-size: 15px;
-            color: #333;
-        }
-        .pipeline-number {
-            display: inline-block;
-            width: 32px;
-            height: 32px;
-            background: #1E64C8;
-            color: white;
-            border-radius: 50%;
-            line-height: 32px;
-            font-weight: 700;
-            margin-bottom: 8px;
+        .pipeline-svg {
+            width: 100%;
+            height: 160px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -189,24 +170,67 @@
             </div>
         </div>
         
-        <div class="pipeline">
-            <div class="pipeline-step">
-                <div class="pipeline-number">1</div>
-                <div>토큰화</div>
-            </div>
-            <div class="pipeline-step">
-                <div class="pipeline-number">2</div>
-                <div>정규화</div>
-            </div>
-            <div class="pipeline-step">
-                <div class="pipeline-number">3</div>
-                <div>표준화</div>
-            </div>
-            <div class="pipeline-step">
-                <div class="pipeline-number">4</div>
-                <div>검증</div>
-            </div>
-        </div>
+        <svg class="pipeline-svg" viewBox="0 0 900 160" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background -->
+            <rect x="0" y="0" width="900" height="160" fill="#f0f5fc" rx="8"/>
+            
+            <!-- Step 1 -->
+            <g>
+                <circle cx="120" cy="80" r="45" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <text x="120" y="70" text-anchor="middle" font-family="Aptos, sans-serif" font-size="24" font-weight="700" fill="#1E64C8">1</text>
+                <text x="120" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">토큰화</text>
+                <text x="120" y="135" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">Tokenization</text>
+            </g>
+            
+            <!-- Arrow 1 -->
+            <path d="M 170 80 L 220 80" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+            
+            <!-- Step 2 -->
+            <g>
+                <circle cx="290" cy="80" r="45" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <text x="290" y="70" text-anchor="middle" font-family="Aptos, sans-serif" font-size="24" font-weight="700" fill="#1E64C8">2</text>
+                <text x="290" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">정규화</text>
+                <text x="290" y="135" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">Normalization</text>
+            </g>
+            
+            <!-- Arrow 2 -->
+            <path d="M 340 80 L 390 80" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+            
+            <!-- Step 3 -->
+            <g>
+                <circle cx="460" cy="80" r="45" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <text x="460" y="70" text-anchor="middle" font-family="Aptos, sans-serif" font-size="24" font-weight="700" fill="#1E64C8">3</text>
+                <text x="460" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">표준화</text>
+                <text x="460" y="135" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">Standardization</text>
+            </g>
+            
+            <!-- Arrow 3 -->
+            <path d="M 510 80 L 560 80" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+            
+            <!-- Step 4 -->
+            <g>
+                <circle cx="630" cy="80" r="45" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <text x="630" y="70" text-anchor="middle" font-family="Aptos, sans-serif" font-size="24" font-weight="700" fill="#1E64C8">4</text>
+                <text x="630" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">검증</text>
+                <text x="630" y="135" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">Validation</text>
+            </g>
+            
+            <!-- Arrow 4 -->
+            <path d="M 680 80 L 730 80" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+            
+            <!-- Output -->
+            <g>
+                <rect x="735" y="55" width="140" height="50" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <text x="805" y="85" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8">정규화된 텍스트</text>
+            </g>
+            
+            <!-- Arrow marker -->
+            <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                </marker>
+            </defs>
+        </svg>
     </div>
 </body>
 </html>

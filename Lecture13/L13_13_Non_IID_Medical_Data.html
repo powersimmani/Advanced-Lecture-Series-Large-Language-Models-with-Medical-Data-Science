@@ -19,7 +19,7 @@
             font-size: 32px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: center;
         }
         .problems-container {
@@ -55,9 +55,119 @@
 <body>
     <div class="container">
         <div class="title">Non-IID Medical Data</div>
-        <div class="problems-container"><div class="problem-item">⚠️ Different patient demographics</div><div class="problem-item">⚠️ Varying disease prevalence</div><div class="problem-item">⚠️ Hospital-specific protocols</div><div class="problem-item">⚠️ Equipment differences</div><div class="problem-item">⚠️ Regional health patterns</div></div>
+        
+        <svg width="100%" height="100" viewBox="0 0 920 100" style="margin-bottom: 20px;">
+            <!-- IID vs Non-IID comparison -->
+            <g>
+                <text x="150" y="20" text-anchor="middle" font-size="16" fill="#4caf50" font-weight="600">IID Data (Ideal)</text>
+                <!-- Uniform distribution -->
+                <rect x="50" y="30" width="40" height="40" fill="#4caf50" opacity="0.7" rx="3"/>
+                <rect x="95" y="30" width="40" height="40" fill="#4caf50" opacity="0.7" rx="3"/>
+                <rect x="140" y="30" width="40" height="40" fill="#4caf50" opacity="0.7" rx="3"/>
+                <rect x="185" y="30" width="40" height="40" fill="#4caf50" opacity="0.7" rx="3"/>
+                <rect x="230" y="30" width="40" height="40" fill="#4caf50" opacity="0.7" rx="3"/>
+                <text x="150" y="88" text-anchor="middle" font-size="12" fill="#666">Balanced</text>
+            </g>
+            
+            <text x="350" y="55" text-anchor="middle" font-size="24" fill="#ff9800">≠</text>
+            
+            <g>
+                <text x="650" y="20" text-anchor="middle" font-size="16" fill="#d32f2f" font-weight="600">Non-IID Data (Reality)</text>
+                <!-- Skewed distribution -->
+                <rect x="450" y="30" width="60" height="40" fill="#2196f3" opacity="0.7" rx="3"/>
+                <rect x="515" y="30" width="20" height="40" fill="#ff9800" opacity="0.7" rx="3"/>
+                <rect x="540" y="30" width="70" height="40" fill="#4caf50" opacity="0.7" rx="3"/>
+                <rect x="615" y="30" width="30" height="40" fill="#9c27b0" opacity="0.7" rx="3"/>
+                <rect x="650" y="30" width="150" height="40" fill="#d32f2f" opacity="0.7" rx="3"/>
+                <text x="650" y="88" text-anchor="middle" font-size="12" fill="#666">Imbalanced</text>
+            </g>
+        </svg>
+        
+        <div class="problems-container">
+            <svg width="100%" height="280" viewBox="0 0 920 280">
+                <!-- Problem 1 -->
+                <g>
+                    <rect x="10" y="10" width="890" height="48" rx="8" fill="white" stroke="#ff9800" stroke-width="2"/>
+                    <text x="20" y="28" font-size="16" fill="#ff9800">⚠️</text>
+                    <text x="50" y="28" font-size="16" fill="#333" font-weight="600">Different patient demographics</text>
+                    <!-- Demographics visualization -->
+                    <circle cx="750" cy="29" r="12" fill="#2196f3" opacity="0.6"/>
+                    <text x="750" y="34" text-anchor="middle" font-size="10">👶</text>
+                    <circle cx="780" cy="29" r="12" fill="#4caf50" opacity="0.6"/>
+                    <text x="780" y="34" text-anchor="middle" font-size="10">🧑</text>
+                    <circle cx="810" cy="29" r="12" fill="#ff9800" opacity="0.6"/>
+                    <text x="810" y="34" text-anchor="middle" font-size="10">👴</text>
+                    <text x="50" y="48" font-size="12" fill="#666">Age, gender, ethnicity vary by location</text>
+                </g>
+                
+                <!-- Problem 2 -->
+                <g>
+                    <rect x="10" y="68" width="890" height="48" rx="8" fill="white" stroke="#ff9800" stroke-width="2"/>
+                    <text x="20" y="86" font-size="16" fill="#ff9800">⚠️</text>
+                    <text x="50" y="86" font-size="16" fill="#333" font-weight="600">Varying disease prevalence</text>
+                    <!-- Disease bars -->
+                    <rect x="650" y="75" width="60" height="8" fill="#d32f2f" opacity="0.7" rx="2"/>
+                    <rect x="650" y="87" width="120" height="8" fill="#ff9800" opacity="0.7" rx="2"/>
+                    <rect x="650" y="99" width="40" height="8" fill="#4caf50" opacity="0.7" rx="2"/>
+                    <text x="50" y="106" font-size="12" fill="#666">Regional differences in disease patterns</text>
+                </g>
+                
+                <!-- Problem 3 -->
+                <g>
+                    <rect x="10" y="126" width="890" height="48" rx="8" fill="white" stroke="#ff9800" stroke-width="2"/>
+                    <text x="20" y="144" font-size="16" fill="#ff9800">⚠️</text>
+                    <text x="50" y="144" font-size="16" fill="#333" font-weight="600">Hospital-specific protocols</text>
+                    <!-- Protocol icons -->
+                    <circle cx="700" cy="145" r="18" fill="#9c27b0" opacity="0.2"/>
+                    <text x="700" y="151" text-anchor="middle" font-size="14">📋</text>
+                    <circle cx="750" cy="145" r="18" fill="#2196f3" opacity="0.2"/>
+                    <text x="750" y="151" text-anchor="middle" font-size="14">📋</text>
+                    <circle cx="800" cy="145" r="18" fill="#ff9800" opacity="0.2"/>
+                    <text x="800" y="151" text-anchor="middle" font-size="14">📋</text>
+                    <text x="50" y="164" font-size="12" fill="#666">Different treatment guidelines and standards</text>
+                </g>
+                
+                <!-- Problem 4 -->
+                <g>
+                    <rect x="10" y="184" width="890" height="48" rx="8" fill="white" stroke="#ff9800" stroke-width="2"/>
+                    <text x="20" y="202" font-size="16" fill="#ff9800">⚠️</text>
+                    <text x="50" y="202" font-size="16" fill="#333" font-weight="600">Equipment differences</text>
+                    <!-- Equipment icons -->
+                    <g transform="translate(680, 190)">
+                        <rect x="0" y="0" width="30" height="25" rx="3" fill="#4caf50" opacity="0.3"/>
+                        <text x="15" y="17" text-anchor="middle" font-size="12">🔬</text>
+                    </g>
+                    <g transform="translate(730, 190)">
+                        <rect x="0" y="0" width="30" height="25" rx="3" fill="#2196f3" opacity="0.3"/>
+                        <text x="15" y="17" text-anchor="middle" font-size="12">💉</text>
+                    </g>
+                    <g transform="translate(780, 190)">
+                        <rect x="0" y="0" width="30" height="25" rx="3" fill="#ff9800" opacity="0.3"/>
+                        <text x="15" y="17" text-anchor="middle" font-size="12">🩺</text>
+                    </g>
+                    <text x="50" y="222" font-size="12" fill="#666">Imaging devices, sensors vary in quality</text>
+                </g>
+                
+                <!-- Problem 5 -->
+                <g>
+                    <rect x="10" y="242" width="890" height="38" rx="8" fill="white" stroke="#ff9800" stroke-width="2"/>
+                    <text x="20" y="260" font-size="16" fill="#ff9800">⚠️</text>
+                    <text x="50" y="260" font-size="16" fill="#333" font-weight="600">Regional health patterns</text>
+                    <!-- Map visualization -->
+                    <circle cx="750" cy="261" r="15" fill="#d32f2f" opacity="0.4"/>
+                    <circle cx="800" cy="261" r="10" fill="#ff9800" opacity="0.4"/>
+                    <circle cx="840" cy="261" r="12" fill="#4caf50" opacity="0.4"/>
+                    <text x="50" y="274" font-size="11" fill="#666">Climate, lifestyle, socioeconomic factors</text>
+                </g>
+            </svg>
+        </div>
+        
         <div class="impact-box">
-            <div class="impact-text">Impact: Model bias • Slower convergence • Reduced accuracy</div>
+            <svg width="100%" height="40" viewBox="0 0 920 40">
+                <text x="460" y="25" text-anchor="middle" font-size="20" fill="#d32f2f" font-weight="600">
+                    Impact: Model bias • Slower convergence • Reduced accuracy
+                </text>
+            </svg>
         </div>
     </div>
 </body>

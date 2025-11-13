@@ -50,82 +50,163 @@
             font-weight: 500;
         }
         
-        .definition-highlight {
-            color: #1E64C8;
-            font-weight: 700;
-        }
-        
-        .features-grid {
+        .architecture-diagram {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr 2fr 1fr;
             gap: 15px;
+            align-items: center;
             margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f5fc 0%, #ffffff 100%);
+            border-radius: 10px;
+            border: 2px solid #1E64C8;
         }
         
-        .feature-card {
+        .input-sources {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .source-box {
             background: white;
             border: 2px solid #1E64C8;
             border-radius: 8px;
-            padding: 15px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             transition: all 0.3s;
         }
         
-        .feature-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
+        .source-box:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
             background: #f8fbff;
         }
         
-        .feature-title {
-            font-size: 17px;
-            font-weight: 700;
+        .source-icon {
+            font-size: 20px;
+        }
+        
+        .source-text {
+            font-size: 12px;
+            font-weight: 600;
             color: #1E64C8;
+        }
+        
+        .feature-store-center {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .store-main {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(30, 100, 200, 0.2);
+        }
+        
+        .store-icon {
+            font-size: 48px;
             margin-bottom: 8px;
         }
         
-        .feature-desc {
-            font-size: 14px;
-            color: #333;
-            line-height: 1.4;
-            margin-bottom: 5px;
+        .store-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
         }
         
-        .feature-detail {
-            font-size: 13px;
-            color: #666;
-            font-style: italic;
+        .store-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 12px;
         }
         
-        .tools-section {
+        .mini-feature {
+            background: #f0f5fc;
+            border-radius: 6px;
+            padding: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #1E64C8;
+        }
+        
+        .output-destinations {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .dest-box {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .dest-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .dest-icon {
+            font-size: 20px;
+        }
+        
+        .dest-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1E64C8;
+        }
+        
+        .benefits-section {
             background: #fff8e6;
             border: 2px solid #ffa500;
             border-radius: 8px;
-            padding: 15px 20px;
+            padding: 12px 18px;
         }
         
-        .tools-title {
-            font-size: 16px;
+        .benefits-title {
+            font-size: 15px;
             font-weight: 700;
             color: #ff8c00;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-align: center;
         }
         
-        .tools-grid {
+        .benefits-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
         }
         
-        .tool-badge {
+        .benefit-badge {
             background: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 13px;
             font-weight: 600;
             color: #333;
             border: 1.5px solid #ffa500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .badge-icon {
+            font-size: 16px;
         }
     </style>
 </head>
@@ -137,37 +218,70 @@
             <span class="definition-text">Centralized platform for storing, managing, and serving ML features</span>
         </div>
         
-        <div class="features-grid">
+        <!-- Architecture Diagram -->
+        <div class="architecture-diagram">
+            <!-- Input Sources -->
+            <div class="input-sources">
+                <div class="source-box">
+                    <div class="source-icon">🗄️</div>
+                    <div class="source-text">Raw Data</div>
+                </div>
+                <div class="source-box">
+                    <div class="source-icon">📊</div>
+                    <div class="source-text">Databases</div>
+                </div>
+                <div class="source-box">
+                    <div class="source-icon">📡</div>
+                    <div class="source-text">Streaming</div>
+                </div>
+            </div>
             
-            <div class="feature-card">
-                <div class="feature-title">Feature Repository</div>
-                <div class="feature-desc">Catalog of available features with metadata</div>
+            <!-- Feature Store Center -->
+            <div class="feature-store-center">
+                <div class="store-main">
+                    <div class="store-icon">🏪</div>
+                    <div class="store-title">Feature Store</div>
+                    <div class="store-features">
+                        <div class="mini-feature">📋 Catalog</div>
+                        <div class="mini-feature">⚡ Online</div>
+                        <div class="mini-feature">💾 Offline</div>
+                        <div class="mini-feature">⏰ Time Travel</div>
+                    </div>
+                </div>
             </div>
-
-            <div class="feature-card">
-                <div class="feature-title">Feature Serving</div>
-                <div class="feature-desc">Low-latency online feature retrieval</div>
+            
+            <!-- Output Destinations -->
+            <div class="output-destinations">
+                <div class="dest-box">
+                    <div class="dest-icon">🎯</div>
+                    <div class="dest-text">Training</div>
+                </div>
+                <div class="dest-box">
+                    <div class="dest-icon">🚀</div>
+                    <div class="dest-text">Inference</div>
+                </div>
+                <div class="dest-box">
+                    <div class="dest-icon">📈</div>
+                    <div class="dest-text">Analytics</div>
+                </div>
             </div>
-
-            <div class="feature-card">
-                <div class="feature-title">Feature Engineering</div>
-                <div class="feature-desc">Transform raw data → ML-ready features</div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-title">Time Travel</div>
-                <div class="feature-desc">Historical feature values for training</div>
-            </div>
-
         </div>
         
-        <div class="tools-section">
-            <div class="tools-title">🛠️ Key Features</div>
-            <div class="tools-grid">
-                <div class="tool-badge">Training-serving consistency</div>
-                <div class="tool-badge">Feature reuse across models</div>
-                <div class="tool-badge">Reduces redundant computations</div>
-                
+        <div class="benefits-section">
+            <div class="benefits-title">🛠️ Key Benefits</div>
+            <div class="benefits-grid">
+                <div class="benefit-badge">
+                    <span class="badge-icon">✓</span>
+                    <span>Training-serving consistency</span>
+                </div>
+                <div class="benefit-badge">
+                    <span class="badge-icon">♻️</span>
+                    <span>Feature reuse across models</span>
+                </div>
+                <div class="benefit-badge">
+                    <span class="badge-icon">⚡</span>
+                    <span>Reduces redundant computations</span>
+                </div>
             </div>
         </div>
     </div>

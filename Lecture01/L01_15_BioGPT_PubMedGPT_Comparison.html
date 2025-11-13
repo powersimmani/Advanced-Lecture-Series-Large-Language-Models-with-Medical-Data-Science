@@ -22,35 +22,237 @@
             margin-bottom: 30px;
             text-align: center;
         }
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+        .model-card {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(30, 100, 200, 0.3);
+        }
+        .model-card.pubmed {
+            border-color: #28a745;
+        }
+        .model-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .model-name {
+            color: #1E64C8;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .model-card.pubmed .model-name {
+            color: #28a745;
+        }
+        .param-badge {
+            background: linear-gradient(135deg, #1E64C8, #5088d4);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        .model-card.pubmed .param-badge {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .feature-label {
+            font-weight: 700;
+            color: #1E64C8;
+            min-width: 80px;
+        }
+        .model-card.pubmed .feature-label {
+            color: #28a745;
+        }
+        .comparison-chart {
+            grid-column: 1 / -1;
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .chart-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .metric-bars {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .metric-row {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 15px;
+            align-items: center;
+        }
+        .metric-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            text-align: right;
+        }
+        .bar-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .bar {
+            height: 30px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+        .bar:hover {
+            filter: brightness(1.1);
+        }
+        .bar.biogpt {
+            background: linear-gradient(90deg, #1E64C8, #5088d4);
+        }
+        .bar.pubmedgpt {
+            background: linear-gradient(90deg, #28a745, #20c997);
+        }
+        .vs-icon {
+            font-size: 48px;
+            text-align: center;
+            margin: 20px 0;
+            grid-column: 1 / -1;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">BioGPT vs PubMedGPT Comparison</div>
         
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:25px;">
-            <div style="background:white;border:3px solid #1E64C8;border-radius:10px;padding:20px;">
-                <h3 style="color:#1E64C8;text-align:center;margin-bottom:15px;">BioGPT</h3>
-                <div style="text-align:center;font-size:18px;font-weight:700;color:#666;margin-bottom:15px;">1.5B Parameters</div>
-                <div style="font-size:14px;color:#333;line-height:1.8;">
-                    <div><strong>Focus:</strong> General biomedical text generation</div>
-                    <div><strong>Training:</strong> PubMed abstracts</div>
-                    <div><strong>Strengths:</strong> QA, summarization</div>
-                    <div><strong>Use Case:</strong> Research assistance</div>
+        <div class="comparison-container">
+            <div class="model-card biogpt">
+                <div class="model-header">
+                    <h3 class="model-name">BioGPT</h3>
+                    <div class="param-badge">1.5B Parameters</div>
+                </div>
+                <div class="features">
+                    <div class="feature-item">
+                        <span class="feature-label">Focus:</span>
+                        <span>General biomedical text generation</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-label">Training:</span>
+                        <span>PubMed abstracts (15M documents)</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-label">Strengths:</span>
+                        <span>Question answering, summarization</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-label">Use Case:</span>
+                        <span>Research assistance, literature review</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-label">Speed:</span>
+                        <span>Faster inference time</span>
+                    </div>
                 </div>
             </div>
-            <div style="background:white;border:3px solid #28a745;border-radius:10px;padding:20px;">
-                <h3 style="color:#28a745;text-align:center;margin-bottom:15px;">PubMedGPT</h3>
-                <div style="text-align:center;font-size:18px;font-weight:700;color:#666;margin-bottom:15px;">2.7B Parameters</div>
-                <div style="font-size:14px;color:#333;line-height:1.8;">
-                    <div><strong>Focus:</strong> Medical literature specialization</div>
-                    <div><strong>Training:</strong> Full PubMed papers</div>
-                    <div><strong>Strengths:</strong> Scientific writing</div>
-                    <div><strong>Use Case:</strong> Literature review</div>
+            
+            <div class="model-card pubmed">
+                <div class="model-header">
+                    <h3 class="model-name">PubMedGPT</h3>
+                    <div class="param-badge">2.7B Parameters</div>
+                </div>
+                <div class="features">
+                    <div class="feature-item">
+                        <span class="feature-label">Focus:</span>
+                        <span>Medical literature specialization</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-label">Training:</span>
+                        <span>Full PubMed papers (3M+ full text)</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-label">Strengths:</span>
+                        <span>Scientific writing, detailed analysis</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-label">Use Case:</span>
+                        <span>Literature review, paper generation</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-label">Depth:</span>
+                        <span>More comprehensive knowledge</span>
+                    </div>
                 </div>
             </div>
         </div>
         
+        <div class="comparison-chart">
+            <div class="chart-title">📊 Performance Comparison</div>
+            <div class="metric-bars">
+                <div class="metric-row">
+                    <div class="metric-label">Model Size</div>
+                    <div class="bar-container">
+                        <div class="bar biogpt" style="width: 55%;">1.5B</div>
+                        <div class="bar pubmedgpt" style="width: 100%;">2.7B</div>
+                    </div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Training Data</div>
+                    <div class="bar-container">
+                        <div class="bar biogpt" style="width: 65%;">15M abstracts</div>
+                        <div class="bar pubmedgpt" style="width: 85%;">3M full papers</div>
+                    </div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Inference Speed</div>
+                    <div class="bar-container">
+                        <div class="bar biogpt" style="width: 90%;">Fast</div>
+                        <div class="bar pubmedgpt" style="width: 60%;">Moderate</div>
+                    </div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Knowledge Depth</div>
+                    <div class="bar-container">
+                        <div class="bar biogpt" style="width: 70%;">Good</div>
+                        <div class="bar pubmedgpt" style="width: 95%;">Excellent</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

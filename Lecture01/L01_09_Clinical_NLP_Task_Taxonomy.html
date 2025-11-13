@@ -19,44 +19,102 @@
             font-size: 32px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
         .tasks-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
+            gap: 16px;
         }
         .task-card {
             background: linear-gradient(135deg, #f0f5fc 0%, #ffffff 100%);
             border-left: 5px solid #1E64C8;
             border-radius: 10px;
-            padding: 18px;
+            padding: 16px;
             transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
         .task-card:hover {
             transform: translateX(5px);
             box-shadow: 0 5px 15px rgba(30, 100, 200, 0.2);
         }
-        .task-name {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1E64C8;
+        .task-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #1E64C8;
+            transition: width 0.3s;
+        }
+        .task-card:hover::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+        .task-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 8px;
         }
+        .task-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .task-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            flex: 1;
+        }
         .task-desc {
-            font-size: 15px;
+            font-size: 14px;
             color: #333;
             line-height: 1.5;
+            margin-bottom: 8px;
         }
         .example {
-            font-size: 13px;
+            font-size: 12px;
             color: #666;
-            font-style: italic;
-            margin-top: 6px;
             background: #f8f9fa;
-            padding: 6px;
-            border-radius: 4px;
+            padding: 8px;
+            border-radius: 6px;
+            border-left: 3px solid #1E64C8;
+            position: relative;
+        }
+        .example::before {
+            content: '💡';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+        }
+        .example-text {
+            margin-left: 8px;
+        }
+        .highlight {
+            background: linear-gradient(120deg, #1E64C8 0%, #1E64C8 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 30%;
+            background-position: 0 85%;
+            font-weight: 600;
+            padding: 0 2px;
+        }
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #1E64C8;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
         }
     </style>
 </head>
@@ -65,34 +123,87 @@
         <div class="title">Clinical NLP Task Taxonomy</div>
         <div class="tasks-grid">
             <div class="task-card">
-                <div class="task-name">Named Entity Recognition (NER)</div>
+                <div class="category-badge">EXTRACTION</div>
+                <div class="task-header">
+                    <span class="task-icon">🔍</span>
+                    <div class="task-name">Named Entity Recognition</div>
+                </div>
                 <div class="task-desc">Identify diseases, medications, symptoms, procedures</div>
-                <div class="example">Ex: "Patient has <mark>diabetes</mark> and takes <mark>metformin</mark>"</div>
+                <div class="example">
+                    <div class="example-text">
+                        Patient has <span class="highlight">diabetes</span> and takes <span class="highlight">metformin</span>
+                    </div>
+                </div>
             </div>
+            
             <div class="task-card">
-                <div class="task-name">Relation Extraction</div>
+                <div class="category-badge">RELATION</div>
+                <div class="task-header">
+                    <span class="task-icon">🔗</span>
+                    <div class="task-name">Relation Extraction</div>
+                </div>
                 <div class="task-desc">Find relationships between medical entities</div>
-                <div class="example">Ex: "Drug X causes Side Effect Y"</div>
+                <div class="example">
+                    <div class="example-text">
+                        <span class="highlight">Drug X</span> → causes → <span class="highlight">Side Effect Y</span>
+                    </div>
+                </div>
             </div>
+            
             <div class="task-card">
-                <div class="task-name">Temporal Expression</div>
+                <div class="category-badge">TEMPORAL</div>
+                <div class="task-header">
+                    <span class="task-icon">⏰</span>
+                    <div class="task-name">Temporal Expression</div>
+                </div>
                 <div class="task-desc">Normalize time expressions and event sequences</div>
-                <div class="example">Ex: "2 weeks ago" → specific date</div>
+                <div class="example">
+                    <div class="example-text">
+                        "2 weeks ago" → <span class="highlight">2024-10-30</span>
+                    </div>
+                </div>
             </div>
+            
             <div class="task-card">
-                <div class="task-name">Negation Detection</div>
+                <div class="category-badge">LOGIC</div>
+                <div class="task-header">
+                    <span class="task-icon">❌</span>
+                    <div class="task-name">Negation Detection</div>
+                </div>
                 <div class="task-desc">Identify negated medical concepts</div>
-                <div class="example">Ex: "No signs of infection" vs "Infection present"</div>
+                <div class="example">
+                    <div class="example-text">
+                        "<span class="highlight">No signs</span> of infection" ≠ "Infection present"
+                    </div>
+                </div>
             </div>
+            
             <div class="task-card">
-                <div class="task-name">Medical Code Mapping</div>
+                <div class="category-badge">MAPPING</div>
+                <div class="task-header">
+                    <span class="task-icon">🏷️</span>
+                    <div class="task-name">Medical Code Mapping</div>
+                </div>
                 <div class="task-desc">Map clinical text to ICD-10, CPT, SNOMED codes</div>
-                <div class="example">Ex: "Hypertension" → ICD-10: I10</div>
+                <div class="example">
+                    <div class="example-text">
+                        "Hypertension" → <span class="highlight">ICD-10: I10</span>
+                    </div>
+                </div>
             </div>
+            
             <div class="task-card">
-                <div class="task-name">Clinical Text Summarization</div>
+                <div class="category-badge">GENERATION</div>
+                <div class="task-header">
+                    <span class="task-icon">📝</span>
+                    <div class="task-name">Clinical Text Summarization</div>
+                </div>
                 <div class="task-desc">Generate concise summaries from clinical notes</div>
-                <div class="example">Ex: Discharge summary from hospital records</div>
+                <div class="example">
+                    <div class="example-text">
+                        Long note → <span class="highlight">Discharge summary</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

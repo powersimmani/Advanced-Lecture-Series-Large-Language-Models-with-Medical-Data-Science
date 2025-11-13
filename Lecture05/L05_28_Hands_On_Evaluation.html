@@ -31,85 +31,118 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
         
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-card {
-            background: #f0f5fc;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 8px;
-        }
-        
-        .stat-label {
-            font-size: 13px;
-            color: #555;
-            font-weight: 500;
-        }
-        
-        .features-section {
-            background: #f8f9fa;
-            border-left: 5px solid #1E64C8;
-            border-radius: 8px;
-            padding: 20px 25px;
+        /* Implementation Workflow */
+        .workflow-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
             margin-bottom: 20px;
         }
         
-        .features-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 12px;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-        
-        .feature-item {
-            font-size: 15px;
-            color: #333;
-            padding: 8px 12px;
-            background: white;
-            border-radius: 5px;
+        .workflow-step {
+            background: #f0f5fc;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            transition: all 0.3s;
+            position: relative;
         }
         
-        .feature-icon {
-            font-size: 20px;
+        .workflow-step:hover {
+            background: #e8f2ff;
+            transform: translateX(10px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
         }
         
-        .performance-box {
+        .step-badge {
             background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
-            border-radius: 8px;
-            padding: 15px 20px;
             color: white;
-            text-align: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(30, 100, 200, 0.3);
         }
         
-        .performance-text {
-            font-size: 17px;
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 4px;
+        }
+        
+        .step-details {
+            font-size: 13px;
+            color: #555;
+        }
+        
+        .step-arrow {
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #1E64C8;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .workflow-step:last-child .step-arrow {
+            display: none;
+        }
+        
+        /* Tools Section */
+        .tools-section {
+            background: #f8f9fa;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 16px 22px;
+        }
+        
+        .tools-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+        
+        .tool-badge {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 6px;
+            padding: 8px 10px;
+            text-align: center;
+            font-size: 12px;
             font-weight: 600;
+            color: #1E64C8;
+            transition: all 0.2s;
+        }
+        
+        .tool-badge:hover {
+            background: #1E64C8;
+            color: white;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -117,25 +150,61 @@
     <div class="container">
         <div class="title">Hands-on: Evaluation Implementation</div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Practical Implementation</div>
-            <div style="font-size: 15px; color: #333; line-height: 1.6; padding: 10px 0;">
-                <strong>1. Load benchmark dataset:</strong><br>
-                &nbsp;&nbsp;&nbsp;→ MedQA, PubMedQA, or USMLE-style questions<br><br>
-                <strong>2. Run model inference:</strong><br>
-                &nbsp;&nbsp;&nbsp;→ Generate predictions with confidence scores<br><br>
-                <strong>3. Calculate metrics:</strong><br>
-                &nbsp;&nbsp;&nbsp;→ Accuracy, F1, ECE, hallucination rate<br><br>
-                <strong>4. Visualize results:</strong><br>
-                &nbsp;&nbsp;&nbsp;→ Confusion matrices, calibration plots, error analysis<br><br>
-                <strong>5. Generate report:</strong><br>
-                &nbsp;&nbsp;&nbsp;→ Comprehensive evaluation summary
+        <!-- Implementation Workflow -->
+        <div class="workflow-container">
+            <div class="workflow-step">
+                <div class="step-badge">1</div>
+                <div class="step-content">
+                    <div class="step-title">Load Benchmark Dataset</div>
+                    <div class="step-details">→ MedQA, PubMedQA, or USMLE-style questions</div>
+                </div>
+                <div class="step-arrow">↓</div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-badge">2</div>
+                <div class="step-content">
+                    <div class="step-title">Run Model Inference</div>
+                    <div class="step-details">→ Generate predictions with confidence scores</div>
+                </div>
+                <div class="step-arrow">↓</div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-badge">3</div>
+                <div class="step-content">
+                    <div class="step-title">Calculate Metrics</div>
+                    <div class="step-details">→ Accuracy, F1, ECE, hallucination rate</div>
+                </div>
+                <div class="step-arrow">↓</div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-badge">4</div>
+                <div class="step-content">
+                    <div class="step-title">Visualize Results</div>
+                    <div class="step-details">→ Confusion matrices, calibration plots, error analysis</div>
+                </div>
+                <div class="step-arrow">↓</div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-badge">5</div>
+                <div class="step-content">
+                    <div class="step-title">Generate Report</div>
+                    <div class="step-details">→ Comprehensive evaluation summary</div>
+                </div>
             </div>
         </div>
         
-        <div class="performance-box">
-            <div class="performance-text">
-                Tools: HuggingFace Evaluate, TorchMetrics, scikit-learn, Weights & Biases
+        <!-- Tools Section -->
+        <div class="tools-section">
+            <div class="tools-title">Recommended Tools</div>
+            <div class="tools-grid">
+                <div class="tool-badge">HuggingFace Evaluate</div>
+                <div class="tool-badge">TorchMetrics</div>
+                <div class="tool-badge">scikit-learn</div>
+                <div class="tool-badge">Weights & Biases</div>
             </div>
         </div>
         

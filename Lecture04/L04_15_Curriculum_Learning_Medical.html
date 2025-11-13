@@ -26,6 +26,17 @@
         }
         .concept-text { font-size: 17px; color: #333; font-weight: 500; }
         .concept-highlight { color: #1E64C8; font-weight: 700; }
+        
+        .diagram-container {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
+        
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -64,26 +75,90 @@
             </div>
         </div>
         
-        <div class="application-section">
-            <div class="app-title">📚 Learning Curriculum Design</div>
-            <div class="app-list">
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Stage 1 (Weeks 1-2):</strong> Basic medical terminology, anatomy</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Stage 2 (Weeks 3-4):</strong> Common symptoms, basic diagnosis</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Stage 3 (Weeks 5-6):</strong> Treatment planning, drug interactions</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Stage 4 (Weeks 7-8):</strong> Complex reasoning, rare diseases</span>
-                </div>
-            </div>
+        <div class="diagram-container">
+            <svg width="880" height="140" viewBox="0 0 880 140">
+                <!-- Timeline arrow -->
+                <defs>
+                    <linearGradient id="timelineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#64b5f6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#1565c0;stop-opacity:1" />
+                    </linearGradient>
+                    <marker id="arrow-timeline" markerWidth="12" markerHeight="12" refX="11" refY="3" orient="auto">
+                        <polygon points="0 0, 12 3, 0 6" fill="#1565c0"/>
+                    </marker>
+                </defs>
+                
+                <line x1="30" y1="70" x2="850" y2="70" stroke="url(#timelineGrad)" stroke-width="4" marker-end="url(#arrow-timeline)"/>
+                
+                <!-- Stage 1: Weeks 1-2 -->
+                <g>
+                    <circle cx="100" cy="70" r="35" fill="#e3f2fd" stroke="#1E64C8" stroke-width="3"/>
+                    <text x="100" y="60" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">1</text>
+                    <text x="100" y="78" text-anchor="middle" fill="#1E64C8" font-size="11" font-weight="600">Week 1-2</text>
+                    
+                    <rect x="40" y="110" width="120" height="25" fill="#e3f2fd" stroke="#1E64C8" stroke-width="2" rx="4"/>
+                    <text x="100" y="120" text-anchor="middle" fill="#1E64C8" font-size="10" font-weight="600">Basic Terminology</text>
+                    <text x="100" y="130" text-anchor="middle" fill="#666" font-size="9">Anatomy, Definitions</text>
+                    
+                    <!-- Difficulty indicator -->
+                    <rect x="50" y="5" width="100" height="6" fill="#e0e0e0" rx="3"/>
+                    <rect x="50" y="5" width="25" height="6" fill="#4caf50" rx="3"/>
+                    <text x="100" y="20" text-anchor="middle" fill="#4caf50" font-size="9" font-weight="600">Easy</text>
+                </g>
+                
+                <!-- Stage 2: Weeks 3-4 -->
+                <g>
+                    <circle cx="280" cy="70" r="35" fill="#bbdefb" stroke="#1976d2" stroke-width="3"/>
+                    <text x="280" y="60" text-anchor="middle" fill="#1976d2" font-size="16" font-weight="700">2</text>
+                    <text x="280" y="78" text-anchor="middle" fill="#1976d2" font-size="11" font-weight="600">Week 3-4</text>
+                    
+                    <rect x="220" y="110" width="120" height="25" fill="#bbdefb" stroke="#1976d2" stroke-width="2" rx="4"/>
+                    <text x="280" y="120" text-anchor="middle" fill="#1976d2" font-size="10" font-weight="600">Basic Diagnosis</text>
+                    <text x="280" y="130" text-anchor="middle" fill="#666" font-size="9">Symptoms, Common Cases</text>
+                    
+                    <rect x="230" y="5" width="100" height="6" fill="#e0e0e0" rx="3"/>
+                    <rect x="230" y="5" width="50" height="6" fill="#8bc34a" rx="3"/>
+                    <text x="280" y="20" text-anchor="middle" fill="#8bc34a" font-size="9" font-weight="600">Moderate</text>
+                </g>
+                
+                <!-- Stage 3: Weeks 5-6 -->
+                <g>
+                    <circle cx="480" cy="70" r="35" fill="#90caf9" stroke="#1565c0" stroke-width="3"/>
+                    <text x="480" y="60" text-anchor="middle" fill="#1565c0" font-size="16" font-weight="700">3</text>
+                    <text x="480" y="78" text-anchor="middle" fill="#1565c0" font-size="11" font-weight="600">Week 5-6</text>
+                    
+                    <rect x="420" y="110" width="120" height="25" fill="#90caf9" stroke="#1565c0" stroke-width="2" rx="4"/>
+                    <text x="480" y="120" text-anchor="middle" fill="#1565c0" font-size="10" font-weight="600">Treatment Planning</text>
+                    <text x="480" y="130" text-anchor="middle" fill="#666" font-size="9">Drugs, Interactions</text>
+                    
+                    <rect x="430" y="5" width="100" height="6" fill="#e0e0e0" rx="3"/>
+                    <rect x="430" y="5" width="70" height="6" fill="#ffc107" rx="3"/>
+                    <text x="480" y="20" text-anchor="middle" fill="#f57c00" font-size="9" font-weight="600">Advanced</text>
+                </g>
+                
+                <!-- Stage 4: Weeks 7-8 -->
+                <g>
+                    <circle cx="680" cy="70" r="35" fill="#64b5f6" stroke="#0d47a1" stroke-width="3"/>
+                    <text x="680" y="60" text-anchor="middle" fill="#0d47a1" font-size="16" font-weight="700">4</text>
+                    <text x="680" y="78" text-anchor="middle" fill="#0d47a1" font-size="11" font-weight="600">Week 7-8</text>
+                    
+                    <rect x="620" y="110" width="120" height="25" fill="#64b5f6" stroke="#0d47a1" stroke-width="2" rx="4"/>
+                    <text x="680" y="120" text-anchor="middle" fill="#0d47a1" font-size="10" font-weight="600">Complex Reasoning</text>
+                    <text x="680" y="130" text-anchor="middle" fill="#666" font-size="9">Rare Diseases, Edge Cases</text>
+                    
+                    <rect x="630" y="5" width="100" height="6" fill="#e0e0e0" rx="3"/>
+                    <rect x="630" y="5" width="95" height="6" fill="#ff5722" rx="3"/>
+                    <text x="680" y="20" text-anchor="middle" fill="#d32f2f" font-size="9" font-weight="600">Expert</text>
+                </g>
+                
+                <!-- Performance curve -->
+                <path d="M 100 35 Q 280 32, 480 28 T 680 22" stroke="#27ae60" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+                <text x="800" y="28" fill="#27ae60" font-size="11" font-weight="600">Performance ↗</text>
+                
+                <!-- Complexity line -->
+                <path d="M 60 42 L 720 8" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,3"/>
+                <text x="750" y="10" fill="#e74c3c" font-size="11" font-weight="600">Complexity ↗</text>
+            </svg>
         </div>
         
         <div class="application-section">

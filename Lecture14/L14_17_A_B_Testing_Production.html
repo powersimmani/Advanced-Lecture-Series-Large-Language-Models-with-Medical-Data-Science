@@ -71,11 +71,136 @@
             color: #1E64C8;
             font-weight: 700;
         }
+        
+        .diagram-section {
+            background: linear-gradient(135deg, #f0f5fc 0%, #e8f2ff 100%);
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .diagram-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">프로덕션 A/B 테스트 (A/B Testing in Production)</div>
+        
+        <div class="diagram-section">
+            <div class="diagram-title">🧪 A/B 테스팅 시스템 아키텍처</div>
+            <svg width="100%" height="360" viewBox="0 0 850 360">
+                <!-- User Traffic -->
+                <g transform="translate(50, 30)">
+                    <ellipse cx="60" cy="30" rx="50" ry="25" fill="#1E64C8" opacity="0.2"/>
+                    <text x="60" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">👥 환자</text>
+                    <text x="60" y="42" text-anchor="middle" font-size="12" fill="#666">User Traffic</text>
+                </g>
+                
+                <!-- Traffic Split Arrow -->
+                <path d="M 160,60 L 280,60" fill="none" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="220" y="55" text-anchor="middle" font-size="11" fill="#666">100%</text>
+                
+                <!-- Randomizer -->
+                <g transform="translate(280, 30)">
+                    <rect x="0" y="0" width="120" height="60" fill="#FFA726" rx="8"/>
+                    <text x="60" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="white">🎲</text>
+                    <text x="60" y="50" text-anchor="middle" font-size="13" font-weight="600" fill="white">Randomizer</text>
+                </g>
+                
+                <!-- Split to A -->
+                <path d="M 340,90 L 340,140 L 200,140" fill="none" stroke="#4CAF50" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="310" y="120" font-size="12" font-weight="600" fill="#4CAF50">50%</text>
+                
+                <!-- Split to B -->
+                <path d="M 340,90 L 340,140 L 480,140" fill="none" stroke="#2196F3" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="410" y="120" font-size="12" font-weight="600" fill="#2196F3">50%</text>
+                
+                <!-- Group A: Control -->
+                <g transform="translate(50, 140)">
+                    <rect x="0" y="0" width="150" height="100" fill="#4CAF50" opacity="0.8" rx="8"/>
+                    <text x="75" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="white">Group A (Control)</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="13" fill="white">🏥 기존 모델</text>
+                    <text x="75" y="62" text-anchor="middle" font-size="11" fill="white">Model v1.0</text>
+                    <text x="75" y="82" text-anchor="middle" font-size="10" fill="white">Proven Stable</text>
+                </g>
+                
+                <!-- Group B: Treatment -->
+                <g transform="translate(480, 140)">
+                    <rect x="0" y="0" width="150" height="100" fill="#2196F3" opacity="0.8" rx="8"/>
+                    <text x="75" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="white">Group B (Treatment)</text>
+                    <text x="75" y="45" text-anchor="middle" font-size="13" fill="white">✨ 새 모델</text>
+                    <text x="75" y="62" text-anchor="middle" font-size="11" fill="white">Model v2.0</text>
+                    <text x="75" y="82" text-anchor="middle" font-size="10" fill="white">Testing</text>
+                </g>
+                
+                <!-- Blinding Note -->
+                <g transform="translate(280, 155)">
+                    <rect x="0" y="0" width="140" height="70" fill="#fff3cd" stroke="#FFA726" stroke-width="2" rx="6"/>
+                    <text x="70" y="20" text-anchor="middle" font-size="12" font-weight="600" fill="#856404">🔒 Blinding</text>
+                    <text x="70" y="40" text-anchor="middle" font-size="10" fill="#856404">의료진은</text>
+                    <text x="70" y="55" text-anchor="middle" font-size="10" fill="#856404">모델 버전 모름</text>
+                </g>
+                
+                <!-- Results Collection -->
+                <path d="M 125,240 L 125,280" fill="none" stroke="#4CAF50" stroke-width="2" marker-end="url(#arrow)"/>
+                <path d="M 555,240 L 555,280" fill="none" stroke="#2196F3" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Analytics Dashboard -->
+                <g transform="translate(200, 280)">
+                    <rect x="0" y="0" width="280" height="70" fill="white" stroke="#1E64C8" stroke-width="3" rx="8"/>
+                    <text x="140" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#1E64C8">📊 Analytics Dashboard</text>
+                    
+                    <g transform="translate(20, 35)">
+                        <text x="0" y="10" font-size="11" fill="#333">Accuracy A:</text>
+                        <rect x="70" y="0" width="60" height="15" fill="#4CAF50" opacity="0.3" rx="3"/>
+                        <text x="100" y="11" text-anchor="middle" font-size="10" font-weight="600" fill="#333">92%</text>
+                        
+                        <text x="150" y="10" font-size="11" fill="#333">Accuracy B:</text>
+                        <rect x="220" y="0" width="60" height="15" fill="#2196F3" opacity="0.3" rx="3"/>
+                        <text x="250" y="11" text-anchor="middle" font-size="10" font-weight="600" fill="#333">94%</text>
+                    </g>
+                </g>
+                
+                <!-- Canary Deployment Visualization -->
+                <g transform="translate(680, 30)">
+                    <rect x="0" y="0" width="150" height="140" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2" rx="6"/>
+                    <text x="75" y="20" text-anchor="middle" font-size="13" font-weight="600" fill="#1E64C8">🚦 Canary Release</text>
+                    
+                    <!-- Progress bars -->
+                    <g transform="translate(15, 30)">
+                        <text x="0" y="12" font-size="10" fill="#666">5%</text>
+                        <rect x="30" y="0" width="95" height="15" fill="#e0e0e0" rx="3"/>
+                        <rect x="30" y="0" width="5" height="15" fill="#2196F3" rx="3"/>
+                        
+                        <text x="0" y="37" font-size="10" fill="#666">25%</text>
+                        <rect x="30" y="25" width="95" height="15" fill="#e0e0e0" rx="3"/>
+                        <rect x="30" y="25" width="24" height="15" fill="#2196F3" rx="3"/>
+                        
+                        <text x="0" y="62" font-size="10" fill="#666">50%</text>
+                        <rect x="30" y="50" width="95" height="15" fill="#e0e0e0" rx="3"/>
+                        <rect x="30" y="50" width="48" height="15" fill="#2196F3" rx="3"/>
+                        
+                        <text x="0" y="87" font-size="10" fill="#666">100%</text>
+                        <rect x="30" y="75" width="95" height="15" fill="#2196F3" rx="3"/>
+                    </g>
+                    
+                    <text x="75" y="120" text-anchor="middle" font-size="9" fill="#666">점진적 트래픽 증가</text>
+                </g>
+                
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
         
         <div class="section">
             <div class="section-title">🧪 테스트 설계</div>
@@ -86,6 +211,7 @@
                 <div class="item">Blinding: 의료진은 모델 버전 모름</div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">📊 평가 메트릭</div>
             <div class="item-list">
@@ -95,6 +221,7 @@
                 <div class="item">Business Metrics: 비용 효율성</div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">🚦 트래픽 분할</div>
             <div class="item-list">

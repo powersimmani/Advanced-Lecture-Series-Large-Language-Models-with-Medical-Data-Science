@@ -23,7 +23,7 @@
         .container {
             width: 960px;
             height: 540px;
-            padding: 32px 45px;
+            padding: 30px 45px;
             background: white;
         }
         
@@ -31,7 +31,7 @@
             font-size: 22px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-align: center;
         }
         
@@ -39,13 +39,13 @@
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 10px;
-            padding: 14px 20px;
-            margin-bottom: 20px;
+            padding: 12px 18px;
+            margin-bottom: 16px;
             text-align: center;
         }
         
         .intro-text {
-            font-size: 17px;
+            font-size: 16px;
             color: #333;
             font-weight: 500;
         }
@@ -56,29 +56,29 @@
         }
         
         .patterns-section {
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
         
         .section-title {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             text-align: center;
         }
         
         .pattern-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 18px;
+            gap: 10px;
+            margin-bottom: 16px;
         }
         
         .pattern-card {
             background: white;
             border: 2.5px solid #1E64C8;
             border-radius: 8px;
-            padding: 12px 15px;
+            padding: 10px 12px;
             text-align: center;
             transition: all 0.3s;
         }
@@ -95,14 +95,14 @@
         }
         
         .pattern-name {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
         
         .pattern-desc {
-            font-size: 14px;
+            font-size: 13px;
             color: #555;
             line-height: 1.3;
         }
@@ -117,7 +117,7 @@
             background: #f8fbff;
             border: 2px solid #4a90e2;
             border-radius: 8px;
-            padding: 12px 16px;
+            padding: 12px 14px;
         }
         
         .card-title {
@@ -130,6 +130,10 @@
             gap: 8px;
         }
         
+        .title-icon {
+            font-size: 20px;
+        }
+        
         .card-items {
             display: flex;
             flex-direction: column;
@@ -139,16 +143,16 @@
         .card-item {
             font-size: 14px;
             color: #333;
-            padding-left: 16px;
+            padding-left: 20px;
             position: relative;
+            line-height: 1.4;
         }
         
         .card-item::before {
-            content: "•";
             position: absolute;
             left: 0;
-            color: #1E64C8;
             font-weight: bold;
+            font-size: 16px;
         }
         
         .good::before {
@@ -206,7 +210,7 @@
                 </div>
                 
                 <div class="pattern-card">
-                    <div class="pattern-icon">🔍</div>
+                    <div class="pattern-icon">📖</div>
                     <div class="pattern-name">Contextual</div>
                     <div class="pattern-desc">맥락 정보 활용</div>
                 </div>
@@ -217,7 +221,7 @@
         <div class="effectiveness-section">
             <div class="effectiveness-card">
                 <div class="card-title">
-                    <span>✓</span>
+                    <span class="title-icon">✓</span>
                     <span>효과적인 지시</span>
                 </div>
                 <div class="card-items">
@@ -230,7 +234,7 @@
             
             <div class="effectiveness-card">
                 <div class="card-title">
-                    <span>✗</span>
+                    <span class="title-icon">✗</span>
                     <span>비효과적인 지시</span>
                 </div>
                 <div class="card-items">

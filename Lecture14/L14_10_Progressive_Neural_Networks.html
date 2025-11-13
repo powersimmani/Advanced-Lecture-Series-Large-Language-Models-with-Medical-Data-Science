@@ -71,21 +71,146 @@
             color: #1E64C8;
             font-weight: 700;
         }
+        
+        .diagram-section {
+            background: linear-gradient(135deg, #f0f5fc 0%, #e8f2ff 100%);
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .diagram-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Progressive Neural Networks (PNN)</div>
         
+        <div class="diagram-section">
+            <div class="diagram-title">🏗️ PNN 네트워크 구조 (점진적 확장)</div>
+            <svg width="100%" height="380" viewBox="0 0 800 380">
+                <!-- Input Layer -->
+                <text x="400" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#666">Input Layer</text>
+                
+                <!-- Column 1: Task 1 -->
+                <g transform="translate(150, 50)">
+                    <!-- Frozen symbol -->
+                    <text x="50" y="-15" text-anchor="middle" font-size="20" fill="#FF6B6B">🔒</text>
+                    <text x="50" y="0" text-anchor="middle" font-size="11" font-weight="600" fill="#FF6B6B">Frozen</text>
+                    
+                    <rect x="0" y="10" width="100" height="250" fill="#1E64C8" opacity="0.7" rx="8"/>
+                    <text x="50" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="white">Column 1</text>
+                    <text x="50" y="60" text-anchor="middle" font-size="12" fill="white">Task 1</text>
+                    
+                    <!-- Layers -->
+                    <rect x="15" y="80" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
+                    <rect x="15" y="110" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
+                    <rect x="15" y="140" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
+                    <rect x="15" y="170" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
+                    
+                    <text x="50" y="230" text-anchor="middle" font-size="11" fill="white">가중치 고정</text>
+                    <text x="50" y="245" text-anchor="middle" font-size="10" fill="white">(No Update)</text>
+                </g>
+                
+                <!-- Column 2: Task 2 -->
+                <g transform="translate(320, 50)">
+                    <text x="50" y="-15" text-anchor="middle" font-size="20" fill="#FF6B6B">🔒</text>
+                    <text x="50" y="0" text-anchor="middle" font-size="11" font-weight="600" fill="#FF6B6B">Frozen</text>
+                    
+                    <rect x="0" y="10" width="100" height="250" fill="#1E64C8" opacity="0.8" rx="8"/>
+                    <text x="50" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="white">Column 2</text>
+                    <text x="50" y="60" text-anchor="middle" font-size="12" fill="white">Task 2</text>
+                    
+                    <!-- Layers -->
+                    <rect x="15" y="80" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
+                    <rect x="15" y="110" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
+                    <rect x="15" y="140" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
+                    <rect x="15" y="170" width="70" height="20" fill="white" opacity="0.3" rx="3"/>
+                    
+                    <text x="50" y="230" text-anchor="middle" font-size="11" fill="white">학습 완료</text>
+                </g>
+                
+                <!-- Column 3: Task 3 (Current) -->
+                <g transform="translate(490, 50)">
+                    <text x="50" y="-15" text-anchor="middle" font-size="20" fill="#4CAF50">🔓</text>
+                    <text x="50" y="0" text-anchor="middle" font-size="11" font-weight="600" fill="#4CAF50">Training</text>
+                    
+                    <rect x="0" y="10" width="100" height="250" fill="#4CAF50" opacity="0.8" rx="8"/>
+                    <text x="50" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="white">Column 3</text>
+                    <text x="50" y="60" text-anchor="middle" font-size="12" fill="white">Task 3</text>
+                    
+                    <!-- Layers with animation -->
+                    <rect x="15" y="80" width="70" height="20" fill="white" opacity="0.5" rx="3">
+                        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="15" y="110" width="70" height="20" fill="white" opacity="0.5" rx="3">
+                        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="15" y="140" width="70" height="20" fill="white" opacity="0.5" rx="3">
+                        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="15" y="170" width="70" height="20" fill="white" opacity="0.5" rx="3">
+                        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+                    </rect>
+                    
+                    <text x="50" y="230" text-anchor="middle" font-size="11" fill="white">현재 학습 중</text>
+                    <text x="50" y="245" text-anchor="middle" font-size="10" fill="white">(Active)</text>
+                </g>
+                
+                <!-- Lateral Connections from Column 1 to Column 2 -->
+                <g opacity="0.6">
+                    <path d="M 250,140 L 320,140" fill="none" stroke="#FFA726" stroke-width="2" stroke-dasharray="3,3"/>
+                    <path d="M 250,160 L 320,160" fill="none" stroke="#FFA726" stroke-width="2" stroke-dasharray="3,3"/>
+                    <path d="M 250,180 L 320,180" fill="none" stroke="#FFA726" stroke-width="2" stroke-dasharray="3,3"/>
+                </g>
+                
+                <!-- Lateral Connections from Column 1 and 2 to Column 3 -->
+                <g opacity="0.6">
+                    <path d="M 250,140 L 490,140" fill="none" stroke="#FFA726" stroke-width="2" stroke-dasharray="3,3"/>
+                    <path d="M 250,160 L 490,160" fill="none" stroke="#FFA726" stroke-width="2" stroke-dasharray="3,3"/>
+                    <path d="M 420,140 L 490,140" fill="none" stroke="#FFA726" stroke-width="2" stroke-dasharray="3,3"/>
+                    <path d="M 420,160 L 490,160" fill="none" stroke="#FFA726" stroke-width="2" stroke-dasharray="3,3"/>
+                </g>
+                
+                <!-- Legend -->
+                <g transform="translate(150, 320)">
+                    <text x="0" y="0" font-size="12" font-weight="600" fill="#1E64C8">범례:</text>
+                    <line x1="50" y1="-5" x2="90" y2="-5" stroke="#FFA726" stroke-width="2" stroke-dasharray="3,3"/>
+                    <text x="95" y="0" font-size="11" fill="#666">Lateral Connections (지식 전이)</text>
+                    
+                    <circle cx="240" cy="-5" r="6" fill="#FF6B6B"/>
+                    <text x="250" y="0" font-size="11" fill="#666">Frozen (고정)</text>
+                    
+                    <circle cx="370" cy="-5" r="6" fill="#4CAF50"/>
+                    <text x="380" y="0" font-size="11" fill="#666">Training (학습 중)</text>
+                </g>
+                
+                <!-- Output Labels -->
+                <g transform="translate(0, 320)">
+                    <text x="200" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#333">Output 1</text>
+                    <text x="370" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#333">Output 2</text>
+                    <text x="540" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#333">Output 3</text>
+                </g>
+            </svg>
+        </div>
+        
         <div class="section">
-            <div class="section-title">🏗️ PNN 구조</div>
+            <div class="section-title">🗏️ PNN 구조</div>
             <div class="item-list">
                 <div class="item">Column Architecture: 각 작업마다 새 네트워크 컬럼 추가</div>
-                <div class="item">Lateral Connections: 이전 컬럼에서 특성 전이</div>
+                <div class="item">Lateral Connections: 이전 컬럼에서 특징 전이</div>
                 <div class="item">Frozen Columns: 이전 작업 가중치 고정</div>
-                <div class="item">Adapter Layers: 작업 간 특성 변환</div>
+                <div class="item">Adapter Layers: 작업 간 특징 변환</div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">➕ 확장 과정</div>
             <div class="item-list">
@@ -95,6 +220,7 @@
                 <div class="item">4단계: 필요 시 추가 컬럼 계속 확장</div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">⚖️ 장단점</div>
             <div class="item-list">

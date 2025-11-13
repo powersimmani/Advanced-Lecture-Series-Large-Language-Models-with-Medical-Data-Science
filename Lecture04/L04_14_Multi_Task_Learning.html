@@ -26,6 +26,17 @@
         }
         .concept-text { font-size: 17px; color: #333; font-weight: 500; }
         .concept-highlight { color: #1E64C8; font-weight: 700; }
+        
+        .diagram-container {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
+        
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -64,26 +75,104 @@
             </div>
         </div>
         
-        <div class="application-section">
-            <div class="app-title">🎯 Multi-Task Architecture</div>
-            <div class="app-list">
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Shared Backbone:</strong> Common medical knowledge representation</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Task-Specific Heads:</strong> Specialized output layers per task</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Task Routing:</strong> Conditional computation based on task ID</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Gradient Balancing:</strong> Prevent task dominance</span>
-                </div>
-            </div>
+        <div class="diagram-container">
+            <svg width="880" height="150" viewBox="0 0 880 150">
+                <!-- Input -->
+                <rect x="20" y="60" width="100" height="30" fill="#e3f2fd" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                <text x="70" y="80" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="600">Medical Input</text>
+                
+                <!-- Arrow to Shared Backbone -->
+                <path d="M 120 75 L 160 75" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Shared Backbone -->
+                <rect x="160" y="15" width="140" height="120" fill="#f0f5fc" stroke="#1E64C8" stroke-width="3" rx="8"/>
+                <text x="230" y="35" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Shared Backbone</text>
+                <text x="230" y="52" text-anchor="middle" fill="#666" font-size="11">Common Medical</text>
+                <text x="230" y="67" text-anchor="middle" fill="#666" font-size="11">Knowledge</text>
+                
+                <!-- Internal layers visualization -->
+                <rect x="175" y="80" width="110" height="8" fill="#bbdefb" rx="2"/>
+                <rect x="175" y="92" width="110" height="8" fill="#90caf9" rx="2"/>
+                <rect x="175" y="104" width="110" height="8" fill="#64b5f6" rx="2"/>
+                <rect x="175" y="116" width="110" height="8" fill="#42a5f5" rx="2"/>
+                <text x="230" y="132" text-anchor="middle" fill="#999" font-size="9">Transformer Layers</text>
+                
+                <!-- Task Routing -->
+                <ellipse cx="360" cy="75" rx="40" ry="30" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+                <text x="360" y="72" text-anchor="middle" fill="#f57c00" font-size="11" font-weight="600">Task</text>
+                <text x="360" y="84" text-anchor="middle" fill="#f57c00" font-size="11" font-weight="600">Router</text>
+                
+                <!-- Arrows to task heads -->
+                <path d="M 395 55 L 450 30" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)"/>
+                <path d="M 395 75 L 450 75" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)"/>
+                <path d="M 395 95 L 450 120" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- Task Head 1: Diagnosis -->
+                <g>
+                    <rect x="450" y="10" width="120" height="40" fill="#e8f5e9" stroke="#27ae60" stroke-width="2" rx="5"/>
+                    <text x="510" y="25" text-anchor="middle" fill="#27ae60" font-size="12" font-weight="600">🏥 Diagnosis</text>
+                    <text x="510" y="40" text-anchor="middle" fill="#666" font-size="10">Task Head 1</text>
+                </g>
+                
+                <!-- Task Head 2: Treatment -->
+                <g>
+                    <rect x="450" y="55" width="120" height="40" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="5"/>
+                    <text x="510" y="70" text-anchor="middle" fill="#ff9800" font-size="12" font-weight="600">💊 Treatment</text>
+                    <text x="510" y="85" text-anchor="middle" fill="#666" font-size="10">Task Head 2</text>
+                </g>
+                
+                <!-- Task Head 3: QA -->
+                <g>
+                    <rect x="450" y="100" width="120" height="40" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="5"/>
+                    <text x="510" y="115" text-anchor="middle" fill="#9c27b0" font-size="12" font-weight="600">❓ Medical QA</text>
+                    <text x="510" y="130" text-anchor="middle" fill="#666" font-size="10">Task Head 3</text>
+                </g>
+                
+                <!-- Output arrows -->
+                <path d="M 570 30 L 610 30" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+                <path d="M 570 75 L 610 75" stroke="#ff9800" stroke-width="2" marker-end="url(#arrow-orange)"/>
+                <path d="M 570 120 L 610 120" stroke="#9c27b0" stroke-width="2" marker-end="url(#arrow-purple)"/>
+                
+                <!-- Outputs -->
+                <rect x="610" y="17" width="80" height="26" fill="#e8f5e9" stroke="#27ae60" stroke-width="1" rx="3"/>
+                <text x="650" y="33" text-anchor="middle" fill="#27ae60" font-size="11">Disease</text>
+                
+                <rect x="610" y="62" width="80" height="26" fill="#fff3e0" stroke="#ff9800" stroke-width="1" rx="3"/>
+                <text x="650" y="78" text-anchor="middle" fill="#ff9800" font-size="11">Prescription</text>
+                
+                <rect x="610" y="107" width="80" height="26" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1" rx="3"/>
+                <text x="650" y="123" text-anchor="middle" fill="#9c27b0" font-size="11">Answer</text>
+                
+                <!-- Gradient Balancing -->
+                <rect x="720" y="30" width="140" height="90" fill="#fafafa" stroke="#666" stroke-width="2" stroke-dasharray="4,4" rx="5"/>
+                <text x="790" y="50" text-anchor="middle" fill="#666" font-size="12" font-weight="600">⚖️ Gradient Balance</text>
+                <rect x="735" y="60" width="110" height="12" fill="#ffebee" rx="2"/>
+                <rect x="735" y="60" width="70" height="12" fill="#ef5350" rx="2"/>
+                <text x="790" y="70" text-anchor="middle" fill="#666" font-size="9">Task 1: 40%</text>
+                
+                <rect x="735" y="78" width="110" height="12" fill="#ffebee" rx="2"/>
+                <rect x="735" y="78" width="55" height="12" fill="#ef5350" rx="2"/>
+                <text x="790" y="88" text-anchor="middle" fill="#666" font-size="9">Task 2: 30%</text>
+                
+                <rect x="735" y="96" width="110" height="12" fill="#ffebee" rx="2"/>
+                <rect x="735" y="96" width="55" height="12" fill="#ef5350" rx="2"/>
+                <text x="790" y="106" text-anchor="middle" fill="#666" font-size="9">Task 3: 30%</text>
+                
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#27ae60"/>
+                    </marker>
+                    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#ff9800"/>
+                    </marker>
+                    <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#9c27b0"/>
+                    </marker>
+                </defs>
+            </svg>
         </div>
         
         <div class="application-section">

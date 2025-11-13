@@ -36,19 +36,20 @@
         
         .phi-types-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
             margin-bottom: 25px;
         }
         
         .phi-type {
             background: #f0f5fc;
             border-left: 4px solid #1E64C8;
-            padding: 12px 15px;
-            font-size: 15px;
+            padding: 10px 12px;
+            font-size: 13px;
             color: #333;
             border-radius: 4px;
             transition: all 0.2s;
+            text-align: center;
         }
         
         .phi-type:hover {
@@ -59,7 +60,9 @@
         .phi-number {
             font-weight: 700;
             color: #1E64C8;
-            margin-right: 8px;
+            display: block;
+            font-size: 16px;
+            margin-bottom: 4px;
         }
         
         .approach-section {
@@ -104,45 +107,12 @@
         }
         
         .process-flow {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
             margin-top: 20px;
         }
         
-        .process-step {
-            flex: 1;
-            background: #f0f5fc;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .process-step:not(:last-child):after {
-            content: "→";
-            position: absolute;
-            right: -22px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-            color: #1E64C8;
-            font-weight: 700;
-        }
-        
-        .step-number {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 6px;
-        }
-        
-        .step-name {
-            font-size: 15px;
-            color: #333;
-            font-weight: 600;
+        .flow-svg {
+            width: 100%;
+            height: 140px;
         }
     </style>
 </head>
@@ -151,24 +121,24 @@
         <div class="title">PHI Detection and Removal</div>
         
         <div class="phi-types-grid">
-            <div class="phi-type"><span class="phi-number">1.</span>이름</div>
-            <div class="phi-type"><span class="phi-number">2.</span>주소</div>
-            <div class="phi-type"><span class="phi-number">3.</span>날짜</div>
-            <div class="phi-type"><span class="phi-number">4.</span>전화번호</div>
-            <div class="phi-type"><span class="phi-number">5.</span>팩스번호</div>
-            <div class="phi-type"><span class="phi-number">6.</span>이메일</div>
-            <div class="phi-type"><span class="phi-number">7.</span>사회보장번호</div>
-            <div class="phi-type"><span class="phi-number">8.</span>의료기록번호</div>
-            <div class="phi-type"><span class="phi-number">9.</span>건강보험번호</div>
-            <div class="phi-type"><span class="phi-number">10.</span>계좌번호</div>
-            <div class="phi-type"><span class="phi-number">11.</span>면허번호</div>
-            <div class="phi-type"><span class="phi-number">12.</span>차량번호</div>
-            <div class="phi-type"><span class="phi-number">13.</span>기기 ID</div>
-            <div class="phi-type"><span class="phi-number">14.</span>웹 URL</div>
-            <div class="phi-type"><span class="phi-number">15.</span>IP 주소</div>
-            <div class="phi-type"><span class="phi-number">16.</span>생체인식정보</div>
-            <div class="phi-type"><span class="phi-number">17.</span>사진</div>
-            <div class="phi-type"><span class="phi-number">18.</span>기타 고유식별자</div>
+            <div class="phi-type"><span class="phi-number">1</span>이름</div>
+            <div class="phi-type"><span class="phi-number">2</span>주소</div>
+            <div class="phi-type"><span class="phi-number">3</span>날짜</div>
+            <div class="phi-type"><span class="phi-number">4</span>전화번호</div>
+            <div class="phi-type"><span class="phi-number">5</span>팩스번호</div>
+            <div class="phi-type"><span class="phi-number">6</span>이메일</div>
+            <div class="phi-type"><span class="phi-number">7</span>사회보장번호</div>
+            <div class="phi-type"><span class="phi-number">8</span>의료기록번호</div>
+            <div class="phi-type"><span class="phi-number">9</span>건강보험번호</div>
+            <div class="phi-type"><span class="phi-number">10</span>계좌번호</div>
+            <div class="phi-type"><span class="phi-number">11</span>면허번호</div>
+            <div class="phi-type"><span class="phi-number">12</span>차량번호</div>
+            <div class="phi-type"><span class="phi-number">13</span>기기 ID</div>
+            <div class="phi-type"><span class="phi-number">14</span>웹 URL</div>
+            <div class="phi-type"><span class="phi-number">15</span>IP 주소</div>
+            <div class="phi-type"><span class="phi-number">16</span>생체인식정보</div>
+            <div class="phi-type"><span class="phi-number">17</span>사진</div>
+            <div class="phi-type"><span class="phi-number">18</span>기타 고유식별자</div>
         </div>
         
         <div class="approach-section">
@@ -196,22 +166,51 @@
         </div>
         
         <div class="process-flow">
-            <div class="process-step">
-                <div class="step-number">STEP 1</div>
-                <div class="step-name">원본 텍스트</div>
-            </div>
-            <div class="process-step">
-                <div class="step-number">STEP 2</div>
-                <div class="step-name">PHI 탐지</div>
-            </div>
-            <div class="process-step">
-                <div class="step-number">STEP 3</div>
-                <div class="step-name">마스킹/제거</div>
-            </div>
-            <div class="process-step">
-                <div class="step-number">STEP 4</div>
-                <div class="step-name">검증</div>
-            </div>
+            <svg class="flow-svg" viewBox="0 0 900 140" xmlns="http://www.w3.org/2000/svg">
+                <!-- Step 1 -->
+                <rect x="10" y="20" width="190" height="100" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="105" y="50" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8">STEP 1</text>
+                <text x="105" y="75" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="600" fill="#333">원본 텍스트</text>
+                <circle cx="105" cy="95" r="3" fill="#1E64C8"/>
+                <text x="105" y="110" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">Input Data</text>
+                
+                <!-- Arrow 1 -->
+                <path d="M 205 70 L 235 70" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+                
+                <!-- Step 2 -->
+                <rect x="240" y="20" width="190" height="100" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="335" y="50" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8">STEP 2</text>
+                <text x="335" y="75" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="600" fill="#333">PHI 탐지</text>
+                <circle cx="335" cy="95" r="3" fill="#1E64C8"/>
+                <text x="335" y="110" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">NER + Regex</text>
+                
+                <!-- Arrow 2 -->
+                <path d="M 435 70 L 465 70" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+                
+                <!-- Step 3 -->
+                <rect x="470" y="20" width="190" height="100" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="565" y="50" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8">STEP 3</text>
+                <text x="565" y="75" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="600" fill="#333">마스킹/제거</text>
+                <circle cx="565" cy="95" r="3" fill="#1E64C8"/>
+                <text x="565" y="110" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">Anonymize</text>
+                
+                <!-- Arrow 3 -->
+                <path d="M 665 70 L 695 70" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+                
+                <!-- Step 4 -->
+                <rect x="700" y="20" width="190" height="100" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="795" y="50" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8">STEP 4</text>
+                <text x="795" y="75" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="600" fill="#333">검증</text>
+                <circle cx="795" cy="95" r="3" fill="#1E64C8"/>
+                <text x="795" y="110" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">Validate</text>
+                
+                <!-- Arrow marker definition -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                </defs>
+            </svg>
         </div>
     </div>
 </body>

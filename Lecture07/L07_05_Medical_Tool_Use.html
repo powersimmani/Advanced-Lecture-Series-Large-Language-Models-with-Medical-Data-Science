@@ -31,21 +31,27 @@
             font-size: 20px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: center;
+        }
+        
+        .tool-ecosystem {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
         }
         
         .tools-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 15px;
         }
         
         .tool-card {
             background: white;
             border: 3px solid #1E64C8;
             border-radius: 12px;
-            padding: 20px;
+            padding: 18px;
             transition: all 0.3s;
         }
         
@@ -56,7 +62,7 @@
         }
         
         .tool-name {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 10px;
@@ -66,22 +72,22 @@
         }
         
         .tool-desc {
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             text-align: center;
         }
         
         .tool-examples {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
         }
         
         .feature-item {
             display: flex;
             align-items: center;
-            font-size: 15px;
+            font-size: 14px;
             color: #555;
         }
         
@@ -90,7 +96,7 @@
             color: #1E64C8;
             font-weight: bold;
             margin-right: 8px;
-            font-size: 18px;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -98,13 +104,117 @@
     <div class="container">
         <div class="title">Medical Tool Use</div>
         
+        <div class="tool-ecosystem">
+            <svg width="880" height="260" viewBox="0 0 880 260">
+                <!-- Central Agent -->
+                <g>
+                    <circle cx="440" cy="130" r="50" fill="#1E64C8" opacity="0.15"/>
+                    <circle cx="440" cy="130" r="35" fill="#1E64C8" opacity="0.3"/>
+                    <text x="440" y="125" font-size="15" font-weight="700" fill="#1E64C8" text-anchor="middle">Medical</text>
+                    <text x="440" y="142" font-size="15" font-weight="700" fill="#1E64C8" text-anchor="middle">Agent</text>
+                    
+                    <!-- AI Brain icon -->
+                    <path d="M 440 155 Q 445 160 450 155" stroke="#1E64C8" stroke-width="1.5" fill="none" opacity="0.5"/>
+                    <circle cx="437" cy="152" r="2" fill="#1E64C8" opacity="0.5"/>
+                    <circle cx="443" cy="152" r="2" fill="#1E64C8" opacity="0.5"/>
+                </g>
+                
+                <!-- API Calls - Top Left -->
+                <g>
+                    <rect x="100" y="20" width="160" height="80" rx="10" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                    <text x="180" y="45" font-size="16" font-weight="700" fill="#1E64C8" text-anchor="middle">API Calls</text>
+                    <line x1="120" y1="52" x2="240" y2="52" stroke="#e0e0e0" stroke-width="1.5"/>
+                    <text x="180" y="68" font-size="12" fill="#666" text-anchor="middle">외부 시스템 연동</text>
+                    
+                    <!-- API icon -->
+                    <circle cx="135" cy="82" r="5" fill="#1E64C8" opacity="0.3"/>
+                    <text x="145" y="86" font-size="10" fill="#555">FHIR API</text>
+                    <circle cx="200" cy="82" r="5" fill="#1E64C8" opacity="0.3"/>
+                    <text x="210" y="86" font-size="10" fill="#555">Lab API</text>
+                    
+                    <!-- Connection line -->
+                    <line x1="260" y1="70" x2="395" y2="110" stroke="#1E64C8" stroke-width="2.5" stroke-dasharray="5,3" opacity="0.6"/>
+                    <circle cx="395" cy="110" r="4" fill="#1E64C8"/>
+                </g>
+                
+                <!-- Database Query - Top Right -->
+                <g>
+                    <rect x="620" y="20" width="160" height="80" rx="10" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                    <text x="700" y="45" font-size="16" font-weight="700" fill="#1E64C8" text-anchor="middle">Database Query</text>
+                    <line x1="640" y1="52" x2="760" y2="52" stroke="#e0e0e0" stroke-width="1.5"/>
+                    <text x="700" y="68" font-size="12" fill="#666" text-anchor="middle">의료 데이터 조회</text>
+                    
+                    <!-- Database icon -->
+                    <ellipse cx="665" cy="82" rx="12" ry="6" fill="none" stroke="#1E64C8" stroke-width="2" opacity="0.4"/>
+                    <ellipse cx="665" cy="87" rx="12" ry="6" fill="none" stroke="#1E64C8" stroke-width="2" opacity="0.4"/>
+                    <line x1="653" y1="82" x2="653" y2="87" stroke="#1E64C8" stroke-width="2" opacity="0.4"/>
+                    <line x1="677" y1="82" x2="677" y2="87" stroke="#1E64C8" stroke-width="2" opacity="0.4"/>
+                    
+                    <text x="690" y="86" font-size="10" fill="#555">환자 이력</text>
+                    <text x="690" y="96" font-size="10" fill="#555">검사 결과</text>
+                    
+                    <!-- Connection line -->
+                    <line x1="620" y1="70" x2="485" y2="110" stroke="#1E64C8" stroke-width="2.5" stroke-dasharray="5,3" opacity="0.6"/>
+                    <circle cx="485" cy="110" r="4" fill="#1E64C8"/>
+                </g>
+                
+                <!-- Calculation Tools - Bottom Left -->
+                <g>
+                    <rect x="100" y="160" width="160" height="80" rx="10" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                    <text x="180" y="185" font-size="16" font-weight="700" fill="#1E64C8" text-anchor="middle">Calculation Tools</text>
+                    <line x1="120" y1="192" x2="240" y2="192" stroke="#e0e0e0" stroke-width="1.5"/>
+                    <text x="180" y="208" font-size="12" fill="#666" text-anchor="middle">임상 계산</text>
+                    
+                    <!-- Calculator icon -->
+                    <rect x="130" y="215" width="28" height="18" rx="2" fill="none" stroke="#1E64C8" stroke-width="2" opacity="0.4"/>
+                    <line x1="135" y1="220" x2="153" y2="220" stroke="#1E64C8" stroke-width="1" opacity="0.4"/>
+                    <line x1="135" y1="225" x2="153" y2="225" stroke="#1E64C8" stroke-width="1" opacity="0.4"/>
+                    
+                    <text x="165" y="223" font-size="10" fill="#555">GFR</text>
+                    <text x="165" y="232" font-size="10" fill="#555">Risk Score</text>
+                    
+                    <!-- Connection line -->
+                    <line x1="260" y1="200" x2="395" y2="150" stroke="#1E64C8" stroke-width="2.5" stroke-dasharray="5,3" opacity="0.6"/>
+                    <circle cx="395" cy="150" r="4" fill="#1E64C8"/>
+                </g>
+                
+                <!-- Guideline Access - Bottom Right -->
+                <g>
+                    <rect x="620" y="160" width="160" height="80" rx="10" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                    <text x="700" y="185" font-size="16" font-weight="700" fill="#1E64C8" text-anchor="middle">Guideline Access</text>
+                    <line x1="640" y1="192" x2="760" y2="192" stroke="#e0e0e0" stroke-width="1.5"/>
+                    <text x="700" y="208" font-size="12" fill="#666" text-anchor="middle">가이드라인 참조</text>
+                    
+                    <!-- Book/Guidelines icon -->
+                    <rect x="655" y="215" width="20" height="18" rx="1" fill="none" stroke="#1E64C8" stroke-width="2" opacity="0.4"/>
+                    <line x1="660" y1="218" x2="670" y2="218" stroke="#1E64C8" stroke-width="1" opacity="0.4"/>
+                    <line x1="660" y1="222" x2="670" y2="222" stroke="#1E64C8" stroke-width="1" opacity="0.4"/>
+                    <line x1="660" y1="226" x2="670" y2="226" stroke="#1E64C8" stroke-width="1" opacity="0.4"/>
+                    
+                    <text x="685" y="223" font-size="10" fill="#555">진료 지침</text>
+                    <text x="685" y="232" font-size="10" fill="#555">알고리즘</text>
+                    
+                    <!-- Connection line -->
+                    <line x1="620" y1="200" x2="485" y2="150" stroke="#1E64C8" stroke-width="2.5" stroke-dasharray="5,3" opacity="0.6"/>
+                    <circle cx="485" cy="150" r="4" fill="#1E64C8"/>
+                </g>
+                
+                <!-- Data flow indicators -->
+                <text x="320" y="85" font-size="10" fill="#1E64C8" font-weight="600" opacity="0.7">Request</text>
+                <text x="545" y="85" font-size="10" fill="#1E64C8" font-weight="600" opacity="0.7">Response</text>
+                <text x="315" y="185" font-size="10" fill="#1E64C8" font-weight="600" opacity="0.7">Compute</text>
+                <text x="545" y="185" font-size="10" fill="#1E64C8" font-weight="600" opacity="0.7">Reference</text>
+            </svg>
+        </div>
+        
         <div class="tools-grid">
-            
             <div class="tool-card">
                 <div class="tool-name">API Calls</div>
                 <div class="tool-desc">외부 시스템 연동</div>
                 <div class="tool-examples">
-                    <div class="feature-item">FHIR API</div><div class="feature-item">Lab System API</div><div class="feature-item">Drug DB API</div>
+                    <div class="feature-item">FHIR API</div>
+                    <div class="feature-item">Lab System API</div>
+                    <div class="feature-item">Drug DB API</div>
                 </div>
             </div>
             
@@ -112,7 +222,9 @@
                 <div class="tool-name">Database Query</div>
                 <div class="tool-desc">의료 데이터 조회</div>
                 <div class="tool-examples">
-                    <div class="feature-item">환자 이력</div><div class="feature-item">검사 결과</div><div class="feature-item">약물 정보</div>
+                    <div class="feature-item">환자 이력</div>
+                    <div class="feature-item">검사 결과</div>
+                    <div class="feature-item">약물 정보</div>
                 </div>
             </div>
             
@@ -120,7 +232,9 @@
                 <div class="tool-name">Calculation Tools</div>
                 <div class="tool-desc">임상 계산</div>
                 <div class="tool-examples">
-                    <div class="feature-item">GFR 계산</div><div class="feature-item">Risk Score</div><div class="feature-item">Drug Dosing</div>
+                    <div class="feature-item">GFR 계산</div>
+                    <div class="feature-item">Risk Score</div>
+                    <div class="feature-item">Drug Dosing</div>
                 </div>
             </div>
             
@@ -128,10 +242,11 @@
                 <div class="tool-name">Guideline Access</div>
                 <div class="tool-desc">가이드라인 참조</div>
                 <div class="tool-examples">
-                    <div class="feature-item">진료 지침</div><div class="feature-item">약물 상호작용</div><div class="feature-item">알고리즘</div>
+                    <div class="feature-item">진료 지침</div>
+                    <div class="feature-item">약물 상호작용</div>
+                    <div class="feature-item">알고리즘</div>
                 </div>
             </div>
-            
         </div>
     </div>
 </body>

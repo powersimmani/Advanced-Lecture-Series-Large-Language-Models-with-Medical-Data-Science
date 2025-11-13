@@ -47,70 +47,177 @@
             font-weight: 500;
         }
         
-        .items-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+        .timeline {
+            position: relative;
+            padding: 20px 0;
             margin-bottom: 20px;
         }
         
-        .item-card {
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1E64C8, #27ae60);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+        
+        .timeline-phases {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .phase-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            cursor: pointer;
+        }
+        
+        .phase-circle {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: 4px solid #1E64C8;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(30, 100, 200, 0.2);
+        }
+        
+        .phase-item:hover .phase-circle {
+            transform: scale(1.2);
+            background: #1E64C8;
+            box-shadow: 0 4px 20px rgba(30, 100, 200, 0.4);
+        }
+        
+        .phase-item:hover .phase-number {
+            color: white;
+        }
+        
+        .phase-item:hover .phase-icon {
+            filter: brightness(0) invert(1);
+        }
+        
+        .phase-number {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            line-height: 1;
+        }
+        
+        .phase-icon {
+            font-size: 20px;
+        }
+        
+        .phase-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1E64C8;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+        
+        .phase-desc {
+            font-size: 11px;
+            color: #666;
+            text-align: center;
+            max-width: 130px;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .detail-card {
             background: white;
             border: 2px solid #1E64C8;
             border-radius: 8px;
-            padding: 15px;
+            padding: 12px;
             transition: all 0.3s;
         }
         
-        .item-card:hover {
+        .detail-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
             background: #f8fbff;
         }
         
-        .item-title {
-            font-size: 17px;
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        
+        .detail-icon {
+            font-size: 20px;
+        }
+        
+        .detail-title {
+            font-size: 14px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 8px;
         }
         
-        .item-desc {
-            font-size: 14px;
+        .detail-desc {
+            font-size: 12px;
             color: #333;
-            line-height: 1.5;
+            line-height: 1.3;
         }
         
-        .tools-section {
-            background: #fff8e6;
-            border: 2px solid #ffa500;
-            border-radius: 8px;
-            padding: 15px 20px;
-        }
-        
-        .tools-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #ff8c00;
-            margin-bottom: 10px;
+        .results-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 3px solid #27ae60;
+            border-radius: 10px;
+            padding: 15px;
             text-align: center;
         }
         
-        .tools-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
+        .results-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1b5e20;
+            margin-bottom: 10px;
         }
         
-        .tool-badge {
-            background: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #333;
-            border: 1.5px solid #ffa500;
+        .results-metrics {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .metric-icon {
+            font-size: 24px;
+        }
+        
+        .metric-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1b5e20;
+        }
+        
+        .metric-label {
+            font-size: 11px;
+            color: #2e7d32;
         }
     </style>
 </head>
@@ -122,40 +229,103 @@
             Real-world example of deploying diagnostic imaging AI in hospital
         </div>
         
-        <div class="items-grid">
-            
-            <div class="item-card">
-                <div class="item-title">Phase 1: Infrastructure</div>
-                <div class="item-desc">K8s cluster, model registry, monitoring stack</div>
+        <!-- Timeline Visualization -->
+        <div class="timeline">
+            <div class="timeline-line"></div>
+            <div class="timeline-phases">
+                <div class="phase-item">
+                    <div class="phase-circle">
+                        <div class="phase-number">1</div>
+                        <div class="phase-icon">🏗️</div>
+                    </div>
+                    <div class="phase-label">Infrastructure</div>
+                    <div class="phase-desc">K8s, registry, monitoring</div>
+                </div>
+                
+                <div class="phase-item">
+                    <div class="phase-circle">
+                        <div class="phase-number">2</div>
+                        <div class="phase-icon">🔌</div>
+                    </div>
+                    <div class="phase-label">Integration</div>
+                    <div class="phase-desc">PACS, HL7/FHIR</div>
+                </div>
+                
+                <div class="phase-item">
+                    <div class="phase-circle">
+                        <div class="phase-number">3</div>
+                        <div class="phase-icon">✅</div>
+                    </div>
+                    <div class="phase-label">Validation</div>
+                    <div class="phase-desc">Clinical study</div>
+                </div>
+                
+                <div class="phase-item">
+                    <div class="phase-circle">
+                        <div class="phase-number">4</div>
+                        <div class="phase-icon">🚀</div>
+                    </div>
+                    <div class="phase-label">Production</div>
+                    <div class="phase-desc">Gradual rollout</div>
+                </div>
+                
+                <div class="phase-item">
+                    <div class="phase-circle">
+                        <div class="phase-number">5</div>
+                        <div class="phase-icon">📊</div>
+                    </div>
+                    <div class="phase-label">Monitoring</div>
+                    <div class="phase-desc">Track performance</div>
+                </div>
             </div>
-
-            <div class="item-card">
-                <div class="item-title">Phase 2: Integration</div>
-                <div class="item-desc">PACS integration, HL7/FHIR interfaces</div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-title">Phase 3: Validation</div>
-                <div class="item-desc">Clinical validation study with radiologists</div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-title">Phase 4: Production</div>
-                <div class="item-desc">Gradual rollout with A/B testing</div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-title">Phase 5: Monitoring</div>
-                <div class="item-desc">Continuous performance tracking, monthly reviews</div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-title">Results</div>
-                <div class="item-desc">30% faster diagnosis, 99.5% uptime, FDA approval</div>
-            </div>
-
         </div>
         
+        <div class="details-grid">
+            <div class="detail-card">
+                <div class="detail-header">
+                    <div class="detail-icon">⏱️</div>
+                    <div class="detail-title">Timeline</div>
+                </div>
+                <div class="detail-desc">6 months from start to production</div>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-header">
+                    <div class="detail-icon">👥</div>
+                    <div class="detail-title">Team Size</div>
+                </div>
+                <div class="detail-desc">8 engineers + 4 radiologists</div>
+            </div>
+            
+            <div class="detail-card">
+                <div class="detail-header">
+                    <div class="detail-icon">🎯</div>
+                    <div class="detail-title">Accuracy</div>
+                </div>
+                <div class="detail-desc">96.5% diagnostic accuracy</div>
+            </div>
+        </div>
+        
+        <div class="results-box">
+            <div class="results-title">🎉 Results Achieved</div>
+            <div class="results-metrics">
+                <div class="metric-item">
+                    <div class="metric-icon">⚡</div>
+                    <div class="metric-value">30%</div>
+                    <div class="metric-label">Faster Diagnosis</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-icon">📈</div>
+                    <div class="metric-value">99.5%</div>
+                    <div class="metric-label">Uptime</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-icon">✓</div>
+                    <div class="metric-value">FDA</div>
+                    <div class="metric-label">Approved</div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

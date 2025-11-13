@@ -31,84 +31,162 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
         
-        .stats-grid {
+        /* Uncertainty Types with Visual Distinction */
+        .uncertainty-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-card {
-            background: #f0f5fc;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 8px;
-        }
-        
-        .stat-label {
-            font-size: 13px;
-            color: #555;
-            font-weight: 500;
-        }
-        
-        .features-section {
-            background: #f8f9fa;
-            border-left: 5px solid #1E64C8;
-            border-radius: 8px;
-            padding: 20px 25px;
             margin-bottom: 20px;
         }
         
-        .features-title {
-            font-size: 20px;
+        .uncertainty-card {
+            background: #f0f5fc;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 18px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .uncertainty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(30, 100, 200, 0.3);
+        }
+        
+        .uncertainty-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #1E64C8, #2874d8);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .card-icon {
+            font-size: 36px;
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
+        .card-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        /* Confidence Threshold Visualization */
+        .threshold-section {
+            background: #f8f9fa;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 18px 25px;
+            margin-bottom: 18px;
+        }
+        
+        .threshold-title {
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 12px;
         }
         
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+        .threshold-bars {
+            display: flex;
+            flex-direction: column;
             gap: 10px;
         }
         
-        .feature-item {
-            font-size: 15px;
-            color: #333;
-            padding: 8px 12px;
-            background: white;
-            border-radius: 5px;
+        .threshold-bar {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
-        .feature-icon {
-            font-size: 20px;
+        .bar-visual {
+            flex: 1;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bar-visual::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 6px 0 0 6px;
+        }
+        
+        .bar-high { 
+            background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+        }
+        .bar-high::before { width: 90%; }
+        
+        .bar-medium { 
+            background: linear-gradient(90deg, #ffc107 0%, #ffb300 100%);
+            color: #333;
+        }
+        .bar-medium::before { width: 80%; }
+        
+        .bar-low { 
+            background: linear-gradient(90deg, #fd7e14 0%, #ff6b00 100%);
+        }
+        .bar-low::before { width: 65%; }
+        
+        .bar-verylow { 
+            background: linear-gradient(90deg, #dc3545 0%, #c82333 100%);
+        }
+        .bar-verylow::before { width: 40%; }
+        
+        .bar-label {
+            min-width: 140px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1E64C8;
+        }
+        
+        .bar-action {
+            min-width: 160px;
+            font-size: 13px;
+            color: #555;
         }
         
         .performance-box {
             background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
             border-radius: 8px;
-            padding: 15px 20px;
+            padding: 12px 20px;
             color: white;
             text-align: center;
         }
         
         .performance-text {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 600;
         }
     </style>
@@ -117,35 +195,60 @@
     <div class="container">
         <div class="title">Uncertainty Quantification</div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Types of Uncertainty</div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">🎲</span>
-                    <span>Aleatoric: Inherent data randomness</span>
+        <!-- Uncertainty Types -->
+        <div class="uncertainty-grid">
+            <div class="uncertainty-card">
+                <div class="card-header">
+                    <div class="card-icon">🎲</div>
+                    <div class="card-title">Aleatoric Uncertainty</div>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">❓</span>
-                    <span>Epistemic: Model knowledge gaps</span>
+                <div class="card-desc">
+                    Inherent randomness in the data that cannot be reduced with more training
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">⚖️</span>
-                    <span>Prediction confidence intervals</span>
+            </div>
+            
+            <div class="uncertainty-card">
+                <div class="card-header">
+                    <div class="card-icon">❓</div>
+                    <div class="card-title">Epistemic Uncertainty</div>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">📊</span>
-                    <span>Bayesian uncertainty estimates</span>
+                <div class="card-desc">
+                    Model knowledge gaps that can be reduced with more data or better training
                 </div>
             </div>
         </div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Clinical Thresholds</div>
-            <div style="font-size: 16px; color: #333; line-height: 1.6; padding: 10px 0;">
-                • <strong>High confidence (>90%):</strong> Proceed with recommendation<br>
-                • <strong>Medium (70-90%):</strong> Flag for review<br>
-                • <strong>Low (<70%):</strong> Require expert consultation<br>
-                • <strong>Very low (<50%):</strong> Decline to answer
+        <!-- Clinical Confidence Thresholds -->
+        <div class="threshold-section">
+            <div class="threshold-title">Clinical Confidence Thresholds</div>
+            <div class="threshold-bars">
+                <div class="threshold-bar">
+                    <div class="bar-label">High (>90%)</div>
+                    <div class="bar-visual bar-high">
+                        <span style="position: relative; z-index: 1;">Proceed with recommendation</span>
+                    </div>
+                </div>
+                
+                <div class="threshold-bar">
+                    <div class="bar-label">Medium (70-90%)</div>
+                    <div class="bar-visual bar-medium">
+                        <span style="position: relative; z-index: 1;">Flag for review</span>
+                    </div>
+                </div>
+                
+                <div class="threshold-bar">
+                    <div class="bar-label">Low (<70%)</div>
+                    <div class="bar-visual bar-low">
+                        <span style="position: relative; z-index: 1;">Require expert consultation</span>
+                    </div>
+                </div>
+                
+                <div class="threshold-bar">
+                    <div class="bar-label">Very Low (<50%)</div>
+                    <div class="bar-visual bar-verylow">
+                        <span style="position: relative; z-index: 1;">Decline to answer</span>
+                    </div>
+                </div>
             </div>
         </div>
         

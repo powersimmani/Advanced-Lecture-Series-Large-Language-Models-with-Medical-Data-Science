@@ -13,8 +13,12 @@
         .card-title{font-size:17px;font-weight:700;color:#1E64C8;margin-bottom:10px;}
         .card-content{font-size:15px;color:#333;line-height:1.6;}
         .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-        .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
         .highlight{background:#f0f5fc;border-left:4px solid #1E64C8;padding:15px;border-radius:6px;margin-bottom:20px;}
+        .hierarchy-svg {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
@@ -24,21 +28,109 @@
         <div class="highlight">
             <strong style="color:#1E64C8;">350,000+ 개념</strong> | <strong style="color:#1E64C8;">19개 최상위 계층</strong> | <strong style="color:#1E64C8;">150만+ 관계</strong>
         </div>
-        <div class="grid-2">
-            <div class="card">
-                <div class="card-title">계층 구조</div>
-                <div class="card-content">
-                    • Clinical finding<br>• Procedure<br>• Body structure<br>• Organism<br>• Substance<br>• Pharmaceutical product
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-title">관계 유형</div>
-                <div class="card-content">
-                    • IS-A (상위-하위 관계)<br>• Finding site<br>• Associated morphology<br>• Causative agent<br>• 후조합 표현 지원
-                </div>
-            </div>
-        </div>
-    
+        
+        <svg class="hierarchy-svg" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Root -->
+            <g id="root">
+                <rect x="375" y="10" width="150" height="40" rx="8" fill="#1E64C8" stroke="#1E64C8" stroke-width="2"/>
+                <text x="450" y="35" text-anchor="middle" font-family="Aptos, sans-serif" font-size="16" font-weight="700" fill="white">SNOMED CT</text>
+            </g>
+            
+            <!-- Main branches -->
+            <!-- Clinical finding -->
+            <g id="clinical-finding">
+                <rect x="50" y="80" width="140" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="120" y="102" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#1E64C8">Clinical finding</text>
+                <path d="M 425 50 L 140 80" stroke="#1E64C8" stroke-width="2"/>
+            </g>
+            
+            <!-- Procedure -->
+            <g id="procedure">
+                <rect x="210" y="80" width="120" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="270" y="102" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#1E64C8">Procedure</text>
+                <path d="M 435 50 L 290 80" stroke="#1E64C8" stroke-width="2"/>
+            </g>
+            
+            <!-- Body structure -->
+            <g id="body-structure">
+                <rect x="350" y="80" width="130" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="415" y="102" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#1E64C8">Body structure</text>
+                <path d="M 450 50 L 420 80" stroke="#1E64C8" stroke-width="2"/>
+            </g>
+            
+            <!-- Organism -->
+            <g id="organism">
+                <rect x="500" y="80" width="100" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="550" y="102" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#1E64C8">Organism</text>
+                <path d="M 465 50 L 535 80" stroke="#1E64C8" stroke-width="2"/>
+            </g>
+            
+            <!-- Substance -->
+            <g id="substance">
+                <rect x="620" y="80" width="100" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="670" y="102" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#1E64C8">Substance</text>
+                <path d="M 475 50 L 650 80" stroke="#1E64C8" stroke-width="2"/>
+            </g>
+            
+            <!-- Pharmaceutical -->
+            <g id="pharmaceutical">
+                <rect x="740" y="80" width="130" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="805" y="102" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#1E64C8">Pharmaceutical</text>
+                <path d="M 485 50 L 780 80" stroke="#1E64C8" stroke-width="2"/>
+            </g>
+            
+            <!-- Example hierarchy under Clinical finding -->
+            <g id="example-hierarchy">
+                <rect x="50" y="140" width="140" height="30" rx="6" fill="white" stroke="#28a745" stroke-width="2"/>
+                <text x="120" y="160" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" font-weight="600" fill="#333">Disease</text>
+                <path d="M 120 115 L 120 140" stroke="#28a745" stroke-width="2" marker-end="url(#arrow-green)"/>
+                
+                <rect x="30" y="190" width="80" height="28" rx="5" fill="white" stroke="#28a745" stroke-width="1.5"/>
+                <text x="70" y="208" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#555">Diabetes</text>
+                <path d="M 95 170 L 70 190" stroke="#28a745" stroke-width="1.5" marker-end="url(#arrow-green-small)"/>
+                
+                <rect x="130" y="190" width="80" height="28" rx="5" fill="white" stroke="#28a745" stroke-width="1.5"/>
+                <text x="170" y="208" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#555">Hypertension</text>
+                <path d="M 120 170 L 165 190" stroke="#28a745" stroke-width="1.5" marker-end="url(#arrow-green-small)"/>
+                
+                <!-- Type 2 Diabetes -->
+                <rect x="15" y="235" width="80" height="25" rx="4" fill="white" stroke="#28a745" stroke-width="1.5" stroke-dasharray="3,2"/>
+                <text x="55" y="251" text-anchor="middle" font-family="Aptos, sans-serif" font-size="10" fill="#666">Type 2 DM</text>
+                <path d="M 60 218 L 55 235" stroke="#28a745" stroke-width="1.5" stroke-dasharray="3,2"/>
+            </g>
+            
+            <!-- IS-A relationship label -->
+            <text x="230" y="205" font-family="Aptos, sans-serif" font-size="12" font-weight="600" fill="#28a745">IS-A</text>
+            <text x="230" y="220" font-family="Aptos, sans-serif" font-size="10" fill="#666">관계</text>
+            
+            <!-- Relationship types legend -->
+            <rect x="350" y="175" width="220" height="110" rx="6" fill="#f8f9fa" stroke="#1E64C8" stroke-width="1.5"/>
+            <text x="460" y="195" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">관계 유형</text>
+            
+            <text x="365" y="215" font-family="Aptos, sans-serif" font-size="11" fill="#333">• IS-A (상위-하위 관계)</text>
+            <text x="365" y="233" font-family="Aptos, sans-serif" font-size="11" fill="#333">• Finding site (발견 위치)</text>
+            <text x="365" y="251" font-family="Aptos, sans-serif" font-size="11" fill="#333">• Associated morphology</text>
+            <text x="365" y="269" font-family="Aptos, sans-serif" font-size="11" fill="#333">• Causative agent (원인)</text>
+            
+            <!-- Post-coordination -->
+            <rect x="600" y="175" width="270" height="110" rx="6" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+            <text x="735" y="195" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#ffc107">후조합 표현</text>
+            
+            <text x="615" y="218" font-family="Aptos, sans-serif" font-size="11" fill="#333">기존 개념들을 조합하여</text>
+            <text x="615" y="236" font-family="Aptos, sans-serif" font-size="11" fill="#333">새로운 임상 의미 생성</text>
+            <text x="615" y="260" font-family="Aptos, sans-serif" font-size="10" font-style="italic" fill="#666">예: "좌측 팔의 골절"</text>
+            <text x="615" y="275" font-family="Aptos, sans-serif" font-size="10" font-style="italic" fill="#666">= Fracture + Finding site: Left arm</text>
+            
+            <!-- Arrow markers -->
+            <defs>
+                <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="2.5" orient="auto">
+                    <polygon points="0 0, 8 2.5, 0 5" fill="#28a745"/>
+                </marker>
+                <marker id="arrow-green-small" markerWidth="6" markerHeight="6" refX="5" refY="2" orient="auto">
+                    <polygon points="0 0, 6 2, 0 4" fill="#28a745"/>
+                </marker>
+            </defs>
+        </svg>
     </div>
 </body>
 </html>

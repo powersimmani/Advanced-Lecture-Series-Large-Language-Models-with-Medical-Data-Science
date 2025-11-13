@@ -57,6 +57,92 @@
             line-height: 1.6;
         }
         
+        .kl-visual {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 15px 0;
+            gap: 15px;
+        }
+        
+        .policy-box {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            min-width: 180px;
+            box-shadow: 0 4px 10px rgba(30, 100, 200, 0.1);
+        }
+        
+        .policy-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        .policy-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 5px;
+        }
+        
+        .policy-desc {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .kl-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .arrow-label {
+            background: #1E64C8;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        
+        .distribution-chart {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+        }
+        
+        .beta-slider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #e8f2ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .slider-track {
+            flex: 1;
+            height: 8px;
+            background: linear-gradient(to right, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .slider-label {
+            font-size: 13px;
+            color: #666;
+            min-width: 100px;
+        }
+        
+        .slider-value {
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
         .items-list {
             display: flex;
             flex-direction: column;
@@ -79,6 +165,17 @@
             font-weight: 700;
             font-size: 16px;
         }
+        
+        .formula-box {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #1E64C8;
+            margin: 8px 0;
+        }
     </style>
 </head>
 <body>
@@ -89,15 +186,61 @@
             <div class="section-title">Purpose of KL Divergence</div>
             <div class="section-text">KL divergence measures how much the optimized policy deviates from the original base model, preventing harmful divergence from foundational knowledge.</div>
         </div>
+        
         <div class="section">
-            <div class="section-title">Mathematical Formulation</div>
-            <div class="items-list">
-                <div class="item">KL(π_θ || π_ref) = E[log(π_θ(a|s)) - log(π_ref(a|s))]</div>
-                <div class="item">π_θ: Current policy being optimized</div>
-                <div class="item">π_ref: Reference policy (original base model)</div>
-                <div class="item">Measures distribution difference between policies</div>
+            <div class="section-title">Visual Representation</div>
+            <div class="kl-visual">
+                <div class="policy-box" style="border-color: #6bcf7f;">
+                    <div class="policy-icon">🎯</div>
+                    <div class="policy-label" style="color: #6bcf7f;">π<sub>θ</sub></div>
+                    <div class="policy-desc">Current Policy<br/>(Being Optimized)</div>
+                </div>
+                
+                <div class="kl-arrow">
+                    <svg width="120" height="60" viewBox="0 0 120 60">
+                        <defs>
+                            <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
+                            </marker>
+                        </defs>
+                        <line x1="10" y1="30" x2="100" y2="30" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow2)" stroke-dasharray="5,5"/>
+                    </svg>
+                    <div class="arrow-label">KL(π<sub>θ</sub> || π<sub>ref</sub>)</div>
+                </div>
+                
+                <div class="policy-box" style="border-color: #ff9f43;">
+                    <div class="policy-icon">📚</div>
+                    <div class="policy-label" style="color: #ff9f43;">π<sub>ref</sub></div>
+                    <div class="policy-desc">Reference Policy<br/>(Original Base Model)</div>
+                </div>
+            </div>
+            
+            <svg class="distribution-chart" viewBox="0 0 400 100">
+                <!-- Reference distribution (base model) -->
+                <path d="M 50,80 Q 100,20 150,30 T 250,80" 
+                      fill="none" 
+                      stroke="#ff9f43" 
+                      stroke-width="3"
+                      opacity="0.7"/>
+                <text x="150" y="95" font-size="12" fill="#ff9f43" font-weight="700">π<tspan baseline-shift="sub" font-size="10">ref</tspan></text>
+                
+                <!-- Optimized distribution -->
+                <path d="M 50,80 Q 120,15 180,25 T 280,80" 
+                      fill="none" 
+                      stroke="#6bcf7f" 
+                      stroke-width="3"/>
+                <text x="200" y="95" font-size="12" fill="#6bcf7f" font-weight="700">π<tspan baseline-shift="sub" font-size="10">θ</tspan></text>
+                
+                <!-- Axes -->
+                <line x1="40" y1="85" x2="380" y2="85" stroke="#ccc" stroke-width="1"/>
+                <text x="200" y="15" font-size="11" fill="#1E64C8" text-anchor="middle" font-weight="700">↕ KL measures distribution difference</text>
+            </svg>
+            
+            <div class="formula-box">
+                KL(π<sub>θ</sub> || π<sub>ref</sub>) = 𝔼[log(π<sub>θ</sub>(a|s)) - log(π<sub>ref</sub>(a|s))]
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">Why KL Control Matters</div>
             <div class="items-list">
@@ -107,13 +250,24 @@
                 <div class="item">Generalization: Better performance on out-of-distribution inputs</div>
             </div>
         </div>
+        
         <div class="section">
-            <div class="section-title">Tuning KL Penalty</div>
+            <div class="section-title">Tuning KL Penalty (β)</div>
+            <div class="beta-slider">
+                <div class="slider-label">Low β (0.01)</div>
+                <div class="slider-track">
+                    <svg width="100%" height="20" style="position: absolute; top: -6px; left: 0;">
+                        <circle cx="10%" cy="10" r="6" fill="#ff6b6b"/>
+                        <circle cx="50%" cy="10" r="6" fill="#ffd93d"/>
+                        <circle cx="90%" cy="10" r="6" fill="#6bcf7f"/>
+                    </svg>
+                </div>
+                <div class="slider-label">High β (0.1)</div>
+            </div>
             <div class="items-list">
-                <div class="item">High β: Strong constraint, minimal deviation from base model</div>
-                <div class="item">Low β: More freedom to optimize, risk of forgetting</div>
-                <div class="item">Adaptive β: Adjust penalty dynamically during training</div>
-                <div class="item">Typical Range: β ∈ [0.01, 0.1] for medical applications</div>
+                <div class="item"><span class="slider-value">High β:</span> Strong constraint, minimal deviation from base model</div>
+                <div class="item"><span class="slider-value">Low β:</span> More freedom to optimize, risk of forgetting</div>
+                <div class="item"><span class="slider-value">Typical Range:</span> β ∈ [0.01, 0.1] for medical applications</div>
             </div>
         </div>
     </div>

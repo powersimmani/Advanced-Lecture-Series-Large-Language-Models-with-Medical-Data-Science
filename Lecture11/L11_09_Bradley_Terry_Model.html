@@ -56,6 +56,77 @@
             line-height: 1.6;
         }
         
+        .formula-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .formula-box {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px 30px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1E64C8;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.15);
+        }
+        
+        .comparison-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+        }
+        
+        .output-box {
+            background: #e8f2ff;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .output-label {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .output-value {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .comparison-symbol {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
+        .result-box {
+            background: #1E64C8;
+            color: white;
+            border-radius: 10px;
+            padding: 15px 25px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .sigmoid-curve {
+            width: 100%;
+            height: 120px;
+            margin: 10px 0;
+        }
+        
         .items-list {
             display: flex;
             flex-direction: column;
@@ -78,6 +149,16 @@
             font-weight: 700;
             font-size: 18px;
         }
+        
+        .formula-note {
+            background: #fff9e6;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -88,15 +169,60 @@
             <div class="section-title">Mathematical Foundation</div>
             <div class="section-text">The Bradley-Terry model converts reward scores into probabilities for pairwise comparisons, providing a principled approach to preference learning.</div>
         </div>
+        
         <div class="section">
-            <div class="section-title">Model Formula</div>
-            <div class="items-list">
-                <div class="item">P(A > B) = σ(r(A) - r(B)) = 1 / (1 + exp(-(r(A) - r(B))))</div>
-                <div class="item">where r(A) and r(B) are reward scores for outputs A and B</div>
-                <div class="item">σ is the sigmoid function</div>
-                <div class="item">Higher reward difference → stronger preference probability</div>
+            <div class="section-title">Model Formula & Visualization</div>
+            <div class="formula-visual">
+                <div class="formula-box">
+                    P(A > B) = σ(r(A) - r(B)) = 1 / (1 + exp(-(r(A) - r(B))))
+                </div>
+                
+                <div class="comparison-diagram">
+                    <div class="output-box">
+                        <div class="output-label">Output A</div>
+                        <div class="output-value">r(A) = 0.8</div>
+                    </div>
+                    <div class="comparison-symbol">vs</div>
+                    <div class="output-box">
+                        <div class="output-label">Output B</div>
+                        <div class="output-value">r(B) = 0.3</div>
+                    </div>
+                </div>
+                
+                <svg class="sigmoid-curve" viewBox="0 0 400 120">
+                    <!-- Axes -->
+                    <line x1="30" y1="100" x2="370" y2="100" stroke="#333" stroke-width="2"/>
+                    <line x1="30" y1="100" x2="30" y2="20" stroke="#333" stroke-width="2"/>
+                    
+                    <!-- Sigmoid curve -->
+                    <path d="M 30,95 Q 100,90 200,60 T 370,25" 
+                          fill="none" 
+                          stroke="#1E64C8" 
+                          stroke-width="3"/>
+                    
+                    <!-- Labels -->
+                    <text x="200" y="115" font-size="12" text-anchor="middle" fill="#666">r(A) - r(B)</text>
+                    <text x="15" y="60" font-size="12" text-anchor="middle" fill="#666">P</text>
+                    
+                    <!-- Markers -->
+                    <circle cx="200" cy="60" r="5" fill="#1E64C8"/>
+                    <text x="200" y="75" font-size="11" text-anchor="middle" fill="#1E64C8" font-weight="700">0.5</text>
+                    
+                    <line x1="280" y1="35" x2="280" y2="100" stroke="#ffc107" stroke-width="2" stroke-dasharray="4"/>
+                    <circle cx="280" cy="35" r="5" fill="#ffc107"/>
+                    <text x="280" y="15" font-size="11" text-anchor="middle" fill="#ffc107" font-weight="700">Δr=0.5 → P≈0.62</text>
+                </svg>
+                
+                <div class="result-box">
+                    Higher Reward Difference → Stronger Preference Probability
+                </div>
+            </div>
+            
+            <div class="formula-note">
+                💡 σ (sigmoid function) ensures probability output between 0 and 1
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">Training Objective</div>
             <div class="items-list">

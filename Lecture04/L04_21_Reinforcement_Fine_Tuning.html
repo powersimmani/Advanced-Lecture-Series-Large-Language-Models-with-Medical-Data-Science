@@ -26,6 +26,17 @@
         }
         .concept-text { font-size: 17px; color: #333; font-weight: 500; }
         .concept-highlight { color: #1E64C8; font-weight: 700; }
+        
+        .diagram-container {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
+        
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -64,48 +75,101 @@
             </div>
         </div>
         
-        <div class="application-section">
-            <div class="app-title">🔄 RLHF Pipeline</div>
-            <div class="app-list">
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Step 1:</strong> Supervised fine-tuning on medical instructions</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Step 2:</strong> Collect expert comparisons (A vs B responses)</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Step 3:</strong> Train reward model on preferences</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Step 4:</strong> PPO optimization with reward model</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="application-section">
-            <div class="app-title">🏥 Medical Expert Feedback</div>
-            <div class="app-list">
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Accuracy:</strong> Factual correctness of medical information</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Safety:</strong> Avoidance of harmful recommendations</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Clarity:</strong> Patient-friendly explanations</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Completeness:</strong> Comprehensive coverage of topic</span>
-                </div>
-            </div>
+        <div class="diagram-container">
+            <svg width="880" height="160" viewBox="0 0 880 160">
+                <!-- Step 1: SFT -->
+                <g>
+                    <rect x="10" y="10" width="180" height="70" fill="#e3f2fd" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                    <text x="100" y="28" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">Step 1: SFT</text>
+                    <text x="100" y="48" text-anchor="middle" fill="#666" font-size="11">Supervised Fine-tuning</text>
+                    <text x="100" y="63" text-anchor="middle" fill="#666" font-size="10">on Medical Instructions</text>
+                    
+                    <!-- Icon -->
+                    <circle cx="30" cy="35" r="12" fill="#1E64C8"/>
+                    <text x="30" y="40" text-anchor="middle" fill="white" font-size="14">📚</text>
+                </g>
+                
+                <path d="M 190 45 L 220 45" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
+                
+                <!-- Step 2: Collect Comparisons -->
+                <g>
+                    <rect x="220" y="10" width="180" height="70" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="5"/>
+                    <text x="310" y="28" text-anchor="middle" fill="#f57c00" font-size="13" font-weight="700">Step 2: Comparisons</text>
+                    <text x="310" y="48" text-anchor="middle" fill="#666" font-size="11">Collect Expert Feedback</text>
+                    <text x="310" y="63" text-anchor="middle" fill="#666" font-size="10">Response A vs B</text>
+                    
+                    <circle cx="240" cy="35" r="12" fill="#f57c00"/>
+                    <text x="240" y="40" text-anchor="middle" fill="white" font-size="14">👨‍⚕️</text>
+                    
+                    <!-- Comparison visualization -->
+                    <rect x="280" y="50" width="25" height="15" fill="#e8f5e9" stroke="#27ae60" stroke-width="1" rx="2"/>
+                    <text x="292" y="60" text-anchor="middle" fill="#27ae60" font-size="9">A ✓</text>
+                    <rect x="310" y="50" width="25" height="15" fill="#ffebee" stroke="#e74c3c" stroke-width="1" rx="2"/>
+                    <text x="322" y="60" text-anchor="middle" fill="#e74c3c" font-size="9">B ✗</text>
+                </g>
+                
+                <path d="M 400 45 L 430 45" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
+                
+                <!-- Step 3: Train Reward Model -->
+                <g>
+                    <rect x="430" y="10" width="180" height="70" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="5"/>
+                    <text x="520" y="28" text-anchor="middle" fill="#9c27b0" font-size="13" font-weight="700">Step 3: Reward Model</text>
+                    <text x="520" y="48" text-anchor="middle" fill="#666" font-size="11">Train on Preferences</text>
+                    <text x="520" y="63" text-anchor="middle" fill="#666" font-size="10">Bradley-Terry Model</text>
+                    
+                    <circle cx="450" cy="35" r="12" fill="#9c27b0"/>
+                    <text x="450" y="40" text-anchor="middle" fill="white" font-size="14">🎯</text>
+                </g>
+                
+                <path d="M 610 45 L 640 45" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
+                
+                <!-- Step 4: PPO Optimization -->
+                <g>
+                    <rect x="640" y="10" width="180" height="70" fill="#e8f5e9" stroke="#27ae60" stroke-width="2" rx="5"/>
+                    <text x="730" y="28" text-anchor="middle" fill="#27ae60" font-size="13" font-weight="700">Step 4: PPO</text>
+                    <text x="730" y="48" text-anchor="middle" fill="#666" font-size="11">Optimize Policy</text>
+                    <text x="730" y="63" text-anchor="middle" fill="#666" font-size="10">with Reward Signal</text>
+                    
+                    <circle cx="660" cy="35" r="12" fill="#27ae60"/>
+                    <text x="660" y="40" text-anchor="middle" fill="white" font-size="14">🚀</text>
+                </g>
+                
+                <!-- Feedback loop -->
+                <path d="M 820 45 Q 850 45, 850 120 Q 850 150, 100 150 Q 100 150, 100 80" 
+                      stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow-red)"/>
+                <text x="850" y="90" fill="#e74c3c" font-size="10" font-weight="600">Iterate</text>
+                
+                <!-- Reward formula visualization -->
+                <rect x="10" y="95" width="810" height="50" fill="#fafafa" stroke="#999" stroke-width="1" rx="5"/>
+                <text x="415" y="112" text-anchor="middle" fill="#333" font-size="12" font-weight="600">Reward = Accuracy + Safety + Helpfulness - KL_penalty</text>
+                
+                <!-- Multi-objective weights -->
+                <g transform="translate(80, 120)">
+                    <rect x="0" y="0" width="60" height="18" fill="#e3f2fd" stroke="#1E64C8" stroke-width="1" rx="2"/>
+                    <text x="30" y="12" text-anchor="middle" fill="#1E64C8" font-size="9">Accuracy: 0.4</text>
+                </g>
+                <g transform="translate(150, 120)">
+                    <rect x="0" y="0" width="60" height="18" fill="#ffebee" stroke="#e74c3c" stroke-width="1" rx="2"/>
+                    <text x="30" y="12" text-anchor="middle" fill="#e74c3c" font-size="9">Safety: 0.3</text>
+                </g>
+                <g transform="translate(220, 120)">
+                    <rect x="0" y="0" width="60" height="18" fill="#e8f5e9" stroke="#27ae60" stroke-width="1" rx="2"/>
+                    <text x="30" y="12" text-anchor="middle" fill="#27ae60" font-size="9">Help: 0.2</text>
+                </g>
+                <g transform="translate(290, 120)">
+                    <rect x="0" y="0" width="60" height="18" fill="#fff3e0" stroke="#f57c00" stroke-width="1" rx="2"/>
+                    <text x="30" y="12" text-anchor="middle" fill="#f57c00" font-size="9">KL: 0.1</text>
+                </g>
+                
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#e74c3c"/>
+                    </marker>
+                </defs>
+            </svg>
         </div>
         
         <div class="features-grid">
@@ -124,19 +188,23 @@
         </div>
         
         <div class="application-section">
-            <div class="app-title">⚙️ Reward Modeling</div>
+            <div class="app-title">🥼 Medical Expert Feedback</div>
             <div class="app-list">
                 <div class="app-item">
                     <span class="bullet">•</span>
-                    <span>Bradley-Terry model for pairwise comparisons</span>
+                    <span><strong>Accuracy:</strong> Factual correctness of medical information</span>
                 </div>
                 <div class="app-item">
                     <span class="bullet">•</span>
-                    <span>Multi-objective rewards (safety + accuracy + helpfulness)</span>
+                    <span><strong>Safety:</strong> Avoidance of harmful recommendations</span>
                 </div>
                 <div class="app-item">
                     <span class="bullet">•</span>
-                    <span>KL divergence penalty to prevent over-optimization</span>
+                    <span><strong>Clarity:</strong> Patient-friendly explanations</span>
+                </div>
+                <div class="app-item">
+                    <span class="bullet">•</span>
+                    <span><strong>Completeness:</strong> Comprehensive coverage of topic</span>
                 </div>
             </div>
         </div>

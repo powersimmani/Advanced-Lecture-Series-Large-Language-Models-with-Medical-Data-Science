@@ -15,45 +15,155 @@
             min-height: 100vh;
         }
         .container { width: 960px; height: 540px; padding: 40px; background: white; }
-        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
+        .integration-svg { width: 100%; height: 200px; margin-bottom: 20px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .info-box {
             background: #f8f9fb; border-left: 4px solid #1E64C8;
-            padding: 20px 24px; border-radius: 6px;
+            padding: 18px 22px; border-radius: 6px;
         }
-        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
-        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
-        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
-        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+        .info-title { font-size: 18px; font-weight: 600; color: #1E64C8; margin-bottom: 12px; }
+        .info-content { font-size: 15px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 8px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 18px; }
+        
+        .component-node {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .component-node:hover rect {
+            filter: brightness(0.95);
+        }
+
+        .node-text {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            font-weight: 500;
+        }
+
+        .connection-line {
+            stroke: #1E64C8;
+            stroke-width: 2.5;
+            fill: none;
+            marker-end: url(#arrow);
+        }
+
+        .bidirectional {
+            marker-start: url(#arrow-start);
+        }
+
+        .protocol-label {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            font-size: 11px;
+            fill: #666;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Integration Points</div>
-        <div class="info-grid">
+        
+        <svg class="integration-svg" viewBox="0 0 880 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
+                </marker>
+                <marker id="arrow-start" markerWidth="10" markerHeight="10" refX="1" refY="3" orient="auto">
+                    <polygon points="10 0, 0 3, 10 6" fill="#1E64C8" />
+                </marker>
+            </defs>
             
+            <!-- Frontend -->
+            <g class="component-node">
+                <rect x="50" y="70" width="150" height="60" rx="8" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2"/>
+                <g transform="translate(100, 85)">
+                    <rect x="0" y="0" width="50" height="30" rx="2" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                    <circle cx="25" cy="15" r="8" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                    <circle cx="25" cy="15" r="3" fill="#1E64C8"/>
+                </g>
+                <text x="125" y="145" class="node-text" text-anchor="middle" font-size="14" fill="#1E64C8">Frontend</text>
+            </g>
+            
+            <!-- API Gateway (Center) -->
+            <g class="component-node">
+                <rect x="330" y="70" width="150" height="60" rx="8" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2"/>
+                <g transform="translate(380, 85)">
+                    <rect x="0" y="0" width="50" height="30" rx="4" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                    <path d="M 15 10 L 25 15 L 15 20 M 35 10 L 25 15 L 35 20" stroke="#1E64C8" stroke-width="2"/>
+                </g>
+                <text x="405" y="145" class="node-text" text-anchor="middle" font-size="14" fill="#1E64C8">API Gateway</text>
+            </g>
+            
+            <!-- ML Service -->
+            <g class="component-node">
+                <rect x="610" y="10" width="150" height="60" rx="8" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2"/>
+                <g transform="translate(660, 25)">
+                    <circle cx="25" cy="15" r="12" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                    <circle cx="25" cy="15" r="7" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                    <circle cx="25" cy="15" r="3" fill="#1E64C8"/>
+                </g>
+                <text x="685" y="60" class="node-text" text-anchor="middle" font-size="14" fill="#1E64C8">ML Service</text>
+            </g>
+            
+            <!-- Database -->
+            <g class="component-node">
+                <rect x="610" y="130" width="150" height="60" rx="8" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2"/>
+                <g transform="translate(660, 145)">
+                    <ellipse cx="25" cy="8" rx="18" ry="6" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                    <path d="M 7 8 L 7 22 Q 7 28 25 28 Q 43 28 43 22 L 43 8" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                </g>
+                <text x="685" y="180" class="node-text" text-anchor="middle" font-size="14" fill="#1E64C8">Database</text>
+            </g>
+            
+            <!-- Connections -->
+            <!-- Frontend to API Gateway -->
+            <path d="M 200 100 L 330 100" class="connection-line bidirectional"/>
+            <text x="265" y="95" class="protocol-label">REST API</text>
+            
+            <!-- API Gateway to ML Service -->
+            <path d="M 480 90 L 610 50" class="connection-line bidirectional"/>
+            <text x="540" y="65" class="protocol-label">gRPC</text>
+            
+            <!-- API Gateway to Database -->
+            <path d="M 480 110 L 610 150" class="connection-line bidirectional"/>
+            <text x="540" y="135" class="protocol-label">SQL</text>
+            
+            <!-- ML Service to Database (dotted) -->
+            <path d="M 685 70 L 685 130" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow)"/>
+            <text x="695" y="105" class="protocol-label">Data Access</text>
+        </svg>
+        
+        <div class="info-grid">
             <div class="info-box">
                 <div class="info-title">시스템 통합 맵</div>
                 <div class="info-content">
-                    <div class="bullet">Frontend ↔ API Gateway</div><div class="bullet">API Gateway ↔ ML Service</div><div class="bullet">ML Service ↔ Database</div>
+                    <div class="bullet">Frontend ↔ API Gateway</div>
+                    <div class="bullet">API Gateway ↔ ML Service</div>
+                    <div class="bullet">ML Service ↔ Database</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">API 설계</div>
                 <div class="info-content">
-                    <div class="bullet">RESTful API 엔드포인트</div><div class="bullet">Request/Response 형식</div><div class="bullet">에러 핸들링 전략</div>
+                    <div class="bullet">RESTful API 엔드포인트</div>
+                    <div class="bullet">Request/Response 형식</div>
+                    <div class="bullet">에러 핸들링 전략</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">인터페이스 정의</div>
                 <div class="info-content">
-                    <div class="bullet">데이터 교환 포맷 (JSON)</div><div class="bullet">인증 및 권한 관리</div><div class="bullet">버전 관리 전략</div>
+                    <div class="bullet">데이터 교환 포맷 (JSON)</div>
+                    <div class="bullet">인증 및 권한 관리</div>
+                    <div class="bullet">버전 관리 전략</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">통합 테스트</div>
                 <div class="info-content">
-                    <div class="bullet">End-to-End 테스트</div><div class="bullet">성능 테스트</div><div class="bullet">부하 테스트</div>
+                    <div class="bullet">End-to-End 테스트</div>
+                    <div class="bullet">성능 테스트</div>
+                    <div class="bullet">부하 테스트</div>
                 </div>
             </div>
         </div>

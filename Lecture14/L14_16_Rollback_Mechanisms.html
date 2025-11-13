@@ -71,14 +71,124 @@
             color: #1E64C8;
             font-weight: 700;
         }
+        
+        .diagram-section {
+            background: linear-gradient(135deg, #f0f5fc 0%, #e8f2ff 100%);
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .diagram-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">롤백 메커니즘 (Rollback Mechanisms)</div>
         
+        <div class="diagram-section">
+            <div class="diagram-title">🔄 롤백 프로세스 플로우</div>
+            <svg width="100%" height="420" viewBox="0 0 850 420">
+                <!-- Production Model -->
+                <g transform="translate(350, 20)">
+                    <rect x="0" y="0" width="150" height="50" fill="#4CAF50" rx="8"/>
+                    <text x="75" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="white">✅ 프로덕션</text>
+                    <text x="75" y="42" text-anchor="middle" font-size="12" fill="white">Model v2.0</text>
+                </g>
+                
+                <!-- Monitoring Arrow -->
+                <path d="M 425,70 L 425,110" fill="none" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="440" y="95" font-size="11" fill="#666">모니터링</text>
+                
+                <!-- Issue Detection -->
+                <g transform="translate(325, 110)">
+                    <rect x="0" y="0" width="200" height="60" fill="#FFA726" rx="8"/>
+                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="white">⚠️ 문제 감지</text>
+                    <text x="100" y="43" text-anchor="middle" font-size="11" fill="white">• 성능 저하</text>
+                    <text x="100" y="57" text-anchor="middle" font-size="11" fill="white">• 오류율 증가</text>
+                </g>
+                
+                <!-- Decision Diamond -->
+                <g transform="translate(370, 190)">
+                    <path d="M 55,0 L 110,35 L 55,70 L 0,35 Z" fill="#FF6B6B" stroke="#C62828" stroke-width="2"/>
+                    <text x="55" y="30" text-anchor="middle" font-size="13" font-weight="600" fill="white">임계값</text>
+                    <text x="55" y="47" text-anchor="middle" font-size="13" font-weight="600" fill="white">초과?</text>
+                </g>
+                
+                <!-- No Path - Continue -->
+                <path d="M 480,225 L 650,225" fill="none" stroke="#4CAF50" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="565" y="220" text-anchor="middle" font-size="12" font-weight="600" fill="#4CAF50">No</text>
+                
+                <g transform="translate(650, 200)">
+                    <rect x="0" y="0" width="130" height="50" fill="#4CAF50" opacity="0.7" rx="8"/>
+                    <text x="65" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="white">✓ 계속 운영</text>
+                    <text x="65" y="42" text-anchor="middle" font-size="11" fill="white">정상 모니터링</text>
+                </g>
+                
+                <!-- Yes Path - Rollback Decision -->
+                <path d="M 425,260 L 425,295" fill="none" stroke="#FF6B6B" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="440" y="280" font-size="12" font-weight="600" fill="#FF6B6B">Yes</text>
+                
+                <!-- Auto/Manual Decision -->
+                <g transform="translate(325, 295)">
+                    <rect x="0" y="0" width="200" height="50" fill="#1E64C8" rx="8"/>
+                    <text x="100" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="white">🔀 롤백 결정</text>
+                    <text x="100" y="42" text-anchor="middle" font-size="11" fill="white">자동 / 수동</text>
+                </g>
+                
+                <!-- Rollback Arrow -->
+                <path d="M 425,345 L 425,370 L 300,370 L 300,45 L 350,45" fill="none" stroke="#FF6B6B" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+                <text x="250" y="385" font-size="11" font-weight="600" fill="#FF6B6B">🔙 이전 안정 버전으로 롤백</text>
+                
+                <!-- Checkpoint Storage -->
+                <g transform="translate(50, 110)">
+                    <rect x="0" y="0" width="200" height="150" fill="white" stroke="#1E64C8" stroke-width="2" rx="8"/>
+                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">💾 체크포인트 저장소</text>
+                    
+                    <!-- Version blocks -->
+                    <g transform="translate(20, 40)">
+                        <rect x="0" y="0" width="160" height="25" fill="#4CAF50" opacity="0.3" rx="4"/>
+                        <text x="10" y="17" font-size="11" font-weight="600" fill="#333">v1.9 (Stable) ⭐</text>
+                    </g>
+                    <g transform="translate(20, 70)">
+                        <rect x="0" y="0" width="160" height="25" fill="#1E64C8" opacity="0.2" rx="4"/>
+                        <text x="10" y="17" font-size="11" fill="#666">v1.8</text>
+                    </g>
+                    <g transform="translate(20, 100)">
+                        <rect x="0" y="0" width="160" height="25" fill="#1E64C8" opacity="0.2" rx="4"/>
+                        <text x="10" y="17" font-size="11" fill="#666">v1.7</text>
+                    </g>
+                </g>
+                
+                <!-- Post-Rollback Analysis -->
+                <g transform="translate(50, 295)">
+                    <rect x="0" y="0" width="200" height="100" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2" rx="8"/>
+                    <text x="100" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#1E64C8">🔍 사후 분석</text>
+                    <text x="15" y="50" font-size="11" fill="#333">1. 근본 원인 파악</text>
+                    <text x="15" y="68" font-size="11" fill="#333">2. 문제 해결</text>
+                    <text x="15" y="86" font-size="11" fill="#333">3. 재검증 및 재배포</text>
+                </g>
+                
+                <!-- Connection to Analysis -->
+                <path d="M 150,345 L 150,370" fill="none" stroke="#1E64C8" stroke-width="2" stroke-dasharray="3,3"/>
+                
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        
         <div class="section">
-            <div class="section-title">🔄 롤백 트리거</div>
+            <div class="section-title">🔔 롤백 트리거</div>
             <div class="item-list">
                 <div class="item">성능 임계값 이하 (예: accuracy < 90%)</div>
                 <div class="item">오류율 급증 (error rate > 5%)</div>
@@ -86,6 +196,7 @@
                 <div class="item">안전성 문제 발견</div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">⚡ 롤백 프로세스</div>
             <div class="item-list">
@@ -95,6 +206,7 @@
                 <div class="item">4단계: 근본 원인 분석 (Root Cause Analysis)</div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">💾 체크포인트 전략</div>
             <div class="item-list">

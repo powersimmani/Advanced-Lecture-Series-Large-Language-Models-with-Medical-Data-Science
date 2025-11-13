@@ -31,7 +31,7 @@
             font-size: 28px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-align: center;
         }
         
@@ -39,13 +39,13 @@
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 12px;
-            padding: 20px 30px;
-            margin-bottom: 30px;
+            padding: 15px 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
         
         .definition-text {
-            font-size: 18px;
+            font-size: 16px;
             color: #333;
             line-height: 1.6;
         }
@@ -55,73 +55,24 @@
             font-weight: 700;
         }
         
-        .process-diagram {
+        .diagram-container {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .process-step {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .step-circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1E64C8, #2874d8);
-            display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin: 0 auto 15px;
-            color: white;
-            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.3);
-        }
-        
-        .step-number {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .step-icon {
-            font-size: 32px;
-        }
-        
-        .step-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1E64C8;
-            margin-bottom: 8px;
-        }
-        
-        .step-desc {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.4;
-        }
-        
-        .arrow {
-            font-size: 28px;
-            color: #1E64C8;
-            margin: 0 10px;
+            margin-bottom: 20px;
         }
         
         .key-concepts {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+            gap: 12px;
         }
         
         .concept-card {
             background: white;
             border: 2px solid #1E64C8;
             border-radius: 10px;
-            padding: 15px;
+            padding: 12px;
             text-align: center;
             transition: all 0.3s;
         }
@@ -133,19 +84,19 @@
         }
         
         .concept-icon {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-        
-        .concept-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1E64C8;
+            font-size: 28px;
             margin-bottom: 8px;
         }
         
+        .concept-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 6px;
+        }
+        
         .concept-desc {
-            font-size: 13px;
+            font-size: 12px;
             color: #666;
             line-height: 1.4;
         }
@@ -162,37 +113,79 @@
             </span>
         </div>
         
-        <div class="process-diagram">
-            <div class="process-step">
-                <div class="step-circle">
-                    <div class="step-number">Step 1</div>
-                    <div class="step-icon">📝</div>
-                </div>
-                <div class="step-title">Constitution 정의</div>
-                <div class="step-desc">윤리 원칙 명시</div>
-            </div>
-            
-            <div class="arrow">→</div>
-            
-            <div class="process-step">
-                <div class="step-circle">
-                    <div class="step-number">Step 2</div>
-                    <div class="step-icon">🔄</div>
-                </div>
-                <div class="step-title">자기 비판</div>
-                <div class="step-desc">응답 평가 & 개선</div>
-            </div>
-            
-            <div class="arrow">→</div>
-            
-            <div class="process-step">
-                <div class="step-circle">
-                    <div class="step-number">Step 3</div>
-                    <div class="step-icon">✓</div>
-                </div>
-                <div class="step-title">강화학습</div>
-                <div class="step-desc">피드백 반영</div>
-            </div>
+        <div class="diagram-container">
+            <svg width="700" height="260" viewBox="0 0 700 260">
+                <!-- Central circle -->
+                <circle cx="350" cy="130" r="45" fill="#f0f5fc" stroke="#1E64C8" stroke-width="3"/>
+                <text x="350" y="125" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">Constitutional</text>
+                <text x="350" y="142" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">AI</text>
+                
+                <!-- Step 1: Constitution 정의 -->
+                <g>
+                    <circle cx="120" cy="130" r="55" fill="url(#grad1)" stroke="#1E64C8" stroke-width="3"/>
+                    <text x="120" y="115" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">Step 1</text>
+                    <text x="120" y="135" font-family="Aptos, sans-serif" font-size="24" fill="white" text-anchor="middle">📝</text>
+                    <text x="120" y="155" font-family="Aptos, sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">Constitution</text>
+                    
+                    <text x="120" y="205" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">Constitution 정의</text>
+                    <text x="120" y="223" font-family="Aptos, sans-serif" font-size="12" fill="#666" text-anchor="middle">윤리 원칙 명시</text>
+                </g>
+                
+                <!-- Arrow 1 to 2 -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
+                    </marker>
+                </defs>
+                <path d="M 175 130 Q 235 80, 295 130" fill="none" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead)"/>
+                <text x="235" y="100" font-family="Aptos, sans-serif" font-size="20" fill="#1E64C8" text-anchor="middle">→</text>
+                
+                <!-- Step 2: 자기 비판 -->
+                <g>
+                    <circle cx="350" cy="40" r="55" fill="url(#grad2)" stroke="#1E64C8" stroke-width="3"/>
+                    <text x="350" y="25" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">Step 2</text>
+                    <text x="350" y="45" font-family="Aptos, sans-serif" font-size="24" fill="white" text-anchor="middle">🔄</text>
+                    <text x="350" y="65" font-family="Aptos, sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">Critique</text>
+                    
+                    <text x="450" y="50" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="start">자기 비판</text>
+                    <text x="450" y="68" font-family="Aptos, sans-serif" font-size="12" fill="#666" text-anchor="start">응답 평가 & 개선</text>
+                </g>
+                
+                <!-- Arrow 2 to 3 -->
+                <path d="M 405 130 Q 465 80, 525 130" fill="none" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead)"/>
+                <text x="465" y="100" font-family="Aptos, sans-serif" font-size="20" fill="#1E64C8" text-anchor="middle">→</text>
+                
+                <!-- Step 3: 강화학습 -->
+                <g>
+                    <circle cx="580" cy="130" r="55" fill="url(#grad3)" stroke="#1E64C8" stroke-width="3"/>
+                    <text x="580" y="115" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">Step 3</text>
+                    <text x="580" y="135" font-family="Aptos, sans-serif" font-size="24" fill="white" text-anchor="middle">✓</text>
+                    <text x="580" y="155" font-family="Aptos, sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">Reinforce</text>
+                    
+                    <text x="580" y="205" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">강화학습</text>
+                    <text x="580" y="223" font-family="Aptos, sans-serif" font-size="12" fill="#666" text-anchor="middle">피드백 반영</text>
+                </g>
+                
+                <!-- Arrow 3 back to 1 (curved back) -->
+                <path d="M 525 130 Q 350 240, 175 130" fill="none" stroke="#1E64C8" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+                <text x="350" y="250" font-family="Aptos, sans-serif" font-size="12" fill="#1E64C8" text-anchor="middle">지속적 개선 순환</text>
+                
+                <!-- Gradients -->
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#1E64C8;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#2874d8;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#1E64C8;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#2874d8;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#1E64C8;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#2874d8;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
         </div>
         
         <div class="key-concepts">

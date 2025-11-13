@@ -26,6 +26,17 @@
         }
         .concept-text { font-size: 17px; color: #333; font-weight: 500; }
         .concept-highlight { color: #1E64C8; font-weight: 700; }
+        
+        .diagram-container {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
+        
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -62,6 +73,95 @@
                 <span class="concept-highlight">GPU Memory vs Training Time</span><br>
                 Optimization strategies for limited resources
             </div>
+        </div>
+        
+        <div class="diagram-container">
+            <svg width="880" height="135" viewBox="0 0 880 135">
+                <!-- Tradeoff spectrum -->
+                <defs>
+                    <linearGradient id="spectrum" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#f39c12;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#27ae60;stop-opacity:1" />
+                    </linearGradient>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                </defs>
+                
+                <!-- Main spectrum bar -->
+                <rect x="50" y="20" width="780" height="25" fill="url(#spectrum)" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                
+                <!-- Memory label -->
+                <text x="440" y="13" text-anchor="middle" fill="#1E64C8" font-size="12" font-weight="700">Memory ← → Speed</text>
+                
+                <!-- Left side: Memory optimized -->
+                <text x="80" y="38" text-anchor="start" fill="white" font-size="10" font-weight="700">High Memory Save</text>
+                
+                <!-- Right side: Speed optimized -->
+                <text x="800" y="38" text-anchor="end" fill="white" font-size="10" font-weight="700">Fast Training</text>
+                
+                <!-- Technique markers -->
+                <!-- CPU Offloading -->
+                <g transform="translate(80, 55)">
+                    <line x1="0" y1="0" x2="0" y2="15" stroke="#e74c3c" stroke-width="2"/>
+                    <circle cx="0" cy="0" r="4" fill="#e74c3c"/>
+                    <rect x="-50" y="20" width="100" height="50" fill="#ffebee" stroke="#e74c3c" stroke-width="2" rx="4"/>
+                    <text x="0" y="35" text-anchor="middle" fill="#e74c3c" font-size="10" font-weight="700">CPU Offload</text>
+                    <text x="0" y="48" text-anchor="middle" fill="#666" font-size="8">💾 70% memory</text>
+                    <text x="0" y="58" text-anchor="middle" fill="#666" font-size="8">🐌 2-3× slower</text>
+                    <text x="0" y="68" text-anchor="middle" fill="#999" font-size="7">Best for: 7B on 8GB</text>
+                </g>
+                
+                <!-- Gradient Checkpointing -->
+                <g transform="translate(280, 55)">
+                    <line x1="0" y1="0" x2="0" y2="15" stroke="#e67e22" stroke-width="2"/>
+                    <circle cx="0" cy="0" r="4" fill="#e67e22"/>
+                    <rect x="-55" y="20" width="110" height="50" fill="#fff3e0" stroke="#e67e22" stroke-width="2" rx="4"/>
+                    <text x="0" y="35" text-anchor="middle" fill="#e67e22" font-size="10" font-weight="700">Gradient Checkpoint</text>
+                    <text x="0" y="48" text-anchor="middle" fill="#666" font-size="8">💾 50% memory</text>
+                    <text x="0" y="58" text-anchor="middle" fill="#666" font-size="8">🐢 20% slower</text>
+                    <text x="0" y="68" text-anchor="middle" fill="#999" font-size="7">Best for: Most cases</text>
+                </g>
+                
+                <!-- Mixed Precision -->
+                <g transform="translate(480, 55)">
+                    <line x1="0" y1="0" x2="0" y2="15" stroke="#f39c12" stroke-width="2"/>
+                    <circle cx="0" cy="0" r="4" fill="#f39c12"/>
+                    <rect x="-50" y="20" width="100" height="50" fill="#fff9e6" stroke="#f39c12" stroke-width="2" rx="4"/>
+                    <text x="0" y="35" text-anchor="middle" fill="#f39c12" font-size="10" font-weight="700">Mixed Precision</text>
+                    <text x="0" y="48" text-anchor="middle" fill="#666" font-size="8">💾 40-50% save</text>
+                    <text x="0" y="58" text-anchor="middle" fill="#666" font-size="8">⚡ Same speed</text>
+                    <text x="0" y="68" text-anchor="middle" fill="#999" font-size="7">Best for: NVIDIA GPUs</text>
+                </g>
+                
+                <!-- Batch Size Tuning -->
+                <g transform="translate(650, 55)">
+                    <line x1="0" y1="0" x2="0" y2="15" stroke="#27ae60" stroke-width="2"/>
+                    <circle cx="0" cy="0" r="4" fill="#27ae60"/>
+                    <rect x="-50" y="20" width="100" height="50" fill="#e8f5e9" stroke="#27ae60" stroke-width="2" rx="4"/>
+                    <text x="0" y="35" text-anchor="middle" fill="#27ae60" font-size="10" font-weight="700">Large Batch</text>
+                    <text x="0" y="48" text-anchor="middle" fill="#666" font-size="8">🚀 Fast training</text>
+                    <text x="0" y="58" text-anchor="middle" fill="#666" font-size="8">💾 More memory</text>
+                    <text x="0" y="68" text-anchor="middle" fill="#999" font-size="7">Best for: 80GB GPU</text>
+                </g>
+                
+                <!-- Full Speed -->
+                <g transform="translate(800, 55)">
+                    <line x1="0" y1="0" x2="0" y2="15" stroke="#1E64C8" stroke-width="2"/>
+                    <circle cx="0" cy="0" r="4" fill="#1E64C8"/>
+                    <rect x="-45" y="20" width="90" height="50" fill="#e3f2fd" stroke="#1E64C8" stroke-width="2" rx="4"/>
+                    <text x="0" y="35" text-anchor="middle" fill="#1E64C8" font-size="10" font-weight="700">Full Speed</text>
+                    <text x="0" y="48" text-anchor="middle" fill="#666" font-size="8">⚡ Fastest</text>
+                    <text x="0" y="58" text-anchor="middle" fill="#666" font-size="8">💾 High memory</text>
+                    <text x="0" y="68" text-anchor="middle" fill="#999" font-size="7">Best for: Multi-GPU</text>
+                </g>
+                
+                <!-- Bottom recommendation boxes -->
+                <g transform="translate(50, 125)">
+                    <text x="0" y="0" fill="#1E64C8" font-size="10" font-weight="700">💡 Recommendation: Start with Mixed Precision + Gradient Checkpointing</text>
+                </g>
+            </svg>
         </div>
         
         <div class="application-section">

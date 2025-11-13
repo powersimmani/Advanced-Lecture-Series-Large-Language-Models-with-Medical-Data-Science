@@ -31,84 +31,125 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
         
-        .stats-grid {
+        /* Dashboard Layout Mockup */
+        .dashboard-mockup {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
+            grid-template-rows: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+            height: 200px;
         }
         
-        .stat-card {
+        .dashboard-widget {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .dashboard-widget:hover {
+            background: #e8f2ff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+        }
+        
+        .widget-large {
+            grid-column: span 2;
+        }
+        
+        .widget-icon {
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+        
+        .widget-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1E64C8;
             text-align: center;
         }
         
-        .stat-number {
-            font-size: 24px;
+        .widget-value {
+            font-size: 20px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 8px;
+            margin-top: 4px;
         }
         
-        .stat-label {
-            font-size: 13px;
-            color: #555;
-            font-weight: 500;
-        }
-        
-        .features-section {
+        /* KPI Cards */
+        .kpi-section {
             background: #f8f9fa;
             border-left: 5px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px 25px;
-            margin-bottom: 20px;
+            padding: 16px 22px;
+            margin-bottom: 18px;
         }
         
-        .features-title {
-            font-size: 20px;
+        .kpi-title {
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 12px;
         }
         
-        .features-grid {
+        .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 10px;
         }
         
-        .feature-item {
-            font-size: 15px;
-            color: #333;
-            padding: 8px 12px;
+        .kpi-card {
             background: white;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.2s;
         }
         
-        .feature-icon {
+        .kpi-card:hover {
+            border-color: #1E64C8;
+            background: #f0f5fc;
+        }
+        
+        .kpi-icon {
             font-size: 20px;
+            margin-bottom: 4px;
+        }
+        
+        .kpi-name {
+            font-size: 11px;
+            color: #555;
+            margin-bottom: 4px;
+        }
+        
+        .kpi-metric {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
         }
         
         .performance-box {
             background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
             border-radius: 8px;
-            padding: 15px 20px;
+            padding: 12px 20px;
             color: white;
             text-align: center;
         }
         
         .performance-text {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 600;
         }
     </style>
@@ -117,41 +158,78 @@
     <div class="container">
         <div class="title">Performance Dashboards</div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Key Performance Indicators</div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">📊</span>
-                    <span>Accuracy and error rates</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">⏱️</span>
-                    <span>Response time and latency</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🎯</span>
-                    <span>Clinical relevance scores</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">⚠️</span>
-                    <span>Safety incidents and hallucinations</span>
-                </div>
+        <!-- Dashboard Mockup -->
+        <div class="dashboard-mockup">
+            <div class="dashboard-widget widget-large">
+                <div class="widget-icon">📈</div>
+                <div class="widget-label">Accuracy Trend</div>
+                <div class="widget-value">87.3%</div>
+            </div>
+            
+            <div class="dashboard-widget">
+                <div class="widget-icon">⏱️</div>
+                <div class="widget-label">Latency</div>
+                <div class="widget-value">1.2s</div>
+            </div>
+            
+            <div class="dashboard-widget">
+                <div class="widget-icon">🎯</div>
+                <div class="widget-label">F1 Score</div>
+                <div class="widget-value">0.85</div>
+            </div>
+            
+            <div class="dashboard-widget">
+                <div class="widget-icon">✓</div>
+                <div class="widget-label">Clinical Relevance</div>
+                <div class="widget-value">8.4/10</div>
+            </div>
+            
+            <div class="dashboard-widget">
+                <div class="widget-icon">⚠️</div>
+                <div class="widget-label">Safety Alerts</div>
+                <div class="widget-value">3</div>
+            </div>
+            
+            <div class="dashboard-widget widget-large">
+                <div class="widget-icon">🔍</div>
+                <div class="widget-label">Hallucination Rate</div>
+                <div class="widget-value">2.1%</div>
             </div>
         </div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Dashboard Features</div>
-            <div style="font-size: 16px; color: #333; line-height: 1.6; padding: 10px 0;">
-                • <strong>Real-time monitoring:</strong> Live metric updates<br>
-                • <strong>Alert system:</strong> Automatic threshold notifications<br>
-                • <strong>Trend analysis:</strong> Historical performance tracking<br>
-                • <strong>Drill-down capabilities:</strong> Case-level investigation
+        <!-- KPI Section -->
+        <div class="kpi-section">
+            <div class="kpi-title">Real-Time Key Performance Indicators</div>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon">📊</div>
+                    <div class="kpi-name">Accuracy</div>
+                    <div class="kpi-metric">87.3%</div>
+                </div>
+                
+                <div class="kpi-card">
+                    <div class="kpi-icon">⏱️</div>
+                    <div class="kpi-name">Response Time</div>
+                    <div class="kpi-metric">1.2s</div>
+                </div>
+                
+                <div class="kpi-card">
+                    <div class="kpi-icon">🎯</div>
+                    <div class="kpi-name">Relevance</div>
+                    <div class="kpi-metric">8.4/10</div>
+                </div>
+                
+                <div class="kpi-card">
+                    <div class="kpi-icon">⚠️</div>
+                    <div class="kpi-name">Safety Issues</div>
+                    <div class="kpi-metric">3</div>
+                </div>
             </div>
         </div>
         
         <div class="performance-box">
             <div class="performance-text">
-                Visualization: Time series graphs, heatmaps, distribution charts, comparison tables
+                Features: Real-time monitoring | Alert system | Trend analysis | Drill-down investigation
             </div>
         </div>
         

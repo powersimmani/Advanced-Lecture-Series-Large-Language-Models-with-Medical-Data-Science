@@ -56,14 +56,14 @@
             font-weight: 700;
         }
         
-        .features-grid, .requirements-grid {
+        .requirements-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             margin-bottom: 16px;
         }
         
-        .feature-card, .req-card {
+        .req-card {
             background: white;
             border: 2.5px solid #1E64C8;
             border-radius: 8px;
@@ -71,268 +71,35 @@
             transition: all 0.3s;
         }
         
-        .feature-card:hover, .req-card:hover {
+        .req-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
             background: #f8fbff;
         }
         
-        .feature-title, .req-title {
+        .req-title {
             font-size: 15px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 6px;
         }
         
-        .feature-desc, .req-desc {
+        .req-desc {
             font-size: 13px;
             color: #555;
             line-height: 1.4;
         }
         
-        .pathway-steps {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+        .timeline-diagram {
             margin-top: 16px;
         }
-        
-        .step-card {
-            background: white;
-            border: 2.5px solid #1E64C8;
-            border-radius: 8px;
-            padding: 12px 16px;
-            text-align: center;
-            flex: 1;
+
+        .phase-icon {
+            transition: transform 0.3s;
         }
-        
-        .step-number {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 6px;
-        }
-        
-        .step-text {
-            font-size: 13px;
-            color: #555;
-        }
-        
-        .arrow {
-            font-size: 20px;
-            color: #1E64C8;
-            font-weight: 700;
-        }
-        
-        .timeline-box {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 14px 18px;
-            margin-top: 12px;
-        }
-        
-        .timeline-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        
-        .timeline-steps {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-        }
-        
-        .timeline-step {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .timeline-label {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 4px;
-        }
-        
-        .timeline-desc {
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .pma-requirements {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-bottom: 14px;
-        }
-        
-        .req-category {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 14px;
-        }
-        
-        .category-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 10px;
-        }
-        
-        .req-item {
-            font-size: 13px;
-            color: #555;
-            margin-bottom: 4px;
-            line-height: 1.4;
-        }
-        
-        .comparison-box {
-            background: #f0f5fc;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 14px;
-        }
-        
-        .comparison-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .comparison-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .comp-item {
-            display: grid;
-            grid-template-columns: 120px 1fr 1fr;
-            gap: 10px;
-            align-items: center;
-        }
-        
-        .comp-label {
-            font-size: 13px;
-            font-weight: 700;
-            color: #333;
-        }
-        
-        .comp-510k, .comp-pma {
-            font-size: 12px;
-            color: #555;
-            padding: 6px;
-            background: white;
-            border-radius: 4px;
-            text-align: center;
-        }
-        
-        .denovo-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-        
-        .feature-box {
-            background: white;
-            border: 2.5px solid #1E64C8;
-            border-radius: 8px;
-            padding: 12px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .feature-box:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
-        }
-        
-        .feature-icon {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-        
-        .process-flow {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 14px;
-            margin-bottom: 12px;
-        }
-        
-        .flow-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        
-        .flow-steps {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .flow-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .step-num {
-            width: 30px;
-            height: 30px;
-            background: #1E64C8;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
-        }
-        
-        .step-content {
-            text-align: center;
-        }
-        
-        .step-name {
-            font-size: 13px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 2px;
-        }
-        
-        .step-detail {
-            font-size: 11px;
-            color: #666;
-        }
-        
-        .flow-arrow {
-            font-size: 18px;
-            color: #1E64C8;
-            font-weight: 700;
-        }
-        
-        .note-box {
-            background: #fff4e6;
-            border-left: 4px solid #ff9800;
-            border-radius: 4px;
-            padding: 10px 14px;
-            font-size: 13px;
-            color: #555;
-            line-height: 1.5;
+
+        .phase-icon:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -369,26 +136,67 @@
             </div>
         </div>
         
-        <div class="timeline-box">
-            <div class="timeline-title">🔄 510(k) 프로세스</div>
-            <div class="timeline-steps">
-                <div class="timeline-step">
-                    <div class="timeline-label">준비</div>
-                    <div class="timeline-desc">Predicate 선정 및 문서 작성</div>
-                </div>
-                <div class="timeline-step">
-                    <div class="timeline-label">제출</div>
-                    <div class="timeline-desc">FDA에 510(k) 신청서 제출</div>
-                </div>
-                <div class="timeline-step">
-                    <div class="timeline-label">검토</div>
-                    <div class="timeline-desc">FDA 심사 및 추가 정보 요청</div>
-                </div>
-                <div class="timeline-step">
-                    <div class="timeline-label">승인</div>
-                    <div class="timeline-desc">Clearance letter 발급</div>
-                </div>
-            </div>
+        <div class="timeline-diagram">
+            <svg width="880" height="180" viewBox="0 0 880 180">
+                <!-- Timeline base line -->
+                <line x1="40" y1="90" x2="840" y2="90" stroke="#1E64C8" stroke-width="4"/>
+                
+                <!-- Phase 1: 준비 -->
+                <g class="phase-icon">
+                    <circle cx="120" cy="90" r="35" fill="#1E64C8"/>
+                    <text x="120" y="70" font-size="28" text-anchor="middle">📋</text>
+                    <rect x="70" y="140" width="100" height="35" rx="5" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="120" y="155" font-size="13" font-weight="bold" fill="#1E64C8" text-anchor="middle">준비</text>
+                    <text x="120" y="168" font-size="11" fill="#555" text-anchor="middle">Predicate 선정</text>
+                </g>
+                
+                <!-- Arrow 1 -->
+                <path d="M 155 90 L 265 90" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead)"/>
+                
+                <!-- Phase 2: 제출 -->
+                <g class="phase-icon">
+                    <circle cx="320" cy="90" r="35" fill="#1E64C8"/>
+                    <text x="320" y="70" font-size="28" text-anchor="middle">📤</text>
+                    <rect x="270" y="140" width="100" height="35" rx="5" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="320" y="155" font-size="13" font-weight="bold" fill="#1E64C8" text-anchor="middle">제출</text>
+                    <text x="320" y="168" font-size="11" fill="#555" text-anchor="middle">FDA 신청</text>
+                </g>
+                
+                <!-- Arrow 2 -->
+                <path d="M 355 90 L 465 90" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead)"/>
+                
+                <!-- Phase 3: 검토 -->
+                <g class="phase-icon">
+                    <circle cx="520" cy="90" r="35" fill="#1E64C8"/>
+                    <text x="520" y="70" font-size="28" text-anchor="middle">🔍</text>
+                    <rect x="470" y="140" width="100" height="35" rx="5" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="520" y="155" font-size="13" font-weight="bold" fill="#1E64C8" text-anchor="middle">검토</text>
+                    <text x="520" y="168" font-size="11" fill="#555" text-anchor="middle">FDA 심사 (~90일)</text>
+                </g>
+                
+                <!-- Arrow 3 -->
+                <path d="M 555 90 L 665 90" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead)"/>
+                
+                <!-- Phase 4: 승인 -->
+                <g class="phase-icon">
+                    <circle cx="720" cy="90" r="35" fill="#4caf50"/>
+                    <text x="720" y="70" font-size="28" text-anchor="middle">✅</text>
+                    <rect x="670" y="140" width="100" height="35" rx="5" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+                    <text x="720" y="155" font-size="13" font-weight="bold" fill="#4caf50" text-anchor="middle">승인</text>
+                    <text x="720" y="168" font-size="11" fill="#555" text-anchor="middle">Clearance Letter</text>
+                </g>
+                
+                <!-- Duration indicator -->
+                <rect x="270" y="20" width="300" height="30" rx="15" fill="#fff4e6" stroke="#ff9800" stroke-width="2"/>
+                <text x="420" y="40" font-size="13" font-weight="bold" fill="#ff9800" text-anchor="middle">⏱️ 평균 소요기간: 3-6개월</text>
+                
+                <!-- Arrow marker definition -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                </defs>
+            </svg>
         </div>
         
     </div>

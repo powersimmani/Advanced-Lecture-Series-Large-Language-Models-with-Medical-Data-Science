@@ -31,84 +31,156 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
         
+        /* Agreement Metrics Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 20px;
         }
         
         .stat-card {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+            background: #e8f2ff;
         }
         
         .stat-number {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         
         .stat-label {
-            font-size: 13px;
+            font-size: 12px;
             color: #555;
             font-weight: 500;
         }
         
-        .features-section {
+        /* Kappa Interpretation Scale */
+        .kappa-scale {
             background: #f8f9fa;
             border-left: 5px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px 25px;
-            margin-bottom: 20px;
+            padding: 16px 22px;
+            margin-bottom: 18px;
         }
         
-        .features-title {
-            font-size: 20px;
+        .scale-title {
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 12px;
         }
         
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+        .scale-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
         
-        .feature-item {
-            font-size: 15px;
-            color: #333;
-            padding: 8px 12px;
-            background: white;
-            border-radius: 5px;
+        .scale-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.2s;
         }
         
-        .feature-icon {
-            font-size: 20px;
+        .scale-item:hover {
+            background: #f0f5fc;
+            transform: translateX(5px);
+        }
+        
+        .scale-bar {
+            width: 60px;
+            height: 8px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+        
+        .bar-poor { background: #dc3545; }
+        .bar-fair { background: #fd7e14; }
+        .bar-moderate { background: #ffc107; }
+        .bar-substantial { background: #28a745; }
+        .bar-perfect { background: #20c997; }
+        
+        .scale-range {
+            font-weight: 700;
+            color: #1E64C8;
+            min-width: 90px;
+            font-size: 13px;
+        }
+        
+        .scale-label {
+            flex: 1;
+            font-size: 13px;
+            color: #333;
+        }
+        
+        .scale-status {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 12px;
+            background: #f0f5fc;
+            color: #1E64C8;
+        }
+        
+        /* Resolution Process */
+        .resolution-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+        
+        .resolution-step {
+            flex: 1;
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1E64C8;
+        }
+        
+        .resolution-arrow {
+            color: #1E64C8;
+            font-size: 24px;
+            font-weight: 700;
         }
         
         .performance-box {
             background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
             border-radius: 8px;
-            padding: 15px 20px;
+            padding: 12px 20px;
             color: white;
             text-align: center;
         }
         
         .performance-text {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 600;
         }
     </style>
@@ -117,7 +189,8 @@
     <div class="container">
         <div class="title">Inter-Rater Agreement</div>
         
-        <div class="stats-grid" style="margin-bottom: 20px;">
+        <!-- Agreement Metrics -->
+        <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number">Cohen's κ</div>
                 <div class="stat-label">Two raters</div>
@@ -136,15 +209,50 @@
             </div>
         </div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Kappa Interpretation</div>
-            <div style="font-size: 16px; color: #333; line-height: 1.6; padding: 10px 0;">
-                • <strong>κ < 0.20:</strong> Poor agreement (unacceptable)<br>
-                • <strong>κ = 0.21-0.40:</strong> Fair agreement (needs improvement)<br>
-                • <strong>κ = 0.41-0.60:</strong> Moderate agreement (acceptable)<br>
-                • <strong>κ = 0.61-0.80:</strong> Substantial agreement (good)<br>
-                • <strong>κ > 0.80:</strong> Almost perfect agreement (excellent)
+        <!-- Kappa Interpretation Scale -->
+        <div class="kappa-scale">
+            <div class="scale-title">Kappa Interpretation Scale</div>
+            <div class="scale-items">
+                <div class="scale-item">
+                    <div class="scale-bar bar-poor"></div>
+                    <div class="scale-range">κ < 0.20</div>
+                    <div class="scale-label">Poor agreement</div>
+                    <div class="scale-status">Unacceptable</div>
+                </div>
+                <div class="scale-item">
+                    <div class="scale-bar bar-fair"></div>
+                    <div class="scale-range">κ = 0.21-0.40</div>
+                    <div class="scale-label">Fair agreement</div>
+                    <div class="scale-status">Needs work</div>
+                </div>
+                <div class="scale-item">
+                    <div class="scale-bar bar-moderate"></div>
+                    <div class="scale-range">κ = 0.41-0.60</div>
+                    <div class="scale-label">Moderate agreement</div>
+                    <div class="scale-status">Acceptable</div>
+                </div>
+                <div class="scale-item">
+                    <div class="scale-bar bar-substantial"></div>
+                    <div class="scale-range">κ = 0.61-0.80</div>
+                    <div class="scale-label">Substantial agreement</div>
+                    <div class="scale-status">Good</div>
+                </div>
+                <div class="scale-item">
+                    <div class="scale-bar bar-perfect"></div>
+                    <div class="scale-range">κ > 0.80</div>
+                    <div class="scale-label">Almost perfect</div>
+                    <div class="scale-status">Excellent</div>
+                </div>
             </div>
+        </div>
+        
+        <!-- Resolution Process -->
+        <div class="resolution-box">
+            <div class="resolution-step">Disagreement Detected</div>
+            <div class="resolution-arrow">→</div>
+            <div class="resolution-step">Consensus Discussion</div>
+            <div class="resolution-arrow">→</div>
+            <div class="resolution-step">Third Expert</div>
         </div>
         
         <div class="performance-box">

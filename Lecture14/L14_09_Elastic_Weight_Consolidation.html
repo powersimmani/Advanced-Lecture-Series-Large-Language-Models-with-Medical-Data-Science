@@ -71,11 +71,134 @@
             color: #1E64C8;
             font-weight: 700;
         }
+        
+        .diagram-section {
+            background: linear-gradient(135deg, #f0f5fc 0%, #e8f2ff 100%);
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .diagram-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Elastic Weight Consolidation (EWC)</div>
+        
+        <div class="diagram-section">
+            <div class="diagram-title">🎯 EWC 가중치 중요도 메커니즘</div>
+            <svg width="100%" height="280" viewBox="0 0 870 280">
+                <!-- Task A (Previous) -->
+                <g transform="translate(50, 40)">
+                    <rect x="0" y="0" width="200" height="80" fill="white" stroke="#1E64C8" stroke-width="2" rx="8"/>
+                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">Task A (이전 작업)</text>
+                    
+                    <!-- Weight importance visualization -->
+                    <g transform="translate(20, 35)">
+                        <text x="0" y="10" font-size="11" fill="#333">가중치 중요도:</text>
+                        <!-- High importance weights -->
+                        <circle cx="20" cy="30" r="8" fill="#1E64C8" opacity="0.9"/>
+                        <circle cx="40" cy="30" r="8" fill="#1E64C8" opacity="0.9"/>
+                        <circle cx="60" cy="30" r="8" fill="#1E64C8" opacity="0.9"/>
+                        <text x="75" y="35" font-size="10" fill="#666">높음 (고정)</text>
+                        
+                        <!-- Low importance weights -->
+                        <circle cx="120" cy="30" r="5" fill="#1E64C8" opacity="0.3"/>
+                        <circle cx="135" cy="30" r="5" fill="#1E64C8" opacity="0.3"/>
+                        <circle cx="150" cy="30" r="5" fill="#1E64C8" opacity="0.3"/>
+                        <text x="155" y="35" font-size="10" fill="#666">낮음</text>
+                    </g>
+                </g>
+                
+                <!-- Fisher Information Matrix -->
+                <g transform="translate(280, 50)">
+                    <rect x="0" y="0" width="140" height="60" fill="#1E64C8" opacity="0.1" stroke="#1E64C8" stroke-width="2" rx="6" stroke-dasharray="5,3"/>
+                    <text x="70" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#1E64C8">Fisher Information</text>
+                    <text x="70" y="42" text-anchor="middle" font-size="11" fill="#666">Matrix F</text>
+                </g>
+                
+                <!-- Arrow -->
+                <path d="M 250,80 L 280,80" fill="none" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- New Task B -->
+                <g transform="translate(450, 40)">
+                    <rect x="0" y="0" width="200" height="80" fill="white" stroke="#1E64C8" stroke-width="2" rx="8"/>
+                    <text x="100" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">Task B (새 작업)</text>
+                    
+                    <g transform="translate(20, 35)">
+                        <text x="0" y="10" font-size="11" fill="#333">학습 제약:</text>
+                        <!-- Constrained weights -->
+                        <circle cx="20" cy="30" r="8" fill="#1E64C8" opacity="0.9" stroke="#FF6B6B" stroke-width="2"/>
+                        <circle cx="40" cy="30" r="8" fill="#1E64C8" opacity="0.9" stroke="#FF6B6B" stroke-width="2"/>
+                        <text x="55" y="35" font-size="10" fill="#FF6B6B">제약됨</text>
+                        
+                        <!-- Free weights -->
+                        <circle cx="100" cy="30" r="5" fill="#4CAF50" opacity="0.7"/>
+                        <circle cx="115" cy="30" r="5" fill="#4CAF50" opacity="0.7"/>
+                        <circle cx="130" cy="30" r="5" fill="#4CAF50" opacity="0.7"/>
+                        <text x="145" y="35" font-size="10" fill="#4CAF50">자유</text>
+                    </g>
+                </g>
+                
+                <!-- Loss Function Visualization -->
+                <g transform="translate(50, 150)">
+                    <rect x="0" y="0" width="600" height="110" fill="white" stroke="#1E64C8" stroke-width="2" rx="8"/>
+                    <text x="300" y="25" text-anchor="middle" font-size="15" font-weight="600" fill="#1E64C8">📐 EWC 손실 함수</text>
+                    
+                    <!-- Loss equation -->
+                    <g transform="translate(50, 40)">
+                        <text x="0" y="20" font-size="14" fill="#333">L</text>
+                        <text x="12" y="25" font-size="10" fill="#666">total</text>
+                        <text x="40" y="20" font-size="14" fill="#333">=  L</text>
+                        <text x="70" y="25" font-size="10" fill="#666">new</text>
+                        <text x="95" y="20" font-size="14" fill="#333">+  λ  ·  L</text>
+                        <text x="165" y="25" font-size="10" fill="#666">EWC</text>
+                    </g>
+                    
+                    <!-- Visual representation -->
+                    <g transform="translate(50, 65)">
+                        <!-- L_new -->
+                        <rect x="0" y="0" width="120" height="25" fill="#4CAF50" opacity="0.3" rx="4"/>
+                        <text x="60" y="17" text-anchor="middle" font-size="11" fill="#333">새 작업 손실</text>
+                        
+                        <text x="135" y="17" text-anchor="middle" font-size="14" fill="#333">+</text>
+                        
+                        <!-- L_EWC penalty -->
+                        <rect x="160" y="0" width="180" height="25" fill="#FF6B6B" opacity="0.3" rx="4"/>
+                        <text x="250" y="17" text-anchor="middle" font-size="11" fill="#333">중요 가중치 보존 페널티</text>
+                        
+                        <text x="360" y="17" text-anchor="middle" font-size="14" fill="#333">=</text>
+                        
+                        <!-- Total -->
+                        <rect x="385" y="0" width="120" height="25" fill="#1E64C8" opacity="0.3" rx="4"/>
+                        <text x="445" y="17" text-anchor="middle" font-size="11" fill="#333">균형잡힌 학습</text>
+                    </g>
+                </g>
+                
+                <!-- Benefits -->
+                <g transform="translate(680, 150)">
+                    <rect x="0" y="0" width="170" height="110" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2" rx="6"/>
+                    <text x="85" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#1E64C8">✨ 효과</text>
+                    <text x="10" y="48" font-size="11" fill="#333">✓ 중요 지식 보존</text>
+                    <text x="10" y="68" font-size="11" fill="#333">✓ 유연한 학습</text>
+                    <text x="10" y="88" font-size="11" fill="#333">✓ 메모리 효율적</text>
+                </g>
+                
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
         
         <div class="section">
             <div class="section-title">🎯 EWC 메커니즘</div>
@@ -86,6 +209,7 @@
                 <div class="item">유연성 유지: 덜 중요한 가중치는 자유롭게 업데이트</div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">📐 손실 함수</div>
             <div class="item-list">
@@ -95,6 +219,7 @@
                 <div class="item">λ: 정규화 강도 (일반적으로 1-1000)</div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">⚡ 페널티 적용</div>
             <div class="item-list">

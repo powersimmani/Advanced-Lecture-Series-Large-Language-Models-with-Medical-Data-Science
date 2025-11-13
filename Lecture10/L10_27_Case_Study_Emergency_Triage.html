@@ -8,29 +8,70 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Aptos, 'Segoe UI', sans-serif; background: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .container { width: 960px; height: 540px; padding: 35px 45px; background: white; }
-        .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 22px; text-align: center; }
-        .concept-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px 25px; margin-bottom: 22px; text-align: center; font-size: 17px; color: #333; font-weight: 500; }
+        .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 20px; text-align: center; }
+        .concept-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px 25px; margin-bottom: 20px; text-align: center; font-size: 17px; color: #333; font-weight: 500; }
         .highlight { color: #1E64C8; font-weight: 700; }
-        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-        .content-card { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 18px; transition: all 0.3s; }
-        .content-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2); background: #f8fbff; }
-        .card-title { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
-        .card-desc { font-size: 15px; color: #555; line-height: 1.5; }
+        .workflow { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; padding: 0 10px; }
+        .workflow-step { flex: 1; text-align: center; }
+        .step-box { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 12px 8px; font-size: 13px; color: #333; font-weight: 500; min-height: 60px; display: flex; align-items: center; justify-content: center; }
+        .arrow { font-size: 20px; color: #1E64C8; font-weight: bold; flex: 0 0 25px; text-align: center; }
+        .modalities { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+        .modality-box { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 12px; text-align: center; }
+        .mod-title { font-size: 15px; font-weight: 700; color: #1E64C8; margin-bottom: 6px; }
+        .mod-content { font-size: 12px; color: #555; line-height: 1.4; }
+        .results { background: #f8f9fb; border-left: 4px solid #1E64C8; padding: 12px 18px; border-radius: 6px; }
+        .result-title { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
+        .result-item { font-size: 14px; color: #333; margin-bottom: 4px; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Case Study: Emergency Room Multimodal Triage</div>
         <div class="concept-box">응급실에서 텍스트(주소), 영상(X-ray), 생체신호(ECG, BP)를 통합하여 트리아지 우선순위 결정</div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-title">Key Point 1</div>
-                <div class="card-desc">Detailed explanation of the first key point</div>
+        
+        <div class="workflow">
+            <div class="workflow-step">
+                <div class="step-box">환자 도착<br>& 초기 평가</div>
             </div>
-            <div class="content-card">
-                <div class="card-title">Key Point 2</div>
-                <div class="card-desc">Detailed explanation of the second key point</div>
+            <div class="arrow">→</div>
+            <div class="workflow-step">
+                <div class="step-box">다중 모달<br>데이터 수집</div>
             </div>
+            <div class="arrow">→</div>
+            <div class="workflow-step">
+                <div class="step-box">멀티모달<br>AI 분석</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="workflow-step">
+                <div class="step-box">위험도 점수<br>산출</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="workflow-step">
+                <div class="step-box">트리아지<br>우선순위</div>
+            </div>
+        </div>
+        
+        <div class="modalities">
+            <div class="modality-box">
+                <div class="mod-title">📝 텍스트</div>
+                <div class="mod-content">주 호소: "가슴 통증"<br>증상 기간: 2시간<br>과거력: 고혈압</div>
+            </div>
+            <div class="modality-box">
+                <div class="mod-title">🩻 영상</div>
+                <div class="mod-content">흉부 X-ray<br>심비대 소견<br>폐부종 의심</div>
+            </div>
+            <div class="modality-box">
+                <div class="mod-title">📊 생체신호</div>
+                <div class="mod-content">HR: 110 bpm<br>BP: 160/95<br>ECG: ST 상승</div>
+            </div>
+        </div>
+        
+        <div class="results">
+            <div class="result-title">통합 분석 결과</div>
+            <div class="result-item"><strong>예측 진단:</strong> 급성 심근경색 가능성 높음 (87% 신뢰도)</div>
+            <div class="result-item"><strong>위험도 점수:</strong> 9/10 (긴급)</div>
+            <div class="result-item"><strong>권장 조치:</strong> 즉시 심장내과 협진, 응급 심도자술 준비</div>
+            <div class="result-item"><strong>처리 시간:</strong> 3초 (실시간 지원)</div>
         </div>
     </div>
 </body>

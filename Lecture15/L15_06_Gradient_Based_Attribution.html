@@ -24,59 +24,190 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 30px;
+        .main-content {
+            display: flex;
+            gap: 30px;
+            height: 380px;
+        }
+        .diagram-section {
+            flex: 1.4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         .content-card {
             background: #f8f9fa;
             border-left: 4px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             transition: all 0.3s;
         }
         .content-card:hover {
             background: #e8f2ff;
-            transform: translateY(-3px);
+            transform: translateX(5px);
             box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
         }
         .card-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         .card-text {
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
-            line-height: 1.5;
+            line-height: 1.4;
+        }
+        .grad-diagram {
+            width: 100%;
+            max-width: 560px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Gradient-Based Attribution</div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-title">📈 Gradient Analysis</div>
-                <div class="card-text">Using gradients to measure input feature importance</div>
+        <div class="main-content">
+            <div class="diagram-section">
+                <svg class="grad-diagram" viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Input Image -->
+                    <g id="input-image">
+                        <text x="100" y="25" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Input Image</text>
+                        <rect x="20" y="40" width="160" height="160" fill="#e0e0e0" rx="8"/>
+                        
+                        <!-- Medical scan visualization -->
+                        <ellipse cx="100" cy="95" rx="55" ry="40" fill="#b0b0b0" opacity="0.4"/>
+                        <ellipse cx="85" cy="90" rx="20" ry="25" fill="#888" opacity="0.5"/>
+                        <ellipse cx="115" cy="90" rx="20" ry="25" fill="#888" opacity="0.5"/>
+                        <circle cx="100" cy="135" r="18" fill="#d32f2f" opacity="0.6"/>
+                        <text x="100" y="230" text-anchor="middle" fill="#d32f2f" font-size="10" font-weight="600">Suspicious region</text>
+                    </g>
+                    
+                    <!-- Model with gradient flow -->
+                    <g id="model">
+                        <text x="280" y="25" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Neural Network</text>
+                        
+                        <!-- Network layers -->
+                        <rect x="220" y="60" width="120" height="40" fill="#1E64C8" rx="6" opacity="0.9"/>
+                        <text x="280" y="85" text-anchor="middle" fill="white" font-size="11" font-weight="600">Convolutional</text>
+                        
+                        <rect x="220" y="110" width="120" height="40" fill="#2874d8" rx="6" opacity="0.85"/>
+                        <text x="280" y="135" text-anchor="middle" fill="white" font-size="11" font-weight="600">Feature Maps</text>
+                        
+                        <rect x="220" y="160" width="120" height="40" fill="#5088d4" rx="6" opacity="0.75"/>
+                        <text x="280" y="185" text-anchor="middle" fill="white" font-size="11" font-weight="600">Classification</text>
+                        
+                        <!-- Forward arrows -->
+                        <path d="M 180 120 L 215 80" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow-forward)"/>
+                        <defs>
+                            <marker id="arrow-forward" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" opacity="0.6"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Gradient backward arrows -->
+                        <path d="M 215 100 L 180 150" stroke="#f57c00" stroke-width="3" marker-end="url(#arrow-grad)" opacity="0.7"/>
+                        <defs>
+                            <marker id="arrow-grad" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#f57c00"/>
+                            </marker>
+                        </defs>
+                        
+                        <text x="195" y="138" fill="#f57c00" font-size="11" font-weight="700">∇ Gradient</text>
+                        <text x="195" y="152" fill="#f57c00" font-size="11" font-weight="700">Backprop</text>
+                    </g>
+                    
+                    <!-- Output -->
+                    <g id="output">
+                        <text x="280" y="240" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Prediction</text>
+                        <rect x="220" y="255" width="120" height="50" fill="#43a047" rx="8" opacity="0.85"/>
+                        <text x="280" y="275" text-anchor="middle" fill="white" font-size="12" font-weight="700">Malignant</text>
+                        <text x="280" y="293" text-anchor="middle" fill="white" font-size="16" font-weight="700">0.87</text>
+                    </g>
+                    
+                    <!-- Saliency Map -->
+                    <g id="saliency">
+                        <text x="460" y="25" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Saliency Map</text>
+                        <rect x="380" y="40" width="160" height="160" fill="#1a1a1a" rx="8"/>
+                        
+                        <!-- Gradient-based heatmap -->
+                        <defs>
+                            <radialGradient id="saliency-grad" cx="50%" cy="60%">
+                                <stop offset="0%" style="stop-color:#ffff00;stop-opacity:1" />
+                                <stop offset="30%" style="stop-color:#ff6600;stop-opacity:0.8" />
+                                <stop offset="60%" style="stop-color:#ff0000;stop-opacity:0.5" />
+                                <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+                            </radialGradient>
+                        </defs>
+                        
+                        <ellipse cx="460" cy="120" r="45" fill="url(#saliency-grad)"/>
+                        <text x="460" y="230" text-anchor="middle" fill="#ff6600" font-size="10" font-weight="600">High gradient magnitude</text>
+                    </g>
+                    
+                    <!-- Gradient computation -->
+                    <g id="computation">
+                        <rect x="380" y="250" width="160" height="90" fill="#f8f9fa" rx="8" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="460" y="270" text-anchor="middle" fill="#1E64C8" font-size="12" font-weight="700">Attribution Score</text>
+                        
+                        <text x="460" y="290" text-anchor="middle" fill="#333" font-size="11" font-family="serif">
+                            A_i = |∂f/∂x_i|
+                        </text>
+                        
+                        <text x="460" y="310" text-anchor="middle" fill="#666" font-size="9">Gradient magnitude</text>
+                        <text x="460" y="323" text-anchor="middle" fill="#666" font-size="9">w.r.t. input pixel i</text>
+                        <text x="460" y="336" text-anchor="middle" fill="#666" font-size="9">indicates importance</text>
+                    </g>
+                    
+                    <!-- Sensitivity visualization -->
+                    <g id="sensitivity">
+                        <text x="100" y="265" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">Sensitivity Analysis</text>
+                        
+                        <!-- Feature importance bars -->
+                        <rect x="20" y="280" width="160" height="25" fill="#e0e0e0" rx="4"/>
+                        <rect x="20" y="280" width="140" height="25" fill="#d32f2f" rx="4" opacity="0.8"/>
+                        <text x="190" y="295" fill="#333" font-size="10">Region A: High</text>
+                        
+                        <rect x="20" y="312" width="160" height="25" fill="#e0e0e0" rx="4"/>
+                        <rect x="20" y="312" width="85" height="25" fill="#f57c00" rx="4" opacity="0.7"/>
+                        <text x="190" y="327" fill="#333" font-size="10">Region B: Medium</text>
+                        
+                        <rect x="20" y="344" width="160" height="25" fill="#e0e0e0" rx="4"/>
+                        <rect x="20" y="344" width="35" height="25" fill="#fdd835" rx="4" opacity="0.6"/>
+                        <text x="190" y="359" fill="#333" font-size="10">Region C: Low</text>
+                    </g>
+                    
+                    <!-- Connection line -->
+                    <path d="M 345 180 L 375 120" stroke="#1E64C8" stroke-width="2" stroke-dasharray="4,3" opacity="0.5"/>
+                </svg>
             </div>
-            <div class="content-card">
-                <div class="card-title">🎯 Sensitivity Mapping</div>
-                <div class="card-text">Showing which inputs affect the output most significantly</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">🗺️ Saliency Maps</div>
-                <div class="card-text">Visualizing important pixels and regions in images</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">⚕️ Clinical Interpretation</div>
-                <div class="card-text">Understanding what factors drive model decisions</div>
+            
+            <div class="info-section">
+                <div class="content-card">
+                    <div class="card-title">📈 Gradient Analysis</div>
+                    <div class="card-text">Using gradients to measure input feature importance</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">🎯 Sensitivity Mapping</div>
+                    <div class="card-text">Showing which inputs affect the output most significantly</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">🗺️ Saliency Maps</div>
+                    <div class="card-text">Visualizing important pixels and regions in images</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">⚕️ Clinical Interpretation</div>
+                    <div class="card-text">Understanding what factors drive model decisions</div>
+                </div>
             </div>
         </div>
     </div>

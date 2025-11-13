@@ -23,81 +23,22 @@
             font-size: 28px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: center;
         }
         
     .subtitle {
-        font-size: 16px;
+        font-size: 15px;
         color: #666;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
         font-style: italic;
     }
-    .training-process {
+    
+    .diagram-container {
         display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
-    .process-card {
-        background: white;
-        border: 2px solid #1E64C8;
-        border-radius: 10px;
-        padding: 15px 20px;
-    }
-    .process-header {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 12px;
-    }
-    .process-number {
-        width: 35px;
-        height: 35px;
-        background: linear-gradient(135deg, #1E64C8, #2874d8);
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
         justify-content: center;
-        font-weight: 700;
-        font-size: 18px;
-    }
-    .process-name {
-        font-size: 18px;
-        font-weight: 700;
-        color: #1E64C8;
-    }
-    .process-content {
-        display: flex;
         align-items: center;
-        gap: 15px;
-    }
-    .process-icon {
-        font-size: 32px;
-        flex-shrink: 0;
-    }
-    .process-desc {
-        flex: 1;
-        font-size: 14px;
-        color: #333;
-        line-height: 1.5;
-    }
-    .process-example {
-        font-size: 13px;
-        color: #666;
-        background: #f0f5fc;
-        padding: 8px 12px;
-        border-radius: 6px;
-    }
-    .critique-item {
-        margin-bottom: 4px;
-    }
-    .arrow-down {
-        text-align: center;
-        font-size: 28px;
-        color: #1E64C8;
-        margin: 8px 0;
     }
     
     </style>
@@ -108,64 +49,105 @@
     
     <div class="subtitle">AI가 스스로 윤리적 원칙을 학습하고 적용하는 과정</div>
     
-    <div class="training-process">
-        <div class="process-card">
-            <div class="process-header">
-                <div class="process-number">1</div>
-                <div class="process-name">초기 응답 생성</div>
-            </div>
-            <div class="process-content">
-                <div class="process-icon">💬</div>
-                <div class="process-desc">AI가 의료 질문에 대한 초기 답변을 생성</div>
-                <div class="process-example">예: 환자 치료 방법 추천</div>
-            </div>
-        </div>
-        
-        <div class="arrow-down">↓</div>
-        
-        <div class="process-card">
-            <div class="process-header">
-                <div class="process-number">2</div>
-                <div class="process-name">자기 비판 (Self-Critique)</div>
-            </div>
-            <div class="process-content">
-                <div class="process-icon">🔍</div>
-                <div class="process-desc">헌법(윤리 원칙)에 비추어 자신의 응답을 평가</div>
-                <div class="process-example">
-                    <div class="critique-item">✓ 환자 안전성 고려?</div>
-                    <div class="critique-item">✓ 형평성 유지?</div>
-                    <div class="critique-item">✓ 프라이버시 보호?</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="arrow-down">↓</div>
-        
-        <div class="process-card">
-            <div class="process-header">
-                <div class="process-number">3</div>
-                <div class="process-name">개선 (Revision)</div>
-            </div>
-            <div class="process-content">
-                <div class="process-icon">✏️</div>
-                <div class="process-desc">비판을 바탕으로 응답을 개선</div>
-                <div class="process-example">윤리적 문제가 있다면 수정된 응답 생성</div>
-            </div>
-        </div>
-        
-        <div class="arrow-down">↓</div>
-        
-        <div class="process-card">
-            <div class="process-header">
-                <div class="process-number">4</div>
-                <div class="process-name">강화 학습 (RL)</div>
-            </div>
-            <div class="process-content">
-                <div class="process-icon">📈</div>
-                <div class="process-desc">개선된 응답을 선호하도록 모델 학습</div>
-                <div class="process-example">반복을 통해 윤리적 행동 내재화</div>
-            </div>
-        </div>
+    <div class="diagram-container">
+        <svg width="840" height="420" viewBox="0 0 840 420">
+            <defs>
+                <!-- Gradient definitions -->
+                <linearGradient id="stepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1E64C8;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#2874d8;stop-opacity:1" />
+                </linearGradient>
+                
+                <!-- Arrow marker -->
+                <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
+                </marker>
+            </defs>
+            
+            <!-- Step 1: 초기 응답 생성 -->
+            <g>
+                <rect x="20" y="20" width="180" height="80" rx="10" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="50" cy="60" r="18" fill="url(#stepGrad)"/>
+                <text x="50" y="66" font-family="Aptos, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">1</text>
+                
+                <text x="80" y="50" font-family="Aptos, sans-serif" font-size="16" font-weight="700" fill="#1E64C8" text-anchor="start">초기 응답 생성</text>
+                <text x="80" y="70" font-family="Aptos, sans-serif" font-size="13" fill="#666" text-anchor="start">AI가 의료 질문에 대한</text>
+                <text x="80" y="87" font-family="Aptos, sans-serif" font-size="13" fill="#666" text-anchor="start">초기 답변을 생성</text>
+                
+                <text x="110" y="125" font-family="Aptos, sans-serif" font-size="22" text-anchor="middle">💬</text>
+            </g>
+            
+            <!-- Arrow 1 to 2 -->
+            <path d="M 210 60 L 420 60" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead2)"/>
+            
+            <!-- Step 2: 자기 비판 -->
+            <g>
+                <rect x="430" y="20" width="180" height="80" rx="10" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="460" cy="60" r="18" fill="url(#stepGrad)"/>
+                <text x="460" y="66" font-family="Aptos, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">2</text>
+                
+                <text x="490" y="50" font-family="Aptos, sans-serif" font-size="16" font-weight="700" fill="#1E64C8" text-anchor="start">자기 비판</text>
+                <text x="490" y="70" font-family="Aptos, sans-serif" font-size="13" fill="#666" text-anchor="start">헌법에 비추어</text>
+                <text x="490" y="87" font-family="Aptos, sans-serif" font-size="13" fill="#666" text-anchor="start">응답을 평가</text>
+                
+                <text x="520" y="125" font-family="Aptos, sans-serif" font-size="22" text-anchor="middle">🔍</text>
+            </g>
+            
+            <!-- Arrow 2 to 3 -->
+            <path d="M 610 100 L 610 220" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead2)"/>
+            
+            <!-- Step 3: 개선 -->
+            <g>
+                <rect x="430" y="230" width="180" height="80" rx="10" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="460" cy="270" r="18" fill="url(#stepGrad)"/>
+                <text x="460" y="276" font-family="Aptos, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">3</text>
+                
+                <text x="490" y="260" font-family="Aptos, sans-serif" font-size="16" font-weight="700" fill="#1E64C8" text-anchor="start">개선 (Revision)</text>
+                <text x="490" y="280" font-family="Aptos, sans-serif" font-size="13" fill="#666" text-anchor="start">비판을 바탕으로</text>
+                <text x="490" y="297" font-family="Aptos, sans-serif" font-size="13" fill="#666" text-anchor="start">응답을 개선</text>
+                
+                <text x="520" y="335" font-family="Aptos, sans-serif" font-size="22" text-anchor="middle">✏️</text>
+            </g>
+            
+            <!-- Arrow 3 to 4 -->
+            <path d="M 420 270 L 210 270" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead2)"/>
+            
+            <!-- Step 4: 강화 학습 -->
+            <g>
+                <rect x="20" y="230" width="180" height="80" rx="10" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="50" cy="270" r="18" fill="url(#stepGrad)"/>
+                <text x="50" y="276" font-family="Aptos, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">4</text>
+                
+                <text x="80" y="260" font-family="Aptos, sans-serif" font-size="16" font-weight="700" fill="#1E64C8" text-anchor="start">강화 학습 (RL)</text>
+                <text x="80" y="280" font-family="Aptos, sans-serif" font-size="13" fill="#666" text-anchor="start">개선된 응답을 선호</text>
+                <text x="80" y="297" font-family="Aptos, sans-serif" font-size="13" fill="#666" text-anchor="start">하도록 모델 학습</text>
+                
+                <text x="110" y="335" font-family="Aptos, sans-serif" font-size="22" text-anchor="middle">📈</text>
+            </g>
+            
+            <!-- Feedback loop arrow -->
+            <path d="M 110 230 Q 110 150, 110 110" stroke="#1E64C8" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrowhead2)" fill="none"/>
+            <text x="135" y="170" font-family="Aptos, sans-serif" font-size="12" font-weight="600" fill="#1E64C8">반복</text>
+            
+            <!-- Central Constitution box -->
+            <g>
+                <rect x="660" y="110" width="160" height="110" rx="10" fill="#f0f5fc" stroke="#1E64C8" stroke-width="3"/>
+                <text x="740" y="135" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8" text-anchor="middle">📜 Constitution</text>
+                <text x="740" y="155" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#333" text-anchor="middle">(윤리 원칙)</text>
+                
+                <text x="670" y="180" font-family="Aptos, sans-serif" font-size="11" fill="#666" text-anchor="start">✓ 환자 안전성</text>
+                <text x="670" y="196" font-family="Aptos, sans-serif" font-size="11" fill="#666" text-anchor="start">✓ 형평성 유지</text>
+                <text x="670" y="212" font-family="Aptos, sans-serif" font-size="11" fill="#666" text-anchor="start">✓ 프라이버시 보호</text>
+            </g>
+            
+            <!-- Connection from Constitution to Step 2 -->
+            <path d="M 660 165 L 620 60" stroke="#1E64C8" stroke-width="2" stroke-dasharray="4,3" fill="none"/>
+            
+            <!-- Bottom note -->
+            <rect x="240" y="350" width="360" height="50" rx="8" fill="#e8f4fd" stroke="#1E64C8" stroke-width="2"/>
+            <text x="420" y="372" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8" text-anchor="middle">💡 핵심 개념</text>
+            <text x="420" y="390" font-family="Aptos, sans-serif" font-size="12" fill="#666" text-anchor="middle">반복을 통해 윤리적 행동이 AI 모델에 내재화됨</text>
+        </svg>
     </div>
     </div>
 </body>

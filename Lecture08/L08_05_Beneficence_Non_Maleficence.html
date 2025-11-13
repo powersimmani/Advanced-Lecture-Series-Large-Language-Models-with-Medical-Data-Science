@@ -31,120 +31,65 @@
             font-size: 28px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
         
         .comparison-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 25px;
+            gap: 20px;
+            margin-bottom: 20px;
         }
         
         .principle-section {
             background: white;
             border: 3px solid #1E64C8;
             border-radius: 12px;
-            padding: 25px;
+            padding: 20px;
         }
         
         .section-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
             border-bottom: 2px solid #f0f5fc;
         }
         
         .section-icon {
-            font-size: 40px;
+            font-size: 32px;
         }
         
         .section-title {
-            font-size: 22px;
+            font-size: 19px;
             font-weight: 700;
             color: #1E64C8;
         }
         
         .concept-item {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .concept-label {
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
         
         .concept-desc {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.5;
-            padding-left: 15px;
-            border-left: 3px solid #f0f5fc;
-        }
-        
-        .matrix-section {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-        }
-        
-        .matrix-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .matrix-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-        
-        .matrix-cell {
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 13px;
-            font-weight: 600;
-        }
-        
-        .high-benefit-low-risk {
-            background: #c8e6c9;
-            color: #2e7d32;
-            border: 2px solid #4caf50;
-        }
-        
-        .high-benefit-high-risk {
-            background: #fff9c4;
-            color: #f57c00;
-            border: 2px solid #ffc107;
-        }
-        
-        .low-benefit-low-risk {
-            background: #e3f2fd;
-            color: #1976d2;
-            border: 2px solid #2196f3;
-        }
-        
-        .low-benefit-high-risk {
-            background: #ffcdd2;
-            color: #c62828;
-            border: 2px solid #f44336;
-        }
-        
-        .axis-label {
             font-size: 12px;
             color: #666;
-            font-weight: 600;
-            text-align: center;
-            margin: 5px 0;
+            line-height: 1.4;
+            padding-left: 12px;
+            border-left: 2px solid #f0f5fc;
+        }
+        
+        .diagram-container {
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
@@ -208,24 +153,81 @@
             </div>
         </div>
         
-        <div class="matrix-section">
-            <div class="matrix-title">⚖️ 이익-위험 매트릭스 (Risk-Benefit Matrix)</div>
-            <div class="axis-label">← 낮은 위험                    높은 위험 →</div>
-            <div class="matrix-grid">
-                <div class="matrix-cell low-benefit-low-risk">
-                    낮은 이익<br>낮은 위험<br>→ 신중 검토
-                </div>
-                <div class="matrix-cell low-benefit-high-risk">
-                    낮은 이익<br>높은 위험<br>→ 사용 금지
-                </div>
-                <div class="matrix-cell high-benefit-low-risk">
-                    높은 이익<br>낮은 위험<br>→ 적극 도입
-                </div>
-                <div class="matrix-cell high-benefit-high-risk">
-                    높은 이익<br>높은 위험<br>→ 신중한 관리
-                </div>
-            </div>
-            <div class="axis-label" style="margin-top: 10px;">↑ 낮은 이익                    높은 이익 ↑</div>
+        <div class="diagram-container">
+            <svg width="840" height="140" viewBox="0 0 840 140">
+                <defs>
+                    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#66bb6a;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#4caf50;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#ffeb3b;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ffc107;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#ef5350;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#f44336;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                
+                <!-- Title -->
+                <text x="420" y="20" font-family="Aptos, sans-serif" font-size="16" font-weight="700" fill="#1E64C8" text-anchor="middle">⚖️ 이익-위험 매트릭스 (Risk-Benefit Matrix)</text>
+                
+                <!-- Axes -->
+                <line x1="50" y1="130" x2="790" y2="130" stroke="#333" stroke-width="2"/>
+                <line x1="50" y1="50" x2="50" y2="130" stroke="#333" stroke-width="2"/>
+                
+                <!-- X-axis label -->
+                <text x="420" y="145" font-family="Aptos, sans-serif" font-size="12" font-weight="600" fill="#666" text-anchor="middle">위험도 (Risk) →</text>
+                
+                <!-- Y-axis label -->
+                <text x="25" y="90" font-family="Aptos, sans-serif" font-size="12" font-weight="600" fill="#666" text-anchor="middle" transform="rotate(-90 25 90)">이익 (Benefit) →</text>
+                
+                <!-- Grid quadrants with subtle background -->
+                <!-- Low Risk, Low Benefit -->
+                <rect x="50" y="90" width="185" height="40" fill="#e3f2fd" opacity="0.4"/>
+                
+                <!-- High Risk, Low Benefit -->
+                <rect x="235" y="90" width="555" height="40" fill="#ffcdd2" opacity="0.4"/>
+                
+                <!-- Low Risk, High Benefit -->
+                <rect x="50" y="50" width="185" height="40" fill="#c8e6c9" opacity="0.6"/>
+                
+                <!-- High Risk, High Benefit -->
+                <rect x="235" y="50" width="555" height="40" fill="#fff9c4" opacity="0.5"/>
+                
+                <!-- Quadrant 1: Low Risk, High Benefit (Green - 적극 도입) -->
+                <g>
+                    <rect x="80" y="55" width="125" height="30" rx="6" fill="url(#greenGrad)" stroke="#4caf50" stroke-width="2"/>
+                    <text x="142" y="73" font-family="Aptos, sans-serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">적극 도입 ✓</text>
+                    <text x="142" y="87" font-family="Aptos, sans-serif" font-size="10" fill="#2e7d32" text-anchor="middle">높은 이익 / 낮은 위험</text>
+                </g>
+                
+                <!-- Quadrant 2: High Risk, High Benefit (Yellow - 신중한 관리) -->
+                <g>
+                    <rect x="250" y="55" width="520" height="30" rx="6" fill="url(#yellowGrad)" stroke="#ffc107" stroke-width="2"/>
+                    <text x="510" y="73" font-family="Aptos, sans-serif" font-size="12" font-weight="700" fill="#333" text-anchor="middle">신중한 관리 ⚠️ (엄격한 모니터링 & 안전장치 필수)</text>
+                    <text x="510" y="87" font-family="Aptos, sans-serif" font-size="10" fill="#f57c00" text-anchor="middle">높은 이익 / 높은 위험</text>
+                </g>
+                
+                <!-- Quadrant 3: Low Risk, Low Benefit (Blue - 신중 검토) -->
+                <g>
+                    <rect x="80" y="95" width="125" height="30" rx="6" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+                    <text x="142" y="113" font-family="Aptos, sans-serif" font-size="12" font-weight="700" fill="#1976d2" text-anchor="middle">신중 검토 ?</text>
+                    <text x="142" y="127" font-family="Aptos, sans-serif" font-size="10" fill="#1976d2" text-anchor="middle">낮은 이익 / 낮은 위험</text>
+                </g>
+                
+                <!-- Quadrant 4: High Risk, Low Benefit (Red - 사용 금지) -->
+                <g>
+                    <rect x="250" y="95" width="520" height="30" rx="6" fill="url(#redGrad)" stroke="#f44336" stroke-width="2"/>
+                    <text x="510" y="113" font-family="Aptos, sans-serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">사용 금지 ✗ (이익 대비 위험이 너무 큼)</text>
+                    <text x="510" y="127" font-family="Aptos, sans-serif" font-size="10" fill="#c62828" text-anchor="middle">낮은 이익 / 높은 위험</text>
+                </g>
+                
+                <!-- Divider line -->
+                <line x1="235" y1="50" x2="235" y2="130" stroke="#666" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <line x1="50" y1="90" x2="790" y2="90" stroke="#666" stroke-width="1.5" stroke-dasharray="4,3"/>
+            </svg>
         </div>
     </div>
 </body>

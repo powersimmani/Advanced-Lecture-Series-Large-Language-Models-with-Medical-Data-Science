@@ -72,37 +72,12 @@
         
         .processing-flow {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
             padding: 20px;
             background: #f8f9fa;
             border-radius: 10px;
             margin-bottom: 20px;
-        }
-        
-        .flow-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .flow-box {
-            width: 120px;
-            padding: 15px 10px;
-            background: white;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            color: #1E64C8;
-        }
-        
-        .flow-arrow {
-            font-size: 24px;
-            color: #1E64C8;
-            font-weight: 700;
         }
         
         .metadata-section {
@@ -131,6 +106,16 @@
             background: white;
             border-radius: 5px;
             border-left: 3px solid #1E64C8;
+        }
+        
+        @keyframes processFlow {
+            0% { transform: translateX(-10px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(10px); opacity: 0; }
+        }
+        
+        .flow-particle {
+            animation: processFlow 3s ease-in-out infinite;
         }
     </style>
 </head>
@@ -171,21 +156,75 @@
         </div>
         
         <div class="processing-flow">
-            <div class="flow-step">
-                <div class="flow-box">PDF Parsing</div>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <div class="flow-box">Text Extraction</div>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <div class="flow-box">Structuring</div>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <div class="flow-box">Version Control</div>
-            </div>
+            <svg width="800" height="100" viewBox="0 0 800 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Step 1: PDF Parsing -->
+                <g>
+                    <rect x="20" y="30" width="130" height="50" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                    <path d="M 55 45 L 55 65 L 60 65 L 60 50 L 75 50 L 75 45 Z" fill="#1E64C8" opacity="0.3"/>
+                    <text x="85" y="55" text-anchor="middle" font-family="Aptos" font-size="13" font-weight="600" fill="#1E64C8">PDF</text>
+                    <text x="85" y="70" text-anchor="middle" font-family="Aptos" font-size="13" font-weight="600" fill="#1E64C8">Parsing</text>
+                </g>
+                
+                <!-- Arrow 1 -->
+                <line x1="155" y1="55" x2="185" y2="55" stroke="#1E64C8" stroke-width="3"/>
+                <polygon points="185,55 175,50 175,60" fill="#1E64C8"/>
+                <circle class="flow-particle" cx="170" cy="55" r="4" fill="#1E64C8"/>
+                
+                <!-- Step 2: Text Extraction -->
+                <g>
+                    <rect x="190" y="30" width="130" height="50" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                    <line x1="220" y1="48" x2="280" y2="48" stroke="#1E64C8" stroke-width="2"/>
+                    <line x1="220" y1="55" x2="275" y2="55" stroke="#1E64C8" stroke-width="2"/>
+                    <line x1="220" y1="62" x2="285" y2="62" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="255" y="74" text-anchor="middle" font-family="Aptos" font-size="13" font-weight="600" fill="#1E64C8">Text Extract</text>
+                </g>
+                
+                <!-- Arrow 2 -->
+                <line x1="325" y1="55" x2="355" y2="55" stroke="#1E64C8" stroke-width="3"/>
+                <polygon points="355,55 345,50 345,60" fill="#1E64C8"/>
+                <circle class="flow-particle" cx="340" cy="55" r="4" fill="#1E64C8" style="animation-delay: 1s;"/>
+                
+                <!-- Step 3: Structuring -->
+                <g>
+                    <rect x="360" y="30" width="130" height="50" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                    <rect x="388" y="43" width="18" height="24" rx="2" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                    <line x1="392" y1="48" x2="402" y2="48" stroke="#1E64C8" stroke-width="1.5"/>
+                    <line x1="392" y1="53" x2="402" y2="53" stroke="#1E64C8" stroke-width="1.5"/>
+                    <line x1="392" y1="58" x2="398" y2="58" stroke="#1E64C8" stroke-width="1.5"/>
+                    <text x="425" y="60" text-anchor="middle" font-family="Aptos" font-size="13" font-weight="600" fill="#1E64C8">Structuring</text>
+                </g>
+                
+                <!-- Arrow 3 -->
+                <line x1="495" y1="55" x2="525" y2="55" stroke="#1E64C8" stroke-width="3"/>
+                <polygon points="525,55 515,50 515,60" fill="#1E64C8"/>
+                <circle class="flow-particle" cx="510" cy="55" r="4" fill="#1E64C8" style="animation-delay: 2s;"/>
+                
+                <!-- Step 4: Version Control -->
+                <g>
+                    <rect x="530" y="30" width="140" height="50" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                    <circle cx="565" cy="55" r="15" fill="#1E64C8" opacity="0.2"/>
+                    <path d="M 565 45 L 565 55 L 565 65" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                    <circle cx="565" cy="45" r="3" fill="#1E64C8"/>
+                    <circle cx="565" cy="55" r="3" fill="#1E64C8"/>
+                    <circle cx="565" cy="65" r="3" fill="#1E64C8"/>
+                    <text x="600" y="52" text-anchor="middle" font-family="Aptos" font-size="13" font-weight="600" fill="#1E64C8">Version</text>
+                    <text x="600" y="67" text-anchor="middle" font-family="Aptos" font-size="13" font-weight="600" fill="#1E64C8">Control</text>
+                </g>
+                
+                <!-- Arrow to database -->
+                <line x1="675" y1="55" x2="705" y2="55" stroke="#28a745" stroke-width="3"/>
+                <polygon points="705,55 695,50 695,60" fill="#28a745"/>
+                
+                <!-- Database -->
+                <g>
+                    <ellipse cx="740" cy="45" rx="25" ry="8" fill="#28a745" opacity="0.3"/>
+                    <ellipse cx="740" cy="55" rx="25" ry="8" fill="none" stroke="#28a745" stroke-width="2"/>
+                    <line x1="715" y1="45" x2="715" y2="65" stroke="#28a745" stroke-width="2"/>
+                    <line x1="765" y1="45" x2="765" y2="65" stroke="#28a745" stroke-width="2"/>
+                    <ellipse cx="740" cy="65" rx="25" ry="8" fill="none" stroke="#28a745" stroke-width="2"/>
+                    <text x="740" y="90" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="600" fill="#28a745">Ready!</text>
+                </g>
+            </svg>
         </div>
         
         <div class="metadata-section">

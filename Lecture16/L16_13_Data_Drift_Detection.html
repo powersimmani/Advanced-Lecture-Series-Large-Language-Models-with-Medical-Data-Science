@@ -55,7 +55,7 @@
             font-weight: 700;
         }
         
-        .drift-types {
+        .drift-visual {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
@@ -68,6 +68,18 @@
             border-radius: 8px;
             padding: 15px;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .drift-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1E64C8, #2874d8);
         }
         
         .drift-card:hover {
@@ -76,11 +88,40 @@
             background: #f8fbff;
         }
         
+        .drift-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        
+        .drift-icon {
+            width: 40px;
+            height: 40px;
+            background: #1E64C8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
         .drift-title {
             font-size: 17px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 8px;
+        }
+        
+        .drift-formula {
+            font-size: 13px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 6px;
+            font-family: 'Courier New', monospace;
+            background: #f0f5fc;
+            padding: 4px 8px;
+            border-radius: 4px;
         }
         
         .drift-desc {
@@ -94,6 +135,8 @@
             font-size: 13px;
             color: #666;
             font-style: italic;
+            padding-left: 10px;
+            border-left: 2px solid #1E64C8;
         }
         
         .methods-section {
@@ -126,6 +169,13 @@
             font-weight: 600;
             color: #333;
             border: 1.5px solid #4caf50;
+            transition: all 0.3s;
+        }
+        
+        .method-badge:hover {
+            background: #4caf50;
+            color: white;
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -138,29 +188,45 @@
             <span class="definition-highlight">differs from training data</span>
         </div>
         
-        <div class="drift-types">
+        <div class="drift-visual">
             <div class="drift-card">
-                <div class="drift-title">Covariate Shift</div>
-                <div class="drift-desc">Input distribution P(X) changes</div>
-                <div class="drift-example">Example: New imaging equipment with different resolution/contrast</div>
+                <div class="drift-header">
+                    <div class="drift-icon">📊</div>
+                    <div class="drift-title">Covariate Shift</div>
+                </div>
+                <div class="drift-formula">P(X) changes</div>
+                <div class="drift-desc">Input distribution changes</div>
+                <div class="drift-example">💡 Example: New imaging equipment with different resolution/contrast</div>
             </div>
             
             <div class="drift-card">
-                <div class="drift-title">Label Shift</div>
-                <div class="drift-desc">Output distribution P(Y) changes</div>
-                <div class="drift-example">Example: Seasonal disease prevalence changes</div>
+                <div class="drift-header">
+                    <div class="drift-icon">📈</div>
+                    <div class="drift-title">Label Shift</div>
+                </div>
+                <div class="drift-formula">P(Y) changes</div>
+                <div class="drift-desc">Output distribution changes</div>
+                <div class="drift-example">💡 Example: Seasonal disease prevalence changes</div>
             </div>
             
             <div class="drift-card">
-                <div class="drift-title">Concept Drift</div>
-                <div class="drift-desc">Relationship P(Y|X) changes</div>
-                <div class="drift-example">Example: Treatment protocols evolve, outcomes change</div>
+                <div class="drift-header">
+                    <div class="drift-icon">🔄</div>
+                    <div class="drift-title">Concept Drift</div>
+                </div>
+                <div class="drift-formula">P(Y|X) changes</div>
+                <div class="drift-desc">Relationship between input and output changes</div>
+                <div class="drift-example">💡 Example: Treatment protocols evolve, outcomes change</div>
             </div>
             
             <div class="drift-card">
-                <div class="drift-title">Feature Drift</div>
-                <div class="drift-desc">Individual feature distributions change</div>
-                <div class="drift-example">Example: Patient demographics shift over time</div>
+                <div class="drift-header">
+                    <div class="drift-icon">🎯</div>
+                    <div class="drift-title">Feature Drift</div>
+                </div>
+                <div class="drift-formula">Individual features change</div>
+                <div class="drift-desc">Specific feature distributions shift</div>
+                <div class="drift-example">💡 Example: Patient demographics shift over time</div>
             </div>
         </div>
         

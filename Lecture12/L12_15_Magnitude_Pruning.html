@@ -18,98 +18,51 @@
         .container { width: 960px; padding: 30px 40px; background: white; }
         .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
         
-        /* Common styles */
-        .quant-intro, .mixed-intro, .pruning-intro, .magnitude-intro, .hypothesis-intro, .dynamic-intro {
+        .magnitude-intro {
             background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px;
             padding: 20px; margin-bottom: 25px; text-align: center;
         }
         .intro-title { font-size: 22px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
         .intro-desc { font-size: 16px; color: #555; line-height: 1.6; }
         
-        /* Grid layouts */
-        .precision-grid, .benefits-grid, .strategy-grid, .types-grid, .strategy-grid, .methods-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
-        }
-        .comparison-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        
-        /* Cards */
-        .precision-card, .benefit-card, .strategy-card, .type-card, .strat-card, .method-box, .comp-card {
-            background: white; border: 2px solid #1E64C8; border-radius: 8px;
-            padding: 15px; text-align: center; transition: all 0.3s;
-        }
-        .precision-card:hover, .strategy-card:hover, .type-card:hover, .strat-card:hover, .method-box:hover, .comp-card:hover {
-            transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30,100,200,0.2);
-        }
-        
-        /* Typography */
-        .prec-type, .strategy-name, .type-name, .strat-name, .method-name, .comp-type {
-            font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px;
-        }
-        .prec-bits, .prec-note, .strategy-precision, .strategy-reason, .type-visual, .strat-desc, .method-desc, .comp-desc {
-            font-size: 15px; color: #555; line-height: 1.5;
-        }
-        
-        /* Section titles */
-        .comparison-title, .benefits-title, .example-title, .types-title, .adv-title, .steps-title, 
-        .strategy-title, .example-title, .process-title, .findings-title, .methods-title, .comparison-title {
-            font-size: 20px; font-weight: 700; color: #1E64C8; margin-bottom: 15px; text-align: center;
-        }
-        
-        /* Special boxes */
-        .benefits-box, .tools-box, .advantages-box, .sparsity-example, .findings-box {
-            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px;
-            padding: 20px; margin-top: 20px;
-        }
-        .accuracy-note, .medical-example, .advantage-note {
-            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px;
-            padding: 15px; text-align: center; font-size: 16px; color: #333; margin-top: 20px;
-        }
-        
-        /* Lists */
-        .adv-list, .findings-list { display: flex; flex-direction: column; gap: 10px; }
-        .adv-item, .finding-item { 
-            font-size: 16px; color: #333; padding: 10px; background: #f8f9fa; 
-            border-radius: 6px; display: flex; align-items: center; gap: 10px;
-        }
-        
-        /* Process flows */
+        .process-steps { margin-bottom: 25px; }
+        .steps-title { font-size: 20px; font-weight: 700; color: #1E64C8; margin-bottom: 15px; text-align: center; }
         .steps-flow { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
         .step-box { 
             background: white; border: 2px solid #1E64C8; border-radius: 8px;
-            padding: 15px; text-align: center; min-width: 120px;
+            padding: 15px; text-align: center; min-width: 120px; position: relative;
         }
         .step-num { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
         .step-text { font-size: 14px; color: #555; }
         .arrow-right { font-size: 24px; color: #1E64C8; }
         
-        /* Discovery process */
-        .process-steps { display: flex; flex-direction: column; gap: 12px; }
-        .proc-step { 
+        .strategy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
+        .strat-card { 
             background: white; border: 2px solid #1E64C8; border-radius: 8px;
-            padding: 12px 20px; display: flex; gap: 15px; align-items: center;
+            padding: 15px; text-align: center; transition: all 0.3s;
         }
-        .proc-num { font-size: 16px; font-weight: 700; color: #1E64C8; min-width: 120px; }
-        .proc-desc { font-size: 15px; color: #555; }
-        
-        /* Analysis */
-        .analysis-content { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
-        .analysis-item { 
-            background: white; border: 2px solid #1E64C8; border-radius: 8px;
-            padding: 15px; display: flex; align-items: center; justify-content: center; gap: 15px;
-            font-size: 16px;
+        .strat-card:hover {
+            transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30,100,200,0.2);
         }
-        .layer-name { color: #333; font-weight: 600; }
-        .arrow { color: #1E64C8; font-size: 20px; font-weight: 700; }
-        .precision-choice { color: #1E64C8; font-weight: 700; }
+        .strat-name { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
+        .strat-desc { font-size: 15px; color: #555; line-height: 1.5; }
         
-        /* Highlights */
-        .highlight { color: #1E64C8; font-weight: 700; }
-        .highlight-card { border: 3px solid #1E64C8; background: #f8fbff; }
-        .benefit-icon, .finding-icon { font-size: 24px; }
-        .tools-text { text-align: center; font-size: 16px; color: #333; font-weight: 500; }
+        .strategy-title { font-size: 20px; font-weight: 700; color: #1E64C8; margin-bottom: 15px; text-align: center; }
+        
+        .sparsity-example { 
+            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px;
+            padding: 20px; margin-top: 20px;
+        }
+        .example-title { font-size: 20px; font-weight: 700; color: #1E64C8; margin-bottom: 15px; text-align: center; }
         .example-visual { 
             background: white; border: 2px solid #1E64C8; border-radius: 8px;
             padding: 15px; text-align: center; font-size: 16px; color: #333; line-height: 1.8;
+        }
+        .highlight { color: #1E64C8; font-weight: 700; }
+        
+        .weight-icon {
+            display: inline-block;
+            margin: 0 3px;
         }
     </style>
 </head>
@@ -121,42 +74,133 @@
             <div class="intro-title">크기 기반 가지치기 (Magnitude Pruning)</div>
             <div class="intro-desc">작은 가중치 값을 0으로 만들어 희소성(sparsity) 증가</div>
         </div>
+        
         <div class="process-steps">
             <div class="steps-title">가지치기 프로세스</div>
             <div class="steps-flow">
                 <div class="step-box">
+                    <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px;">
+                        <!-- Neural network icon -->
+                        <circle cx="15" cy="15" r="4" fill="#1E64C8"/>
+                        <circle cx="30" cy="15" r="4" fill="#1E64C8"/>
+                        <circle cx="45" cy="15" r="4" fill="#1E64C8"/>
+                        <circle cx="15" cy="30" r="4" fill="#1E64C8"/>
+                        <circle cx="30" cy="30" r="4" fill="#1E64C8"/>
+                        <circle cx="45" cy="30" r="4" fill="#1E64C8"/>
+                        <circle cx="15" cy="45" r="4" fill="#1E64C8"/>
+                        <circle cx="30" cy="45" r="4" fill="#1E64C8"/>
+                        <circle cx="45" cy="45" r="4" fill="#1E64C8"/>
+                        <line x1="15" y1="15" x2="15" y2="45" stroke="#1E64C8" stroke-width="1"/>
+                        <line x1="30" y1="15" x2="30" y2="45" stroke="#1E64C8" stroke-width="1"/>
+                        <line x1="45" y1="15" x2="45" y2="45" stroke="#1E64C8" stroke-width="1"/>
+                    </svg>
                     <div class="step-num">1</div>
                     <div class="step-text">모델 학습 완료</div>
                 </div>
                 <div class="arrow-right">→</div>
                 <div class="step-box">
+                    <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px;">
+                        <!-- Calculation icon -->
+                        <rect x="10" y="10" width="40" height="40" fill="none" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                        <text x="30" y="38" font-family="Aptos" font-size="24" fill="#1E64C8" text-anchor="middle" font-weight="700">|w|</text>
+                    </svg>
                     <div class="step-num">2</div>
                     <div class="step-text">가중치 크기 계산<br>|w|</div>
                 </div>
                 <div class="arrow-right">→</div>
                 <div class="step-box">
+                    <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px;">
+                        <!-- Threshold icon -->
+                        <line x1="10" y1="40" x2="50" y2="40" stroke="#ff6b6b" stroke-width="3" stroke-dasharray="5,5"/>
+                        <rect x="15" y="20" width="8" height="20" fill="#51cf66"/>
+                        <rect x="26" y="30" width="8" height="10" fill="#ffa500"/>
+                        <rect x="37" y="10" width="8" height="30" fill="#51cf66"/>
+                    </svg>
                     <div class="step-num">3</div>
                     <div class="step-text">임계값 이하<br>가중치 제거</div>
                 </div>
                 <div class="arrow-right">→</div>
                 <div class="step-box">
+                    <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px;">
+                        <!-- Fine-tuning icon -->
+                        <circle cx="30" cy="30" r="20" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                        <path d="M 30 15 L 30 30 L 40 30" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                        <circle cx="30" cy="30" r="3" fill="#1E64C8"/>
+                    </svg>
                     <div class="step-num">4</div>
                     <div class="step-text">Fine-tuning</div>
                 </div>
             </div>
         </div>
+        
+        <!-- Visual representation of pruning process -->
+        <div style="text-align: center; margin: 25px 0;">
+            <svg width="800" height="150" viewBox="0 0 800 150" xmlns="http://www.w3.org/2000/svg">
+                <!-- Before pruning -->
+                <text x="100" y="30" font-family="Aptos" font-size="16" fill="#1E64C8" text-anchor="middle" font-weight="600">Before Pruning</text>
+                <g transform="translate(40, 40)">
+                    <rect x="0" y="0" width="30" height="80" fill="#1E64C8" opacity="0.8"/>
+                    <rect x="35" y="20" width="30" height="60" fill="#1E64C8" opacity="0.4"/>
+                    <rect x="70" y="10" width="30" height="70" fill="#1E64C8" opacity="0.7"/>
+                    <rect x="105" y="30" width="30" height="50" fill="#1E64C8" opacity="0.3"/>
+                    <text x="60" y="100" font-family="Aptos" font-size="12" fill="#666" text-anchor="middle">All weights</text>
+                </g>
+                
+                <!-- Arrow -->
+                <g transform="translate(250, 75)">
+                    <line x1="0" y1="0" x2="80" y2="0" stroke="#1E64C8" stroke-width="3"/>
+                    <polygon points="80,0 75,-5 75,5" fill="#1E64C8"/>
+                    <text x="40" y="-10" font-family="Aptos" font-size="14" fill="#1E64C8" text-anchor="middle">Prune</text>
+                </g>
+                
+                <!-- After pruning -->
+                <text x="450" y="30" font-family="Aptos" font-size="16" fill="#51cf66" text-anchor="middle" font-weight="600">After Pruning</text>
+                <g transform="translate(390, 40)">
+                    <rect x="0" y="0" width="30" height="80" fill="#51cf66" opacity="0.8"/>
+                    <rect x="35" y="20" width="30" height="60" fill="#f8f9fa" stroke="#ccc" stroke-width="1"/>
+                    <text x="50" y="55" font-family="Aptos" font-size="18" fill="#999" text-anchor="middle">0</text>
+                    <rect x="70" y="10" width="30" height="70" fill="#51cf66" opacity="0.7"/>
+                    <rect x="105" y="30" width="30" height="50" fill="#f8f9fa" stroke="#ccc" stroke-width="1"/>
+                    <text x="120" y="60" font-family="Aptos" font-size="18" fill="#999" text-anchor="middle">0</text>
+                    <text x="60" y="100" font-family="Aptos" font-size="12" fill="#666" text-anchor="middle">Sparse (50%)</text>
+                </g>
+                
+                <!-- Threshold line indicator -->
+                <line x1="640" y1="50" x2="750" y2="50" stroke="#ff6b6b" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="695" y="45" font-family="Aptos" font-size="12" fill="#ff6b6b" text-anchor="middle">Threshold</text>
+            </svg>
+        </div>
+        
         <div class="threshold-strategy">
             <div class="strategy-title">임계값 설정 전략</div>
             <div class="strategy-grid">
                 <div class="strat-card">
+                    <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
+                        <line x1="5" y1="40" x2="45" y2="40" stroke="#1E64C8" stroke-width="2"/>
+                        <circle cx="25" cy="40" r="4" fill="#1E64C8"/>
+                        <text x="25" y="25" font-family="Aptos" font-size="14" fill="#1E64C8" text-anchor="middle">θ</text>
+                    </svg>
                     <div class="strat-name">Global Threshold</div>
                     <div class="strat-desc">전체 네트워크 단일 임계값</div>
                 </div>
                 <div class="strat-card">
+                    <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
+                        <line x1="5" y1="40" x2="15" y2="40" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="20" y1="30" x2="30" y2="30" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="35" y1="20" x2="45" y2="20" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="25" y="15" font-family="Aptos" font-size="12" fill="#1E64C8" text-anchor="middle">θ₁ θ₂ θ₃</text>
+                    </svg>
                     <div class="strat-name">Layer-wise Threshold</div>
                     <div class="strat-desc">레이어별 다른 임계값</div>
                 </div>
                 <div class="strat-card">
+                    <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
+                        <rect x="5" y="15" width="8" height="25" fill="#51cf66"/>
+                        <rect x="17" y="20" width="8" height="20" fill="#51cf66"/>
+                        <rect x="29" y="10" width="8" height="30" fill="#51cf66"/>
+                        <rect x="41" y="25" width="8" height="15" fill="#f8f9fa" stroke="#ccc"/>
+                        <text x="25" y="10" font-family="Aptos" font-size="12" fill="#1E64C8" text-anchor="middle">Top-k</text>
+                    </svg>
                     <div class="strat-name">Top-k Pruning</div>
                     <div class="strat-desc">상위 k% 가중치만 유지</div>
                 </div>
@@ -167,8 +211,28 @@
             <div class="example-visual">
                 Dense: [0.8, 0.3, -0.5, 0.1, -0.9]<br>
                 ↓ Threshold = 0.4<br>
-                Sparse: [0.8, 0, -0.5, 0, -0.9]<br>
+                Sparse: [0.8, <span style="color: #999;">0</span>, -0.5, <span style="color: #999;">0</span>, -0.9]<br>
                 <span class="highlight">40% 희소성 달성</span>
+                
+                <svg width="400" height="80" viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg" style="margin-top: 15px;">
+                    <!-- Weight visualization -->
+                    <circle cx="50" cy="40" r="20" fill="#51cf66" opacity="0.8"/>
+                    <text x="50" y="45" font-family="Aptos" font-size="14" fill="white" text-anchor="middle" font-weight="700">0.8</text>
+                    
+                    <circle cx="120" cy="40" r="15" fill="#ccc" opacity="0.3"/>
+                    <line x1="110" y1="30" x2="130" y2="50" stroke="#ff6b6b" stroke-width="2"/>
+                    <line x1="110" y1="50" x2="130" y2="30" stroke="#ff6b6b" stroke-width="2"/>
+                    
+                    <circle cx="190" cy="40" r="20" fill="#51cf66" opacity="0.8"/>
+                    <text x="190" y="45" font-family="Aptos" font-size="14" fill="white" text-anchor="middle" font-weight="700">-0.5</text>
+                    
+                    <circle cx="260" cy="40" r="10" fill="#ccc" opacity="0.3"/>
+                    <line x1="255" y1="35" x2="265" y2="45" stroke="#ff6b6b" stroke-width="2"/>
+                    <line x1="255" y1="45" x2="265" y2="35" stroke="#ff6b6b" stroke-width="2"/>
+                    
+                    <circle cx="330" cy="40" r="20" fill="#51cf66" opacity="0.8"/>
+                    <text x="330" y="45" font-family="Aptos" font-size="14" fill="white" text-anchor="middle" font-weight="700">-0.9</text>
+                </svg>
             </div>
         </div>
     </div>

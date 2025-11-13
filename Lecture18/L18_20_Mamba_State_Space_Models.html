@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mamba: State Space Models with Linear Complexity</title>
     <style>
@@ -31,101 +32,231 @@
             font-size: 20px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
             text-align: center;
         }
         
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
+        .main-layout {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .diagram-area {
+            flex: 1.3;
+        }
+        
+        .info-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         
         .content-card {
             background: white;
             border: 2.5px solid #1E64C8;
             border-radius: 10px;
-            padding: 20px;
+            padding: 15px;
             transition: all 0.3s;
         }
         
         .content-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
             background: #f8fbff;
         }
         
         .card-title {
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         
         .card-text {
-            font-size: 15px;
+            font-size: 13px;
             color: #333;
-            line-height: 1.5;
-            margin-bottom: 8px;
+            line-height: 1.4;
+            margin-bottom: 4px;
         }
         
         .highlight-box {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 8px;
-            padding: 15px 20px;
-            margin-top: 20px;
+            padding: 12px 20px;
         }
         
         .highlight-title {
             font-size: 16px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-align: center;
         }
         
         .highlight-text {
-            font-size: 15px;
+            font-size: 14px;
             color: #333;
             text-align: center;
-            line-height: 1.5;
+            line-height: 1.4;
+        }
+        
+        @keyframes flow {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -20; }
+        }
+        
+        .data-flow {
+            stroke-dasharray: 5, 5;
+            animation: flow 1s linear infinite;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Mamba: State Space Models with Linear Complexity</div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-title">State Space Models</div>
-                <div class="card-text">• Continuous-time dynamics</div>
-                <div class="card-text">• Linear recurrence formulation</div>
-                <div class="card-text">• Efficient long sequences</div>
+        
+        <div class="main-layout">
+            <div class="diagram-area">
+                <svg width="560" height="380" viewBox="0 0 560 380">
+                    <!-- Title -->
+                    <text x="280" y="25" text-anchor="middle" font-family="Aptos" font-size="16" font-weight="700" fill="#1E64C8">Mamba Architecture: Selective State Space</text>
+                    
+                    <!-- Input Sequence -->
+                    <text x="30" y="70" font-family="Aptos" font-size="13" font-weight="600" fill="#666">Input x(t)</text>
+                    <g>
+                        <rect x="120" y="50" width="50" height="35" rx="4" fill="#e8f4fd" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="145" y="72" text-anchor="middle" font-family="Aptos" font-size="12" fill="#1E64C8">x₁</text>
+                        
+                        <rect x="185" y="50" width="50" height="35" rx="4" fill="#e8f4fd" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="210" y="72" text-anchor="middle" font-family="Aptos" font-size="12" fill="#1E64C8">x₂</text>
+                        
+                        <rect x="250" y="50" width="50" height="35" rx="4" fill="#e8f4fd" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="275" y="72" text-anchor="middle" font-family="Aptos" font-size="12" fill="#1E64C8">x₃</text>
+                        
+                        <text x="315" y="72" text-anchor="middle" font-family="Aptos" font-size="14" fill="#999">...</text>
+                        
+                        <rect x="340" y="50" width="50" height="35" rx="4" fill="#e8f4fd" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="365" y="72" text-anchor="middle" font-family="Aptos" font-size="12" fill="#1E64C8">xₙ</text>
+                    </g>
+                    
+                    <!-- State Space Block -->
+                    <rect x="120" y="110" width="270" height="130" rx="8" fill="#fff3cd" fill-opacity="0.3" stroke="#ffc107" stroke-width="3"/>
+                    <text x="255" y="130" text-anchor="middle" font-family="Aptos" font-size="14" font-weight="700" fill="#856404">Selective State Space Layer</text>
+                    
+                    <!-- Hidden State Flow -->
+                    <g>
+                        <circle cx="145" cy="165" r="20" fill="#28a745" fill-opacity="0.3" stroke="#28a745" stroke-width="2"/>
+                        <text x="145" y="170" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="600" fill="#155724">h₁</text>
+                        
+                        <path class="data-flow" d="M 165 165 L 190 165" stroke="#28a745" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+                        
+                        <circle cx="210" cy="165" r="20" fill="#28a745" fill-opacity="0.3" stroke="#28a745" stroke-width="2"/>
+                        <text x="210" y="170" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="600" fill="#155724">h₂</text>
+                        
+                        <path class="data-flow" d="M 230 165 L 255 165" stroke="#28a745" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+                        
+                        <circle cx="275" cy="165" r="20" fill="#28a745" fill-opacity="0.3" stroke="#28a745" stroke-width="2"/>
+                        <text x="275" y="170" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="600" fill="#155724">h₃</text>
+                        
+                        <text x="310" y="170" text-anchor="middle" font-family="Aptos" font-size="12" fill="#155724">→</text>
+                        
+                        <circle cx="340" cy="165" r="20" fill="#28a745" fill-opacity="0.3" stroke="#28a745" stroke-width="2"/>
+                        <text x="340" y="170" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="600" fill="#155724">hₙ</text>
+                    </g>
+                    
+                    <!-- State Update Equation -->
+                    <text x="255" y="200" text-anchor="middle" font-family="Aptos" font-size="12" fill="#856404" font-style="italic">h(t) = A·h(t-1) + B·x(t)</text>
+                    
+                    <!-- Selective Mechanism -->
+                    <rect x="140" y="210" width="230" height="20" rx="4" fill="#ffc107" fill-opacity="0.5"/>
+                    <text x="255" y="224" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="600" fill="#856404">Input-Dependent Transitions (Δ, B, C)</text>
+                    
+                    <!-- Output -->
+                    <text x="30" y="285" font-family="Aptos" font-size="13" font-weight="600" fill="#666">Output y(t)</text>
+                    <g>
+                        <rect x="120" y="265" width="50" height="35" rx="4" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                        <text x="145" y="287" text-anchor="middle" font-family="Aptos" font-size="12" fill="#155724">y₁</text>
+                        
+                        <rect x="185" y="265" width="50" height="35" rx="4" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                        <text x="210" y="287" text-anchor="middle" font-family="Aptos" font-size="12" fill="#155724">y₂</text>
+                        
+                        <rect x="250" y="265" width="50" height="35" rx="4" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                        <text x="275" y="287" text-anchor="middle" font-family="Aptos" font-size="12" fill="#155724">y₃</text>
+                        
+                        <text x="315" y="287" text-anchor="middle" font-family="Aptos" font-size="14" fill="#999">...</text>
+                        
+                        <rect x="340" y="265" width="50" height="35" rx="4" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                        <text x="365" y="287" text-anchor="middle" font-family="Aptos" font-size="12" fill="#155724">yₙ</text>
+                    </g>
+                    
+                    <!-- Arrows connecting layers -->
+                    <path d="M 145 85 L 145 145" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrowhead-blue)"/>
+                    <path d="M 210 85 L 210 145" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrowhead-blue)"/>
+                    <path d="M 275 85 L 275 145" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrowhead-blue)"/>
+                    <path d="M 365 85 L 365 145" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrowhead-blue)"/>
+                    
+                    <path d="M 145 185 L 145 265" stroke="#28a745" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+                    <path d="M 210 185 L 210 265" stroke="#28a745" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+                    <path d="M 275 185 L 275 265" stroke="#28a745" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+                    <path d="M 340 185 L 340 265" stroke="#28a745" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+                    
+                    <!-- Complexity Comparison -->
+                    <text x="280" y="330" text-anchor="middle" font-family="Aptos" font-size="14" font-weight="700" fill="#1E64C8">Complexity: O(n) Time & Memory</text>
+                    <rect x="150" y="340" width="260" height="35" rx="6" fill="#e8f4fd" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="280" y="360" text-anchor="middle" font-family="Aptos" font-size="12" fill="#1E64C8">Transformer O(n²) → Mamba O(n)</text>
+                    
+                    <!-- Arrow markers -->
+                    <defs>
+                        <marker id="arrowhead-blue" markerWidth="8" markerHeight="8" refX="7" refY="2.5" orient="auto">
+                            <polygon points="0 0, 8 2.5, 0 5" fill="#1E64C8"/>
+                        </marker>
+                        <marker id="arrowhead-green" markerWidth="8" markerHeight="8" refX="7" refY="2.5" orient="auto">
+                            <polygon points="0 0, 8 2.5, 0 5" fill="#28a745"/>
+                        </marker>
+                    </defs>
+                </svg>
             </div>
-            <div class="content-card">
-                <div class="card-title">Mamba Architecture</div>
-                <div class="card-text">• Selective state spaces</div>
-                <div class="card-text">• Input-dependent transitions</div>
-                <div class="card-text">• O(n) time and memory</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">Advantages over Transformers</div>
-                <div class="card-text">• Linear scaling with sequence length</div>
-                <div class="card-text">• Better for very long contexts (1M+)</div>
-                <div class="card-text">• Faster inference</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">Medical Applications</div>
-                <div class="card-text">• ICU time-series monitoring</div>
-                <div class="card-text">• Continuous glucose tracking</div>
-                <div class="card-text">• Long-term EEG analysis</div>
+            
+            <div class="info-area">
+                <div class="content-card">
+                    <div class="card-title">State Space Models</div>
+                    <div class="card-text">• Continuous-time dynamics</div>
+                    <div class="card-text">• Linear recurrence</div>
+                    <div class="card-text">• Efficient long sequences</div>
+                </div>
+                
+                <div class="content-card" style="background: #fff3cd; border-color: #ffc107;">
+                    <div class="card-title" style="color: #856404;">Selective Mechanism</div>
+                    <div class="card-text" style="color: #856404;">• Input-dependent A, B, C</div>
+                    <div class="card-text" style="color: #856404;">• Context-aware filtering</div>
+                    <div class="card-text" style="color: #856404;">• Mamba's key innovation</div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-title">vs Transformers</div>
+                    <div class="card-text">• Linear scaling with length</div>
+                    <div class="card-text">• Better for 1M+ tokens</div>
+                    <div class="card-text">• Faster inference</div>
+                </div>
+                
+                <div class="content-card" style="background: #d4edda; border-color: #28a745;">
+                    <div class="card-title" style="color: #155724;">Medical Applications</div>
+                    <div class="card-text" style="color: #155724;">• ICU time-series monitoring</div>
+                    <div class="card-text" style="color: #155724;">• Continuous glucose tracking</div>
+                    <div class="card-text" style="color: #155724;">• Long-term EEG analysis</div>
+                </div>
             </div>
         </div>
+        
         <div class="highlight-box">
             <div class="highlight-title">⚡ Next-Gen Efficiency</div>
-            <div class="highlight-text">Mamba achieves Transformer-level performance with O(n) complexity instead of O(n²), enabling processing of million-token medical time-series in real-time.</div>
+            <div class="highlight-text">
+                Mamba achieves Transformer-level performance with <strong>O(n) complexity instead of O(n²)</strong>, 
+                enabling processing of million-token medical time-series in real-time with selective state updates.
+            </div>
         </div>
     </div>
 </body>

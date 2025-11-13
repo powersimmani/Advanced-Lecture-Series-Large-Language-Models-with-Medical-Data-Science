@@ -26,6 +26,17 @@
         }
         .concept-text { font-size: 17px; color: #333; font-weight: 500; }
         .concept-highlight { color: #1E64C8; font-weight: 700; }
+        
+        .diagram-container {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
+        
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -62,6 +73,78 @@
                 <span class="concept-highlight">4-bit Quantization + LoRA</span><br>
                 Train 70B models on single 48GB GPU
             </div>
+        </div>
+        
+        <div class="diagram-container">
+            <svg width="880" height="120" viewBox="0 0 880 120">
+                <!-- FP16 Model -->
+                <rect x="10" y="10" width="120" height="100" fill="#ffebee" stroke="#c62828" stroke-width="2" rx="5"/>
+                <text x="70" y="35" text-anchor="middle" fill="#c62828" font-size="13" font-weight="600">FP16 Model</text>
+                <text x="70" y="55" text-anchor="middle" fill="#666" font-size="11">70B params</text>
+                <text x="70" y="75" text-anchor="middle" fill="#c62828" font-size="14" font-weight="700">140 GB</text>
+                <text x="70" y="92" text-anchor="middle" fill="#999" font-size="10">❌ Too large</text>
+                
+                <!-- Arrow 1 -->
+                <path d="M 135 60 L 165 60" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="150" y="50" text-anchor="middle" fill="#1E64C8" font-size="9">Quantize</text>
+                
+                <!-- 4-bit Quantized -->
+                <rect x="170" y="10" width="120" height="100" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="5"/>
+                <text x="230" y="35" text-anchor="middle" fill="#1976d2" font-size="13" font-weight="600">4-bit NF4</text>
+                <text x="230" y="55" text-anchor="middle" fill="#666" font-size="11">Quantized</text>
+                <text x="230" y="75" text-anchor="middle" fill="#1976d2" font-size="14" font-weight="700">35 GB</text>
+                <text x="230" y="92" text-anchor="middle" fill="#1976d2" font-size="10">✓ 75% saved</text>
+                
+                <!-- Arrow 2 -->
+                <path d="M 295 60 L 325 60" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="310" y="50" text-anchor="middle" fill="#1E64C8" font-size="9">Add</text>
+                
+                <!-- LoRA Adapters -->
+                <rect x="330" y="10" width="120" height="100" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="5"/>
+                <text x="390" y="30" text-anchor="middle" fill="#f57c00" font-size="13" font-weight="600">+ LoRA</text>
+                <text x="390" y="48" text-anchor="middle" fill="#666" font-size="11">r=16 adapters</text>
+                <text x="390" y="68" text-anchor="middle" fill="#f57c00" font-size="14" font-weight="700">+0.3 GB</text>
+                <text x="390" y="85" text-anchor="middle" fill="#999" font-size="10">Trainable</text>
+                <text x="390" y="100" text-anchor="middle" fill="#f57c00" font-size="9">(0.1% params)</text>
+                
+                <!-- Arrow 3 -->
+                <path d="M 455 60 L 485 60" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="470" y="50" text-anchor="middle" fill="#1E64C8" font-size="9">Optimize</text>
+                
+                <!-- Paged Optimizers -->
+                <rect x="490" y="10" width="120" height="100" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="5"/>
+                <text x="550" y="30" text-anchor="middle" fill="#7b1fa2" font-size="13" font-weight="600">Paged Opt</text>
+                <text x="550" y="48" text-anchor="middle" fill="#666" font-size="11">CPU Offload</text>
+                <text x="550" y="68" text-anchor="middle" fill="#7b1fa2" font-size="14" font-weight="700">+8 GB</text>
+                <text x="550" y="85" text-anchor="middle" fill="#999" font-size="10">Gradients</text>
+                <text x="550" y="100" text-anchor="middle" fill="#7b1fa2" font-size="9">AdamW states</text>
+                
+                <!-- Arrow 4 -->
+                <path d="M 615 60 L 645 60" stroke="#27ae60" stroke-width="3" marker-end="url(#arrow-green)"/>
+                <text x="630" y="50" text-anchor="middle" fill="#27ae60" font-size="9" font-weight="600">Result</text>
+                
+                <!-- Final Result -->
+                <rect x="650" y="10" width="130" height="100" fill="#e8f5e9" stroke="#27ae60" stroke-width="3" rx="5"/>
+                <text x="715" y="30" text-anchor="middle" fill="#27ae60" font-size="14" font-weight="700">QLoRA Total</text>
+                <text x="715" y="52" text-anchor="middle" fill="#666" font-size="11">70B model</text>
+                <text x="715" y="75" text-anchor="middle" fill="#27ae60" font-size="18" font-weight="700">~43 GB</text>
+                <text x="715" y="95" text-anchor="middle" fill="#27ae60" font-size="11" font-weight="600">✓ Fits in 48GB</text>
+                
+                <!-- Memory bar comparison -->
+                <rect x="790" y="15" width="15" height="90" fill="#ffebee" stroke="#c62828" stroke-width="1"/>
+                <rect x="790" y="52" width="15" height="53" fill="#e8f5e9" stroke="#27ae60" stroke-width="2"/>
+                <text x="815" y="35" fill="#c62828" font-size="10">140GB</text>
+                <text x="815" y="83" fill="#27ae60" font-size="10" font-weight="600">43GB</text>
+                
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#27ae60"/>
+                    </marker>
+                </defs>
+            </svg>
         </div>
         
         <div class="metrics-grid">
@@ -119,28 +202,6 @@
                 <div class="benefit-item">
                     <span class="bullet">•</span>
                     <span>BitsAndBytes library</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="benefits-section">
-            <div class="benefits-title">⚠️ Considerations</div>
-            <div class="benefits-grid">
-                <div class="benefit-item">
-                    <span class="bullet">•</span>
-                    <span>Slower training (10-15%)</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="bullet">•</span>
-                    <span>Not suitable for inference</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="bullet">•</span>
-                    <span>Requires CUDA 11.0+</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="bullet">•</span>
-                    <span>Limited to NVIDIA GPUs</span>
                 </div>
             </div>
         </div>

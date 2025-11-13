@@ -47,6 +47,11 @@
             border-radius: 12px;
             padding: 25px;
             text-align: center;
+            position: relative;
+        }
+        
+        .model-icon {
+            margin-bottom: 15px;
         }
         
         .model-title {
@@ -79,8 +84,7 @@
         .arrow-section {
             text-align: center;
             margin: 20px 0;
-            font-size: 40px;
-            color: #1E64C8;
+            position: relative;
         }
         
         .knowledge-transfer {
@@ -114,6 +118,11 @@
             color: #333;
             font-weight: 500;
         }
+        
+        .svg-arrow {
+            width: 100%;
+            height: 80px;
+        }
     </style>
 </head>
 <body>
@@ -122,6 +131,29 @@
         
         <div class="framework-diagram">
             <div class="model-box">
+                <div class="model-icon">
+                    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Teacher icon: Large neural network -->
+                        <circle cx="40" cy="20" r="6" fill="#1E64C8"/>
+                        <circle cx="20" cy="40" r="6" fill="#1E64C8"/>
+                        <circle cx="40" cy="40" r="6" fill="#1E64C8"/>
+                        <circle cx="60" cy="40" r="6" fill="#1E64C8"/>
+                        <circle cx="20" cy="60" r="6" fill="#1E64C8"/>
+                        <circle cx="40" cy="60" r="6" fill="#1E64C8"/>
+                        <circle cx="60" cy="60" r="6" fill="#1E64C8"/>
+                        <!-- Connections -->
+                        <line x1="40" y1="20" x2="20" y2="40" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="40" y1="20" x2="40" y2="40" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="40" y1="20" x2="60" y2="40" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="20" y1="40" x2="20" y2="60" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="20" y1="40" x2="40" y2="60" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="40" y1="40" x2="20" y2="60" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="40" y1="40" x2="40" y2="60" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="40" y1="40" x2="60" y2="60" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="60" y1="40" x2="40" y2="60" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="60" y1="40" x2="60" y2="60" stroke="#1E64C8" stroke-width="2"/>
+                    </svg>
+                </div>
                 <div class="model-title">🎓 Teacher Model</div>
                 <div class="model-specs">
                     <div class="spec-item">
@@ -140,6 +172,23 @@
             </div>
             
             <div class="model-box">
+                <div class="model-icon">
+                    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Student icon: Smaller neural network -->
+                        <circle cx="40" cy="25" r="5" fill="#51cf66"/>
+                        <circle cx="30" cy="45" r="5" fill="#51cf66"/>
+                        <circle cx="50" cy="45" r="5" fill="#51cf66"/>
+                        <circle cx="30" cy="60" r="5" fill="#51cf66"/>
+                        <circle cx="50" cy="60" r="5" fill="#51cf66"/>
+                        <!-- Connections -->
+                        <line x1="40" y1="25" x2="30" y2="45" stroke="#51cf66" stroke-width="2"/>
+                        <line x1="40" y1="25" x2="50" y2="45" stroke="#51cf66" stroke-width="2"/>
+                        <line x1="30" y1="45" x2="30" y2="60" stroke="#51cf66" stroke-width="2"/>
+                        <line x1="30" y1="45" x2="50" y2="60" stroke="#51cf66" stroke-width="2"/>
+                        <line x1="50" y1="45" x2="30" y2="60" stroke="#51cf66" stroke-width="2"/>
+                        <line x1="50" y1="45" x2="50" y2="60" stroke="#51cf66" stroke-width="2"/>
+                    </svg>
+                </div>
                 <div class="model-title">🎯 Student Model</div>
                 <div class="model-specs">
                     <div class="spec-item">
@@ -159,15 +208,50 @@
         </div>
         
         <div class="arrow-section">
-            ⬇️ Knowledge Transfer ⬇️
+            <svg class="svg-arrow" viewBox="0 0 960 80" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arrow body -->
+                <line x1="100" y1="40" x2="860" y2="40" stroke="#1E64C8" stroke-width="4"/>
+                <!-- Arrow head -->
+                <polygon points="860,40 840,30 840,50" fill="#1E64C8"/>
+                <!-- Knowledge transfer icon -->
+                <g transform="translate(430, 10)">
+                    <circle cx="25" cy="30" r="20" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <path d="M 15 30 L 20 35 L 30 25" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                </g>
+                <text x="480" y="20" font-family="Aptos, 'Segoe UI', sans-serif" font-size="16" font-weight="600" fill="#1E64C8" text-anchor="middle">
+                    Knowledge Transfer
+                </text>
+            </svg>
         </div>
         
         <div class="knowledge-transfer">
             <div class="transfer-title">전달되는 지식</div>
             <div class="transfer-items">
-                <div class="transfer-item">Soft Targets<br>(확률 분포)</div>
-                <div class="transfer-item">Feature Maps<br>(중간층 출력)</div>
-                <div class="transfer-item">Attention Maps<br>(주목 영역)</div>
+                <div class="transfer-item">
+                    <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px;">
+                        <rect x="5" y="15" width="8" height="20" fill="#1E64C8" opacity="0.3"/>
+                        <rect x="16" y="10" width="8" height="25" fill="#1E64C8" opacity="0.6"/>
+                        <rect x="27" y="5" width="8" height="30" fill="#1E64C8"/>
+                    </svg>
+                    <div><strong>Soft Targets</strong><br>(확률 분포)</div>
+                </div>
+                <div class="transfer-item">
+                    <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px;">
+                        <rect x="5" y="5" width="30" height="5" fill="#1E64C8" opacity="0.3"/>
+                        <rect x="5" y="12" width="30" height="5" fill="#1E64C8" opacity="0.5"/>
+                        <rect x="5" y="19" width="30" height="5" fill="#1E64C8" opacity="0.7"/>
+                        <rect x="5" y="26" width="30" height="5" fill="#1E64C8"/>
+                    </svg>
+                    <div><strong>Feature Maps</strong><br>(중간층 출력)</div>
+                </div>
+                <div class="transfer-item">
+                    <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px;">
+                        <circle cx="20" cy="20" r="15" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                        <circle cx="20" cy="20" r="10" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                        <circle cx="20" cy="20" r="5" fill="#1E64C8"/>
+                    </svg>
+                    <div><strong>Attention Maps</strong><br>(주목 영역)</div>
+                </div>
             </div>
         </div>
     </div>

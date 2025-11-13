@@ -8,28 +8,75 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Aptos, 'Segoe UI', sans-serif; background: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .container { width: 960px; height: 540px; padding: 35px 45px; background: white; }
-        .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 22px; text-align: center; }
-        .concept-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px 25px; margin-bottom: 22px; text-align: center; font-size: 17px; color: #333; font-weight: 500; }
+        .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 20px; text-align: center; }
+        .concept-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px 25px; margin-bottom: 20px; text-align: center; font-size: 17px; color: #333; font-weight: 500; }
         .highlight { color: #1E64C8; font-weight: 700; }
-        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-        .content-card { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 18px; transition: all 0.3s; }
-        .content-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2); background: #f8fbff; }
-        .card-title { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
-        .card-desc { font-size: 15px; color: #555; line-height: 1.5; }
+        .fusion-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+        .fusion-card { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 18px; transition: all 0.3s; }
+        .fusion-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2); background: #f8fbff; }
+        .card-title { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; text-align: center; }
+        .card-desc { font-size: 14px; color: #555; line-height: 1.5; margin-bottom: 8px; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 4px; font-size: 13px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 6px; }
+        .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .compare-box { background: #f8f9fb; border-left: 4px solid #1E64C8; padding: 12px 15px; border-radius: 6px; }
+        .compare-title { font-size: 16px; font-weight: 600; color: #1E64C8; margin-bottom: 8px; }
+        .compare-item { font-size: 14px; color: #333; margin-bottom: 4px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="title">Early vs Late Fusion</div>
+        <div class="title">Early vs Late Fusion: 융합 시점 전략</div>
         <div class="concept-box">Early Fusion: 특징 추출 전 결합 / Late Fusion: 각 모달 독립 처리 후 통합</div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-title">Key Concept 1</div>
-                <div class="card-desc">Detailed explanation of the first key concept</div>
+        
+        <div class="fusion-grid">
+            <div class="fusion-card">
+                <div class="card-title">Early Fusion</div>
+                <div class="card-desc">입력 레벨 결합</div>
+                <div class="bullet">원시 데이터 또는 초기 특징 결합</div>
+                <div class="bullet">단일 모델로 공동 학습</div>
+                <div class="bullet">모달 간 저수준 상호작용</div>
+                <div class="bullet">계산 효율적</div>
+                <div class="card-desc" style="margin-top: 10px;"><strong>장점:</strong> 강한 통합, 빠른 추론</div>
+                <div class="card-desc"><strong>단점:</strong> 차원의 저주, 모달 불균형</div>
             </div>
-            <div class="content-card">
-                <div class="card-title">Key Concept 2</div>
-                <div class="card-desc">Detailed explanation of the second key concept</div>
+            
+            <div class="fusion-card">
+                <div class="card-title">Intermediate Fusion</div>
+                <div class="card-desc">중간 레벨 결합</div>
+                <div class="bullet">각 모달 부분 처리 후 결합</div>
+                <div class="bullet">중간 표현 수준 통합</div>
+                <div class="bullet">계층적 특징 결합</div>
+                <div class="bullet">유연한 아키텍처</div>
+                <div class="card-desc" style="margin-top: 10px;"><strong>장점:</strong> 균형잡힌 접근</div>
+                <div class="card-desc"><strong>단점:</strong> 설계 복잡도</div>
+            </div>
+            
+            <div class="fusion-card">
+                <div class="card-title">Late Fusion</div>
+                <div class="card-desc">결정 레벨 결합</div>
+                <div class="bullet">각 모달 독립 완전 처리</div>
+                <div class="bullet">고수준 예측 결합</div>
+                <div class="bullet">앙상블 방식</div>
+                <div class="bullet">모달별 전문화</div>
+                <div class="card-desc" style="margin-top: 10px;"><strong>장점:</strong> 모달 독립성, 확장성</div>
+                <div class="card-desc"><strong>단점:</strong> 약한 통합</div>
+            </div>
+        </div>
+        
+        <div class="comparison">
+            <div class="compare-box">
+                <div class="compare-title">의료 적용 예시</div>
+                <div class="compare-item"><strong>Early:</strong> CT + PET 픽셀 레벨 융합</div>
+                <div class="compare-item"><strong>Intermediate:</strong> X-ray + 텍스트 특징 결합</div>
+                <div class="compare-item"><strong>Late:</strong> 영상/유전자/임상 예측 통합</div>
+            </div>
+            
+            <div class="compare-box">
+                <div class="compare-title">선택 기준</div>
+                <div class="compare-item"><strong>Early:</strong> 모달 크기/형식 유사, 밀접 관련</div>
+                <div class="compare-item"><strong>Late:</strong> 이질적 모달, 누락 가능성</div>
+                <div class="compare-item"><strong>Hybrid:</strong> 복잡한 멀티모달 시스템</div>
             </div>
         </div>
     </div>

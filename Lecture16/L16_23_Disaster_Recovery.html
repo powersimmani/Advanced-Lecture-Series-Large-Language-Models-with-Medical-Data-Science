@@ -47,14 +47,125 @@
             font-weight: 500;
         }
         
-        .items-grid {
+        .dr-visual {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f5fc 0%, #ffffff 100%);
+            border-radius: 10px;
+            border: 2px solid #1E64C8;
+        }
+        
+        .site-box {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(30, 100, 200, 0.1);
+        }
+        
+        .site-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.3);
+        }
+        
+        .site-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1E64C8;
+        }
+        
+        .site-icon {
+            font-size: 36px;
+        }
+        
+        .site-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
+        .site-status {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .status-item {
+            background: #f0f5fc;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-icon {
+            font-size: 16px;
+        }
+        
+        .failover-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .arrow-icon {
+            font-size: 48px;
+            color: #e74c3c;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .arrow-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #e74c3c;
+            background: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 2px solid #e74c3c;
+        }
+        
+        .backup-site {
+            border-color: #27ae60;
+        }
+        
+        .backup-site .site-header {
+            border-bottom-color: #27ae60;
+        }
+        
+        .backup-site .site-title {
+            color: #27ae60;
+        }
+        
+        .metrics-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
-        .item-card {
+        .metric-card {
             background: white;
             border: 2px solid #1E64C8;
             border-radius: 8px;
@@ -62,52 +173,62 @@
             transition: all 0.3s;
         }
         
-        .item-card:hover {
+        .metric-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
             background: #f8fbff;
         }
         
-        .item-title {
-            font-size: 17px;
-            font-weight: 700;
-            color: #1E64C8;
+        .metric-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 8px;
         }
         
-        .item-desc {
-            font-size: 14px;
+        .metric-icon {
+            font-size: 24px;
+        }
+        
+        .metric-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
+        .metric-desc {
+            font-size: 13px;
             color: #333;
-            line-height: 1.5;
+            line-height: 1.4;
         }
         
         .tools-section {
             background: #fff8e6;
             border: 2px solid #ffa500;
             border-radius: 8px;
-            padding: 15px 20px;
+            padding: 12px 18px;
         }
         
         .tools-title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: #ff8c00;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-align: center;
         }
         
         .tools-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
         }
         
         .tool-badge {
             background: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 13px;
             font-weight: 600;
             color: #333;
             border: 1.5px solid #ffa500;
@@ -122,28 +243,73 @@
             Plan and procedures to recover from system failures or disasters
         </div>
         
-        <div class="items-grid">
+        <!-- DR Visual -->
+        <div class="dr-visual">
+            <div class="site-box">
+                <div class="site-header">
+                    <div class="site-icon">🏢</div>
+                    <div class="site-title">Primary Site</div>
+                </div>
+                <div class="site-status">
+                    <div class="status-item">
+                        <span class="status-icon">💾</span>
+                        <span>Production Database</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-icon">🚀</span>
+                        <span>Live ML Services</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-icon">👥</span>
+                        <span>Active Users</span>
+                    </div>
+                </div>
+            </div>
             
-            <div class="item-card">
-                <div class="item-title">RPO (Recovery Point Objective)</div>
-                <div class="item-desc">Maximum acceptable data loss (e.g., 1 hour)</div>
+            <div class="failover-arrow">
+                <div class="arrow-icon">⚠️</div>
+                <div class="arrow-label">FAILOVER</div>
+                <div class="arrow-icon">→</div>
             </div>
-
-            <div class="item-card">
-                <div class="item-title">RTO (Recovery Time Objective)</div>
-                <div class="item-desc">Maximum acceptable downtime (e.g., 4 hours)</div>
+            
+            <div class="site-box backup-site">
+                <div class="site-header">
+                    <div class="site-icon">🛡️</div>
+                    <div class="site-title">Backup Site</div>
+                </div>
+                <div class="site-status">
+                    <div class="status-item">
+                        <span class="status-icon">💾</span>
+                        <span>Replicated Data</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-icon">🚀</span>
+                        <span>Standby Services</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-icon">✅</span>
+                        <span>Ready to Activate</span>
+                    </div>
+                </div>
             </div>
-
-            <div class="item-card">
-                <div class="item-title">Failover Strategy</div>
-                <div class="item-desc">Automatic switch to backup systems</div>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon">⏱️</div>
+                    <div class="metric-title">RPO (Recovery Point Objective)</div>
+                </div>
+                <div class="metric-desc">Maximum acceptable data loss (e.g., 1 hour)</div>
             </div>
-
-            <div class="item-card">
-                <div class="item-title">Testing</div>
-                <div class="item-desc">Regular disaster recovery drills</div>
+            
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon">⏰</div>
+                    <div class="metric-title">RTO (Recovery Time Objective)</div>
+                </div>
+                <div class="metric-desc">Maximum acceptable downtime (e.g., 4 hours)</div>
             </div>
-
         </div>
         
         <div class="tools-section">
@@ -152,10 +318,8 @@
                 <div class="tool-badge">Multi-region Deployment</div>
                 <div class="tool-badge">Automated Failover</div>
                 <div class="tool-badge">DR Runbooks</div>
-                
             </div>
         </div>
-
     </div>
 </body>
 </html>

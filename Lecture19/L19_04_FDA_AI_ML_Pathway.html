@@ -56,14 +56,14 @@
             font-weight: 700;
         }
         
-        .features-grid, .requirements-grid {
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             margin-bottom: 16px;
         }
         
-        .feature-card, .req-card {
+        .feature-card {
             background: white;
             border: 2.5px solid #1E64C8;
             border-radius: 8px;
@@ -71,268 +71,51 @@
             transition: all 0.3s;
         }
         
-        .feature-card:hover, .req-card:hover {
+        .feature-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
             background: #f8fbff;
         }
         
-        .feature-title, .req-title {
+        .feature-title {
             font-size: 15px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 6px;
         }
         
-        .feature-desc, .req-desc {
+        .feature-desc {
             font-size: 13px;
             color: #555;
             line-height: 1.4;
         }
         
-        .pathway-steps {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+        .process-diagram {
             margin-top: 16px;
-        }
-        
-        .step-card {
-            background: white;
-            border: 2.5px solid #1E64C8;
-            border-radius: 8px;
-            padding: 12px 16px;
-            text-align: center;
-            flex: 1;
-        }
-        
-        .step-number {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 6px;
-        }
-        
-        .step-text {
-            font-size: 13px;
-            color: #555;
-        }
-        
-        .arrow {
-            font-size: 20px;
-            color: #1E64C8;
-            font-weight: 700;
-        }
-        
-        .timeline-box {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 14px 18px;
-            margin-top: 12px;
-        }
-        
-        .timeline-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        
-        .timeline-steps {
             display: flex;
-            justify-content: space-between;
-            gap: 12px;
-        }
-        
-        .timeline-step {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .timeline-label {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 4px;
-        }
-        
-        .timeline-desc {
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .pma-requirements {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-bottom: 14px;
-        }
-        
-        .req-category {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 14px;
-        }
-        
-        .category-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 10px;
-        }
-        
-        .req-item {
-            font-size: 13px;
-            color: #555;
-            margin-bottom: 4px;
-            line-height: 1.4;
-        }
-        
-        .comparison-box {
-            background: #f0f5fc;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 14px;
-        }
-        
-        .comparison-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .comparison-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .comp-item {
-            display: grid;
-            grid-template-columns: 120px 1fr 1fr;
-            gap: 10px;
-            align-items: center;
-        }
-        
-        .comp-label {
-            font-size: 13px;
-            font-weight: 700;
-            color: #333;
-        }
-        
-        .comp-510k, .comp-pma {
-            font-size: 12px;
-            color: #555;
-            padding: 6px;
-            background: white;
-            border-radius: 4px;
-            text-align: center;
-        }
-        
-        .denovo-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-        
-        .feature-box {
-            background: white;
-            border: 2.5px solid #1E64C8;
-            border-radius: 8px;
-            padding: 12px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .feature-box:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
-        }
-        
-        .feature-icon {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-        
-        .process-flow {
-            background: #f8f9fa;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 14px;
-            margin-bottom: 12px;
-        }
-        
-        .flow-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        
-        .flow-steps {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .flow-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .step-num {
-            width: 30px;
-            height: 30px;
-            background: #1E64C8;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
         }
-        
-        .step-content {
+
+        .step-box {
             text-align: center;
         }
-        
-        .step-name {
-            font-size: 13px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 2px;
+
+        .step-number-circle {
+            animation: pulse 2s ease-in-out infinite;
         }
-        
-        .step-detail {
-            font-size: 11px;
-            color: #666;
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
-        
-        .flow-arrow {
-            font-size: 18px;
-            color: #1E64C8;
-            font-weight: 700;
+
+        .arrow-line {
+            animation: flow 2s linear infinite;
         }
-        
-        .note-box {
-            background: #fff4e6;
-            border-left: 4px solid #ff9800;
-            border-radius: 4px;
-            padding: 10px 14px;
-            font-size: 13px;
-            color: #555;
-            line-height: 1.5;
+
+        @keyframes flow {
+            0% { stroke-dashoffset: 20; }
+            100% { stroke-dashoffset: 0; }
         }
     </style>
 </head>
@@ -369,26 +152,62 @@
             </div>
         </div>
         
-        <div class="pathway-steps">
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <div class="step-text">사전 정의된 변경 계획 제출</div>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <div class="step-text">실세계 성능 모니터링</div>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <div class="step-text">계획 내 변경 구현</div>
-            </div>
-            <div class="arrow">→</div>
-            <div class="step-card">
-                <div class="step-number">4</div>
-                <div class="step-text">변경사항 보고</div>
-            </div>
+        <div class="process-diagram">
+            <svg width="880" height="140" viewBox="0 0 880 140">
+                <!-- Step 1 -->
+                <g class="step-box">
+                    <circle class="step-number-circle" cx="60" cy="50" r="30" fill="#1E64C8"/>
+                    <text x="60" y="58" font-size="24" font-weight="bold" fill="white" text-anchor="middle">1</text>
+                    <rect x="10" y="90" width="100" height="45" rx="5" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="60" y="108" font-size="12" font-weight="bold" fill="#1E64C8" text-anchor="middle">사전 정의된</text>
+                    <text x="60" y="122" font-size="12" fill="#555" text-anchor="middle">변경 계획 제출</text>
+                </g>
+
+                <!-- Arrow 1 -->
+                <line class="arrow-line" x1="110" y1="112" x2="190" y2="112" stroke="#1E64C8" stroke-width="3" stroke-dasharray="5,5"/>
+                <polygon points="190,112 180,107 180,117" fill="#1E64C8"/>
+
+                <!-- Step 2 -->
+                <g class="step-box">
+                    <circle class="step-number-circle" cx="280" cy="50" r="30" fill="#1E64C8"/>
+                    <text x="280" y="58" font-size="24" font-weight="bold" fill="white" text-anchor="middle">2</text>
+                    <rect x="230" y="90" width="100" height="45" rx="5" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="280" y="108" font-size="12" font-weight="bold" fill="#1E64C8" text-anchor="middle">실세계 성능</text>
+                    <text x="280" y="122" font-size="12" fill="#555" text-anchor="middle">모니터링</text>
+                </g>
+
+                <!-- Arrow 2 -->
+                <line class="arrow-line" x1="330" y1="112" x2="410" y2="112" stroke="#1E64C8" stroke-width="3" stroke-dasharray="5,5"/>
+                <polygon points="410,112 400,107 400,117" fill="#1E64C8"/>
+
+                <!-- Step 3 -->
+                <g class="step-box">
+                    <circle class="step-number-circle" cx="500" cy="50" r="30" fill="#1E64C8"/>
+                    <text x="500" y="58" font-size="24" font-weight="bold" fill="white" text-anchor="middle">3</text>
+                    <rect x="450" y="90" width="100" height="45" rx="5" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="500" y="108" font-size="12" font-weight="bold" fill="#1E64C8" text-anchor="middle">계획 내</text>
+                    <text x="500" y="122" font-size="12" fill="#555" text-anchor="middle">변경 구현</text>
+                </g>
+
+                <!-- Arrow 3 -->
+                <line class="arrow-line" x1="550" y1="112" x2="630" y2="112" stroke="#1E64C8" stroke-width="3" stroke-dasharray="5,5"/>
+                <polygon points="630,112 620,107 620,117" fill="#1E64C8"/>
+
+                <!-- Step 4 -->
+                <g class="step-box">
+                    <circle class="step-number-circle" cx="720" cy="50" r="30" fill="#1E64C8"/>
+                    <text x="720" y="58" font-size="24" font-weight="bold" fill="white" text-anchor="middle">4</text>
+                    <rect x="670" y="90" width="100" height="45" rx="5" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="720" y="108" font-size="12" font-weight="bold" fill="#1E64C8" text-anchor="middle">변경사항</text>
+                    <text x="720" y="122" font-size="12" fill="#555" text-anchor="middle">보고</text>
+                </g>
+
+                <!-- Feedback loop arrow -->
+                <path d="M 770 112 Q 820 112 820 60 Q 820 20 500 20 Q 180 20 180 60 Q 180 90 230 90" 
+                      stroke="#ff9800" stroke-width="2" fill="none" stroke-dasharray="3,3" opacity="0.6"/>
+                <polygon points="230,90 228,80 222,87" fill="#ff9800" opacity="0.6"/>
+                <text x="820" y="50" font-size="11" fill="#ff9800" font-weight="bold">지속적 개선 루프</text>
+            </svg>
         </div>
         
     </div>

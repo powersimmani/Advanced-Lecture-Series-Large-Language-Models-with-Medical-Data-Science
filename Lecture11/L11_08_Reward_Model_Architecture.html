@@ -56,27 +56,88 @@
             line-height: 1.6;
         }
         
-        .items-list {
+        .architecture-diagram {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
         }
         
-        .item {
-            font-size: 15px;
-            color: #333;
-            line-height: 1.5;
-            padding-left: 20px;
-            position: relative;
+        .arch-layer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
-        .item:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #1E64C8;
+        .layer-box {
+            width: 600px;
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(30, 100, 200, 0.1);
+        }
+        
+        .layer-name {
+            font-size: 16px;
             font-weight: 700;
-            font-size: 18px;
+            color: #1E64C8;
+            margin-bottom: 5px;
+        }
+        
+        .layer-desc {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .arrow-vertical {
+            width: 30px;
+            height: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .training-flow {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .flow-card {
+            background: #e8f2ff;
+            border-left: 4px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 15px;
+        }
+        
+        .flow-number {
+            display: inline-block;
+            background: #1E64C8;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+        
+        .flow-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 4px;
+        }
+        
+        .flow-text {
+            font-size: 13px;
+            color: #333;
         }
     </style>
 </head>
@@ -88,24 +149,87 @@
             <div class="section-title">Model Structure</div>
             <div class="section-text">Reward models predict scalar scores for model outputs, learned from expert preference data to guide policy optimization.</div>
         </div>
+        
         <div class="section">
             <div class="section-title">Architecture Components</div>
-            <div class="items-list">
-                <div class="item">Base Encoder: Transformer model (BERT, GPT, etc.)</div>
-                <div class="item">Pooling Layer: Aggregate sequence representations</div>
-                <div class="item">Reward Head: Linear layer outputting single scalar</div>
-                <div class="item">Loss Function: Bradley-Terry or ranking loss</div>
-                <div class="item">Regularization: Dropout, weight decay to prevent overfitting</div>
+            <div class="architecture-diagram">
+                <div class="arch-layer">
+                    <div class="layer-box">
+                        <div class="layer-name">📝 Input Layer</div>
+                        <div class="layer-desc">Tokenized Output Pairs (Output A, Output B)</div>
+                    </div>
+                </div>
+                <div class="arrow-vertical">
+                    <svg width="30" height="15" viewBox="0 0 30 15">
+                        <defs>
+                            <marker id="arrow1" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="#1E64C8" />
+                            </marker>
+                        </defs>
+                        <line x1="15" y1="0" x2="15" y2="12" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow1)" />
+                    </svg>
+                </div>
+                <div class="arch-layer">
+                    <div class="layer-box" style="background: #e8f2ff;">
+                        <div class="layer-name">🧠 Base Encoder (Transformer)</div>
+                        <div class="layer-desc">BERT, GPT, or Medical Domain Transformer</div>
+                    </div>
+                </div>
+                <div class="arrow-vertical">
+                    <svg width="30" height="15" viewBox="0 0 30 15">
+                        <line x1="15" y1="0" x2="15" y2="12" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow1)" />
+                    </svg>
+                </div>
+                <div class="arch-layer">
+                    <div class="layer-box" style="background: #e8f2ff;">
+                        <div class="layer-name">📊 Pooling Layer</div>
+                        <div class="layer-desc">Aggregate Sequence Representations (Mean/Max/CLS)</div>
+                    </div>
+                </div>
+                <div class="arrow-vertical">
+                    <svg width="30" height="15" viewBox="0 0 30 15">
+                        <line x1="15" y1="0" x2="15" y2="12" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow1)" />
+                    </svg>
+                </div>
+                <div class="arch-layer">
+                    <div class="layer-box" style="background: #d4e5ff;">
+                        <div class="layer-name">🎯 Reward Head (Linear Layer)</div>
+                        <div class="layer-desc">Output: Single Scalar Score r(output)</div>
+                    </div>
+                </div>
+                <div class="arrow-vertical">
+                    <svg width="30" height="15" viewBox="0 0 30 15">
+                        <line x1="15" y1="0" x2="15" y2="12" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow1)" />
+                    </svg>
+                </div>
+                <div class="arch-layer">
+                    <div class="layer-box" style="background: #1E64C8; color: white;">
+                        <div class="layer-name" style="color: white;">⚖️ Loss Function</div>
+                        <div class="layer-desc" style="color: rgba(255,255,255,0.9);">Bradley-Terry / Ranking Loss</div>
+                    </div>
+                </div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">Training Process</div>
-            <div class="items-list">
-                <div class="item">Input: Pairs of outputs with preference labels</div>
-                <div class="item">Forward Pass: Compute reward scores for both outputs</div>
-                <div class="item">Loss Calculation: Penalize incorrect rankings</div>
-                <div class="item">Optimization: Adam optimizer with learning rate scheduling</div>
-                <div class="item">Validation: Monitor accuracy on held-out preference data</div>
+            <div class="training-flow">
+                <div class="flow-card">
+                    <div class="flow-title"><span class="flow-number">1</span>Input</div>
+                    <div class="flow-text">Pairs of outputs with preference labels</div>
+                </div>
+                <div class="flow-card">
+                    <div class="flow-title"><span class="flow-number">2</span>Forward Pass</div>
+                    <div class="flow-text">Compute reward scores for both outputs</div>
+                </div>
+                <div class="flow-card">
+                    <div class="flow-title"><span class="flow-number">3</span>Loss Calculation</div>
+                    <div class="flow-text">Penalize incorrect rankings</div>
+                </div>
+                <div class="flow-card">
+                    <div class="flow-title"><span class="flow-number">4</span>Optimization</div>
+                    <div class="flow-text">Adam optimizer with LR scheduling</div>
+                </div>
             </div>
         </div>
     </div>

@@ -57,6 +57,107 @@
             line-height: 1.6;
         }
         
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 15px;
+            align-items: start;
+            margin: 15px 0;
+        }
+        
+        .method-box {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 12px;
+            padding: 15px;
+            min-height: 180px;
+        }
+        
+        .method-header {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .method-label {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 5px;
+        }
+        
+        .method-subtitle {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .method-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .step-badge {
+            background: #e8f2ff;
+            border-left: 3px solid #1E64C8;
+            padding: 8px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #333;
+        }
+        
+        .vs-divider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .vs-circle {
+            width: 50px;
+            height: 50px;
+            background: #1E64C8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .comparison-card {
+            background: #e8f2ff;
+            border-left: 4px solid #1E64C8;
+            border-radius: 6px;
+            padding: 10px 12px;
+        }
+        
+        .comparison-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 4px;
+        }
+        
+        .comparison-text {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .advantage-icon {
+            color: #6bcf7f;
+            font-size: 16px;
+            margin-right: 5px;
+        }
+        
         .items-list {
             display: flex;
             flex-direction: column;
@@ -89,25 +190,92 @@
             <div class="section-title">What is DPO?</div>
             <div class="section-text">DPO directly optimizes the language model using preference data, eliminating the need for a separate reward model and RL training loop.</div>
         </div>
+        
         <div class="section">
-            <div class="section-title">DPO vs PPO Comparison</div>
-            <div class="items-list">
-                <div class="item">Simplicity: No separate reward model training required</div>
-                <div class="item">Efficiency: Fewer hyperparameters to tune</div>
-                <div class="item">Stability: More stable training dynamics</div>
-                <div class="item">Performance: Often achieves similar or better results than PPO</div>
-                <div class="item">Computational Cost: Lower memory and compute requirements</div>
+            <div class="section-title">DPO vs PPO: Architecture Comparison</div>
+            <div class="comparison-container">
+                <div class="method-box" style="background: #fff3e0; border-color: #ff9f43;">
+                    <div class="method-header">
+                        <div class="method-label" style="color: #ff9f43;">PPO</div>
+                        <div class="method-subtitle">Two-Stage Process</div>
+                    </div>
+                    <div class="method-steps">
+                        <div class="step-badge" style="background: #ffe8cc; border-color: #ff9f43;">
+                            <strong>Stage 1:</strong> Train Reward Model
+                        </div>
+                        <div class="step-badge" style="background: #ffe8cc; border-color: #ff9f43;">
+                            📊 Preference Data → r(output)
+                        </div>
+                        <div class="step-badge" style="background: #ffe8cc; border-color: #ff9f43;">
+                            <strong>Stage 2:</strong> RL Optimization
+                        </div>
+                        <div class="step-badge" style="background: #ffe8cc; border-color: #ff9f43;">
+                            🔄 Actor-Critic + KL penalty
+                        </div>
+                        <div class="step-badge" style="background: #ffe8cc; border-color: #ff9f43;">
+                            ⚙️ Complex hyperparameters
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vs-divider">
+                    <div class="vs-circle">VS</div>
+                    <svg width="40" height="60" viewBox="0 0 40 60">
+                        <line x1="20" y1="0" x2="5" y2="30" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="20" y1="0" x2="35" y2="30" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="5" y1="30" x2="20" y2="60" stroke="#1E64C8" stroke-width="2"/>
+                        <line x1="35" y1="30" x2="20" y2="60" stroke="#1E64C8" stroke-width="2"/>
+                    </svg>
+                </div>
+                
+                <div class="method-box" style="background: #e8ffe8; border-color: #6bcf7f;">
+                    <div class="method-header">
+                        <div class="method-label" style="color: #6bcf7f;">DPO</div>
+                        <div class="method-subtitle">Single-Stage Process</div>
+                    </div>
+                    <div class="method-steps">
+                        <div class="step-badge" style="background: #d4f4dd; border-color: #6bcf7f;">
+                            <strong>Stage 1:</strong> Direct Optimization
+                        </div>
+                        <div class="step-badge" style="background: #d4f4dd; border-color: #6bcf7f;">
+                            ✓ Preference Data → Policy Update
+                        </div>
+                        <div class="step-badge" style="background: #d4f4dd; border-color: #6bcf7f;">
+                            🎯 No separate reward model
+                        </div>
+                        <div class="step-badge" style="background: #d4f4dd; border-color: #6bcf7f;">
+                            ⚡ Simpler training pipeline
+                        </div>
+                        <div class="step-badge" style="background: #d4f4dd; border-color: #6bcf7f;">
+                            💾 Lower memory requirements
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        
         <div class="section">
-            <div class="section-title">DPO Objective</div>
-            <div class="items-list">
-                <div class="item">Maximize likelihood of preferred outputs</div>
-                <div class="item">Minimize likelihood of dispreferred outputs</div>
-                <div class="item">Maintain KL constraint to reference model</div>
-                <div class="item">Single-stage optimization process</div>
+            <div class="section-title">DPO Advantages</div>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-title"><span class="advantage-icon">✓</span>Simplicity</div>
+                    <div class="comparison-text">No separate reward model training required</div>
+                </div>
+                <div class="comparison-card">
+                    <div class="comparison-title"><span class="advantage-icon">✓</span>Efficiency</div>
+                    <div class="comparison-text">Fewer hyperparameters to tune</div>
+                </div>
+                <div class="comparison-card">
+                    <div class="comparison-title"><span class="advantage-icon">✓</span>Stability</div>
+                    <div class="comparison-text">More stable training dynamics</div>
+                </div>
+                <div class="comparison-card">
+                    <div class="comparison-title"><span class="advantage-icon">✓</span>Performance</div>
+                    <div class="comparison-text">Often achieves similar or better results</div>
+                </div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">When to Use DPO</div>
             <div class="items-list">

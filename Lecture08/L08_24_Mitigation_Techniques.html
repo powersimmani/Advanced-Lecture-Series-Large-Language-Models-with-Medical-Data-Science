@@ -8,14 +8,11 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Aptos, 'Segoe UI', sans-serif; background: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .container { width: 960px; height: 540px; padding: 40px 60px; }
-        .title { font-size: 28px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
+        .title { font-size: 28px; font-weight: 700; color: #1E64C8; margin-bottom: 20px; text-align: center; }
         
-    .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 20px; }
-    .content-card { background: white; border: 2px solid #1E64C8; border-radius: 10px; padding: 20px; }
-    .card-title { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
-    .card-icon { font-size: 32px; text-align: center; margin-bottom: 10px; }
-    .item-list { display: flex; flex-direction: column; gap: 8px; }
-    .list-item { font-size: 13px; color: #666; padding-left: 15px; position: relative; }
+    .diagram-container { display: flex; justify-content: center; margin-bottom: 18px; }
+    .item-list { display: flex; flex-direction: column; gap: 5px; }
+    .list-item { font-size: 11px; color: #666; padding-left: 12px; position: relative; }
     .list-item::before { content: "•"; position: absolute; left: 0; color: #1E64C8; font-weight: bold; }
     
         
@@ -23,55 +20,128 @@
 </head>
 <body><div class="container">
         <div class="title">편향 완화 기법 (Bias Mitigation Techniques)</div>
-        <div style="background: #f0f5fc; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-            <div style="font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 15px; text-align: center;">🛠️ 완화 방법 분류</div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
-                <div style="background: white; border: 2px solid #1E64C8; border-radius: 10px; padding: 18px;">
-                    <div style="font-size: 16px; font-weight: 700; color: #1E64C8; text-align: center; margin-bottom: 12px;">Pre-processing</div>
-                    <div class="item-list">
-                        <div class="list-item">데이터 재샘플링</div>
-                        <div class="list-item">특성 선택</div>
-                        <div class="list-item">데이터 증강</div>
-                        <div class="list-item">라벨 보정</div>
-                    </div>
-                </div>
-                <div style="background: white; border: 2px solid #1E64C8; border-radius: 10px; padding: 18px;">
-                    <div style="font-size: 16px; font-weight: 700; color: #1E64C8; text-align: center; margin-bottom: 12px;">In-processing</div>
-                    <div class="item-list">
-                        <div class="list-item">공정성 제약 학습</div>
-                        <div class="list-item">Adversarial debiasing</div>
-                        <div class="list-item">정규화 기법</div>
-                        <div class="list-item">멀티태스크 학습</div>
-                    </div>
-                </div>
-                <div style="background: white; border: 2px solid #1E64C8; border-radius: 10px; padding: 18px;">
-                    <div style="font-size: 16px; font-weight: 700; color: #1E64C8; text-align: center; margin-bottom: 12px;">Post-processing</div>
-                    <div class="item-list">
-                        <div class="list-item">임계값 최적화</div>
-                        <div class="list-item">결과 재보정</div>
-                        <div class="list-item">앙상블 조정</div>
-                        <div class="list-item">예측 재랭킹</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-            <div style="background: #d4edda; border-left: 4px solid #28a745; border-radius: 8px; padding: 15px;">
-                <div style="font-weight: 700; color: #155724; margin-bottom: 10px;">✓ 효과성</div>
-                <div style="font-size: 13px; color: #155724;">
-                    <div style="margin-bottom: 6px;">• 편향 감소: 15-40%</div>
-                    <div style="margin-bottom: 6px;">• 공정성 향상: 20-50%</div>
-                    <div>• 정확도 손실: 1-5%</div>
-                </div>
-            </div>
-            <div style="background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 8px; padding: 15px;">
-                <div style="font-weight: 700; color: #856404; margin-bottom: 10px;">⚠️ 고려사항</div>
-                <div style="font-size: 13px; color: #856404;">
-                    <div style="margin-bottom: 6px;">• 성능 vs 공정성 트레이드오프</div>
-                    <div style="margin-bottom: 6px;">• 방법 선택 기준</div>
-                    <div>• 지속적인 모니터링 필요</div>
-                </div>
-            </div>
+        
+        <div class="diagram-container">
+            <svg width="840" height="310" viewBox="0 0 840 310">
+                <defs>
+                    <linearGradient id="preGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0288d1;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="inGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#66bb6a;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#388e3c;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="postGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ff9800;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#f57c00;stop-opacity:1" />
+                    </linearGradient>
+                    
+                    <marker id="arrow5" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
+                    </marker>
+                </defs>
+                
+                <!-- Title -->
+                <text x="420" y="22" font-family="Aptos, sans-serif" font-size="17" font-weight="700" fill="#1E64C8" text-anchor="middle">🛠️ ML 파이프라인 단계별 완화 방법</text>
+                
+                <!-- Data Input -->
+                <g>
+                    <rect x="20" y="100" width="90" height="60" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="65" y="125" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">Raw Data</text>
+                    <text x="65" y="142" font-family="Aptos, sans-serif" font-size="12" fill="#666" text-anchor="middle">원본 데이터</text>
+                    <text x="65" y="175" font-family="Aptos, sans-serif" font-size="20" text-anchor="middle">📊</text>
+                </g>
+                
+                <!-- Arrow 1 -->
+                <path d="M 110 130 L 150 130" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow5)"/>
+                
+                <!-- Pre-processing Stage -->
+                <g>
+                    <rect x="150" y="60" width="180" height="140" rx="10" fill="white" stroke="#0288d1" stroke-width="3"/>
+                    <rect x="155" y="65" width="170" height="30" rx="6" fill="url(#preGrad)"/>
+                    <text x="240" y="85" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="white" text-anchor="middle">1. Pre-processing</text>
+                    
+                    <foreignObject x="160" y="105" width="160" height="90">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 11px; color: #666; line-height: 1.5;">
+                            • 데이터 재샘플링<br/>
+                            • 특성 선택<br/>
+                            • 데이터 증강<br/>
+                            • 라벨 보정
+                        </div>
+                    </foreignObject>
+                </g>
+                
+                <!-- Arrow 2 -->
+                <path d="M 330 130 L 370 130" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow5)"/>
+                
+                <!-- In-processing Stage -->
+                <g>
+                    <rect x="370" y="60" width="180" height="140" rx="10" fill="white" stroke="#388e3c" stroke-width="3"/>
+                    <rect x="375" y="65" width="170" height="30" rx="6" fill="url(#inGrad)"/>
+                    <text x="460" y="85" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="white" text-anchor="middle">2. In-processing</text>
+                    
+                    <foreignObject x="380" y="105" width="160" height="90">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 11px; color: #666; line-height: 1.5;">
+                            • 공정성 제약 학습<br/>
+                            • Adversarial debiasing<br/>
+                            • 정규화 기법<br/>
+                            • 멀티태스크 학습
+                        </div>
+                    </foreignObject>
+                </g>
+                
+                <!-- Arrow 3 -->
+                <path d="M 550 130 L 590 130" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow5)"/>
+                
+                <!-- Post-processing Stage -->
+                <g>
+                    <rect x="590" y="60" width="180" height="140" rx="10" fill="white" stroke="#f57c00" stroke-width="3"/>
+                    <rect x="595" y="65" width="170" height="30" rx="6" fill="url(#postGrad)"/>
+                    <text x="680" y="85" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="white" text-anchor="middle">3. Post-processing</text>
+                    
+                    <foreignObject x="600" y="105" width="160" height="90">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 11px; color: #666; line-height: 1.5;">
+                            • 임계값 최적화<br/>
+                            • 결과 재보정<br/>
+                            • 앙상블 조정<br/>
+                            • 예측 재랭킹
+                        </div>
+                    </foreignObject>
+                </g>
+                
+                <!-- Arrow to Output -->
+                <path d="M 770 130 L 800 130" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow5)"/>
+                
+                <!-- Final Output -->
+                <g>
+                    <circle cx="815" cy="130" r="18" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                    <text x="815" y="136" font-family="Aptos, sans-serif" font-size="16" text-anchor="middle">✓</text>
+                    <text x="815" y="162" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="#155724" text-anchor="middle">Fair</text>
+                    <text x="815" y="174" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="#155724" text-anchor="middle">Output</text>
+                </g>
+                
+                <!-- Bottom statistics -->
+                <rect x="150" y="220" width="620" height="80" rx="10" fill="#f8f9fa" stroke="#1E64C8" stroke-width="2"/>
+                
+                <g transform="translate(160, 235)">
+                    <rect x="0" y="0" width="290" height="55" rx="6" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                    <text x="145" y="18" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#155724" text-anchor="middle">✓ 효과성</text>
+                    <text x="145" y="35" font-family="Aptos, sans-serif" font-size="11" fill="#155724" text-anchor="middle">편향 감소: 15-40%</text>
+                    <text x="145" y="49" font-family="Aptos, sans-serif" font-size="11" fill="#155724" text-anchor="middle">공정성 향상: 20-50% | 정확도 손실: 1-5%</text>
+                </g>
+                
+                <g transform="translate(460, 235)">
+                    <rect x="0" y="0" width="290" height="55" rx="6" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+                    <text x="145" y="18" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#856404" text-anchor="middle">⚠️ 고려사항</text>
+                    <text x="145" y="35" font-family="Aptos, sans-serif" font-size="11" fill="#856404" text-anchor="middle">성능 vs 공정성 트레이드오프</text>
+                    <text x="145" y="49" font-family="Aptos, sans-serif" font-size="11" fill="#856404" text-anchor="middle">방법 선택 기준 | 지속적 모니터링 필요</text>
+                </g>
+                
+                <!-- Timeline arrow at bottom -->
+                <path d="M 150 50 L 770 50" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow5)" opacity="0.3"/>
+                <text x="460" y="45" font-family="Aptos, sans-serif" font-size="11" font-weight="600" fill="#1E64C8" text-anchor="middle">ML Pipeline Flow</text>
+            </svg>
         </div>
     </div></body>
 </html>

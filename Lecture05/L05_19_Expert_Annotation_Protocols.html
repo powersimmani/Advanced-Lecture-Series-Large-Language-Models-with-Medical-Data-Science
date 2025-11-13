@@ -31,84 +31,145 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
         
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-card {
-            background: #f0f5fc;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 8px;
-        }
-        
-        .stat-label {
-            font-size: 13px;
-            color: #555;
-            font-weight: 500;
-        }
-        
-        .features-section {
-            background: #f8f9fa;
-            border-left: 5px solid #1E64C8;
-            border-radius: 8px;
-            padding: 20px 25px;
+        /* Annotation Workflow Visualization */
+        .workflow-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
             margin-bottom: 20px;
         }
         
-        .features-title {
-            font-size: 20px;
+        .workflow-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .workflow-step {
+            flex: 1;
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .workflow-step:hover {
+            background: #e8f2ff;
+            transform: translateX(5px);
+        }
+        
+        .workflow-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #1E64C8;
+            border-radius: 8px 0 0 8px;
+        }
+        
+        .step-number {
+            background: #1E64C8;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .step-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 2px;
+        }
+        
+        .step-desc {
+            font-size: 12px;
+            color: #555;
+        }
+        
+        /* Quality Control Cycle */
+        .qc-section {
+            background: #f8f9fa;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 16px 22px;
+            margin-bottom: 18px;
+        }
+        
+        .qc-title {
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 12px;
         }
         
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-        
-        .feature-item {
-            font-size: 15px;
-            color: #333;
-            padding: 8px 12px;
-            background: white;
-            border-radius: 5px;
+        .qc-cycle {
             display: flex;
+            justify-content: space-between;
             align-items: center;
             gap: 10px;
         }
         
-        .feature-icon {
+        .qc-item {
+            flex: 1;
+            background: white;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+            font-size: 13px;
+            color: #333;
+            font-weight: 600;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .qc-item:hover {
+            border-color: #1E64C8;
+            background: #f0f5fc;
+        }
+        
+        .qc-arrow {
+            color: #1E64C8;
             font-size: 20px;
+            font-weight: 700;
         }
         
         .performance-box {
             background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
             border-radius: 8px;
-            padding: 15px 20px;
+            padding: 12px 20px;
             color: white;
             text-align: center;
         }
         
         .performance-text {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 600;
         }
     </style>
@@ -117,35 +178,64 @@
     <div class="container">
         <div class="title">Expert Annotation Protocols</div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Annotation Guidelines</div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">📋</span>
-                    <span>Clear evaluation criteria</span>
+        <!-- Annotation Workflow -->
+        <div class="workflow-container">
+            <div class="workflow-row">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">🎓</div>
+                    <div class="step-content">
+                        <div class="step-title">Training & Calibration</div>
+                        <div class="step-desc">Experts complete mandatory training sessions</div>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">👥</span>
-                    <span>Multi-expert review panels</span>
+            </div>
+            
+            <div class="workflow-row">
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">📋</div>
+                    <div class="step-content">
+                        <div class="step-title">Apply Clear Criteria</div>
+                        <div class="step-desc">Use standardized evaluation rubrics</div>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">✅</span>
-                    <span>Standardized scoring rubrics</span>
+            </div>
+            
+            <div class="workflow-row">
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">👥</div>
+                    <div class="step-content">
+                        <div class="step-title">Multi-Expert Review</div>
+                        <div class="step-desc">Independent assessment by ≥3 experts</div>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🎓</span>
-                    <span>Mandatory training sessions</span>
+            </div>
+            
+            <div class="workflow-row">
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">✅</div>
+                    <div class="step-content">
+                        <div class="step-title">Quality Validation</div>
+                        <div class="step-desc">Regular audits and gold standard checks</div>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Quality Control Measures</div>
-            <div style="font-size: 16px; color: #333; line-height: 1.6; padding: 10px 0;">
-                • <strong>Calibration phase:</strong> Annotators practice on pilot cases<br>
-                • <strong>Regular audits:</strong> Random sample verification<br>
-                • <strong>Feedback loops:</strong> Continuous guideline refinement<br>
-                • <strong>Gold standard cases:</strong> Known examples for validation
+        <!-- Quality Control Cycle -->
+        <div class="qc-section">
+            <div class="qc-title">Quality Control Cycle</div>
+            <div class="qc-cycle">
+                <div class="qc-item">Calibration Phase</div>
+                <div class="qc-arrow">→</div>
+                <div class="qc-item">Regular Audits</div>
+                <div class="qc-arrow">→</div>
+                <div class="qc-item">Feedback Loops</div>
+                <div class="qc-arrow">→</div>
+                <div class="qc-item">Refinement</div>
             </div>
         </div>
         

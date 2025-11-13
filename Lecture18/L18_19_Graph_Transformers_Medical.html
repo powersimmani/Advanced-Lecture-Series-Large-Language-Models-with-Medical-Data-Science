@@ -31,101 +31,265 @@
             font-size: 20px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
             text-align: center;
         }
         
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
+        .main-layout {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .graph-area {
+            flex: 1.4;
+        }
+        
+        .info-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         
         .content-card {
             background: white;
             border: 2.5px solid #1E64C8;
             border-radius: 10px;
-            padding: 20px;
+            padding: 15px;
             transition: all 0.3s;
         }
         
         .content-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
             background: #f8fbff;
         }
         
         .card-title {
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         
         .card-text {
-            font-size: 15px;
+            font-size: 13px;
             color: #333;
-            line-height: 1.5;
-            margin-bottom: 8px;
+            line-height: 1.4;
+            margin-bottom: 4px;
         }
         
         .highlight-box {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 8px;
-            padding: 15px 20px;
-            margin-top: 20px;
+            padding: 12px 20px;
         }
         
         .highlight-title {
             font-size: 16px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-align: center;
         }
         
         .highlight-text {
-            font-size: 15px;
+            font-size: 14px;
             color: #333;
             text-align: center;
-            line-height: 1.5;
+            line-height: 1.4;
+        }
+        
+        .node {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .node:hover {
+            transform: scale(1.1);
+        }
+        
+        @keyframes pulse-edge {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+        
+        .relationship-edge {
+            animation: pulse-edge 2s ease-in-out infinite;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Graph Transformers for Medical Relationship Modeling</div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-title">Graph Neural Networks</div>
-                <div class="card-text">• Node: entities (diseases, genes)</div>
-                <div class="card-text">• Edges: relationships</div>
-                <div class="card-text">• Message passing for learning</div>
+        
+        <div class="main-layout">
+            <div class="graph-area">
+                <svg width="590" height="385" viewBox="0 0 590 385">
+                    <!-- Title -->
+                    <text x="295" y="22" text-anchor="middle" font-family="Aptos" font-size="16" font-weight="700" fill="#1E64C8">Medical Knowledge Graph Example</text>
+                    
+                    <!-- Legend -->
+                    <g>
+                        <circle cx="20" cy="45" r="6" fill="#ff6b6b"/>
+                        <text x="32" y="49" font-family="Aptos" font-size="10" fill="#666">Disease</text>
+                        
+                        <circle cx="90" cy="45" r="6" fill="#4ecdc4"/>
+                        <text x="102" y="49" font-family="Aptos" font-size="10" fill="#666">Symptom</text>
+                        
+                        <circle cx="160" cy="45" r="6" fill="#95e1d3"/>
+                        <text x="172" y="49" font-family="Aptos" font-size="10" fill="#666">Drug</text>
+                        
+                        <circle cx="220" cy="45" r="6" fill="#feca57"/>
+                        <text x="232" y="49" font-family="Aptos" font-size="10" fill="#666">Gene</text>
+                        
+                        <circle cx="270" cy="45" r="6" fill="#a29bfe"/>
+                        <text x="282" y="49" font-family="Aptos" font-size="10" fill="#666">Protein</text>
+                    </g>
+                    
+                    <!-- Medical Knowledge Graph -->
+                    <g>
+                        <!-- Central Disease Node -->
+                        <g class="node">
+                            <circle cx="295" cy="200" r="35" fill="#ff6b6b" stroke="#c92a2a" stroke-width="3"/>
+                            <text x="295" y="200" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="700" fill="white">Type 2</text>
+                            <text x="295" y="212" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="700" fill="white">Diabetes</text>
+                        </g>
+                        
+                        <!-- Symptoms -->
+                        <g class="node">
+                            <circle cx="160" cy="120" r="28" fill="#4ecdc4" stroke="#2a9d8f" stroke-width="2.5"/>
+                            <text x="160" y="120" text-anchor="middle" font-family="Aptos" font-size="10" font-weight="600" fill="white">High Blood</text>
+                            <text x="160" y="132" text-anchor="middle" font-family="Aptos" font-size="10" font-weight="600" fill="white">Glucose</text>
+                        </g>
+                        
+                        <g class="node">
+                            <circle cx="430" cy="120" r="28" fill="#4ecdc4" stroke="#2a9d8f" stroke-width="2.5"/>
+                            <text x="430" y="120" text-anchor="middle" font-family="Aptos" font-size="10" font-weight="600" fill="white">Increased</text>
+                            <text x="430" y="132" text-anchor="middle" font-family="Aptos" font-size="10" font-weight="600" fill="white">Thirst</text>
+                        </g>
+                        
+                        <!-- Drugs -->
+                        <g class="node">
+                            <circle cx="100" cy="250" r="28" fill="#95e1d3" stroke="#48a999" stroke-width="2.5"/>
+                            <text x="100" y="254" text-anchor="middle" font-family="Aptos" font-size="10" font-weight="600" fill="#155724">Metformin</text>
+                        </g>
+                        
+                        <g class="node">
+                            <circle cx="490" cy="250" r="28" fill="#95e1d3" stroke="#48a999" stroke-width="2.5"/>
+                            <text x="490" y="254" text-anchor="middle" font-family="Aptos" font-size="10" font-weight="600" fill="#155724">Insulin</text>
+                        </g>
+                        
+                        <!-- Genes -->
+                        <g class="node">
+                            <circle cx="200" cy="320" r="28" fill="#feca57" stroke="#ff9f1a" stroke-width="2.5"/>
+                            <text x="200" y="324" text-anchor="middle" font-family="Aptos" font-size="10" font-weight="600" fill="#856404">TCF7L2</text>
+                        </g>
+                        
+                        <g class="node">
+                            <circle cx="390" cy="320" r="28" fill="#feca57" stroke="#ff9f1a" stroke-width="2.5"/>
+                            <text x="390" y="324" text-anchor="middle" font-family="Aptos" font-size="10" font-weight="600" fill="#856404">PPARG</text>
+                        </g>
+                        
+                        <!-- Proteins -->
+                        <g class="node">
+                            <circle cx="295" cy="360" r="28" fill="#a29bfe" stroke="#6c5ce7" stroke-width="2.5"/>
+                            <text x="295" y="360" text-anchor="middle" font-family="Aptos" font-size="10" font-weight="600" fill="#4527a0">Insulin</text>
+                            <text x="295" y="372" text-anchor="middle" font-family="Aptos" font-size="10" font-weight="600" fill="#4527a0">Receptor</text>
+                        </g>
+                        
+                        <!-- Relationships (Edges) -->
+                        <!-- Disease to Symptoms -->
+                        <path class="relationship-edge" d="M 272 175 L 180 138" stroke="#1E64C8" stroke-width="2.5" opacity="0.6" marker-end="url(#arrowhead)"/>
+                        <text x="220" y="150" font-family="Aptos" font-size="9" fill="#1E64C8">causes</text>
+                        
+                        <path class="relationship-edge" d="M 318 175 L 410 138" stroke="#1E64C8" stroke-width="2.5" opacity="0.6" marker-end="url(#arrowhead)"/>
+                        <text x="370" y="150" font-family="Aptos" font-size="9" fill="#1E64C8">causes</text>
+                        
+                        <!-- Disease to Drugs -->
+                        <path class="relationship-edge" d="M 265 210 L 125 245" stroke="#28a745" stroke-width="2.5" opacity="0.6" marker-end="url(#arrowhead-green)"/>
+                        <text x="185" y="225" font-family="Aptos" font-size="9" fill="#28a745">treated_by</text>
+                        
+                        <path class="relationship-edge" d="M 325 210 L 465 245" stroke="#28a745" stroke-width="2.5" opacity="0.6" marker-end="url(#arrowhead-green)"/>
+                        <text x="405" y="225" font-family="Aptos" font-size="9" fill="#28a745">treated_by</text>
+                        
+                        <!-- Disease to Genes -->
+                        <path class="relationship-edge" d="M 275 230 L 220 300" stroke="#ffc107" stroke-width="2.5" opacity="0.6" marker-end="url(#arrowhead-yellow)"/>
+                        <text x="240" y="270" font-family="Aptos" font-size="9" fill="#856404">associated</text>
+                        
+                        <path class="relationship-edge" d="M 315 230 L 370 300" stroke="#ffc107" stroke-width="2.5" opacity="0.6" marker-end="url(#arrowhead-yellow)"/>
+                        <text x="350" y="270" font-family="Aptos" font-size="9" fill="#856404">associated</text>
+                        
+                        <!-- Genes to Protein -->
+                        <path d="M 215 345 L 270 360" stroke="#a29bfe" stroke-width="2" opacity="0.5" stroke-dasharray="3,3"/>
+                        <path d="M 375 345 L 320 360" stroke="#a29bfe" stroke-width="2" opacity="0.5" stroke-dasharray="3,3"/>
+                        <text x="240" y="355" font-family="Aptos" font-size="8" fill="#6c5ce7">encodes</text>
+                        
+                        <!-- Drug to Protein -->
+                        <path d="M 118 275 L 270 345" stroke="#95e1d3" stroke-width="2" opacity="0.5" stroke-dasharray="3,3"/>
+                        <path d="M 472 275 L 320 345" stroke="#95e1d3" stroke-width="2" opacity="0.5" stroke-dasharray="3,3"/>
+                    </g>
+                    
+                    <!-- Attention Mechanism Visualization -->
+                    <rect x="20" y="70" width="200" height="50" rx="6" fill="#e8f4fd" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="120" y="88" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="600" fill="#1E64C8">Graph Transformer Layer</text>
+                    <text x="120" y="103" text-anchor="middle" font-family="Aptos" font-size="9" fill="#1E64C8">Self-attention on graph nodes</text>
+                    <text x="120" y="115" text-anchor="middle" font-family="Aptos" font-size="9" fill="#1E64C8">+ structural encoding</text>
+                    
+                    <!-- Arrow markers -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="2.5" orient="auto">
+                            <polygon points="0 0, 8 2.5, 0 5" fill="#1E64C8"/>
+                        </marker>
+                        <marker id="arrowhead-green" markerWidth="8" markerHeight="8" refX="7" refY="2.5" orient="auto">
+                            <polygon points="0 0, 8 2.5, 0 5" fill="#28a745"/>
+                        </marker>
+                        <marker id="arrowhead-yellow" markerWidth="8" markerHeight="8" refX="7" refY="2.5" orient="auto">
+                            <polygon points="0 0, 8 2.5, 0 5" fill="#ffc107"/>
+                        </marker>
+                    </defs>
+                </svg>
             </div>
-            <div class="content-card">
-                <div class="card-title">Transformer on Graphs</div>
-                <div class="card-text">• Self-attention on graph structure</div>
-                <div class="card-text">• Position encoding for topology</div>
-                <div class="card-text">• Captures long-range dependencies</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">Medical Knowledge Graphs</div>
-                <div class="card-text">• Disease-symptom networks</div>
-                <div class="card-text">• Drug-protein interactions</div>
-                <div class="card-text">• Gene regulatory pathways</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">Applications</div>
-                <div class="card-text">• Drug repurposing</div>
-                <div class="card-text">• Comorbidity prediction</div>
-                <div class="card-text">• Biomarker discovery</div>
+            
+            <div class="info-area">
+                <div class="content-card">
+                    <div class="card-title">Graph Structure</div>
+                    <div class="card-text">• Nodes: entities (diseases, genes)</div>
+                    <div class="card-text">• Edges: relationships</div>
+                    <div class="card-text">• Message passing learning</div>
+                </div>
+                
+                <div class="content-card" style="background: #fff3cd; border-color: #ffc107;">
+                    <div class="card-title" style="color: #856404;">Transformer on Graphs</div>
+                    <div class="card-text" style="color: #856404;">• Self-attention mechanism</div>
+                    <div class="card-text" style="color: #856404;">• Structural position encoding</div>
+                    <div class="card-text" style="color: #856404;">• Long-range dependencies</div>
+                </div>
+                
+                <div class="content-card" style="background: #d4edda; border-color: #28a745;">
+                    <div class="card-title" style="color: #155724;">Applications</div>
+                    <div class="card-text" style="color: #155724;">• Drug repurposing</div>
+                    <div class="card-text" style="color: #155724;">• Comorbidity prediction</div>
+                    <div class="card-text" style="color: #155724;">• Biomarker discovery</div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-title">Knowledge Graphs</div>
+                    <div class="card-text">• Disease-symptom networks</div>
+                    <div class="card-text">• Drug-protein interactions</div>
+                    <div class="card-text">• Gene regulatory pathways</div>
+                </div>
             </div>
         </div>
+        
         <div class="highlight-box">
             <div class="highlight-title">🕸️ Relational Intelligence</div>
-            <div class="highlight-text">Graph Transformers excel at modeling complex medical relationships, achieving 25-40% better performance on tasks involving entity interactions compared to sequence-based models.</div>
+            <div class="highlight-text">
+                Graph Transformers excel at modeling complex medical relationships, achieving <strong>25-40% better performance</strong> 
+                on tasks involving entity interactions compared to sequence-based models.
+            </div>
         </div>
     </div>
 </body>

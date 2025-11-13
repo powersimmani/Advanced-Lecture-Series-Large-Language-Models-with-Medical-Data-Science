@@ -23,7 +23,7 @@
         .container {
             width: 960px;
             height: 540px;
-            padding: 35px 45px;
+            padding: 30px 45px;
             background: white;
         }
         
@@ -31,7 +31,7 @@
             font-size: 22px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 12px;
             text-align: center;
         }
         
@@ -39,7 +39,7 @@
             font-size: 18px;
             font-weight: 500;
             color: #555;
-            margin-bottom: 25px;
+            margin-bottom: 16px;
             text-align: center;
         }
         
@@ -47,16 +47,16 @@
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 10px;
-            padding: 18px 25px;
-            margin-bottom: 25px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
             text-align: center;
         }
         
         .intro-text {
-            font-size: 18px;
+            font-size: 16px;
             color: #333;
             font-weight: 500;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         
         .highlight {
@@ -64,84 +64,123 @@
             font-weight: 700;
         }
         
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-bottom: 20px;
+        .feedback-loop {
+            margin-bottom: 16px;
         }
         
-        .content-card {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 10px;
-            padding: 18px 22px;
-            transition: all 0.3s;
-        }
-        
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
-            background: #f8fbff;
-        }
-        
-        .card-icon {
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-        
-        .card-title {
-            font-size: 18px;
+        .section-title {
+            font-size: 17px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 10px;
             text-align: center;
         }
         
-        .card-desc {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.5;
-            text-align: center;
+        .loop-diagram {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 16px;
+            position: relative;
         }
         
-        .key-points {
+        .loop-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #1E64C8;
+            color: white;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.3;
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.3);
+        }
+        
+        .loop-icon-center {
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+        
+        .loop-step {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 14px;
+            width: 160px;
+            text-align: center;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        
+        .loop-step:hover {
+            transform: scale(1.08);
+            box-shadow: 0 5px 15px rgba(30, 100, 200, 0.25);
+            background: #f8fbff;
+        }
+        
+        .loop-step-icon {
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+        
+        .loop-step-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 3px;
+        }
+        
+        .loop-step-desc {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.3;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .benefit-card {
             background: #f8fbff;
             border: 2px solid #4a90e2;
             border-radius: 8px;
-            padding: 18px 22px;
+            padding: 12px 12px;
+            text-align: center;
+            transition: all 0.3s;
         }
         
-        .points-title {
-            font-size: 18px;
+        .benefit-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
+        }
+        
+        .benefit-icon {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        
+        .benefit-label {
+            font-size: 14px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
-            text-align: center;
+            margin-bottom: 3px;
         }
         
-        .points-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .point-item {
-            font-size: 16px;
-            color: #333;
-            padding-left: 20px;
-            position: relative;
-            line-height: 1.4;
-        }
-        
-        .point-item::before {
-            content: "â€¢";
-            position: absolute;
-            left: 0;
-            color: #1E64C8;
-            font-weight: bold;
-            font-size: 20px;
+        .benefit-desc {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.3;
         }
     </style>
 </head>
@@ -156,46 +195,52 @@
             </div>
         </div>
         
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-icon">🎯</div>
-                <div class="card-title">주요 개념</div>
-                <div class="card-desc">
-                    능동 학습 통합의 이론적 배경과 핵심 원리
+        <div class="feedback-loop">
+            <div class="section-title">피드백 루프</div>
+            <div class="loop-diagram">
+                <div class="loop-step">
+                    <div class="loop-step-icon">🎯</div>
+                    <div class="loop-step-label">Query Selection</div>
+                    <div class="loop-step-desc">불확실성 높은 샘플 선택</div>
                 </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">🏥</div>
-                <div class="card-title">의료 적용</div>
-                <div class="card-desc">
-                    실제 의료 환경에서의 활용 사례
+                
+                <div class="loop-center">
+                    <div class="loop-icon-center">🔄</div>
+                    <div>Active Learning Cycle</div>
                 </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">📊</div>
-                <div class="card-title">성능 평가</div>
-                <div class="card-desc">
-                    효과성 측정 및 개선 방법론
+                
+                <div class="loop-step">
+                    <div class="loop-step-icon">👨‍⚕️</div>
+                    <div class="loop-step-label">Expert Labeling</div>
+                    <div class="loop-step-desc">전문가 라벨링</div>
                 </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">🔬</div>
-                <div class="card-title">실습 예제</div>
-                <div class="card-desc">
-                    실제 데이터를 활용한 구현
+                
+                <div class="loop-step">
+                    <div class="loop-step-icon">📈</div>
+                    <div class="loop-step-label">Model Update</div>
+                    <div class="loop-step-desc">모델 성능 향상</div>
                 </div>
             </div>
         </div>
         
-        <div class="key-points">
-            <div class="points-title">핵심 포인트</div>
-            <div class="points-list">
-                <div class="point-item">의료 데이터의 특수성을 고려한 접근</div>
-                <div class="point-item">제한된 데이터 환경에서의 효율적 학습</div>
-                <div class="point-item">안전성과 신뢰성을 보장하는 설계</div>
+        <div class="section-title">주요 이점</div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <div class="benefit-label">효율성</div>
+                <div class="benefit-desc">레이블링 비용 감소</div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🎯</div>
+                <div class="benefit-label">정확도</div>
+                <div class="benefit-desc">모델 성능 개선</div>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🔄</div>
+                <div class="benefit-label">적응성</div>
+                <div class="benefit-desc">지속적 학습</div>
             </div>
         </div>
     </div>

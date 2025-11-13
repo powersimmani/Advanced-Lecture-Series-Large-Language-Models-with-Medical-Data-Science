@@ -31,84 +31,158 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
         
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
+        /* Monitoring Pipeline Circular Flow */
+        .pipeline-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            height: 180px;
         }
         
-        .stat-card {
+        .circle-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .pipeline-node {
+            position: absolute;
             background: #f0f5fc;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 20px;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 15px;
             text-align: center;
+            transition: all 0.3s;
+            width: 140px;
         }
         
-        .stat-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 8px;
+        .pipeline-node:hover {
+            background: #e8f2ff;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.3);
         }
         
-        .stat-label {
+        .node-1 { top: 0; left: 50%; transform: translateX(-50%); }
+        .node-2 { top: 50%; right: 0; transform: translateY(-50%); }
+        .node-3 { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .node-4 { top: 50%; left: 0; transform: translateY(-50%); }
+        
+        .node-icon {
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+        
+        .node-label {
             font-size: 13px;
-            color: #555;
-            font-weight: 500;
+            font-weight: 600;
+            color: #1E64C8;
         }
         
-        .features-section {
+        /* Central Hub */
+        .central-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(30, 100, 200, 0.3);
+        }
+        
+        .hub-icon {
+            font-size: 32px;
+        }
+        
+        .hub-label {
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        
+        /* Circular Arrows SVG */
+        .circular-arrows {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        /* Intervention Triggers */
+        .triggers-section {
             background: #f8f9fa;
             border-left: 5px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px 25px;
-            margin-bottom: 20px;
+            padding: 16px 22px;
+            margin-bottom: 18px;
         }
         
-        .features-title {
-            font-size: 20px;
+        .triggers-title {
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
-        .features-grid {
+        .trigger-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
         
-        .feature-item {
-            font-size: 15px;
-            color: #333;
-            padding: 8px 12px;
+        .trigger-item {
             background: white;
+            padding: 8px 12px;
             border-radius: 5px;
+            font-size: 13px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            transition: all 0.2s;
         }
         
-        .feature-icon {
-            font-size: 20px;
+        .trigger-item:hover {
+            background: #f0f5fc;
+            transform: translateX(3px);
+        }
+        
+        .trigger-icon {
+            font-size: 16px;
+        }
+        
+        .trigger-text {
+            color: #333;
+        }
+        
+        .trigger-threshold {
+            font-weight: 700;
+            color: #1E64C8;
         }
         
         .performance-box {
             background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
             border-radius: 8px;
-            padding: 15px 20px;
+            padding: 12px 20px;
             color: white;
             text-align: center;
         }
         
         .performance-text {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 600;
         }
     </style>
@@ -117,35 +191,75 @@
     <div class="container">
         <div class="title">Continuous Monitoring</div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Monitoring Pipeline</div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">📡</span>
-                    <span>Production data logging</span>
+        <!-- Monitoring Pipeline Circle -->
+        <div class="pipeline-circle">
+            <div class="circle-container">
+                <!-- SVG Circular Arrows -->
+                <svg class="circular-arrows" viewBox="0 0 400 180">
+                    <defs>
+                        <marker id="arrowhead2" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#1E64C8" />
+                        </marker>
+                    </defs>
+                    <!-- Top to Right -->
+                    <path d="M 200 20 Q 280 50, 320 90" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrowhead2)" opacity="0.3"/>
+                    <!-- Right to Bottom -->
+                    <path d="M 320 90 Q 280 130, 200 160" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrowhead2)" opacity="0.3"/>
+                    <!-- Bottom to Left -->
+                    <path d="M 200 160 Q 120 130, 80 90" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrowhead2)" opacity="0.3"/>
+                    <!-- Left to Top -->
+                    <path d="M 80 90 Q 120 50, 200 20" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrowhead2)" opacity="0.3"/>
+                </svg>
+                
+                <!-- Pipeline Nodes -->
+                <div class="pipeline-node node-1">
+                    <div class="node-icon">📡</div>
+                    <div class="node-label">Data Logging</div>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🔍</span>
-                    <span>Drift detection (data and concept)</span>
+                
+                <div class="pipeline-node node-2">
+                    <div class="node-icon">🔍</div>
+                    <div class="node-label">Drift Detection</div>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">📊</span>
-                    <span>Performance trend analysis</span>
+                
+                <div class="pipeline-node node-3">
+                    <div class="node-icon">📊</div>
+                    <div class="node-label">Trend Analysis</div>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🚨</span>
-                    <span>Automated alerting system</span>
+                
+                <div class="pipeline-node node-4">
+                    <div class="node-icon">🚨</div>
+                    <div class="node-label">Alert System</div>
+                </div>
+                
+                <!-- Central Hub -->
+                <div class="central-hub">
+                    <div class="hub-icon">⚡</div>
+                    <div class="hub-label">MONITOR</div>
                 </div>
             </div>
         </div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Intervention Triggers</div>
-            <div style="font-size: 16px; color: #333; line-height: 1.6; padding: 10px 0;">
-                • <strong>Accuracy drop >5%:</strong> Investigate and diagnose<br>
-                • <strong>Safety incident:</strong> Immediate review and potential pause<br>
-                • <strong>Drift detected:</strong> Consider retraining or recalibration<br>
-                • <strong>Unusual patterns:</strong> Manual expert review
+        <!-- Intervention Triggers -->
+        <div class="triggers-section">
+            <div class="triggers-title">Intervention Triggers</div>
+            <div class="trigger-grid">
+                <div class="trigger-item">
+                    <span class="trigger-icon">📉</span>
+                    <span class="trigger-text"><span class="trigger-threshold">Accuracy drop >5%:</span> Investigate</span>
+                </div>
+                <div class="trigger-item">
+                    <span class="trigger-icon">⚠️</span>
+                    <span class="trigger-text"><span class="trigger-threshold">Safety incident:</span> Immediate review</span>
+                </div>
+                <div class="trigger-item">
+                    <span class="trigger-icon">🔄</span>
+                    <span class="trigger-text"><span class="trigger-threshold">Drift detected:</span> Retrain model</span>
+                </div>
+                <div class="trigger-item">
+                    <span class="trigger-icon">🔍</span>
+                    <span class="trigger-text"><span class="trigger-threshold">Unusual patterns:</span> Expert review</span>
+                </div>
             </div>
         </div>
         

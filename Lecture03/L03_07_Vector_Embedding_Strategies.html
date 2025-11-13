@@ -27,48 +27,13 @@
             margin-bottom: 30px;
             text-align: center;
         }
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        .strategy-card {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 10px;
-            padding: 18px;
-            transition: all 0.3s;
-        }
-        .strategy-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.3);
-        }
-        .strategy-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .strategy-desc {
-            font-size: 14px;
-            color: #555;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        .strategy-metrics {
+        
+        .comparison-section {
             display: flex;
-            flex-direction: column;
-            gap: 6px;
+            justify-content: center;
+            margin-bottom: 20px;
         }
-        .metric-item {
-            font-size: 13px;
-            color: #333;
-            padding: 5px;
-            background: #f8f9fa;
-            border-radius: 5px;
-        }
+        
         .dimension-section {
             background: #f0f5fc;
             border-radius: 10px;
@@ -94,54 +59,10 @@
             font-weight: 600;
             color: #1E64C8;
         }
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 25px;
-        }
-        .comparison-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2px;
-            margin-bottom: 2px;
-        }
-        .comparison-row.header {
-            background: #1E64C8;
-            color: white;
-            font-weight: 700;
-        }
-        .col {
-            padding: 12px;
-            background: #f8f9fa;
-            font-size: 14px;
-            text-align: center;
-        }
-        .col.label {
-            background: #e8f2ff;
-            font-weight: 600;
-            color: #1E64C8;
-        }
-        .use-case-section {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .use-case {
-            background: #fff8e6;
-            border-left: 4px solid #1E64C8;
-            border-radius: 8px;
-            padding: 15px;
-        }
-        .use-label {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 8px;
-        }
-        .use-text {
-            font-size: 14px;
-            color: #555;
-            font-style: italic;
+        
+        @keyframes vectorPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
     </style>
 </head>
@@ -149,36 +70,137 @@
     <div class="container">
         <div class="title">Vector Embedding Strategies</div>
         
-        <div class="comparison-grid">
-            <div class="strategy-card">
-                <div class="strategy-title">🔷 Dense Embeddings</div>
-                <div class="strategy-desc">BERT, BioBERT, Sentence-BERT</div>
-                <div class="strategy-metrics">
-                    <div class="metric-item">✅ Semantic similarity</div>
-                    <div class="metric-item">✅ Context understanding</div>
-                    <div class="metric-item">❌ Computational cost</div>
-                </div>
-            </div>
-            
-            <div class="strategy-card">
-                <div class="strategy-title">📊 Sparse Embeddings</div>
-                <div class="strategy-desc">BM25, TF-IDF</div>
-                <div class="strategy-metrics">
-                    <div class="metric-item">✅ Fast retrieval</div>
-                    <div class="metric-item">✅ Interpretable</div>
-                    <div class="metric-item">❌ No semantics</div>
-                </div>
-            </div>
-            
-            <div class="strategy-card">
-                <div class="strategy-title">🔀 Hybrid Approach</div>
-                <div class="strategy-desc">Dense + Sparse fusion</div>
-                <div class="strategy-metrics">
-                    <div class="metric-item">✅ Best of both</div>
-                    <div class="metric-item">✅ High accuracy</div>
-                    <div class="metric-item">⚠️ More complex</div>
-                </div>
-            </div>
+        <div class="comparison-section">
+            <svg width="880" height="320" viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg">
+                <!-- Dense Embeddings -->
+                <g>
+                    <rect x="20" y="20" width="250" height="240" rx="10" fill="#e8f2ff" stroke="#2874d8" stroke-width="3"/>
+                    <text x="145" y="50" text-anchor="middle" font-family="Aptos" font-size="18" font-weight="700" fill="#2874d8">📷 Dense Embeddings</text>
+                    <text x="145" y="75" text-anchor="middle" font-family="Aptos" font-size="13" fill="#555">BERT, BioBERT, Sentence-BERT</text>
+                    
+                    <!-- Visual representation of dense vectors -->
+                    <g transform="translate(50, 90)">
+                        <!-- Dense cloud -->
+                        <circle cx="40" cy="30" r="3" fill="#2874d8" opacity="0.8"/>
+                        <circle cx="55" cy="25" r="3" fill="#2874d8" opacity="0.8"/>
+                        <circle cx="70" cy="35" r="3" fill="#2874d8" opacity="0.8"/>
+                        <circle cx="45" cy="45" r="3" fill="#2874d8" opacity="0.8"/>
+                        <circle cx="65" cy="50" r="3" fill="#2874d8" opacity="0.8"/>
+                        <circle cx="50" cy="60" r="3" fill="#2874d8" opacity="0.8"/>
+                        <circle cx="80" cy="45" r="3" fill="#2874d8" opacity="0.8"/>
+                        <circle cx="35" cy="55" r="3" fill="#2874d8" opacity="0.8"/>
+                        <circle cx="75" cy="20" r="3" fill="#2874d8" opacity="0.8"/>
+                        <circle cx="60" cy="40" r="3" fill="#2874d8" opacity="0.8"/>
+                        
+                        <!-- More dense points -->
+                        <circle cx="85" cy="30" r="2" fill="#2874d8" opacity="0.5"/>
+                        <circle cx="30" cy="40" r="2" fill="#2874d8" opacity="0.5"/>
+                        <circle cx="90" cy="55" r="2" fill="#2874d8" opacity="0.5"/>
+                        <circle cx="25" cy="25" r="2" fill="#2874d8" opacity="0.5"/>
+                        
+                        <text x="95" y="45" font-family="Aptos" font-size="11" fill="#555">High-dimensional</text>
+                        <text x="95" y="60" font-family="Aptos" font-size="11" fill="#555">continuous space</text>
+                    </g>
+                    
+                    <!-- Pros/Cons -->
+                    <rect x="35" y="180" width="210" height="70" rx="6" fill="white"/>
+                    <text x="140" y="197" text-anchor="middle" font-family="Aptos" font-size="12" font-weight="600" fill="#28a745">✅ Semantic similarity</text>
+                    <text x="140" y="213" text-anchor="middle" font-family="Aptos" font-size="12" font-weight="600" fill="#28a745">✅ Context understanding</text>
+                    <text x="140" y="229" text-anchor="middle" font-family="Aptos" font-size="12" font-weight="600" fill="#dc3545">❌ Computational cost</text>
+                    <text x="140" y="245" text-anchor="middle" font-family="Aptos" font-size="11" fill="#666">Best for: "chest pain" ≈ "cardiac discomfort"</text>
+                </g>
+                
+                <!-- Sparse Embeddings -->
+                <g transform="translate(310, 0)">
+                    <rect x="20" y="20" width="250" height="240" rx="10" fill="#f0f8ff" stroke="#4a90e2" stroke-width="3"/>
+                    <text x="145" y="50" text-anchor="middle" font-family="Aptos" font-size="18" font-weight="700" fill="#4a90e2">📊 Sparse Embeddings</text>
+                    <text x="145" y="75" text-anchor="middle" font-family="Aptos" font-size="13" fill="#555">BM25, TF-IDF</text>
+                    
+                    <!-- Visual representation of sparse vectors -->
+                    <g transform="translate(50, 90)">
+                        <!-- Sparse distribution -->
+                        <line x1="20" y1="60" x2="100" y2="60" stroke="#e0e0e0" stroke-width="1"/>
+                        <line x1="60" y1="20" x2="60" y2="80" stroke="#e0e0e0" stroke-width="1"/>
+                        
+                        <!-- Only a few active dimensions -->
+                        <circle cx="35" cy="45" r="5" fill="#4a90e2"/>
+                        <circle cx="85" cy="30" r="5" fill="#4a90e2"/>
+                        <circle cx="50" cy="65" r="5" fill="#4a90e2"/>
+                        
+                        <!-- Labels for sparse dimensions -->
+                        <text x="35" y="40" text-anchor="middle" font-family="Aptos" font-size="9" fill="white">3.2</text>
+                        <text x="85" y="27" text-anchor="middle" font-family="Aptos" font-size="9" fill="white">5.1</text>
+                        <text x="50" y="70" text-anchor="middle" font-family="Aptos" font-size="9" fill="white">2.8</text>
+                        
+                        <text x="110" y="45" font-family="Aptos" font-size="11" fill="#555">Most values = 0</text>
+                        <text x="110" y="60" font-family="Aptos" font-size="11" fill="#555">Only keywords</text>
+                    </g>
+                    
+                    <!-- Pros/Cons -->
+                    <rect x="35" y="180" width="210" height="70" rx="6" fill="white"/>
+                    <text x="140" y="197" text-anchor="middle" font-family="Aptos" font-size="12" font-weight="600" fill="#28a745">✅ Fast retrieval</text>
+                    <text x="140" y="213" text-anchor="middle" font-family="Aptos" font-size="12" font-weight="600" fill="#28a745">✅ Interpretable</text>
+                    <text x="140" y="229" text-anchor="middle" font-family="Aptos" font-size="12" font-weight="600" fill="#dc3545">❌ No semantics</text>
+                    <text x="140" y="245" text-anchor="middle" font-family="Aptos" font-size="11" fill="#666">Best for: Exact term "ICD-10 I21.0"</text>
+                </g>
+                
+                <!-- Hybrid Approach -->
+                <g transform="translate(620, 0)">
+                    <rect x="20" y="20" width="240" height="240" rx="10" fill="url(#hybridGrad)" stroke="#1E64C8" stroke-width="3"/>
+                    <defs>
+                        <linearGradient id="hybridGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#e8f2ff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f0f8ff;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <text x="140" y="50" text-anchor="middle" font-family="Aptos" font-size="18" font-weight="700" fill="#1E64C8">🔀 Hybrid Approach</text>
+                    <text x="140" y="75" text-anchor="middle" font-family="Aptos" font-size="13" fill="#555">Dense + Sparse fusion</text>
+                    
+                    <!-- Combined visual -->
+                    <g transform="translate(50, 90)">
+                        <!-- Dense component -->
+                        <circle cx="45" cy="35" r="20" fill="#2874d8" opacity="0.3"/>
+                        <circle cx="40" cy="30" r="3" fill="#2874d8"/>
+                        <circle cx="50" cy="35" r="3" fill="#2874d8"/>
+                        <circle cx="45" cy="42" r="3" fill="#2874d8"/>
+                        
+                        <!-- Sparse component -->
+                        <rect x="75" y="20" width="30" height="30" fill="#4a90e2" opacity="0.3"/>
+                        <circle cx="82" cy="27" r="4" fill="#4a90e2"/>
+                        <circle cx="95" cy="40" r="4" fill="#4a90e2"/>
+                        
+                        <!-- Combination arrow -->
+                        <path d="M 55 50 Q 70 60 85 50" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                        <text x="70" y="75" text-anchor="middle" font-family="Aptos" font-size="12" font-weight="600" fill="#1E64C8">Combine</text>
+                    </g>
+                    
+                    <!-- Pros -->
+                    <rect x="35" y="155" width="200" height="95" rx="6" fill="white"/>
+                    <text x="135" y="172" text-anchor="middle" font-family="Aptos" font-size="12" font-weight="600" fill="#28a745">✅ Best of both</text>
+                    <text x="135" y="188" text-anchor="middle" font-family="Aptos" font-size="12" font-weight="600" fill="#28a745">✅ High accuracy (95%+)</text>
+                    <text x="135" y="204" text-anchor="middle" font-family="Aptos" font-size="12" font-weight="600" fill="#ff9800">⚠️ More complex</text>
+                    <text x="135" y="225" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="600" fill="#1E64C8">Recommended for</text>
+                    <text x="135" y="240" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="600" fill="#1E64C8">medical applications</text>
+                </g>
+                
+                <!-- Performance comparison chart -->
+                <g transform="translate(20, 280)">
+                    <text x="420" y="15" text-anchor="middle" font-family="Aptos" font-size="14" font-weight="600" fill="#1E64C8">Retrieval Accuracy Comparison</text>
+                    
+                    <!-- Bars -->
+                    <rect x="100" y="20" width="180" height="15" rx="3" fill="#2874d8" opacity="0.7"/>
+                    <text x="10" y="32" font-family="Aptos" font-size="11" fill="#555">Dense</text>
+                    <text x="290" y="32" font-family="Aptos" font-size="11" font-weight="600" fill="#2874d8">87%</text>
+                    
+                    <rect x="100" y="40" width="150" height="15" rx="3" fill="#4a90e2" opacity="0.7"/>
+                    <text x="10" y="52" font-family="Aptos" font-size="11" fill="#555">Sparse</text>
+                    <text x="260" y="52" font-family="Aptos" font-size="11" font-weight="600" fill="#4a90e2">82%</text>
+                    
+                    <rect x="100" y="60" width="220" height="15" rx="3" fill="#1E64C8"/>
+                    <text x="10" y="72" font-family="Aptos" font-size="11" fill="#555">Hybrid</text>
+                    <text x="330" y="72" font-family="Aptos" font-size="11" font-weight="700" fill="#1E64C8">95%</text>
+                </g>
+            </svg>
         </div>
         
         <div class="dimension-section">

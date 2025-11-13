@@ -35,52 +35,8 @@
             text-align: center;
         }
         
-        .process-flow {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
+        .process-diagram {
             margin-bottom: 25px;
-        }
-        
-        .process-step {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 12px;
-            padding: 20px 15px;
-            text-align: center;
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .process-step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(30, 100, 200, 0.25);
-        }
-        
-        .step-number {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: #1E64C8;
-            color: white;
-            border-radius: 50%;
-            line-height: 40px;
-            font-weight: 700;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .step-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 10px;
-        }
-        
-        .step-description {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.4;
         }
         
         .cycle-diagram {
@@ -99,26 +55,6 @@
             text-align: center;
         }
         
-        .cycle-content {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .cycle-item {
-            text-align: center;
-            font-size: 15px;
-            color: #333;
-            font-weight: 600;
-        }
-        
-        .arrow {
-            font-size: 24px;
-            color: #1E64C8;
-            font-weight: 700;
-        }
-        
         .highlight-box {
             background: #fff4e6;
             border: 2px solid #1E64C8;
@@ -132,51 +68,127 @@
             color: #333;
             font-weight: 600;
         }
+
+        .step-box {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .step-box:hover {
+            transform: scale(1.05);
+        }
+
+        .arrow-path {
+            animation: flowAnimation 2s ease-in-out infinite;
+        }
+
+        @keyframes flowAnimation {
+            0%, 100% { stroke-dashoffset: 0; }
+            50% { stroke-dashoffset: -20; }
+        }
+
+        .cycle-arrow {
+            animation: cycleAnimation 3s ease-in-out infinite;
+        }
+
+        @keyframes cycleAnimation {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Clinical Reasoning Process</div>
         
-        <div class="process-flow">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <div class="step-title">Hypothesis<br>Generation</div>
-                <div class="step-description">Initial differential diagnosis based on presenting symptoms</div>
-            </div>
+        <!-- SVG Process Flow Diagram -->
+        <svg class="process-diagram" width="880" height="200" viewBox="0 0 880 200">
+            <!-- Step 1 -->
+            <g class="step-box">
+                <rect x="10" y="50" width="180" height="100" rx="12" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="100" cy="75" r="20" fill="#1E64C8"/>
+                <text x="100" y="83" text-anchor="middle" fill="white" font-size="20" font-weight="700">1</text>
+                <text x="100" y="105" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Hypothesis</text>
+                <text x="100" y="122" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Generation</text>
+                <text x="100" y="142" text-anchor="middle" fill="#555" font-size="13">Initial differential</text>
+            </g>
             
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <div class="step-title">Data<br>Collection</div>
-                <div class="step-description">Gather history, physical exam, lab results</div>
-            </div>
+            <!-- Arrow 1 -->
+            <path class="arrow-path" d="M 195 100 L 230 100" stroke="#1E64C8" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+            <polygon points="230,100 220,95 220,105" fill="#1E64C8"/>
             
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <div class="step-title">Hypothesis<br>Verification</div>
-                <div class="step-description">Test hypotheses against collected evidence</div>
-            </div>
+            <!-- Step 2 -->
+            <g class="step-box">
+                <rect x="235" y="50" width="180" height="100" rx="12" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="325" cy="75" r="20" fill="#1E64C8"/>
+                <text x="325" y="83" text-anchor="middle" fill="white" font-size="20" font-weight="700">2</text>
+                <text x="325" y="105" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Data</text>
+                <text x="325" y="122" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Collection</text>
+                <text x="325" y="142" text-anchor="middle" fill="#555" font-size="13">History, exam, labs</text>
+            </g>
             
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <div class="step-title">Diagnostic<br>Decision</div>
-                <div class="step-description">Final diagnosis and treatment plan</div>
-            </div>
-        </div>
+            <!-- Arrow 2 -->
+            <path class="arrow-path" d="M 420 100 L 455 100" stroke="#1E64C8" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+            <polygon points="455,100 445,95 445,105" fill="#1E64C8"/>
+            
+            <!-- Step 3 -->
+            <g class="step-box">
+                <rect x="460" y="50" width="180" height="100" rx="12" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="550" cy="75" r="20" fill="#1E64C8"/>
+                <text x="550" y="83" text-anchor="middle" fill="white" font-size="20" font-weight="700">3</text>
+                <text x="550" y="105" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Hypothesis</text>
+                <text x="550" y="122" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Verification</text>
+                <text x="550" y="142" text-anchor="middle" fill="#555" font-size="13">Test against evidence</text>
+            </g>
+            
+            <!-- Arrow 3 -->
+            <path class="arrow-path" d="M 645 100 L 680 100" stroke="#1E64C8" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+            <polygon points="680,100 670,95 670,105" fill="#1E64C8"/>
+            
+            <!-- Step 4 -->
+            <g class="step-box">
+                <rect x="685" y="50" width="180" height="100" rx="12" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="775" cy="75" r="20" fill="#1E64C8"/>
+                <text x="775" y="83" text-anchor="middle" fill="white" font-size="20" font-weight="700">4</text>
+                <text x="775" y="105" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Diagnostic</text>
+                <text x="775" y="122" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Decision</text>
+                <text x="775" y="142" text-anchor="middle" fill="#555" font-size="13">Final diagnosis</text>
+            </g>
+        </svg>
         
+        <!-- Iterative Cycle Diagram -->
         <div class="cycle-diagram">
             <div class="cycle-title">Iterative Clinical Reasoning Cycle</div>
-            <div class="cycle-content">
-                <div class="cycle-item">Symptoms</div>
-                <div class="arrow">→</div>
-                <div class="cycle-item">Hypotheses</div>
-                <div class="arrow">→</div>
-                <div class="cycle-item">Tests</div>
-                <div class="arrow">→</div>
-                <div class="cycle-item">Evidence</div>
-                <div class="arrow">→</div>
-                <div class="cycle-item">Refined<br>Diagnosis</div>
-            </div>
+            <svg width="800" height="80" viewBox="0 0 800 80">
+                <!-- Cycle boxes -->
+                <rect x="10" y="25" width="120" height="35" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                <text x="70" y="48" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Symptoms</text>
+                
+                <path class="cycle-arrow" d="M 135 42 L 165 42" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                <polygon points="165,42 157,38 157,46" fill="#1E64C8"/>
+                
+                <rect x="170" y="25" width="120" height="35" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                <text x="230" y="48" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Hypotheses</text>
+                
+                <path class="cycle-arrow" d="M 295 42 L 325 42" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                <polygon points="325,42 317,38 317,46" fill="#1E64C8"/>
+                
+                <rect x="330" y="25" width="100" height="35" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                <text x="380" y="48" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Tests</text>
+                
+                <path class="cycle-arrow" d="M 435 42 L 465 42" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                <polygon points="465,42 457,38 457,46" fill="#1E64C8"/>
+                
+                <rect x="470" y="25" width="120" height="35" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                <text x="530" y="48" text-anchor="middle" fill="#333" font-size="15" font-weight="600">Evidence</text>
+                
+                <path class="cycle-arrow" d="M 595 42 L 625 42" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                <polygon points="625,42 617,38 617,46" fill="#1E64C8"/>
+                
+                <rect x="630" y="20" width="130" height="45" rx="6" fill="#fff4e6" stroke="#1E64C8" stroke-width="2"/>
+                <text x="695" y="40" text-anchor="middle" fill="#1E64C8" font-size="15" font-weight="700">Refined</text>
+                <text x="695" y="56" text-anchor="middle" fill="#1E64C8" font-size="15" font-weight="700">Diagnosis</text>
+            </svg>
         </div>
         
         <div class="highlight-box">

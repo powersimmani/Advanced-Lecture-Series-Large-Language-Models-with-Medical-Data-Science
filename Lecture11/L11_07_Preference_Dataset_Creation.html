@@ -56,27 +56,106 @@
             line-height: 1.6;
         }
         
-        .items-list {
+        .dataset-structure {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
+            margin-bottom: 20px;
         }
         
-        .item {
-            font-size: 15px;
-            color: #333;
-            line-height: 1.5;
-            padding-left: 20px;
-            position: relative;
+        .data-row {
+            display: grid;
+            grid-template-columns: 30px 1fr;
+            gap: 12px;
+            align-items: start;
         }
         
-        .item:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #1E64C8;
+        .row-icon {
+            width: 30px;
+            height: 30px;
+            background: #1E64C8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
             font-weight: 700;
-            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .row-content {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 15px;
+        }
+        
+        .row-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 5px;
+        }
+        
+        .row-example {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .preference-visual {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+        
+        .output-badge {
+            background: #e8f2ff;
+            border: 2px solid #1E64C8;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1E64C8;
+        }
+        
+        .preference-arrow {
+            font-size: 20px;
+            color: #6bcf7f;
+            font-weight: 700;
+        }
+        
+        .winner-badge {
+            background: #6bcf7f;
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .stat-card {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 15px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: #666;
         }
     </style>
 </head>
@@ -88,24 +167,84 @@
             <div class="section-title">Dataset Structure</div>
             <div class="section-text">Preference datasets contain pairs of model outputs with expert rankings, forming the foundation for reward model training.</div>
         </div>
+        
         <div class="section">
             <div class="section-title">Data Components</div>
-            <div class="items-list">
-                <div class="item">Input Prompt: Clinical query or task description</div>
-                <div class="item">Output A: First model-generated response</div>
-                <div class="item">Output B: Second model-generated response</div>
-                <div class="item">Preference Label: Which output is preferred (A > B or B > A)</div>
-                <div class="item">Confidence Score: Strength of preference (optional)</div>
-                <div class="item">Rationale: Expert's reasoning for choice</div>
+            <div class="dataset-structure">
+                <div class="data-row">
+                    <div class="row-icon">📝</div>
+                    <div class="row-content">
+                        <div class="row-title">1. Input Prompt</div>
+                        <div class="row-example">Clinical query or task description</div>
+                    </div>
+                </div>
+                
+                <div class="data-row">
+                    <div class="row-icon">A</div>
+                    <div class="row-content">
+                        <div class="row-title">2. Output A</div>
+                        <div class="row-example">"Patient presents with fever and cough. Recommend chest X-ray and CBC."</div>
+                    </div>
+                </div>
+                
+                <div class="data-row">
+                    <div class="row-icon">B</div>
+                    <div class="row-content">
+                        <div class="row-title">3. Output B</div>
+                        <div class="row-example">"Recommend immediate chest X-ray, CBC, and respiratory pathogen panel given symptoms."</div>
+                    </div>
+                </div>
+                
+                <div class="data-row">
+                    <div class="row-icon">✓</div>
+                    <div class="row-content">
+                        <div class="row-title">4. Preference Label</div>
+                        <div class="preference-visual">
+                            <div class="output-badge">Output A</div>
+                            <div class="preference-arrow">→ ✗</div>
+                            <div class="output-badge winner-badge">Output B ✓</div>
+                        </div>
+                        <div class="row-example" style="margin-top: 8px;">Expert prefers B: More comprehensive diagnostic approach</div>
+                    </div>
+                </div>
+                
+                <div class="data-row">
+                    <div class="row-icon">⭐</div>
+                    <div class="row-content">
+                        <div class="row-title">5. Confidence Score (Optional)</div>
+                        <div class="row-example">Strength: High (0.9) - Clear preference for comprehensive testing</div>
+                    </div>
+                </div>
+                
+                <div class="data-row">
+                    <div class="row-icon">💬</div>
+                    <div class="row-content">
+                        <div class="row-title">6. Rationale</div>
+                        <div class="row-example">Expert's reasoning: "Output B includes respiratory pathogen panel which is essential for differential diagnosis in current clinical context."</div>
+                    </div>
+                </div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">Dataset Statistics</div>
-            <div class="items-list">
-                <div class="item">Size: 10K-100K+ preference pairs typical</div>
-                <div class="item">Balance: Equal distribution of A vs B preferences</div>
-                <div class="item">Coverage: Diverse clinical specialties and scenarios</div>
-                <div class="item">Quality Metrics: Agreement rates, annotation time</div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">10K-100K+</div>
+                    <div class="stat-label">Preference Pairs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">50/50</div>
+                    <div class="stat-label">Balance (A vs B)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">15+ Specialties</div>
+                    <div class="stat-label">Clinical Coverage</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">85-95%</div>
+                    <div class="stat-label">Agreement Rate</div>
+                </div>
             </div>
         </div>
     </div>

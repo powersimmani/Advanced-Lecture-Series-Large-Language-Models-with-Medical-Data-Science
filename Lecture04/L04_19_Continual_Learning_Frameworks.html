@@ -26,6 +26,17 @@
         }
         .concept-text { font-size: 17px; color: #333; font-weight: 500; }
         .concept-highlight { color: #1E64C8; font-weight: 700; }
+        
+        .diagram-container {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
+        
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -64,26 +75,110 @@
             </div>
         </div>
         
-        <div class="application-section">
-            <div class="app-title">🔄 Continual Learning Pipeline</div>
-            <div class="app-list">
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Stage 1:</strong> Initial training on base medical corpus</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Stage 2:</strong> Incremental updates with new data (monthly)</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Stage 3:</strong> Knowledge consolidation and pruning</span>
-                </div>
-                <div class="app-item">
-                    <span class="bullet">•</span>
-                    <span><strong>Stage 4:</strong> Validation and version deployment</span>
-                </div>
-            </div>
+        <div class="diagram-container">
+            <svg width="880" height="150" viewBox="0 0 880 150">
+                <!-- Central Timeline -->
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                </defs>
+                
+                <!-- Stage 1: Initial Training -->
+                <g>
+                    <rect x="10" y="40" width="140" height="70" fill="#e3f2fd" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                    <text x="80" y="58" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">Stage 1</text>
+                    <text x="80" y="75" text-anchor="middle" fill="#666" font-size="11">Initial Training</text>
+                    <text x="80" y="90" text-anchor="middle" fill="#666" font-size="10">Base Medical Corpus</text>
+                    <text x="80" y="103" text-anchor="middle" fill="#1E64C8" font-size="9" font-weight="600">v1.0</text>
+                    
+                    <!-- Data icon -->
+                    <circle cx="30" cy="65" r="15" fill="#1E64C8" opacity="0.2"/>
+                    <text x="30" y="72" text-anchor="middle" fill="#1E64C8" font-size="16">📚</text>
+                </g>
+                
+                <path d="M 150 75 L 180 75" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="165" y="70" text-anchor="middle" fill="#999" font-size="9">Month 1</text>
+                
+                <!-- Stage 2: Incremental Update -->
+                <g>
+                    <rect x="180" y="40" width="140" height="70" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="5"/>
+                    <text x="250" y="58" text-anchor="middle" fill="#f57c00" font-size="13" font-weight="700">Stage 2</text>
+                    <text x="250" y="75" text-anchor="middle" fill="#666" font-size="11">Incremental Update</text>
+                    <text x="250" y="90" text-anchor="middle" fill="#666" font-size="10">New Data (Monthly)</text>
+                    <text x="250" y="103" text-anchor="middle" fill="#f57c00" font-size="9" font-weight="600">v1.1</text>
+                    
+                    <!-- Update icon -->
+                    <circle cx="200" cy="65" r="15" fill="#f57c00" opacity="0.2"/>
+                    <text x="200" y="72" text-anchor="middle" fill="#f57c00" font-size="16">🔄</text>
+                </g>
+                
+                <path d="M 320 75 L 350 75" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="335" y="70" text-anchor="middle" fill="#999" font-size="9">Month 2</text>
+                
+                <!-- Stage 3: Consolidation -->
+                <g>
+                    <rect x="350" y="40" width="140" height="70" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" rx="5"/>
+                    <text x="420" y="58" text-anchor="middle" fill="#9c27b0" font-size="13" font-weight="700">Stage 3</text>
+                    <text x="420" y="75" text-anchor="middle" fill="#666" font-size="11">Consolidation</text>
+                    <text x="420" y="90" text-anchor="middle" fill="#666" font-size="10">Knowledge Pruning</text>
+                    <text x="420" y="103" text-anchor="middle" fill="#9c27b0" font-size="9" font-weight="600">v1.2</text>
+                    
+                    <!-- Pruning icon -->
+                    <circle cx="370" cy="65" r="15" fill="#9c27b0" opacity="0.2"/>
+                    <text x="370" y="72" text-anchor="middle" fill="#9c27b0" font-size="16">✂️</text>
+                </g>
+                
+                <path d="M 490 75 L 520 75" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
+                <text x="505" y="70" text-anchor="middle" fill="#999" font-size="9">Month 3</text>
+                
+                <!-- Stage 4: Deployment -->
+                <g>
+                    <rect x="520" y="40" width="140" height="70" fill="#e8f5e9" stroke="#27ae60" stroke-width="2" rx="5"/>
+                    <text x="590" y="58" text-anchor="middle" fill="#27ae60" font-size="13" font-weight="700">Stage 4</text>
+                    <text x="590" y="75" text-anchor="middle" fill="#666" font-size="11">Validation</text>
+                    <text x="590" y="90" text-anchor="middle" fill="#666" font-size="10">Version Deploy</text>
+                    <text x="590" y="103" text-anchor="middle" fill="#27ae60" font-size="9" font-weight="600">v2.0 ✓</text>
+                    
+                    <!-- Deploy icon -->
+                    <circle cx="540" cy="65" r="15" fill="#27ae60" opacity="0.2"/>
+                    <text x="540" y="72" text-anchor="middle" fill="#27ae60" font-size="16">🚀</text>
+                </g>
+                
+                <!-- Feedback loop -->
+                <path d="M 660 75 Q 710 75, 710 135 Q 710 145, 80 145 Q 80 145, 80 110" 
+                      stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrow-red)"/>
+                <text x="400" y="143" text-anchor="middle" fill="#e74c3c" font-size="11" font-weight="600">Continuous Learning Loop</text>
+                
+                <!-- Knowledge types flowing through -->
+                <g transform="translate(690, 15)">
+                    <rect x="0" y="0" width="180" height="110" fill="#fafafa" stroke="#999" stroke-width="1" stroke-dasharray="3,3" rx="5"/>
+                    <text x="90" y="15" text-anchor="middle" fill="#333" font-size="11" font-weight="600">New Knowledge</text>
+                    
+                    <rect x="10" y="23" width="160" height="18" fill="#e3f2fd" stroke="#1E64C8" stroke-width="1" rx="2"/>
+                    <text x="90" y="35" text-anchor="middle" fill="#1E64C8" font-size="9">💊 Drug Updates</text>
+                    
+                    <rect x="10" y="45" width="160" height="18" fill="#fff3e0" stroke="#f57c00" stroke-width="1" rx="2"/>
+                    <text x="90" y="57" text-anchor="middle" fill="#f57c00" font-size="9">🔬 Research Trials</text>
+                    
+                    <rect x="10" y="67" width="160" height="18" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1" rx="2"/>
+                    <text x="90" y="79" text-anchor="middle" fill="#9c27b0" font-size="9">📋 Guidelines</text>
+                    
+                    <rect x="10" y="89" width="160" height="18" fill="#ffebee" stroke="#e74c3c" stroke-width="1" rx="2"/>
+                    <text x="90" y="101" text-anchor="middle" fill="#e74c3c" font-size="9">🦠 Emerging Diseases</text>
+                </g>
+                
+                <!-- Performance metric -->
+                <g transform="translate(10, 120)">
+                    <text x="0" y="0" fill="#27ae60" font-size="9" font-weight="600">Knowledge Retention: 90%+</text>
+                </g>
+                
+                <defs>
+                    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#e74c3c"/>
+                    </marker>
+                </defs>
+            </svg>
         </div>
         
         <div class="application-section">

@@ -15,45 +15,150 @@
             min-height: 100vh;
         }
         .container { width: 960px; height: 540px; padding: 40px; background: white; }
-        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
+        .metrics-svg { width: 100%; height: 200px; margin-bottom: 15px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .info-box {
             background: #f8f9fb; border-left: 4px solid #1E64C8;
-            padding: 20px 24px; border-radius: 6px;
+            padding: 18px 22px; border-radius: 6px;
         }
-        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
-        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
-        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
-        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+        .info-title { font-size: 18px; font-weight: 600; color: #1E64C8; margin-bottom: 12px; }
+        .info-content { font-size: 15px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 8px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 18px; }
+        
+        .metric-box {
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .metric-box:hover {
+            opacity: 0.85;
+        }
+
+        .metric-label {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Evaluation Framework</div>
-        <div class="info-grid">
+        
+        <svg class="metrics-svg" viewBox="0 0 880 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Confusion Matrix -->
+            <g transform="translate(50, 20)">
+                <text x="75" y="0" text-anchor="middle" font-size="14" fill="#1E64C8" font-weight="600" class="metric-label">Confusion Matrix</text>
+                
+                <!-- Matrix Grid -->
+                <rect x="0" y="10" width="70" height="70" fill="#4CAF50" opacity="0.7" stroke="#1E64C8" stroke-width="1"/>
+                <text x="35" y="50" text-anchor="middle" font-size="16" fill="white" font-weight="600" class="metric-label">TP</text>
+                
+                <rect x="75" y="10" width="70" height="70" fill="#FF5252" opacity="0.3" stroke="#1E64C8" stroke-width="1"/>
+                <text x="110" y="50" text-anchor="middle" font-size="16" fill="#666" font-weight="600" class="metric-label">FP</text>
+                
+                <rect x="0" y="85" width="70" height="70" fill="#FF5252" opacity="0.3" stroke="#1E64C8" stroke-width="1"/>
+                <text x="35" y="125" text-anchor="middle" font-size="16" fill="#666" font-weight="600" class="metric-label">FN</text>
+                
+                <rect x="75" y="85" width="70" height="70" fill="#4CAF50" opacity="0.7" stroke="#1E64C8" stroke-width="1"/>
+                <text x="110" y="125" text-anchor="middle" font-size="16" fill="white" font-weight="600" class="metric-label">TN</text>
+                
+                <!-- Labels -->
+                <text x="35" y="175" text-anchor="middle" font-size="11" fill="#666" class="metric-label">Positive</text>
+                <text x="110" y="175" text-anchor="middle" font-size="11" fill="#666" class="metric-label">Negative</text>
+                <text x="-15" y="50" text-anchor="middle" font-size="11" fill="#666" class="metric-label" transform="rotate(-90 -15 50)">Actual</text>
+                <text x="75" y="-5" text-anchor="middle" font-size="11" fill="#666" class="metric-label">Predicted</text>
+            </g>
             
+            <!-- Performance Metrics Bars -->
+            <g transform="translate(250, 20)">
+                <text x="200" y="0" text-anchor="middle" font-size="14" fill="#1E64C8" font-weight="600" class="metric-label">Performance Metrics</text>
+                
+                <!-- Accuracy -->
+                <text x="0" y="35" font-size="12" fill="#666" class="metric-label">Accuracy</text>
+                <rect x="80" y="20" width="280" height="18" fill="#e0e0e0" rx="2"/>
+                <rect x="80" y="20" width="266" height="18" fill="#1E64C8" rx="2"/>
+                <text x="370" y="33" font-size="11" fill="#1E64C8" font-weight="600" class="metric-label">95%</text>
+                
+                <!-- Precision -->
+                <text x="0" y="65" font-size="12" fill="#666" class="metric-label">Precision</text>
+                <rect x="80" y="50" width="280" height="18" fill="#e0e0e0" rx="2"/>
+                <rect x="80" y="50" width="258" height="18" fill="#4CAF50" rx="2"/>
+                <text x="370" y="63" font-size="11" fill="#4CAF50" font-weight="600" class="metric-label">92%</text>
+                
+                <!-- Recall -->
+                <text x="0" y="95" font-size="12" fill="#666" class="metric-label">Recall</text>
+                <rect x="80" y="80" width="280" height="18" fill="#e0e0e0" rx="2"/>
+                <rect x="80" y="80" width="272" height="18" fill="#2196F3" rx="2"/>
+                <text x="370" y="93" font-size="11" fill="#2196F3" font-weight="600" class="metric-label">97%</text>
+                
+                <!-- F1 Score -->
+                <text x="0" y="125" font-size="12" fill="#666" class="metric-label">F1 Score</text>
+                <rect x="80" y="110" width="280" height="18" fill="#e0e0e0" rx="2"/>
+                <rect x="80" y="110" width="263" height="18" fill="#FF9800" rx="2"/>
+                <text x="370" y="123" font-size="11" fill="#FF9800" font-weight="600" class="metric-label">94%</text>
+                
+                <!-- AUC-ROC -->
+                <text x="0" y="155" font-size="12" fill="#666" class="metric-label">AUC-ROC</text>
+                <rect x="80" y="140" width="280" height="18" fill="#e0e0e0" rx="2"/>
+                <rect x="80" y="140" width="270" height="18" fill="#9C27B0" rx="2"/>
+                <text x="370" y="153" font-size="11" fill="#9C27B0" font-weight="600" class="metric-label">96%</text>
+            </g>
+            
+            <!-- ROC Curve -->
+            <g transform="translate(680, 30)">
+                <text x="80" y="-10" text-anchor="middle" font-size="14" fill="#1E64C8" font-weight="600" class="metric-label">ROC Curve</text>
+                
+                <!-- Axes -->
+                <path d="M 10 140 L 10 10 M 10 140 L 150 140" stroke="#666" stroke-width="1.5" fill="none"/>
+                
+                <!-- Diagonal reference line -->
+                <path d="M 10 140 L 150 10" stroke="#ccc" stroke-width="1" stroke-dasharray="4,4" fill="none"/>
+                
+                <!-- ROC Curve -->
+                <path d="M 10 140 Q 30 100 50 60 Q 70 30 150 10" stroke="#1E64C8" stroke-width="2.5" fill="none"/>
+                
+                <!-- Labels -->
+                <text x="80" y="165" text-anchor="middle" font-size="10" fill="#666" class="metric-label">False Positive Rate</text>
+                <text x="-5" y="80" text-anchor="middle" font-size="10" fill="#666" class="metric-label" transform="rotate(-90 -5 80)">True Positive Rate</text>
+                
+                <!-- AUC shading -->
+                <path d="M 10 140 Q 30 100 50 60 Q 70 30 150 10 L 150 140 Z" fill="#1E64C8" opacity="0.1"/>
+            </g>
+        </svg>
+        
+        <div class="info-grid">
             <div class="info-box">
                 <div class="info-title">평가 메트릭</div>
                 <div class="info-content">
-                    <div class="bullet">Accuracy, Precision, Recall</div><div class="bullet">F1 Score, ROC-AUC</div><div class="bullet">Confusion Matrix</div>
+                    <div class="bullet">Accuracy, Precision, Recall</div>
+                    <div class="bullet">F1 Score, ROC-AUC</div>
+                    <div class="bullet">Confusion Matrix</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">테스트 전략</div>
                 <div class="info-content">
-                    <div class="bullet">Hold-out Test Set</div><div class="bullet">K-Fold Cross Validation</div><div class="bullet">Stratified Sampling</div>
+                    <div class="bullet">Hold-out Test Set</div>
+                    <div class="bullet">K-Fold Cross Validation</div>
+                    <div class="bullet">Stratified Sampling</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">성능 분석</div>
                 <div class="info-content">
-                    <div class="bullet">Error Analysis</div><div class="bullet">Feature Importance</div><div class="bullet">Model Interpretation</div>
+                    <div class="bullet">Error Analysis</div>
+                    <div class="bullet">Feature Importance</div>
+                    <div class="bullet">Model Interpretation</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">검증 프로세스</div>
                 <div class="info-content">
-                    <div class="bullet">독립적인 테스트 데이터</div><div class="bullet">실제 환경 시뮬레이션</div><div class="bullet">통계적 유의성 검증</div>
+                    <div class="bullet">독립적인 테스트 데이터</div>
+                    <div class="bullet">실제 환경 시뮬레이션</div>
+                    <div class="bullet">통계적 유의성 검증</div>
                 </div>
             </div>
         </div>

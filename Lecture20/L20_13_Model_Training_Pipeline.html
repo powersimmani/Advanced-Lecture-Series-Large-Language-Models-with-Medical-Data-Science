@@ -15,45 +15,167 @@
             min-height: 100vh;
         }
         .container { width: 960px; height: 540px; padding: 40px; background: white; }
-        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
+        .pipeline-svg { width: 100%; height: 240px; margin-bottom: 15px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .info-box {
             background: #f8f9fb; border-left: 4px solid #1E64C8;
-            padding: 20px 24px; border-radius: 6px;
+            padding: 18px 22px; border-radius: 6px;
         }
-        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
-        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
-        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
-        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+        .info-title { font-size: 18px; font-weight: 600; color: #1E64C8; margin-bottom: 12px; }
+        .info-content { font-size: 15px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 8px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 18px; }
+        
+        .process-box {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .process-box:hover rect {
+            filter: brightness(0.95);
+        }
+
+        .process-text {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            font-weight: 500;
+        }
+
+        .cycle-arrow {
+            stroke: #1E64C8;
+            stroke-width: 2.5;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+
+        .icon-element {
+            fill: none;
+            stroke: #1E64C8;
+            stroke-width: 2;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Model Training Pipeline</div>
-        <div class="info-grid">
+        
+        <svg class="pipeline-svg" viewBox="0 0 880 240" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
+                </marker>
+            </defs>
             
+            <!-- Center circle with "Training Pipeline" -->
+            <circle cx="440" cy="120" r="45" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2"/>
+            <text x="440" y="115" text-anchor="middle" font-size="14" fill="#1E64C8" font-weight="600">Training</text>
+            <text x="440" y="130" text-anchor="middle" font-size="14" fill="#1E64C8" font-weight="600">Pipeline</text>
+            
+            <!-- Data Loading (Top Left) -->
+            <g class="process-box">
+                <rect x="140" y="20" width="150" height="70" rx="8" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2"/>
+                <g transform="translate(190, 32)">
+                    <rect x="0" y="0" width="20" height="15" class="icon-element"/>
+                    <rect x="25" y="0" width="20" height="15" class="icon-element"/>
+                    <path d="M 10 20 L 10 30 M 35 20 L 35 30" class="icon-element"/>
+                </g>
+                <text x="215" y="62" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">데이터 로딩</text>
+                <text x="215" y="78" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">& 전처리</text>
+            </g>
+            
+            <!-- Model Training (Top Right) -->
+            <g class="process-box">
+                <rect x="590" y="20" width="150" height="70" rx="8" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2"/>
+                <g transform="translate(640, 35)">
+                    <circle cx="25" cy="15" r="12" class="icon-element"/>
+                    <circle cx="25" cy="15" r="7" class="icon-element"/>
+                    <circle cx="25" cy="15" r="3" fill="#1E64C8"/>
+                </g>
+                <text x="665" y="62" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">모델 학습</text>
+                <text x="665" y="78" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">& 검증</text>
+            </g>
+            
+            <!-- Hyperparameter Tuning (Bottom Right) -->
+            <g class="process-box">
+                <rect x="590" y="150" width="150" height="70" rx="8" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2"/>
+                <g transform="translate(640, 162)">
+                    <path d="M 15 5 L 20 15 L 15 25 L 10 15 Z" class="icon-element"/>
+                    <path d="M 25 5 L 30 15 L 25 25 L 20 15 Z" class="icon-element"/>
+                    <path d="M 35 5 L 40 15 L 35 25 L 30 15 Z" class="icon-element"/>
+                </g>
+                <text x="665" y="192" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">하이퍼파라미터</text>
+                <text x="665" y="208" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">튜닝</text>
+            </g>
+            
+            <!-- Checkpoint & Evaluation (Bottom Left) -->
+            <g class="process-box">
+                <rect x="140" y="150" width="150" height="70" rx="8" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2"/>
+                <g transform="translate(190, 165)">
+                    <path d="M 5 5 L 45 5 L 45 30 L 5 30 Z" class="icon-element"/>
+                    <path d="M 15 15 L 22 22 L 35 10" class="icon-element" stroke-width="2.5"/>
+                </g>
+                <text x="215" y="192" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">체크포인트</text>
+                <text x="215" y="208" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">& 평가</text>
+            </g>
+            
+            <!-- Arrows connecting the cycle -->
+            <!-- Top left to center -->
+            <path d="M 290 55 Q 350 55 395 95" class="cycle-arrow"/>
+            
+            <!-- Center to top right -->
+            <path d="M 485 95 Q 530 55 590 55" class="cycle-arrow"/>
+            
+            <!-- Top right to bottom right -->
+            <path d="M 715 90 Q 760 120 715 150" class="cycle-arrow"/>
+            
+            <!-- Bottom right to center -->
+            <path d="M 590 185 Q 530 185 485 145" class="cycle-arrow"/>
+            
+            <!-- Center to bottom left -->
+            <path d="M 395 145 Q 350 185 290 185" class="cycle-arrow"/>
+            
+            <!-- Bottom left to top left -->
+            <path d="M 165 150 Q 120 120 165 90" class="cycle-arrow"/>
+            
+            <!-- Monitoring Icon (Right side) -->
+            <g transform="translate(780, 100)">
+                <rect x="0" y="0" width="70" height="45" rx="4" fill="none" stroke="#1E64C8" stroke-width="1.5"/>
+                <path d="M 10 25 L 20 15 L 30 30 L 40 10 L 50 20 L 60 15" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                <text x="35" y="62" text-anchor="middle" font-size="11" fill="#666" font-family="Aptos, 'Segoe UI', sans-serif">모니터링</text>
+            </g>
+        </svg>
+        
+        <div class="info-grid">
             <div class="info-box">
                 <div class="info-title">학습 프로세스</div>
                 <div class="info-content">
-                    <div class="bullet">데이터 로딩 및 전처리</div><div class="bullet">모델 학습 및 검증</div><div class="bullet">하이퍼파라미터 튜닝</div>
+                    <div class="bullet">데이터 로딩 및 전처리</div>
+                    <div class="bullet">모델 학습 및 검증</div>
+                    <div class="bullet">하이퍼파라미터 튜닝</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">파이프라인 구성</div>
                 <div class="info-content">
-                    <div class="bullet">자동화된 학습 워크플로우</div><div class="bullet">체크포인트 저장</div><div class="bullet">Early Stopping</div>
+                    <div class="bullet">자동화된 학습 워크플로우</div>
+                    <div class="bullet">체크포인트 저장</div>
+                    <div class="bullet">Early Stopping</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">모니터링</div>
                 <div class="info-content">
-                    <div class="bullet">학습 손실 추적</div><div class="bullet">검증 메트릭 모니터링</div><div class="bullet">리소스 사용량 확인</div>
+                    <div class="bullet">학습 손실 추적</div>
+                    <div class="bullet">검증 메트릭 모니터링</div>
+                    <div class="bullet">리소스 사용량 확인</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">도구 활용</div>
                 <div class="info-content">
-                    <div class="bullet">PyTorch Lightning</div><div class="bullet">MLflow</div><div class="bullet">Weights & Biases</div>
+                    <div class="bullet">PyTorch Lightning</div>
+                    <div class="bullet">MLflow</div>
+                    <div class="bullet">Weights & Biases</div>
                 </div>
             </div>
         </div>

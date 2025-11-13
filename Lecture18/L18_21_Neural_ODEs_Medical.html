@@ -31,101 +31,232 @@
             font-size: 20px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
             text-align: center;
         }
         
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
+        .main-layout {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .visualization-area {
+            flex: 1.4;
+        }
+        
+        .info-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         
         .content-card {
             background: white;
             border: 2.5px solid #1E64C8;
             border-radius: 10px;
-            padding: 20px;
+            padding: 15px;
             transition: all 0.3s;
         }
         
         .content-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
             background: #f8fbff;
         }
         
         .card-title {
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         
         .card-text {
-            font-size: 15px;
+            font-size: 13px;
             color: #333;
-            line-height: 1.5;
-            margin-bottom: 8px;
+            line-height: 1.4;
+            margin-bottom: 4px;
         }
         
         .highlight-box {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 8px;
-            padding: 15px 20px;
-            margin-top: 20px;
+            padding: 12px 20px;
         }
         
         .highlight-title {
             font-size: 16px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-align: center;
         }
         
         .highlight-text {
-            font-size: 15px;
+            font-size: 14px;
             color: #333;
             text-align: center;
-            line-height: 1.5;
+            line-height: 1.4;
+        }
+        
+        @keyframes trace {
+            0% { stroke-dashoffset: 1000; }
+            100% { stroke-dashoffset: 0; }
+        }
+        
+        .trajectory {
+            stroke-dasharray: 1000;
+            animation: trace 3s ease-in-out infinite;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Neural ODEs for Continuous Medical Modeling</div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-title">Ordinary Differential Equations</div>
-                <div class="card-text">• Model continuous dynamics</div>
-                <div class="card-text">• dh/dt = f(h, t, θ)</div>
-                <div class="card-text">• Infinite-depth networks</div>
+        
+        <div class="main-layout">
+            <div class="visualization-area">
+                <svg width="590" height="385" viewBox="0 0 590 385">
+                    <!-- Title -->
+                    <text x="295" y="25" text-anchor="middle" font-family="Aptos" font-size="16" font-weight="700" fill="#1E64C8">Continuous Dynamics: dh/dt = f(h, t, θ)</text>
+                    
+                    <!-- Discrete vs Continuous Comparison -->
+                    <g>
+                        <!-- Discrete Network (Top) -->
+                        <text x="30" y="60" font-family="Aptos" font-size="13" font-weight="600" fill="#dc3545">Discrete ResNet:</text>
+                        
+                        <circle cx="80" cy="85" r="18" fill="#fff" stroke="#dc3545" stroke-width="2"/>
+                        <text x="80" y="90" text-anchor="middle" font-family="Aptos" font-size="11" fill="#dc3545">h₀</text>
+                        
+                        <path d="M 98 85 L 122 85" stroke="#dc3545" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+                        
+                        <circle cx="140" cy="85" r="18" fill="#fff" stroke="#dc3545" stroke-width="2"/>
+                        <text x="140" y="90" text-anchor="middle" font-family="Aptos" font-size="11" fill="#dc3545">h₁</text>
+                        
+                        <path d="M 158 85 L 182 85" stroke="#dc3545" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+                        
+                        <circle cx="200" cy="85" r="18" fill="#fff" stroke="#dc3545" stroke-width="2"/>
+                        <text x="200" y="90" text-anchor="middle" font-family="Aptos" font-size="11" fill="#dc3545">h₂</text>
+                        
+                        <text x="230" y="90" font-family="Aptos" font-size="12" fill="#dc3545">... Fixed layers</text>
+                        
+                        <!-- Continuous ODE (Bottom) -->
+                        <text x="30" y="145" font-family="Aptos" font-size="13" font-weight="600" fill="#28a745">Neural ODE:</text>
+                        
+                        <!-- Smooth trajectory -->
+                        <path class="trajectory" d="M 80 170 Q 140 150, 200 165 T 320 170" 
+                              stroke="#28a745" stroke-width="3" fill="none" opacity="0.6"/>
+                        
+                        <circle cx="80" cy="170" r="18" fill="#d4edda" stroke="#28a745" stroke-width="2.5"/>
+                        <text x="80" y="175" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="600" fill="#155724">h(0)</text>
+                        
+                        <circle cx="320" cy="170" r="18" fill="#d4edda" stroke="#28a745" stroke-width="2.5"/>
+                        <text x="320" y="175" text-anchor="middle" font-family="Aptos" font-size="11" font-weight="600" fill="#155724">h(T)</text>
+                        
+                        <text x="200" y="195" text-anchor="middle" font-family="Aptos" font-size="11" fill="#28a745" font-style="italic">Continuous trajectory</text>
+                    </g>
+                    
+                    <!-- ODE Solver Visualization -->
+                    <rect x="370" y="50" width="200" height="145" rx="8" fill="#fff3cd" fill-opacity="0.3" stroke="#ffc107" stroke-width="2.5"/>
+                    <text x="470" y="70" text-anchor="middle" font-family="Aptos" font-size="13" font-weight="700" fill="#856404">ODE Solver</text>
+                    
+                    <rect x="390" y="80" width="160" height="35" rx="4" fill="#fff" stroke="#ffc107" stroke-width="2"/>
+                    <text x="470" y="102" text-anchor="middle" font-family="Aptos" font-size="11" fill="#856404">Runge-Kutta / Dopri5</text>
+                    
+                    <path d="M 470 115 L 470 130" stroke="#856404" stroke-width="2" marker-end="url(#arrowhead-yellow)"/>
+                    
+                    <rect x="390" y="130" width="160" height="35" rx="4" fill="#fff" stroke="#ffc107" stroke-width="2"/>
+                    <text x="470" y="148" text-anchor="middle" font-family="Aptos" font-size="11" fill="#856404">Neural Network f(h,t,θ)</text>
+                    <text x="470" y="160" text-anchor="middle" font-family="Aptos" font-size="9" fill="#856404" font-style="italic">defines dynamics</text>
+                    
+                    <path d="M 470 165 L 470 180" stroke="#856404" stroke-width="2" marker-end="url(#arrowhead-yellow)"/>
+                    <path d="M 470 180 Q 420 175, 390 150" stroke="#856404" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+                    
+                    <!-- Medical Example -->
+                    <text x="30" y="240" font-family="Aptos" font-size="14" font-weight="700" fill="#1E64C8">Medical Application: Drug Concentration Over Time</text>
+                    
+                    <!-- Graph axes -->
+                    <line x1="60" y1="360" x2="560" y2="360" stroke="#999" stroke-width="2"/>
+                    <line x1="60" y1="260" x2="60" y2="360" stroke="#999" stroke-width="2"/>
+                    
+                    <!-- Axis labels -->
+                    <text x="310" y="378" text-anchor="middle" font-family="Aptos" font-size="11" fill="#666">Time (hours)</text>
+                    <text x="25" y="310" font-family="Aptos" font-size="11" fill="#666" transform="rotate(-90, 25, 310)">Concentration</text>
+                    
+                    <!-- Time markers -->
+                    <text x="60" y="375" text-anchor="middle" font-family="Aptos" font-size="10" fill="#666">0</text>
+                    <text x="160" y="375" text-anchor="middle" font-family="Aptos" font-size="10" fill="#666">4</text>
+                    <text x="260" y="375" text-anchor="middle" font-family="Aptos" font-size="10" fill="#666">8</text>
+                    <text x="360" y="375" text-anchor="middle" font-family="Aptos" font-size="10" fill="#666">12</text>
+                    <text x="460" y="375" text-anchor="middle" font-family="Aptos" font-size="10" fill="#666">16</text>
+                    <text x="560" y="375" text-anchor="middle" font-family="Aptos" font-size="10" fill="#666">20</text>
+                    
+                    <!-- Drug concentration curve (exponential decay) -->
+                    <path d="M 60 280 Q 160 270, 260 300 Q 360 330, 560 355" 
+                          stroke="#1E64C8" stroke-width="3" fill="none"/>
+                    
+                    <!-- Observation points -->
+                    <circle cx="60" cy="280" r="5" fill="#1E64C8"/>
+                    <circle cx="160" cy="275" r="5" fill="#1E64C8"/>
+                    <circle cx="360" cy="325" r="5" fill="#1E64C8"/>
+                    <circle cx="560" cy="353" r="5" fill="#1E64C8"/>
+                    
+                    <!-- Irregular sampling annotation -->
+                    <text x="110" y="268" font-family="Aptos" font-size="10" fill="#1E64C8">Irregular</text>
+                    <text x="110" y="280" font-family="Aptos" font-size="10" fill="#1E64C8">sampling</text>
+                    
+                    <!-- Arrow markers -->
+                    <defs>
+                        <marker id="arrowhead-red" markerWidth="8" markerHeight="8" refX="7" refY="2.5" orient="auto">
+                            <polygon points="0 0, 8 2.5, 0 5" fill="#dc3545"/>
+                        </marker>
+                        <marker id="arrowhead-yellow" markerWidth="8" markerHeight="8" refX="7" refY="2.5" orient="auto">
+                            <polygon points="0 0, 8 2.5, 0 5" fill="#856404"/>
+                        </marker>
+                    </defs>
+                </svg>
             </div>
-            <div class="content-card">
-                <div class="card-title">Neural ODE Architecture</div>
-                <div class="card-text">• Parameterized ODE solver</div>
-                <div class="card-text">• Adjoint sensitivity method</div>
-                <div class="card-text">• Memory-efficient backprop</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">Physiological Modeling</div>
-                <div class="card-text">• Pharmacokinetics (drug concentration)</div>
-                <div class="card-text">• Disease progression dynamics</div>
-                <div class="card-text">• Tumor growth modeling</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">Benefits</div>
-                <div class="card-text">• Irregular time sampling</div>
-                <div class="card-text">• Uncertainty quantification</div>
-                <div class="card-text">• Physically-informed predictions</div>
+            
+            <div class="info-area">
+                <div class="content-card">
+                    <div class="card-title">ODE Formulation</div>
+                    <div class="card-text">• Model continuous dynamics</div>
+                    <div class="card-text">• dh/dt = f(h, t, θ)</div>
+                    <div class="card-text">• Infinite-depth networks</div>
+                </div>
+                
+                <div class="content-card" style="background: #fff3cd; border-color: #ffc107;">
+                    <div class="card-title" style="color: #856404;">Training Method</div>
+                    <div class="card-text" style="color: #856404;">• Adjoint sensitivity</div>
+                    <div class="card-text" style="color: #856404;">• Memory-efficient backprop</div>
+                    <div class="card-text" style="color: #856404;">• O(1) memory complexity</div>
+                </div>
+                
+                <div class="content-card" style="background: #d4edda; border-color: #28a745;">
+                    <div class="card-title" style="color: #155724;">Medical Models</div>
+                    <div class="card-text" style="color: #155724;">• Pharmacokinetics (PK)</div>
+                    <div class="card-text" style="color: #155724;">• Disease progression</div>
+                    <div class="card-text" style="color: #155724;">• Tumor growth dynamics</div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-title">Key Benefits</div>
+                    <div class="card-text">• Irregular time sampling</div>
+                    <div class="card-text">• Uncertainty quantification</div>
+                    <div class="card-text">• Physics-informed priors</div>
+                </div>
             </div>
         </div>
+        
         <div class="highlight-box">
             <div class="highlight-title">🔬 Continuous Dynamics</div>
-            <div class="highlight-text">Neural ODEs naturally model continuous physiological processes, enabling accurate predictions between sparse observations and physically plausible interpolations.</div>
+            <div class="highlight-text">
+                Neural ODEs naturally model continuous physiological processes, enabling accurate predictions between sparse observations 
+                and <strong>physically plausible interpolations</strong> for medical time-series data.
+            </div>
         </div>
     </div>
 </body>

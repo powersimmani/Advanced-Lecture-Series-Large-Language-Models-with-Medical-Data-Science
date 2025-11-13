@@ -23,47 +23,163 @@
             margin-bottom: 30px;
             text-align: center;
         }
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        .content-box {
+        .detection-container {
             background: #f8fbff;
             border: 2px solid #1E64C8;
             border-radius: 10px;
-            padding: 25px;
+            padding: 30px;
+            margin-bottom: 25px;
         }
-        .box-title {
-            font-size: 20px;
-            font-weight: 600;
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .result-card {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .result-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .result-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .result-value {
+            font-size: 22px;
+            font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 15px;
         }
-        .box-item {
-            padding: 8px 0;
-            border-bottom: 1px solid #e0e8f4;
-            font-size: 16px;
-            color: #333;
-        }
-        .box-item:last-child { border-bottom: none; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">이상 소견 검출 (Finding Detection)</div>
-        <div class="content-grid">
-            <div class="content-box">
-                <div class="box-title">Key Points</div>
-                <div class="box-item">Feature 1</div>
-                <div class="box-item">Feature 2</div>
-                <div class="box-item">Feature 3</div>
+        
+        <div class="detection-container">
+            <svg viewBox="0 0 900 320" style="width: 100%; height: auto;">
+                <!-- Input Image -->
+                <g>
+                    <rect x="30" y="120" width="120" height="120" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
+                    <text x="90" y="165" font-size="40" text-anchor="middle">🫁</text>
+                    <text x="90" y="205" font-size="14" text-anchor="middle" fill="#333" font-weight="600">X-ray</text>
+                    <text x="90" y="225" font-size="12" text-anchor="middle" fill="#666">Input Image</text>
+                </g>
+                
+                <!-- Arrow -->
+                <path d="M 150 180 L 200 180" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead)"/>
+                
+                <!-- CNN Processing -->
+                <g>
+                    <rect x="200" y="50" width="180" height="260" rx="10" fill="#1E64C8"/>
+                    <text x="290" y="80" font-size="16" fill="white" text-anchor="middle" font-weight="600">Deep CNN</text>
+                    
+                    <!-- Layer visualization -->
+                    <rect x="220" y="100" width="140" height="25" rx="4" fill="#5088d4"/>
+                    <text x="290" y="117" font-size="11" fill="white" text-anchor="middle">Conv Layer 1</text>
+                    
+                    <rect x="220" y="135" width="140" height="25" rx="4" fill="#5088d4"/>
+                    <text x="290" y="152" font-size="11" fill="white" text-anchor="middle">Conv Layer 2</text>
+                    
+                    <rect x="220" y="170" width="140" height="25" rx="4" fill="#5088d4"/>
+                    <text x="290" y="187" font-size="11" fill="white" text-anchor="middle">Feature Extraction</text>
+                    
+                    <rect x="220" y="205" width="140" height="25" rx="4" fill="#5088d4"/>
+                    <text x="290" y="222" font-size="11" fill="white" text-anchor="middle">Region Detection</text>
+                    
+                    <rect x="220" y="240" width="140" height="25" rx="4" fill="#5088d4"/>
+                    <text x="290" y="257" font-size="11" fill="white" text-anchor="middle">Classification</text>
+                    
+                    <text x="290" y="290" font-size="12" fill="white" text-anchor="middle">⚡ GPU Accelerated</text>
+                </g>
+                
+                <!-- Arrow -->
+                <path d="M 380 180 L 430 180" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead)"/>
+                
+                <!-- Detection Results -->
+                <g>
+                    <rect x="430" y="40" width="180" height="80" rx="8" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+                    <text x="520" y="65" font-size="28" text-anchor="middle">⚠️</text>
+                    <text x="520" y="90" font-size="13" text-anchor="middle" fill="#333" font-weight="600">폐렴 의심</text>
+                    <text x="520" y="108" font-size="11" text-anchor="middle" fill="#e65100" font-weight="700">95% 신뢰도</text>
+                </g>
+                
+                <g>
+                    <rect x="430" y="135" width="180" height="80" rx="8" fill="#ffebee" stroke="#f44336" stroke-width="2"/>
+                    <text x="520" y="160" font-size="28" text-anchor="middle">🔴</text>
+                    <text x="520" y="185" font-size="13" text-anchor="middle" fill="#333" font-weight="600">결절 발견</text>
+                    <text x="520" y="203" font-size="11" text-anchor="middle" fill="#c62828" font-weight="700">88% 신뢰도</text>
+                </g>
+                
+                <g>
+                    <rect x="430" y="230" width="180" height="80" rx="8" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+                    <text x="520" y="255" font-size="28" text-anchor="middle">ℹ️</text>
+                    <text x="520" y="280" font-size="13" text-anchor="middle" fill="#333" font-weight="600">흉막 삼출</text>
+                    <text x="520" y="298" font-size="11" text-anchor="middle" fill="#1976d2" font-weight="700">72% 신뢰도</text>
+                </g>
+                
+                <!-- Arrow -->
+                <path d="M 610 180 L 660 180" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead)"/>
+                
+                <!-- Output Report -->
+                <g>
+                    <rect x="660" y="100" width="200" height="160" rx="10" fill="#1E64C8"/>
+                    <text x="760" y="130" font-size="36" text-anchor="middle">📋</text>
+                    <text x="760" y="165" font-size="15" fill="white" text-anchor="middle" font-weight="600">상세 리포트</text>
+                    <line x1="680" y1="180" x2="840" y2="180" stroke="white" stroke-width="1"/>
+                    <text x="760" y="200" font-size="12" fill="white" text-anchor="middle">✓ 이상 소견 위치</text>
+                    <text x="760" y="220" font-size="12" fill="white" text-anchor="middle">✓ 신뢰도 점수</text>
+                    <text x="760" y="240" font-size="12" fill="white" text-anchor="middle">✓ 권장 조치사항</text>
+                </g>
+                
+                <!-- Processing time -->
+                <text x="450" y="30" font-size="14" fill="#1E64C8" text-anchor="middle" font-weight="600">⏱ 처리 시간: 3초</text>
+                
+                <!-- Arrow marker -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        
+        <div class="results-grid">
+            <div class="result-card">
+                <div class="result-icon">🎯</div>
+                <div class="result-label">검출 정확도</div>
+                <div class="result-value">94%</div>
             </div>
-            <div class="content-box">
-                <div class="box-title">Results</div>
-                <div class="box-item">Result 1</div>
-                <div class="box-item">Result 2</div>
-                <div class="box-item">Result 3</div>
+            <div class="result-card">
+                <div class="result-icon">🔍</div>
+                <div class="result-label">민감도</div>
+                <div class="result-value">96%</div>
+            </div>
+            <div class="result-card">
+                <div class="result-icon">✓</div>
+                <div class="result-label">특이도</div>
+                <div class="result-value">92%</div>
+            </div>
+            <div class="result-card">
+                <div class="result-icon">⚡</div>
+                <div class="result-label">처리 속도</div>
+                <div class="result-value">3초</div>
+            </div>
+            <div class="result-card">
+                <div class="result-icon">📊</div>
+                <div class="result-label">일일 분석</div>
+                <div class="result-value">1000+</div>
+            </div>
+            <div class="result-card">
+                <div class="result-icon">🏥</div>
+                <div class="result-label">검출 범주</div>
+                <div class="result-value">15+</div>
             </div>
         </div>
     </div>

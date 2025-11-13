@@ -38,7 +38,7 @@
         .architecture-diagram {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 15px;
         }
         
         .layer {
@@ -52,56 +52,22 @@
             font-size: 20px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
-        }
-        
-        .layer-content {
-            display: flex;
-            justify-content: space-around;
-            gap: 15px;
-        }
-        
-        .node-box {
-            flex: 1;
-            background: white;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 15px;
+            margin-bottom: 15px;
             text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .node-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
-            background: #f0f5fc;
-        }
-        
-        .node-icon {
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-        
-        .node-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1E64C8;
-            margin-bottom: 6px;
-        }
-        
-        .node-desc {
-            font-size: 13px;
-            color: #666;
         }
         
         .communication-flow {
             background: linear-gradient(135deg, #e8f2ff, #f0f5fc);
             border-radius: 10px;
-            padding: 15px;
+            padding: 12px;
             text-align: center;
             font-size: 16px;
             color: #333;
             font-weight: 500;
+        }
+
+        .node-icon {
+            font-size: 28px;
         }
     </style>
 </head>
@@ -112,52 +78,95 @@
         <div class="architecture-diagram">
             <div class="layer">
                 <div class="layer-title">🌐 Central Coordinator</div>
-                <div class="layer-content">
-                    <div class="node-box">
-                        <div class="node-icon">☁️</div>
-                        <div class="node-title">Aggregation Server</div>
-                        <div class="node-desc">Combines model updates</div>
-                    </div>
-                    <div class="node-box">
-                        <div class="node-icon">📊</div>
-                        <div class="node-title">Model Repository</div>
-                        <div class="node-desc">Stores global models</div>
-                    </div>
-                    <div class="node-box">
-                        <div class="node-icon">📋</div>
-                        <div class="node-title">Orchestrator</div>
-                        <div class="node-desc">Manages training rounds</div>
-                    </div>
-                </div>
+                <svg width="100%" height="100" viewBox="0 0 850 100">
+                    <!-- Aggregation Server -->
+                    <g>
+                        <rect x="20" y="20" width="240" height="70" rx="8" fill="white" stroke="#1E64C8" stroke-width="2" />
+                        <text x="140" y="45" text-anchor="middle" font-size="24">☁️</text>
+                        <text x="140" y="68" text-anchor="middle" font-size="15" fill="#1E64C8" font-weight="600">Aggregation Server</text>
+                        <text x="140" y="85" text-anchor="middle" font-size="12" fill="#666">Combines model updates</text>
+                    </g>
+                    
+                    <!-- Model Repository -->
+                    <g>
+                        <rect x="300" y="20" width="240" height="70" rx="8" fill="white" stroke="#1E64C8" stroke-width="2" />
+                        <text x="420" y="45" text-anchor="middle" font-size="24">📊</text>
+                        <text x="420" y="68" text-anchor="middle" font-size="15" fill="#1E64C8" font-weight="600">Model Repository</text>
+                        <text x="420" y="85" text-anchor="middle" font-size="12" fill="#666">Stores global models</text>
+                    </g>
+                    
+                    <!-- Orchestrator -->
+                    <g>
+                        <rect x="580" y="20" width="240" height="70" rx="8" fill="white" stroke="#1E64C8" stroke-width="2" />
+                        <text x="700" y="45" text-anchor="middle" font-size="24">📋</text>
+                        <text x="700" y="68" text-anchor="middle" font-size="15" fill="#1E64C8" font-weight="600">Orchestrator</text>
+                        <text x="700" y="85" text-anchor="middle" font-size="12" fill="#666">Manages training rounds</text>
+                    </g>
+                    
+                    <!-- Connection lines -->
+                    <line x1="260" y1="55" x2="300" y2="55" stroke="#1E64C8" stroke-width="2"/>
+                    <line x1="540" y1="55" x2="580" y2="55" stroke="#1E64C8" stroke-width="2"/>
+                </svg>
             </div>
             
             <div class="communication-flow">
-                ⬇️ Model Distribution ⬇️
+                <svg width="100%" height="60" viewBox="0 0 850 60">
+                    <!-- Animated arrow -->
+                    <defs>
+                        <marker id="arrow-down" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                            <polygon points="0 0, 10 5, 0 10" fill="#1E64C8" />
+                        </marker>
+                    </defs>
+                    
+                    <line x1="425" y1="5" x2="425" y2="50" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow-down)"/>
+                    <text x="425" y="35" text-anchor="middle" font-size="16" fill="#1E64C8" font-weight="600">⬇️ Model Distribution ⬇️</text>
+                </svg>
             </div>
             
             <div class="layer">
                 <div class="layer-title">🏥 Client Nodes (Hospitals)</div>
-                <div class="layer-content">
-                    <div class="node-box">
-                        <div class="node-icon">🏥</div>
-                        <div class="node-title">Local Training</div>
-                        <div class="node-desc">Train on private data</div>
-                    </div>
-                    <div class="node-box">
-                        <div class="node-icon">💾</div>
-                        <div class="node-title">Data Storage</div>
-                        <div class="node-desc">Secure local database</div>
-                    </div>
-                    <div class="node-box">
-                        <div class="node-icon">🔐</div>
-                        <div class="node-title">Privacy Layer</div>
-                        <div class="node-desc">Encryption & DP</div>
-                    </div>
-                </div>
+                <svg width="100%" height="100" viewBox="0 0 850 100">
+                    <!-- Local Training -->
+                    <g>
+                        <rect x="20" y="20" width="240" height="70" rx="8" fill="white" stroke="#1E64C8" stroke-width="2" />
+                        <text x="140" y="45" text-anchor="middle" font-size="24">🏥</text>
+                        <text x="140" y="68" text-anchor="middle" font-size="15" fill="#1E64C8" font-weight="600">Local Training</text>
+                        <text x="140" y="85" text-anchor="middle" font-size="12" fill="#666">Train on private data</text>
+                    </g>
+                    
+                    <!-- Data Storage -->
+                    <g>
+                        <rect x="300" y="20" width="240" height="70" rx="8" fill="white" stroke="#1E64C8" stroke-width="2" />
+                        <text x="420" y="45" text-anchor="middle" font-size="24">💾</text>
+                        <text x="420" y="68" text-anchor="middle" font-size="15" fill="#1E64C8" font-weight="600">Data Storage</text>
+                        <text x="420" y="85" text-anchor="middle" font-size="12" fill="#666">Secure local database</text>
+                    </g>
+                    
+                    <!-- Privacy Layer -->
+                    <g>
+                        <rect x="580" y="20" width="240" height="70" rx="8" fill="white" stroke="#1E64C8" stroke-width="2" />
+                        <text x="700" y="45" text-anchor="middle" font-size="24">🔐</text>
+                        <text x="700" y="68" text-anchor="middle" font-size="15" fill="#1E64C8" font-weight="600">Privacy Layer</text>
+                        <text x="700" y="85" text-anchor="middle" font-size="12" fill="#666">Encryption & DP</text>
+                    </g>
+                    
+                    <!-- Connection lines -->
+                    <line x1="260" y1="55" x2="300" y2="55" stroke="#1E64C8" stroke-width="2"/>
+                    <line x1="540" y1="55" x2="580" y2="55" stroke="#1E64C8" stroke-width="2"/>
+                </svg>
             </div>
             
             <div class="communication-flow">
-                ⬆️ Gradient Upload ⬆️
+                <svg width="100%" height="60" viewBox="0 0 850 60">
+                    <defs>
+                        <marker id="arrow-up" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                            <polygon points="0 10, 10 5, 0 0" fill="#1E64C8" />
+                        </marker>
+                    </defs>
+                    
+                    <line x1="425" y1="55" x2="425" y2="10" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow-up)"/>
+                    <text x="425" y="40" text-anchor="middle" font-size="16" fill="#1E64C8" font-weight="600">⬆️ Gradient Upload ⬆️</text>
+                </svg>
             </div>
         </div>
     </div>

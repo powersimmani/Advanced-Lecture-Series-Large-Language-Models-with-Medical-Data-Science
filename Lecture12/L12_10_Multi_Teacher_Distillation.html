@@ -17,50 +17,38 @@
         }
         .container { width: 960px; padding: 30px 40px; background: white; }
         .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
-        .concept-box, .attention-intro, .progress-intro, .multi-teacher-intro { 
-            background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; 
+        
+        .multi-teacher-intro {
+            background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px;
             padding: 20px; margin-bottom: 25px; text-align: center;
         }
-        .concept-title, .intro-title { font-size: 22px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
-        .concept-desc, .intro-desc { font-size: 16px; color: #555; line-height: 1.5; }
-        .layer-matching, .medical-imaging, .stages-diagram, .architecture-diagram {
-            margin-bottom: 20px;
-        }
-        .layer-title, .imaging-title, .benefits-title, .methods-title, .section-title { 
-            font-size: 20px; font-weight: 700; color: #1E64C8; margin-bottom: 15px; text-align: center;
-        }
-        .matching-grid, .imaging-grid, .methods-grid, .teachers-grid { 
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
-        }
-        .matching-card, .imaging-card, .method-card, .teacher-box { 
-            background: white; border: 2px solid #1E64C8; border-radius: 8px; 
+        .intro-title { font-size: 22px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
+        .intro-desc { font-size: 16px; color: #555; line-height: 1.5; }
+        
+        .architecture-diagram { margin-bottom: 20px; }
+        .teachers-section { margin-bottom: 25px; }
+        .section-title { font-size: 20px; font-weight: 700; color: #1E64C8; margin-bottom: 15px; text-align: center; }
+        .teachers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .teacher-box { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
             padding: 15px; text-align: center;
         }
-        .match-name, .card-title { font-size: 17px; font-weight: 700; color: #1E64C8; margin-bottom: 8px; }
-        .match-desc, .card-desc { font-size: 15px; color: #555; line-height: 1.4; }
-        .loss-box, .formula-section { 
-            background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px; 
-            padding: 20px; text-align: center;
-        }
-        .loss-title, .formula-title { font-size: 19px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
-        .loss-formula, .formula-text { font-size: 22px; color: #1E64C8; font-weight: 700; margin: 10px 0; }
-        .loss-note, .formula-note { font-size: 15px; color: #666; margin-top: 8px; }
-        .stage-box { 
-            background: white; border: 3px solid #1E64C8; border-radius: 10px; 
-            padding: 20px; display: inline-block; text-align: center;
-        }
-        .stage-number { font-size: 20px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
-        .stage-content { font-size: 16px; color: #333; line-height: 1.8; }
-        .arrow { font-size: 40px; color: #1E64C8; display: inline-block; margin: 0 20px; }
         .arrow-down { text-align: center; font-size: 24px; color: #1E64C8; margin: 20px 0; }
-        .benefits-section, .aggregation-methods { margin-top: 20px; }
-        .benefits-list { display: flex; flex-direction: column; gap: 10px; }
-        .benefit-item { font-size: 16px; color: #333; padding: 10px; background: #f8f9fa; border-radius: 6px; }
         .student-box { 
-            background: white; border: 3px solid #1E64C8; border-radius: 10px; 
+            background: white; border: 3px solid #1E64C8; border-radius: 10px;
             padding: 20px; text-align: center; font-size: 18px; font-weight: 600; color: #1E64C8;
         }
-        .teachers-section { margin-bottom: 25px; }
+        
+        .aggregation-methods { margin-top: 20px; }
+        .methods-title { font-size: 20px; font-weight: 700; color: #1E64C8; margin-bottom: 15px; text-align: center; }
+        .methods-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .method-box { 
+            background: white; border: 2px solid #1E64C8; border-radius: 8px;
+            padding: 15px; text-align: center; transition: all 0.3s;
+        }
+        .method-box:hover {
+            transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30,100,200,0.2);
+        }
     </style>
 </head>
 <body>
@@ -71,6 +59,127 @@
             <div class="intro-title">Multi-Teacher Distillation</div>
             <div class="intro-desc">여러 Teacher 모델의 앙상블 지식을 Student에 전달</div>
         </div>
+        
+        <!-- Visual architecture -->
+        <div style="text-align: center; margin: 30px 0;">
+            <svg width="900" height="400" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Teacher 1 -->
+                <g transform="translate(80, 50)">
+                    <rect x="0" y="0" width="180" height="120" rx="10" fill="white" stroke="#ff6b6b" stroke-width="3"/>
+                    <text x="90" y="25" font-family="Aptos" font-size="16" fill="#ff6b6b" text-anchor="middle" font-weight="700">Teacher 1</text>
+                    <text x="90" y="45" font-family="Aptos" font-size="13" fill="#666" text-anchor="middle">ResNet-152</text>
+                    
+                    <!-- Network viz -->
+                    <g transform="translate(40, 55)">
+                        <circle cx="20" cy="10" r="4" fill="#ff6b6b" opacity="0.7"/>
+                        <circle cx="40" cy="10" r="4" fill="#ff6b6b" opacity="0.7"/>
+                        <circle cx="60" cy="10" r="4" fill="#ff6b6b" opacity="0.7"/>
+                        <circle cx="80" cy="10" r="4" fill="#ff6b6b" opacity="0.7"/>
+                        <circle cx="30" cy="30" r="4" fill="#ff6b6b" opacity="0.5"/>
+                        <circle cx="50" cy="30" r="4" fill="#ff6b6b" opacity="0.5"/>
+                        <circle cx="70" cy="30" r="4" fill="#ff6b6b" opacity="0.5"/>
+                        <circle cx="50" cy="50" r="4" fill="#ff6b6b" opacity="0.8"/>
+                    </g>
+                    
+                    <text x="90" y="110" font-family="Aptos" font-size="11" fill="#999" text-anchor="middle">Acc: 94%</text>
+                </g>
+                
+                <!-- Teacher 2 -->
+                <g transform="translate(360, 50)">
+                    <rect x="0" y="0" width="180" height="120" rx="10" fill="white" stroke="#ffa500" stroke-width="3"/>
+                    <text x="90" y="25" font-family="Aptos" font-size="16" fill="#ffa500" text-anchor="middle" font-weight="700">Teacher 2</text>
+                    <text x="90" y="45" font-family="Aptos" font-size="13" fill="#666" text-anchor="middle">DenseNet-201</text>
+                    
+                    <!-- Network viz -->
+                    <g transform="translate(40, 55)">
+                        <circle cx="20" cy="10" r="4" fill="#ffa500" opacity="0.7"/>
+                        <circle cx="40" cy="10" r="4" fill="#ffa500" opacity="0.7"/>
+                        <circle cx="60" cy="10" r="4" fill="#ffa500" opacity="0.7"/>
+                        <circle cx="80" cy="10" r="4" fill="#ffa500" opacity="0.7"/>
+                        <circle cx="30" cy="30" r="4" fill="#ffa500" opacity="0.5"/>
+                        <circle cx="50" cy="30" r="4" fill="#ffa500" opacity="0.5"/>
+                        <circle cx="70" cy="30" r="4" fill="#ffa500" opacity="0.5"/>
+                        <circle cx="50" cy="50" r="4" fill="#ffa500" opacity="0.8"/>
+                    </g>
+                    
+                    <text x="90" y="110" font-family="Aptos" font-size="11" fill="#999" text-anchor="middle">Acc: 93%</text>
+                </g>
+                
+                <!-- Teacher 3 -->
+                <g transform="translate(640, 50)">
+                    <rect x="0" y="0" width="180" height="120" rx="10" fill="white" stroke="#9b59b6" stroke-width="3"/>
+                    <text x="90" y="25" font-family="Aptos" font-size="16" fill="#9b59b6" text-anchor="middle" font-weight="700">Teacher 3</text>
+                    <text x="90" y="45" font-family="Aptos" font-size="13" fill="#666" text-anchor="middle">EfficientNet-B7</text>
+                    
+                    <!-- Network viz -->
+                    <g transform="translate(40, 55)">
+                        <circle cx="20" cy="10" r="4" fill="#9b59b6" opacity="0.7"/>
+                        <circle cx="40" cy="10" r="4" fill="#9b59b6" opacity="0.7"/>
+                        <circle cx="60" cy="10" r="4" fill="#9b59b6" opacity="0.7"/>
+                        <circle cx="80" cy="10" r="4" fill="#9b59b6" opacity="0.7"/>
+                        <circle cx="30" cy="30" r="4" fill="#9b59b6" opacity="0.5"/>
+                        <circle cx="50" cy="30" r="4" fill="#9b59b6" opacity="0.5"/>
+                        <circle cx="70" cy="30" r="4" fill="#9b59b6" opacity="0.5"/>
+                        <circle cx="50" cy="50" r="4" fill="#9b59b6" opacity="0.8"/>
+                    </g>
+                    
+                    <text x="90" y="110" font-family="Aptos" font-size="11" fill="#999" text-anchor="middle">Acc: 92%</text>
+                </g>
+                
+                <!-- Arrows from teachers -->
+                <path d="M 170 170 L 170 220 L 350 220 L 350 260" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                <path d="M 450 170 L 450 220 L 450 260" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                <path d="M 730 170 L 730 220 L 550 220 L 550 260" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                
+                <polygon points="350,260 345,255 355,255" fill="#1E64C8"/>
+                <polygon points="450,260 445,255 455,255" fill="#1E64C8"/>
+                <polygon points="550,260 545,255 555,255" fill="#1E64C8"/>
+                
+                <!-- Knowledge aggregation cloud -->
+                <g transform="translate(300, 230)">
+                    <ellipse cx="150" cy="20" rx="140" ry="25" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,5"/>
+                    <text x="150" y="25" font-family="Aptos" font-size="14" fill="#1E64C8" text-anchor="middle" font-weight="600">Knowledge Aggregation</text>
+                    
+                    <!-- Aggregation icons -->
+                    <g transform="translate(70, 30)">
+                        <circle cx="20" cy="0" r="8" fill="#ff6b6b" opacity="0.3"/>
+                        <circle cx="50" cy="0" r="8" fill="#ffa500" opacity="0.3"/>
+                        <circle cx="80" cy="0" r="8" fill="#9b59b6" opacity="0.3"/>
+                        <text x="50" y="25" font-family="Aptos" font-size="18" text-anchor="middle">⊕</text>
+                    </g>
+                </g>
+                
+                <!-- Arrow to student -->
+                <line x1="450" y1="290" x2="450" y2="320" stroke="#1E64C8" stroke-width="3"/>
+                <polygon points="450,320 445,315 455,315" fill="#1E64C8"/>
+                
+                <!-- Student -->
+                <g transform="translate(320, 330)">
+                    <rect x="0" y="0" width="260" height="60" rx="10" fill="white" stroke="#51cf66" stroke-width="4"/>
+                    <text x="130" y="25" font-family="Aptos" font-size="18" fill="#51cf66" text-anchor="middle" font-weight="700">Single Student Model</text>
+                    <text x="130" y="45" font-family="Aptos" font-size="13" fill="#666" text-anchor="middle">MobileNetV3 (Target: 90% accuracy)</text>
+                    
+                    <!-- Small network -->
+                    <g transform="translate(60, 50)">
+                        <circle cx="30" cy="5" r="3" fill="#51cf66"/>
+                        <circle cx="50" cy="5" r="3" fill="#51cf66"/>
+                        <circle cx="70" cy="5" r="3" fill="#51cf66"/>
+                    </g>
+                </g>
+                
+                <!-- Benefit annotations -->
+                <g transform="translate(30, 240)">
+                    <text x="0" y="0" font-family="Aptos" font-size="11" fill="#ff6b6b" font-weight="600">✓ Diverse</text>
+                    <text x="0" y="15" font-family="Aptos" font-size="11" fill="#ff6b6b">  perspectives</text>
+                </g>
+                
+                <g transform="translate(770, 240)">
+                    <text x="0" y="0" font-family="Aptos" font-size="11" fill="#9b59b6" font-weight="600">✓ Robust</text>
+                    <text x="0" y="15" font-family="Aptos" font-size="11" fill="#9b59b6">  knowledge</text>
+                </g>
+            </svg>
+        </div>
+        
         <div class="architecture-diagram">
             <div class="teachers-section">
                 <div class="section-title">Multiple Teachers</div>
@@ -85,12 +194,38 @@
                 <div class="student-box">Single Student Model<br><span style="font-size: 14px;">MobileNetV3</span></div>
             </div>
         </div>
+        
         <div class="aggregation-methods">
             <div class="methods-title">지식 통합 방법</div>
             <div class="methods-grid">
-                <div class="method-card">평균 (Average)</div>
-                <div class="method-card">가중 평균 (Weighted)</div>
-                <div class="method-card">Attention 기반</div>
+                <div class="method-box">
+                    <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
+                        <circle cx="20" cy="30" r="8" fill="#ff6b6b" opacity="0.5"/>
+                        <circle cx="30" cy="30" r="8" fill="#ffa500" opacity="0.5"/>
+                        <circle cx="40" cy="30" r="8" fill="#9b59b6" opacity="0.5"/>
+                        <text x="30" y="53" font-family="Aptos" font-size="10" fill="#1E64C8" text-anchor="middle" font-weight="600">균등 가중</text>
+                    </svg>
+                    <div>평균 (Average)</div>
+                </div>
+                <div class="method-box">
+                    <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
+                        <circle cx="20" cy="30" r="10" fill="#ff6b6b" opacity="0.7"/>
+                        <circle cx="30" cy="30" r="7" fill="#ffa500" opacity="0.5"/>
+                        <circle cx="40" cy="30" r="5" fill="#9b59b6" opacity="0.3"/>
+                        <text x="30" y="53" font-family="Aptos" font-size="10" fill="#1E64C8" text-anchor="middle" font-weight="600">차등 가중</text>
+                    </svg>
+                    <div>가중 평균 (Weighted)</div>
+                </div>
+                <div class="method-box">
+                    <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
+                        <circle cx="30" cy="20" r="6" fill="#ff6b6b" opacity="0.5"/>
+                        <circle cx="20" cy="35" r="6" fill="#ffa500" opacity="0.3"/>
+                        <circle cx="40" cy="35" r="6" fill="#9b59b6" opacity="0.3"/>
+                        <circle cx="30" cy="35" r="4" fill="#1E64C8"/>
+                        <text x="30" y="53" font-family="Aptos" font-size="10" fill="#1E64C8" text-anchor="middle" font-weight="600">동적 선택</text>
+                    </svg>
+                    <div>Attention 기반</div>
+                </div>
             </div>
         </div>
     </div>

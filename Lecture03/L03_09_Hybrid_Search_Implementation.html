@@ -41,49 +41,7 @@
             text-align: center;
             margin-bottom: 15px;
         }
-        .arch-diagram {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-        .arch-layer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            width: 100%;
-        }
-        .arch-layer.dual {
-            justify-content: space-around;
-        }
-        .layer-box {
-            padding: 15px 30px;
-            background: white;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #1E64C8;
-            text-align: center;
-        }
-        .layer-box.dense {
-            border-color: #2874d8;
-            background: #e8f2ff;
-        }
-        .layer-box.sparse {
-            border-color: #4a90e2;
-            background: #f0f8ff;
-        }
-        .layer-box.result {
-            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
-            color: white;
-            font-size: 16px;
-        }
-        .arch-arrows {
-            font-size: 20px;
-            color: #1E64C8;
-            font-weight: 700;
-        }
+        
         .fusion-methods {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -128,144 +86,25 @@
             font-size: 14px;
             color: #333;
         }
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
+        
+        @keyframes flowDense {
+            0%, 100% { cy: 45; opacity: 0; }
+            50% { cy: 130; opacity: 1; }
         }
-        .metric-card {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 10px;
-            padding: 15px;
-            transition: all 0.3s;
+        
+        @keyframes flowSparse {
+            0%, 100% { cy: 45; opacity: 0; }
+            50% { cy: 130; opacity: 1; }
         }
-        .metric-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.3);
+        
+        .flow-particle-dense {
+            animation: flowDense 3s ease-in-out infinite;
         }
-        .metric-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 8px;
+        
+        .flow-particle-sparse {
+            animation: flowSparse 3s ease-in-out infinite;
+            animation-delay: 1.5s;
         }
-        .metric-formula {
-            font-size: 14px;
-            color: #333;
-            font-family: 'Courier New', monospace;
-            margin-bottom: 5px;
-        }
-        .metric-range, .metric-use {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-        .example-box {
-            background: #f0f5fc;
-            border-radius: 10px;
-            padding: 20px;
-        }
-        .example-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 15px;
-        }
-        .example-pair {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-        .text {
-            padding: 10px;
-            background: white;
-            border-radius: 6px;
-            font-size: 14px;
-            color: #333;
-        }
-        .similarity-scores {
-            display: flex;
-            justify-content: space-around;
-        }
-        .score {
-            font-size: 14px;
-            color: #555;
-        }
-        .hierarchy-diagram {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        .level {
-            width: 100%;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .level-1 {
-            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
-            color: white;
-        }
-        .level-2 {
-            background: linear-gradient(135deg, #2874d8 0%, #4a90e2 100%);
-            color: white;
-        }
-        .level-3 {
-            background: linear-gradient(135deg, #4a90e2 0%, #6ba3e8 100%);
-            color: white;
-        }
-        .level-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .level-desc {
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        .level-time {
-            font-size: 12px;
-            opacity: 0.9;
-        }
-        .hierarchy-arrow {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1E64C8;
-        }
-        .tradeoff-section {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-        .tradeoff-card {
-            background: #f8f9fa;
-            border-left: 4px solid #1E64C8;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-        }
-        .tradeoff-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 8px;
-        }
-        .tradeoff-value {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 5px;
-        }
-        .tradeoff-benefit {
-            font-size: 13px;
-            color: #28a745;
-            font-weight: 600;
-        }
-    
     </style>
 </head>
 <body>
@@ -274,24 +113,55 @@
         
         <div class="architecture-box">
             <div class="arch-title">🔀 Hybrid Architecture</div>
-            <div class="arch-diagram">
-                <div class="arch-layer">
-                    <div class="layer-box">Query Input</div>
-                </div>
-                <div class="arch-arrows">↓ ↓</div>
-                <div class="arch-layer dual">
-                    <div class="layer-box dense">Dense Search (70%)</div>
-                    <div class="layer-box sparse">Sparse Search (30%)</div>
-                </div>
-                <div class="arch-arrows">↓</div>
-                <div class="arch-layer">
-                    <div class="layer-box">Reciprocal Rank Fusion</div>
-                </div>
-                <div class="arch-arrows">↓</div>
-                <div class="arch-layer">
-                    <div class="layer-box result">Final Results</div>
-                </div>
-            </div>
+            <svg width="100%" height="240" viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg">
+                <!-- Query Input -->
+                <rect x="270" y="10" width="160" height="50" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <text x="350" y="40" text-anchor="middle" font-family="Aptos" font-size="16" font-weight="600" fill="#1E64C8">Query Input</text>
+                
+                <!-- Split arrows -->
+                <line x1="350" y1="60" x2="200" y2="100" stroke="#2874d8" stroke-width="3"/>
+                <line x1="350" y1="60" x2="500" y2="100" stroke="#4a90e2" stroke-width="3"/>
+                <polygon points="200,100 208,97 208,103" fill="#2874d8"/>
+                <polygon points="500,100 492,97 492,103" fill="#4a90e2"/>
+                
+                <!-- Dense Search Box -->
+                <rect x="80" y="110" width="180" height="50" rx="8" fill="#e8f2ff" stroke="#2874d8" stroke-width="3"/>
+                <circle cx="140" cy="135" r="12" fill="#2874d8" opacity="0.3"/>
+                <text x="170" y="133" font-family="Aptos" font-size="14" font-weight="600" fill="#2874d8">Dense Search</text>
+                <text x="170" y="148" font-family="Aptos" font-size="12" fill="#2874d8">(70% weight)</text>
+                
+                <!-- Sparse Search Box -->
+                <rect x="440" y="110" width="180" height="50" rx="8" fill="#f0f8ff" stroke="#4a90e2" stroke-width="3"/>
+                <rect x="495" y="127" width="16" height="16" fill="none" stroke="#4a90e2" stroke-width="2"/>
+                <line x1="498" y1="135" x2="508" y2="135" stroke="#4a90e2" stroke-width="2"/>
+                <line x1="503" y1="130" x2="503" y2="140" stroke="#4a90e2" stroke-width="2"/>
+                <text x="520" y="133" font-family="Aptos" font-size="14" font-weight="600" fill="#4a90e2">Sparse Search</text>
+                <text x="520" y="148" font-family="Aptos" font-size="12" fill="#4a90e2">(30% weight)</text>
+                
+                <!-- Flow particles -->
+                <circle class="flow-particle-dense" cx="170" cy="45" r="4" fill="#2874d8"/>
+                <circle class="flow-particle-sparse" cx="530" cy="45" r="4" fill="#4a90e2"/>
+                
+                <!-- Merge arrows -->
+                <line x1="170" y1="160" x2="300" y2="190" stroke="#1E64C8" stroke-width="3"/>
+                <line x1="530" y1="160" x2="400" y2="190" stroke="#1E64C8" stroke-width="3"/>
+                <polygon points="300,190 295,183 305,186" fill="#1E64C8"/>
+                <polygon points="400,190 395,186 405,183" fill="#1E64C8"/>
+                
+                <!-- RRF Fusion Box -->
+                <rect x="250" y="185" width="200" height="50" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <circle cx="300" cy="210" r="10" fill="#1E64C8" opacity="0.2"/>
+                <path d="M 295 210 L 300 205 L 305 210 L 300 215 Z" fill="#1E64C8"/>
+                <text x="320" y="215" font-family="Aptos" font-size="14" font-weight="600" fill="#1E64C8">Reciprocal Rank Fusion</text>
+                
+                <!-- Legend -->
+                <g transform="translate(600, 180)">
+                    <circle cx="10" cy="10" r="5" fill="#2874d8"/>
+                    <text x="20" y="14" font-family="Aptos" font-size="10" fill="#555">Semantic</text>
+                    <circle cx="10" cy="30" r="5" fill="#4a90e2"/>
+                    <text x="20" y="34" font-family="Aptos" font-size="10" fill="#555">Keyword</text>
+                </g>
+            </svg>
         </div>
         
         <div class="fusion-methods">

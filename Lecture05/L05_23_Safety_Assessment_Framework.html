@@ -31,84 +31,156 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
         
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .stat-card {
-            background: #f0f5fc;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 8px;
-        }
-        
-        .stat-label {
-            font-size: 13px;
-            color: #555;
-            font-weight: 500;
-        }
-        
-        .features-section {
-            background: #f8f9fa;
-            border-left: 5px solid #1E64C8;
-            border-radius: 8px;
-            padding: 20px 25px;
+        /* Safety Risk Pyramid */
+        .risk-pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
             margin-bottom: 20px;
         }
         
-        .features-title {
-            font-size: 20px;
+        .pyramid-level {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            height: 50px;
+            border-radius: 8px;
+            font-weight: 700;
+            color: white;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .pyramid-level:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .level-critical {
+            width: 90%;
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        }
+        
+        .level-high {
+            width: 80%;
+            background: linear-gradient(135deg, #fd7e14 0%, #e96b00 100%);
+        }
+        
+        .level-medium {
+            width: 70%;
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+            color: #333;
+        }
+        
+        .level-low {
+            width: 60%;
+            background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+        }
+        
+        .level-icon {
+            font-size: 28px;
+        }
+        
+        .level-label {
+            flex: 1;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .level-desc {
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        /* Safety Checklist */
+        .checklist-section {
+            background: #f8f9fa;
+            border-left: 5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 16px 22px;
+            margin-bottom: 18px;
+        }
+        
+        .checklist-title {
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 12px;
         }
         
-        .features-grid {
+        .checklist-items {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 8px;
         }
         
-        .feature-item {
-            font-size: 15px;
-            color: #333;
-            padding: 8px 12px;
+        .checklist-item {
             background: white;
+            padding: 8px 12px;
             border-radius: 5px;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 13px;
+            color: #333;
+            transition: all 0.2s;
         }
         
-        .feature-icon {
-            font-size: 20px;
+        .checklist-item:hover {
+            background: #f0f5fc;
+            transform: translateX(3px);
+        }
+        
+        .check-icon {
+            color: #28a745;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        /* Alert Banner */
+        .alert-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            border-radius: 8px;
+            padding: 12px 20px;
+            color: white;
+            margin-bottom: 18px;
+        }
+        
+        .alert-icon {
+            font-size: 28px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .alert-text {
+            font-size: 16px;
+            font-weight: 700;
         }
         
         .performance-box {
             background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
             border-radius: 8px;
-            padding: 15px 20px;
+            padding: 12px 20px;
             color: white;
             text-align: center;
         }
         
         .performance-text {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 600;
         }
     </style>
@@ -117,42 +189,73 @@
     <div class="container">
         <div class="title">Safety Assessment Framework</div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Safety Risk Categories</div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">🔴</span>
-                    <span>Critical: Immediate harm possible</span>
+        <!-- Risk Pyramid -->
+        <div class="risk-pyramid">
+            <div class="pyramid-level level-critical">
+                <span class="level-icon">🔴</span>
+                <span class="level-label">CRITICAL</span>
+                <span class="level-desc">Immediate harm possible</span>
+            </div>
+            
+            <div class="pyramid-level level-high">
+                <span class="level-icon">🟠</span>
+                <span class="level-label">HIGH</span>
+                <span class="level-desc">Significant risk to patient</span>
+            </div>
+            
+            <div class="pyramid-level level-medium">
+                <span class="level-icon">🟡</span>
+                <span class="level-label">MEDIUM</span>
+                <span class="level-desc">Potential adverse effects</span>
+            </div>
+            
+            <div class="pyramid-level level-low">
+                <span class="level-icon">🟢</span>
+                <span class="level-label">LOW</span>
+                <span class="level-desc">Minimal risk, safe to use</span>
+            </div>
+        </div>
+        
+        <!-- Safety Checklist -->
+        <div class="checklist-section">
+            <div class="checklist-title">Safety Checklist</div>
+            <div class="checklist-items">
+                <div class="checklist-item">
+                    <span class="check-icon">✓</span>
+                    <span>Drug interactions check</span>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🟠</span>
-                    <span>High: Significant risk to patient</span>
+                <div class="checklist-item">
+                    <span class="check-icon">✓</span>
+                    <span>Dosage accuracy verification</span>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🟡</span>
-                    <span>Medium: Potential for adverse effects</span>
+                <div class="checklist-item">
+                    <span class="check-icon">✓</span>
+                    <span>Diagnostic error screening</span>
                 </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🟢</span>
-                    <span>Low: Minimal risk, safe to use</span>
+                <div class="checklist-item">
+                    <span class="check-icon">✓</span>
+                    <span>Treatment appropriateness</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check-icon">✓</span>
+                    <span>Privacy & confidentiality</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check-icon">✓</span>
+                    <span>Contraindications review</span>
                 </div>
             </div>
         </div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Safety Checklist</div>
-            <div style="font-size: 16px; color: #333; line-height: 1.6; padding: 10px 0;">
-                ✓ Drug interactions and contraindications<br>
-                ✓ Dosage accuracy and safety margins<br>
-                ✓ Diagnostic errors and missed conditions<br>
-                ✓ Inappropriate treatment recommendations<br>
-                ✓ Privacy and confidentiality concerns
-            </div>
+        <!-- Critical Alert -->
+        <div class="alert-banner">
+            <span class="alert-icon">⚠️</span>
+            <span class="alert-text">Zero tolerance: Any critical safety issue = immediate model review</span>
         </div>
         
         <div class="performance-box">
             <div class="performance-text">
-                Zero tolerance: Any critical safety issue = immediate model review
+                Safety-first approach: Prevention over correction
             </div>
         </div>
         

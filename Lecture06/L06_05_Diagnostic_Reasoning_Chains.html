@@ -43,43 +43,6 @@
             margin-bottom: 20px;
         }
         
-        .chain-flow {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .chain-step {
-            flex: 1;
-            background: white;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .chain-step-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 8px;
-        }
-        
-        .chain-step-content {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.3;
-        }
-        
-        .arrow-down {
-            text-align: center;
-            font-size: 32px;
-            color: #1E64C8;
-            font-weight: 700;
-        }
-        
         .example-box {
             background: #fff4e6;
             border: 2px solid #1E64C8;
@@ -115,34 +78,78 @@
             margin-right: 8px;
             min-width: 100px;
         }
+
+        .chain-step {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .chain-step:hover {
+            transform: translateY(-2px);
+        }
+
+        .flow-arrow {
+            animation: flowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes flowPulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; stroke-width: 3; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Diagnostic Reasoning Chains</div>
         
+        <!-- SVG Chain Flow Diagram -->
         <div class="reasoning-chain">
-            <div class="chain-flow">
-                <div class="chain-step">
-                    <div class="chain-step-title">Symptoms</div>
-                    <div class="chain-step-content">Initial presentation and chief complaint</div>
-                </div>
-                <div style="font-size: 24px; color: #1E64C8;">→</div>
-                <div class="chain-step">
-                    <div class="chain-step-title">Differential Dx</div>
-                    <div class="chain-step-content">Generate possible diagnoses</div>
-                </div>
-                <div style="font-size: 24px; color: #1E64C8;">→</div>
-                <div class="chain-step">
-                    <div class="chain-step-title">Tests</div>
-                    <div class="chain-step-content">Order confirmatory studies</div>
-                </div>
-                <div style="font-size: 24px; color: #1E64C8;">→</div>
-                <div class="chain-step">
-                    <div class="chain-step-title">Confirmation</div>
-                    <div class="chain-step-content">Final diagnosis</div>
-                </div>
-            </div>
+            <svg width="830" height="140" viewBox="0 0 830 140">
+                <!-- Symptoms -->
+                <g class="chain-step">
+                    <rect x="10" y="30" width="160" height="80" rx="8" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="90" y="55" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Symptoms</text>
+                    <text x="90" y="80" text-anchor="middle" fill="#555" font-size="13">Initial presentation</text>
+                    <text x="90" y="96" text-anchor="middle" fill="#555" font-size="13">chief complaint</text>
+                </g>
+                
+                <!-- Arrow 1 -->
+                <path class="flow-arrow" d="M 175 70 L 205 70" stroke="#1E64C8" stroke-width="2.5" fill="none"/>
+                <polygon points="205,70 197,66 197,74" fill="#1E64C8"/>
+                
+                <!-- Differential Dx -->
+                <g class="chain-step">
+                    <rect x="210" y="30" width="160" height="80" rx="8" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="290" y="55" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Differential Dx</text>
+                    <text x="290" y="80" text-anchor="middle" fill="#555" font-size="13">Generate possible</text>
+                    <text x="290" y="96" text-anchor="middle" fill="#555" font-size="13">diagnoses</text>
+                </g>
+                
+                <!-- Arrow 2 -->
+                <path class="flow-arrow" d="M 375 70 L 405 70" stroke="#1E64C8" stroke-width="2.5" fill="none"/>
+                <polygon points="405,70 397,66 397,74" fill="#1E64C8"/>
+                
+                <!-- Tests -->
+                <g class="chain-step">
+                    <rect x="410" y="30" width="160" height="80" rx="8" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="490" y="55" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Tests</text>
+                    <text x="490" y="80" text-anchor="middle" fill="#555" font-size="13">Order confirmatory</text>
+                    <text x="490" y="96" text-anchor="middle" fill="#555" font-size="13">studies</text>
+                </g>
+                
+                <!-- Arrow 3 -->
+                <path class="flow-arrow" d="M 575 70 L 605 70" stroke="#1E64C8" stroke-width="2.5" fill="none"/>
+                <polygon points="605,70 597,66 597,74" fill="#1E64C8"/>
+                
+                <!-- Confirmation -->
+                <g class="chain-step">
+                    <rect x="610" y="25" width="160" height="90" rx="8" fill="#fff4e6" stroke="#1E64C8" stroke-width="3"/>
+                    <circle cx="690" cy="55" r="12" fill="#28a745"/>
+                    <text x="690" y="60" text-anchor="middle" fill="white" font-size="18" font-weight="700">✓</text>
+                    <text x="690" y="82" text-anchor="middle" fill="#1E64C8" font-size="16" font-weight="700">Confirmation</text>
+                    <text x="690" y="100" text-anchor="middle" fill="#555" font-size="13">Final diagnosis</text>
+                </g>
+            </svg>
         </div>
         
         <div class="example-box">

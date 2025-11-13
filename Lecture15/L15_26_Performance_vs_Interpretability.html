@@ -24,59 +24,183 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 30px;
+        .main-content {
+            display: flex;
+            gap: 30px;
+            height: 380px;
+        }
+        .diagram-section {
+            flex: 1.4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         .content-card {
             background: #f8f9fa;
             border-left: 4px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             transition: all 0.3s;
         }
         .content-card:hover {
             background: #e8f2ff;
-            transform: translateY(-3px);
+            transform: translateX(5px);
             box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
         }
         .card-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         .card-text {
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
-            line-height: 1.5;
+            line-height: 1.4;
+        }
+        .tradeoff-diagram {
+            width: 100%;
+            max-width: 560px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Performance vs. Interpretability Trade-off</div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-title">⚖️ Accuracy vs. Transparency</div>
-                <div class="card-text">Balancing model performance with explainability</div>
+        <div class="main-content">
+            <div class="diagram-section">
+                <svg class="tradeoff-diagram" viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Main scatter plot -->
+                    <g id="axes">
+                        <!-- Y-axis (Performance) -->
+                        <line x1="60" y1="320" x2="60" y2="40" stroke="#333" stroke-width="3"/>
+                        <text x="30" y="180" text-anchor="middle" transform="rotate(-90 30 180)" fill="#333" font-size="14" font-weight="600">
+                            Model Performance (Accuracy)
+                        </text>
+                        
+                        <!-- X-axis (Interpretability) -->
+                        <line x1="60" y1="320" x2="540" y2="320" stroke="#333" stroke-width="3"/>
+                        <text x="300" y="355" text-anchor="middle" fill="#333" font-size="14" font-weight="600">
+                            Interpretability
+                        </text>
+                        
+                        <!-- Tick marks -->
+                        <text x="55" y="60" text-anchor="end" fill="#666" font-size="10">100%</text>
+                        <text x="55" y="130" text-anchor="end" fill="#666" font-size="10">90%</text>
+                        <text x="55" y="200" text-anchor="end" fill="#666" font-size="10">80%</text>
+                        <text x="55" y="270" text-anchor="end" fill="#666" font-size="10">70%</text>
+                        <text x="55" y="325" text-anchor="end" fill="#666" font-size="10">60%</text>
+                        
+                        <text x="80" y="335" text-anchor="middle" fill="#666" font-size="10">Low</text>
+                        <text x="300" y="335" text-anchor="middle" fill="#666" font-size="10">Medium</text>
+                        <text x="520" y="335" text-anchor="middle" fill="#666" font-size="10">High</text>
+                    </g>
+                    
+                    <!-- Trade-off curve -->
+                    <path d="M 480 80 Q 350 90, 280 140 Q 210 190, 140 260 Q 100 300, 80 310" 
+                          stroke="#1E64C8" 
+                          stroke-width="3" 
+                          fill="none"
+                          stroke-dasharray="6,4"
+                          opacity="0.5"/>
+                    
+                    <!-- Model points -->
+                    <!-- Deep Learning (high performance, low interpretability) -->
+                    <g id="deep-learning">
+                        <circle cx="100" cy="80" r="12" fill="#d32f2f" opacity="0.85"/>
+                        <text x="100" y="85" text-anchor="middle" fill="white" font-size="10" font-weight="700">DL</text>
+                        <rect x="85" y="20" width="110" height="45" fill="#fce4e4" rx="6" stroke="#d32f2f" stroke-width="2"/>
+                        <text x="140" y="35" text-anchor="middle" fill="#333" font-size="10" font-weight="700">Deep Neural Net</text>
+                        <text x="140" y="48" text-anchor="middle" fill="#666" font-size="8">High accuracy</text>
+                        <text x="140" y="58" text-anchor="middle" fill="#666" font-size="8">Black box</text>
+                    </g>
+                    
+                    <!-- Random Forest (medium) -->
+                    <g id="random-forest">
+                        <circle cx="250" cy="130" r="12" fill="#f57c00" opacity="0.8"/>
+                        <text x="250" y="135" text-anchor="middle" fill="white" font-size="10" font-weight="700">RF</text>
+                        <text x="250" y="110" text-anchor="middle" fill="#333" font-size="9" font-weight="600">Random Forest</text>
+                        <text x="250" y="155" text-anchor="middle" fill="#666" font-size="8">Balanced</text>
+                    </g>
+                    
+                    <!-- Decision Tree (interpretable) -->
+                    <g id="decision-tree">
+                        <circle cx="450" cy="210" r="12" fill="#43a047" opacity="0.8"/>
+                        <text x="450" y="215" text-anchor="middle" fill="white" font-size="10" font-weight="700">DT</text>
+                        <rect x="395" y="230" width="110" height="45" fill="#e8f5e9" rx="6" stroke="#43a047" stroke-width="2"/>
+                        <text x="450" y="245" text-anchor="middle" fill="#333" font-size="10" font-weight="700">Decision Tree</text>
+                        <text x="450" y="258" text-anchor="middle" fill="#666" font-size="8">Very interpretable</text>
+                        <text x="450" y="268" text-anchor="middle" fill="#666" font-size="8">Lower accuracy</text>
+                    </g>
+                    
+                    <!-- Linear Model (most interpretable) -->
+                    <g id="linear">
+                        <circle cx="500" cy="270" r="12" fill="#1976d2" opacity="0.75"/>
+                        <text x="500" y="275" text-anchor="middle" fill="white" font-size="10" font-weight="700">LR</text>
+                        <text x="500" y="295" text-anchor="middle" fill="#333" font-size="9" font-weight="600">Linear Regression</text>
+                    </g>
+                    
+                    <!-- XAI Enhanced Models (sweet spot) -->
+                    <g id="xai-enhanced">
+                        <ellipse cx="180" cy="105" rx="40" ry="35" fill="#1E64C8" opacity="0.15" stroke="#1E64C8" stroke-width="2" stroke-dasharray="4,2"/>
+                        <text x="180" y="155" text-anchor="middle" fill="#1E64C8" font-size="10" font-weight="700">XAI Enhanced</text>
+                        <text x="180" y="167" text-anchor="middle" fill="#1E64C8" font-size="8">(DL + SHAP/LIME)</text>
+                    </g>
+                    
+                    <!-- Clinical context zones -->
+                    <g id="zones">
+                        <!-- High-stakes zone -->
+                        <rect x="330" y="50" width="200" height="100" fill="#43a047" opacity="0.08" rx="8"/>
+                        <text x="430" y="75" text-anchor="middle" fill="#43a047" font-size="11" font-weight="700">🎯 Recommended Zone</text>
+                        <text x="430" y="90" text-anchor="middle" fill="#666" font-size="8">High-stakes medical</text>
+                        <text x="430" y="102" text-anchor="middle" fill="#666" font-size="8">decisions require</text>
+                        <text x="430" y="114" text-anchor="middle" fill="#666" font-size="8">interpretability</text>
+                        
+                        <!-- Research zone -->
+                        <rect x="70" y="50" width="150" height="80" fill="#ff9800" opacity="0.08" rx="8"/>
+                        <text x="145" y="70" text-anchor="middle" fill="#f57c00" font-size="11" font-weight="700">⚠️ Need XAI</text>
+                        <text x="145" y="85" text-anchor="middle" fill="#666" font-size="8">High performance but</text>
+                        <text x="145" y="97" text-anchor="middle" fill="#666" font-size="8">requires explanation</text>
+                    </g>
+                    
+                    <!-- Application context examples -->
+                    <g id="examples">
+                        <rect x="60" y="345" width="480" height="30" fill="#e8f2ff" rx="6"/>
+                        <text x="70" y="362" fill="#1E64C8" font-size="9" font-weight="700">Context matters:</text>
+                        <text x="140" y="362" fill="#333" font-size="8">ICU predictions → Need interpretability | </text>
+                        <text x="310" y="362" fill="#333" font-size="8">Image screening → Accept some opacity | </text>
+                        <text x="465" y="362" fill="#333" font-size="8">Risk scoring → Balance both</text>
+                    </g>
+                </svg>
             </div>
-            <div class="content-card">
-                <div class="card-title">🧩 Model Complexity</div>
-                <div class="card-text">Simpler models are more interpretable but may be less accurate</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">🎯 Application Context</div>
-                <div class="card-text">High-stakes medical decisions may require more interpretability</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">💡 Hybrid Approaches</div>
-                <div class="card-text">Combining powerful models with post-hoc explanations</div>
+            
+            <div class="info-section">
+                <div class="content-card">
+                    <div class="card-title">⚖️ Accuracy vs. Transparency</div>
+                    <div class="card-text">Balancing model performance with explainability</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">🧩 Model Complexity</div>
+                    <div class="card-text">Simpler models are more interpretable but may be less accurate</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">🎯 Application Context</div>
+                    <div class="card-text">High-stakes medical decisions may require more interpretability</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">💡 Hybrid Approaches</div>
+                    <div class="card-text">Combining powerful models with post-hoc explanations</div>
+                </div>
             </div>
         </div>
     </div>

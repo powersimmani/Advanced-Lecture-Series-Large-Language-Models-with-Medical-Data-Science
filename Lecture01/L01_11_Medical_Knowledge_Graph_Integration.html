@@ -19,43 +19,97 @@
             font-size: 32px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
-        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .content-grid { 
+            display: grid; 
+            grid-template-columns: 1.2fr 1fr; 
+            gap: 25px;
+            height: 420px;
+        }
+        .graph-section {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 12px;
+            padding: 15px;
+            position: relative;
+        }
+        .graph-svg {
+            width: 100%;
+            height: 100%;
+        }
+        .node-circle {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .node-circle:hover {
+            filter: brightness(1.2);
+            stroke-width: 4;
+        }
+        .edge {
+            stroke: #1E64C8;
+            stroke-width: 2;
+            fill: none;
+            opacity: 0.5;
+            marker-end: url(#arrowhead-sm);
+        }
+        .edge-label {
+            font-size: 10px;
+            fill: #666;
+            font-weight: 600;
+        }
+        .node-text {
+            font-size: 11px;
+            font-weight: 600;
+            fill: white;
+            text-anchor: middle;
+        }
+        .node-icon {
+            font-size: 18px;
+            text-anchor: middle;
+        }
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
         .stat-card {
             background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
             color: white;
             border-radius: 12px;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
+            flex: 1;
         }
         .stat-number {
-            font-size: 48px;
+            font-size: 36px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         .stat-label {
-            font-size: 18px;
+            font-size: 14px;
         }
         .info-card {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 12px;
-            padding: 20px;
+            padding: 15px;
+            flex: 1.5;
         }
         .info-title {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .info-item {
-            font-size: 15px;
+            font-size: 12px;
             color: #333;
-            margin-bottom: 8px;
-            padding-left: 20px;
+            margin-bottom: 6px;
+            padding-left: 16px;
             position: relative;
+            line-height: 1.4;
         }
         .info-item:before {
             content: "→";
@@ -65,23 +119,24 @@
             font-weight: 700;
         }
         .integration-box {
-            grid-column: 1 / -1;
             background: #e8f2ff;
             border: 2px solid #1E64C8;
             border-radius: 12px;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
+            grid-column: 1 / -1;
+            margin-top: 5px;
         }
         .integration-title {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         .integration-desc {
-            font-size: 16px;
+            font-size: 14px;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -89,28 +144,96 @@
     <div class="container">
         <div class="title">Medical Knowledge Graph Integration</div>
         <div class="content-grid">
-            <div class="stat-card">
-                <div class="stat-number">2.8M</div>
-                <div class="stat-label">UMLS Concepts</div>
+            <div class="graph-section">
+                <svg class="graph-svg" viewBox="0 0 480 360">
+                    <defs>
+                        <marker id="arrowhead-sm" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#1E64C8" />
+                        </marker>
+                    </defs>
+                    
+                    <!-- Central Node: Disease -->
+                    <circle class="node-circle" cx="240" cy="180" r="40" fill="#e74c3c" stroke="#c0392b" stroke-width="3" />
+                    <text class="node-icon" x="240" y="175">🦠</text>
+                    <text class="node-text" x="240" y="195">Disease</text>
+                    
+                    <!-- Top Node: Symptom -->
+                    <circle class="node-circle" cx="240" cy="60" r="35" fill="#f39c12" stroke="#e67e22" stroke-width="3" />
+                    <text class="node-icon" x="240" y="56">🤒</text>
+                    <text class="node-text" x="240" y="73">Symptom</text>
+                    
+                    <!-- Right Node: Drug -->
+                    <circle class="node-circle" cx="380" cy="180" r="35" fill="#2ecc71" stroke="#27ae60" stroke-width="3" />
+                    <text class="node-icon" x="380" y="176">💊</text>
+                    <text class="node-text" x="380" y="193">Drug</text>
+                    
+                    <!-- Bottom Node: Gene -->
+                    <circle class="node-circle" cx="240" cy="300" r="35" fill="#9b59b6" stroke="#8e44ad" stroke-width="3" />
+                    <text class="node-icon" x="240" y="296">🧬</text>
+                    <text class="node-text" x="240" y="313">Gene</text>
+                    
+                    <!-- Left Node: Procedure -->
+                    <circle class="node-circle" cx="100" cy="180" r="35" fill="#3498db" stroke="#2980b9" stroke-width="3" />
+                    <text class="node-icon" x="100" y="176">⚕️</text>
+                    <text class="node-text" x="100" y="193">Procedure</text>
+                    
+                    <!-- Top-Right Node: Lab Test -->
+                    <circle class="node-circle" cx="350" cy="90" r="30" fill="#1abc9c" stroke="#16a085" stroke-width="3" />
+                    <text class="node-icon" x="350" y="88" font-size="16px">🔬</text>
+                    <text class="node-text" x="350" y="102" font-size="10px">Lab Test</text>
+                    
+                    <!-- Edges with labels -->
+                    <!-- Disease -> Symptom -->
+                    <path class="edge" d="M 240 140 L 240 95" />
+                    <text class="edge-label" x="250" y="118">causes</text>
+                    
+                    <!-- Symptom -> Disease -->
+                    <path class="edge" d="M 230 95 L 230 140" />
+                    <text class="edge-label" x="185" y="118">indicates</text>
+                    
+                    <!-- Drug -> Disease -->
+                    <path class="edge" d="M 345 180 L 280 180" />
+                    <text class="edge-label" x="312" y="173">treats</text>
+                    
+                    <!-- Gene -> Disease -->
+                    <path class="edge" d="M 240 265 L 240 220" />
+                    <text class="edge-label" x="255" y="245">associated</text>
+                    
+                    <!-- Disease -> Procedure -->
+                    <path class="edge" d="M 200 180 L 135 180" />
+                    <text class="edge-label" x="167" y="173">requires</text>
+                    
+                    <!-- Lab Test -> Disease -->
+                    <path class="edge" d="M 330 110 L 265 155" />
+                    <text class="edge-label" x="300" y="125">diagnoses</text>
+                    
+                    <!-- Lab Test -> Symptom -->
+                    <path class="edge" d="M 330 75 L 275 65" />
+                    <text class="edge-label" x="300" y="65">detects</text>
+                    
+                    <!-- Central annotation -->
+                    <text x="240" y="350" text-anchor="middle" font-size="12px" fill="#1E64C8" font-weight="600">Triple Structure: Entity → Relation → Entity</text>
+                </svg>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">15M+</div>
-                <div class="stat-label">Relationships</div>
+            
+            <div class="right-column">
+                <div class="stat-card">
+                    <div class="stat-number">2.8M</div>
+                    <div class="stat-label">UMLS Concepts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15M+</div>
+                    <div class="stat-label">Relationships</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-title">🔧 Graph Embedding</div>
+                    <div class="info-item">TransE, TransR for relations</div>
+                    <div class="info-item">Node2Vec for embeddings</div>
+                    <div class="info-item">Graph Attention Networks</div>
+                    <div class="info-item">Knowledge Graph Embeddings</div>
+                </div>
             </div>
-            <div class="info-card">
-                <div class="info-title">🧬 Triple Structure</div>
-                <div class="info-item">Disease → causes → Symptom</div>
-                <div class="info-item">Drug → treats → Disease</div>
-                <div class="info-item">Symptom → indicates → Disease</div>
-                <div class="info-item">Gene → associated with → Disease</div>
-            </div>
-            <div class="info-card">
-                <div class="info-title">🔧 Graph Embedding Techniques</div>
-                <div class="info-item">TransE, TransR for relation learning</div>
-                <div class="info-item">Node2Vec for node embeddings</div>
-                <div class="info-item">Graph Attention Networks (GAT)</div>
-                <div class="info-item">Knowledge Graph Embeddings (KGE)</div>
-            </div>
+            
             <div class="integration-box">
                 <div class="integration-title">🔗 LLM Integration Methods</div>
                 <div class="integration-desc">

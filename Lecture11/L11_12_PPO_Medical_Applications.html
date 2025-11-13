@@ -57,6 +57,87 @@
             line-height: 1.6;
         }
         
+        .ppo-cycle {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 15px 0;
+            position: relative;
+        }
+        
+        .cycle-item {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 10px;
+            padding: 12px 15px;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .cycle-number {
+            display: inline-block;
+            background: #1E64C8;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            line-height: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .cycle-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 4px;
+        }
+        
+        .cycle-desc {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .arrow-connector {
+            font-size: 24px;
+            color: #1E64C8;
+            font-weight: 700;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card {
+            background: #e8f2ff;
+            border-left: 4px solid #1E64C8;
+            border-radius: 6px;
+            padding: 10px 12px;
+        }
+        
+        .feature-icon {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+        
+        .feature-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1E64C8;
+            display: inline;
+        }
+        
+        .feature-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+        
         .items-list {
             display: flex;
             flex-direction: column;
@@ -89,15 +170,72 @@
             <div class="section-title">Proximal Policy Optimization (PPO)</div>
             <div class="section-text">PPO is the most widely used algorithm for RLHF, providing stable updates that prevent catastrophic policy changes in medical AI systems.</div>
         </div>
+        
         <div class="section">
             <div class="section-title">Key Features</div>
-            <div class="items-list">
-                <div class="item">Clipped Objective: Limits policy updates to prevent drastic changes</div>
-                <div class="item">Trust Region: Maintains proximity to previous policy</div>
-                <div class="item">Stability: Reduces training instability compared to vanilla policy gradient</div>
-                <div class="item">Sample Efficiency: Reuses data multiple times per iteration</div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">✂️</span>
+                    <div class="feature-title">Clipped Objective</div>
+                    <div class="feature-text">Limits policy updates to prevent drastic changes</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <div class="feature-title">Trust Region</div>
+                    <div class="feature-text">Maintains proximity to previous policy</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📈</span>
+                    <div class="feature-title">Stability</div>
+                    <div class="feature-text">Reduces training instability vs vanilla PG</div>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">♻️</span>
+                    <div class="feature-title">Sample Efficiency</div>
+                    <div class="feature-text">Reuses data multiple times per iteration</div>
+                </div>
             </div>
         </div>
+        
+        <div class="section">
+            <div class="section-title">Training Process (Iterative Loop)</div>
+            <div class="ppo-cycle">
+                <div class="cycle-item" style="background: #e8f2ff;">
+                    <div class="cycle-number">1</div>
+                    <div class="cycle-title">Collect Rollouts</div>
+                    <div class="cycle-desc">Generate outputs using current policy π<sub>θ</sub></div>
+                </div>
+                
+                <div class="arrow-connector">→</div>
+                
+                <div class="cycle-item" style="background: #e8f2ff;">
+                    <div class="cycle-number">2</div>
+                    <div class="cycle-title">Compute Advantages</div>
+                    <div class="cycle-desc">Use reward model r(output)</div>
+                </div>
+                
+                <div class="arrow-connector">→</div>
+                
+                <div class="cycle-item" style="background: #e8f2ff;">
+                    <div class="cycle-number">3</div>
+                    <div class="cycle-title">Update Policy</div>
+                    <div class="cycle-desc">Optimize with clipped objective</div>
+                </div>
+                
+                <div class="arrow-connector">→</div>
+                
+                <div class="cycle-item" style="background: #e8f2ff;">
+                    <div class="cycle-number">4</div>
+                    <div class="cycle-title">Apply KL Penalty</div>
+                    <div class="cycle-desc">Maintain similarity to base model π<sub>ref</sub></div>
+                </div>
+                
+                <div style="width: 100%; text-align: center; color: #1E64C8; font-size: 20px; font-weight: 700;">
+                    ↻ Repeat until convergence
+                </div>
+            </div>
+        </div>
+        
         <div class="section">
             <div class="section-title">Medical Applications</div>
             <div class="items-list">
@@ -105,15 +243,6 @@
                 <div class="item">Diagnostic Assistance: Refine diagnostic suggestions</div>
                 <div class="item">Report Generation: Improve medical report quality</div>
                 <div class="item">Patient Communication: Enhance patient-facing chatbots</div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="section-title">Training Process</div>
-            <div class="items-list">
-                <div class="item">Collect rollouts using current policy</div>
-                <div class="item">Compute advantages using reward model</div>
-                <div class="item">Update policy with clipped objective</div>
-                <div class="item">Apply KL penalty to maintain similarity to base model</div>
             </div>
         </div>
     </div>

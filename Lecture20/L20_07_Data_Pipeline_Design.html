@@ -15,27 +15,8 @@
             min-height: 100vh;
         }
         .container { width: 960px; height: 540px; padding: 40px; background: white; }
-        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 30px; text-align: center; }
-        .pipeline { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .pipeline-step { flex: 1; display: flex; flex-direction: column; align-items: center; position: relative; }
-        .step-box {
-            width: 120px; height: 80px; background: white; border: 2.5px solid #1E64C8;
-            border-radius: 8px; display: flex; align-items: center; justify-content: center;
-            font-size: 15px; font-weight: 500; color: #1E64C8; text-align: center;
-            padding: 10px; transition: all 0.3s;
-        }
-        .step-box:hover { background: #1E64C8; color: white; transform: translateY(-3px); }
-        .arrow {
-            position: absolute; right: -15px; top: 50%; transform: translateY(-50%);
-            display: flex; align-items: center;
-        }
-        .arrow::before { content: ''; width: 20px; height: 2.5px; background: #1E64C8; }
-        .arrow::after {
-            content: ''; width: 0; height: 0;
-            border-top: 8px solid transparent; border-bottom: 8px solid transparent;
-            border-left: 15px solid #1E64C8;
-        }
-        .pipeline-step:last-child .arrow { display: none; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
+        .pipeline-svg { width: 100%; height: 180px; margin-bottom: 20px; }
         .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .info-box {
             background: #f8f9fb; border-left: 4px solid #1E64C8;
@@ -45,32 +26,122 @@
         .info-content { font-size: 15px; color: #333; line-height: 1.7; }
         .bullet { display: flex; align-items: flex-start; margin-bottom: 8px; }
         .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 18px; }
+        
+        .pipeline-step {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .pipeline-step:hover .step-box {
+            filter: brightness(0.95);
+        }
+
+        .step-box {
+            transition: all 0.3s;
+        }
+
+        .step-text {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            font-weight: 500;
+        }
+
+        .arrow-path {
+            stroke: #1E64C8;
+            stroke-width: 3;
+            fill: none;
+            marker-end: url(#arrow);
+        }
+
+        .process-icon {
+            fill: none;
+            stroke: #1E64C8;
+            stroke-width: 2;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Data Pipeline Design</div>
-        <div class="pipeline">
-            <div class="pipeline-step">
-                <div class="step-box">Data<br>Ingestion</div>
-                <div class="arrow"></div>
-            </div>
-            <div class="pipeline-step">
-                <div class="step-box">Data<br>Validation</div>
-                <div class="arrow"></div>
-            </div>
-            <div class="pipeline-step">
-                <div class="step-box">Pre-<br>processing</div>
-                <div class="arrow"></div>
-            </div>
-            <div class="pipeline-step">
-                <div class="step-box">Feature<br>Engineering</div>
-                <div class="arrow"></div>
-            </div>
-            <div class="pipeline-step">
-                <div class="step-box">Storage</div>
-            </div>
-        </div>
+        
+        <svg class="pipeline-svg" viewBox="0 0 880 180" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+                    <polygon points="0 0, 12 6, 0 12" fill="#1E64C8" />
+                </marker>
+            </defs>
+            
+            <!-- Data Ingestion -->
+            <g class="pipeline-step">
+                <rect x="20" y="40" width="140" height="100" rx="8" class="step-box" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2.5"/>
+                <g transform="translate(70, 55)">
+                    <path d="M 10 0 L 30 0 L 30 30 L 10 30 Z" class="process-icon"/>
+                    <path d="M 15 10 L 25 10 M 15 15 L 25 15 M 15 20 L 25 20" class="process-icon"/>
+                    <path d="M 0 35 L 20 35 L 20 40 L 15 45 L 5 45 L 0 40 Z" class="process-icon"/>
+                </g>
+                <text x="90" y="115" class="step-text" text-anchor="middle" font-size="15" fill="#1E64C8">Data</text>
+                <text x="90" y="132" class="step-text" text-anchor="middle" font-size="15" fill="#1E64C8">Ingestion</text>
+            </g>
+            
+            <!-- Arrow 1 -->
+            <path d="M 160 90 L 190 90" class="arrow-path"/>
+            
+            <!-- Data Validation -->
+            <g class="pipeline-step">
+                <rect x="190" y="40" width="140" height="100" rx="8" class="step-box" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2.5"/>
+                <g transform="translate(240, 55)">
+                    <circle cx="20" cy="20" r="18" class="process-icon"/>
+                    <path d="M 12 20 L 18 26 L 30 14" class="process-icon" stroke-width="3"/>
+                </g>
+                <text x="260" y="115" class="step-text" text-anchor="middle" font-size="15" fill="#1E64C8">Data</text>
+                <text x="260" y="132" class="step-text" text-anchor="middle" font-size="15" fill="#1E64C8">Validation</text>
+            </g>
+            
+            <!-- Arrow 2 -->
+            <path d="M 330 90 L 360 90" class="arrow-path"/>
+            
+            <!-- Pre-processing -->
+            <g class="pipeline-step">
+                <rect x="360" y="40" width="140" height="100" rx="8" class="step-box" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2.5"/>
+                <g transform="translate(410, 60)">
+                    <path d="M 5 10 L 15 0 L 25 10 L 35 0" class="process-icon"/>
+                    <path d="M 5 25 L 15 15 L 25 25 L 35 15" class="process-icon"/>
+                    <path d="M 5 40 L 15 30 L 25 40 L 35 30" class="process-icon"/>
+                </g>
+                <text x="430" y="115" class="step-text" text-anchor="middle" font-size="15" fill="#1E64C8">Pre-</text>
+                <text x="430" y="132" class="step-text" text-anchor="middle" font-size="15" fill="#1E64C8">processing</text>
+            </g>
+            
+            <!-- Arrow 3 -->
+            <path d="M 500 90 L 530 90" class="arrow-path"/>
+            
+            <!-- Feature Engineering -->
+            <g class="pipeline-step">
+                <rect x="530" y="40" width="140" height="100" rx="8" class="step-box" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2.5"/>
+                <g transform="translate(580, 60)">
+                    <rect x="5" y="5" width="30" height="8" class="process-icon"/>
+                    <rect x="5" y="18" width="30" height="8" class="process-icon"/>
+                    <rect x="5" y="31" width="30" height="8" class="process-icon"/>
+                    <path d="M 0 45 L 20 45 L 20 50 M 20 45 L 40 45" class="process-icon"/>
+                </g>
+                <text x="600" y="115" class="step-text" text-anchor="middle" font-size="15" fill="#1E64C8">Feature</text>
+                <text x="600" y="132" class="step-text" text-anchor="middle" font-size="15" fill="#1E64C8">Engineering</text>
+            </g>
+            
+            <!-- Arrow 4 -->
+            <path d="M 670 90 L 700 90" class="arrow-path"/>
+            
+            <!-- Storage -->
+            <g class="pipeline-step">
+                <rect x="700" y="40" width="140" height="100" rx="8" class="step-box" fill="#f8f9fb" stroke="#1E64C8" stroke-width="2.5"/>
+                <g transform="translate(750, 60)">
+                    <ellipse cx="20" cy="10" rx="18" ry="8" class="process-icon"/>
+                    <path d="M 2 10 L 2 30 Q 2 38 20 38 Q 38 38 38 30 L 38 10" class="process-icon"/>
+                    <path d="M 2 20 Q 2 28 20 28 Q 38 28 38 20" class="process-icon"/>
+                </g>
+                <text x="770" y="120" class="step-text" text-anchor="middle" font-size="15" fill="#1E64C8">Storage</text>
+            </g>
+        </svg>
+        
         <div class="info-grid">
             <div class="info-box">
                 <div class="info-title">ETL 프로세스</div>

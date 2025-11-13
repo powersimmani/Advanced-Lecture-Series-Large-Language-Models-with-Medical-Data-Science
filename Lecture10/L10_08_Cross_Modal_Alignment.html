@@ -15,7 +15,9 @@
         .align-card { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 18px; transition: all 0.3s; }
         .align-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2); background: #f8fbff; }
         .align-title { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
-        .align-desc { font-size: 15px; color: #555; line-height: 1.5; }
+        .align-desc { font-size: 15px; color: #555; line-height: 1.5; margin-bottom: 10px; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 4px; font-size: 14px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 8px; }
         .methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
         .method-box { background: #f8f9fb; border-left: 4px solid #1E64C8; padding: 12px 15px; border-radius: 6px; text-align: center; font-size: 15px; color: #333; font-weight: 500; }
     </style>
@@ -33,24 +35,36 @@
                 <div class="align-desc">
                     각 모달리티를 동일 차원의 공통 공간으로 투영하는 선형/비선형 변환
                 </div>
+                <div class="bullet">선형 레이어로 차원 매칭</div>
+                <div class="bullet">MLP로 비선형 변환</div>
+                <div class="bullet">L2 정규화로 단위 구 상에 배치</div>
             </div>
             <div class="align-card">
                 <div class="align-title">Contrastive Loss</div>
                 <div class="align-desc">
                     매칭 쌍은 가깝게, 비매칭 쌍은 멀게 학습하여 정렬 품질 향상
                 </div>
+                <div class="bullet">InfoNCE Loss 사용</div>
+                <div class="bullet">Temperature scaling 적용</div>
+                <div class="bullet">Hard negative mining</div>
             </div>
             <div class="align-card">
                 <div class="align-title">Triplet Loss</div>
                 <div class="align-desc">
                     Anchor, Positive, Negative 샘플로 상대적 거리 학습
                 </div>
+                <div class="bullet">동일 환자 데이터: Positive</div>
+                <div class="bullet">다른 환자 데이터: Negative</div>
+                <div class="bullet">마진 기반 거리 최적화</div>
             </div>
             <div class="align-card">
                 <div class="align-title">Cross-Attention</div>
                 <div class="align-desc">
                     Transformer 기반 어텐션으로 모달 간 상호작용 강화
                 </div>
+                <div class="bullet">Query-Key-Value 메커니즘</div>
+                <div class="bullet">모달 간 정보 교환</div>
+                <div class="bullet">동적 가중치 학습</div>
             </div>
         </div>
         <div class="methods">

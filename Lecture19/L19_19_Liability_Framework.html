@@ -56,47 +56,6 @@ body {
     font-weight: 700;
 }
 
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 11px;
-    margin-bottom: 12px;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 12px;
-}
-
-.card {
-    background: white;
-    border: 2.5px solid #1E64C8;
-    border-radius: 8px;
-    padding: 12px 14px;
-    transition: all 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
-    background: #f8fbff;
-}
-
-.card-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #1E64C8;
-    margin-bottom: 6px;
-}
-
-.card-desc {
-    font-size: 12px;
-    color: #555;
-    line-height: 1.4;
-}
-
 .info-box {
     background: #f8f9fa;
     border: 2px solid #e0e0e0;
@@ -128,6 +87,13 @@ body {
     color: #555;
     line-height: 1.5;
 }
+
+.liability-diagram {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+}
     </style>
 </head>
 <body>
@@ -140,34 +106,74 @@ body {
             <span class="intro-highlight">복잡한 법적 쟁점</span>을 포함합니다
         </div>
     </div>
-    <div class="grid-3">
-        <div class="card">
-            <div class="card-title">🏭 제조업체</div>
-            <div class="card-desc">제품 설계, 제조 결함, 경고 표시 부족</div>
-        </div>
-        <div class="card">
-            <div class="card-title">👨‍⚕️ 의료 제공자</div>
-            <div class="card-desc">부적절한 사용, 판단 오류</div>
-        </div>
-        <div class="card">
-            <div class="card-title">🏥 의료기관</div>
-            <div class="card-desc">시스템 통합, 교육, 감독 책임</div>
-        </div>
+    
+    <div class="liability-diagram">
+        <svg width="880" height="200" viewBox="0 0 880 200">
+            <!-- Central AI Device -->
+            <rect x="360" y="70" width="160" height="60" rx="10" fill="#1E64C8"/>
+            <text x="440" y="95" font-size="16" font-weight="bold" fill="white" text-anchor="middle">AI 의료기기</text>
+            <text x="440" y="115" font-size="12" fill="white" text-anchor="middle">🤖 오류 발생 시</text>
+            
+            <!-- Manufacturer (Top Left) -->
+            <g>
+                <rect x="80" y="10" width="140" height="70" rx="8" fill="#ff9800" opacity="0.9"/>
+                <text x="150" y="30" font-size="18" text-anchor="middle">🏭</text>
+                <text x="150" y="50" font-size="13" font-weight="bold" fill="white" text-anchor="middle">제조업체</text>
+                <text x="150" y="65" font-size="10" fill="white" text-anchor="middle">제품 설계·결함</text>
+                <text x="150" y="77" font-size="10" fill="white" text-anchor="middle">경고 표시 부족</text>
+            </g>
+            <path d="M 220 55 L 360 85" stroke="#ff9800" stroke-width="3" marker-end="url(#arrow-orange)"/>
+            
+            <!-- Healthcare Provider (Top Right) -->
+            <g>
+                <rect x="660" y="10" width="140" height="70" rx="8" fill="#4caf50" opacity="0.9"/>
+                <text x="730" y="30" font-size="18" text-anchor="middle">👨‍⚕️</text>
+                <text x="730" y="50" font-size="13" font-weight="bold" fill="white" text-anchor="middle">의료 제공자</text>
+                <text x="730" y="65" font-size="10" fill="white" text-anchor="middle">부적절한 사용</text>
+                <text x="730" y="77" font-size="10" fill="white" text-anchor="middle">판단 오류</text>
+            </g>
+            <path d="M 660 55 L 520 85" stroke="#4caf50" stroke-width="3" marker-end="url(#arrow-green)"/>
+            
+            <!-- Healthcare Institution (Bottom) -->
+            <g>
+                <rect x="360" y="170" width="160" height="30" rx="8" fill="#9c27b0" opacity="0.9"/>
+                <text x="380" y="190" font-size="16" text-anchor="start">🏥</text>
+                <text x="410" y="190" font-size="12" font-weight="bold" fill="white" text-anchor="start">의료기관</text>
+            </g>
+            <path d="M 440 130 L 440 170" stroke="#9c27b0" stroke-width="3" marker-end="url(#arrow-purple)"/>
+            <text x="550" y="150" font-size="10" fill="#555">시스템 통합, 교육, 감독</text>
+            
+            <!-- Legal Types (Left side) -->
+            <rect x="20" y="120" width="180" height="80" rx="5" fill="#f8f9fa" stroke="#1E64C8" stroke-width="2"/>
+            <text x="110" y="135" font-size="11" font-weight="bold" fill="#1E64C8" text-anchor="middle">법적 책임 유형</text>
+            <text x="110" y="150" font-size="9" fill="#555" text-anchor="middle">• 제조물 책임</text>
+            <text x="110" y="163" font-size="9" fill="#555" text-anchor="middle">• 의료과실</text>
+            <text x="110" y="176" font-size="9" fill="#555" text-anchor="middle">• 계약 책임</text>
+            <text x="110" y="189" font-size="9" fill="#555" text-anchor="middle">• 규제 위반</text>
+            
+            <!-- AI Issues (Right side) -->
+            <rect x="680" y="120" width="180" height="80" rx="5" fill="#fff4e6" stroke="#ff9800" stroke-width="2"/>
+            <text x="770" y="135" font-size="11" font-weight="bold" fill="#ff9800" text-anchor="middle">AI 특유의 쟁점</text>
+            <text x="770" y="150" font-size="9" fill="#555" text-anchor="middle">• Black Box 문제</text>
+            <text x="770" y="163" font-size="9" fill="#555" text-anchor="middle">• 자율 학습</text>
+            <text x="770" y="176" font-size="9" fill="#555" text-anchor="middle">• 데이터 편향</text>
+            <text x="770" y="189" font-size="9" fill="#555" text-anchor="middle">• Human-in-the-loop</text>
+            
+            <!-- Arrow markers -->
+            <defs>
+                <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#ff9800"/>
+                </marker>
+                <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#4caf50"/>
+                </marker>
+                <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#9c27b0"/>
+                </marker>
+            </defs>
+        </svg>
     </div>
-    <div class="info-box">
-        <div class="info-title">법적 책임 유형</div>
-        <div class="info-item"><strong>• 제조물 책임 (Product Liability):</strong> 결함 제품으로 인한 피해</div>
-        <div class="info-item"><strong>• 의료과실 (Medical Malpractice):</strong> 진료 기준 미달</div>
-        <div class="info-item"><strong>• 계약 책임 (Contractual Liability):</strong> 약정 사항 위반</div>
-        <div class="info-item"><strong>• 규제 위반 (Regulatory Violations):</strong> 법규 미준수</div>
-    </div>
-    <div class="info-box">
-        <div class="info-title">AI 특유의 쟁점</div>
-        <div class="info-item"><strong>• Black Box 문제:</strong> 의사결정 과정 불투명성</div>
-        <div class="info-item"><strong>• 자율 학습:</strong> 배포 후 성능 변화 책임</div>
-        <div class="info-item"><strong>• 데이터 편향:</strong> 학습 데이터 품질 책임</div>
-        <div class="info-item"><strong>• Human-in-the-loop:</strong> 최종 결정 권한과 책임</div>
-    </div>
+    
     <div class="highlight-box">
         <strong>⚖️ Key Point:</strong> 명확한 사용 지침, 충분한 교육, 투명한 성능 정보 제공이 
         법적 리스크를 완화하는 핵심입니다

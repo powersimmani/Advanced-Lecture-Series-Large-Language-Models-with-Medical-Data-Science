@@ -23,7 +23,7 @@
         .container {
             width: 960px;
             height: 540px;
-            padding: 35px 45px;
+            padding: 30px 45px;
             background: white;
         }
         
@@ -31,7 +31,7 @@
             font-size: 22px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 12px;
             text-align: center;
         }
         
@@ -39,7 +39,7 @@
             font-size: 18px;
             font-weight: 500;
             color: #555;
-            margin-bottom: 25px;
+            margin-bottom: 16px;
             text-align: center;
         }
         
@@ -47,16 +47,16 @@
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 10px;
-            padding: 18px 25px;
-            margin-bottom: 25px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
             text-align: center;
         }
         
         .intro-text {
-            font-size: 18px;
+            font-size: 16px;
             color: #333;
             font-weight: 500;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         
         .highlight {
@@ -64,84 +64,105 @@
             font-weight: 700;
         }
         
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-bottom: 20px;
+        .metrics-section {
+            margin-bottom: 16px;
         }
         
-        .content-card {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 10px;
-            padding: 18px 22px;
-            transition: all 0.3s;
-        }
-        
-        .content-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
-            background: #f8fbff;
-        }
-        
-        .card-icon {
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-        
-        .card-title {
-            font-size: 18px;
+        .section-title {
+            font-size: 17px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 10px;
             text-align: center;
         }
         
-        .card-desc {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.5;
-            text-align: center;
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
         }
         
-        .key-points {
+        .metric-box {
+            background: white;
+            border: 3px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .metric-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .metric-icon {
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+        
+        .metric-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 3px;
+        }
+        
+        .metric-desc {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.3;
+        }
+        
+        .framework-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .framework-card {
             background: #f8fbff;
             border: 2px solid #4a90e2;
             border-radius: 8px;
-            padding: 18px 22px;
+            padding: 12px 14px;
         }
         
-        .points-title {
-            font-size: 18px;
+        .framework-title {
+            font-size: 16px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        
-        .points-list {
+            margin-bottom: 8px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 8px;
         }
         
-        .point-item {
-            font-size: 16px;
-            color: #333;
-            padding-left: 20px;
-            position: relative;
-            line-height: 1.4;
+        .framework-icon {
+            font-size: 20px;
         }
         
-        .point-item::before {
-            content: "â€¢";
-            position: absolute;
-            left: 0;
-            color: #1E64C8;
-            font-weight: bold;
-            font-size: 20px;
+        .framework-items {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .framework-item {
+            font-size: 13px;
+            color: #333;
+            padding: 6px 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #1E64C8;
+            line-height: 1.3;
+            transition: all 0.3s;
+        }
+        
+        .framework-item:hover {
+            transform: translateX(3px);
+            box-shadow: 0 2px 8px rgba(30, 100, 200, 0.15);
         }
     </style>
 </head>
@@ -156,46 +177,61 @@
             </div>
         </div>
         
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-icon">🎯</div>
-                <div class="card-title">주요 개념</div>
-                <div class="card-desc">
-                    성능 분석의 이론적 배경과 핵심 원리
+        <div class="metrics-section">
+            <div class="section-title">핵심 평가 메트릭</div>
+            <div class="metrics-grid">
+                <div class="metric-box">
+                    <div class="metric-icon">🎯</div>
+                    <div class="metric-name">Accuracy</div>
+                    <div class="metric-desc">정확도 측정</div>
                 </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">🏥</div>
-                <div class="card-title">의료 적용</div>
-                <div class="card-desc">
-                    실제 의료 환경에서의 활용 사례
+                
+                <div class="metric-box">
+                    <div class="metric-icon">⚖️</div>
+                    <div class="metric-name">Precision</div>
+                    <div class="metric-desc">정밀도 평가</div>
                 </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">📊</div>
-                <div class="card-title">성능 평가</div>
-                <div class="card-desc">
-                    효과성 측정 및 개선 방법론
+                
+                <div class="metric-box">
+                    <div class="metric-icon">🔍</div>
+                    <div class="metric-name">Recall</div>
+                    <div class="metric-desc">재현율 분석</div>
                 </div>
-            </div>
-            
-            <div class="content-card">
-                <div class="card-icon">🔬</div>
-                <div class="card-title">실습 예제</div>
-                <div class="card-desc">
-                    실제 데이터를 활용한 구현
+                
+                <div class="metric-box">
+                    <div class="metric-icon">📊</div>
+                    <div class="metric-name">F1-Score</div>
+                    <div class="metric-desc">종합 성능</div>
                 </div>
             </div>
         </div>
         
-        <div class="key-points">
-            <div class="points-title">핵심 포인트</div>
-            <div class="points-list">
-                <div class="point-item">의료 데이터의 특수성을 고려한 접근</div>
-                <div class="point-item">제한된 데이터 환경에서의 효율적 학습</div>
-                <div class="point-item">안전성과 신뢰성을 보장하는 설계</div>
+        <div class="section-title">분석 프레임워크</div>
+        <div class="framework-section">
+            <div class="framework-card">
+                <div class="framework-title">
+                    <span class="framework-icon">📈</span>
+                    <span>정량적 분석</span>
+                </div>
+                <div class="framework-items">
+                    <div class="framework-item">통계적 유의성 검정</div>
+                    <div class="framework-item">Cross-validation 결과</div>
+                    <div class="framework-item">벤치마크 비교</div>
+                    <div class="framework-item">성능 추세 분석</div>
+                </div>
+            </div>
+            
+            <div class="framework-card">
+                <div class="framework-title">
+                    <span class="framework-icon">🔬</span>
+                    <span>정성적 분석</span>
+                </div>
+                <div class="framework-items">
+                    <div class="framework-item">오류 사례 분석</div>
+                    <div class="framework-item">임상적 타당성 검증</div>
+                    <div class="framework-item">전문가 평가</div>
+                    <div class="framework-item">사용자 피드백</div>
+                </div>
             </div>
         </div>
     </div>

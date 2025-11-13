@@ -19,7 +19,7 @@
             font-size: 32px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: center;
         }
         .main-concept {
@@ -51,12 +51,6 @@
             color: #333;
             line-height: 1.8;
         }
-        .step-item {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 10px;
-            padding-left: 10px;
-        }
         .tradeoff-box {
             background: linear-gradient(135deg, #fff3e0, #ffe0b2);
             border: 2.5px solid #ff9800;
@@ -72,13 +66,148 @@
 <body>
     <div class="container">
         <div class="title">Homomorphic Encryption</div>
-        <div class="main-concept">Compute on encrypted data without decryption</div>
+        <div class="main-concept">
+            <svg width="100%" height="100" viewBox="0 0 850 100">
+                <!-- Plain data -->
+                <g>
+                    <rect x="30" y="30" width="120" height="50" rx="8" fill="#4caf50" opacity="0.8"/>
+                    <text x="90" y="50" text-anchor="middle" font-size="16" fill="white" font-weight="600">Plain Data</text>
+                    <text x="90" y="68" text-anchor="middle" font-size="14" fill="white">a, b</text>
+                </g>
+                
+                <!-- Encrypt -->
+                <g>
+                    <circle cx="200" cy="55" r="25" fill="#1E64C8" opacity="0.3"/>
+                    <text x="200" y="62" text-anchor="middle" font-size="20">🔒</text>
+                </g>
+                <path d="M 150 55 L 175 55" stroke="#1E64C8" stroke-width="2"/>
+                
+                <!-- Encrypted data -->
+                <g>
+                    <rect x="240" y="30" width="120" height="50" rx="8" fill="#9c27b0" opacity="0.8"/>
+                    <text x="300" y="50" text-anchor="middle" font-size="16" fill="white" font-weight="600">Encrypted</text>
+                    <text x="300" y="68" text-anchor="middle" font-size="14" fill="white">E(a), E(b)</text>
+                </g>
+                
+                <!-- Compute -->
+                <g>
+                    <circle cx="410" cy="55" r="30" fill="#ff9800" opacity="0.3"/>
+                    <text x="410" y="62" text-anchor="middle" font-size="24">⚙️</text>
+                </g>
+                <path d="M 360 55 L 380 55" stroke="#1E64C8" stroke-width="2"/>
+                <text x="410" y="25" text-anchor="middle" font-size="13" fill="#e65100" font-weight="600">Compute!</text>
+                
+                <!-- Result encrypted -->
+                <g>
+                    <rect x="460" y="30" width="140" height="50" rx="8" fill="#9c27b0" opacity="0.8"/>
+                    <text x="530" y="50" text-anchor="middle" font-size="16" fill="white" font-weight="600">E(result)</text>
+                    <text x="530" y="68" text-anchor="middle" font-size="14" fill="white">E(a + b)</text>
+                </g>
+                <path d="M 440 55 L 460 55" stroke="#1E64C8" stroke-width="2"/>
+                
+                <!-- Decrypt -->
+                <g>
+                    <circle cx="650" cy="55" r="25" fill="#1E64C8" opacity="0.3"/>
+                    <text x="650" y="62" text-anchor="middle" font-size="20">🔓</text>
+                </g>
+                <path d="M 600 55 L 625 55" stroke="#1E64C8" stroke-width="2"/>
+                
+                <!-- Final result -->
+                <g>
+                    <rect x="690" y="30" width="120" height="50" rx="8" fill="#4caf50" opacity="0.8"/>
+                    <text x="750" y="50" text-anchor="middle" font-size="16" fill="white" font-weight="600">Plain Result</text>
+                    <text x="750" y="68" text-anchor="middle" font-size="14" fill="white">a + b</text>
+                </g>
+                <path d="M 675 55 L 690 55" stroke="#1E64C8" stroke-width="2"/>
+            </svg>
+        </div>
         
+        <div class="content-box">
+            <div class="content-title">How It Works</div>
+            <svg width="100%" height="140" viewBox="0 0 850 140">
+                <!-- Mathematical property -->
+                <g>
+                    <rect x="50" y="20" width="750" height="100" rx="10" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                    
+                    <!-- Formula -->
+                    <text x="425" y="50" text-anchor="middle" font-size="18" fill="#1E64C8" font-weight="700">Mathematical Property:</text>
+                    
+                    <text x="425" y="80" text-anchor="middle" font-size="16" fill="#333">E(a) ⊕ E(b) = E(a ⊕ b)</text>
+                    
+                    <text x="425" y="105" text-anchor="middle" font-size="14" fill="#666">Operation on encrypted data = Encryption of operated data</text>
+                    
+                    <!-- Visual example -->
+                    <g transform="translate(100, 0)">
+                        <circle cx="100" cy="80" r="15" fill="#9c27b0" opacity="0.5"/>
+                        <text x="100" y="85" text-anchor="middle" font-size="12" fill="white" font-weight="600">E(3)</text>
+                        
+                        <text x="130" y="85" text-anchor="middle" font-size="16" fill="#1E64C8">+</text>
+                        
+                        <circle cx="160" cy="80" r="15" fill="#9c27b0" opacity="0.5"/>
+                        <text x="160" y="85" text-anchor="middle" font-size="12" fill="white" font-weight="600">E(5)</text>
+                        
+                        <text x="190" y="85" text-anchor="middle" font-size="16" fill="#1E64C8">=</text>
+                        
+                        <circle cx="220" cy="80" r="15" fill="#9c27b0" opacity="0.5"/>
+                        <text x="220" y="85" text-anchor="middle" font-size="12" fill="white" font-weight="600">E(8)</text>
+                    </g>
+                </g>
+            </svg>
+        </div>
         
+        <div class="content-box">
+            <div class="content-title">Types</div>
+            <svg width="100%" height="90" viewBox="0 0 850 90">
+                <!-- Partial HE -->
+                <g>
+                    <rect x="20" y="10" width="250" height="70" rx="8" fill="linear-gradient(135deg, #e8f5e9, #c8e6c9)" stroke="#4caf50" stroke-width="2"/>
+                    <text x="145" y="35" text-anchor="middle" font-size="18" fill="#2e7d32" font-weight="600">Partial HE</text>
+                    <text x="145" y="55" text-anchor="middle" font-size="14" fill="#333">Only addition OR</text>
+                    <text x="145" y="72" text-anchor="middle" font-size="14" fill="#333">multiplication</text>
+                </g>
+                
+                <!-- Somewhat HE -->
+                <g>
+                    <rect x="300" y="10" width="250" height="70" rx="8" fill="linear-gradient(135deg, #fff3e0, #ffe0b2)" stroke="#ff9800" stroke-width="2"/>
+                    <text x="425" y="35" text-anchor="middle" font-size="18" fill="#e65100" font-weight="600">Somewhat HE</text>
+                    <text x="425" y="55" text-anchor="middle" font-size="14" fill="#333">Limited number of</text>
+                    <text x="425" y="72" text-anchor="middle" font-size="14" fill="#333">operations</text>
+                </g>
+                
+                <!-- Fully HE -->
+                <g>
+                    <rect x="580" y="10" width="250" height="70" rx="8" fill="linear-gradient(135deg, #e3f2fd, #bbdefb)" stroke="#2196f3" stroke-width="2"/>
+                    <text x="705" y="35" text-anchor="middle" font-size="18" fill="#0d47a1" font-weight="600">Fully HE ⭐</text>
+                    <text x="705" y="55" text-anchor="middle" font-size="14" fill="#333">Arbitrary</text>
+                    <text x="705" y="72" text-anchor="middle" font-size="14" fill="#333">computations</text>
+                </g>
+            </svg>
+        </div>
         
-        
-        <div class="content-box"><div class="content-title">Types</div><div class="content-text">• Partial HE: Only addition or multiplication<br>• Somewhat HE: Limited operations<br>• Fully HE: Arbitrary computations</div></div>
-        <div class="tradeoff-box">Security ⚖️ Performance: 100-1000x slowdown</div>
+        <div class="tradeoff-box">
+            <svg width="100%" height="40" viewBox="0 0 850 40">
+                <!-- Security side -->
+                <g>
+                    <text x="50" y="25" font-size="20">🔒</text>
+                    <text x="80" y="25" font-size="18" fill="#4caf50" font-weight="700">Security</text>
+                </g>
+                
+                <!-- Scale -->
+                <rect x="200" y="15" width="450" height="12" rx="6" fill="#e0e0e0"/>
+                <rect x="200" y="15" width="350" height="12" rx="6" fill="#4caf50"/>
+                
+                <!-- Balance icon -->
+                <text x="425" y="10" text-anchor="middle" font-size="24">⚖️</text>
+                
+                <!-- Performance side -->
+                <g>
+                    <text x="700" y="25" font-size="18" fill="#d32f2f" font-weight="700">Performance</text>
+                    <text x="800" y="25" font-size="20">⚡</text>
+                </g>
+                
+                <text x="425" y="40" text-anchor="middle" font-size="14" fill="#e65100" font-weight="600">100-1000x slowdown</text>
+            </svg>
+        </div>
     </div>
 </body>
 </html>

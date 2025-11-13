@@ -19,14 +19,14 @@
             font-size: 32px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: center;
         }
         .subtitle {
             font-size: 18px;
             color: #666;
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         .stats-grid {
             display: grid;
@@ -80,16 +80,93 @@
         <div class="title">Case Study: COVID-19 FL Consortium</div>
         <div class="subtitle">Global Collaboration for Pandemic Response</div>
         
+        <svg width="100%" height="80" viewBox="0 0 920 80" style="margin-bottom: 20px;">
+            <!-- Global network visualization -->
+            <circle cx="460" cy="40" r="30" fill="#1E64C8" opacity="0.3"/>
+            <text x="460" y="48" text-anchor="middle" font-size="24">🌍</text>
+            
+            <!-- Hospital nodes around the globe -->
+            <g>
+                <circle cx="300" cy="25" r="12" fill="#4caf50" opacity="0.7"/>
+                <text x="300" y="30" text-anchor="middle" font-size="12">🏥</text>
+                <line x1="430" y1="40" x2="312" y2="25" stroke="#1E64C8" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+            </g>
+            
+            <g>
+                <circle cx="350" cy="65" r="12" fill="#4caf50" opacity="0.7"/>
+                <text x="350" y="70" text-anchor="middle" font-size="12">🏥</text>
+                <line x1="430" y1="50" x2="362" y2="65" stroke="#1E64C8" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+            </g>
+            
+            <g>
+                <circle cx="550" cy="65" r="12" fill="#4caf50" opacity="0.7"/>
+                <text x="550" y="70" text-anchor="middle" font-size="12">🏥</text>
+                <line x1="480" y1="50" x2="538" y2="65" stroke="#1E64C8" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+            </g>
+            
+            <g>
+                <circle cx="600" cy="25" r="12" fill="#4caf50" opacity="0.7"/>
+                <text x="600" y="30" text-anchor="middle" font-size="12">🏥</text>
+                <line x1="480" y1="40" x2="588" y2="25" stroke="#1E64C8" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+            </g>
+            
+            <g>
+                <circle cx="250" cy="50" r="12" fill="#4caf50" opacity="0.7"/>
+                <text x="250" y="55" text-anchor="middle" font-size="12">🏥</text>
+                <line x1="430" y1="45" x2="262" y2="50" stroke="#1E64C8" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+            </g>
+            
+            <g>
+                <circle cx="640" cy="50" r="12" fill="#4caf50" opacity="0.7"/>
+                <text x="640" y="55" text-anchor="middle" font-size="12">🏥</text>
+                <line x1="490" y1="45" x2="628" y2="50" stroke="#1E64C8" stroke-width="2" stroke-dasharray="3,3" opacity="0.5"/>
+            </g>
+        </svg>
+        
         <div class="stats-grid">
             <div class="stat-box">
+                <svg width="100%" height="60" viewBox="0 0 250 60">
+                    <!-- Country flags representation -->
+                    <circle cx="50" cy="30" r="12" fill="#2196f3" opacity="0.5"/>
+                    <circle cx="80" cy="30" r="12" fill="#4caf50" opacity="0.5"/>
+                    <circle cx="110" cy="30" r="12" fill="#ff9800" opacity="0.5"/>
+                    <circle cx="140" cy="30" r="12" fill="#9c27b0" opacity="0.5"/>
+                    <circle cx="170" cy="30" r="12" fill="#f44336" opacity="0.5"/>
+                    <text x="200" y="35" font-size="16" fill="#0d47a1" font-weight="600">...</text>
+                </svg>
                 <div class="stat-number">20+</div>
                 <div class="stat-label">Countries</div>
             </div>
+            
             <div class="stat-box">
+                <svg width="100%" height="60" viewBox="0 0 250 60">
+                    <!-- Hospital grid -->
+                    <g transform="translate(30, 15)">
+                        <text x="0" y="10" font-size="16">🏥</text>
+                        <text x="25" y="10" font-size="16">🏥</text>
+                        <text x="50" y="10" font-size="16">🏥</text>
+                        <text x="75" y="10" font-size="16">🏥</text>
+                        <text x="100" y="10" font-size="16">🏥</text>
+                        <text x="0" y="30" font-size="16">🏥</text>
+                        <text x="25" y="30" font-size="16">🏥</text>
+                        <text x="50" y="30" font-size="16">🏥</text>
+                        <text x="75" y="30" font-size="16">🏥</text>
+                        <text x="100" y="30" font-size="16">🏥</text>
+                        <text x="130" y="20" font-size="18" fill="#0d47a1" font-weight="600">...</text>
+                    </g>
+                </svg>
                 <div class="stat-number">100+</div>
                 <div class="stat-label">Hospitals</div>
             </div>
+            
             <div class="stat-box">
+                <svg width="100%" height="60" viewBox="0 0 250 60">
+                    <!-- Patient records visualization -->
+                    <g>
+                        <rect x="40" y="15" width="170" height="30" rx="5" fill="#4caf50" opacity="0.3"/>
+                        <text x="125" y="35" text-anchor="middle" font-size="20" fill="#2e7d32">📋📋📋</text>
+                    </g>
+                </svg>
                 <div class="stat-number">1M+</div>
                 <div class="stat-label">Patient Records</div>
             </div>
@@ -97,11 +174,64 @@
         
         <div class="achievements-box">
             <div class="achievements-title">🏆 Key Achievements</div>
-            <div class="achievement-item">🎯 Developed COVID-19 severity prediction models</div>
-            <div class="achievement-item">📊 Achieved 85%+ accuracy across diverse populations</div>
-            <div class="achievement-item">⚡ Rapid deployment during critical pandemic phases</div>
-            <div class="achievement-item">🔒 Full GDPR/HIPAA compliance maintained</div>
-            <div class="achievement-item">🌍 Cross-border collaboration without data transfer</div>
+            <svg width="100%" height="150" viewBox="0 0 920 150">
+                <!-- Achievement 1 -->
+                <g>
+                    <rect x="10" y="5" width="890" height="25" rx="5" fill="white"/>
+                    <text x="20" y="22" font-size="16" fill="#2e7d32">🎯</text>
+                    <text x="50" y="22" font-size="15" fill="#333">Developed COVID-19 severity prediction models</text>
+                </g>
+                
+                <!-- Achievement 2 -->
+                <g>
+                    <rect x="10" y="35" width="890" height="25" rx="5" fill="white"/>
+                    <text x="20" y="52" font-size="16" fill="#2e7d32">📊</text>
+                    <text x="50" y="52" font-size="15" fill="#333">Achieved 85%+ accuracy across diverse populations</text>
+                    <!-- Accuracy bar -->
+                    <rect x="700" y="40" width="180" height="15" rx="3" fill="#e0e0e0"/>
+                    <rect x="700" y="40" width="153" height="15" rx="3" fill="#4caf50"/>
+                    <text x="790" y="52" text-anchor="middle" font-size="11" fill="white" font-weight="600">85%</text>
+                </g>
+                
+                <!-- Achievement 3 -->
+                <g>
+                    <rect x="10" y="65" width="890" height="25" rx="5" fill="white"/>
+                    <text x="20" y="82" font-size="16" fill="#2e7d32">⚡</text>
+                    <text x="50" y="82" font-size="15" fill="#333">Rapid deployment during critical pandemic phases</text>
+                    <!-- Speed indicator -->
+                    <g transform="translate(750, 70)">
+                        <path d="M 0 12 L 40 12" stroke="#ff9800" stroke-width="3"/>
+                        <polygon points="40 12, 30 7, 30 17" fill="#ff9800"/>
+                        <text x="50" y="16" font-size="12" fill="#ff9800" font-weight="600">Fast</text>
+                    </g>
+                </g>
+                
+                <!-- Achievement 4 -->
+                <g>
+                    <rect x="10" y="95" width="890" height="25" rx="5" fill="white"/>
+                    <text x="20" y="112" font-size="16" fill="#2e7d32">🔒</text>
+                    <text x="50" y="112" font-size="15" fill="#333">Full GDPR/HIPAA compliance maintained</text>
+                    <!-- Compliance badges -->
+                    <circle cx="750" cy="107" r="10" fill="#1E64C8" opacity="0.3"/>
+                    <text x="750" y="111" text-anchor="middle" font-size="8" fill="#1E64C8" font-weight="600">GDPR</text>
+                    <circle cx="795" cy="107" r="10" fill="#1E64C8" opacity="0.3"/>
+                    <text x="795" y="111" text-anchor="middle" font-size="8" fill="#1E64C8" font-weight="600">HIPAA</text>
+                </g>
+                
+                <!-- Achievement 5 -->
+                <g>
+                    <rect x="10" y="125" width="890" height="25" rx="5" fill="white"/>
+                    <text x="20" y="142" font-size="16" fill="#2e7d32">🌐</text>
+                    <text x="50" y="142" font-size="15" fill="#333">Cross-border collaboration without data transfer</text>
+                    <!-- Data stays local icon -->
+                    <g transform="translate(750, 130)">
+                        <rect x="0" y="0" width="25" height="18" rx="3" fill="#4caf50" opacity="0.3"/>
+                        <text x="12" y="13" text-anchor="middle" font-size="12">🏥</text>
+                        <line x1="30" y1="9" x2="50" y2="9" stroke="#d32f2f" stroke-width="3"/>
+                        <text x="55" y="13" font-size="10" fill="#d32f2f" font-weight="600">No transfer</text>
+                    </g>
+                </g>
+            </svg>
         </div>
     </div>
 </body>

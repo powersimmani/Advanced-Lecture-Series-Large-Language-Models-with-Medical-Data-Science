@@ -12,42 +12,110 @@
         .card{background:white;border:2.5px solid #1E64C8;border-radius:8px;padding:20px;margin-bottom:15px;}
         .card-title{font-size:17px;font-weight:700;color:#1E64C8;margin-bottom:10px;}
         .card-content{font-size:15px;color:#333;line-height:1.6;}
-        .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
         .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
-        .part-banner{background:linear-gradient(135deg,#1E64C8 0%,#5088d4 100%);color:white;padding:80px 60px;border-radius:12px;height:460px;display:flex;flex-direction:column;justify-content:center;}
-        .part-label{font-size:32px;font-weight:700;margin-bottom:30px;}
-        .part-title{font-size:44px;font-weight:700;margin-bottom:60px;line-height:1.2;}
-        .part-topics{font-size:20px;margin-left:40px;line-height:2;}
+        .fhir-svg {
+            width: 100%;
+            height: 280px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        
         <div class="title">HL7 FHIR Integration</div>
-        <div class="grid-3" style="margin-bottom:20px;">
-            <div class="card">
-                <div class="card-title">Patient</div>
-                <div class="card-content">인구통계 정보<br>이름, 생년월일<br>주소, 연락처</div>
-            </div>
-            <div class="card">
-                <div class="card-title">Observation</div>
-                <div class="card-content">관찰/측정값<br>검사 결과<br>활력징후</div>
-            </div>
-            <div class="card">
-                <div class="card-title">Medication</div>
-                <div class="card-content">약물 정보<br>처방, 조제<br>투약 기록</div>
-            </div>
-        </div>
+        
+        <svg class="fhir-svg" viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+            <!-- Central FHIR Server -->
+            <g id="fhir-server">
+                <rect x="350" y="110" width="200" height="80" rx="10" fill="#1E64C8" stroke="#1E64C8" stroke-width="3"/>
+                <text x="450" y="140" text-anchor="middle" font-family="Aptos, sans-serif" font-size="18" font-weight="700" fill="white">FHIR Server</text>
+                <text x="450" y="165" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" fill="white">RESTful API</text>
+                <text x="450" y="182" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="white">JSON/XML</text>
+            </g>
+            
+            <!-- Resources -->
+            <!-- Patient -->
+            <g id="patient">
+                <rect x="50" y="20" width="140" height="70" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="120" y="45" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8">Patient</text>
+                <text x="65" y="65" font-family="Aptos, sans-serif" font-size="11" fill="#666">• 인구통계 정보</text>
+                <text x="65" y="80" font-family="Aptos, sans-serif" font-size="11" fill="#666">• 이름, 생년월일</text>
+                <path d="M 190 55 L 345 130" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3"/>
+            </g>
+            
+            <!-- Observation -->
+            <g id="observation">
+                <rect x="230" y="20" width="140" height="70" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="300" y="45" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8">Observation</text>
+                <text x="245" y="65" font-family="Aptos, sans-serif" font-size="11" fill="#666">• 관찰/측정값</text>
+                <text x="245" y="80" font-family="Aptos, sans-serif" font-size="11" fill="#666">• 검사 결과</text>
+                <path d="M 330 90 L 390 110" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3"/>
+            </g>
+            
+            <!-- Medication -->
+            <g id="medication">
+                <rect x="410" y="20" width="140" height="70" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="480" y="45" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8">Medication</text>
+                <text x="425" y="65" font-family="Aptos, sans-serif" font-size="11" fill="#666">• 약물 정보</text>
+                <text x="425" y="80" font-family="Aptos, sans-serif" font-size="11" fill="#666">• 처방, 투약</text>
+                <path d="M 480 90 L 480 110" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3"/>
+            </g>
+            
+            <!-- Condition -->
+            <g id="condition">
+                <rect x="590" y="20" width="140" height="70" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="660" y="45" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8">Condition</text>
+                <text x="605" y="65" font-family="Aptos, sans-serif" font-size="11" fill="#666">• 진단/문제</text>
+                <text x="605" y="80" font-family="Aptos, sans-serif" font-size="11" fill="#666">• 질병 코드</text>
+                <path d="M 630 90 L 545 110" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3"/>
+            </g>
+            
+            <!-- Procedure -->
+            <g id="procedure">
+                <rect x="770" y="20" width="120" height="70" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                <text x="830" y="45" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8">Procedure</text>
+                <text x="785" y="65" font-family="Aptos, sans-serif" font-size="11" fill="#666">• 시술/수술</text>
+                <text x="785" y="80" font-family="Aptos, sans-serif" font-size="11" fill="#666">• 처치 기록</text>
+                <path d="M 790 90 L 555 130" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3"/>
+            </g>
+            
+            <!-- API Methods -->
+            <g id="api-methods">
+                <!-- GET -->
+                <rect x="80" y="210" width="150" height="50" rx="6" fill="white" stroke="#28a745" stroke-width="2"/>
+                <text x="155" y="232" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#28a745">GET</text>
+                <text x="155" y="250" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">/Patient/123</text>
+                <path d="M 155 190 L 370 160" stroke="#28a745" stroke-width="2"/>
+                
+                <!-- POST -->
+                <rect x="260" y="210" width="150" height="50" rx="6" fill="white" stroke="#007bff" stroke-width="2"/>
+                <text x="335" y="232" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#007bff">POST</text>
+                <text x="335" y="250" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">/Observation</text>
+                <path d="M 335 190 L 410 170" stroke="#007bff" stroke-width="2"/>
+                
+                <!-- PUT -->
+                <rect x="440" y="210" width="150" height="50" rx="6" fill="white" stroke="#ffc107" stroke-width="2"/>
+                <text x="515" y="232" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#ffc107">PUT</text>
+                <text x="515" y="250" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">/Medication/456</text>
+                <path d="M 515 190 L 490 170" stroke="#ffc107" stroke-width="2"/>
+                
+                <!-- DELETE -->
+                <rect x="620" y="210" width="150" height="50" rx="6" fill="white" stroke="#dc3545" stroke-width="2"/>
+                <text x="695" y="232" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#dc3545">DELETE</text>
+                <text x="695" y="250" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">/Condition/789</text>
+                <path d="M 695 190 L 530 160" stroke="#dc3545" stroke-width="2"/>
+            </g>
+        </svg>
+        
         <div class="card">
-            <div class="card-title">RESTful API</div>
+            <div class="card-title">RESTful API 특징</div>
             <div class="card-content">
                 • <strong>GET</strong> /Patient/123 - 환자 정보 조회<br>
                 • <strong>POST</strong> /Observation - 관찰 데이터 생성<br>
                 • <strong>JSON 형식</strong>으로 데이터 교환<br>
-                • 표준 리소스 구조
+                • 표준 리소스 구조로 상호운용성 확보
             </div>
         </div>
-    
     </div>
 </body>
 </html>

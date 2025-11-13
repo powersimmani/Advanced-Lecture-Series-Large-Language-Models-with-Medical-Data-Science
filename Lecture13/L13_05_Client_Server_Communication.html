@@ -31,87 +31,62 @@
             font-size: 32px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: center;
         }
         
-        .protocol-grid, .algo-comparison {
+        .protocol-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 15px;
+            margin-bottom: 15px;
         }
         
-        .protocol-card, .algo-card {
+        .protocol-card {
             background: #f8f9fa;
             border: 2.5px solid #1E64C8;
             border-radius: 10px;
-            padding: 20px;
+            padding: 18px;
             transition: all 0.3s;
         }
         
-        .protocol-card:hover, .algo-card:hover {
+        .protocol-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
         }
         
-        .protocol-header, .algo-name {
+        .protocol-header {
             font-size: 20px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
-        .protocol-item, .flow-step {
+        .protocol-item {
             font-size: 15px;
             color: #333;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             line-height: 1.5;
         }
         
-        .security-box, .process-diagram {
+        .security-box {
             background: linear-gradient(135deg, #e8f2ff, #f0f5fc);
             border-radius: 10px;
-            padding: 20px;
+            padding: 15px;
             text-align: center;
         }
         
-        .security-title, .process-title {
+        .security-title {
             font-size: 20px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
-        .security-content, .process-steps {
+        .security-content {
             font-size: 16px;
             color: #333;
             line-height: 1.6;
-        }
-        
-        .algo-formula {
-            font-size: 16px;
-            color: #1E64C8;
-            font-family: 'Courier New', monospace;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        
-        .algo-desc {
-            font-size: 15px;
-            color: #666;
-        }
-        
-        .highlight {
-            background: linear-gradient(135deg, #e8f2ff, #d4e9ff);
-            border-color: #1E64C8;
-            border-width: 3px;
-        }
-        
-        .step {
-            font-size: 15px;
-            color: #333;
-            font-weight: 500;
         }
     </style>
 </head>
@@ -128,19 +103,81 @@
             </div>
             
             <div class="protocol-card">
-                <div class="protocol-header">🔄 Message Flow</div>
-                <div class="flow-step">1️⃣ Server broadcasts global model</div>
-                <div class="flow-step">2️⃣ Clients download & train locally</div>
-                <div class="flow-step">3️⃣ Clients upload encrypted updates</div>
-                <div class="flow-step">4️⃣ Server aggregates & updates model</div>
+                <div class="protocol-header">📄 Message Flow</div>
+                <svg width="100%" height="120" viewBox="0 0 380 120">
+                    <defs>
+                        <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                            <polygon points="0 0, 8 4, 0 8" fill="#1E64C8" />
+                        </marker>
+                    </defs>
+                    
+                    <!-- Server -->
+                    <circle cx="50" cy="60" r="30" fill="#1E64C8" opacity="0.9"/>
+                    <text x="50" y="68" text-anchor="middle" font-size="20" fill="white">☁️</text>
+                    
+                    <!-- Clients -->
+                    <circle cx="330" cy="20" r="20" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="330" y="26" text-anchor="middle" font-size="14">🏥</text>
+                    
+                    <circle cx="330" cy="60" r="20" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="330" y="66" text-anchor="middle" font-size="14">🏥</text>
+                    
+                    <circle cx="330" cy="100" r="20" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="330" y="106" text-anchor="middle" font-size="14">🏥</text>
+                    
+                    <!-- Arrows with labels -->
+                    <!-- Download -->
+                    <path d="M 80 50 L 300 20" stroke="#4caf50" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+                    <text x="190" y="30" font-size="11" fill="#4caf50" font-weight="600">1. Download Model</text>
+                    
+                    <!-- Upload -->
+                    <path d="M 310 30 L 85 55" stroke="#ff9800" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+                    <text x="190" y="50" font-size="11" fill="#ff9800" font-weight="600">2. Upload Gradients</text>
+                    
+                    <!-- Bidirectional -->
+                    <path d="M 80 60 L 300 60" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+                    <text x="190" y="75" font-size="11" fill="#1E64C8" font-weight="600">3. Aggregate</text>
+                    
+                    <path d="M 80 70 L 300 100" stroke="#9c27b0" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
+                    <text x="190" y="95" font-size="11" fill="#9c27b0" font-weight="600">4. Distribute Update</text>
+                </svg>
             </div>
         </div>
         
         <div class="security-box">
             <div class="security-title">🔒 Security Measures</div>
-            <div class="security-content">
-                TLS 1.3 encryption • Mutual authentication • Rate limiting • Audit logging
-            </div>
+            <svg width="100%" height="80" viewBox="0 0 850 80">
+                <!-- Security icons and labels -->
+                <g>
+                    <circle cx="100" cy="40" r="30" fill="#e8f2ff" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="100" y="48" text-anchor="middle" font-size="24">🔐</text>
+                    <text x="100" y="70" text-anchor="middle" font-size="13" fill="#1E64C8" font-weight="600">TLS 1.3</text>
+                </g>
+                
+                <g>
+                    <circle cx="270" cy="40" r="30" fill="#e8f2ff" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="270" y="48" text-anchor="middle" font-size="24">🔑</text>
+                    <text x="270" y="70" text-anchor="middle" font-size="13" fill="#1E64C8" font-weight="600">Mutual Auth</text>
+                </g>
+                
+                <g>
+                    <circle cx="440" cy="40" r="30" fill="#e8f2ff" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="440" y="48" text-anchor="middle" font-size="24">⏱️</text>
+                    <text x="440" y="70" text-anchor="middle" font-size="13" fill="#1E64C8" font-weight="600">Rate Limiting</text>
+                </g>
+                
+                <g>
+                    <circle cx="610" cy="40" r="30" fill="#e8f2ff" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="610" y="48" text-anchor="middle" font-size="24">📝</text>
+                    <text x="610" y="70" text-anchor="middle" font-size="13" fill="#1E64C8" font-weight="600">Audit Logging</text>
+                </g>
+                
+                <g>
+                    <circle cx="750" cy="40" r="30" fill="#e8f2ff" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="750" y="48" text-anchor="middle" font-size="24">✅</text>
+                    <text x="750" y="70" text-anchor="middle" font-size="13" fill="#1E64C8" font-weight="600">Verification</text>
+                </g>
+            </svg>
         </div>
         
     </div>

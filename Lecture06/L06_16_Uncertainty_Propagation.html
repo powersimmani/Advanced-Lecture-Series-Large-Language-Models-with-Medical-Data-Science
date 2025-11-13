@@ -86,28 +86,6 @@
             flex-shrink: 0;
         }
         
-        .info-section {
-            background: #f0f5fc;
-            border: 2px solid #1E64C8;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .content-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
         .example-box {
             background: white;
             border: 3px solid #1E64C8;
@@ -124,18 +102,6 @@
             text-align: center;
         }
         
-        .example-content {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .example-line {
-            font-size: 15px;
-            color: #333;
-            line-height: 1.5;
-        }
-        
         .highlight-box {
             background: #fff4e6;
             border: 2px solid #1E64C8;
@@ -143,17 +109,28 @@
             padding: 15px 25px;
             text-align: center;
         }
-        
-        .highlight-text {
-            font-size: 17px;
-            color: #333;
-            font-weight: 600;
+
+        .uncertainty-wave {
+            animation: uncertaintyPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes uncertaintyPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        .propagate {
+            animation: propagateFlow 2s ease-in-out infinite;
+        }
+
+        @keyframes propagateFlow {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -20; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        
         <div class="title">Uncertainty Propagation in Clinical Reasoning</div>
         
         <div class="comparison-grid">
@@ -178,20 +155,64 @@
             </div>
         </div>
         
+        <!-- SVG Propagation Diagram -->
         <div class="example-box">
             <div class="example-title">Propagation Example</div>
-            <div class="example-content">
-                <div class="example-line"><strong>Initial:</strong> Symptom interpretation ± 20% uncertainty</div>
-                <div class="example-line"><strong>After Test:</strong> Diagnosis ± 15% uncertainty</div>
-                <div class="example-line"><strong>Treatment:</strong> Outcome prediction ± 25% uncertainty</div>
-                <div class="example-line" style="margin-top: 10px;"><strong style="color: #1E64C8;">Total Uncertainty:</strong> Compounds through reasoning chain</div>
-            </div>
+            <svg width="800" height="120" viewBox="0 0 800 120">
+                <!-- Stage 1: Symptom Interpretation -->
+                <g>
+                    <rect x="10" y="30" width="200" height="60" rx="10" fill="#fff4e6" stroke="#ffc107" stroke-width="3"/>
+                    <text x="110" y="50" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Initial</text>
+                    <text x="110" y="68" text-anchor="middle" fill="#333" font-size="13">Symptom Interpretation</text>
+                    <text x="110" y="85" text-anchor="middle" fill="#dc3545" font-size="15" font-weight="700">± 20%</text>
+                    
+                    <!-- Uncertainty cloud -->
+                    <ellipse class="uncertainty-wave" cx="110" cy="10" rx="50" ry="8" fill="#ffc107" opacity="0.3"/>
+                </g>
+                
+                <!-- Arrow -->
+                <path class="propagate" d="M 215 60 L 280 60" stroke="#1E64C8" stroke-width="3" stroke-dasharray="8,4" fill="none"/>
+                <polygon points="280,60 272,56 272,64" fill="#1E64C8"/>
+                
+                <!-- Stage 2: After Test -->
+                <g>
+                    <rect x="285" y="30" width="200" height="60" rx="10" fill="#e8f5e9" stroke="#4caf50" stroke-width="3"/>
+                    <text x="385" y="50" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">After Test</text>
+                    <text x="385" y="68" text-anchor="middle" fill="#333" font-size="13">Diagnosis</text>
+                    <text x="385" y="85" text-anchor="middle" fill="#28a745" font-size="15" font-weight="700">± 15%</text>
+                    
+                    <!-- Reduced uncertainty cloud -->
+                    <ellipse class="uncertainty-wave" cx="385" cy="10" rx="40" ry="7" fill="#4caf50" opacity="0.3"/>
+                </g>
+                
+                <!-- Arrow -->
+                <path class="propagate" d="M 490 60 L 555 60" stroke="#1E64C8" stroke-width="3" stroke-dasharray="8,4" fill="none"/>
+                <polygon points="555,60 547,56 547,64" fill="#1E64C8"/>
+                
+                <!-- Stage 3: Treatment -->
+                <g>
+                    <rect x="560" y="30" width="200" height="60" rx="10" fill="#ffebee" stroke="#f44336" stroke-width="3"/>
+                    <text x="660" y="50" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Treatment</text>
+                    <text x="660" y="68" text-anchor="middle" fill="#333" font-size="13">Outcome Prediction</text>
+                    <text x="660" y="85" text-anchor="middle" fill="#dc3545" font-size="15" font-weight="700">± 25%</text>
+                    
+                    <!-- Increased uncertainty cloud -->
+                    <ellipse class="uncertainty-wave" cx="660" cy="10" rx="55" ry="9" fill="#f44336" opacity="0.3"/>
+                </g>
+                
+                <!-- Compounding indicator -->
+                <text x="400" y="115" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Total Uncertainty: Compounds through reasoning chain</text>
+                
+                <!-- Uncertainty bars -->
+                <rect x="200" y="105" width="40" height="8" rx="4" fill="#ffc107"/>
+                <rect x="370" y="105" width="30" height="8" rx="4" fill="#4caf50"/>
+                <rect x="640" y="105" width="50" height="8" rx="4" fill="#f44336"/>
+            </svg>
         </div>
         
         <div class="highlight-box">
             <strong style="color: #1E64C8;">Action:</strong> Make decisions robust to uncertainty levels
         </div>
-    
     </div>
 </body>
 </html>

@@ -31,7 +31,7 @@
             font-size: 22px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: center;
         }
         
@@ -39,13 +39,13 @@
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 10px;
-            padding: 18px 25px;
-            margin-bottom: 25px;
+            padding: 15px 25px;
+            margin-bottom: 20px;
             text-align: center;
         }
         
         .intro-text {
-            font-size: 18px;
+            font-size: 17px;
             color: #333;
             font-weight: 500;
             line-height: 1.6;
@@ -57,79 +57,97 @@
         }
         
         .mechanism-section {
-            margin-bottom: 25px;
-        }
-        
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .mechanism-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
             margin-bottom: 20px;
         }
         
-        .mechanism-card {
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .flow-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
+            padding: 0 20px;
+        }
+        
+        .flow-step {
+            flex: 1;
             background: white;
             border: 3px solid #1E64C8;
             border-radius: 10px;
-            padding: 18px;
+            padding: 12px 10px;
             text-align: center;
             transition: all 0.3s;
+            position: relative;
         }
         
-        .mechanism-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(30, 100, 200, 0.2);
+        .flow-step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.25);
             background: #f8fbff;
         }
         
-        .mechanism-icon {
-            font-size: 32px;
-            margin-bottom: 10px;
+        .flow-icon {
+            font-size: 28px;
+            margin-bottom: 6px;
         }
         
-        .mechanism-name {
-            font-size: 17px;
+        .flow-name {
+            font-size: 15px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
         
-        .mechanism-desc {
-            font-size: 15px;
+        .flow-desc {
+            font-size: 13px;
             color: #555;
-            line-height: 1.4;
+            line-height: 1.3;
         }
         
-        .medical-applications {
+        .arrow {
+            color: #1E64C8;
+            font-size: 24px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .applications-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 10px;
         }
         
         .application-item {
             background: #f8fbff;
             border: 2px solid #1E64C8;
             border-radius: 8px;
-            padding: 12px 16px;
+            padding: 10px 14px;
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .application-item:hover {
+            transform: translateX(3px);
+            box-shadow: 0 2px 10px rgba(30, 100, 200, 0.15);
         }
         
         .app-icon {
-            font-size: 24px;
+            font-size: 22px;
+            flex-shrink: 0;
         }
         
         .app-text {
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
             font-weight: 500;
         }
@@ -148,29 +166,33 @@
         
         <div class="mechanism-section">
             <div class="section-title">ICL 메커니즘</div>
-            <div class="mechanism-grid">
-                <div class="mechanism-card">
-                    <div class="mechanism-icon">📝</div>
-                    <div class="mechanism-name">Prompt Design</div>
-                    <div class="mechanism-desc">작업 지시문과 예시를 구조화</div>
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <div class="flow-icon">📝</div>
+                    <div class="flow-name">Prompt Design</div>
+                    <div class="flow-desc">작업 지시문과 예시를 구조화</div>
                 </div>
                 
-                <div class="mechanism-card">
-                    <div class="mechanism-icon">🎯</div>
-                    <div class="mechanism-name">Example Selection</div>
-                    <div class="mechanism-desc">적절한 예시를 선택하여 제공</div>
+                <div class="arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="flow-icon">🎯</div>
+                    <div class="flow-name">Example Selection</div>
+                    <div class="flow-desc">적절한 예시를 선택하여 제공</div>
                 </div>
                 
-                <div class="mechanism-card">
-                    <div class="mechanism-icon">🔄</div>
-                    <div class="mechanism-name">Pattern Learning</div>
-                    <div class="mechanism-desc">예시에서 패턴을 학습</div>
+                <div class="arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="flow-icon">🔄</div>
+                    <div class="flow-name">Pattern Learning</div>
+                    <div class="flow-desc">예시에서 패턴을 학습</div>
                 </div>
             </div>
         </div>
         
         <div class="section-title">의료 분야 적용</div>
-        <div class="medical-applications">
+        <div class="applications-grid">
             <div class="application-item">
                 <div class="app-icon">🏥</div>
                 <div class="app-text">질병 진단 및 분류</div>

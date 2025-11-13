@@ -57,27 +57,125 @@
             line-height: 1.6;
         }
         
-        .items-list {
+        .safety-layers {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 10px;
+            margin: 15px 0;
         }
         
-        .item {
-            font-size: 14px;
-            color: #333;
-            line-height: 1.5;
-            padding-left: 18px;
+        .safety-layer {
             position: relative;
+            background: white;
+            border: 3px solid #dc3545;
+            border-radius: 10px;
+            padding: 12px 15px;
+            padding-left: 60px;
         }
         
-        .item:before {
-            content: "•";
+        .layer-icon {
             position: absolute;
-            left: 0;
-            color: #1E64C8;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: #dc3545;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .layer-title {
+            font-size: 14px;
             font-weight: 700;
-            font-size: 16px;
+            color: #dc3545;
+            margin-bottom: 4px;
+        }
+        
+        .layer-desc {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .implementation-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .impl-card {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px;
+        }
+        
+        .impl-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        
+        .impl-icon {
+            font-size: 24px;
+        }
+        
+        .impl-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        
+        .impl-text {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .monitoring-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .monitor-step {
+            background: #e8f2ff;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 10px 12px;
+            text-align: center;
+            flex: 1;
+            min-width: 140px;
+        }
+        
+        .monitor-number {
+            display: inline-block;
+            background: #1E64C8;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            line-height: 24px;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+        
+        .monitor-label {
+            font-size: 12px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .flow-arrow {
+            font-size: 20px;
+            color: #1E64C8;
         }
     </style>
 </head>
@@ -89,32 +187,101 @@
             <div class="section-title">Why Safety Constraints?</div>
             <div class="section-text">Medical AI requires hard constraints to prevent harmful outputs that could endanger patients, regardless of reward optimization.</div>
         </div>
+        
         <div class="section">
-            <div class="section-title">Constraint Types</div>
-            <div class="items-list">
-                <div class="item">Hard Medical Rules: Never violate established clinical guidelines</div>
-                <div class="item">Dosage Limits: Enforce safe medication dosing ranges</div>
-                <div class="item">Contraindication Checking: Prevent dangerous drug interactions</div>
-                <div class="item">Appropriate Scope: Stay within system's trained competency</div>
-                <div class="item">Referral Triggers: Recommend specialist consultation when needed</div>
+            <div class="section-title">Multi-Layer Safety Architecture</div>
+            <div class="safety-layers">
+                <div class="safety-layer" style="border-color: #dc3545; background: #ffebee;">
+                    <div class="layer-icon" style="background: #dc3545;">🚫</div>
+                    <div class="layer-title" style="color: #dc3545;">Layer 1: Hard Medical Rules</div>
+                    <div class="layer-desc">Never violate established clinical guidelines (e.g., contraindications, age restrictions)</div>
+                </div>
+                
+                <div class="safety-layer" style="border-color: #ff6b6b; background: #fff5f5;">
+                    <div class="layer-icon" style="background: #ff6b6b;">💊</div>
+                    <div class="layer-title" style="color: #ff6b6b;">Layer 2: Dosage Limits</div>
+                    <div class="layer-desc">Enforce safe medication dosing ranges based on patient factors (weight, age, renal function)</div>
+                </div>
+                
+                <div class="safety-layer" style="border-color: #ff9f43; background: #fff9f0;">
+                    <div class="layer-icon" style="background: #ff9f43;">⚠️</div>
+                    <div class="layer-title" style="color: #ff9f43;">Layer 3: Contraindication Checking</div>
+                    <div class="layer-desc">Prevent dangerous drug interactions and allergic reactions</div>
+                </div>
+                
+                <div class="safety-layer" style="border-color: #ffc107; background: #fffbf0;">
+                    <div class="layer-icon" style="background: #ffc107;">🎯</div>
+                    <div class="layer-title" style="color: #ffc107;">Layer 4: Appropriate Scope</div>
+                    <div class="layer-desc">Stay within system's trained competency domain</div>
+                </div>
+                
+                <div class="safety-layer" style="border-color: #6bcf7f; background: #f0fff4;">
+                    <div class="layer-icon" style="background: #6bcf7f;">👨‍⚕️</div>
+                    <div class="layer-title" style="color: #6bcf7f;">Layer 5: Referral Triggers</div>
+                    <div class="layer-desc">Recommend specialist consultation for complex/uncertain cases</div>
+                </div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">Implementation Methods</div>
-            <div class="items-list">
-                <div class="item">Constrained Optimization: Add penalty terms for constraint violations</div>
-                <div class="item">Rejection Sampling: Filter out unsafe outputs during generation</div>
-                <div class="item">Rule-Based Filters: Apply deterministic safety checks</div>
-                <div class="item">Multi-Objective RL: Balance reward with safety objectives</div>
+            <div class="implementation-grid">
+                <div class="impl-card">
+                    <div class="impl-header">
+                        <div class="impl-icon">⚖️</div>
+                        <div class="impl-title">Constrained Optimization</div>
+                    </div>
+                    <div class="impl-text">Add penalty terms for constraint violations during training</div>
+                </div>
+                
+                <div class="impl-card">
+                    <div class="impl-header">
+                        <div class="impl-icon">🔍</div>
+                        <div class="impl-title">Rejection Sampling</div>
+                    </div>
+                    <div class="impl-text">Filter out unsafe outputs during generation</div>
+                </div>
+                
+                <div class="impl-card">
+                    <div class="impl-header">
+                        <div class="impl-icon">📋</div>
+                        <div class="impl-title">Rule-Based Filters</div>
+                    </div>
+                    <div class="impl-text">Apply deterministic safety checks post-generation</div>
+                </div>
+                
+                <div class="impl-card">
+                    <div class="impl-header">
+                        <div class="impl-icon">🎯</div>
+                        <div class="impl-title">Multi-Objective RL</div>
+                    </div>
+                    <div class="impl-text">Balance reward with multiple safety objectives</div>
+                </div>
             </div>
         </div>
+        
         <div class="section">
-            <div class="section-title">Monitoring & Enforcement</div>
-            <div class="items-list">
-                <div class="item">Real-time constraint checking during inference</div>
-                <div class="item">Logging all constraint violations for review</div>
-                <div class="item">Automatic escalation for high-risk situations</div>
-                <div class="item">Regular safety audits by medical experts</div>
+            <div class="section-title">Monitoring & Enforcement Pipeline</div>
+            <div class="monitoring-flow">
+                <div class="monitor-step">
+                    <div class="monitor-number">1</div>
+                    <div class="monitor-label">Real-time Checking</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="monitor-step">
+                    <div class="monitor-number">2</div>
+                    <div class="monitor-label">Violation Logging</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="monitor-step">
+                    <div class="monitor-number">3</div>
+                    <div class="monitor-label">Auto Escalation</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="monitor-step">
+                    <div class="monitor-number">4</div>
+                    <div class="monitor-label">Expert Audits</div>
+                </div>
             </div>
         </div>
     </div>

@@ -13,47 +13,106 @@
         .card-title{font-size:17px;font-weight:700;color:#1E64C8;margin-bottom:10px;}
         .card-content{font-size:15px;color:#333;line-height:1.6;}
         .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-        .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
-        .part-banner{background:linear-gradient(135deg,#1E64C8 0%,#5088d4 100%);color:white;padding:80px 60px;border-radius:12px;height:460px;display:flex;flex-direction:column;justify-content:center;}
-        .part-label{font-size:32px;font-weight:700;margin-bottom:30px;}
-        .part-title{font-size:44px;font-weight:700;margin-bottom:60px;line-height:1.2;}
-        .part-topics{font-size:20px;margin-left:40px;line-height:2;}
+        .flow-svg {
+            width: 100%;
+            height: 280px;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        
         <div class="title">DICOM Image Handling</div>
-        <div class="grid-2" style="margin-bottom:20px;">
-            <div class="card">
-                <div class="card-title">DICOM 구조</div>
-                <div class="card-content">
-                    • <strong>메타데이터</strong>: 환자 정보, 검사 정보<br>
-                    • <strong>태그</strong>: (0010,0010) Patient Name<br>
-                    • <strong>픽셀 데이터</strong>: 이미지 바이트
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-title">처리 단계</div>
-                <div class="card-content">
-                    1. DICOM 파일 읽기<br>
-                    2. 태그 추출 및 파싱<br>
-                    3. 픽셀 데이터 처리<br>
-                    4. 익명화 (PHI 제거)
-                </div>
-            </div>
-        </div>
+        
+        <svg class="flow-svg" viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+            <!-- DICOM File Structure -->
+            <g id="dicom-structure">
+                <rect x="50" y="20" width="250" height="240" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="3"/>
+                <text x="175" y="50" text-anchor="middle" font-family="Aptos, sans-serif" font-size="18" font-weight="700" fill="#1E64C8">DICOM 파일 구조</text>
+                
+                <!-- Metadata section -->
+                <rect x="70" y="70" width="210" height="70" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                <text x="175" y="90" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">메타데이터</text>
+                <text x="85" y="110" font-family="Aptos, sans-serif" font-size="12" fill="#333">• Patient Info</text>
+                <text x="85" y="126" font-family="Aptos, sans-serif" font-size="12" fill="#333">• Study/Series ID</text>
+                
+                <!-- Tags section -->
+                <rect x="70" y="150" width="210" height="40" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                <text x="85" y="170" font-family="Aptos, sans-serif" font-size="12" fill="#333">태그: (0010,0010)</text>
+                <text x="85" y="184" font-family="Aptos, sans-serif" font-size="12" fill="#333">Patient Name</text>
+                
+                <!-- Pixel Data section -->
+                <rect x="70" y="200" width="210" height="45" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                <text x="175" y="220" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">픽셀 데이터</text>
+                <text x="175" y="237" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#333">Image Bytes</text>
+            </g>
+            
+            <!-- Arrow -->
+            <path d="M 310 140 L 370 140" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+            
+            <!-- Processing Pipeline -->
+            <g id="processing-steps">
+                <rect x="380" y="20" width="470" height="240" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
+                <text x="615" y="50" text-anchor="middle" font-family="Aptos, sans-serif" font-size="18" font-weight="700" fill="#1E64C8">처리 파이프라인</text>
+                
+                <!-- Step 1 -->
+                <g>
+                    <rect x="400" y="70" width="200" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <circle cx="420" cy="87.5" r="10" fill="#1E64C8"/>
+                    <text x="435" y="93" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">1. DICOM 파일 읽기</text>
+                </g>
+                
+                <path d="M 500 110 L 500 125" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow-small)"/>
+                
+                <!-- Step 2 -->
+                <g>
+                    <rect x="400" y="130" width="200" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <circle cx="420" cy="147.5" r="10" fill="#1E64C8"/>
+                    <text x="435" y="153" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">2. 태그 추출/파싱</text>
+                </g>
+                
+                <path d="M 500 170 L 500 185" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow-small)"/>
+                
+                <!-- Step 3 -->
+                <g>
+                    <rect x="400" y="190" width="200" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <circle cx="420" cy="207.5" r="10" fill="#1E64C8"/>
+                    <text x="435" y="213" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">3. 픽셀 데이터 처리</text>
+                </g>
+                
+                <!-- Step 4 -->
+                <g>
+                    <rect x="630" y="130" width="200" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
+                    <circle cx="650" cy="147.5" r="10" fill="#1E64C8"/>
+                    <text x="665" y="153" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">4. 익명화 (PHI 제거)</text>
+                </g>
+                
+                <!-- Connecting arrows -->
+                <path d="M 605 147.5 L 625 147.5" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow-small)"/>
+            </g>
+            
+            <!-- Arrow markers -->
+            <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                </marker>
+                <marker id="arrow-small" markerWidth="8" markerHeight="8" refX="7" refY="2.5" orient="auto">
+                    <polygon points="0 0, 8 2.5, 0 5" fill="#1E64C8"/>
+                </marker>
+            </defs>
+        </svg>
+        
         <div class="card">
             <div class="card-title">Python 라이브러리: pydicom</div>
             <div class="card-content">
-                <code style="background:#f0f5fc;padding:10px;display:block;border-radius:4px;">
+                <code style="background:#f0f5fc;padding:12px;display:block;border-radius:4px;font-family:monospace;">
                 import pydicom<br>
                 ds = pydicom.dcmread('image.dcm')<br>
-                pixel_array = ds.pixel_array
+                pixel_array = ds.pixel_array<br>
+                patient_name = ds.PatientName
                 </code>
             </div>
         </div>
-    
     </div>
 </body>
 </html>

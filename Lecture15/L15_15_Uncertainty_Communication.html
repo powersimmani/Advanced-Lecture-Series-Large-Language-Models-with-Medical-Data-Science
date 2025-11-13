@@ -24,59 +24,199 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 30px;
+        .main-content {
+            display: flex;
+            gap: 30px;
+            height: 380px;
+        }
+        .diagram-section {
+            flex: 1.4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         .content-card {
             background: #f8f9fa;
             border-left: 4px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             transition: all 0.3s;
         }
         .content-card:hover {
             background: #e8f2ff;
-            transform: translateY(-3px);
+            transform: translateX(5px);
             box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
         }
         .card-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         .card-text {
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
-            line-height: 1.5;
+            line-height: 1.4;
+        }
+        .uncertainty-diagram {
+            width: 100%;
+            max-width: 560px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Uncertainty Communication</div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-title">📊 Confidence Intervals</div>
-                <div class="card-text">Quantifying prediction uncertainty with statistical bounds</div>
+        <div class="main-content">
+            <div class="diagram-section">
+                <svg class="uncertainty-diagram" viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Confidence Interval Visualization -->
+                    <g id="confidence-interval">
+                        <text x="140" y="25" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Confidence Interval</text>
+                        
+                        <!-- CI bar -->
+                        <line x1="40" y1="60" x2="240" y2="60" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+                        
+                        <!-- Uncertainty range -->
+                        <line x1="80" y1="60" x2="200" y2="60" stroke="#5088d4" stroke-width="10" stroke-linecap="round" opacity="0.6"/>
+                        
+                        <!-- Point estimate -->
+                        <circle cx="140" cy="60" r="8" fill="#1E64C8"/>
+                        <line x1="140" y1="42" x2="140" y2="78" stroke="#1E64C8" stroke-width="2"/>
+                        
+                        <!-- Labels -->
+                        <text x="80" y="85" text-anchor="middle" fill="#666" font-size="10">0.60</text>
+                        <text x="140" y="85" text-anchor="middle" fill="#1E64C8" font-size="11" font-weight="700">0.75</text>
+                        <text x="200" y="85" text-anchor="middle" fill="#666" font-size="10">0.90</text>
+                        
+                        <text x="140" y="100" text-anchor="middle" fill="#333" font-size="10">95% CI: [0.60 - 0.90]</text>
+                    </g>
+                    
+                    <!-- Probability Distribution -->
+                    <g id="probability-dist">
+                        <text x="140" y="135" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Probability Distribution</text>
+                        
+                        <!-- Bell curve -->
+                        <path d="M 40 220 Q 60 180, 80 170 T 100 165 T 120 163 T 140 162 T 160 163 T 180 165 T 200 170 T 220 180 Q 240 200, 240 220" 
+                              fill="#5088d4" 
+                              opacity="0.3" 
+                              stroke="#1E64C8" 
+                              stroke-width="2"/>
+                        
+                        <!-- Mean line -->
+                        <line x1="140" y1="162" x2="140" y2="220" stroke="#1E64C8" stroke-width="2" stroke-dasharray="4,2"/>
+                        <text x="140" y="238" text-anchor="middle" fill="#1E64C8" font-size="10" font-weight="600">Mean: 0.75</text>
+                        
+                        <!-- Std dev markers -->
+                        <line x1="100" y1="165" x2="100" y2="220" stroke="#f57c00" stroke-width="1.5" opacity="0.6"/>
+                        <line x1="180" y1="165" x2="180" y2="220" stroke="#f57c00" stroke-width="1.5" opacity="0.6"/>
+                        <text x="140" y="253" text-anchor="middle" fill="#666" font-size="9">σ = ±0.08</text>
+                        
+                        <!-- Axes -->
+                        <line x1="40" y1="220" x2="240" y2="220" stroke="#333" stroke-width="1"/>
+                        <text x="40" y="235" fill="#666" font-size="9">0.5</text>
+                        <text x="235" y="235" text-anchor="end" fill="#666" font-size="9">1.0</text>
+                    </g>
+                    
+                    <!-- Calibration Plot -->
+                    <g id="calibration">
+                        <text x="410" y="25" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Calibration Curve</text>
+                        
+                        <!-- Axes -->
+                        <line x1="310" y1="200" x2="510" y2="200" stroke="#333" stroke-width="2"/>
+                        <line x1="310" y1="200" x2="310" y2="50" stroke="#333" stroke-width="2"/>
+                        
+                        <!-- Perfect calibration line -->
+                        <line x1="310" y1="200" x2="510" y2="50" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+                        
+                        <!-- Actual calibration curve -->
+                        <path d="M 310 200 L 350 180 L 390 140 L 430 90 L 470 65 L 510 55" 
+                              stroke="#1E64C8" 
+                              stroke-width="3" 
+                              fill="none"
+                              stroke-linecap="round"/>
+                        
+                        <!-- Data points -->
+                        <circle cx="350" cy="180" r="5" fill="#1E64C8"/>
+                        <circle cx="390" cy="140" r="5" fill="#1E64C8"/>
+                        <circle cx="430" cy="90" r="5" fill="#1E64C8"/>
+                        <circle cx="470" cy="65" r="5" fill="#1E64C8"/>
+                        
+                        <!-- Labels -->
+                        <text x="410" y="220" text-anchor="middle" fill="#333" font-size="10">Predicted Probability</text>
+                        <text x="285" y="125" text-anchor="middle" fill="#333" font-size="10" transform="rotate(-90 285 125)">Observed Frequency</text>
+                        
+                        <!-- Tick marks -->
+                        <text x="310" y="213" text-anchor="middle" fill="#666" font-size="9">0</text>
+                        <text x="410" y="213" text-anchor="middle" fill="#666" font-size="9">0.5</text>
+                        <text x="510" y="213" text-anchor="middle" fill="#666" font-size="9">1.0</text>
+                        
+                        <text x="300" y="203" text-anchor="end" fill="#666" font-size="9">0</text>
+                        <text x="300" y="128" text-anchor="end" fill="#666" font-size="9">0.5</text>
+                        <text x="300" y="53" text-anchor="end" fill="#666" font-size="9">1.0</text>
+                        
+                        <!-- Legend -->
+                        <line x1="320" y1="235" x2="345" y2="235" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+                        <text x="350" y="239" fill="#666" font-size="9">Perfect</text>
+                        
+                        <line x1="400" y1="235" x2="425" y2="235" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="430" y="239" fill="#1E64C8" font-size="9" font-weight="600">Model</text>
+                    </g>
+                    
+                    <!-- Risk Communication Visual -->
+                    <g id="risk-comm">
+                        <text x="410" y="275" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">Risk Visualization</text>
+                        
+                        <!-- Icon array (100 people) -->
+                        <g id="people-icons">
+                            <!-- Green (low risk) -->
+                            <text x="320" y="305" fill="#43a047" font-size="20">👤👤👤👤👤</text>
+                            <text x="320" y="325" fill="#43a047" font-size="20">👤👤👤👤👤</text>
+                            
+                            <!-- Yellow (medium risk) -->
+                            <text x="420" y="305" fill="#fdd835" font-size="20">👤👤👤</text>
+                            <text x="420" y="325" fill="#fdd835" font-size="20">👤👤👤</text>
+                            
+                            <!-- Red (high risk) -->
+                            <text x="490" y="305" fill="#d32f2f" font-size="20">👤👤</text>
+                            <text x="490" y="325" fill="#d32f2f" font-size="20">👤👤</text>
+                        </g>
+                        
+                        <text x="410" y="350" text-anchor="middle" fill="#333" font-size="10">Out of 20 similar patients:</text>
+                        <text x="410" y="365" text-anchor="middle" fill="#43a047" font-size="9" font-weight="600">10 low risk | </text>
+                        <text x="440" y="365" text-anchor="start" fill="#fdd835" font-size="9" font-weight="600">6 medium | </text>
+                        <text x="485" y="365" text-anchor="start" fill="#d32f2f" font-size="9" font-weight="600">4 high risk</text>
+                    </g>
+                </svg>
             </div>
-            <div class="content-card">
-                <div class="card-title">🎲 Probabilistic Outputs</div>
-                <div class="card-text">Expressing predictions as probability distributions</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">⚠️ Risk Communication</div>
-                <div class="card-text">Clearly conveying model confidence to clinicians</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">🎯 Calibrated Predictions</div>
-                <div class="card-text">Ensuring predicted probabilities match actual frequencies</div>
+            
+            <div class="info-section">
+                <div class="content-card">
+                    <div class="card-title">📊 Confidence Intervals</div>
+                    <div class="card-text">Quantifying prediction uncertainty with statistical bounds</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">🎲 Probabilistic Outputs</div>
+                    <div class="card-text">Expressing predictions as probability distributions</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">⚠️ Risk Communication</div>
+                    <div class="card-text">Clearly conveying model confidence to clinicians</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">🎯 Calibrated Predictions</div>
+                    <div class="card-text">Ensuring predicted probabilities match actual frequencies</div>
+                </div>
             </div>
         </div>
     </div>

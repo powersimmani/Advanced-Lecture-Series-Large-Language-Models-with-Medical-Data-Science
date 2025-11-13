@@ -15,45 +15,126 @@
             min-height: 100vh;
         }
         .container { width: 960px; height: 540px; padding: 40px; background: white; }
-        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 35px; text-align: center; }
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
+        .security-svg { width: 100%; height: 200px; margin-bottom: 15px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .info-box {
             background: #f8f9fb; border-left: 4px solid #1E64C8;
-            padding: 20px 24px; border-radius: 6px;
+            padding: 18px 22px; border-radius: 6px;
         }
-        .info-title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 15px; }
-        .info-content { font-size: 16px; color: #333; line-height: 1.7; }
-        .bullet { display: flex; align-items: flex-start; margin-bottom: 10px; }
-        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 20px; }
+        .info-title { font-size: 18px; font-weight: 600; color: #1E64C8; margin-bottom: 12px; }
+        .info-content { font-size: 15px; color: #333; line-height: 1.7; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 8px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 10px; font-size: 18px; }
+        
+        .security-layer {
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .security-layer:hover {
+            opacity: 0.8;
+        }
+
+        .layer-text {
+            font-family: Aptos, 'Segoe UI', sans-serif;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Security Architecture</div>
-        <div class="info-grid">
+        
+        <svg class="security-svg" viewBox="0 0 880 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Shield outline for overall security -->
+            <g transform="translate(40, 20)">
+                <path d="M 400 10 L 400 10 Q 400 5 395 5 L 5 5 Q 0 5 0 10 L 0 100 Q 0 160 200 180 Q 400 160 400 100 Z" 
+                      fill="none" stroke="#1E64C8" stroke-width="3" opacity="0.2"/>
+            </g>
             
+            <!-- Network Security Layer (Outer) -->
+            <g class="security-layer">
+                <rect x="100" y="30" width="680" height="50" rx="25" fill="#e8f4ff" stroke="#1E64C8" stroke-width="2"/>
+                <g transform="translate(120, 45)">
+                    <circle cx="10" cy="10" r="8" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                    <path d="M 6 10 L 14 10 M 10 6 L 10 14" stroke="#1E64C8" stroke-width="2"/>
+                </g>
+                <text x="180" y="60" class="layer-text" font-size="16" fill="#1E64C8" font-weight="600">Network Security</text>
+                <text x="500" y="60" font-size="13" fill="#666" font-family="Aptos, 'Segoe UI', sans-serif">방화벽, VPN, DDoS 방어</text>
+            </g>
+            
+            <!-- Application Security Layer (Middle) -->
+            <g class="security-layer">
+                <rect x="150" y="95" width="580" height="50" rx="25" fill="#d4e9ff" stroke="#1E64C8" stroke-width="2"/>
+                <g transform="translate(170, 110)">
+                    <rect x="0" y="0" width="20" height="20" rx="3" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                    <path d="M 10 6 L 10 12 M 6 9 L 14 9" stroke="#1E64C8" stroke-width="2"/>
+                </g>
+                <text x="230" y="125" class="layer-text" font-size="16" fill="#1E64C8" font-weight="600">Application Security</text>
+                <text x="500" y="125" font-size="13" fill="#666" font-family="Aptos, 'Segoe UI', sans-serif">인증/인가, API 보안</text>
+            </g>
+            
+            <!-- Data Security Layer (Inner) -->
+            <g class="security-layer">
+                <rect x="200" y="160" width="480" height="50" rx="25" fill="#c0dfff" stroke="#1E64C8" stroke-width="2"/>
+                <g transform="translate(220, 175)">
+                    <path d="M 10 0 L 15 5 L 15 15 L 5 15 L 5 5 Z" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                    <circle cx="10" cy="10" r="2" fill="#1E64C8"/>
+                </g>
+                <text x="280" y="190" class="layer-text" font-size="16" fill="#1E64C8" font-weight="600">Data Security</text>
+                <text x="480" y="190" font-size="13" fill="#666" font-family="Aptos, 'Segoe UI', sans-serif">암호화, 접근 제어</text>
+            </g>
+            
+            <!-- Security Icons on the right -->
+            <g transform="translate(750, 60)">
+                <!-- Shield icon -->
+                <path d="M 30 5 Q 30 0 25 0 L 5 0 Q 0 0 0 5 L 0 20 Q 0 35 15 40 Q 30 35 30 20 Z" 
+                      fill="none" stroke="#1E64C8" stroke-width="2"/>
+                <path d="M 10 18 L 13 22 L 22 12" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                <text x="15" y="55" text-anchor="middle" font-size="11" fill="#666" font-family="Aptos, 'Segoe UI', sans-serif">보안 인증</text>
+            </g>
+            
+            <g transform="translate(750, 130)">
+                <!-- Lock icon -->
+                <rect x="5" y="10" width="20" height="15" rx="2" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                <path d="M 8 10 L 8 6 Q 8 2 15 2 Q 22 2 22 6 L 22 10" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                <circle cx="15" cy="17" r="2" fill="#1E64C8"/>
+                <text x="15" y="42" text-anchor="middle" font-size="11" fill="#666" font-family="Aptos, 'Segoe UI', sans-serif">규정 준수</text>
+            </g>
+        </svg>
+        
+        <div class="info-grid">
             <div class="info-box">
                 <div class="info-title">보안 레이어</div>
                 <div class="info-content">
-                    <div class="bullet">네트워크 보안 (방화벽, VPN)</div><div class="bullet">애플리케이션 보안 (인증/인가)</div><div class="bullet">데이터 보안 (암호화)</div>
+                    <div class="bullet">네트워크 보안 (방화벽, VPN)</div>
+                    <div class="bullet">애플리케이션 보안 (인증/인가)</div>
+                    <div class="bullet">데이터 보안 (암호화)</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">위협 모델</div>
                 <div class="info-content">
-                    <div class="bullet">SQL Injection 방지</div><div class="bullet">XSS/CSRF 공격 차단</div><div class="bullet">데이터 유출 방지</div>
+                    <div class="bullet">SQL Injection 방지</div>
+                    <div class="bullet">XSS/CSRF 공격 차단</div>
+                    <div class="bullet">데이터 유출 방지</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">접근 제어</div>
                 <div class="info-content">
-                    <div class="bullet">역할 기반 접근 제어 (RBAC)</div><div class="bullet">다중 인증 (MFA)</div><div class="bullet">감사 로깅</div>
+                    <div class="bullet">역할 기반 접근 제어 (RBAC)</div>
+                    <div class="bullet">다중 인증 (MFA)</div>
+                    <div class="bullet">감사 로깅</div>
                 </div>
             </div>
             <div class="info-box">
                 <div class="info-title">규정 준수</div>
                 <div class="info-content">
-                    <div class="bullet">HIPAA 준수</div><div class="bullet">GDPR 준수</div><div class="bullet">데이터 보호 정책</div>
+                    <div class="bullet">HIPAA 준수</div>
+                    <div class="bullet">GDPR 준수</div>
+                    <div class="bullet">데이터 보호 정책</div>
                 </div>
             </div>
         </div>

@@ -16,15 +16,25 @@
         }
         .container { width: 960px; padding: 35px 45px; background: white; }
         .title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
-        .formula-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 20px; margin-bottom: 25px; text-align: center; }
+        .formula-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 20px; margin-bottom: 25px; text-align: center; position: relative; }
         .formula { font-size: 24px; color: #1E64C8; font-weight: 700; margin: 15px 0; }
+        .formula-visual {
+            margin: 20px 0;
+        }
         .temp-comparison { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 25px; }
         .temp-card { background: white; border: 2.5px solid #1E64C8; border-radius: 10px; padding: 20px; text-align: center; }
         .temp-value { font-size: 22px; font-weight: 700; color: #1E64C8; margin-bottom: 12px; }
         .temp-effect { font-size: 16px; color: #333; line-height: 1.5; }
+        .chart-container {
+            margin: 15px 0;
+        }
         .practical-note { background: #fff4e6; border: 2px dashed #1E64C8; border-radius: 8px; padding: 20px; text-align: center; }
         .note-text { font-size: 17px; color: #333; font-weight: 500; }
         .highlight { color: #1E64C8; font-weight: 700; }
+        .distribution-viz {
+            height: 80px;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -34,6 +44,38 @@
             <div style="font-size: 18px; color: #555; margin-bottom: 10px;">Softmax with Temperature</div>
             <div class="formula">p<sub>i</sub> = exp(z<sub>i</sub>/T) / Σ exp(z<sub>j</sub>/T)</div>
             <div style="font-size: 16px; color: #555; margin-top: 10px;">T = Temperature 파라미터</div>
+            
+            <!-- Formula visualization -->
+            <svg class="formula-visual" width="500" height="100" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg" style="margin: 20px auto; display: block;">
+                <!-- Input logits -->
+                <rect x="20" y="35" width="80" height="30" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                <text x="60" y="55" font-family="Aptos" font-size="14" fill="#1E64C8" text-anchor="middle">Logits (z)</text>
+                
+                <!-- Arrow -->
+                <line x1="100" y1="50" x2="150" y2="50" stroke="#1E64C8" stroke-width="2"/>
+                <polygon points="150,50 145,45 145,55" fill="#1E64C8"/>
+                
+                <!-- Temperature division -->
+                <circle cx="180" cy="50" r="25" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                <text x="180" y="48" font-family="Aptos" font-size="12" fill="#1E64C8" text-anchor="middle">÷ T</text>
+                <text x="180" y="60" font-family="Aptos" font-size="10" fill="#666" text-anchor="middle">scaling</text>
+                
+                <!-- Arrow -->
+                <line x1="205" y1="50" x2="255" y2="50" stroke="#1E64C8" stroke-width="2"/>
+                <polygon points="255,50 250,45 250,55" fill="#1E64C8"/>
+                
+                <!-- Softmax -->
+                <rect x="270" y="35" width="80" height="30" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                <text x="310" y="55" font-family="Aptos" font-size="14" fill="#1E64C8" text-anchor="middle">Softmax</text>
+                
+                <!-- Arrow -->
+                <line x1="350" y1="50" x2="400" y2="50" stroke="#1E64C8" stroke-width="2"/>
+                <polygon points="400,50 395,45 395,55" fill="#1E64C8"/>
+                
+                <!-- Output probabilities -->
+                <rect x="410" y="35" width="80" height="30" fill="#51cf66" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                <text x="450" y="55" font-family="Aptos" font-size="14" fill="white" text-anchor="middle">Soft p<tspan font-size="10" dy="3">i</tspan></text>
+            </svg>
         </div>
         <div class="temp-comparison">
             <div class="temp-card">
@@ -43,6 +85,13 @@
                     [0.05, 0.10, 0.80, 0.05]<br><br>
                     Sharp 분포
                 </div>
+                <!-- Distribution visualization -->
+                <svg class="distribution-viz" width="100%" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="60" width="30" height="10" fill="#1E64C8" opacity="0.3"/>
+                    <rect x="60" y="50" width="30" height="20" fill="#1E64C8" opacity="0.5"/>
+                    <rect x="100" y="10" width="30" height="60" fill="#1E64C8"/>
+                    <rect x="140" y="60" width="30" height="10" fill="#1E64C8" opacity="0.3"/>
+                </svg>
             </div>
             <div class="temp-card">
                 <div class="temp-value">T = 3~5</div>
@@ -51,6 +100,13 @@
                     [0.15, 0.20, 0.45, 0.20]<br><br>
                     Soft 분포
                 </div>
+                <!-- Distribution visualization -->
+                <svg class="distribution-viz" width="100%" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="45" width="30" height="25" fill="#51cf66" opacity="0.6"/>
+                    <rect x="60" y="40" width="30" height="30" fill="#51cf66" opacity="0.7"/>
+                    <rect x="100" y="20" width="30" height="50" fill="#51cf66"/>
+                    <rect x="140" y="40" width="30" height="30" fill="#51cf66" opacity="0.7"/>
+                </svg>
             </div>
             <div class="temp-card">
                 <div class="temp-value">T → ∞</div>
@@ -59,8 +115,49 @@
                     [0.25, 0.25, 0.25, 0.25]<br><br>
                     Uniform 분포
                 </div>
+                <!-- Distribution visualization -->
+                <svg class="distribution-viz" width="100%" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="30" width="30" height="40" fill="#ffa500" opacity="0.8"/>
+                    <rect x="60" y="30" width="30" height="40" fill="#ffa500" opacity="0.8"/>
+                    <rect x="100" y="30" width="30" height="40" fill="#ffa500" opacity="0.8"/>
+                    <rect x="140" y="30" width="30" height="40" fill="#ffa500" opacity="0.8"/>
+                </svg>
             </div>
         </div>
+        
+        <!-- Temperature effect diagram -->
+        <div style="text-align: center; margin: 25px 0;">
+            <svg width="800" height="150" viewBox="0 0 800 150" xmlns="http://www.w3.org/2000/svg">
+                <!-- Temperature scale -->
+                <defs>
+                    <linearGradient id="tempGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#1E64C8;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#51cf66;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#ffa500;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                
+                <rect x="100" y="60" width="600" height="30" fill="url(#tempGradient)" rx="15"/>
+                
+                <!-- Labels -->
+                <text x="100" y="50" font-family="Aptos" font-size="14" fill="#1E64C8" text-anchor="middle">T=1</text>
+                <text x="100" y="110" font-family="Aptos" font-size="12" fill="#666" text-anchor="middle">Sharp</text>
+                
+                <text x="400" y="50" font-family="Aptos" font-size="14" fill="#51cf66" text-anchor="middle" font-weight="700">T=3~5</text>
+                <text x="400" y="110" font-family="Aptos" font-size="12" fill="#666" text-anchor="middle">Optimal</text>
+                
+                <text x="700" y="50" font-family="Aptos" font-size="14" fill="#ffa500" text-anchor="middle">T→∞</text>
+                <text x="700" y="110" font-family="Aptos" font-size="12" fill="#666" text-anchor="middle">Uniform</text>
+                
+                <!-- Arrows -->
+                <line x1="120" y1="75" x2="180" y2="75" stroke="white" stroke-width="2"/>
+                <polygon points="180,75 175,70 175,80" fill="white"/>
+                
+                <line x1="620" y1="75" x2="680" y2="75" stroke="white" stroke-width="2"/>
+                <polygon points="680,75 675,70 675,80" fill="white"/>
+            </svg>
+        </div>
+        
         <div class="practical-note">
             <div class="note-text">
                 <span class="highlight">실전 팁:</span> 의료 영상 분류에서 T=3~4가 효과적<br>

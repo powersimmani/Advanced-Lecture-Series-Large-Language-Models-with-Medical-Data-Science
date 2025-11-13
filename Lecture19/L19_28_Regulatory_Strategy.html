@@ -56,13 +56,6 @@ body {
     font-weight: 700;
 }
 
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 11px;
-    margin-bottom: 12px;
-}
-
 .grid-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -97,28 +90,6 @@ body {
     line-height: 1.4;
 }
 
-.info-box {
-    background: #f8f9fa;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 11px 14px;
-    margin-bottom: 11px;
-}
-
-.info-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #1E64C8;
-    margin-bottom: 7px;
-}
-
-.info-item {
-    font-size: 12px;
-    color: #555;
-    margin-bottom: 3px;
-    line-height: 1.4;
-}
-
 .highlight-box {
     background: #fff4e6;
     border-left: 4px solid #ff9800;
@@ -127,6 +98,11 @@ body {
     font-size: 12px;
     color: #555;
     line-height: 1.5;
+}
+
+.strategy-diagram {
+    margin-top: 14px;
+    margin-bottom: 10px;
 }
     </style>
 </head>
@@ -140,25 +116,93 @@ body {
             <span class="intro-highlight">시장 진입을 가속화</span>하고 비용을 절감합니다
         </div>
     </div>
-    <div class="grid-2">
-        <div class="card">
-            <div class="card-title">🎯 경로 선택</div>
-            <div class="card-desc">510(k), De Novo, PMA 중 최적 경로 결정</div>
-        </div>
-        <div class="card">
-            <div class="card-title">🌍 시장 우선순위</div>
-            <div class="card-desc">미국, EU, APAC 등 진출 순서 결정</div>
-        </div>
+    
+    <div class="strategy-diagram">
+        <svg width="880" height="280" viewBox="0 0 880 280">
+            <!-- Title -->
+            <text x="440" y="20" font-size="16" font-weight="bold" fill="#1E64C8" text-anchor="middle">전략 수립 6단계 로드맵</text>
+            
+            <!-- Step 1 -->
+            <g>
+                <rect x="40" y="50" width="120" height="80" rx="8" fill="#e3f2fd" stroke="#1E64C8" stroke-width="2.5"/>
+                <circle cx="100" cy="75" r="15" fill="#1E64C8"/>
+                <text x="100" y="82" font-size="16" font-weight="bold" fill="white" text-anchor="middle">1</text>
+                <text x="100" y="105" font-size="12" font-weight="bold" fill="#1E64C8" text-anchor="middle">기기 분류</text>
+                <text x="100" y="120" font-size="10" fill="#555" text-anchor="middle">위험도 및</text>
+                <text x="100" y="132" font-size="10" fill="#555" text-anchor="middle">규제 클래스 결정</text>
+            </g>
+            <path d="M 160 90 L 190 90" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrowhead)"/>
+            
+            <!-- Step 2 -->
+            <g>
+                <rect x="190" y="50" width="120" height="80" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2.5"/>
+                <circle cx="250" cy="75" r="15" fill="#4caf50"/>
+                <text x="250" y="82" font-size="16" font-weight="bold" fill="white" text-anchor="middle">2</text>
+                <text x="250" y="105" font-size="12" font-weight="bold" fill="#4caf50" text-anchor="middle">Predicate 조사</text>
+                <text x="250" y="120" font-size="10" fill="#555" text-anchor="middle">510(k) 가능</text>
+                <text x="250" y="132" font-size="10" fill="#555" text-anchor="middle">여부 판단</text>
+            </g>
+            <path d="M 310 90 L 340 90" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrowhead)"/>
+            
+            <!-- Step 3 -->
+            <g>
+                <rect x="340" y="50" width="120" height="80" rx="8" fill="#fff3e0" stroke="#ff9800" stroke-width="2.5"/>
+                <circle cx="400" cy="75" r="15" fill="#ff9800"/>
+                <text x="400" y="82" font-size="16" font-weight="bold" fill="white" text-anchor="middle">3</text>
+                <text x="400" y="105" font-size="12" font-weight="bold" fill="#ff9800" text-anchor="middle">임상 증거 계획</text>
+                <text x="400" y="120" font-size="10" fill="#555" text-anchor="middle">필요한 데이터</text>
+                <text x="400" y="132" font-size="10" fill="#555" text-anchor="middle">수준 결정</text>
+            </g>
+            <path d="M 460 90 L 490 90" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrowhead)"/>
+            
+            <!-- Step 4 -->
+            <g>
+                <rect x="490" y="50" width="120" height="80" rx="8" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2.5"/>
+                <circle cx="550" cy="75" r="15" fill="#9c27b0"/>
+                <text x="550" y="82" font-size="16" font-weight="bold" fill="white" text-anchor="middle">4</text>
+                <text x="550" y="105" font-size="12" font-weight="bold" fill="#9c27b0" text-anchor="middle">타임라인 설정</text>
+                <text x="550" y="120" font-size="10" fill="#555" text-anchor="middle">현실적인 승인</text>
+                <text x="550" y="132" font-size="10" fill="#555" text-anchor="middle">일정 수립</text>
+            </g>
+            <path d="M 610 90 L 640 90" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrowhead)"/>
+            
+            <!-- Step 5 -->
+            <g>
+                <rect x="640" y="50" width="120" height="80" rx="8" fill="#fce4ec" stroke="#e91e63" stroke-width="2.5"/>
+                <circle cx="700" cy="75" r="15" fill="#e91e63"/>
+                <text x="700" y="82" font-size="16" font-weight="bold" fill="white" text-anchor="middle">5</text>
+                <text x="700" y="105" font-size="12" font-weight="bold" fill="#e91e63" text-anchor="middle">리소스 배분</text>
+                <text x="700" y="120" font-size="10" fill="#555" text-anchor="middle">예산, 인력,</text>
+                <text x="700" y="132" font-size="10" fill="#555" text-anchor="middle">전문가 확보</text>
+            </g>
+            
+            <!-- Step 6 at bottom -->
+            <g>
+                <rect x="330" y="180" width="220" height="80" rx="8" fill="#e0f7fa" stroke="#00bcd4" stroke-width="2.5"/>
+                <circle cx="440" cy="205" r="15" fill="#00bcd4"/>
+                <text x="440" y="212" font-size="16" font-weight="bold" fill="white" text-anchor="middle">6</text>
+                <text x="440" y="235" font-size="12" font-weight="bold" fill="#00bcd4" text-anchor="middle">Pre-submission 미팅</text>
+                <text x="440" y="250" font-size="10" fill="#555" text-anchor="middle">FDA, EMA와 사전 협의</text>
+            </g>
+            
+            <!-- Arrows from 1-5 to 6 -->
+            <path d="M 100 130 L 350 180" stroke="#1E64C8" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+            <path d="M 250 130 L 380 180" stroke="#1E64C8" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+            <path d="M 400 130 L 420 180" stroke="#1E64C8" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+            <path d="M 550 130 L 480 180" stroke="#1E64C8" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+            <path d="M 700 130 L 530 180" stroke="#1E64C8" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+            
+            <!-- Success indicator -->
+            <text x="760" y="220" font-size="40">🎯</text>
+            
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                </marker>
+            </defs>
+        </svg>
     </div>
-    <div class="info-box">
-        <div class="info-title">전략 수립 단계</div>
-        <div class="info-item"><strong>1. 기기 분류:</strong> 위험도 및 규제 클래스 결정</div>
-        <div class="info-item"><strong>2. Predicate 조사:</strong> 510(k) 가능 여부 판단</div>
-        <div class="info-item"><strong>3. 임상 증거 계획:</strong> 필요한 데이터 수준 결정</div>
-        <div class="info-item"><strong>4. 타임라인 설정:</strong> 현실적인 승인 일정 수립</div>
-        <div class="info-item"><strong>5. 리소스 배분:</strong> 예산, 인력, 전문가 확보</div>
-        <div class="info-item"><strong>6. Pre-submission 미팅:</strong> FDA, EMA와 사전 협의</div>
-    </div>
+    
     <div class="grid-3">
         <div class="card">
             <div class="card-title">🚀 빠른 경로</div>
@@ -173,6 +217,7 @@ body {
             <div class="card-desc">PMA, Class III</div>
         </div>
     </div>
+    
     <div class="highlight-box">
         <strong>💡 Key Point:</strong> 초기 단계에서 규제 전문가와 협력하여 전략을 수립하면, 
         개발 방향 전환 리스크를 줄이고 승인 성공률을 높일 수 있습니다

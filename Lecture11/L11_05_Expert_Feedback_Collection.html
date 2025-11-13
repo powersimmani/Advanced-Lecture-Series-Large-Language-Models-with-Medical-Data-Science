@@ -56,6 +56,60 @@
             line-height: 1.6;
         }
         
+        .pipeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .pipeline-step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .step-icon {
+            min-width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1E64C8;
+            border-radius: 50%;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .step-content {
+            flex: 1;
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 16px;
+        }
+        
+        .step-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 4px;
+        }
+        
+        .step-description {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .arrow-down {
+            width: 50px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
         .items-list {
             display: flex;
             flex-direction: column;
@@ -88,16 +142,73 @@
             <div class="section-title">Annotation Protocol</div>
             <div class="section-text">Structured guidelines ensure consistent, high-quality feedback from medical experts across all evaluation tasks.</div>
         </div>
+        
         <div class="section">
             <div class="section-title">Collection Pipeline</div>
-            <div class="items-list">
-                <div class="item">Task Design: Create clear evaluation criteria</div>
-                <div class="item">Expert Recruitment: Identify qualified annotators</div>
-                <div class="item">Training Phase: Calibrate experts on annotation standards</div>
-                <div class="item">Active Annotation: Collect preference data at scale</div>
-                <div class="item">Quality Monitoring: Track agreement metrics and outliers</div>
+            <div class="pipeline-container">
+                <div class="pipeline-step">
+                    <div class="step-icon">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Task Design</div>
+                        <div class="step-description">Create clear evaluation criteria</div>
+                    </div>
+                </div>
+                <div class="arrow-down">
+                    <svg width="30" height="20" viewBox="0 0 30 20">
+                        <defs>
+                            <marker id="arrowdown" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="#1E64C8" />
+                            </marker>
+                        </defs>
+                        <line x1="15" y1="0" x2="15" y2="15" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrowdown)" />
+                    </svg>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-icon">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Expert Recruitment</div>
+                        <div class="step-description">Identify qualified annotators</div>
+                    </div>
+                </div>
+                <div class="arrow-down">
+                    <svg width="30" height="20" viewBox="0 0 30 20">
+                        <line x1="15" y1="0" x2="15" y2="15" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrowdown)" />
+                    </svg>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-icon">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Training Phase</div>
+                        <div class="step-description">Calibrate experts on annotation standards</div>
+                    </div>
+                </div>
+                <div class="arrow-down">
+                    <svg width="30" height="20" viewBox="0 0 30 20">
+                        <line x1="15" y1="0" x2="15" y2="15" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrowdown)" />
+                    </svg>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-icon">4</div>
+                    <div class="step-content">
+                        <div class="step-title">Active Annotation</div>
+                        <div class="step-description">Collect preference data at scale</div>
+                    </div>
+                </div>
+                <div class="arrow-down">
+                    <svg width="30" height="20" viewBox="0 0 30 20">
+                        <line x1="15" y1="0" x2="15" y2="15" stroke="#1E64C8" stroke-width="2" marker-end="url(#arrowdown)" />
+                    </svg>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-icon">5</div>
+                    <div class="step-content">
+                        <div class="step-title">Quality Monitoring</div>
+                        <div class="step-description">Track agreement metrics and outliers</div>
+                    </div>
+                </div>
             </div>
         </div>
+        
         <div class="section">
             <div class="section-title">Quality Assurance</div>
             <div class="items-list">

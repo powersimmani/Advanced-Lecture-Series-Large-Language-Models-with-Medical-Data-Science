@@ -31,44 +31,73 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
         
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
+        /* Visual Detection Pipeline */
+        .detection-pipeline {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            position: relative;
         }
         
-        .stat-card {
+        .pipeline-step {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px;
+            padding: 12px;
+            width: 23%;
             text-align: center;
+            position: relative;
         }
         
-        .stat-number {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1E64C8;
+        .pipeline-icon {
+            font-size: 32px;
             margin-bottom: 8px;
         }
         
-        .stat-label {
+        .pipeline-label {
             font-size: 13px;
-            color: #555;
-            font-weight: 500;
+            font-weight: 600;
+            color: #1E64C8;
+        }
+        
+        /* Connecting arrows */
+        .arrow-container {
+            position: absolute;
+            top: 50%;
+            left: 24.5%;
+            width: 50%;
+            height: 2px;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        
+        .arrow {
+            width: 30%;
+            height: 2px;
+            background: #1E64C8;
+            position: relative;
+        }
+        
+        .arrow::after {
+            content: '▶';
+            position: absolute;
+            right: -8px;
+            top: -8px;
+            color: #1E64C8;
+            font-size: 14px;
         }
         
         .features-section {
             background: #f8f9fa;
             border-left: 5px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px 25px;
-            margin-bottom: 20px;
+            padding: 18px 25px;
+            margin-bottom: 18px;
         }
         
         .features-title {
@@ -99,16 +128,42 @@
             font-size: 20px;
         }
         
+        /* Risk Level Visual */
+        .risk-levels {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+        
+        .risk-bar {
+            flex: 1;
+            height: 40px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+            position: relative;
+        }
+        
+        .risk-critical { background: #dc3545; }
+        .risk-high { background: #fd7e14; }
+        .risk-medium { background: #ffc107; color: #333; }
+        .risk-low { background: #28a745; }
+        
         .performance-box {
             background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
             border-radius: 8px;
-            padding: 15px 20px;
+            padding: 12px 20px;
             color: white;
             text-align: center;
         }
         
         .performance-text {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 600;
         }
     </style>
@@ -117,7 +172,32 @@
     <div class="container">
         <div class="title">Hallucination Detection</div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
+        <!-- Detection Pipeline Visualization -->
+        <div class="detection-pipeline">
+            <div class="pipeline-step">
+                <div class="pipeline-icon">📝</div>
+                <div class="pipeline-label">Generate Response</div>
+            </div>
+            <div class="pipeline-step">
+                <div class="pipeline-icon">🔍</div>
+                <div class="pipeline-label">Verify Facts</div>
+            </div>
+            <div class="pipeline-step">
+                <div class="pipeline-icon">✓</div>
+                <div class="pipeline-label">Cross-Reference</div>
+            </div>
+            <div class="pipeline-step">
+                <div class="pipeline-icon">⚠️</div>
+                <div class="pipeline-label">Flag Issues</div>
+            </div>
+            <div class="arrow-container">
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+            </div>
+        </div>
+        
+        <div class="features-section">
             <div class="features-title">Types of Medical Hallucinations</div>
             <div class="features-grid">
                 <div class="feature-item">
@@ -139,31 +219,17 @@
             </div>
         </div>
         
-        <div class="features-section" style="margin-bottom: 20px;">
-            <div class="features-title">Detection Methods</div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">✅</span>
-                    <span>Cross-reference with medical databases</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🔍</span>
-                    <span>Expert validation and review</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">📚</span>
-                    <span>Citation and source checking</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🤖</span>
-                    <span>Automated fact verification systems</span>
-                </div>
-            </div>
+        <!-- Risk Level Visualization -->
+        <div class="risk-levels">
+            <div class="risk-bar risk-critical">CRITICAL</div>
+            <div class="risk-bar risk-high">HIGH</div>
+            <div class="risk-bar risk-medium">MEDIUM</div>
+            <div class="risk-bar risk-low">LOW</div>
         </div>
         
         <div class="performance-box">
             <div class="performance-text">
-                Risk Assessment: Critical (contraindicated) > High (incorrect) > Medium (misleading) > Low (minor)
+                Detection Methods: Medical DB Cross-reference | Expert Validation | Citation Check | Automated Fact Verification
             </div>
         </div>
         

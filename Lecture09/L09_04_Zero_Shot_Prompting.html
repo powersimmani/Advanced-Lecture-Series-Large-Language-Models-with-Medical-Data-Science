@@ -23,7 +23,7 @@
         .container {
             width: 960px;
             height: 540px;
-            padding: 32px 45px;
+            padding: 30px 45px;
             background: white;
         }
         
@@ -31,7 +31,7 @@
             font-size: 22px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             text-align: center;
         }
         
@@ -39,13 +39,13 @@
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 10px;
-            padding: 15px 22px;
-            margin-bottom: 20px;
+            padding: 14px 20px;
+            margin-bottom: 18px;
             text-align: center;
         }
         
         .definition-text {
-            font-size: 17px;
+            font-size: 16px;
             color: #333;
             font-weight: 500;
             line-height: 1.5;
@@ -57,56 +57,77 @@
         }
         
         .principles-section {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         
         .section-title {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             text-align: center;
         }
         
         .principles-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 16px;
         }
         
         .principle-card {
             background: white;
             border: 2.5px solid #1E64C8;
             border-radius: 8px;
-            padding: 14px 18px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .principle-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 3px 12px rgba(30, 100, 200, 0.2);
+        }
+        
+        .principle-icon {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        
+        .principle-content {
+            flex: 1;
         }
         
         .principle-title {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 6px;
+            margin-bottom: 3px;
         }
         
         .principle-desc {
-            font-size: 15px;
+            font-size: 14px;
             color: #555;
-            line-height: 1.4;
+            line-height: 1.3;
         }
         
         .example-box {
             background: #f8fbff;
             border: 2px solid #4a90e2;
             border-radius: 8px;
-            padding: 14px 18px;
+            padding: 12px 16px;
         }
         
         .example-label {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .prompt-text {
@@ -115,7 +136,7 @@
             border-radius: 6px;
             padding: 10px 14px;
             font-family: 'Courier New', monospace;
-            font-size: 14px;
+            font-size: 13px;
             color: #333;
             line-height: 1.5;
             margin-bottom: 8px;
@@ -126,9 +147,12 @@
             border-left: 4px solid #4caf50;
             padding: 8px 12px;
             border-radius: 4px;
-            font-size: 14px;
+            font-size: 13px;
             color: #2e7d32;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
     </style>
 </head>
@@ -147,29 +171,44 @@
             <div class="section-title">설계 원칙</div>
             <div class="principles-grid">
                 <div class="principle-card">
-                    <div class="principle-title">🎯 명확한 지시</div>
-                    <div class="principle-desc">작업을 구체적이고 명확하게 설명</div>
+                    <div class="principle-icon">🎯</div>
+                    <div class="principle-content">
+                        <div class="principle-title">명확한 지시</div>
+                        <div class="principle-desc">작업을 구체적이고 명확하게 설명</div>
+                    </div>
                 </div>
                 
                 <div class="principle-card">
-                    <div class="principle-title">📋 구조화된 출력</div>
-                    <div class="principle-desc">원하는 출력 형식을 명시</div>
+                    <div class="principle-icon">📋</div>
+                    <div class="principle-content">
+                        <div class="principle-title">구조화된 출력</div>
+                        <div class="principle-desc">원하는 출력 형식을 명시</div>
+                    </div>
                 </div>
                 
                 <div class="principle-card">
-                    <div class="principle-title">🔍 맥락 제공</div>
-                    <div class="principle-desc">작업 수행에 필요한 배경 정보 포함</div>
+                    <div class="principle-icon">📖</div>
+                    <div class="principle-content">
+                        <div class="principle-title">맥락 제공</div>
+                        <div class="principle-desc">작업 수행에 필요한 배경 정보 포함</div>
+                    </div>
                 </div>
                 
                 <div class="principle-card">
-                    <div class="principle-title">⚖️ 제약 조건</div>
-                    <div class="principle-desc">안전성과 품질을 위한 제약 명시</div>
+                    <div class="principle-icon">⚖️</div>
+                    <div class="principle-content">
+                        <div class="principle-title">제약 조건</div>
+                        <div class="principle-desc">안전성과 품질을 위한 제약 명시</div>
+                    </div>
                 </div>
             </div>
         </div>
         
         <div class="example-box">
-            <div class="example-label">의료 예시: 증상 기반 초기 평가</div>
+            <div class="example-label">
+                <span>💡</span>
+                <span>의료 예시: 증상 기반 초기 평가</span>
+            </div>
             <div class="prompt-text">
 You are a medical AI assistant. Analyze the following symptoms and provide<br>
 a preliminary assessment with possible conditions (ranked by likelihood):<br>
@@ -177,7 +216,8 @@ Symptoms: persistent cough, fever, fatigue<br>
 Output format: JSON with conditions array
             </div>
             <div class="performance-note">
-                ✓ 명확한 역할과 작업 정의, 구조화된 출력 형식 지정
+                <span>✓</span>
+                <span>명확한 역할과 작업 정의, 구조화된 출력 형식 지정</span>
             </div>
         </div>
     </div>

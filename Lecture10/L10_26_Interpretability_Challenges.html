@@ -11,11 +11,15 @@
         .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 22px; text-align: center; }
         .concept-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px 25px; margin-bottom: 22px; text-align: center; font-size: 17px; color: #333; font-weight: 500; }
         .highlight { color: #1E64C8; font-weight: 700; }
-        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+        .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 20px; }
         .content-card { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 18px; transition: all 0.3s; }
         .content-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2); background: #f8fbff; }
         .card-title { font-size: 18px; font-weight: 700; color: #1E64C8; margin-bottom: 10px; }
-        .card-desc { font-size: 15px; color: #555; line-height: 1.5; }
+        .card-desc { font-size: 15px; color: #555; line-height: 1.5; margin-bottom: 8px; }
+        .bullet { display: flex; align-items: flex-start; margin-bottom: 4px; font-size: 14px; }
+        .bullet::before { content: "•"; color: #1E64C8; font-weight: bold; margin-right: 8px; }
+        .methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .method-box { background: #f8f9fb; border-left: 4px solid #1E64C8; padding: 12px 15px; border-radius: 6px; text-align: center; font-size: 14px; color: #333; font-weight: 500; }
     </style>
 </head>
 <body>
@@ -24,13 +28,42 @@
         <div class="concept-box">멀티모달 모델의 복잡성으로 인한 해석 어려움, 어텐션 시각화 및 SHAP 활용</div>
         <div class="content-grid">
             <div class="content-card">
-                <div class="card-title">Key Point 1</div>
-                <div class="card-desc">Detailed explanation of the first key point</div>
+                <div class="card-title">해석 가능성 필요성</div>
+                <div class="card-desc">의료 AI의 신뢰성 확보</div>
+                <div class="bullet">임상의 의사결정 지원</div>
+                <div class="bullet">규제 요구사항 (FDA, CE)</div>
+                <div class="bullet">환자 설명 책임</div>
+                <div class="bullet">모델 디버깅 및 개선</div>
             </div>
             <div class="content-card">
-                <div class="card-title">Key Point 2</div>
-                <div class="card-desc">Detailed explanation of the second key point</div>
+                <div class="card-title">멀티모달 해석 어려움</div>
+                <div class="card-desc">복잡성의 원인</div>
+                <div class="bullet">다층 융합 구조</div>
+                <div class="bullet">모달 간 상호작용</div>
+                <div class="bullet">비선형 변환</div>
+                <div class="bullet">고차원 표현 공간</div>
             </div>
+            <div class="content-card">
+                <div class="card-title">Attention 시각화</div>
+                <div class="card-desc">어텐션 가중치 분석</div>
+                <div class="bullet">Cross-attention 맵</div>
+                <div class="bullet">모달별 기여도</div>
+                <div class="bullet">히트맵 오버레이</div>
+                <div class="bullet">시간적 어텐션 패턴</div>
+            </div>
+            <div class="content-card">
+                <div class="card-title">XAI 기법</div>
+                <div class="card-desc">설명 가능 AI 방법론</div>
+                <div class="bullet">SHAP: Shapley values</div>
+                <div class="bullet">LIME: 로컬 근사</div>
+                <div class="bullet">Grad-CAM: 그래디언트 기반</div>
+                <div class="bullet">Integrated Gradients</div>
+            </div>
+        </div>
+        <div class="methods">
+            <div class="method-box">모달 중요도<br>점수</div>
+            <div class="method-box">특징 기여도<br>분석</div>
+            <div class="method-box">대조 사례<br>제시</div>
         </div>
     </div>
 </body>
