@@ -230,3 +230,5 @@ Students should be able to:
 **Course**: Introduction to Biomedical Data Science  
 **Institution**: Ghent University Global Campus  
 **Academic Year**: 2024-2025
+
+

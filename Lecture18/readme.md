@@ -176,3 +176,4 @@ For questions or feedback about this lecture:
 **Last Updated**: November 2025  
 **Version**: 1.0  
 **Format**: HTML5 with responsive CSS
+

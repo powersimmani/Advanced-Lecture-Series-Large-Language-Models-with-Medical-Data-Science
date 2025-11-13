@@ -196,3 +196,4 @@ For questions, clarifications, or further information about the lecture material
 
 **Last Updated:** November 10, 2025  
 **Version:** 1.0
+
