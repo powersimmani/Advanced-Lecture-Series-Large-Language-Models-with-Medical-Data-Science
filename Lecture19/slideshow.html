@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 19 - Slideshow</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Aptos, 'Segoe UI', sans-serif; background: #1a1a1a; overflow: hidden; }
+        .slideshow-container { position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .slide { display: none; width: 100vw; height: 100vh; background: white; animation: fadeIn 0.5s ease-in-out; }
+        .slide.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+        iframe { width: 100%; height: 100%; border: none; }
+        .nav-controls { position: fixed; bottom: 15px; right: 15px; display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.6); padding: 6px 15px; border-radius: 50px; backdrop-filter: blur(10px); z-index: 1000; }
+        .nav-button { background: #1E64C8; color: white; border: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; font-size: 12px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .nav-button:hover { background: #2874d8; transform: scale(1.1); }
+        .nav-button:active { transform: scale(0.95); }
+        .nav-button:disabled { background: #555; cursor: not-allowed; opacity: 0.5; }
+        .slide-counter { color: white; font-size: 12px; font-weight: 500; padding: 0 6px; min-width: 45px; text-align: center; }
+        .toc-button { position: fixed; bottom: 15px; left: 15px; background: rgba(0,0,0,0.6); color: white; border: none; padding: 8px 16px; border-radius: 50px; cursor: pointer; font-size: 13px; font-weight: 500; backdrop-filter: blur(10px); z-index: 1000; transition: all 0.3s ease; }
+        .toc-button:hover { background: rgba(30, 100, 200, 0.8); transform: translateY(-2px); }
+        .toc-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; padding: 40px; overflow-y: auto; }
+        .toc-overlay.active { display: block; }
+        .toc-content { max-width: 900px; margin: 0 auto; background: white; border-radius: 15px; padding: 35px; }
+        .toc-title { font-size: 32px; font-weight: 700; color: #1E64C8; margin-bottom: 25px; text-align: center; }
+        .toc-item { padding: 10px 15px; margin-bottom: 6px; background: #f8f9fa; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
+        .toc-item:hover { background: #e8f2ff; transform: translateX(5px); }
+        .toc-item-number { font-weight: 700; color: #1E64C8; min-width: 35px; }
+        .toc-item-title { font-size: 15px; color: #333; }
+        .toc-close { position: absolute; top: 20px; right: 20px; background: #1E64C8; color: white; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 20px; font-weight: 700; transition: all 0.3s ease; }
+        .toc-close:hover { background: #2874d8; transform: rotate(90deg); }
+        .shortcut-hint { position: fixed; top: 15px; right: 15px; background: rgba(0,0,0,0.6); color: white; padding: 6px 12px; border-radius: 20px; font-size: 11px; backdrop-filter: blur(10px); z-index: 1000; opacity: 0; animation: fadeInOut 4s ease-in-out; }
+        @keyframes fadeInOut { 0%, 100% { opacity: 0; } 20%, 80% { opacity: 1; } }
+    </style>
+    <script>
+        function filenameToTitle(name) {
+            try {
+                let base = name.replace(/^L\\d{2}_\\d{2}_/, '').replace(/\\.html$/i, '');
+                base = base.replace(/_/g, ' ').replace(/\\s+/g, ' ').trim();
+                if (!base) return name;
+                return base;
+            } catch (e) {
+                return name;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="shortcut-hint">← → 화살표 키 또는 버튼으로 넘길 수 있어요</div>
+    <button class="toc-button" onclick="toggleTOC()">📑 목차</button>
+    <div class="toc-overlay" id="tocOverlay">
+        <button class="toc-close" onclick="toggleTOC()">×</button>
+        <div class="toc-content">
+            <div class="toc-title">Lecture 19</div>
+            <div id="tocItems"></div>
+        </div>
+    </div>
+    <div class="slideshow-container" id="slides"></div>
+    <div class="nav-controls">
+        <button class="nav-button" id="prevBtn" onclick="changeSlide(-1)">◀</button>
+        <span class="slide-counter" id="slideCounter">0 / 0</span>
+        <button class="nav-button" id="nextBtn" onclick="changeSlide(1)">▶</button>
+    </div>
+    <script>
+        const fileNames = [
+            "L19_01_Title_Medical_AI_Regulation.html",
+            "L19_02_Regulatory_Landscape.html",
+            "L19_03_Part1_FDA_Frameworks.html",
+            "L19_04_FDA_AI_ML_Pathway.html",
+            "L19_05_510k_Clearance.html",
+            "L19_06_PMA_Approval.html",
+            "L19_07_De_Novo_Classification.html",
+            "L19_08_Software_as_Medical_Device.html",
+            "L19_09_Predetermined_Change_Control.html",
+            "L19_10_Clinical_Validation_Requirements.html",
+            "L19_11_Part2_International_Regulations.html",
+            "L19_12_EU_MDR_IVDR.html",
+            "L19_13_CE_Marking.html",
+            "L19_14_UK_MHRA_Guidelines.html",
+            "L19_15_Health_Canada_Requirements.html",
+            "L19_16_APAC_Regulations.html",
+            "L19_17_Harmonization_Efforts.html",
+            "L19_18_Part3_Legal_Considerations.html",
+            "L19_19_Liability_Framework.html",
+            "L19_20_Malpractice_Insurance.html",
+            "L19_21_Intellectual_Property.html",
+            "L19_22_Data_Rights_Ownership.html",
+            "L19_23_Clinical_Trial_Regulations.html",
+            "L19_24_Post_Market_Surveillance.html",
+            "L19_25_Adverse_Event_Reporting.html",
+            "L19_26_Compliance_Auditing.html",
+            "L19_27_Case_Law_Analysis.html",
+            "L19_28_Regulatory_Strategy.html",
+            "L19_29_Future_Policy_Directions.html",
+            "L19_30_Thank_You.html"
+        ];
+        const slides = fileNames.map(n => ({ src: n, title: filenameToTitle(n) }));
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        function renderSlides() {
+            const container = document.getElementById('slides');
+            slides.forEach((s, idx) => {
+                const div = document.createElement('div');
+                div.className = 'slide' + (idx === 0 ? ' active' : '');
+                div.id = 'slide' + idx;
+                const iframe = document.createElement('iframe');
+                iframe.src = s.src;
+                iframe.title = s.title || ('Slide ' + (idx + 1));
+                div.appendChild(iframe);
+                container.appendChild(div);
+            });
+        }
+        function renderTOC() {
+            const toc = document.getElementById('tocItems');
+            slides.forEach((s, idx) => {
+                const item = document.createElement('div');
+                item.className = 'toc-item';
+                item.onclick = () => goToSlide(idx);
+                item.innerHTML = '<div class="toc-item-number">' + String(idx + 1).padStart(2, '0') + '</div>' +
+                                 '<div class="toc-item-title">' + (s.title || s.src) + '</div>';
+                toc.appendChild(item);
+            });
+        }
+        function updateUI() {
+            document.getElementById('slideCounter').textContent = (currentSlide + 1) + ' / ' + totalSlides;
+            document.getElementById('prevBtn').disabled = (currentSlide === 0);
+            document.getElementById('nextBtn').disabled = (currentSlide === totalSlides - 1);
+        }
+        function showSlide(n) {
+            const slidesEls = document.getElementsByClassName('slide');
+            if (n >= totalSlides) currentSlide = totalSlides - 1;
+            if (n < 0) currentSlide = 0;
+            for (let i = 0; i < slidesEls.length; i++) slidesEls[i].classList.remove('active');
+            slidesEls[currentSlide].classList.add('active');
+            updateUI();
+        }
+        function changeSlide(n) { currentSlide += n; showSlide(currentSlide); }
+        function goToSlide(n) { currentSlide = n; showSlide(currentSlide); toggleTOC(); }
+        function toggleTOC() { document.getElementById('tocOverlay').classList.toggle('active'); }
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') changeSlide(-1);
+            else if (event.key === 'ArrowRight') changeSlide(1);
+            else if (event.key === 'Escape') {
+                if (document.getElementById('tocOverlay').classList.contains('active')) toggleTOC();
+            }
+        });
+        window.addEventListener('DOMContentLoaded', function() {
+            renderSlides(); renderTOC(); updateUI(); showSlide(0);
+        });
+    </script>
+</body>
+</html>
+
+
