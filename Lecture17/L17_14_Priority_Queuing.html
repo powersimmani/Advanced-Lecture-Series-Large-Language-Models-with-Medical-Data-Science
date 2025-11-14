@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>우선순위 큐잉 (Priority Queuing)</title>
+    <title>Priority Queuing (Priority Queuing)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -56,12 +56,12 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">우선순위 큐잉 (Priority Queuing)</div>
+        <div class="title">Priority Queuing (Priority Queuing)</div>
         
         <div class="queue-container">
             <svg viewBox="0 0 900 340" style="width: 100%; height: auto;">
                 <!-- Incoming Cases -->
-                <text x="80" y="30" font-size="15" fill="#1E64C8" text-anchor="middle" font-weight="600">📥 접수된 케이스</text>
+                <text x="80" y="30" font-size="15" fill="#1E64C8" text-anchor="middle" font-weight="600">📥 Incoming Cases</text>
                 
                 <g>
                     <rect x="20" y="50" width="120" height="60" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
@@ -90,10 +90,10 @@
                 <g>
                     <rect x="190" y="90" width="200" height="120" rx="10" fill="#1E64C8"/>
                     <text x="290" y="125" font-size="40" text-anchor="middle">🤖</text>
-                    <text x="290" y="155" font-size="15" fill="white" text-anchor="middle" font-weight="600">AI 우선순위 엔진</text>
+                    <text x="290" y="155" font-size="15" fill="white" text-anchor="middle" font-weight="600">AI Priority Engine</text>
                     <line x1="210" y1="165" x2="370" y2="165" stroke="white" stroke-width="1"/>
-                    <text x="290" y="182" font-size="11" fill="white" text-anchor="middle">• 긴급도 평가</text>
-                    <text x="290" y="197" font-size="11" fill="white" text-anchor="middle">• 이상 소견 검출</text>
+                    <text x="290" y="182" font-size="11" fill="white" text-anchor="middle">• Urgency Assessment</text>
+                    <text x="290" y="197" font-size="11" fill="white" text-anchor="middle">• Finding Detection</text>
                 </g>
                 
                 <!-- Arrows to Queues -->
@@ -106,24 +106,24 @@
                 <g>
                     <rect x="490" y="20" width="160" height="70" rx="8" fill="#ffebee" stroke="#d32f2f" stroke-width="3"/>
                     <text x="570" y="45" font-size="28" text-anchor="middle">🔴</text>
-                    <text x="570" y="68" font-size="13" text-anchor="middle" fill="#c62828" font-weight="700">긴급 (HIGH)</text>
-                    <text x="570" y="83" font-size="11" text-anchor="middle" fill="#666">⏱ 5분 이내</text>
+                    <text x="570" y="68" font-size="13" text-anchor="middle" fill="#c62828" font-weight="700">Emergent (HIGH)</text>
+                    <text x="570" y="83" font-size="11" text-anchor="middle" fill="#666">⏱ 5min 이내</text>
                 </g>
                 
                 <!-- Medium Priority -->
                 <g>
                     <rect x="490" y="115" width="160" height="70" rx="8" fill="#fff3e0" stroke="#ff9800" stroke-width="3"/>
                     <text x="570" y="140" font-size="28" text-anchor="middle">🟡</text>
-                    <text x="570" y="163" font-size="13" text-anchor="middle" fill="#e65100" font-weight="700">준긴급 (MEDIUM)</text>
-                    <text x="570" y="178" font-size="11" text-anchor="middle" fill="#666">⏱ 30분 이내</text>
+                    <text x="570" y="163" font-size="13" text-anchor="middle" fill="#e65100" font-weight="700">준Emergent (MEDIUM)</text>
+                    <text x="570" y="178" font-size="11" text-anchor="middle" fill="#666">⏱ 30min 이내</text>
                 </g>
                 
                 <!-- Low Priority -->
                 <g>
                     <rect x="490" y="210" width="160" height="70" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="3"/>
                     <text x="570" y="235" font-size="28" text-anchor="middle">🟢</text>
-                    <text x="570" y="258" font-size="13" text-anchor="middle" fill="#2e7d32" font-weight="700">일반 (LOW)</text>
-                    <text x="570" y="273" font-size="11" text-anchor="middle" fill="#666">⏱ 2시간 이내</text>
+                    <text x="570" y="258" font-size="13" text-anchor="middle" fill="#2e7d32" font-weight="700">day반 (LOW)</text>
+                    <text x="570" y="273" font-size="11" text-anchor="middle" fill="#666">⏱ 2hr 이내</text>
                 </g>
                 
                 <!-- Arrow to Radiologist -->
@@ -136,11 +136,11 @@
                     <rect x="710" y="100" width="160" height="100" rx="10" fill="#1E64C8"/>
                     <text x="790" y="135" font-size="40" text-anchor="middle">👨‍⚕️</text>
                     <text x="790" y="170" font-size="15" fill="white" text-anchor="middle" font-weight="600">방사선과 전문의</text>
-                    <text x="790" y="188" font-size="11" fill="white" text-anchor="middle">우선순위 기반 판독</text>
+                    <text x="790" y="188" font-size="11" fill="white" text-anchor="middle">Priority-based Reading</text>
                 </g>
                 
                 <!-- Stats -->
-                <text x="450" y="320" font-size="13" fill="#1E64C8" text-anchor="middle" font-weight="600">⚡ 평균 대기시간 45% 감소 | 📊 처리량 30% 증가</text>
+                <text x="450" y="320" font-size="13" fill="#1E64C8" text-anchor="middle" font-weight="600">⚡ 평균 대기hr 45% 감소 | 📊 처리량 30% 증가</text>
                 
                 <!-- Arrow markers -->
                 <defs>
@@ -162,19 +162,19 @@
         
         <div class="metrics-grid">
             <div class="metric-card">
-                <div class="metric-label">대기시간 감소</div>
+                <div class="metric-label">Wait Time Reduction</div>
                 <div class="metric-value">45%</div>
             </div>
             <div class="metric-card">
-                <div class="metric-label">처리량 증가</div>
+                <div class="metric-label">Throughput Increase</div>
                 <div class="metric-value">30%</div>
             </div>
             <div class="metric-card">
-                <div class="metric-label">긴급 케이스 처리</div>
+                <div class="metric-label">Urgent Case Processing</div>
                 <div class="metric-value">98%</div>
             </div>
             <div class="metric-card">
-                <div class="metric-label">시스템 정확도</div>
+                <div class="metric-label">시스템 Accuracy</div>
                 <div class="metric-value">91%</div>
             </div>
         </div>

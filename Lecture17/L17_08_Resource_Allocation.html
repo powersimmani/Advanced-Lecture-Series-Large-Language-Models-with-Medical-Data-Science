@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resource Allocation</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: Aptos, 'Segoe UI', sans-serif;
             background: white;
@@ -20,13 +15,7 @@
             min-height: 100vh;
             padding: 40px 20px;
         }
-        
-        .container {
-            width: 960px;
-            padding: 35px 45px;
-            background: white;
-        }
-        
+        .container { width: 960px; padding: 35px 45px; background: white; }
         .title {
             font-size: 36px;
             font-weight: 700;
@@ -34,7 +23,6 @@
             margin-bottom: 30px;
             text-align: center;
         }
-        
         .system-section {
             background: #f8fbff;
             border: 2px solid #1E64C8;
@@ -42,7 +30,6 @@
             padding: 25px;
             margin-bottom: 25px;
         }
-        
         .section-title {
             font-size: 22px;
             font-weight: 600;
@@ -50,14 +37,12 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        
         .allocation-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
             margin-bottom: 20px;
         }
-        
         .allocation-card {
             background: white;
             border: 2px solid #1E64C8;
@@ -66,49 +51,41 @@
             text-align: center;
             transition: all 0.3s;
         }
-        
         .allocation-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
         }
-        
         .card-icon {
             font-size: 32px;
             margin-bottom: 10px;
         }
-        
         .card-title {
             font-size: 16px;
             font-weight: 600;
             color: #1E64C8;
             margin-bottom: 5px;
         }
-        
         .card-desc {
             font-size: 13px;
             color: #666;
         }
-        
         .efficiency-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-        
         .efficiency-box {
             background: #f8f9fb;
             border-left: 4px solid #1E64C8;
             padding: 20px;
             border-radius: 6px;
         }
-        
         .efficiency-title {
             font-size: 18px;
             font-weight: 600;
             color: #1E64C8;
             margin-bottom: 15px;
         }
-        
         .metric-row {
             display: flex;
             justify-content: space-between;
@@ -116,11 +93,7 @@
             border-bottom: 1px solid #e0e8f4;
             font-size: 15px;
         }
-        
-        .metric-row:last-child {
-            border-bottom: none;
-        }
-        
+        .metric-row:last-child { border-bottom: none; }
         .metric-value {
             color: #1E64C8;
             font-weight: 700;
@@ -129,81 +102,81 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">자원 할당 최적화 (Resource Allocation)</div>
+        <div class="title">Resource Allocation Optimization</div>
         
         <div class="system-section">
-            <div class="section-title">할당 시스템 기능</div>
+            <div class="section-title">Allocation System Features</div>
             <div class="allocation-grid">
                 <div class="allocation-card">
                     <div class="card-icon">🛏️</div>
-                    <div class="card-title">병상 관리</div>
-                    <div class="card-desc">실시간 병상 현황 추적</div>
+                    <div class="card-title">Bed Management</div>
+                    <div class="card-desc">Real-time bed status tracking</div>
                 </div>
                 <div class="allocation-card">
                     <div class="card-icon">👨‍⚕️</div>
-                    <div class="card-title">인력 배치</div>
-                    <div class="card-desc">수요 예측 기반 배치</div>
+                    <div class="card-title">Staff Allocation</div>
+                    <div class="card-desc">Demand-based deployment</div>
                 </div>
                 <div class="allocation-card">
                     <div class="card-icon">🚑</div>
-                    <div class="card-title">응급차량</div>
-                    <div class="card-desc">최적 경로 배정</div>
+                    <div class="card-title">Ambulances</div>
+                    <div class="card-desc">Optimal routing</div>
                 </div>
                 <div class="allocation-card">
                     <div class="card-icon">💊</div>
-                    <div class="card-title">약품 재고</div>
-                    <div class="card-desc">자동 수요 예측</div>
+                    <div class="card-title">Medication Inventory</div>
+                    <div class="card-desc">Automatic demand forecasting</div>
                 </div>
                 <div class="allocation-card">
                     <div class="card-icon">🔬</div>
-                    <div class="card-title">검사실 스케줄</div>
-                    <div class="card-desc">우선순위 기반 예약</div>
+                    <div class="card-title">Lab Scheduling</div>
+                    <div class="card-desc">Priority-based booking</div>
                 </div>
                 <div class="allocation-card">
                     <div class="card-icon">🏥</div>
-                    <div class="card-title">수술실 관리</div>
-                    <div class="card-desc">시간 최적화</div>
+                    <div class="card-title">OR Management</div>
+                    <div class="card-desc">Time optimization</div>
                 </div>
             </div>
         </div>
         
         <div class="efficiency-grid">
             <div class="efficiency-box">
-                <div class="efficiency-title">효율성 개선</div>
+                <div class="efficiency-title">Efficiency Improvements</div>
                 <div class="metric-row">
-                    <span>병상 회전율</span>
+                    <span>Bed Turnover Rate</span>
                     <span class="metric-value">+22%</span>
                 </div>
                 <div class="metric-row">
-                    <span>대기 시간 감소</span>
-                    <span class="metric-value">35분</span>
+                    <span>Wait Time Reduction</span>
+                    <span class="metric-value">35 min</span>
                 </div>
                 <div class="metric-row">
-                    <span>자원 활용률</span>
+                    <span>Resource Utilization</span>
                     <span class="metric-value">85% → 95%</span>
                 </div>
                 <div class="metric-row">
-                    <span>인력 배치 최적화</span>
+                    <span>Staff Allocation Optimization</span>
                     <span class="metric-value">+18%</span>
                 </div>
             </div>
             
             <div class="efficiency-box">
-                <div class="efficiency-title">비용 절감</div>
+                <div class="efficiency-title">Cost Savings</div>
                 <div class="metric-row">
-                    <span>운영 비용</span>
+                    <span>Operating Costs</span>
                     <span class="metric-value">-12%</span>
                 </div>
                 <div class="metric-row">
-                    <span>초과 근무</span>
+                    <span>Overtime</span>
                     <span class="metric-value">-28%</span>
                 </div>
                 <div class="metric-row">
-                    <span>재고 낭비</span>
+                    <span>Inventory Waste</span>
                     <span class="metric-value">-15%</span>
                 </div>
                 <div class="metric-row">
-                    <span>연간 절감액</span>
+                    <span>Annual Savings</span>
                     <span class="metric-value">$2.5M</span>
                 </div>
             </div>

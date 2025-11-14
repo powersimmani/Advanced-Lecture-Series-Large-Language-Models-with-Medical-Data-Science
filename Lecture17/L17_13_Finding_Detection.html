@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이상 소견 검출 (Finding Detection)</title>
+    <title>Finding Detection (Finding Detection)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -60,7 +60,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">이상 소견 검출 (Finding Detection)</div>
+        <div class="title">Finding Detection (Finding Detection)</div>
         
         <div class="detection-container">
             <svg viewBox="0 0 900 320" style="width: 100%; height: auto;">
@@ -106,22 +106,22 @@
                 <g>
                     <rect x="430" y="40" width="180" height="80" rx="8" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
                     <text x="520" y="65" font-size="28" text-anchor="middle">⚠️</text>
-                    <text x="520" y="90" font-size="13" text-anchor="middle" fill="#333" font-weight="600">폐렴 의심</text>
-                    <text x="520" y="108" font-size="11" text-anchor="middle" fill="#e65100" font-weight="700">95% 신뢰도</text>
+                    <text x="520" y="90" font-size="13" text-anchor="middle" fill="#333" font-weight="600">Suspected Pneumonia</text>
+                    <text x="520" y="108" font-size="11" text-anchor="middle" fill="#e65100" font-weight="700">95% Confidence</text>
                 </g>
                 
                 <g>
                     <rect x="430" y="135" width="180" height="80" rx="8" fill="#ffebee" stroke="#f44336" stroke-width="2"/>
                     <text x="520" y="160" font-size="28" text-anchor="middle">🔴</text>
-                    <text x="520" y="185" font-size="13" text-anchor="middle" fill="#333" font-weight="600">결절 발견</text>
-                    <text x="520" y="203" font-size="11" text-anchor="middle" fill="#c62828" font-weight="700">88% 신뢰도</text>
+                    <text x="520" y="185" font-size="13" text-anchor="middle" fill="#333" font-weight="600">Nodule Found</text>
+                    <text x="520" y="203" font-size="11" text-anchor="middle" fill="#c62828" font-weight="700">88% Confidence</text>
                 </g>
                 
                 <g>
                     <rect x="430" y="230" width="180" height="80" rx="8" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
                     <text x="520" y="255" font-size="28" text-anchor="middle">ℹ️</text>
-                    <text x="520" y="280" font-size="13" text-anchor="middle" fill="#333" font-weight="600">흉막 삼출</text>
-                    <text x="520" y="298" font-size="11" text-anchor="middle" fill="#1976d2" font-weight="700">72% 신뢰도</text>
+                    <text x="520" y="280" font-size="13" text-anchor="middle" fill="#333" font-weight="600">Pleural Effusion</text>
+                    <text x="520" y="298" font-size="11" text-anchor="middle" fill="#1976d2" font-weight="700">72% Confidence</text>
                 </g>
                 
                 <!-- Arrow -->
@@ -131,15 +131,15 @@
                 <g>
                     <rect x="660" y="100" width="200" height="160" rx="10" fill="#1E64C8"/>
                     <text x="760" y="130" font-size="36" text-anchor="middle">📋</text>
-                    <text x="760" y="165" font-size="15" fill="white" text-anchor="middle" font-weight="600">상세 리포트</text>
+                    <text x="760" y="165" font-size="15" fill="white" text-anchor="middle" font-weight="600">Detailed Report</text>
                     <line x1="680" y1="180" x2="840" y2="180" stroke="white" stroke-width="1"/>
-                    <text x="760" y="200" font-size="12" fill="white" text-anchor="middle">✓ 이상 소견 위치</text>
-                    <text x="760" y="220" font-size="12" fill="white" text-anchor="middle">✓ 신뢰도 점수</text>
-                    <text x="760" y="240" font-size="12" fill="white" text-anchor="middle">✓ 권장 조치사항</text>
+                    <text x="760" y="200" font-size="12" fill="white" text-anchor="middle">✓ Finding Location</text>
+                    <text x="760" y="220" font-size="12" fill="white" text-anchor="middle">✓ Confidence 점수</text>
+                    <text x="760" y="240" font-size="12" fill="white" text-anchor="middle">✓ Recommended Actions</text>
                 </g>
                 
                 <!-- Processing time -->
-                <text x="450" y="30" font-size="14" fill="#1E64C8" text-anchor="middle" font-weight="600">⏱ 처리 시간: 3초</text>
+                <text x="450" y="30" font-size="14" fill="#1E64C8" text-anchor="middle" font-weight="600">⏱ Processing Time: 3sec</text>
                 
                 <!-- Arrow marker -->
                 <defs>
@@ -153,32 +153,32 @@
         <div class="results-grid">
             <div class="result-card">
                 <div class="result-icon">🎯</div>
-                <div class="result-label">검출 정확도</div>
+                <div class="result-label">검출 Accuracy</div>
                 <div class="result-value">94%</div>
             </div>
             <div class="result-card">
                 <div class="result-icon">🔍</div>
-                <div class="result-label">민감도</div>
+                <div class="result-label">Sensitivity</div>
                 <div class="result-value">96%</div>
             </div>
             <div class="result-card">
                 <div class="result-icon">✓</div>
-                <div class="result-label">특이도</div>
+                <div class="result-label">Specificity</div>
                 <div class="result-value">92%</div>
             </div>
             <div class="result-card">
                 <div class="result-icon">⚡</div>
-                <div class="result-label">처리 속도</div>
-                <div class="result-value">3초</div>
+                <div class="result-label">Processing Speed</div>
+                <div class="result-value">3sec</div>
             </div>
             <div class="result-card">
                 <div class="result-icon">📊</div>
-                <div class="result-label">일일 분석</div>
+                <div class="result-label">Daily Analysis</div>
                 <div class="result-value">1000+</div>
             </div>
             <div class="result-card">
                 <div class="result-icon">🏥</div>
-                <div class="result-label">검출 범주</div>
+                <div class="result-label">Detection Categories</div>
                 <div class="result-value">15+</div>
             </div>
         </div>

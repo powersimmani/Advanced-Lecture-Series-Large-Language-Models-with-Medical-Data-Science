@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>환자 매칭 (Patient Matching)</title>
+    <title>Patient Matching (Patient Matching)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -56,7 +56,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">환자 매칭 (Patient Matching)</div>
+        <div class="title">Patient Matching (Patient Matching)</div>
         
         <div class="matching-container">
             <svg viewBox="0 0 900 340" style="width: 100%; height: auto;">
@@ -64,18 +64,18 @@
                 <g>
                     <rect x="30" y="100" width="160" height="140" rx="10" fill="#e3f2fd" stroke="#1E64C8" stroke-width="2"/>
                     <text x="110" y="130" font-size="32" text-anchor="middle">📋</text>
-                    <text x="110" y="165" font-size="14" text-anchor="middle" fill="#1E64C8" font-weight="700">임상시험 정보</text>
+                    <text x="110" y="165" font-size="14" text-anchor="middle" fill="#1E64C8" font-weight="700">Clinical Trial Info</text>
                     <line x1="50" y1="175" x2="170" y2="175" stroke="#1E64C8" stroke-width="1"/>
-                    <text x="110" y="195" font-size="11" text-anchor="middle" fill="#333">• 포함 기준</text>
-                    <text x="110" y="212" font-size="11" text-anchor="middle" fill="#333">• 제외 기준</text>
-                    <text x="110" y="229" font-size="11" text-anchor="middle" fill="#333">• 목표 모집 수</text>
+                    <text x="110" y="195" font-size="11" text-anchor="middle" fill="#333">• Inclusion Criteria</text>
+                    <text x="110" y="212" font-size="11" text-anchor="middle" fill="#333">• Exclusion Criteria</text>
+                    <text x="110" y="229" font-size="11" text-anchor="middle" fill="#333">• Target Enrollment</text>
                 </g>
                 
                 <!-- Patient Pool -->
                 <g>
                     <rect x="30" y="260" width="160" height="70" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
                     <text x="110" y="290" font-size="28" text-anchor="middle">👥</text>
-                    <text x="110" y="318" font-size="12" text-anchor="middle" fill="#333" font-weight="600">환자 데이터베이스</text>
+                    <text x="110" y="318" font-size="12" text-anchor="middle" fill="#333" font-weight="600">Patient Database</text>
                 </g>
                 
                 <!-- Arrows to AI -->
@@ -86,14 +86,14 @@
                 <g>
                     <rect x="250" y="80" width="200" height="180" rx="12" fill="#1E64C8"/>
                     <text x="350" y="115" font-size="40" text-anchor="middle">🤖</text>
-                    <text x="350" y="155" font-size="16" fill="white" text-anchor="middle" font-weight="700">AI 매칭 엔진</text>
+                    <text x="350" y="155" font-size="16" fill="white" text-anchor="middle" font-weight="700">AI Matching Engine</text>
                     <line x1="270" y1="165" x2="430" y2="165" stroke="white" stroke-width="2"/>
                     
                     <rect x="270" y="180" width="160" height="30" rx="5" fill="#5088d4"/>
-                    <text x="350" y="201" font-size="12" fill="white" text-anchor="middle" font-weight="600">1. 데이터 통합 분석</text>
+                    <text x="350" y="201" font-size="12" fill="white" text-anchor="middle" font-weight="600">1. 데이터 통합 min석</text>
                     
                     <rect x="270" y="220" width="160" height="30" rx="5" fill="#5088d4"/>
-                    <text x="350" y="241" font-size="12" fill="white" text-anchor="middle" font-weight="600">2. 적격성 평가</text>
+                    <text x="350" y="241" font-size="12" fill="white" text-anchor="middle" font-weight="600">2. Eligible성 평가</text>
                 </g>
                 
                 <!-- Arrows to matches -->
@@ -106,7 +106,7 @@
                 <g>
                     <rect x="540" y="40" width="160" height="70" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="3"/>
                     <text x="620" y="65" font-size="24" text-anchor="middle">✓</text>
-                    <text x="620" y="88" font-size="13" text-anchor="middle" fill="#2e7d32" font-weight="700">높은 적합도</text>
+                    <text x="620" y="88" font-size="13" text-anchor="middle" fill="#2e7d32" font-weight="700">High Match</text>
                     <text x="620" y="103" font-size="11" text-anchor="middle" fill="#666">95-100% 매칭</text>
                 </g>
                 
@@ -114,7 +114,7 @@
                 <g>
                     <rect x="540" y="135" width="160" height="70" rx="8" fill="#fff3e0" stroke="#ff9800" stroke-width="3"/>
                     <text x="620" y="160" font-size="24" text-anchor="middle">~</text>
-                    <text x="620" y="183" font-size="13" text-anchor="middle" fill="#e65100" font-weight="700">중간 적합도</text>
+                    <text x="620" y="183" font-size="13" text-anchor="middle" fill="#e65100" font-weight="700">Medium Match</text>
                     <text x="620" y="198" font-size="11" text-anchor="middle" fill="#666">70-94% 매칭</text>
                 </g>
                 
@@ -122,7 +122,7 @@
                 <g>
                     <rect x="540" y="230" width="160" height="70" rx="8" fill="#ffebee" stroke="#f44336" stroke-width="3"/>
                     <text x="620" y="255" font-size="24" text-anchor="middle">✗</text>
-                    <text x="620" y="278" font-size="13" text-anchor="middle" fill="#c62828" font-weight="700">낮은 적합도</text>
+                    <text x="620" y="278" font-size="13" text-anchor="middle" fill="#c62828" font-weight="700">Low Match</text>
                     <text x="620" y="293" font-size="11" text-anchor="middle" fill="#666">&lt;70% 매칭</text>
                 </g>
                 
@@ -133,18 +133,18 @@
                 <g>
                     <rect x="750" y="120" width="130" height="100" rx="10" fill="#1E64C8"/>
                     <text x="815" y="150" font-size="32" text-anchor="middle">📞</text>
-                    <text x="815" y="180" font-size="14" fill="white" text-anchor="middle" font-weight="700">모집 프로세스</text>
+                    <text x="815" y="180" font-size="14" fill="white" text-anchor="middle" font-weight="700">Recruitment Process</text>
                     <line x1="765" y1="190" x2="865" y2="190" stroke="white" stroke-width="1"/>
-                    <text x="815" y="206" font-size="11" fill="white" text-anchor="middle">자동 연락</text>
+                    <text x="815" y="206" font-size="11" fill="white" text-anchor="middle">Automatic Contact</text>
                 </g>
                 
                 <!-- Stats -->
-                <text x="450" y="25" font-size="14" fill="#1E64C8" text-anchor="middle" font-weight="600">⚡ 매칭 시간: 5분 | 📊 정확도: 92%</text>
+                <text x="450" y="25" font-size="14" fill="#1E64C8" text-anchor="middle" font-weight="600">⚡ 매칭 hr: 5min | 📊 Accuracy: 92%</text>
                 
                 <!-- Bottom process -->
                 <g>
                     <rect x="250" y="280" width="630" height="50" rx="8" fill="#e8f5e9" stroke="#4caf50" stroke-width="2"/>
-                    <text x="565" y="308" font-size="13" text-anchor="middle" fill="#2e7d32" font-weight="700">→ 스크리닝 → 동의서 확보 → 기준선 평가 → 등록 완료</text>
+                    <text x="565" y="308" font-size="13" text-anchor="middle" fill="#2e7d32" font-weight="700">→ Screening → Consent Acquisition → Baseline Assessment → Enrollment Complete</text>
                 </g>
                 
                 <!-- Arrow markers -->
@@ -167,19 +167,19 @@
         
         <div class="results-grid">
             <div class="result-card">
-                <div class="result-label">매칭 정확도</div>
+                <div class="result-label">매칭 Accuracy</div>
                 <div class="result-value">92%</div>
             </div>
             <div class="result-card">
-                <div class="result-label">처리 시간</div>
-                <div class="result-value">5분</div>
+                <div class="result-label">Processing Time</div>
+                <div class="result-value">5min</div>
             </div>
             <div class="result-card">
-                <div class="result-label">모집 속도 향상</div>
+                <div class="result-label">Recruitment Speed Improvement</div>
                 <div class="result-value">3배</div>
             </div>
             <div class="result-card">
-                <div class="result-label">비용 절감</div>
+                <div class="result-label">Cost Savings</div>
                 <div class="result-value">45%</div>
             </div>
         </div>

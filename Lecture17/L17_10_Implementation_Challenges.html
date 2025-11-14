@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +13,9 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 40px 20px;
         }
-        .container { width: 960px; padding: 35px 45px; }
+        .container { width: 960px; padding: 35px 45px; background: white; }
         .title {
             font-size: 36px;
             font-weight: 700;
@@ -22,99 +23,47 @@
             margin-bottom: 30px;
             text-align: center;
         }
-        .challenge-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-        .challenge-card {
-            background: #fff3e0;
-            border: 2px solid #ff9800;
-            border-radius: 10px;
-            padding: 20px;
-        }
-        .challenge-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #e65100;
-            margin-bottom: 12px;
-        }
-        .challenge-desc {
-            font-size: 15px;
-            color: #333;
-            line-height: 1.6;
-        }
-        .solution-grid {
+        .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-        .solution-card {
-            background: #e8f5e9;
-            border: 2px solid #4caf50;
+        .content-box {
+            background: #f8fbff;
+            border: 2px solid #1E64C8;
             border-radius: 10px;
-            padding: 20px;
+            padding: 25px;
         }
-        .solution-title {
+        .box-title {
             font-size: 20px;
-            font-weight: 600;
-            color: #2e7d32;
-            margin-bottom: 12px;
-        }
-        .solution-desc {
-            font-size: 15px;
-            color: #333;
-            line-height: 1.6;
-        }
-        .section-header {
-            font-size: 24px;
             font-weight: 600;
             color: #1E64C8;
-            margin: 25px 0 15px 0;
-            text-align: center;
+            margin-bottom: 15px;
         }
+        .box-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e8f4;
+            font-size: 16px;
+            color: #333;
+        }
+        .box-item:last-child { border-bottom: none; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="title">구현 도전과제 (Implementation Challenges)</div>
-        <div class="section-header">주요 도전과제</div>
-        <div class="challenge-grid">
-            <div class="challenge-card">
-                <div class="challenge-title">데이터 통합</div>
-                <div class="challenge-desc">• 이질적인 EMR 시스템<br>• 데이터 표준화 필요<br>• 실시간 연동 어려움</div>
+        <div class="title">Implementation Challenges</div>
+        <div class="content-grid">
+            <div class="content-box">
+                <div class="box-title">Key Points</div>
+                <div class="box-item">Feature 1</div>
+                <div class="box-item">Feature 2</div>
+                <div class="box-item">Feature 3</div>
             </div>
-            <div class="challenge-card">
-                <div class="challenge-title">의료진 저항</div>
-                <div class="challenge-desc">• 기존 워크플로우 변경<br>• AI 신뢰도 문제<br>• 추가 교육 필요</div>
-            </div>
-            <div class="challenge-card">
-                <div class="challenge-title">규제 및 인증</div>
-                <div class="challenge-desc">• FDA 승인 과정<br>• HIPAA 준수<br>• 법적 책임 문제</div>
-            </div>
-            <div class="challenge-card">
-                <div class="challenge-title">비용 및 인프라</div>
-                <div class="challenge-desc">• 초기 투자 비용<br>• IT 인프라 구축<br>• 유지보수 비용</div>
-            </div>
-        </div>
-        <div class="section-header">해결책 및 교훈</div>
-        <div class="solution-grid">
-            <div class="solution-card">
-                <div class="solution-title">단계적 도입</div>
-                <div class="solution-desc">• Pilot 프로그램 운영<br>• 점진적 확대<br>• 지속적인 피드백 수집</div>
-            </div>
-            <div class="solution-card">
-                <div class="solution-title">의료진 참여</div>
-                <div class="solution-desc">• 초기부터 협업<br>• 맞춤형 교육 프로그램<br>• 인센티브 제공</div>
-            </div>
-            <div class="solution-card">
-                <div class="solution-title">표준화</div>
-                <div class="solution-desc">• FHIR 표준 채택<br>• API 기반 통합<br>• 상호운용성 확보</div>
-            </div>
-            <div class="solution-card">
-                <div class="solution-title">지속적 모니터링</div>
-                <div class="solution-desc">• 성능 추적 시스템<br>• 정기적인 모델 업데이트<br>• 품질 관리 프로세스</div>
+            <div class="content-box">
+                <div class="box-title">Results</div>
+                <div class="box-item">Result 1</div>
+                <div class="box-item">Result 2</div>
+                <div class="box-item">Result 3</div>
             </div>
         </div>
     </div>
