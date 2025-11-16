@@ -86,54 +86,20 @@
             flex-shrink: 0;
         }
         
-        .info-section {
+        .process-diagram {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 10px;
             padding: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
-        .section-title {
+        .diagram-title {
             font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 15px;
             text-align: center;
-        }
-        
-        .content-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .example-box {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .example-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .example-content {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .example-line {
-            font-size: 15px;
-            color: #333;
-            line-height: 1.5;
         }
         
         .highlight-box {
@@ -144,21 +110,51 @@
             text-align: center;
         }
         
-        .highlight-text {
-            font-size: 17px;
-            color: #333;
-            font-weight: 600;
+        .path-node {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .path-node:hover {
+            transform: scale(1.05);
+        }
+        
+        .score-bar {
+            animation: scoreGrow 1.5s ease-out;
+        }
+        
+        @keyframes scoreGrow {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        .pruned {
+            animation: fadeOut 1s ease-in-out;
+            opacity: 0.3;
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0.3; }
+        }
+        
+        .selected {
+            animation: selectPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes selectPulse {
+            0%, 100% { stroke-width: 3; }
+            50% { stroke-width: 5; filter: brightness(1.2); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        
         <div class="title">Reasoning Path Selection & Optimization</div>
         
         <div class="comparison-grid">
             <div class="info-card">
-                <div class="card-header">Path Quality Metrics</div>
+                <div class="card-header">🎯 Path Quality Metrics</div>
                 <div class="card-content">
                     <div class="content-item">Logical consistency</div>
                     <div class="content-item">Evidence alignment</div>
@@ -168,7 +164,7 @@
             </div>
             
             <div class="info-card">
-                <div class="card-header">Selection Strategies</div>
+                <div class="card-header">🔍 Selection Strategies</div>
                 <div class="card-content">
                     <div class="content-item">Confidence scoring</div>
                     <div class="content-item">Expert validation</div>
@@ -178,10 +174,149 @@
             </div>
         </div>
         
+        <!-- SVG Path Selection Process -->
+        <div class="process-diagram">
+            <div class="diagram-title">Path Selection & Pruning Process</div>
+            <svg width="840" height="200" viewBox="0 0 840 200">
+                <!-- Stage 1: Generate Paths -->
+                <g>
+                    <text x="50" y="20" fill="#1E64C8" font-size="14" font-weight="700">1. Generate</text>
+                    
+                    <!-- Multiple Paths -->
+                    <g class="path-node">
+                        <rect x="10" y="30" width="120" height="30" rx="5" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="70" y="50" text-anchor="middle" fill="#333" font-size="13">Path A</text>
+                    </g>
+                    
+                    <g class="path-node">
+                        <rect x="10" y="65" width="120" height="30" rx="5" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="70" y="85" text-anchor="middle" fill="#333" font-size="13">Path B</text>
+                    </g>
+                    
+                    <g class="path-node">
+                        <rect x="10" y="100" width="120" height="30" rx="5" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="70" y="120" text-anchor="middle" fill="#333" font-size="13">Path C</text>
+                    </g>
+                    
+                    <g class="path-node">
+                        <rect x="10" y="135" width="120" height="30" rx="5" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="70" y="155" text-anchor="middle" fill="#333" font-size="13">Path D</text>
+                    </g>
+                    
+                    <g class="path-node">
+                        <rect x="10" y="170" width="120" height="30" rx="5" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="70" y="190" text-anchor="middle" fill="#333" font-size="13">Path E</text>
+                    </g>
+                </g>
+                
+                <!-- Arrows -->
+                <g>
+                    <path d="M 135 45 L 165 60" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                    <path d="M 135 80 L 165 85" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                    <path d="M 135 115 L 165 110" stroke="#dc3545" stroke-width="2" fill="none" stroke-dasharray="3,3" class="pruned"/>
+                    <path d="M 135 150 L 165 135" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                    <path d="M 135 185 L 165 160" stroke="#dc3545" stroke-width="2" fill="none" stroke-dasharray="3,3" class="pruned"/>
+                </g>
+                
+                <!-- Stage 2: Quality Assessment -->
+                <g>
+                    <text x="210" y="20" fill="#1E64C8" font-size="14" font-weight="700">2. Assess Quality</text>
+                    
+                    <!-- Score Bars -->
+                    <g class="path-node">
+                        <rect x="170" y="50" width="140" height="20" rx="3" fill="#e3f2fd" stroke="#1E64C8" stroke-width="1"/>
+                        <rect x="172" y="52" width="126" height="16" rx="2" fill="#28a745" class="score-bar"/>
+                        <text x="320" y="64" fill="#28a745" font-size="12" font-weight="700">90%</text>
+                    </g>
+                    
+                    <g class="path-node">
+                        <rect x="170" y="75" width="140" height="20" rx="3" fill="#e3f2fd" stroke="#1E64C8" stroke-width="1"/>
+                        <rect x="172" y="77" width="119" height="16" rx="2" fill="#28a745" class="score-bar"/>
+                        <text x="320" y="89" fill="#28a745" font-size="12" font-weight="700">85%</text>
+                    </g>
+                    
+                    <g class="path-node pruned">
+                        <rect x="170" y="100" width="140" height="20" rx="3" fill="#f8d7da" stroke="#dc3545" stroke-width="1"/>
+                        <rect x="172" y="102" width="42" height="16" rx="2" fill="#dc3545" class="score-bar"/>
+                        <text x="320" y="114" fill="#dc3545" font-size="12" font-weight="700">30%</text>
+                        <line x1="170" y1="100" x2="310" y2="120" stroke="#dc3545" stroke-width="2"/>
+                    </g>
+                    
+                    <g class="path-node">
+                        <rect x="170" y="125" width="140" height="20" rx="3" fill="#e3f2fd" stroke="#1E64C8" stroke-width="1"/>
+                        <rect x="172" y="127" width="105" height="16" rx="2" fill="#ffc107" class="score-bar"/>
+                        <text x="320" y="139" fill="#ffc107" font-size="12" font-weight="700">75%</text>
+                    </g>
+                    
+                    <g class="path-node pruned">
+                        <rect x="170" y="150" width="140" height="20" rx="3" fill="#f8d7da" stroke="#dc3545" stroke-width="1"/>
+                        <rect x="172" y="152" width="28" height="16" rx="2" fill="#dc3545" class="score-bar"/>
+                        <text x="320" y="164" fill="#dc3545" font-size="12" font-weight="700">20%</text>
+                        <line x1="170" y1="150" x2="310" y2="170" stroke="#dc3545" stroke-width="2"/>
+                    </g>
+                </g>
+                
+                <!-- Stage 3: Prune & Select -->
+                <g>
+                    <text x="400" y="20" fill="#1E64C8" font-size="14" font-weight="700">3. Prune & Select</text>
+                    
+                    <!-- Valid Paths Only -->
+                    <g>
+                        <path d="M 350 60 L 390 70" stroke="#28a745" stroke-width="2" fill="none"/>
+                        <path d="M 350 85 L 390 80" stroke="#28a745" stroke-width="2" fill="none"/>
+                        <path d="M 350 135 L 390 90" stroke="#ffc107" stroke-width="2" fill="none"/>
+                    </g>
+                    
+                    <g class="path-node">
+                        <rect x="395" y="60" width="130" height="25" rx="5" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                        <text x="460" y="78" text-anchor="middle" fill="#28a745" font-size="13" font-weight="700">Path A (90%)</text>
+                    </g>
+                    
+                    <g class="path-node">
+                        <rect x="395" y="88" width="130" height="25" rx="5" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                        <text x="460" y="106" text-anchor="middle" fill="#28a745" font-size="13" font-weight="700">Path B (85%)</text>
+                    </g>
+                    
+                    <g class="path-node">
+                        <rect x="395" y="116" width="130" height="25" rx="5" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+                        <text x="460" y="134" text-anchor="middle" fill="#856404" font-size="13" font-weight="700">Path D (75%)</text>
+                    </g>
+                    
+                    <text x="440" y="160" text-anchor="middle" fill="#dc3545" font-size="12" font-style="italic">2 paths eliminated</text>
+                </g>
+                
+                <!-- Stage 4: Final Selection -->
+                <g>
+                    <text x="580" y="20" fill="#1E64C8" font-size="14" font-weight="700">4. Final Selection</text>
+                    
+                    <path d="M 530 73 L 570 90" stroke="#28a745" stroke-width="3" fill="none"/>
+                    <path d="M 530 101 L 570 100" stroke="#999" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+                    <path d="M 530 128 L 570 110" stroke="#999" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+                    
+                    <!-- Winner -->
+                    <g class="path-node selected">
+                        <rect x="575" y="75" width="180" height="40" rx="8" fill="#28a745" stroke="#28a745" stroke-width="3"/>
+                        <text x="665" y="90" text-anchor="middle" fill="white" font-size="14" font-weight="700">✓ SELECTED</text>
+                        <text x="665" y="105" text-anchor="middle" fill="white" font-size="15" font-weight="700">Path A (Best Score)</text>
+                    </g>
+                    
+                    <!-- Validation Check -->
+                    <g>
+                        <circle cx="780" cy="95" r="25" fill="#1E64C8"/>
+                        <text x="780" y="90" text-anchor="middle" fill="white" font-size="11" font-weight="700">Expert</text>
+                        <text x="780" y="103" text-anchor="middle" fill="white" font-size="11" font-weight="700">Review</text>
+                    </g>
+                </g>
+                
+                <!-- Threshold Line -->
+                <line x1="160" y1="180" x2="360" y2="180" stroke="#dc3545" stroke-width="1" stroke-dasharray="5,3"/>
+                <text x="260" y="195" text-anchor="middle" fill="#dc3545" font-size="11">Quality Threshold: 50%</text>
+            </svg>
+        </div>
+        
         <div class="highlight-box">
             <strong style="color: #1E64C8;">Pruning Strategy:</strong> Eliminate paths with logical contradictions or unsupported claims early
         </div>
-    
     </div>
 </body>
 </html>

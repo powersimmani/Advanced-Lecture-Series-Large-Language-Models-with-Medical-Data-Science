@@ -11,6 +11,77 @@
         .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 22px; text-align: center; }
         .concept-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px 25px; margin-bottom: 22px; text-align: center; font-size: 17px; color: #333; font-weight: 500; }
         .highlight { color: #1E64C8; font-weight: 700; }
+        
+        .alignment-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 30px;
+        }
+        
+        .modality-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .modality-item {
+            background: #1E64C8;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 13px;
+            text-align: center;
+            min-width: 100px;
+        }
+        
+        .modality-item.image { background: #1E64C8; }
+        .modality-item.text { background: #2874d8; }
+        
+        .embedding-space {
+            position: relative;
+            width: 180px;
+            height: 180px;
+        }
+        
+        .space-circle {
+            position: absolute;
+            border: 3px dashed #1E64C8;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .space-label {
+            font-size: 14px;
+            color: #1E64C8;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .embedding-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #1E64C8;
+        }
+        
+        .dot1 { top: 30%; left: 25%; }
+        .dot2 { top: 32%; left: 30%; background: #2874d8; }
+        .dot3 { top: 60%; left: 60%; }
+        .dot4 { top: 58%; left: 65%; background: #2874d8; }
+        
+        .arrow-connect {
+            font-size: 32px;
+            color: #1E64C8;
+            font-weight: bold;
+        }
+        
         .alignment-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 20px; }
         .align-card { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 18px; transition: all 0.3s; }
         .align-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2); background: #f8fbff; }
@@ -29,6 +100,33 @@
             <span class="highlight">공통 임베딩 공간</span>에서 서로 다른 모달리티를 
             <span class="highlight">의미적으로 가까운 위치</span>에 배치하여 상호 이해 및 검색 가능
         </div>
+        
+        <div class="alignment-visual">
+            <div class="modality-group">
+                <div class="modality-item image">🖼️ Image 1</div>
+                <div class="modality-item image">🖼️ Image 2</div>
+            </div>
+            
+            <div class="arrow-connect">→</div>
+            
+            <div class="embedding-space">
+                <div class="space-circle">
+                    <div class="space-label">공통<br>임베딩<br>공간</div>
+                </div>
+                <div class="embedding-dot dot1" title="Image 1"></div>
+                <div class="embedding-dot dot2" title="Text 1"></div>
+                <div class="embedding-dot dot3" title="Image 2"></div>
+                <div class="embedding-dot dot4" title="Text 2"></div>
+            </div>
+            
+            <div class="arrow-connect">←</div>
+            
+            <div class="modality-group">
+                <div class="modality-item text">📝 Text 1</div>
+                <div class="modality-item text">📝 Text 2</div>
+            </div>
+        </div>
+        
         <div class="alignment-grid">
             <div class="align-card">
                 <div class="align-title">Projection Layers</div>

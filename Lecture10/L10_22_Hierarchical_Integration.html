@@ -11,14 +11,149 @@
         .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 22px; text-align: center; }
         .concept-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px 25px; margin-bottom: 22px; text-align: center; font-size: 17px; color: #333; font-weight: 500; }
         .highlight { color: #1E64C8; font-weight: 700; }
-        .hierarchy-flow { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
-        .level-box { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 15px 20px; display: flex; align-items: center; gap: 15px; }
-        .level-num { font-size: 24px; font-weight: 700; color: #1E64C8; min-width: 80px; }
-        .level-content { flex: 1; }
-        .level-title { font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 5px; }
-        .level-desc { font-size: 14px; color: #555; }
-        .benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-        .benefit-box { background: #f8f9fb; border-left: 4px solid #1E64C8; padding: 12px 15px; border-radius: 6px; text-align: center; font-size: 14px; color: #333; font-weight: 500; }
+        
+        .hierarchy-visual {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .pyramid {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 250px;
+        }
+        
+        .pyramid-level {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .pyramid-level:hover {
+            background: #f8fbff;
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 4px 15px rgba(30, 100, 200, 0.3);
+        }
+        
+        .level-4 {
+            bottom: 0;
+            width: 90%;
+            background: linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);
+            color: white;
+        }
+        
+        .level-3 {
+            bottom: 65px;
+            width: 75%;
+            background: #4a90e2;
+            color: white;
+        }
+        
+        .level-2 {
+            bottom: 130px;
+            width: 60%;
+            background: #6ba5e7;
+            color: white;
+        }
+        
+        .level-1 {
+            bottom: 195px;
+            width: 45%;
+            background: #8cbaec;
+            color: white;
+        }
+        
+        .level-label {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+        
+        .level-content {
+            font-size: 11px;
+            opacity: 0.95;
+        }
+        
+        .hierarchy-flow { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 12px; 
+            margin-bottom: 20px; 
+        }
+        
+        .level-box { 
+            background: white; 
+            border: 2.5px solid #1E64C8; 
+            border-radius: 8px; 
+            padding: 15px 20px; 
+            display: flex; 
+            align-items: center; 
+            gap: 15px;
+            position: relative;
+        }
+        
+        .level-box::after {
+            content: '↓';
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #1E64C8;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .level-box:last-child::after {
+            content: '';
+        }
+        
+        .level-num { 
+            font-size: 24px; 
+            font-weight: 700; 
+            color: #1E64C8; 
+            min-width: 80px; 
+        }
+        
+        .level-content-box { 
+            flex: 1; 
+        }
+        
+        .level-title { 
+            font-size: 16px; 
+            font-weight: 700; 
+            color: #1E64C8; 
+            margin-bottom: 5px; 
+        }
+        
+        .level-desc { 
+            font-size: 14px; 
+            color: #555; 
+        }
+        
+        .benefits { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 12px; 
+        }
+        
+        .benefit-box { 
+            background: #f8f9fb; 
+            border-left: 4px solid #1E64C8; 
+            padding: 12px 15px; 
+            border-radius: 6px; 
+            text-align: center; 
+            font-size: 14px; 
+            color: #333; 
+            font-weight: 500; 
+        }
     </style>
 </head>
 <body>
@@ -26,10 +161,31 @@
         <div class="title">Hierarchical Integration: 계층적 통합</div>
         <div class="concept-box">다단계 융합으로 저수준 특징부터 고수준 의미까지 계층적으로 통합</div>
         
+        <div class="hierarchy-visual">
+            <div class="pyramid">
+                <div class="pyramid-level level-1">
+                    <div class="level-label">Level 1: 저수준 특징</div>
+                    <div class="level-content">텍스처, 엣지, 픽셀 강도</div>
+                </div>
+                <div class="pyramid-level level-2">
+                    <div class="level-label">Level 2: 중간 수준 특징</div>
+                    <div class="level-content">해부학적 구조, 객체 부분</div>
+                </div>
+                <div class="pyramid-level level-3">
+                    <div class="level-label">Level 3: 고수준 의미</div>
+                    <div class="level-content">질환 카테고리, 진단 라벨</div>
+                </div>
+                <div class="pyramid-level level-4">
+                    <div class="level-label">Level 4: 의사결정</div>
+                    <div class="level-content">진단, 치료 계획, 예후, 위험도</div>
+                </div>
+            </div>
+        </div>
+        
         <div class="hierarchy-flow">
             <div class="level-box">
                 <div class="level-num">Level 1</div>
-                <div class="level-content">
+                <div class="level-content-box">
                     <div class="level-title">저수준 특징 융합 (Low-level)</div>
                     <div class="level-desc">원시 데이터 또는 초기 특징: 텍스처, 엣지, 픽셀 강도, 주파수 성분</div>
                 </div>
@@ -37,7 +193,7 @@
             
             <div class="level-box">
                 <div class="level-num">Level 2</div>
-                <div class="level-content">
+                <div class="level-content-box">
                     <div class="level-title">중간 수준 특징 융합 (Mid-level)</div>
                     <div class="level-desc">부분적 의미 표현: 해부학적 구조, 객체 부분, 패턴 조합</div>
                 </div>
@@ -45,7 +201,7 @@
             
             <div class="level-box">
                 <div class="level-num">Level 3</div>
-                <div class="level-content">
+                <div class="level-content-box">
                     <div class="level-title">고수준 의미 융합 (High-level)</div>
                     <div class="level-desc">추상적 개념: 질환 카테고리, 진단 라벨, 임상적 해석</div>
                 </div>
@@ -53,7 +209,7 @@
             
             <div class="level-box">
                 <div class="level-num">Level 4</div>
-                <div class="level-content">
+                <div class="level-content-box">
                     <div class="level-title">의사결정 레벨 (Decision-level)</div>
                     <div class="level-desc">최종 예측: 진단, 치료 계획, 예후, 위험도 점수</div>
                 </div>

@@ -31,8 +31,14 @@
             font-size: 20px;
             font-weight: 600;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: center;
+        }
+        
+        .case-visual {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
         }
         
         .content-grid {
@@ -41,7 +47,7 @@
             gap: 18px;
         }
         
-        .feature-card, .option-card {
+        .feature-card {
             background: white;
             border: 2.5px solid #1E64C8;
             border-radius: 10px;
@@ -49,13 +55,13 @@
             transition: all 0.3s;
         }
         
-        .feature-card:hover, .option-card:hover {
+        .feature-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(30, 100, 200, 0.25);
             background: #f8fbff;
         }
         
-        .feature-name, .option-name {
+        .feature-name {
             font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
@@ -82,62 +88,233 @@
             font-weight: bold;
             margin-right: 8px;
         }
-        
-        .pros-section, .cons-section {
-            margin-top: 10px;
-        }
-        
-        .pro-item {
-            font-size: 14px;
-            color: #2d7a2d;
-            margin-bottom: 5px;
-        }
-        
-        .con-item {
-            font-size: 14px;
-            color: #c53030;
-            margin-bottom: 5px;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Case Study: ICU Monitoring Agent</div>
         
+        <div class="case-visual">
+            <svg width="880" height="340" viewBox="0 0 880 340">
+                <!-- Title -->
+                <text x="440" y="25" font-size="15" font-weight="600" fill="#1E64C8" text-anchor="middle">Multi-Agent ICU Monitoring System Architecture</text>
+                
+                <!-- ICU Bed/Patient at center -->
+                <g>
+                    <rect x="380" y="130" width="120" height="80" rx="10" fill="#fff4e6" stroke="#FF9800" stroke-width="3"/>
+                    <text x="440" y="155" font-size="14" font-weight="700" fill="#F57C00" text-anchor="middle">ICU Patient</text>
+                    
+                    <!-- Patient bed visualization -->
+                    <rect x="400" y="165" width="80" height="35" rx="3" fill="white" stroke="#FF9800" stroke-width="1.5"/>
+                    <circle cx="440" cy="182" r="8" fill="#FFE0B2"/>
+                    <path d="M 432 190 Q 440 198 448 190" stroke="#FF9800" stroke-width="1.5" fill="none"/>
+                </g>
+                
+                <!-- Vital Signs Monitor (Top Left) -->
+                <g>
+                    <rect x="60" y="50" width="160" height="100" rx="10" fill="#ffebee" stroke="#f44336" stroke-width="2.5"/>
+                    <text x="140" y="75" font-size="13" font-weight="700" fill="#c53030" text-anchor="middle">Vital Signs Agent</text>
+                    
+                    <!-- ECG wave -->
+                    <g transform="translate(80, 85)">
+                        <rect x="0" y="0" width="120" height="50" rx="3" fill="black"/>
+                        <polyline points="5,25 15,25 20,10 25,40 30,25 40,25 50,25 55,15 60,35 65,25 75,25 85,25 90,20 95,30 100,25 110,25" 
+                                 stroke="#00FF00" stroke-width="2" fill="none"/>
+                        
+                        <text x="60" y="45" font-size="10" fill="#00FF00" text-anchor="middle">HR: 72 bpm</text>
+                    </g>
+                    
+                    <!-- Connection to center -->
+                    <path d="M 220 100 L 380 150" stroke="#f44336" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+                    <text x="300" y="120" font-size="9" fill="#c53030">Real-time</text>
+                </g>
+                
+                <!-- Lab Results Agent (Top Right) -->
+                <g>
+                    <rect x="660" y="50" width="160" height="100" rx="10" fill="#e3f2fd" stroke="#2196F3" stroke-width="2.5"/>
+                    <text x="740" y="75" font-size="13" font-weight="700" fill="#1565C0" text-anchor="middle">Lab Results Agent</text>
+                    
+                    <!-- Lab results visualization -->
+                    <g transform="translate(680, 85)">
+                        <rect x="0" y="0" width="120" height="50" rx="3" fill="white" stroke="#2196F3" stroke-width="1.5"/>
+                        
+                        <text x="10" y="15" font-size="9" fill="#666">WBC:</text>
+                        <rect x="35" y="8" width="40" height="10" rx="1" fill="#e0e0e0"/>
+                        <rect x="35" y="8" width="28" height="10" rx="1" fill="#4CAF50"/>
+                        <text x="80" y="16" font-size="8" fill="#2d7a2d">11.2</text>
+                        
+                        <text x="10" y="30" font-size="9" fill="#666">CRP:</text>
+                        <rect x="35" y="23" width="40" height="10" rx="1" fill="#e0e0e0"/>
+                        <rect x="35" y="23" width="36" height="10" rx="1" fill="#FFC107"/>
+                        <text x="80" y="31" font-size="8" fill="#F57C00">8.5</text>
+                        
+                        <text x="10" y="45" font-size="9" fill="#666">PCT:</text>
+                        <rect x="35" y="38" width="40" height="10" rx="1" fill="#e0e0e0"/>
+                        <rect x="35" y="38" width="32" height="10" rx="1" fill="#f44336"/>
+                        <text x="80" y="46" font-size="8" fill="#c53030">2.1</text>
+                    </g>
+                    
+                    <!-- Connection to center -->
+                    <path d="M 660 100 L 500 150" stroke="#2196F3" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+                    <text x="580" y="120" font-size="9" fill="#1565C0">Updates</text>
+                </g>
+                
+                <!-- Medication Agent (Bottom Left) -->
+                <g>
+                    <rect x="60" y="230" width="160" height="90" rx="10" fill="#e8f5e9" stroke="#4CAF50" stroke-width="2.5"/>
+                    <text x="140" y="255" font-size="13" font-weight="700" fill="#2d7a2d" text-anchor="middle">Medication Agent</text>
+                    
+                    <!-- Medication list -->
+                    <g transform="translate(80, 265)">
+                        <rect x="0" y="0" width="120" height="40" rx="3" fill="white" stroke="#4CAF50" stroke-width="1.5"/>
+                        
+                        <circle cx="10" cy="10" r="3" fill="#4CAF50"/>
+                        <text x="18" y="13" font-size="9" fill="#666">Norepinephrine</text>
+                        
+                        <circle cx="10" cy="22" r="3" fill="#2196F3"/>
+                        <text x="18" y="25" font-size="9" fill="#666">Propofol</text>
+                        
+                        <circle cx="10" cy="34" r="3" fill="#FFC107"/>
+                        <text x="18" y="37" font-size="9" fill="#666">Antibiotics</text>
+                    </g>
+                    
+                    <!-- Connection -->
+                    <path d="M 220 275 L 380 190" stroke="#4CAF50" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+                    <text x="300" y="240" font-size="9" fill="#2d7a2d">Dosing</text>
+                </g>
+                
+                <!-- Alert System Agent (Bottom Right) -->
+                <g>
+                    <rect x="660" y="230" width="160" height="90" rx="10" fill="#f3e5f5" stroke="#9C27B0" stroke-width="2.5"/>
+                    <text x="740" y="255" font-size="13" font-weight="700" fill="#6A1B9A" text-anchor="middle">Alert System Agent</text>
+                    
+                    <!-- Alert indicators -->
+                    <g transform="translate(680, 265)">
+                        <rect x="0" y="0" width="120" height="40" rx="3" fill="white" stroke="#9C27B0" stroke-width="1.5"/>
+                        
+                        <!-- Critical alert -->
+                        <circle cx="10" cy="10" r="4" fill="#f44336">
+                            <animate attributeName="opacity" values="1;0.3;1" dur="1s" repeatCount="indefinite"/>
+                        </circle>
+                        <text x="18" y="13" font-size="9" fill="#c53030" font-weight="600">Sepsis Risk: HIGH</text>
+                        
+                        <!-- Warning -->
+                        <circle cx="10" cy="22" r="4" fill="#FFC107"/>
+                        <text x="18" y="25" font-size="9" fill="#F57C00">BP Trending Down</text>
+                        
+                        <!-- Info -->
+                        <circle cx="10" cy="34" r="4" fill="#2196F3"/>
+                        <text x="18" y="37" font-size="9" fill="#1565C0">Lab Results Ready</text>
+                    </g>
+                    
+                    <!-- Connection -->
+                    <path d="M 660 275 L 500 190" stroke="#9C27B0" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+                    <text x="580" y="240" font-size="9" fill="#6A1B9A">Alerts</text>
+                </g>
+                
+                <!-- Central Coordinator Agent -->
+                <g>
+                    <circle cx="440" cy="90" r="35" fill="#1E64C8"/>
+                    <text x="440" y="85" font-size="12" font-weight="700" fill="white" text-anchor="middle">Coordinator</text>
+                    <text x="440" y="100" font-size="12" font-weight="700" fill="white" text-anchor="middle">Agent</text>
+                    
+                    <!-- Bidirectional connections -->
+                    <line x1="440" y1="125" x2="440" y2="130" stroke="#1E64C8" stroke-width="3"/>
+                    
+                    <!-- AI brain icon -->
+                    <path d="M 435 105 Q 440 110 445 105" stroke="white" stroke-width="1.5" fill="none" opacity="0.7"/>
+                    <circle cx="433" cy="103" r="1.5" fill="white" opacity="0.7"/>
+                    <circle cx="447" cy="103" r="1.5" fill="white" opacity="0.7"/>
+                </g>
+                
+                <!-- Performance Metrics Dashboard -->
+                <g transform="translate(240, 50)">
+                    <rect x="0" y="0" width="400" height="30" rx="5" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2" opacity="0.9"/>
+                    <text x="200" y="20" font-size="11" font-weight="600" fill="#1E64C8" text-anchor="middle">System Performance Metrics</text>
+                    
+                    <g transform="translate(20, 8)">
+                        <text x="0" y="10" font-size="9" fill="#666">Response:</text>
+                        <text x="45" y="10" font-size="9" fill="#4CAF50" font-weight="600">&lt;100ms</text>
+                        
+                        <text x="90" y="10" font-size="9" fill="#666">Accuracy:</text>
+                        <text x="130" y="10" font-size="9" fill="#4CAF50" font-weight="600">94.7%</text>
+                        
+                        <text x="175" y="10" font-size="9" fill="#666">False Alarms:</text>
+                        <text x="235" y="10" font-size="9" fill="#4CAF50" font-weight="600">↓40%</text>
+                        
+                        <text x="280" y="10" font-size="9" fill="#666">Uptime:</text>
+                        <text x="315" y="10" font-size="9" fill="#4CAF50" font-weight="600">99.9%</text>
+                    </g>
+                </g>
+                
+                <!-- Timeline indicator -->
+                <g transform="translate(350, 250)">
+                    <rect x="0" y="0" width="180" height="50" rx="8" fill="white" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,5" opacity="0.8"/>
+                    <text x="90" y="20" font-size="11" font-weight="600" fill="#1E64C8" text-anchor="middle">24/7 Continuous Monitoring</text>
+                    
+                    <!-- Time progression -->
+                    <rect x="10" y="25" width="160" height="4" rx="2" fill="#e0e0e0"/>
+                    <rect x="10" y="25" width="120" height="4" rx="2" fill="#1E64C8">
+                        <animate attributeName="width" values="0;160;0" dur="4s" repeatCount="indefinite"/>
+                    </rect>
+                    
+                    <text x="90" y="42" font-size="9" fill="#666" text-anchor="middle">Real-time Data Integration</text>
+                </g>
+                
+                <!-- Arrow markers -->
+                <defs>
+                    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#f44336"/>
+                    </marker>
+                    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#2196F3"/>
+                    </marker>
+                    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#4CAF50"/>
+                    </marker>
+                    <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#9C27B0"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        
         <div class="content-grid">
+            <div class="feature-card">
+                <div class="feature-name">Problem</div>
+                <div class="feature-list">
+                    <div class="feature-item">중환자실 실시간 모니터링 및 조기 경보 시스템의 필요성</div>
+                    <div class="feature-item">의료진 부담 증가 및 알람 피로도</div>
+                    <div class="feature-item">복잡한 데이터 통합 및 해석의 어려움</div>
+                </div>
+            </div>
             
-        <div class="feature-card">
-            <div class="feature-name">Problem</div>
-            <div class="feature-list">
-                <div class="feature-item">중환자실 실시간 모니터링 및 조기 경보 시스템의 필요성</div>
-
+            <div class="feature-card">
+                <div class="feature-name">Solution</div>
+                <div class="feature-list">
+                    <div class="feature-item">다중 에이전트 기반 통합 모니터링 시스템 구축</div>
+                    <div class="feature-item">실시간 데이터 분석 및 패턴 인식</div>
+                    <div class="feature-item">지능형 알람 필터링 및 우선순위화</div>
+                </div>
             </div>
-        </div>
-        
-        <div class="feature-card">
-            <div class="feature-name">Solution</div>
-            <div class="feature-list">
-                <div class="feature-item">다중 에이전트 기반 통합 모니터링 시스템 구축</div>
-
+            
+            <div class="feature-card">
+                <div class="feature-name">Implementation</div>
+                <div class="feature-list">
+                    <div class="feature-item">생체신호, 검사결과, 투약 정보를 통합하여 실시간 분석</div>
+                    <div class="feature-item">각 전문 에이전트가 특정 영역 담당</div>
+                    <div class="feature-item">중앙 코디네이터가 종합 판단 및 알람 생성</div>
+                </div>
             </div>
-        </div>
-        
-        <div class="feature-card">
-            <div class="feature-name">Implementation</div>
-            <div class="feature-list">
-                <div class="feature-item">생체신호 검사결과 투약 정보를 통합하여 실시간 분석</div>
-
+            
+            <div class="feature-card">
+                <div class="feature-name">Results</div>
+                <div class="feature-list">
+                    <div class="feature-item">조기 감지율 30% 향상</div>
+                    <div class="feature-item">False Alarm 40% 감소</div>
+                    <div class="feature-item">의료진 만족도 증가 및 환자 예후 개선</div>
+                </div>
             </div>
-        </div>
-        
-        <div class="feature-card">
-            <div class="feature-name">Results</div>
-            <div class="feature-list">
-                <div class="feature-item">조기 감지 30% 향상 False Alarm 40% 감소 의료진 만족도 증가</div>
-
-            </div>
-        </div>
-        
         </div>
     </div>
 </body>

@@ -35,58 +35,7 @@
             text-align: center;
         }
         
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .info-card {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 12px;
-            padding: 20px;
-            transition: all 0.3s;
-        }
-        
-        .info-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(30, 100, 200, 0.25);
-        }
-        
-        .card-header {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .card-content {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .content-item {
-            font-size: 15px;
-            color: #333;
-            display: flex;
-            align-items: flex-start;
-            line-height: 1.4;
-        }
-        
-        .content-item::before {
-            content: "•";
-            color: #1E64C8;
-            font-weight: bold;
-            margin-right: 8px;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-        
-        .info-section {
+        .planning-flow {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 10px;
@@ -94,18 +43,12 @@
             margin-bottom: 20px;
         }
         
-        .section-title {
+        .flow-title {
             font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 15px;
             text-align: center;
-        }
-        
-        .content-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
         }
         
         .example-box {
@@ -144,51 +87,185 @@
             text-align: center;
         }
         
-        .highlight-text {
-            font-size: 17px;
-            color: #333;
-            font-weight: 600;
+        .flow-node {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .flow-node:hover {
+            transform: scale(1.05);
+        }
+        
+        .decision-flow {
+            animation: flowPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes flowPulse {
+            0%, 100% { stroke-width: 2; }
+            50% { stroke-width: 3; }
+        }
+        
+        .check-mark {
+            animation: checkAppear 1s ease-out;
+        }
+        
+        @keyframes checkAppear {
+            from { 
+                opacity: 0;
+                transform: scale(0);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        
         <div class="title">Treatment Planning with CoT</div>
         
-        <div class="info-section">
-            <div class="section-title">Sequential Decision Process</div>
-            <div class="content-grid">
-                <div class="content-item">
-                    <strong style="color: #1E64C8;">Treatment Options:</strong> List first-line, second-line alternatives
-                </div>
-                <div class="content-item">
-                    <strong style="color: #1E64C8;">Risk-Benefit Analysis:</strong> Weigh efficacy vs adverse effects
-                </div>
-                <div class="content-item">
-                    <strong style="color: #1E64C8;">Patient Factors:</strong> Consider comorbidities, preferences, adherence
-                </div>
-                <div class="content-item">
-                    <strong style="color: #1E64C8;">Monitoring Plan:</strong> Define follow-up and adjustment criteria
-                </div>
-            </div>
+        <!-- SVG Treatment Planning Flow -->
+        <div class="planning-flow">
+            <div class="flow-title">Sequential Treatment Decision Process</div>
+            <svg width="840" height="220" viewBox="0 0 840 220">
+                <!-- Patient Input -->
+                <g class="flow-node">
+                    <rect x="10" y="80" width="100" height="60" rx="30" fill="#1E64C8" stroke="#1E64C8" stroke-width="3"/>
+                    <text x="60" y="105" text-anchor="middle" fill="white" font-size="13" font-weight="700">Patient</text>
+                    <text x="60" y="125" text-anchor="middle" fill="white" font-size="13" font-weight="700">Profile</text>
+                </g>
+                
+                <!-- Step 1: Options -->
+                <path class="decision-flow" d="M 115 110 L 145 110" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                <polygon points="145,110 138,106 138,114" fill="#1E64C8"/>
+                
+                <g class="flow-node">
+                    <rect x="150" y="20" width="120" height="180" rx="10" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="210" y="40" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">1. Options</text>
+                    
+                    <!-- Treatment Options List -->
+                    <rect x="160" y="50" width="100" height="25" rx="5" fill="#d4edda" stroke="#28a745" stroke-width="1"/>
+                    <text x="210" y="67" text-anchor="middle" fill="#28a745" font-size="11" font-weight="600">ACE-I</text>
+                    
+                    <rect x="160" y="80" width="100" height="25" rx="5" fill="#e3f2fd" stroke="#1E64C8" stroke-width="1"/>
+                    <text x="210" y="97" text-anchor="middle" fill="#1E64C8" font-size="11" font-weight="600">ARB</text>
+                    
+                    <rect x="160" y="110" width="100" height="25" rx="5" fill="#fff3cd" stroke="#ffc107" stroke-width="1"/>
+                    <text x="210" y="127" text-anchor="middle" fill="#856404" font-size="11" font-weight="600">CCB</text>
+                    
+                    <rect x="160" y="140" width="100" height="25" rx="5" fill="#f8d7da" stroke="#dc3545" stroke-width="1"/>
+                    <text x="210" y="157" text-anchor="middle" fill="#dc3545" font-size="11" font-weight="600">Diuretic</text>
+                    
+                    <rect x="160" y="170" width="100" height="25" rx="5" fill="#e7e7e7" stroke="#999" stroke-width="1"/>
+                    <text x="210" y="187" text-anchor="middle" fill="#666" font-size="11" font-weight="600">β-blocker</text>
+                </g>
+                
+                <!-- Step 2: Risk-Benefit -->
+                <path class="decision-flow" d="M 275 110 L 305 110" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                <polygon points="305,110 298,106 298,114" fill="#1E64C8"/>
+                
+                <g class="flow-node">
+                    <rect x="310" y="50" width="130" height="120" rx="10" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="375" y="70" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">2. Risk-Benefit</text>
+                    
+                    <!-- Analysis Matrix -->
+                    <g>
+                        <rect x="320" y="80" width="110" height="80" rx="5" fill="#f0f5fc" stroke="#1E64C8" stroke-width="1"/>
+                        
+                        <!-- Benefits -->
+                        <text x="375" y="95" text-anchor="middle" fill="#28a745" font-size="11" font-weight="700">Benefits</text>
+                        <text x="340" y="108" fill="#28a745" font-size="10">✓ DM protection</text>
+                        <text x="340" y="120" fill="#28a745" font-size="10">✓ CV benefit</text>
+                        
+                        <!-- Risks -->
+                        <text x="375" y="135" text-anchor="middle" fill="#dc3545" font-size="11" font-weight="700">Risks</text>
+                        <text x="340" y="148" fill="#dc3545" font-size="10">⚠ Hyperkalemia</text>
+                        <text x="340" y="160" fill="#ffc107" font-size="10">⚠ Cough (10%)</text>
+                    </g>
+                </g>
+                
+                <!-- Step 3: Patient Factors -->
+                <path class="decision-flow" d="M 445 110 L 475 110" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                <polygon points="475,110 468,106 468,114" fill="#1E64C8"/>
+                
+                <g class="flow-node">
+                    <rect x="480" y="50" width="130" height="120" rx="10" fill="white" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="545" y="70" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">3. Patient</text>
+                    
+                    <!-- Patient Factors -->
+                    <g>
+                        <rect x="490" y="80" width="110" height="80" rx="5" fill="#fff4e6" stroke="#1E64C8" stroke-width="1"/>
+                        
+                        <text x="545" y="95" text-anchor="middle" fill="#1E64C8" font-size="10" font-weight="700">Factors:</text>
+                        <text x="495" y="110" fill="#333" font-size="10">• Age: 55yo</text>
+                        <text x="495" y="123" fill="#333" font-size="10">• DM Type 2</text>
+                        <text x="495" y="136" fill="#333" font-size="10">• eGFR: 60</text>
+                        <text x="495" y="149" fill="#333" font-size="10">• K+: 4.2</text>
+                        <text x="495" y="162" fill="#28a745" font-size="10">• Adherent</text>
+                    </g>
+                </g>
+                
+                <!-- Step 4: Decision -->
+                <path class="decision-flow" d="M 615 110 L 645 110" stroke="#28a745" stroke-width="3" fill="none"/>
+                <polygon points="645,110 638,106 638,114" fill="#28a745"/>
+                
+                <g class="flow-node">
+                    <rect x="650" y="70" width="180" height="80" rx="10" fill="#d4edda" stroke="#28a745" stroke-width="3"/>
+                    <text x="740" y="90" text-anchor="middle" fill="#28a745" font-size="14" font-weight="700">4. Final Decision</text>
+                    
+                    <circle cx="670" cy="115" r="12" fill="#28a745" class="check-mark"/>
+                    <text x="670" y="120" text-anchor="middle" fill="white" font-size="16" font-weight="700">✓</text>
+                    
+                    <text x="740" y="110" text-anchor="middle" fill="#333" font-size="12" font-weight="700">Lisinopril 10mg daily</text>
+                    <text x="740" y="127" text-anchor="middle" fill="#666" font-size="10">Start dose</text>
+                    <text x="740" y="142" text-anchor="middle" fill="#666" font-size="10">Monitor K+, Cr in 1 week</text>
+                </g>
+                
+                <!-- Monitoring Plan (Bottom) -->
+                <g>
+                    <rect x="150" y="180" width="680" height="30" rx="5" fill="#e8f2ff" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="170" y="200" fill="#1E64C8" font-size="12" font-weight="700">Monitoring:</text>
+                    
+                    <circle cx="250" cy="195" r="8" fill="#ffc107"/>
+                    <text x="250" y="199" text-anchor="middle" fill="white" font-size="10" font-weight="700">1w</text>
+                    <text x="280" y="200" fill="#333" font-size="11">Labs</text>
+                    
+                    <line x1="320" y1="195" x2="360" y2="195" stroke="#1E64C8" stroke-width="1" stroke-dasharray="3,2"/>
+                    
+                    <circle cx="380" cy="195" r="8" fill="#ffc107"/>
+                    <text x="380" y="199" text-anchor="middle" fill="white" font-size="10" font-weight="700">2w</text>
+                    <text x="410" y="200" fill="#333" font-size="11">BP check</text>
+                    
+                    <line x1="460" y1="195" x2="500" y2="195" stroke="#1E64C8" stroke-width="1" stroke-dasharray="3,2"/>
+                    
+                    <circle cx="520" cy="195" r="8" fill="#ffc107"/>
+                    <text x="520" y="199" text-anchor="middle" fill="white" font-size="10" font-weight="700">1m</text>
+                    <text x="560" y="200" fill="#333" font-size="11">Titration</text>
+                    
+                    <line x1="610" y1="195" x2="650" y2="195" stroke="#1E64C8" stroke-width="1" stroke-dasharray="3,2"/>
+                    
+                    <circle cx="670" cy="195" r="8" fill="#28a745"/>
+                    <text x="670" y="199" text-anchor="middle" fill="white" font-size="10" font-weight="700">3m</text>
+                    <text x="720" y="200" fill="#333" font-size="11">Target BP <130/80</text>
+                </g>
+            </svg>
         </div>
         
         <div class="example-box">
-            <div class="example-title">Example: Hypertension Management</div>
+            <div class="example-title">CoT Reasoning Chain</div>
             <div class="example-content">
-                <div class="example-line"><strong>Options:</strong> ACE-I, ARB, CCB, Diuretic, Beta-blocker</div>
-                <div class="example-line"><strong>Patient:</strong> 55yo, DM, no CAD, eGFR 60, K+ 4.2</div>
-                <div class="example-line"><strong>Reasoning:</strong> ACE-I preferred (DM protection) → check for contraindications (none) → assess tolerability risk (low)</div>
-                <div class="example-line"><strong>Plan:</strong> Start Lisinopril 10mg daily</div>
-                <div class="example-line"><strong>Monitoring:</strong> BP recheck 2 weeks, Cr/K+ 1 week, target BP <130/80</div>
+                <div class="example-line"><strong>Step 1:</strong> List all antihypertensive options → ACE-I, ARB, CCB, Diuretic, β-blocker</div>
+                <div class="example-line"><strong>Step 2:</strong> Consider comorbidities → DM present → ACE-I/ARB preferred (renal protection)</div>
+                <div class="example-line"><strong>Step 3:</strong> Check contraindications → K+ normal, eGFR acceptable → No contraindications</div>
+                <div class="example-line"><strong>Step 4:</strong> Select based on guidelines + patient factors → ACE-I (Lisinopril) first-line</div>
+                <div class="example-line"><strong>Step 5:</strong> Define monitoring plan → Labs at 1 week, BP at 2 weeks, titrate monthly</div>
             </div>
         </div>
         
         <div class="highlight-box">
             <strong style="color: #1E64C8;">Guideline-based + personalized = optimal treatment</strong>
         </div>
-    
     </div>
 </body>
 </html>

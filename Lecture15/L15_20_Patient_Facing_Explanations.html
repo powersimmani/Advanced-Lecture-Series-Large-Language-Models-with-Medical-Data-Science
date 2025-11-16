@@ -24,59 +24,219 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 30px;
+        .main-content {
+            display: flex;
+            gap: 30px;
+            height: 380px;
+        }
+        .diagram-section {
+            flex: 1.4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         .content-card {
             background: #f8f9fa;
             border-left: 4px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             transition: all 0.3s;
         }
         .content-card:hover {
             background: #e8f2ff;
-            transform: translateY(-3px);
+            transform: translateX(5px);
             box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
         }
         .card-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         .card-text {
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
-            line-height: 1.5;
+            line-height: 1.4;
+        }
+        .patient-diagram {
+            width: 100%;
+            max-width: 560px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Patient-Facing Explanations</div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-title">👥 Accessible Language</div>
-                <div class="card-text">Using simple, non-technical terms for patient comprehension</div>
+        <div class="main-content">
+            <div class="diagram-section">
+                <svg class="patient-diagram" viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Transformation Process -->
+                    <g id="transformation">
+                        <text x="280" y="25" text-anchor="middle" fill="#1E64C8" font-size="14" font-weight="700">From Medical Complexity to Patient Understanding</text>
+                        
+                        <!-- Technical Input -->
+                        <g id="technical">
+                            <rect x="30" y="50" width="180" height="80" fill="#ffe8e8" rx="10" stroke="#d32f2f" stroke-width="2"/>
+                            <text x="120" y="70" text-anchor="middle" fill="#d32f2f" font-size="11" font-weight="700">🔬 Technical Output</text>
+                            
+                            <text x="40" y="90" fill="#333" font-size="8">"Bilateral pulmonary infiltrates</text>
+                            <text x="40" y="102" fill="#333" font-size="8">with elevated CRP (85 mg/L),</text>
+                            <text x="40" y="114" fill="#333" font-size="8">leukocytosis (15.2 × 10⁹/L)</text>
+                            <text x="40" y="126" fill="#333" font-size="8">suggesting bacterial pneumonia"</text>
+                        </g>
+                        
+                        <!-- Transformation Arrow -->
+                        <g id="arrow">
+                            <path d="M 220 90 L 340 90" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrow)"/>
+                            <defs>
+                                <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+                                    <polygon points="0 0, 12 4, 0 8" fill="#1E64C8"/>
+                                </marker>
+                            </defs>
+                            <rect x="245" y="75" width="70" height="30" fill="#1E64C8" rx="6"/>
+                            <text x="280" y="94" text-anchor="middle" fill="white" font-size="10" font-weight="600">Simplify</text>
+                        </g>
+                        
+                        <!-- Patient-Friendly Output -->
+                        <g id="friendly">
+                            <rect x="350" y="50" width="180" height="80" fill="#e8f5e9" rx="10" stroke="#43a047" stroke-width="2"/>
+                            <text x="440" y="70" text-anchor="middle" fill="#43a047" font-size="11" font-weight="700">👥 Patient Version</text>
+                            
+                            <text x="360" y="90" fill="#333" font-size="8">"The X-ray shows infection in</text>
+                            <text x="360" y="102" fill="#333" font-size="8">both lungs. Your blood tests</text>
+                            <text x="360" y="114" fill="#333" font-size="8">confirm you have a bacterial</text>
+                            <text x="360" y="126" fill="#333" font-size="8">infection that needs antibiotics."</text>
+                        </g>
+                    </g>
+                    
+                    <!-- Visual Communication -->
+                    <g id="visual">
+                        <rect x="30" y="150" width="240" height="100" fill="#fff9e6" rx="10" stroke="#f57c00" stroke-width="2"/>
+                        <text x="150" y="170" text-anchor="middle" fill="#f57c00" font-size="11" font-weight="700">🎨 Visual Aids</text>
+                        
+                        <!-- Body diagram -->
+                        <g transform="translate(80, 190)">
+                            <ellipse cx="0" cy="0" rx="20" ry="30" fill="#fce4ec" stroke="#d32f2f" stroke-width="1.5"/>
+                            <circle cx="-7" cy="-5" r="7" fill="#d32f2f" opacity="0.6"/>
+                            <circle cx="7" cy="-5" r="7" fill="#d32f2f" opacity="0.6"/>
+                            <text y="45" text-anchor="middle" fill="#666" font-size="8">Lungs affected</text>
+                        </g>
+                        
+                        <!-- Progress bar -->
+                        <g transform="translate(160, 190)">
+                            <rect width="80" height="25" fill="#e0e0e0" rx="4"/>
+                            <rect width="60" height="25" fill="#43a047" rx="4"/>
+                            <text x="40" y="17" text-anchor="middle" fill="white" font-size="9" font-weight="600">75%</text>
+                            <text y="40" text-anchor="middle" fill="#666" font-size="8">Recovery progress</text>
+                        </g>
+                    </g>
+                    
+                    <!-- Health Literacy Levels -->
+                    <g id="literacy">
+                        <rect x="290" y="150" width="240" height="100" fill="#e8f2ff" rx="10" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="410" y="170" text-anchor="middle" fill="#1E64C8" font-size="11" font-weight="700">📖 Adaptation Levels</text>
+                        
+                        <g id="levels">
+                            <!-- Basic -->
+                            <rect x="300" y="180" width="70" height="25" fill="#43a047" rx="4" opacity="0.8"/>
+                            <text x="335" y="197" text-anchor="middle" fill="white" font-size="9" font-weight="600">Basic</text>
+                            
+                            <!-- Intermediate -->
+                            <rect x="375" y="180" width="70" height="25" fill="#f57c00" rx="4" opacity="0.8"/>
+                            <text x="410" y="197" text-anchor="middle" fill="white" font-size="9" font-weight="600">Standard</text>
+                            
+                            <!-- Advanced -->
+                            <rect x="450" y="180" width="70" height="25" fill="#1976d2" rx="4" opacity="0.8"/>
+                            <text x="485" y="197" text-anchor="middle" fill="white" font-size="9" font-weight="600">Detailed</text>
+                        </g>
+                        
+                        <text x="410" y="220" text-anchor="middle" fill="#666" font-size="9">Adjust complexity to patient needs</text>
+                        <text x="410" y="235" text-anchor="middle" fill="#666" font-size="8">Age • Education • Previous knowledge</text>
+                    </g>
+                    
+                    <!-- Emotional Support -->
+                    <g id="emotional">
+                        <rect x="30" y="270" width="500" height="85" fill="#f8f9fa" rx="10" stroke="#666" stroke-width="2"/>
+                        <text x="280" y="290" text-anchor="middle" fill="#1E64C8" font-size="11" font-weight="700">💬 Empathetic Communication</text>
+                        
+                        <g id="support-elements">
+                            <!-- Reassurance -->
+                            <g transform="translate(80, 305)">
+                                <rect width="100" height="35" fill="#e8f5e9" rx="6"/>
+                                <text x="50" y="17" text-anchor="middle" font-size="14">😊</text>
+                                <text x="50" y="30" text-anchor="middle" fill="#43a047" font-size="8" font-weight="600">Reassurance</text>
+                            </g>
+                            
+                            <!-- Clear steps -->
+                            <g transform="translate(200, 305)">
+                                <rect width="100" height="35" fill="#fff9e6" rx="6"/>
+                                <text x="50" y="17" text-anchor="middle" font-size="14">📋</text>
+                                <text x="50" y="30" text-anchor="middle" fill="#f57c00" font-size="8" font-weight="600">Clear Steps</text>
+                            </g>
+                            
+                            <!-- Support -->
+                            <g transform="translate(320, 305)">
+                                <rect width="100" height="35" fill="#e8f2ff" rx="6"/>
+                                <text x="50" y="17" text-anchor="middle" font-size="14">🤝</text>
+                                <text x="50" y="30" text-anchor="middle" fill="#1E64C8" font-size="8" font-weight="600">Support</text>
+                            </g>
+                            
+                            <!-- Questions -->
+                            <g transform="translate(440, 305)">
+                                <rect width="80" height="35" fill="#ffe8e8" rx="6"/>
+                                <text x="40" y="17" text-anchor="middle" font-size="14">❓</text>
+                                <text x="40" y="30" text-anchor="middle" fill="#d32f2f" font-size="8" font-weight="600">Q&amp;A</text>
+                            </g>
+                        </g>
+                    </g>
+                    
+                    <!-- Example Comparison -->
+                    <g id="comparison">
+                        <rect x="150" y="55" width="15" height="70" fill="#1E64C8" opacity="0.1" rx="3"/>
+                        <rect x="470" y="55" width="15" height="70" fill="#1E64C8" opacity="0.1" rx="3"/>
+                        
+                        <text x="80" y="45" fill="#d32f2f" font-size="9" font-weight="700">❌ Don't Say:</text>
+                        <text x="400" y="45" fill="#43a047" font-size="9" font-weight="700">✓ Do Say:</text>
+                    </g>
+                    
+                    <!-- Communication Principles -->
+                    <g id="principles">
+                        <rect x="380" y="265" width="150" height="35" fill="white" stroke="#1E64C8" stroke-width="1" stroke-dasharray="3,2" rx="6" transform="translate(10, -210)"/>
+                        <text x="465" y="70" text-anchor="middle" fill="#1E64C8" font-size="9" font-weight="700">Key Principles</text>
+                        <text x="400" y="83" fill="#666" font-size="7">• Use everyday language</text>
+                        <text x="400" y="93" fill="#666" font-size="7">• Provide context</text>
+                        <text x="400" y="103" fill="#666" font-size="7">• Offer hope when appropriate</text>
+                    </g>
+                </svg>
             </div>
-            <div class="content-card">
-                <div class="card-title">🎨 Visual Communication</div>
-                <div class="card-text">Employing graphics and diagrams for better understanding</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">💬 Empathy & Support</div>
-                <div class="card-text">Providing explanations with emotional sensitivity</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">📖 Health Literacy</div>
-                <div class="card-text">Adapting to varying levels of medical knowledge</div>
+            
+            <div class="info-section">
+                <div class="content-card">
+                    <div class="card-title">👥 Accessible Language</div>
+                    <div class="card-text">Translate medical jargon into everyday terms patients understand</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">🎨 Visual Communication</div>
+                    <div class="card-text">Use diagrams, charts, and illustrations to enhance understanding</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">💬 Empathetic Approach</div>
+                    <div class="card-text">Deliver information with emotional sensitivity and support</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">📖 Adaptive Complexity</div>
+                    <div class="card-text">Adjust explanation detail based on patient's health literacy level</div>
+                </div>
             </div>
         </div>
     </div>

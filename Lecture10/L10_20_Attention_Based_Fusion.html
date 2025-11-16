@@ -11,6 +11,81 @@
         .title { font-size: 20px; font-weight: 600; color: #1E64C8; margin-bottom: 22px; text-align: center; }
         .concept-box { background: #f0f5fc; border: 2px solid #1E64C8; border-radius: 8px; padding: 15px 25px; margin-bottom: 22px; text-align: center; font-size: 17px; color: #333; font-weight: 500; }
         .highlight { color: #1E64C8; font-weight: 700; }
+        
+        .attention-visual {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        
+        .attention-diagram {
+            background: white;
+            border: 2.5px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            flex: 1;
+        }
+        
+        .diagram-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .attention-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .qkv-layer {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .qkv-box {
+            background: #1E64C8;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .qkv-box.q { background: #1E64C8; }
+        .qkv-box.k { background: #2874d8; }
+        .qkv-box.v { background: #4a90e2; }
+        
+        .attention-matrix {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3px;
+            margin: 10px 0;
+        }
+        
+        .matrix-cell {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 2px;
+        }
+        
+        .matrix-cell.high { background: #1E64C8; }
+        .matrix-cell.medium { background: #4a90e2; }
+        .matrix-cell.low { background: #b3d9ff; }
+        
+        .arrow-down {
+            text-align: center;
+            color: #1E64C8;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
         .content-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 20px; }
         .content-card { background: white; border: 2.5px solid #1E64C8; border-radius: 8px; padding: 18px; transition: all 0.3s; }
         .content-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2); background: #f8fbff; }
@@ -26,6 +101,88 @@
     <div class="container">
         <div class="title">Attention-Based Fusion</div>
         <div class="concept-box">Cross-attention과 Self-attention으로 모달 간 중요도를 동적으로 조절하여 융합</div>
+        
+        <div class="attention-visual">
+            <div class="attention-diagram">
+                <div class="diagram-title">Self-Attention</div>
+                <div class="attention-flow">
+                    <div style="font-size: 12px; color: #555; margin-bottom: 5px;">입력 시퀀스</div>
+                    <div class="qkv-layer">
+                        <div style="background: #1E64C8; color: white; padding: 6px 10px; border-radius: 3px; font-size: 11px;">X₁</div>
+                        <div style="background: #1E64C8; color: white; padding: 6px 10px; border-radius: 3px; font-size: 11px;">X₂</div>
+                        <div style="background: #1E64C8; color: white; padding: 6px 10px; border-radius: 3px; font-size: 11px;">X₃</div>
+                        <div style="background: #1E64C8; color: white; padding: 6px 10px; border-radius: 3px; font-size: 11px;">X₄</div>
+                    </div>
+                    <div class="arrow-down">↓</div>
+                    <div class="qkv-layer">
+                        <div class="qkv-box q">Q</div>
+                        <div class="qkv-box k">K</div>
+                        <div class="qkv-box v">V</div>
+                    </div>
+                    <div class="arrow-down">↓</div>
+                    <div style="font-size: 11px; color: #555;">Attention Matrix</div>
+                    <div class="attention-matrix">
+                        <div class="matrix-cell high"></div>
+                        <div class="matrix-cell medium"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell medium"></div>
+                        <div class="matrix-cell high"></div>
+                        <div class="matrix-cell medium"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell medium"></div>
+                        <div class="matrix-cell high"></div>
+                        <div class="matrix-cell medium"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell medium"></div>
+                        <div class="matrix-cell high"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="attention-diagram">
+                <div class="diagram-title">Cross-Attention</div>
+                <div class="attention-flow">
+                    <div style="display: flex; gap: 15px; justify-content: center; margin-bottom: 5px;">
+                        <div style="font-size: 12px; color: #1E64C8; font-weight: 600;">Modality A</div>
+                        <div style="font-size: 12px; color: #2874d8; font-weight: 600;">Modality B</div>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <div class="qkv-layer" style="flex-direction: column;">
+                            <div class="qkv-box q">Q</div>
+                        </div>
+                        <div class="qkv-layer" style="flex-direction: column; gap: 5px;">
+                            <div class="qkv-box k">K</div>
+                            <div class="qkv-box v">V</div>
+                        </div>
+                    </div>
+                    <div class="arrow-down">↓</div>
+                    <div style="font-size: 11px; color: #555;">Cross Attention</div>
+                    <div class="attention-matrix">
+                        <div class="matrix-cell high"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell medium"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell high"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell medium"></div>
+                        <div class="matrix-cell medium"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell high"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell medium"></div>
+                        <div class="matrix-cell low"></div>
+                        <div class="matrix-cell high"></div>
+                    </div>
+                    <div style="font-size: 10px; color: #555; margin-top: 5px;">A attends to B</div>
+                </div>
+            </div>
+        </div>
+        
         <div class="content-grid">
             <div class="content-card">
                 <div class="card-title">Self-Attention</div>

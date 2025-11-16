@@ -35,14 +35,19 @@
             text-align: center;
         }
         
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-bottom: 15px;
+        .database-visual {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
         
-        .feature-card, .method-card, .option-card, .section-card, .pathway-card {
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 18px;
+        }
+        
+        .feature-card {
             background: white;
             border: 2.5px solid #1E64C8;
             border-radius: 10px;
@@ -50,13 +55,13 @@
             transition: all 0.3s;
         }
         
-        .feature-card:hover, .method-card:hover, .option-card:hover {
+        .feature-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(30, 100, 200, 0.25);
             background: #f8fbff;
         }
         
-        .feature-name, .method-name, .option-name, .section-title, .pathway-name {
+        .feature-name {
             font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
@@ -64,13 +69,6 @@
             text-align: center;
             padding-bottom: 8px;
             border-bottom: 2px solid #e0e0e0;
-        }
-        
-        .feature-desc, .method-desc {
-            font-size: 15px;
-            color: #333;
-            margin-bottom: 10px;
-            text-align: center;
         }
         
         .feature-list {
@@ -82,121 +80,10 @@
         .feature-item {
             font-size: 14px;
             color: #555;
-            padding-left: 0;
         }
         
         .feature-item::before {
             content: "•";
-            color: #1E64C8;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-        
-        .method-approach {
-            font-size: 15px;
-            color: #555;
-            margin-top: 8px;
-            padding: 8px;
-            background: #f0f5fc;
-            border-radius: 5px;
-        }
-        
-        .workflow-step {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: #f8fbff;
-            border-left: 4px solid #1E64C8;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-        
-        .step-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1E64C8;
-            min-width: 40px;
-        }
-        
-        .step-content {
-            flex: 1;
-        }
-        
-        .step-name {
-            font-size: 17px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 5px;
-        }
-        
-        .step-agent {
-            font-size: 15px;
-            color: #666;
-            margin-bottom: 3px;
-        }
-        
-        .step-action {
-            font-size: 15px;
-            color: #333;
-        }
-        
-        .pros-cons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .pro-item {
-            font-size: 14px;
-            color: #2d7a2d;
-            margin-bottom: 5px;
-        }
-        
-        .con-item {
-            font-size: 14px;
-            color: #c53030;
-            margin-bottom: 5px;
-        }
-        
-        .section-content {
-            font-size: 15px;
-            color: #333;
-            line-height: 1.5;
-        }
-        
-        .pathway-stages {
-            font-size: 15px;
-            color: #333;
-            margin-top: 10px;
-            padding: 10px;
-            background: #f0f5fc;
-            border-radius: 6px;
-        }
-        
-        .note-box {
-            background: #fff4e6;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 12px 18px;
-            text-align: center;
-            margin-top: 15px;
-        }
-        
-        .note-text {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1E64C8;
-        }
-        
-        .factor-item {
-            font-size: 14px;
-            color: #555;
-        }
-        
-        .factor-item::before {
-            content: "→";
             color: #1E64C8;
             font-weight: bold;
             margin-right: 8px;
@@ -207,32 +94,198 @@
     <div class="container">
         <div class="title">Drug Database Access</div>
         
+        <div class="database-visual">
+            <svg width="880" height="300" viewBox="0 0 880 300">
+                <!-- Title -->
+                <text x="440" y="25" font-size="15" font-weight="600" fill="#1E64C8" text-anchor="middle">Drug Database Integration System</text>
+                
+                <!-- Central Drug Database -->
+                <g>
+                    <!-- Database cylinder -->
+                    <ellipse cx="440" cy="120" rx="65" ry="20" fill="#f0f5fc" stroke="#1E64C8" stroke-width="3"/>
+                    <rect x="375" y="120" width="130" height="60" fill="#f0f5fc"/>
+                    <ellipse cx="440" cy="180" rx="65" ry="20" fill="#f0f5fc" stroke="#1E64C8" stroke-width="3"/>
+                    <line x1="375" y1="120" x2="375" y2="180" stroke="#1E64C8" stroke-width="3"/>
+                    <line x1="505" y1="120" x2="505" y2="180" stroke="#1E64C8" stroke-width="3"/>
+                    
+                    <text x="440" y="145" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">Drug DB</text>
+                    <text x="440" y="160" font-size="11" fill="#666" text-anchor="middle">마스터 데이터</text>
+                    
+                    <!-- Database records visualization -->
+                    <line x1="390" y1="125" x2="490" y2="125" stroke="#1E64C8" stroke-width="1" opacity="0.3"/>
+                    <line x1="390" y1="135" x2="490" y2="135" stroke="#1E64C8" stroke-width="1" opacity="0.3"/>
+                    <line x1="390" y1="145" x2="490" y2="145" stroke="#1E64C8" stroke-width="1" opacity="0.3"/>
+                </g>
+                
+                <!-- Drug Information Module (Left) -->
+                <g>
+                    <rect x="60" y="60" width="180" height="120" rx="10" fill="#fff4e6" stroke="#FF9800" stroke-width="2.5"/>
+                    <text x="150" y="85" font-size="14" font-weight="700" fill="#F57C00" text-anchor="middle">Drug Information</text>
+                    
+                    <!-- Info items -->
+                    <g transform="translate(80, 100)">
+                        <rect x="0" y="0" width="120" height="20" rx="3" fill="white" stroke="#FF9800" stroke-width="1.5"/>
+                        <text x="60" y="14" font-size="10" fill="#666" text-anchor="middle">성분/용량</text>
+                        
+                        <rect x="0" y="25" width="120" height="20" rx="3" fill="white" stroke="#FF9800" stroke-width="1.5"/>
+                        <text x="60" y="39" font-size="10" fill="#666" text-anchor="middle">적응증/금기</text>
+                        
+                        <rect x="0" y="50" width="120" height="20" rx="3" fill="white" stroke="#FF9800" stroke-width="1.5"/>
+                        <text x="60" y="64" font-size="10" fill="#666" text-anchor="middle">용법/용량</text>
+                    </g>
+                    
+                    <!-- Connection arrow -->
+                    <path d="M 240 120 L 370 140" stroke="#FF9800" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
+                    <text x="305" y="125" font-size="10" fill="#F57C00" font-weight="600">Query</text>
+                </g>
+                
+                <!-- Interaction Check Module (Right) -->
+                <g>
+                    <rect x="640" y="60" width="180" height="120" rx="10" fill="#ffebee" stroke="#f44336" stroke-width="2.5"/>
+                    <text x="730" y="85" font-size="14" font-weight="700" fill="#c53030" text-anchor="middle">Interaction Check</text>
+                    
+                    <!-- Interaction matrix -->
+                    <g transform="translate(660, 100)">
+                        <!-- Matrix visualization -->
+                        <rect x="0" y="0" width="140" height="60" rx="5" fill="white" stroke="#f44336" stroke-width="1.5"/>
+                        
+                        <!-- Drug pairs -->
+                        <text x="10" y="20" font-size="9" fill="#666">Drug A ↔ Drug B</text>
+                        <circle cx="120" cy="16" r="5" fill="#4CAF50"/>
+                        
+                        <text x="10" y="35" font-size="9" fill="#666">Drug A ↔ Drug C</text>
+                        <circle cx="120" cy="31" r="5" fill="#FFC107"/>
+                        
+                        <text x="10" y="50" font-size="9" fill="#666">Drug B ↔ Drug C</text>
+                        <circle cx="120" cy="46" r="5" fill="#f44336"/>
+                        
+                        <!-- Legend -->
+                        <text x="70" y="75" font-size="7" fill="#666" text-anchor="middle">안전/주의/위험</text>
+                    </g>
+                    
+                    <!-- Connection arrow -->
+                    <path d="M 640 120 L 510 140" stroke="#f44336" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+                    <text x="575" y="125" font-size="10" fill="#c53030" font-weight="600">Check</text>
+                </g>
+                
+                <!-- Prescription Validation (Bottom Left) -->
+                <g>
+                    <rect x="60" y="210" width="180" height="70" rx="10" fill="#e3f2fd" stroke="#2196F3" stroke-width="2.5"/>
+                    <text x="150" y="230" font-size="14" font-weight="700" fill="#1565C0" text-anchor="middle">Prescription Validation</text>
+                    
+                    <!-- Validation checklist -->
+                    <g transform="translate(80, 240)">
+                        <path d="M 5 5 L 10 10 L 20 0" stroke="#4CAF50" stroke-width="2" fill="none"/>
+                        <text x="25" y="8" font-size="9" fill="#666">용량 확인</text>
+                        
+                        <path d="M 75 5 L 80 10 L 90 0" stroke="#4CAF50" stroke-width="2" fill="none"/>
+                        <text x="95" y="8" font-size="9" fill="#666">기간 검증</text>
+                        
+                        <path d="M 5 20 L 10 25 L 20 15" stroke="#4CAF50" stroke-width="2" fill="none"/>
+                        <text x="25" y="23" font-size="9" fill="#666">연령 적합</text>
+                        
+                        <path d="M 75 20 L 80 25 L 90 15" stroke="#4CAF50" stroke-width="2" fill="none"/>
+                        <text x="95" y="23" font-size="9" fill="#666">신기능</text>
+                    </g>
+                    
+                    <!-- Connection -->
+                    <path d="M 240 245 L 375 180" stroke="#2196F3" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+                </g>
+                
+                <!-- Clinical Guidelines (Bottom Right) -->
+                <g>
+                    <rect x="640" y="210" width="180" height="70" rx="10" fill="#e8f5e9" stroke="#4CAF50" stroke-width="2.5"/>
+                    <text x="730" y="230" font-size="14" font-weight="700" fill="#2d7a2d" text-anchor="middle">Clinical Guidelines</text>
+                    
+                    <!-- Guidelines list -->
+                    <g transform="translate(660, 240)">
+                        <rect x="0" y="0" width="140" height="25" rx="3" fill="white" stroke="#4CAF50" stroke-width="1.5"/>
+                        <text x="70" y="10" font-size="9" fill="#666" text-anchor="middle">• First-line therapy</text>
+                        <text x="70" y="20" font-size="9" fill="#666" text-anchor="middle">• Alternative options</text>
+                    </g>
+                    
+                    <!-- Connection -->
+                    <path d="M 640 245 L 505 180" stroke="#4CAF50" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+                </g>
+                
+                <!-- API Integration Layer (Top) -->
+                <g>
+                    <rect x="340" y="40" width="200" height="35" rx="8" fill="#f3e5f5" stroke="#9C27B0" stroke-width="2.5"/>
+                    <text x="440" y="60" font-size="13" font-weight="700" fill="#6A1B9A" text-anchor="middle">API Gateway</text>
+                    
+                    <!-- API endpoints -->
+                    <text x="370" y="90" font-size="9" fill="#6A1B9A">GET</text>
+                    <text x="420" y="90" font-size="9" fill="#6A1B9A">POST</text>
+                    <text x="470" y="90" font-size="9" fill="#6A1B9A">PUT</text>
+                    <text x="510" y="90" font-size="9" fill="#6A1B9A">DELETE</text>
+                    
+                    <!-- Connection to database -->
+                    <line x1="440" y1="75" x2="440" y2="100" stroke="#9C27B0" stroke-width="2.5"/>
+                </g>
+                
+                <!-- Real-time sync indicator -->
+                <g transform="translate(520, 150)">
+                    <circle cx="0" cy="0" r="8" fill="#4CAF50" opacity="0.3">
+                        <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.3;0.1;0.3" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="0" cy="0" r="5" fill="#4CAF50"/>
+                    <text x="15" y="4" font-size="9" fill="#2d7a2d" font-weight="600">Real-time</text>
+                </g>
+                
+                <!-- Data flow indicators -->
+                <text x="150" y="205" font-size="10" fill="#666" text-anchor="middle">Input Validation</text>
+                <text x="730" y="205" font-size="10" fill="#666" text-anchor="middle">Evidence-Based</text>
+                
+                <!-- Arrow markers -->
+                <defs>
+                    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#FF9800"/>
+                    </marker>
+                    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#f44336"/>
+                    </marker>
+                    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#2196F3"/>
+                    </marker>
+                    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#4CAF50"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        
         <div class="content-grid">
-            
             <div class="feature-card">
                 <div class="feature-name">Drug Information</div>
                 <div class="feature-list">
-                    
+                    <div class="feature-item">성분 및 함량</div>
+                    <div class="feature-item">적응증/금기사항</div>
+                    <div class="feature-item">용법/용량 지침</div>
+                    <div class="feature-item">부작용 정보</div>
                 </div>
             </div>
             
             <div class="feature-card">
                 <div class="feature-name">Interaction Check</div>
                 <div class="feature-list">
-                    
+                    <div class="feature-item">약물-약물 상호작용</div>
+                    <div class="feature-item">약물-음식 상호작용</div>
+                    <div class="feature-item">위험도 평가</div>
+                    <div class="feature-item">대체약물 제안</div>
                 </div>
             </div>
             
             <div class="feature-card">
                 <div class="feature-name">Prescription Validation</div>
                 <div class="feature-list">
-                    
+                    <div class="feature-item">용량 적절성</div>
+                    <div class="feature-item">투약 기간 검증</div>
+                    <div class="feature-item">연령별 조정</div>
+                    <div class="feature-item">신/간기능 고려</div>
                 </div>
             </div>
-            
         </div>
-        
-        
     </div>
 </body>
 </html>
