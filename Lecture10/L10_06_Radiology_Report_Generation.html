@@ -40,11 +40,25 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .pipeline-flow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            height: 3px;
+            background: linear-gradient(to right, #1E64C8, #2874d8);
+            z-index: 0;
         }
         
         .pipeline-step {
             flex: 1;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
         
         .step-box {
@@ -55,10 +69,23 @@
             font-size: 15px;
             color: #333;
             font-weight: 500;
-            min-height: 70px;
+            min-height: 85px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .step-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        
+        .step-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
         }
         
         .arrow {
@@ -67,6 +94,8 @@
             font-weight: bold;
             flex: 0 0 30px;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
         
         .modality-grid {
@@ -88,6 +117,12 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 15px rgba(30, 100, 200, 0.2);
             background: #f8fbff;
+        }
+        
+        .modality-icon {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 8px;
         }
         
         .modality-name {
@@ -135,6 +170,13 @@
             font-size: 14px;
             color: #333;
             font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .section-box:hover {
+            background: #1E64C8;
+            color: white;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -144,53 +186,96 @@
         
         <div class="pipeline-flow">
             <div class="pipeline-step">
-                <div class="step-box">의료 영상 입력<br>(X-ray, CT, MRI)</div>
+                <div class="step-box">
+                    <div class="step-icon">🩻</div>
+                    <div>의료 영상 입력</div>
+                    <div style="font-size: 12px;">(X-ray, CT, MRI)</div>
+                </div>
             </div>
             <div class="arrow">→</div>
             <div class="pipeline-step">
-                <div class="step-box">영상 인코더<br>(CNN/ViT)</div>
+                <div class="step-box">
+                    <div class="step-icon">
+                        <svg width="30" height="30" viewBox="0 0 30 30">
+                            <rect x="2" y="5" width="8" height="20" fill="#1E64C8" opacity="0.3" rx="1"/>
+                            <rect x="11" y="3" width="8" height="24" fill="#1E64C8" opacity="0.5" rx="1"/>
+                            <rect x="20" y="7" width="8" height="16" fill="#1E64C8" opacity="0.7" rx="1"/>
+                        </svg>
+                    </div>
+                    <div>영상 인코더</div>
+                    <div style="font-size: 12px;">(CNN/ViT)</div>
+                </div>
             </div>
             <div class="arrow">→</div>
             <div class="pipeline-step">
-                <div class="step-box">특징 추출<br>(Visual Features)</div>
+                <div class="step-box">
+                    <div class="step-icon">
+                        <svg width="30" height="30" viewBox="0 0 30 30">
+                            <circle cx="15" cy="15" r="10" fill="none" stroke="#1E64C8" stroke-width="2"/>
+                            <circle cx="15" cy="15" r="3" fill="#1E64C8"/>
+                        </svg>
+                    </div>
+                    <div>특징 추출</div>
+                    <div style="font-size: 12px;">(Visual Features)</div>
+                </div>
             </div>
             <div class="arrow">→</div>
             <div class="pipeline-step">
-                <div class="step-box">텍스트 디코더<br>(Transformer)</div>
+                <div class="step-box">
+                    <div class="step-icon">
+                        <svg width="30" height="30" viewBox="0 0 30 30">
+                            <rect x="3" y="8" width="24" height="3" fill="#1E64C8" opacity="0.4" rx="1"/>
+                            <rect x="3" y="13" width="20" height="3" fill="#1E64C8" opacity="0.6" rx="1"/>
+                            <rect x="3" y="18" width="22" height="3" fill="#1E64C8" opacity="0.8" rx="1"/>
+                        </svg>
+                    </div>
+                    <div>텍스트 디코더</div>
+                    <div style="font-size: 12px;">(Transformer)</div>
+                </div>
             </div>
             <div class="arrow">→</div>
             <div class="pipeline-step">
-                <div class="step-box">구조화된<br>진단 보고서</div>
+                <div class="step-box">
+                    <div class="step-icon">📋</div>
+                    <div>구조화된</div>
+                    <div style="font-size: 12px;">진단 보고서</div>
+                </div>
             </div>
         </div>
         
         <div class="modality-grid">
             <div class="modality-card">
+                <div class="modality-icon">🫁</div>
                 <div class="modality-name">Chest X-ray</div>
                 <div class="modality-desc">폐렴, 결핵, 흉수 등 흉부 질환 자동 기술</div>
             </div>
             
             <div class="modality-card">
+                <div class="modality-icon">🧠</div>
                 <div class="modality-name">CT Scan</div>
                 <div class="modality-desc">장기별 병변 위치, 크기, 특성 상세 설명</div>
             </div>
             
             <div class="modality-card">
+                <div class="modality-icon">🔬</div>
                 <div class="modality-name">MRI</div>
                 <div class="modality-desc">뇌, 척추, 관절 이상 소견 문장 생성</div>
             </div>
             
             <div class="modality-card">
+                <div class="modality-icon">🎗️</div>
                 <div class="modality-name">Mammography</div>
                 <div class="modality-desc">유방 석회화, 종괴 판독 보고서</div>
             </div>
             
             <div class="modality-card">
+                <div class="modality-icon">📡</div>
                 <div class="modality-name">Ultrasound</div>
                 <div class="modality-desc">초음파 소견 자동 문서화</div>
             </div>
             
             <div class="modality-card">
+                <div class="modality-icon">👁️</div>
                 <div class="modality-name">Multi-View</div>
                 <div class="modality-desc">여러 각도 영상 통합 분석</div>
             </div>

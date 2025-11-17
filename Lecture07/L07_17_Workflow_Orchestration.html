@@ -35,14 +35,19 @@
             text-align: center;
         }
         
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-bottom: 15px;
+        .orchestration-visual {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
         }
         
-        .feature-card, .method-card, .option-card, .section-card, .pathway-card {
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 18px;
+        }
+        
+        .feature-card {
             background: white;
             border: 2.5px solid #1E64C8;
             border-radius: 10px;
@@ -50,13 +55,13 @@
             transition: all 0.3s;
         }
         
-        .feature-card:hover, .method-card:hover, .option-card:hover {
+        .feature-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(30, 100, 200, 0.25);
             background: #f8fbff;
         }
         
-        .feature-name, .method-name, .option-name, .section-title, .pathway-name {
+        .feature-name {
             font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
@@ -66,7 +71,7 @@
             border-bottom: 2px solid #e0e0e0;
         }
         
-        .feature-desc, .method-desc {
+        .feature-desc {
             font-size: 15px;
             color: #333;
             margin-bottom: 10px;
@@ -82,121 +87,10 @@
         .feature-item {
             font-size: 14px;
             color: #555;
-            padding-left: 0;
         }
         
         .feature-item::before {
             content: "•";
-            color: #1E64C8;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-        
-        .method-approach {
-            font-size: 15px;
-            color: #555;
-            margin-top: 8px;
-            padding: 8px;
-            background: #f0f5fc;
-            border-radius: 5px;
-        }
-        
-        .workflow-step {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: #f8fbff;
-            border-left: 4px solid #1E64C8;
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-        
-        .step-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1E64C8;
-            min-width: 40px;
-        }
-        
-        .step-content {
-            flex: 1;
-        }
-        
-        .step-name {
-            font-size: 17px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 5px;
-        }
-        
-        .step-agent {
-            font-size: 15px;
-            color: #666;
-            margin-bottom: 3px;
-        }
-        
-        .step-action {
-            font-size: 15px;
-            color: #333;
-        }
-        
-        .pros-cons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .pro-item {
-            font-size: 14px;
-            color: #2d7a2d;
-            margin-bottom: 5px;
-        }
-        
-        .con-item {
-            font-size: 14px;
-            color: #c53030;
-            margin-bottom: 5px;
-        }
-        
-        .section-content {
-            font-size: 15px;
-            color: #333;
-            line-height: 1.5;
-        }
-        
-        .pathway-stages {
-            font-size: 15px;
-            color: #333;
-            margin-top: 10px;
-            padding: 10px;
-            background: #f0f5fc;
-            border-radius: 6px;
-        }
-        
-        .note-box {
-            background: #fff4e6;
-            border: 2px solid #1E64C8;
-            border-radius: 8px;
-            padding: 12px 18px;
-            text-align: center;
-            margin-top: 15px;
-        }
-        
-        .note-text {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1E64C8;
-        }
-        
-        .factor-item {
-            font-size: 14px;
-            color: #555;
-        }
-        
-        .factor-item::before {
-            content: "→";
             color: #1E64C8;
             font-weight: bold;
             margin-right: 8px;
@@ -207,13 +101,214 @@
     <div class="container">
         <div class="title">Workflow Orchestration</div>
         
+        <div class="orchestration-visual">
+            <svg width="880" height="300" viewBox="0 0 880 300">
+                <!-- Title -->
+                <text x="440" y="25" font-size="15" font-weight="600" fill="#1E64C8" text-anchor="middle">Clinical Workflow Orchestration Engine</text>
+                
+                <!-- Main Orchestrator -->
+                <g>
+                    <rect x="350" y="110" width="180" height="80" rx="10" fill="#1E64C8"/>
+                    <text x="440" y="135" font-size="16" font-weight="700" fill="white" text-anchor="middle">Orchestrator</text>
+                    
+                    <!-- Core components inside -->
+                    <rect x="365" y="145" width="70" height="35" rx="5" fill="white" opacity="0.9"/>
+                    <text x="400" y="159" font-size="9" fill="#1E64C8" text-anchor="middle" font-weight="600">Workflow</text>
+                    <text x="400" y="171" font-size="9" fill="#1E64C8" text-anchor="middle">Engine</text>
+                    
+                    <rect x="445" y="145" width="70" height="35" rx="5" fill="white" opacity="0.9"/>
+                    <text x="480" y="159" font-size="9" fill="#1E64C8" text-anchor="middle" font-weight="600">State</text>
+                    <text x="480" y="171" font-size="9" fill="#1E64C8" text-anchor="middle">Manager</text>
+                </g>
+                
+                <!-- Workflow Definition (Top Left) -->
+                <g>
+                    <rect x="60" y="50" width="160" height="100" rx="10" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2.5"/>
+                    <text x="140" y="75" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">Workflow Definition</text>
+                    <text x="140" y="93" font-size="12" fill="#666" text-anchor="middle">프로세스 정의</text>
+                    
+                    <!-- BPMN-like diagram -->
+                    <g transform="translate(80, 105)">
+                        <!-- Start event -->
+                        <circle cx="10" cy="10" r="8" fill="#4CAF50" stroke="#2d7a2d" stroke-width="2"/>
+                        
+                        <!-- Task 1 -->
+                        <rect x="30" y="2" width="30" height="16" rx="2" fill="#e3f2fd" stroke="#2196F3" stroke-width="1.5"/>
+                        
+                        <!-- Gateway -->
+                        <path d="M 70 10 L 78 2 L 86 10 L 78 18 Z" fill="#FFC107" stroke="#F57C00" stroke-width="1.5"/>
+                        
+                        <!-- Task 2 -->
+                        <rect x="96" y="2" width="30" height="16" rx="2" fill="#e3f2fd" stroke="#2196F3" stroke-width="1.5"/>
+                        
+                        <!-- End event -->
+                        <circle cx="140" cy="10" r="8" fill="#f44336" stroke="#c53030" stroke-width="2"/>
+                        
+                        <!-- Connections -->
+                        <line x1="18" y1="10" x2="30" y2="10" stroke="#666" stroke-width="1.5"/>
+                        <line x1="60" y1="10" x2="70" y2="10" stroke="#666" stroke-width="1.5"/>
+                        <line x1="86" y1="10" x2="96" y2="10" stroke="#666" stroke-width="1.5"/>
+                        <line x1="126" y1="10" x2="132" y2="10" stroke="#666" stroke-width="1.5"/>
+                    </g>
+                    
+                    <!-- Connection to orchestrator -->
+                    <path d="M 220 100 L 350 130" stroke="#1E64C8" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+                    <text x="285" y="110" font-size="10" fill="#1E64C8" font-weight="600">Load</text>
+                </g>
+                
+                <!-- Execution Engine (Top Right) -->
+                <g>
+                    <rect x="660" y="50" width="160" height="100" rx="10" fill="#fff4e6" stroke="#FF9800" stroke-width="2.5"/>
+                    <text x="740" y="75" font-size="14" font-weight="700" fill="#F57C00" text-anchor="middle">Execution Engine</text>
+                    <text x="740" y="93" font-size="12" fill="#666" text-anchor="middle">실행 관리</text>
+                    
+                    <!-- Execution visualization -->
+                    <g transform="translate(680, 105)">
+                        <!-- Progress bars -->
+                        <rect x="0" y="0" width="120" height="8" rx="2" fill="#e0e0e0"/>
+                        <rect x="0" y="0" width="85" height="8" rx="2" fill="#4CAF50"/>
+                        <text x="125" y="7" font-size="8" fill="#2d7a2d">71%</text>
+                        
+                        <rect x="0" y="12" width="120" height="8" rx="2" fill="#e0e0e0"/>
+                        <rect x="0" y="12" width="45" height="8" rx="2" fill="#2196F3"/>
+                        <text x="125" y="19" font-size="8" fill="#1565C0">38%</text>
+                        
+                        <rect x="0" y="24" width="120" height="8" rx="2" fill="#e0e0e0"/>
+                        <rect x="0" y="24" width="110" height="8" rx="2" fill="#FFC107"/>
+                        <text x="125" y="31" font-size="8" fill="#F57C00">92%</text>
+                    </g>
+                    
+                    <!-- Connection from orchestrator -->
+                    <path d="M 530 130 L 660 100" stroke="#FF9800" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
+                    <text x="595" y="110" font-size="10" fill="#F57C00" font-weight="600">Execute</text>
+                </g>
+                
+                <!-- State Management (Bottom Left) -->
+                <g>
+                    <rect x="60" y="200" width="160" height="80" rx="10" fill="#e8f5e9" stroke="#4CAF50" stroke-width="2.5"/>
+                    <text x="140" y="225" font-size="14" font-weight="700" fill="#2d7a2d" text-anchor="middle">State Management</text>
+                    <text x="140" y="243" font-size="12" fill="#666" text-anchor="middle">상태 추적</text>
+                    
+                    <!-- State indicators -->
+                    <g transform="translate(80, 250)">
+                        <circle cx="10" cy="10" r="6" fill="#4CAF50"/>
+                        <text x="20" y="14" font-size="9" fill="#666">Active</text>
+                        
+                        <circle cx="70" cy="10" r="6" fill="#FFC107"/>
+                        <text x="80" y="14" font-size="9" fill="#666">Pending</text>
+                        
+                        <circle cx="10" cy="25" r="6" fill="#2196F3"/>
+                        <text x="20" y="29" font-size="9" fill="#666">Running</text>
+                        
+                        <circle cx="70" cy="25" r="6" fill="#9E9E9E"/>
+                        <text x="80" y="29" font-size="9" fill="#666">Complete</text>
+                    </g>
+                    
+                    <!-- Connection -->
+                    <path d="M 220 240 L 350 170" stroke="#4CAF50" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+                    <text x="285" y="210" font-size="10" fill="#2d7a2d" font-weight="600">Update</text>
+                </g>
+                
+                <!-- Event Bus (Bottom Right) -->
+                <g>
+                    <rect x="660" y="200" width="160" height="80" rx="10" fill="#f3e5f5" stroke="#9C27B0" stroke-width="2.5"/>
+                    <text x="740" y="225" font-size="14" font-weight="700" fill="#6A1B9A" text-anchor="middle">Event Bus</text>
+                    <text x="740" y="243" font-size="12" fill="#666" text-anchor="middle">이벤트 처리</text>
+                    
+                    <!-- Event stream -->
+                    <g transform="translate(680, 250)">
+                        <rect x="0" y="0" width="120" height="20" rx="3" fill="white" stroke="#9C27B0" stroke-width="1.5"/>
+                        <text x="5" y="8" font-size="8" fill="#6A1B9A">▶ Task Started</text>
+                        <text x="5" y="17" font-size="8" fill="#6A1B9A">▶ Data Updated</text>
+                        
+                        <circle cx="110" cy="10" r="4" fill="#4CAF50">
+                            <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                    </g>
+                    
+                    <!-- Connection -->
+                    <path d="M 530 170 L 660 240" stroke="#9C27B0" stroke-width="2.5" marker-end="url(#arrow-purple)"/>
+                    <text x="595" y="210" font-size="10" fill="#6A1B9A" font-weight="600">Publish</text>
+                </g>
+                
+                <!-- Central flow diagram -->
+                <g transform="translate(360, 45)">
+                    <rect x="0" y="0" width="160" height="35" rx="5" fill="#e3f2fd" stroke="#2196F3" stroke-width="2"/>
+                    <text x="80" y="22" font-size="12" font-weight="600" fill="#1565C0" text-anchor="middle">Process Controller</text>
+                    
+                    <!-- Connection down to orchestrator -->
+                    <line x1="80" y1="35" x2="80" y2="65" stroke="#2196F3" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+                </g>
+                
+                <!-- Task Queue (Middle Bottom) -->
+                <g>
+                    <rect x="350" y="220" width="180" height="60" rx="10" fill="#ffebee" stroke="#f44336" stroke-width="2.5"/>
+                    <text x="440" y="245" font-size="14" font-weight="700" fill="#c53030" text-anchor="middle">Task Queue</text>
+                    
+                    <!-- Queue items -->
+                    <g transform="translate(370, 250)">
+                        <rect x="0" y="0" width="35" height="18" rx="2" fill="white" stroke="#f44336" stroke-width="1"/>
+                        <text x="17.5" y="12" font-size="8" fill="#c53030" text-anchor="middle">T1</text>
+                        
+                        <rect x="40" y="0" width="35" height="18" rx="2" fill="white" stroke="#f44336" stroke-width="1"/>
+                        <text x="57.5" y="12" font-size="8" fill="#c53030" text-anchor="middle">T2</text>
+                        
+                        <rect x="80" y="0" width="35" height="18" rx="2" fill="white" stroke="#f44336" stroke-width="1"/>
+                        <text x="97.5" y="12" font-size="8" fill="#c53030" text-anchor="middle">T3</text>
+                        
+                        <text x="125" y="12" font-size="10" fill="#666">...</text>
+                    </g>
+                    
+                    <!-- Connection from orchestrator -->
+                    <line x1="440" y1="190" x2="440" y2="220" stroke="#f44336" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+                </g>
+                
+                <!-- Performance metrics -->
+                <g transform="translate(250, 150)">
+                    <rect x="0" y="0" width="80" height="30" rx="5" fill="white" stroke="#666" stroke-width="1" opacity="0.8"/>
+                    <text x="40" y="12" font-size="8" fill="#666" text-anchor="middle">Throughput</text>
+                    <text x="40" y="23" font-size="10" fill="#1E64C8" text-anchor="middle" font-weight="600">1250/min</text>
+                </g>
+                
+                <g transform="translate(550, 150)">
+                    <rect x="0" y="0" width="80" height="30" rx="5" fill="white" stroke="#666" stroke-width="1" opacity="0.8"/>
+                    <text x="40" y="12" font-size="8" fill="#666" text-anchor="middle">Latency</text>
+                    <text x="40" y="23" font-size="10" fill="#1E64C8" text-anchor="middle" font-weight="600">45ms</text>
+                </g>
+                
+                <!-- Arrow markers -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                    </marker>
+                    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#FF9800"/>
+                    </marker>
+                    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#4CAF50"/>
+                    </marker>
+                    <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#9C27B0"/>
+                    </marker>
+                    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#2196F3"/>
+                    </marker>
+                    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <polygon points="0 0, 10 3, 0 6" fill="#f44336"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+        
         <div class="content-grid">
-            
             <div class="feature-card">
                 <div class="feature-name">Workflow Definition</div>
                 <div class="feature-desc">프로세스 정의</div>
                 <div class="feature-list">
-                    
+                    <div class="feature-item">BPMN 모델링</div>
+                    <div class="feature-item">조건부 분기</div>
+                    <div class="feature-item">병렬 처리</div>
+                    <div class="feature-item">이벤트 트리거</div>
                 </div>
             </div>
             
@@ -221,7 +316,10 @@
                 <div class="feature-name">Execution Engine</div>
                 <div class="feature-desc">실행 관리</div>
                 <div class="feature-list">
-                    
+                    <div class="feature-item">태스크 스케줄링</div>
+                    <div class="feature-item">리소스 할당</div>
+                    <div class="feature-item">오류 처리</div>
+                    <div class="feature-item">재시도 로직</div>
                 </div>
             </div>
             
@@ -229,13 +327,13 @@
                 <div class="feature-name">State Management</div>
                 <div class="feature-desc">상태 추적</div>
                 <div class="feature-list">
-                    
+                    <div class="feature-item">실시간 모니터링</div>
+                    <div class="feature-item">상태 전이</div>
+                    <div class="feature-item">감사 로그</div>
+                    <div class="feature-item">복구 지점</div>
                 </div>
             </div>
-            
         </div>
-        
-        
     </div>
 </body>
 </html>

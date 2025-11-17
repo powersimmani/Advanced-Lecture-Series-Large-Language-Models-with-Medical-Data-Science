@@ -86,54 +86,20 @@
             flex-shrink: 0;
         }
         
-        .info-section {
+        .decision-tree {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 10px;
             padding: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
-        .section-title {
+        .tree-title {
             font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
             margin-bottom: 15px;
             text-align: center;
-        }
-        
-        .content-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .example-box {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .example-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .example-content {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .example-line {
-            font-size: 15px;
-            color: #333;
-            line-height: 1.5;
         }
         
         .highlight-box {
@@ -144,50 +110,193 @@
             text-align: center;
         }
         
-        .highlight-text {
-            font-size: 17px;
-            color: #333;
-            font-weight: 600;
+        .decision-node {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .decision-node:hover {
+            transform: scale(1.05);
+        }
+        
+        .actual-path {
+            stroke-width: 4;
+            animation: actualPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes actualPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .counterfactual-path {
+            stroke-dasharray: 5,3;
+            animation: counterfactualFlow 3s linear infinite;
+        }
+        
+        @keyframes counterfactualFlow {
+            to {
+                stroke-dashoffset: -16;
+            }
+        }
+        
+        .outcome-glow {
+            animation: outcomeGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes outcomeGlow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        
         <div class="title">Counterfactual Reasoning in Clinical Context</div>
         
-        <div class="info-section">
-            <div class="section-title">"What If" Scenarios</div>
-            <div class="content-grid">
-                <div class="content-item">
-                    <strong style="color: #1E64C8;">Alternative Treatments:</strong> What if we chose treatment B instead of A?
+        <div class="comparison-grid">
+            <div class="info-card">
+                <div class="card-header">🤔 "What If" Scenarios</div>
+                <div class="card-content">
+                    <div class="content-item">Alternative treatments</div>
+                    <div class="content-item">Timing variations</div>
+                    <div class="content-item">Different diagnostic paths</div>
+                    <div class="content-item">Modified risk profiles</div>
                 </div>
-                <div class="content-item">
-                    <strong style="color: #1E64C8;">Timing Variations:</strong> What if intervention was earlier/later?
-                </div>
-                <div class="content-item">
-                    <strong style="color: #1E64C8;">Diagnostic Paths:</strong> What if initial diagnosis was different?
-                </div>
-                <div class="content-item">
-                    <strong style="color: #1E64C8;">Risk Scenarios:</strong> What if patient had different risk profile?
+            </div>
+            
+            <div class="info-card">
+                <div class="card-header">📊 Analysis Benefits</div>
+                <div class="card-content">
+                    <div class="content-item">Validate decisions</div>
+                    <div class="content-item">Identify improvements</div>
+                    <div class="content-item">Risk-benefit clarity</div>
+                    <div class="content-item">Learning from outcomes</div>
                 </div>
             </div>
         </div>
         
-        <div class="example-box">
-            <div class="example-title">Example: Treatment Decision</div>
-            <div class="example-content">
-                <div class="example-line"><strong>Actual:</strong> Chose conservative management → symptom improvement in 2 weeks</div>
-                <div class="example-line"><strong>Counterfactual 1:</strong> Surgery → faster recovery but higher risk</div>
-                <div class="example-line"><strong>Counterfactual 2:</strong> Aggressive medication → potential side effects</div>
-                <div class="example-line" style="margin-top: 10px;"><strong style="color: #1E64C8;">Analysis:</strong> Conservative was appropriate given risk-benefit profile</div>
-            </div>
+        <!-- SVG Decision Tree with Counterfactuals -->
+        <div class="decision-tree">
+            <div class="tree-title">Counterfactual Decision Analysis</div>
+            <svg width="840" height="240" viewBox="0 0 840 240">
+                <!-- Initial State -->
+                <g class="decision-node">
+                    <circle cx="60" cy="120" r="40" fill="#1E64C8" stroke="#1E64C8" stroke-width="3"/>
+                    <text x="60" y="115" text-anchor="middle" fill="white" font-size="12" font-weight="700">Patient</text>
+                    <text x="60" y="130" text-anchor="middle" fill="white" font-size="12" font-weight="700">Presents</text>
+                </g>
+                
+                <!-- Decision Point -->
+                <g>
+                    <rect x="140" y="95" width="100" height="50" rx="25" fill="#fff4e6" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="190" y="115" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">Decision</text>
+                    <text x="190" y="132" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">Point</text>
+                </g>
+                
+                <!-- Actual Path (Top) -->
+                <g>
+                    <path class="actual-path" d="M 240 110 L 300 60" stroke="#28a745" fill="none"/>
+                    <polygon points="300,60 293,62 296,68" fill="#28a745"/>
+                    
+                    <g class="decision-node">
+                        <rect x="305" y="35" width="150" height="50" rx="8" fill="#d4edda" stroke="#28a745" stroke-width="3"/>
+                        <text x="380" y="52" text-anchor="middle" fill="#28a745" font-size="13" font-weight="700">ACTUAL:</text>
+                        <text x="380" y="68" text-anchor="middle" fill="#333" font-size="12">Conservative Mgmt</text>
+                        <text x="380" y="80" text-anchor="middle" fill="#666" font-size="10">(Chosen path)</text>
+                    </g>
+                    
+                    <path class="actual-path" d="M 455 60 L 510 60" stroke="#28a745" fill="none"/>
+                    <polygon points="510,60 503,56 503,64" fill="#28a745"/>
+                    
+                    <g class="decision-node outcome-glow">
+                        <rect x="515" y="35" width="140" height="50" rx="8" fill="#d4edda" stroke="#28a745" stroke-width="3"/>
+                        <text x="585" y="52" text-anchor="middle" fill="#28a745" font-size="12" font-weight="700">Outcome:</text>
+                        <text x="585" y="68" text-anchor="middle" fill="#333" font-size="11">Recovery 2 weeks</text>
+                        <text x="585" y="80" text-anchor="middle" fill="#333" font-size="11">No complications</text>
+                    </g>
+                    
+                    <!-- Risk-Benefit -->
+                    <g>
+                        <rect x="670" y="40" width="160" height="40" rx="6" fill="white" stroke="#28a745" stroke-width="2"/>
+                        <text x="750" y="55" text-anchor="middle" fill="#28a745" font-size="11" font-weight="700">Risk: Low (5%)</text>
+                        <text x="750" y="70" text-anchor="middle" fill="#28a745" font-size="11" font-weight="700">Benefit: Moderate</text>
+                    </g>
+                </g>
+                
+                <!-- Counterfactual 1 (Middle) -->
+                <g>
+                    <path class="counterfactual-path" d="M 240 120 L 300 120" stroke="#ffc107" fill="none"/>
+                    <polygon points="300,120 293,116 293,124" fill="#ffc107"/>
+                    
+                    <g class="decision-node">
+                        <rect x="305" y="95" width="150" height="50" rx="8" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+                        <text x="380" y="112" text-anchor="middle" fill="#ffc107" font-size="13" font-weight="700">WHAT IF:</text>
+                        <text x="380" y="128" text-anchor="middle" fill="#333" font-size="12">Surgery</text>
+                        <text x="380" y="140" text-anchor="middle" fill="#666" font-size="10">(Alternative 1)</text>
+                    </g>
+                    
+                    <path class="counterfactual-path" d="M 455 120 L 510 120" stroke="#ffc107" fill="none"/>
+                    <polygon points="510,120 503,116 503,124" fill="#ffc107"/>
+                    
+                    <g class="decision-node">
+                        <rect x="515" y="95" width="140" height="50" rx="8" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+                        <text x="585" y="112" text-anchor="middle" fill="#ffc107" font-size="12" font-weight="700">Projected:</text>
+                        <text x="585" y="128" text-anchor="middle" fill="#333" font-size="11">Recovery 1 week</text>
+                        <text x="585" y="140" text-anchor="middle" fill="#dc3545" font-size="11">Surgical risks</text>
+                    </g>
+                    
+                    <!-- Risk-Benefit -->
+                    <g>
+                        <rect x="670" y="100" width="160" height="40" rx="6" fill="white" stroke="#ffc107" stroke-width="2"/>
+                        <text x="750" y="115" text-anchor="middle" fill="#dc3545" font-size="11" font-weight="700">Risk: High (15%)</text>
+                        <text x="750" y="130" text-anchor="middle" fill="#ffc107" font-size="11" font-weight="700">Benefit: High</text>
+                    </g>
+                </g>
+                
+                <!-- Counterfactual 2 (Bottom) -->
+                <g>
+                    <path class="counterfactual-path" d="M 240 130 L 300 180" stroke="#dc3545" fill="none"/>
+                    <polygon points="300,180 293,176 294,183" fill="#dc3545"/>
+                    
+                    <g class="decision-node">
+                        <rect x="305" y="155" width="150" height="50" rx="8" fill="#f8d7da" stroke="#dc3545" stroke-width="2"/>
+                        <text x="380" y="172" text-anchor="middle" fill="#dc3545" font-size="13" font-weight="700">WHAT IF:</text>
+                        <text x="380" y="188" text-anchor="middle" fill="#333" font-size="12">Aggressive Meds</text>
+                        <text x="380" y="200" text-anchor="middle" fill="#666" font-size="10">(Alternative 2)</text>
+                    </g>
+                    
+                    <path class="counterfactual-path" d="M 455 180 L 510 180" stroke="#dc3545" fill="none"/>
+                    <polygon points="510,180 503,176 503,184" fill="#dc3545"/>
+                    
+                    <g class="decision-node">
+                        <rect x="515" y="155" width="140" height="50" rx="8" fill="#f8d7da" stroke="#dc3545" stroke-width="2"/>
+                        <text x="585" y="172" text-anchor="middle" fill="#dc3545" font-size="12" font-weight="700">Projected:</text>
+                        <text x="585" y="188" text-anchor="middle" fill="#333" font-size="11">Recovery 10 days</text>
+                        <text x="585" y="200" text-anchor="middle" fill="#dc3545" font-size="11">Side effects likely</text>
+                    </g>
+                    
+                    <!-- Risk-Benefit -->
+                    <g>
+                        <rect x="670" y="160" width="160" height="40" rx="6" fill="white" stroke="#dc3545" stroke-width="2"/>
+                        <text x="750" y="175" text-anchor="middle" fill="#dc3545" font-size="11" font-weight="700">Risk: Moderate (10%)</text>
+                        <text x="750" y="190" text-anchor="middle" fill="#ffc107" font-size="11" font-weight="700">Benefit: Moderate</text>
+                    </g>
+                </g>
+                
+                <!-- Analysis Summary -->
+                <g>
+                    <rect x="10" y="210" width="820" height="25" rx="5" fill="#e8f2ff" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="420" y="228" text-anchor="middle" fill="#1E64C8" font-size="13" font-weight="700">
+                        Analysis Result: Conservative management was optimal given risk-benefit profile ✓
+                    </text>
+                </g>
+            </svg>
         </div>
         
         <div class="highlight-box">
             <strong style="color: #1E64C8;">Benefit:</strong> Exploring alternatives validates chosen approach and identifies improvements
         </div>
-    
     </div>
 </body>
 </html>

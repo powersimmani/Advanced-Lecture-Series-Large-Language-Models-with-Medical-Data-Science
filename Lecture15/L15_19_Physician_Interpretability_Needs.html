@@ -24,59 +24,214 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 30px;
+        .main-content {
+            display: flex;
+            gap: 30px;
+            height: 380px;
+        }
+        .diagram-section {
+            flex: 1.4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .info-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         .content-card {
             background: #f8f9fa;
             border-left: 4px solid #1E64C8;
             border-radius: 8px;
-            padding: 20px;
+            padding: 15px;
             transition: all 0.3s;
         }
         .content-card:hover {
             background: #e8f2ff;
-            transform: translateY(-3px);
+            transform: translateX(5px);
             box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
         }
         .card-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         .card-text {
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
-            line-height: 1.5;
+            line-height: 1.4;
+        }
+        .physician-diagram {
+            width: 100%;
+            max-width: 560px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Physician Interpretability Needs</div>
-        <div class="content-grid">
-            <div class="content-card">
-                <div class="card-title">👨‍⚕️ Clinical Workflow</div>
-                <div class="card-text">Integrating explanations into existing medical workflows</div>
+        <div class="main-content">
+            <div class="diagram-section">
+                <svg class="physician-diagram" viewBox="0 0 560 380" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Central Physician Icon -->
+                    <g id="physician-center">
+                        <circle cx="280" cy="190" r="50" fill="#e8f2ff" stroke="#1E64C8" stroke-width="3"/>
+                        <text x="280" y="180" text-anchor="middle" font-size="30">👨‍⚕️</text>
+                        <text x="280" y="205" text-anchor="middle" fill="#1E64C8" font-size="11" font-weight="700">Physician</text>
+                    </g>
+                    
+                    <!-- Workflow Integration (Top) -->
+                    <g id="workflow">
+                        <rect x="190" y="20" width="180" height="70" fill="#f8f9fa" rx="10" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="280" y="40" text-anchor="middle" fill="#1E64C8" font-size="12" font-weight="700">⚕️ Clinical Workflow</text>
+                        
+                        <!-- Timeline -->
+                        <line x1="210" y1="55" x2="350" y2="55" stroke="#999" stroke-width="2"/>
+                        <circle cx="230" cy="55" r="4" fill="#43a047"/>
+                        <circle cx="280" cy="55" r="4" fill="#1E64C8"/>
+                        <circle cx="330" cy="55" r="4" fill="#f57c00"/>
+                        
+                        <text x="230" y="70" text-anchor="middle" fill="#333" font-size="8">Patient</text>
+                        <text x="280" y="70" text-anchor="middle" fill="#1E64C8" font-size="8" font-weight="600">AI Analysis</text>
+                        <text x="330" y="70" text-anchor="middle" fill="#333" font-size="8">Decision</text>
+                        
+                        <text x="280" y="82" text-anchor="middle" fill="#666" font-size="9">< 30 seconds</text>
+                    </g>
+                    
+                    <!-- Time Efficiency (Right) -->
+                    <g id="time">
+                        <rect x="400" y="145" width="140" height="90" fill="#fff9e6" rx="10" stroke="#f57c00" stroke-width="2"/>
+                        <text x="470" y="165" text-anchor="middle" fill="#f57c00" font-size="12" font-weight="700">⏱️ Time Budget</text>
+                        
+                        <!-- Time breakdown pie chart -->
+                        <g transform="translate(470, 195)">
+                            <circle r="25" fill="#d32f2f" opacity="0.8"/>
+                            <path d="M 0,0 L 0,-25 A 25,25 0 0,1 17.7,17.7 Z" fill="#43a047" opacity="0.8"/>
+                            <path d="M 0,0 L 17.7,17.7 A 25,25 0 0,1 -21.7,12.5 Z" fill="#1E64C8" opacity="0.8"/>
+                            <circle r="15" fill="white"/>
+                            <text y="5" text-anchor="middle" fill="#333" font-size="9" font-weight="600">5 min</text>
+                        </g>
+                        
+                        <text x="420" y="230" fill="#666" font-size="8">Quick glance: 5s</text>
+                        <text x="495" y="230" fill="#666" font-size="8">Deep dive: 30s</text>
+                    </g>
+                    
+                    <!-- Medical Expertise (Bottom) -->
+                    <g id="expertise">
+                        <rect x="190" y="290" width="180" height="75" fill="#e8f5e9" rx="10" stroke="#43a047" stroke-width="2"/>
+                        <text x="280" y="310" text-anchor="middle" fill="#43a047" font-size="12" font-weight="700">🎓 Expertise Levels</text>
+                        
+                        <!-- Expertise ladder -->
+                        <rect x="210" y="320" width="140" height="10" fill="#43a047" rx="2" opacity="0.3"/>
+                        <rect x="210" y="333" width="140" height="10" fill="#43a047" rx="2" opacity="0.5"/>
+                        <rect x="210" y="346" width="140" height="10" fill="#43a047" rx="2" opacity="0.8"/>
+                        
+                        <text x="205" y="327" text-anchor="end" fill="#333" font-size="8">Resident</text>
+                        <text x="205" y="340" text-anchor="end" fill="#333" font-size="8">Specialist</text>
+                        <text x="205" y="353" text-anchor="end" fill="#333" font-size="8">Expert</text>
+                        
+                        <text x="355" y="340" fill="#666" font-size="8">Adaptive</text>
+                        <text x="355" y="350" fill="#666" font-size="8">detail level</text>
+                    </g>
+                    
+                    <!-- Trust Building (Left) -->
+                    <g id="trust">
+                        <rect x="20" y="145" width="140" height="90" fill="#ffe8e8" rx="10" stroke="#d32f2f" stroke-width="2"/>
+                        <text x="90" y="165" text-anchor="middle" fill="#d32f2f" font-size="12" font-weight="700">✅ Trust Factors</text>
+                        
+                        <!-- Trust gauge -->
+                        <g transform="translate(90, 195)">
+                            <path d="M -30 10 A 30,30 0 0,1 30,10" stroke="#ddd" stroke-width="8" fill="none" stroke-linecap="round"/>
+                            <path d="M -30 10 A 30,30 0 0,1 15,-5" stroke="#43a047" stroke-width="8" fill="none" stroke-linecap="round"/>
+                            <circle cx="15" cy="-5" r="4" fill="#43a047"/>
+                            <text y="8" text-anchor="middle" fill="#333" font-size="9" font-weight="600">75%</text>
+                        </g>
+                        
+                        <text x="45" y="230" fill="#666" font-size="8">Transparency ↑</text>
+                        <text x="105" y="230" fill="#666" font-size="8">Accuracy ↑</text>
+                    </g>
+                    
+                    <!-- Connection lines -->
+                    <line x1="280" y1="90" x2="280" y2="140" stroke="#1E64C8" stroke-width="2" opacity="0.3"/>
+                    <line x1="330" y1="190" x2="400" y2="190" stroke="#f57c00" stroke-width="2" opacity="0.3"/>
+                    <line x1="280" y1="240" x2="280" y2="290" stroke="#43a047" stroke-width="2" opacity="0.3"/>
+                    <line x1="230" y1="190" x2="160" y2="190" stroke="#d32f2f" stroke-width="2" opacity="0.3"/>
+                    
+                    <!-- Key Requirements -->
+                    <g id="requirements">
+                        <rect x="150" y="100" width="260" height="30" fill="#f8f9fa" rx="6" stroke="#666" stroke-width="1" stroke-dasharray="3,2"/>
+                        <text x="280" y="115" text-anchor="middle" fill="#666" font-size="9" font-weight="700">Key Requirements</text>
+                        <text x="160" y="125" fill="#666" font-size="8">Fast • Accurate • Relevant • Trustworthy • Actionable</text>
+                    </g>
+                    
+                    <!-- Interface Examples -->
+                    <g id="interface-examples">
+                        <rect x="380" y="50" width="170" height="80" fill="#f8f9fa" rx="8" stroke="#666" stroke-width="1" stroke-dasharray="3,2"/>
+                        <text x="465" y="70" text-anchor="middle" fill="#1E64C8" font-size="10" font-weight="700">Explanation Formats</text>
+                        
+                        <!-- Format icons -->
+                        <g transform="translate(400, 85)">
+                            <rect width="30" height="30" fill="#e8f2ff" rx="4"/>
+                            <text x="15" y="20" text-anchor="middle" font-size="14">📊</text>
+                            <text x="15" y="40" text-anchor="middle" fill="#666" font-size="7">Visual</text>
+                        </g>
+                        
+                        <g transform="translate(445, 85)">
+                            <rect width="30" height="30" fill="#fff9e6" rx="4"/>
+                            <text x="15" y="20" text-anchor="middle" font-size="14">📝</text>
+                            <text x="15" y="40" text-anchor="middle" fill="#666" font-size="7">Text</text>
+                        </g>
+                        
+                        <g transform="translate(490, 85)">
+                            <rect width="30" height="30" fill="#e8f5e9" rx="4"/>
+                            <text x="15" y="20" text-anchor="middle" font-size="14">🔢</text>
+                            <text x="15" y="40" text-anchor="middle" fill="#666" font-size="7">Score</text>
+                        </g>
+                    </g>
+                    
+                    <!-- Decision Support -->
+                    <g id="decision-support">
+                        <rect x="20" y="260" width="140" height="85" fill="#e8f2ff" rx="10" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="90" y="280" text-anchor="middle" fill="#1E64C8" font-size="11" font-weight="700">Decision Support</text>
+                        
+                        <g id="support-levels">
+                            <circle cx="50" cy="300" r="4" fill="#43a047"/>
+                            <text x="60" y="304" fill="#333" font-size="8">Confirm diagnosis</text>
+                            
+                            <circle cx="50" cy="315" r="4" fill="#f57c00"/>
+                            <text x="60" y="319" fill="#333" font-size="8">Suggest alternatives</text>
+                            
+                            <circle cx="50" cy="330" r="4" fill="#d32f2f"/>
+                            <text x="60" y="334" fill="#333" font-size="8">Flag critical findings</text>
+                        </g>
+                    </g>
+                </svg>
             </div>
-            <div class="content-card">
-                <div class="card-title">⏱️ Time Efficiency</div>
-                <div class="card-text">Providing quick, actionable insights without overwhelming detail</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">🎓 Medical Expertise</div>
-                <div class="card-text">Matching explanation complexity to physician knowledge level</div>
-            </div>
-            <div class="content-card">
-                <div class="card-title">✅ Trust Building</div>
-                <div class="card-text">Fostering appropriate trust through transparent AI</div>
+            
+            <div class="info-section">
+                <div class="content-card">
+                    <div class="card-title">👨‍⚕️ Clinical Integration</div>
+                    <div class="card-text">XAI must fit seamlessly into existing medical workflows without disruption</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">⏱️ Time Constraints</div>
+                    <div class="card-text">Explanations must be digestible within 5-30 seconds during patient care</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">🎓 Adaptive Complexity</div>
+                    <div class="card-text">Adjust explanation detail based on physician's expertise and context</div>
+                </div>
+                <div class="content-card">
+                    <div class="card-title">✅ Trust Calibration</div>
+                    <div class="card-text">Build appropriate trust through transparency while avoiding over-reliance</div>
+                </div>
             </div>
         </div>
     </div>

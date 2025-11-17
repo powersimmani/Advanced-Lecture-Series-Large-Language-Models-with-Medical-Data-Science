@@ -19,57 +19,78 @@
             font-size: 32px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: center;
         }
         .modalities {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-            margin-bottom: 20px;
+            gap: 15px;
+            margin-bottom: 18px;
         }
         .modality-card {
             background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
             color: white;
             border-radius: 12px;
-            padding: 18px;
+            padding: 16px;
             text-align: center;
             transition: all 0.3s;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .modality-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        .modality-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(20%, 20%);
         }
         .modality-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(30, 100, 200, 0.3);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(30, 100, 200, 0.4);
         }
         .modality-icon {
-            font-size: 36px;
-            margin-bottom: 10px;
+            font-size: 32px;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
         .modality-type {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
         .modality-example {
-            font-size: 12px;
-            line-height: 1.4;
+            font-size: 11px;
+            line-height: 1.3;
+            opacity: 0.95;
         }
         .fusion-box {
             background: #f0f5fc;
             border: 3px solid #1E64C8;
             border-radius: 12px;
-            padding: 20px;
+            padding: 18px;
+            height: 265px;
         }
         .fusion-title {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             text-align: center;
         }
         .fusion-svg {
             width: 100%;
-            height: 200px;
+            height: 220px;
         }
         .fusion-layer {
             fill: #1E64C8;
@@ -77,29 +98,33 @@
             stroke-width: 2;
             cursor: pointer;
             transition: all 0.3s;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
         .fusion-layer:hover {
             fill: #2874d8;
             stroke-width: 3;
+            filter: drop-shadow(0 4px 8px rgba(30,100,200,0.3));
         }
         .fusion-text {
-            font-size: 13px;
+            font-size: 12px;
             fill: white;
             font-weight: 600;
             text-anchor: middle;
         }
         .fusion-desc {
-            font-size: 11px;
+            font-size: 10px;
             fill: white;
             text-anchor: middle;
+            opacity: 0.9;
         }
         .input-box {
-            fill: #e8f2ff;
+            fill: white;
             stroke: #1E64C8;
             stroke-width: 2;
+            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.1));
         }
         .input-text {
-            font-size: 12px;
+            font-size: 11px;
             fill: #1E64C8;
             font-weight: 600;
             text-anchor: middle;
@@ -109,11 +134,50 @@
             stroke-width: 2;
             fill: none;
             marker-end: url(#arrow);
+            stroke-dasharray: 5, 3;
+            animation: dash 2s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -8; }
         }
         .method-label {
-            font-size: 14px;
+            font-size: 13px;
             fill: #1E64C8;
             font-weight: 700;
+            text-anchor: middle;
+        }
+        .special-fusion {
+            fill: url(#gradSpecial);
+        }
+        .attention-circle {
+            fill: url(#gradAttention);
+            stroke: #9b59b6;
+            stroke-width: 2;
+        }
+        .performance-text {
+            font-size: 10px;
+            fill: #2ecc71;
+            font-weight: 700;
+            text-anchor: middle;
+        }
+        .flow-indicator {
+            stroke: #1E64C8;
+            stroke-width: 1;
+            fill: none;
+            opacity: 0.3;
+            stroke-dasharray: 2, 2;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .pulsing {
+            animation: pulse 2s infinite;
+        }
+        .fusion-advantage {
+            font-size: 9px;
+            fill: #666;
+            text-anchor: middle;
         }
     </style>
 </head>
@@ -124,127 +188,174 @@
             <div class="modality-card">
                 <div class="modality-icon">📝➕📷</div>
                 <div class="modality-type">Text + Image</div>
-                <div class="modality-example">Radiology reports with X-rays, CT, MRI</div>
+                <div class="modality-example">Radiology reports with X-rays, CT scans, MRI</div>
             </div>
             <div class="modality-card">
                 <div class="modality-icon">📝➕📊</div>
                 <div class="modality-type">Text + Signal</div>
-                <div class="modality-example">ECG, EEG, waveform analysis</div>
+                <div class="modality-example">ECG, EEG, vital signs waveform analysis</div>
             </div>
             <div class="modality-card">
                 <div class="modality-icon">📝➕🎥</div>
                 <div class="modality-type">Text + Video</div>
-                <div class="modality-example">Surgical procedures, endoscopy</div>
+                <div class="modality-example">Surgical procedures, endoscopy, ultrasound</div>
             </div>
         </div>
         <div class="fusion-box">
-            <div class="fusion-title">🔗 Fusion Strategies</div>
-            <svg class="fusion-svg" viewBox="0 0 860 180">
+            <div class="fusion-title">🔗 Fusion Strategies Comparison</div>
+            <svg class="fusion-svg" viewBox="0 0 860 200">
                 <defs>
                     <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
                         <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
                     </marker>
+                    <linearGradient id="gradSpecial" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#2ecc71;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#27ae60;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="gradAttention" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#9b59b6;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#8e44ad;stop-opacity:1" />
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
                 </defs>
                 
                 <!-- Early Fusion -->
-                <g>
-                    <text class="method-label" x="105" y="20">🎯 Early Fusion</text>
-                    <!-- Inputs -->
-                    <rect class="input-box" x="30" y="35" width="70" height="30" rx="5" />
-                    <text class="input-text" x="65" y="54">Text</text>
-                    <rect class="input-box" x="115" y="35" width="70" height="30" rx="5" />
-                    <text class="input-text" x="150" y="54">Image</text>
+                <g transform="translate(0, 0)">
+                    <text class="method-label" x="105" y="15">🎯 Early Fusion</text>
                     
-                    <!-- Arrows to fusion -->
-                    <path class="arrow-path" d="M 65 65 L 65 85" />
-                    <path class="arrow-path" d="M 150 65 L 150 85" />
+                    <!-- Input boxes -->
+                    <rect class="input-box" x="30" y="30" width="60" height="25" rx="4" />
+                    <text class="input-text" x="60" y="47">Text</text>
+                    <rect class="input-box" x="100" y="30" width="60" height="25" rx="4" />
+                    <text class="input-text" x="130" y="47">Image</text>
                     
-                    <!-- Fusion box -->
-                    <rect class="fusion-layer" x="30" y="90" width="155" height="50" rx="8" />
-                    <text class="fusion-text" x="107.5" y="110">Concatenate</text>
-                    <text class="fusion-desc" x="107.5" y="128">Before encoding</text>
+                    <!-- Arrows converging -->
+                    <path class="arrow-path" d="M 60 55 L 95 75" />
+                    <path class="arrow-path" d="M 130 55 L 95 75" />
                     
-                    <!-- Arrow to output -->
-                    <path class="arrow-path" d="M 107.5 140 L 107.5 160" />
-                    <rect class="input-box" x="72.5" y="160" width="70" height="20" rx="5" />
-                    <text class="input-text" x="107.5" y="173" font-size="11px">Output</text>
+                    <!-- Concatenation point -->
+                    <circle cx="95" cy="80" r="6" fill="#1E64C8" />
+                    
+                    <!-- Single processing -->
+                    <path class="arrow-path" d="M 95 86 L 95 100" />
+                    <rect class="fusion-layer" x="25" y="100" width="140" height="35" rx="6" />
+                    <text class="fusion-text" x="95" y="115">Concatenate</text>
+                    <text class="fusion-desc" x="95" y="128">Joint Processing</text>
+                    
+                    <!-- Output -->
+                    <path class="arrow-path" d="M 95 135 L 95 150" />
+                    <rect class="special-fusion" x="60" y="150" width="70" height="20" rx="4" />
+                    <text class="input-text" x="95" y="163" style="fill: white;">Output</text>
+                    
+                    <!-- Performance indicator -->
+                    <text class="performance-text" x="95" y="185">Speed: ⚡⚡⚡</text>
+                    <text class="fusion-advantage" x="95" y="195">Simple, Fast</text>
                 </g>
                 
                 <!-- Late Fusion -->
-                <g transform="translate(220, 0)">
-                    <text class="method-label" x="95" y="20">🔄 Late Fusion</text>
+                <g transform="translate(210, 0)">
+                    <text class="method-label" x="95" y="15">🔄 Late Fusion</text>
+                    
                     <!-- Inputs -->
-                    <rect class="input-box" x="20" y="35" width="70" height="30" rx="5" />
-                    <text class="input-text" x="55" y="54">Text</text>
-                    <rect class="input-box" x="105" y="35" width="70" height="30" rx="5" />
-                    <text class="input-text" x="140" y="54">Image</text>
+                    <rect class="input-box" x="20" y="30" width="60" height="25" rx="4" />
+                    <text class="input-text" x="50" y="47">Text</text>
+                    <rect class="input-box" x="110" y="30" width="60" height="25" rx="4" />
+                    <text class="input-text" x="140" y="47">Image</text>
                     
-                    <!-- Individual processing -->
-                    <path class="arrow-path" d="M 55 65 L 55 80" />
-                    <rect class="fusion-layer" x="30" y="80" width="50" height="35" rx="6" />
-                    <text class="fusion-text" x="55" y="100" font-size="11px">Model 1</text>
+                    <!-- Separate processing -->
+                    <path class="arrow-path" d="M 50 55 L 50 70" />
+                    <rect class="fusion-layer" x="25" y="70" width="50" height="30" rx="5" />
+                    <text class="fusion-text" x="50" y="87" font-size="11px">BERT</text>
                     
-                    <path class="arrow-path" d="M 140 65 L 140 80" />
-                    <rect class="fusion-layer" x="115" y="80" width="50" height="35" rx="6" />
-                    <text class="fusion-text" x="140" y="100" font-size="11px">Model 2</text>
+                    <path class="arrow-path" d="M 140 55 L 140 70" />
+                    <rect class="fusion-layer" x="115" y="70" width="50" height="30" rx="5" />
+                    <text class="fusion-text" x="140" y="87" font-size="11px">CNN</text>
                     
-                    <!-- Combine -->
-                    <path class="arrow-path" d="M 55 115 L 55 130 L 97.5 130" />
-                    <path class="arrow-path" d="M 140 115 L 140 130 L 97.5 130" />
-                    <path class="arrow-path" d="M 97.5 130 L 97.5 145" />
+                    <!-- Features merge -->
+                    <path class="arrow-path" d="M 50 100 L 50 120 L 95 120" />
+                    <path class="arrow-path" d="M 140 100 L 140 120 L 95 120" />
                     
-                    <rect class="fusion-layer" x="62.5" y="145" width="70" height="25" rx="6" />
-                    <text class="fusion-text" x="97.5" y="161" font-size="11px">Combine</text>
+                    <!-- Combination -->
+                    <circle cx="95" cy="120" r="8" class="special-fusion" />
+                    <path class="arrow-path" d="M 95 128 L 95 150" />
+                    <rect class="special-fusion" x="60" y="150" width="70" height="20" rx="4" />
+                    <text class="input-text" x="95" y="163" style="fill: white;">Output</text>
+                    
+                    <!-- Performance -->
+                    <text class="performance-text" x="95" y="185">Accuracy: ⭐⭐⭐</text>
+                    <text class="fusion-advantage" x="95" y="195">Flexible, Modular</text>
                 </g>
                 
                 <!-- Cross-Attention -->
-                <g transform="translate(455, 0)">
-                    <text class="method-label" x="95" y="20">🧠 Cross-Attention</text>
-                    <!-- Inputs -->
-                    <rect class="input-box" x="20" y="35" width="70" height="30" rx="5" />
-                    <text class="input-text" x="55" y="54">Text</text>
-                    <rect class="input-box" x="105" y="35" width="70" height="30" rx="5" />
-                    <text class="input-text" x="140" y="54">Image</text>
+                <g transform="translate(430, 0)">
+                    <text class="method-label" x="95" y="15">🧠 Cross-Attention</text>
                     
-                    <!-- Cross connections -->
-                    <path class="arrow-path" d="M 55 65 L 97.5 85" stroke-dasharray="3,3" />
-                    <path class="arrow-path" d="M 140 65 L 97.5 85" stroke-dasharray="3,3" />
+                    <!-- Inputs -->
+                    <rect class="input-box" x="20" y="30" width="60" height="25" rx="4" />
+                    <text class="input-text" x="50" y="47">Text</text>
+                    <rect class="input-box" x="110" y="30" width="60" height="25" rx="4" />
+                    <text class="input-text" x="140" y="47">Image</text>
+                    
+                    <!-- Cross connections (bidirectional) -->
+                    <path class="flow-indicator" d="M 50 55 L 95 85" />
+                    <path class="flow-indicator" d="M 140 55 L 95 85" />
+                    <path class="arrow-path pulsing" d="M 65 55 C 80 65, 110 65, 125 55" stroke-dasharray="3,2" />
+                    <path class="arrow-path pulsing" d="M 125 55 C 110 65, 80 65, 65 55" stroke-dasharray="3,2" />
                     
                     <!-- Attention mechanism -->
-                    <ellipse cx="97.5" cy="95" rx="40" ry="20" class="fusion-layer" />
-                    <text class="fusion-text" x="97.5" y="100" font-size="11px">Attention</text>
+                    <ellipse cx="95" cy="90" rx="45" ry="25" class="attention-circle" filter="url(#glow)" />
+                    <text class="fusion-text" x="95" y="88" style="fill: white;">Multi-Head</text>
+                    <text class="fusion-text" x="95" y="100" style="fill: white; font-size: 10px;">Attention</text>
                     
                     <!-- Output -->
-                    <path class="arrow-path" d="M 97.5 115 L 97.5 145" />
-                    <rect class="fusion-layer" x="52.5" y="145" width="90" height="25" rx="6" />
-                    <text class="fusion-text" x="97.5" y="161" font-size="11px">Joint Features</text>
+                    <path class="arrow-path" d="M 95 115 L 95 150" />
+                    <rect class="special-fusion" x="50" y="150" width="90" height="20" rx="4" />
+                    <text class="input-text" x="95" y="163" style="fill: white;">Rich Output</text>
+                    
+                    <!-- Performance -->
+                    <text class="performance-text" x="95" y="185">Quality: ⭐⭐⭐⭐⭐</text>
+                    <text class="fusion-advantage" x="95" y="195">Best Performance</text>
                 </g>
                 
                 <!-- Joint Embedding -->
-                <g transform="translate(675, 0)">
-                    <text class="method-label" x="85" y="20">⚡ Joint Space</text>
+                <g transform="translate(640, 0)">
+                    <text class="method-label" x="95" y="15">⚡ Joint Space</text>
+                    
                     <!-- Inputs -->
-                    <rect class="input-box" x="15" y="35" width="70" height="30" rx="5" />
-                    <text class="input-text" x="50" y="54">Text</text>
-                    <rect class="input-box" x="100" y="35" width="70" height="30" rx="5" />
-                    <text class="input-text" x="135" y="54">Image</text>
+                    <rect class="input-box" x="20" y="30" width="60" height="25" rx="4" />
+                    <text class="input-text" x="50" y="47">Text</text>
+                    <rect class="input-box" x="110" y="30" width="60" height="25" rx="4" />
+                    <text class="input-text" x="140" y="47">Image</text>
                     
                     <!-- Encoders -->
-                    <path class="arrow-path" d="M 50 65 L 50 80" />
-                    <rect class="fusion-layer" x="30" y="80" width="40" height="30" rx="6" />
-                    <text class="fusion-text" x="50" y="98" font-size="10px">Enc</text>
+                    <path class="arrow-path" d="M 50 55 L 50 70" />
+                    <rect class="fusion-layer" x="30" y="70" width="40" height="25" rx="4" />
+                    <text class="fusion-text" x="50" y="86" font-size="10px">Enc-T</text>
                     
-                    <path class="arrow-path" d="M 135 65 L 135 80" />
-                    <rect class="fusion-layer" x="115" y="80" width="40" height="30" rx="6" />
-                    <text class="fusion-text" x="135" y="98" font-size="10px">Enc</text>
+                    <path class="arrow-path" d="M 140 55 L 140 70" />
+                    <rect class="fusion-layer" x="120" y="70" width="40" height="25" rx="4" />
+                    <text class="fusion-text" x="140" y="86" font-size="10px">Enc-I</text>
                     
-                    <!-- Joint space -->
-                    <path class="arrow-path" d="M 50 110 L 92.5 130" />
-                    <path class="arrow-path" d="M 135 110 L 92.5 130" />
+                    <!-- Shared embedding space -->
+                    <path class="arrow-path" d="M 50 95 L 95 120" />
+                    <path class="arrow-path" d="M 140 95 L 95 120" />
                     
-                    <circle cx="92.5" cy="145" r="25" class="fusion-layer" />
-                    <text class="fusion-text" x="92.5" y="148" font-size="10px">Shared</text>
-                    <text class="fusion-text" x="92.5" y="160" font-size="10px">Space</text>
+                    <circle cx="95" cy="130" r="28" class="special-fusion" filter="url(#glow)" />
+                    <text class="fusion-text" x="95" y="128" style="fill: white; font-size: 11px;">Shared</text>
+                    <text class="fusion-text" x="95" y="140" style="fill: white; font-size: 11px;">Space</text>
+                    
+                    <!-- Output -->
+                    <path class="arrow-path" d="M 95 158 L 95 150" style="display: none;" />
+                    
+                    <!-- Performance -->
+                    <text class="performance-text" x="95" y="185">Retrieval: ⭐⭐⭐⭐</text>
+                    <text class="fusion-advantage" x="95" y="195">Cross-Modal Search</text>
                 </g>
             </svg>
         </div>

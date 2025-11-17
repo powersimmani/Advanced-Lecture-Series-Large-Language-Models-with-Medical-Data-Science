@@ -22,187 +22,376 @@
             margin-bottom: 25px;
             text-align: center;
         }
-        .tasks-grid {
+        .tasks-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            height: calc(100% - 60px);
         }
         .task-card {
             background: linear-gradient(135deg, #f0f5fc 0%, #ffffff 100%);
-            border-left: 5px solid #1E64C8;
             border-radius: 10px;
-            padding: 16px;
-            transition: all 0.3s;
-            cursor: pointer;
+            padding: 15px;
             position: relative;
             overflow: hidden;
-        }
-        .task-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(30, 100, 200, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
         }
         .task-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 4px;
+            width: 5px;
             height: 100%;
             background: #1E64C8;
             transition: width 0.3s;
+        }
+        .task-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 100, 200, 0.2);
+            border: 2px solid #1E64C8;
         }
         .task-card:hover::before {
             width: 100%;
             opacity: 0.05;
         }
+        .category-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #1E64C8;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
         .task-header {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 8px;
+            gap: 8px;
+            margin-bottom: 10px;
         }
-        .task-icon {
-            font-size: 24px;
+        .task-icon-container {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E64C8, #5088d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
         }
+        .task-icon {
+            font-size: 20px;
+        }
         .task-name {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 700;
             color: #1E64C8;
-            flex: 1;
+            line-height: 1.2;
         }
         .task-desc {
-            font-size: 14px;
+            font-size: 11px;
             color: #333;
-            line-height: 1.5;
+            line-height: 1.4;
             margin-bottom: 8px;
         }
-        .example {
-            font-size: 12px;
-            color: #666;
+        .example-box {
             background: #f8f9fa;
-            padding: 8px;
             border-radius: 6px;
-            border-left: 3px solid #1E64C8;
+            padding: 8px;
+            margin-top: auto;
             position: relative;
+            border: 1px solid #e0e0e0;
         }
-        .example::before {
-            content: '💡';
-            position: absolute;
-            left: -12px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px;
+        .example-label {
+            font-size: 9px;
+            color: #666;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 4px;
         }
         .example-text {
-            margin-left: 8px;
+            font-size: 10px;
+            color: #333;
+            font-family: 'Courier New', monospace;
+            line-height: 1.4;
         }
         .highlight {
             background: linear-gradient(120deg, #1E64C8 0%, #1E64C8 100%);
             background-repeat: no-repeat;
             background-size: 100% 30%;
             background-position: 0 85%;
-            font-weight: 600;
+            font-weight: 700;
             padding: 0 2px;
+            color: #1E64C8;
         }
-        .category-badge {
+        .arrow-indicator {
+            color: #1E64C8;
+            font-weight: 700;
+            margin: 0 4px;
+        }
+        .accuracy-badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #1E64C8;
+            bottom: 8px;
+            right: 8px;
+            background: #2ecc71;
             color: white;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 9px;
             font-weight: 700;
         }
+        .complexity-indicator {
+            display: flex;
+            gap: 2px;
+            margin-top: 4px;
+        }
+        .complexity-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #e0e0e0;
+        }
+        .complexity-dot.active {
+            background: #1E64C8;
+        }
+        .task-svg {
+            width: 100%;
+            height: 40px;
+            margin: 8px 0;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        .animated-element {
+            animation: pulse 2s infinite;
+        }
+        /* Different colors for categories */
+        .extraction { border-left-color: #3498db !important; }
+        .extraction .category-badge { background: #3498db; }
+        .extraction .task-icon-container { background: linear-gradient(135deg, #3498db, #5faee3); }
+        
+        .relation { border-left-color: #9b59b6 !important; }
+        .relation .category-badge { background: #9b59b6; }
+        .relation .task-icon-container { background: linear-gradient(135deg, #9b59b6, #b07cc6); }
+        
+        .temporal { border-left-color: #e67e22 !important; }
+        .temporal .category-badge { background: #e67e22; }
+        .temporal .task-icon-container { background: linear-gradient(135deg, #e67e22, #f39c12); }
+        
+        .logic { border-left-color: #e74c3c !important; }
+        .logic .category-badge { background: #e74c3c; }
+        .logic .task-icon-container { background: linear-gradient(135deg, #e74c3c, #ec7063); }
+        
+        .mapping { border-left-color: #2ecc71 !important; }
+        .mapping .category-badge { background: #2ecc71; }
+        .mapping .task-icon-container { background: linear-gradient(135deg, #2ecc71, #58d68d); }
+        
+        .generation { border-left-color: #f39c12 !important; }
+        .generation .category-badge { background: #f39c12; }
+        .generation .task-icon-container { background: linear-gradient(135deg, #f39c12, #f8c471); }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Clinical NLP Task Taxonomy</div>
-        <div class="tasks-grid">
-            <div class="task-card">
+        <div class="tasks-container">
+            <!-- NER Task -->
+            <div class="task-card extraction">
                 <div class="category-badge">EXTRACTION</div>
                 <div class="task-header">
-                    <span class="task-icon">🔍</span>
-                    <div class="task-name">Named Entity Recognition</div>
-                </div>
-                <div class="task-desc">Identify diseases, medications, symptoms, procedures</div>
-                <div class="example">
-                    <div class="example-text">
-                        Patient has <span class="highlight">diabetes</span> and takes <span class="highlight">metformin</span>
+                    <div class="task-icon-container">
+                        <span class="task-icon">🔍</span>
                     </div>
+                    <div class="task-name">Named Entity<br>Recognition</div>
+                </div>
+                <div class="task-desc">
+                    Identify diseases, medications, symptoms, procedures from clinical text
+                </div>
+                <svg class="task-svg" viewBox="0 0 300 40">
+                    <rect x="10" y="15" width="280" height="10" rx="5" fill="#f0f0f0"/>
+                    <rect x="50" y="15" width="45" height="10" rx="5" fill="#3498db" opacity="0.6"/>
+                    <rect x="120" y="15" width="55" height="10" rx="5" fill="#3498db" opacity="0.6"/>
+                    <rect x="210" y="15" width="40" height="10" rx="5" fill="#3498db" opacity="0.6"/>
+                </svg>
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <div class="example-text">
+                        Patient has <span class="highlight">diabetes</span> and takes<br>
+                        <span class="highlight">metformin 500mg</span> daily
+                    </div>
+                    <div class="accuracy-badge">94% F1</div>
                 </div>
             </div>
             
-            <div class="task-card">
+            <!-- Relation Extraction -->
+            <div class="task-card relation">
                 <div class="category-badge">RELATION</div>
                 <div class="task-header">
-                    <span class="task-icon">🔗</span>
-                    <div class="task-name">Relation Extraction</div>
-                </div>
-                <div class="task-desc">Find relationships between medical entities</div>
-                <div class="example">
-                    <div class="example-text">
-                        <span class="highlight">Drug X</span> → causes → <span class="highlight">Side Effect Y</span>
+                    <div class="task-icon-container">
+                        <span class="task-icon">🔗</span>
                     </div>
+                    <div class="task-name">Relation<br>Extraction</div>
+                </div>
+                <div class="task-desc">
+                    Find relationships between medical entities (drug-disease, symptom-cause)
+                </div>
+                <svg class="task-svg" viewBox="0 0 300 40">
+                    <circle cx="50" cy="20" r="15" fill="#9b59b6" opacity="0.3"/>
+                    <circle cx="250" cy="20" r="15" fill="#9b59b6" opacity="0.3"/>
+                    <path d="M 65 20 L 235 20" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrow)"/>
+                    <defs>
+                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#9b59b6"/>
+                        </marker>
+                    </defs>
+                    <text x="150" y="15" text-anchor="middle" font-size="10" fill="#9b59b6">treats</text>
+                </svg>
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <div class="example-text">
+                        <span class="highlight">Aspirin</span>
+                        <span class="arrow-indicator">→treats→</span>
+                        <span class="highlight">Headache</span>
+                    </div>
+                    <div class="accuracy-badge">91% F1</div>
                 </div>
             </div>
             
-            <div class="task-card">
+            <!-- Temporal Expression -->
+            <div class="task-card temporal">
                 <div class="category-badge">TEMPORAL</div>
                 <div class="task-header">
-                    <span class="task-icon">⏰</span>
-                    <div class="task-name">Temporal Expression</div>
-                </div>
-                <div class="task-desc">Normalize time expressions and event sequences</div>
-                <div class="example">
-                    <div class="example-text">
-                        "2 weeks ago" → <span class="highlight">2024-10-30</span>
+                    <div class="task-icon-container">
+                        <span class="task-icon">⏰</span>
                     </div>
+                    <div class="task-name">Temporal<br>Expression</div>
+                </div>
+                <div class="task-desc">
+                    Normalize time expressions and sequence medical events chronologically
+                </div>
+                <svg class="task-svg" viewBox="0 0 300 40">
+                    <line x1="20" y1="20" x2="280" y2="20" stroke="#e67e22" stroke-width="2"/>
+                    <circle cx="60" cy="20" r="4" fill="#e67e22"/>
+                    <circle cx="150" cy="20" r="4" fill="#e67e22"/>
+                    <circle cx="240" cy="20" r="4" fill="#e67e22"/>
+                    <text x="60" y="35" text-anchor="middle" font-size="9" fill="#666">T-14d</text>
+                    <text x="150" y="35" text-anchor="middle" font-size="9" fill="#666">T-7d</text>
+                    <text x="240" y="35" text-anchor="middle" font-size="9" fill="#666">Today</text>
+                </svg>
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <div class="example-text">
+                        "2 weeks ago" → <span class="highlight">2024-01-01</span><br>
+                        "after surgery" → <span class="highlight">T+1d</span>
+                    </div>
+                    <div class="accuracy-badge">88% Acc</div>
                 </div>
             </div>
             
-            <div class="task-card">
+            <!-- Negation Detection -->
+            <div class="task-card logic">
                 <div class="category-badge">LOGIC</div>
                 <div class="task-header">
-                    <span class="task-icon">❌</span>
-                    <div class="task-name">Negation Detection</div>
-                </div>
-                <div class="task-desc">Identify negated medical concepts</div>
-                <div class="example">
-                    <div class="example-text">
-                        "<span class="highlight">No signs</span> of infection" ≠ "Infection present"
+                    <div class="task-icon-container">
+                        <span class="task-icon">❌</span>
                     </div>
+                    <div class="task-name">Negation<br>Detection</div>
+                </div>
+                <div class="task-desc">
+                    Identify negated medical concepts and uncertainty modifiers
+                </div>
+                <svg class="task-svg" viewBox="0 0 300 40">
+                    <rect x="40" y="15" width="100" height="10" rx="5" fill="#e74c3c" opacity="0.3"/>
+                    <line x1="40" y1="20" x2="140" y2="20" stroke="#e74c3c" stroke-width="2"/>
+                    <line x1="140" y1="15" x2="40" y2="25" stroke="#e74c3c" stroke-width="2"/>
+                    <rect x="160" y="15" width="100" height="10" rx="5" fill="#2ecc71" opacity="0.3"/>
+                </svg>
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <div class="example-text">
+                        "<span class="highlight" style="text-decoration: line-through;">No signs</span> of infection" ✓<br>
+                        "Possible pneumonia" <span style="color: #e67e22;">?</span>
+                    </div>
+                    <div class="accuracy-badge">92% Prec</div>
                 </div>
             </div>
             
-            <div class="task-card">
+            <!-- Medical Code Mapping -->
+            <div class="task-card mapping">
                 <div class="category-badge">MAPPING</div>
                 <div class="task-header">
-                    <span class="task-icon">🏷️</span>
-                    <div class="task-name">Medical Code Mapping</div>
-                </div>
-                <div class="task-desc">Map clinical text to ICD-10, CPT, SNOMED codes</div>
-                <div class="example">
-                    <div class="example-text">
-                        "Hypertension" → <span class="highlight">ICD-10: I10</span>
+                    <div class="task-icon-container">
+                        <span class="task-icon">🏷️</span>
                     </div>
+                    <div class="task-name">Medical Code<br>Mapping</div>
+                </div>
+                <div class="task-desc">
+                    Map clinical text to ICD-10, CPT, SNOMED-CT codes
+                </div>
+                <svg class="task-svg" viewBox="0 0 300 40">
+                    <rect x="20" y="10" width="80" height="20" rx="3" fill="#f0f0f0" stroke="#2ecc71" stroke-width="1"/>
+                    <text x="60" y="23" text-anchor="middle" font-size="9" fill="#333">Text</text>
+                    <path d="M 100 20 L 130 20" stroke="#2ecc71" stroke-width="2" marker-end="url(#arrow2)"/>
+                    <defs>
+                        <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#2ecc71"/>
+                        </marker>
+                    </defs>
+                    <rect x="130" y="10" width="80" height="20" rx="3" fill="#2ecc71" opacity="0.2" stroke="#2ecc71" stroke-width="1"/>
+                    <text x="170" y="23" text-anchor="middle" font-size="9" fill="#2ecc71" font-weight="600">ICD-10</text>
+                </svg>
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <div class="example-text">
+                        "Hypertension" →<br>
+                        <span class="highlight">ICD-10: I10</span>
+                    </div>
+                    <div class="accuracy-badge">87% MAP</div>
                 </div>
             </div>
             
-            <div class="task-card">
+            <!-- Text Summarization -->
+            <div class="task-card generation">
                 <div class="category-badge">GENERATION</div>
                 <div class="task-header">
-                    <span class="task-icon">📝</span>
-                    <div class="task-name">Clinical Text Summarization</div>
-                </div>
-                <div class="task-desc">Generate concise summaries from clinical notes</div>
-                <div class="example">
-                    <div class="example-text">
-                        Long note → <span class="highlight">Discharge summary</span>
+                    <div class="task-icon-container">
+                        <span class="task-icon">📝</span>
                     </div>
+                    <div class="task-name">Clinical Text<br>Summarization</div>
+                </div>
+                <div class="task-desc">
+                    Generate concise summaries from lengthy clinical notes
+                </div>
+                <svg class="task-svg" viewBox="0 0 300 40">
+                    <rect x="20" y="5" width="120" height="30" rx="3" fill="#f39c12" opacity="0.2"/>
+                    <line x1="30" y1="12" x2="130" y2="12" stroke="#f39c12" stroke-width="1" opacity="0.5"/>
+                    <line x1="30" y1="20" x2="130" y2="20" stroke="#f39c12" stroke-width="1" opacity="0.5"/>
+                    <line x1="30" y1="28" x2="130" y2="28" stroke="#f39c12" stroke-width="1" opacity="0.5"/>
+                    <path d="M 145 20 L 165 20" stroke="#f39c12" stroke-width="2" marker-end="url(#arrow3)"/>
+                    <defs>
+                        <marker id="arrow3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#f39c12"/>
+                        </marker>
+                    </defs>
+                    <rect x="170" y="12" width="100" height="16" rx="3" fill="#f39c12" opacity="0.3"/>
+                    <line x1="180" y1="20" x2="260" y2="20" stroke="#f39c12" stroke-width="1"/>
+                </svg>
+                <div class="example-box">
+                    <div class="example-label">Example</div>
+                    <div class="example-text">
+                        5-page note → <span class="highlight">3-line summary</span><br>
+                        Compression: 95%
+                    </div>
+                    <div class="accuracy-badge">ROUGE 0.82</div>
                 </div>
             </div>
         </div>

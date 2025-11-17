@@ -19,75 +19,63 @@
             font-size: 36px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
-        .model-overview {
+        .model-stats {
             background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
             color: white;
             border-radius: 15px;
-            padding: 20px;
+            padding: 15px;
             margin-bottom: 20px;
             text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
         }
-        .model-stat {
-            display: inline-block;
-            margin: 0 20px;
-            font-size: 18px;
-            font-weight: 600;
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .architecture-section {
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        .architecture-container {
             display: grid;
-            grid-template-columns: 1fr 1.3fr;
+            grid-template-columns: 1.5fr 1fr;
             gap: 20px;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-        }
-        .feature-card {
-            background: #f0f5fc;
-            border-left: 5px solid #1E64C8;
-            border-radius: 10px;
-            padding: 15px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .feature-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 12px rgba(30, 100, 200, 0.2);
-        }
-        .feature-icon { 
-            font-size: 24px; 
-            margin-bottom: 5px; 
-            display: block;
-        }
-        .feature-text {
-            font-size: 15px;
-            color: #333;
-            font-weight: 600;
+            height: calc(100% - 140px);
         }
         .arch-svg-container {
             background: #f0f5fc;
             border: 2px solid #1E64C8;
             border-radius: 12px;
             padding: 15px;
+            position: relative;
         }
         .arch-svg {
             width: 100%;
             height: 100%;
         }
         .layer-box {
-            fill: #1E64C8;
+            fill: url(#layerGrad);
             stroke: #0d3a7a;
             stroke-width: 2;
             cursor: pointer;
             transition: all 0.3s;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
         .layer-box:hover {
-            fill: #2874d8;
             stroke-width: 3;
+            filter: drop-shadow(0 4px 8px rgba(30,100,200,0.3));
+            transform: translateY(-2px);
         }
         .layer-text {
             font-size: 13px;
@@ -99,116 +87,264 @@
             font-size: 10px;
             fill: white;
             text-anchor: middle;
+            opacity: 0.9;
         }
-        .arrow-line {
+        .arrow-flow {
             stroke: #1E64C8;
-            stroke-width: 3;
+            stroke-width: 2;
             fill: none;
             marker-end: url(#arrowhead);
+            stroke-dasharray: 5, 5;
+            animation: flow 2s linear infinite;
+        }
+        @keyframes flow {
+            to { stroke-dashoffset: -10; }
         }
         .data-flow {
-            font-size: 11px;
+            font-size: 10px;
             fill: #666;
             font-weight: 600;
+            text-anchor: middle;
+        }
+        .features-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .feature-card {
+            background: white;
+            border-left: 4px solid #1E64C8;
+            border-radius: 8px;
+            padding: 12px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid #e0e0e0;
+        }
+        .feature-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(30, 100, 200, 0.2);
+            background: #f8fbff;
+        }
+        .feature-icon {
+            font-size: 20px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .feature-text {
+            font-size: 13px;
+            color: #333;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+        .feature-desc {
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
+            margin-left: 28px;
+        }
+        .attention-layer {
+            fill: url(#attentionGrad);
+            stroke: #e74c3c;
+            stroke-width: 2;
+        }
+        .special-layer {
+            fill: url(#specialGrad);
+            stroke: #27ae60;
+            stroke-width: 2;
+        }
+        .performance-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #2ecc71;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.05); }
+        }
+        .layer-indicator {
+            fill: #1E64C8;
+            opacity: 0.2;
+            animation: blink 3s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.6; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">MedPaLM 2 Architecture</div>
-        <div class="model-overview">
-            <div class="model-stat">📊 540B parameters</div>
-            <div class="model-stat">🏗️ Flan-PaLM based</div>
-            <div class="model-stat">✅ 86.5% on MedQA</div>
-        </div>
-        <div class="architecture-section">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🎯</span>
-                    <div class="feature-text">Instruction fine-tuning on medical tasks</div>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">💡</span>
-                    <div class="feature-text">Medical domain adaptation with specialized corpus</div>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🚀</span>
-                    <div class="feature-text">Few-shot clinical reasoning capabilities</div>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🛡️</span>
-                    <div class="feature-text">Safety-focused design with alignment</div>
-                </div>
+        
+        <div class="model-stats">
+            <div class="stat-item">
+                <div class="stat-value">540B</div>
+                <div class="stat-label">Parameters</div>
             </div>
-            
+            <div class="stat-item">
+                <div class="stat-value">86.5%</div>
+                <div class="stat-label">MedQA Score</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">Flan-PaLM</div>
+                <div class="stat-label">Base Model</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">64</div>
+                <div class="stat-label">Layers</div>
+            </div>
+        </div>
+        
+        <div class="architecture-container">
             <div class="arch-svg-container">
-                <svg class="arch-svg" viewBox="0 0 480 290">
+                <div class="performance-badge">SOTA Performance</div>
+                <svg class="arch-svg" viewBox="0 0 500 340">
                     <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                            <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
-                        </marker>
                         <linearGradient id="layerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                             <stop offset="0%" style="stop-color:#1E64C8;stop-opacity:1" />
                             <stop offset="100%" style="stop-color:#0d3a7a;stop-opacity:1" />
                         </linearGradient>
+                        <linearGradient id="attentionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="specialGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#2ecc71;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#27ae60;stop-opacity:1" />
+                        </linearGradient>
+                        <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#1E64C8" />
+                        </marker>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
                     </defs>
                     
+                    <!-- Background indicator -->
+                    <rect class="layer-indicator" x="20" y="15" width="460" height="310" rx="15" />
+                    
                     <!-- Input Layer -->
-                    <rect class="layer-box" x="140" y="10" width="200" height="35" rx="8" />
-                    <text class="layer-text" x="240" y="25">Medical Query Input</text>
-                    <text class="layer-detail" x="240" y="38">Patient symptoms, lab data</text>
+                    <g>
+                        <rect class="layer-box" x="150" y="25" width="200" height="35" rx="8" />
+                        <text class="layer-text" x="250" y="40">📋 Medical Query Input</text>
+                        <text class="layer-detail" x="250" y="53">Tokenization & Embedding</text>
+                    </g>
                     
-                    <!-- Arrow -->
-                    <path class="arrow-line" d="M 240 45 L 240 60" />
-                    <text class="data-flow" x="250" y="55">Tokenization</text>
+                    <path class="arrow-flow" d="M 250 60 L 250 75" />
+                    <text class="data-flow" x="270" y="70">[Tokens]</text>
                     
-                    <!-- Flan-PaLM Base Layer -->
-                    <rect class="layer-box" x="120" y="65" width="240" height="40" rx="8" fill="url(#layerGrad)" />
-                    <text class="layer-text" x="240" y="80">Flan-PaLM Base Model</text>
-                    <text class="layer-detail" x="240" y="95">540B parameters • 64 layers</text>
+                    <!-- Embedding Layer -->
+                    <g>
+                        <rect class="special-layer" x="130" y="75" width="240" height="30" rx="8" />
+                        <text class="layer-text" x="250" y="88">🔤 Embedding Layer</text>
+                        <text class="layer-detail" x="250" y="99">50,257 vocab × 8,192 dim</text>
+                    </g>
                     
-                    <!-- Arrow -->
-                    <path class="arrow-line" d="M 240 105 L 240 120" />
-                    <text class="data-flow" x="250" y="115">Embeddings</text>
+                    <path class="arrow-flow" d="M 250 105 L 250 120" />
                     
-                    <!-- Medical Adaptation Layer -->
-                    <rect class="layer-box" x="100" y="125" width="280" height="40" rx="8" />
-                    <text class="layer-text" x="240" y="140">Medical Domain Adaptation</text>
-                    <text class="layer-detail" x="240" y="155">Fine-tuned on PubMed + Clinical notes</text>
+                    <!-- Transformer Blocks -->
+                    <g filter="url(#glow)">
+                        <rect class="layer-box" x="100" y="120" width="300" height="60" rx="8" />
+                        <text class="layer-text" x="250" y="138">🧠 Transformer Blocks</text>
+                        <text class="layer-detail" x="250" y="152">64 Layers × 128 Attention Heads</text>
+                        <text class="layer-detail" x="250" y="166">Feed-Forward: 32,768 dim</text>
+                    </g>
                     
-                    <!-- Arrow -->
-                    <path class="arrow-line" d="M 240 165 L 240 180" />
-                    <text class="data-flow" x="250" y="175">Contextual</text>
+                    <path class="arrow-flow" d="M 250 180 L 250 195" />
+                    <text class="data-flow" x="270" y="190">[Context]</text>
                     
-                    <!-- Instruction Fine-tuning Layer -->
-                    <rect class="layer-box" x="120" y="185" width="240" height="40" rx="8" />
-                    <text class="layer-text" x="240" y="200">Instruction Fine-tuning</text>
-                    <text class="layer-detail" x="240" y="215">Medical QA • Diagnosis • Reasoning</text>
+                    <!-- Medical Adaptation -->
+                    <g>
+                        <rect class="attention-layer" x="120" y="195" width="260" height="45" rx="8" />
+                        <text class="layer-text" x="250" y="210">🏥 Medical Adaptation</text>
+                        <text class="layer-detail" x="250" y="224">PubMed + MIMIC-III + Clinical Notes</text>
+                        <text class="layer-detail" x="250" y="235" style="font-size: 9px;">90B medical tokens</text>
+                    </g>
                     
-                    <!-- Arrow -->
-                    <path class="arrow-line" d="M 240 225 L 240 240" />
-                    <text class="data-flow" x="250" y="235">Generation</text>
+                    <path class="arrow-flow" d="M 250 240 L 250 255" />
                     
                     <!-- Output Layer -->
-                    <rect class="layer-box" x="140" y="245" width="200" height="35" rx="8" fill="#2ecc71" stroke="#27ae60" />
-                    <text class="layer-text" x="240" y="260">Clinical Response</text>
-                    <text class="layer-detail" x="240" y="273">Diagnosis + Evidence + Confidence</text>
+                    <g>
+                        <rect class="special-layer" x="150" y="255" width="200" height="35" rx="8" />
+                        <text class="layer-text" x="250" y="270">✨ Clinical Output</text>
+                        <text class="layer-detail" x="250" y="283">Diagnosis + Confidence + Evidence</text>
+                    </g>
                     
                     <!-- Side annotations -->
-                    <text x="25" y="85" font-size="11px" fill="#666" font-weight="600">Pre-training</text>
-                    <text x="25" y="145" font-size="11px" fill="#666" font-weight="600">Adaptation</text>
-                    <text x="25" y="205" font-size="11px" fill="#666" font-weight="600">Fine-tuning</text>
+                    <g>
+                        <text x="35" y="50" font-size="10" fill="#1E64C8" font-weight="700">Input</text>
+                        <text x="35" y="90" font-size="10" fill="#27ae60" font-weight="700">Encode</text>
+                        <text x="35" y="150" font-size="10" fill="#1E64C8" font-weight="700">Process</text>
+                        <text x="35" y="218" font-size="10" fill="#e74c3c" font-weight="700">Adapt</text>
+                        <text x="35" y="273" font-size="10" fill="#27ae60" font-weight="700">Output</text>
+                    </g>
                     
-                    <!-- Right side: Data flow indicators -->
-                    <circle cx="410" cy="27" r="5" fill="#1E64C8" />
-                    <text x="420" y="32" font-size="10px" fill="#666">Input</text>
+                    <!-- Performance indicators -->
+                    <g transform="translate(420, 140)">
+                        <circle cx="0" cy="0" r="35" fill="#e8f2ff" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="0" y="-8" text-anchor="middle" font-size="16" font-weight="700" fill="#1E64C8">Top-1</text>
+                        <text x="0" y="8" text-anchor="middle" font-size="20" font-weight="700" fill="#2ecc71">87%</text>
+                        <text x="0" y="20" text-anchor="middle" font-size="9" fill="#666">Accuracy</text>
+                    </g>
                     
-                    <circle cx="410" cy="85" r="5" fill="#1E64C8" />
-                    <text x="420" y="90" font-size="10px" fill="#666">Processing</text>
-                    
-                    <circle cx="410" cy="262" r="5" fill="#2ecc71" />
-                    <text x="420" y="267" font-size="10px" fill="#666">Output</text>
+                    <!-- Memory usage indicator -->
+                    <g transform="translate(80, 300)">
+                        <rect x="0" y="0" width="340" height="20" rx="10" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
+                        <rect x="0" y="0" width="272" height="20" rx="10" fill="url(#layerGrad)" opacity="0.7"/>
+                        <text x="170" y="14" text-anchor="middle" font-size="11" fill="white" font-weight="600">
+                            Memory: 1.08TB (80% utilization)
+                        </text>
+                    </g>
                 </svg>
+            </div>
+            
+            <div class="features-panel">
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <span class="feature-text">Instruction Tuning</span>
+                    <div class="feature-desc">Medical task-specific fine-tuning</div>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">💡</span>
+                    <span class="feature-text">Chain-of-Thought</span>
+                    <div class="feature-desc">Step-by-step clinical reasoning</div>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🚀</span>
+                    <span class="feature-text">Few-Shot Learning</span>
+                    <div class="feature-desc">5-shot prompting for rare diseases</div>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <span class="feature-text">Safety Alignment</span>
+                    <div class="feature-desc">Medical ethics & harm reduction</div>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">📚</span>
+                    <span class="feature-text">Knowledge Base</span>
+                    <div class="feature-desc">UpToDate, PubMed integration</div>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <span class="feature-text">Continuous Learning</span>
+                    <div class="feature-desc">Weekly medical literature updates</div>
+                </div>
             </div>
         </div>
     </div>

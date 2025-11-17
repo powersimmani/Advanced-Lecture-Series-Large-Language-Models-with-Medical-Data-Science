@@ -35,6 +35,22 @@
             text-align: center;
         }
         
+        .error-analysis {
+            background: #f0f5fc;
+            border: 2px solid #1E64C8;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .analysis-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
         .comparison-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -86,56 +102,6 @@
             flex-shrink: 0;
         }
         
-        .info-section {
-            background: #f0f5fc;
-            border: 2px solid #1E64C8;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .content-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .example-box {
-            background: white;
-            border: 3px solid #1E64C8;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-        
-        .example-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1E64C8;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .example-content {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        
-        .example-line {
-            font-size: 15px;
-            color: #333;
-            line-height: 1.5;
-        }
-        
         .highlight-box {
             background: #fff4e6;
             border: 2px solid #1E64C8;
@@ -144,21 +110,41 @@
             text-align: center;
         }
         
-        .highlight-text {
-            font-size: 17px;
-            color: #333;
-            font-weight: 600;
+        .error-node {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .error-node:hover {
+            transform: scale(1.05);
+        }
+        
+        .error-pulse {
+            animation: errorPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes errorPulse {
+            0%, 100% { fill: #dc3545; }
+            50% { fill: #ff6b6b; }
+        }
+        
+        .fix-glow {
+            animation: fixGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes fixGlow {
+            0%, 100% { fill: #28a745; }
+            50% { fill: #5cb85c; filter: brightness(1.2); }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        
         <div class="title">Error Analysis in CoT Reasoning</div>
         
         <div class="comparison-grid">
             <div class="info-card">
-                <div class="card-header">Common Error Types</div>
+                <div class="card-header">⚠️ Common Error Types</div>
                 <div class="card-content">
                     <div class="content-item">Premature closure (stopping too early)</div>
                     <div class="content-item">Anchoring bias (fixation on initial diagnosis)</div>
@@ -168,7 +154,7 @@
             </div>
             
             <div class="info-card">
-                <div class="card-header">Improvement Strategies</div>
+                <div class="card-header">🔧 Improvement Strategies</div>
                 <div class="card-content">
                     <div class="content-item">Force consideration of alternatives</div>
                     <div class="content-item">Explicit verification steps</div>
@@ -178,20 +164,133 @@
             </div>
         </div>
         
-        <div class="example-box">
-            <div class="example-title">Error Pattern Analysis</div>
-            <div class="example-content">
-                <div class="example-line"><strong>Error:</strong> Misdiagnosed appendicitis as gastroenteritis</div>
-                <div class="example-line"><strong>Root Cause:</strong> CoT stopped after matching 3 symptoms, missed fever + RLQ tenderness</div>
-                <div class="example-line"><strong>Pattern:</strong> Premature closure (50% of diagnostic errors)</div>
-                <div class="example-line"><strong>Fix:</strong> Add "Consider red flags" step before finalizing</div>
-            </div>
+        <!-- SVG Error Pattern Analysis -->
+        <div class="error-analysis">
+            <div class="analysis-title">Error Detection & Correction Flow</div>
+            <svg width="840" height="200" viewBox="0 0 840 200">
+                <!-- Original Path with Error -->
+                <g>
+                    <text x="20" y="20" fill="#dc3545" font-size="13" font-weight="700">Error Example: Misdiagnosed Appendicitis</text>
+                    
+                    <!-- Step 1 -->
+                    <g class="error-node">
+                        <rect x="10" y="30" width="120" height="40" rx="8" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                        <text x="70" y="45" text-anchor="middle" fill="#28a745" font-size="11" font-weight="700">Symptoms</text>
+                        <text x="70" y="60" text-anchor="middle" fill="#333" font-size="10">Nausea, vomiting</text>
+                    </g>
+                    
+                    <path d="M 135 50 L 165 50" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                    <polygon points="165,50 158,46 158,54" fill="#1E64C8"/>
+                    
+                    <!-- Step 2 -->
+                    <g class="error-node">
+                        <rect x="170" y="30" width="120" height="40" rx="8" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                        <text x="230" y="45" text-anchor="middle" fill="#28a745" font-size="11" font-weight="700">Initial Dx</text>
+                        <text x="230" y="60" text-anchor="middle" fill="#333" font-size="10">Gastroenteritis</text>
+                    </g>
+                    
+                    <path d="M 295 50 L 325 50" stroke="#1E64C8" stroke-width="2" fill="none"/>
+                    <polygon points="325,50 318,46 318,54" fill="#1E64C8"/>
+                    
+                    <!-- Step 3 - ERROR POINT -->
+                    <g class="error-node">
+                        <rect x="330" y="30" width="120" height="40" rx="8" fill="#f8d7da" stroke="#dc3545" stroke-width="3"/>
+                        <text x="390" y="45" text-anchor="middle" fill="#dc3545" font-size="11" font-weight="700">⚠ STOP</text>
+                        <text x="390" y="60" text-anchor="middle" fill="#dc3545" font-size="10">Premature closure</text>
+                        
+                        <!-- Error indicator -->
+                        <circle cx="440" cy="30" r="12" fill="#dc3545" class="error-pulse"/>
+                        <text x="440" y="35" text-anchor="middle" fill="white" font-size="14" font-weight="700">!</text>
+                    </g>
+                    
+                    <!-- Missed Steps -->
+                    <g>
+                        <rect x="470" y="30" width="130" height="40" rx="8" fill="#e7e7e7" stroke="#999" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+                        <text x="535" y="45" text-anchor="middle" fill="#999" font-size="11">Missed: Physical</text>
+                        <text x="535" y="60" text-anchor="middle" fill="#999" font-size="10">RLQ tenderness, fever</text>
+                    </g>
+                    
+                    <g>
+                        <rect x="610" y="30" width="130" height="40" rx="8" fill="#e7e7e7" stroke="#999" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+                        <text x="675" y="45" text-anchor="middle" fill="#999" font-size="11">Missed: Labs</text>
+                        <text x="675" y="60" text-anchor="middle" fill="#999" font-size="10">WBC elevation</text>
+                    </g>
+                </g>
+                
+                <!-- Corrected Path with CoT -->
+                <g>
+                    <text x="20" y="100" fill="#28a745" font-size="13" font-weight="700">Corrected with CoT Enhancement</text>
+                    
+                    <!-- Step 1 -->
+                    <g class="error-node">
+                        <rect x="10" y="110" width="120" height="40" rx="8" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                        <text x="70" y="125" text-anchor="middle" fill="#28a745" font-size="11" font-weight="700">Symptoms</text>
+                        <text x="70" y="140" text-anchor="middle" fill="#333" font-size="10">N/V + pain</text>
+                    </g>
+                    
+                    <path d="M 135 130 L 165 130" stroke="#28a745" stroke-width="2" fill="none"/>
+                    <polygon points="165,130 158,126 158,134" fill="#28a745"/>
+                    
+                    <!-- Step 2 -->
+                    <g class="error-node">
+                        <rect x="170" y="110" width="120" height="40" rx="8" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                        <text x="230" y="125" text-anchor="middle" fill="#28a745" font-size="11" font-weight="700">DDx List</text>
+                        <text x="230" y="140" text-anchor="middle" fill="#333" font-size="10">GE, Appy, UTI</text>
+                    </g>
+                    
+                    <path d="M 295 130 L 325 130" stroke="#28a745" stroke-width="2" fill="none"/>
+                    <polygon points="325,130 318,126 318,134" fill="#28a745"/>
+                    
+                    <!-- Step 3 - VERIFICATION -->
+                    <g class="error-node">
+                        <rect x="330" y="110" width="120" height="40" rx="8" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+                        <text x="390" y="125" text-anchor="middle" fill="#ffc107" font-size="11" font-weight="700">✓ Verify</text>
+                        <text x="390" y="140" text-anchor="middle" fill="#333" font-size="10">Check red flags</text>
+                    </g>
+                    
+                    <path d="M 455 130 L 485 130" stroke="#28a745" stroke-width="2" fill="none"/>
+                    <polygon points="485,130 478,126 478,134" fill="#28a745"/>
+                    
+                    <!-- Step 4 -->
+                    <g class="error-node">
+                        <rect x="490" y="110" width="120" height="40" rx="8" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
+                        <text x="550" y="125" text-anchor="middle" fill="#28a745" font-size="11" font-weight="700">Physical</text>
+                        <text x="550" y="140" text-anchor="middle" fill="#333" font-size="10">RLQ tender ✓</text>
+                    </g>
+                    
+                    <path d="M 615 130 L 645 130" stroke="#28a745" stroke-width="2" fill="none"/>
+                    <polygon points="645,130 638,126 638,134" fill="#28a745"/>
+                    
+                    <!-- Step 5 - CORRECT DIAGNOSIS -->
+                    <g class="error-node">
+                        <rect x="650" y="110" width="120" height="40" rx="8" fill="#28a745" stroke="#28a745" stroke-width="3"/>
+                        <text x="710" y="125" text-anchor="middle" fill="white" font-size="11" font-weight="700">Correct Dx</text>
+                        <text x="710" y="140" text-anchor="middle" fill="white" font-size="10">Appendicitis</text>
+                        
+                        <!-- Success indicator -->
+                        <circle cx="780" cy="130" r="12" fill="#28a745" class="fix-glow"/>
+                        <text x="780" y="135" text-anchor="middle" fill="white" font-size="14" font-weight="700">✓</text>
+                    </g>
+                </g>
+                
+                <!-- Error Analysis Summary -->
+                <g>
+                    <rect x="10" y="160" width="820" height="35" rx="8" fill="#e8f2ff" stroke="#1E64C8" stroke-width="2"/>
+                    <text x="20" y="180" fill="#1E64C8" font-size="12" font-weight="700">Root Cause:</text>
+                    <text x="100" y="180" fill="#333" font-size="11">Premature closure after matching 3 symptoms</text>
+                    
+                    <text x="350" y="180" fill="#1E64C8" font-size="12" font-weight="700">Fix:</text>
+                    <text x="380" y="180" fill="#333" font-size="11">Add mandatory "red flag check" step before finalizing diagnosis</text>
+                    
+                    <text x="650" y="180" fill="#1E64C8" font-size="12" font-weight="700">Result:</text>
+                    <text x="700" y="180" fill="#28a745" font-size="11" font-weight="700">50% error reduction</text>
+                </g>
+            </svg>
         </div>
         
         <div class="highlight-box">
             <strong style="color: #1E64C8;">Learning:</strong> Analyze failures to improve CoT prompting strategies
         </div>
-    
     </div>
 </body>
 </html>
