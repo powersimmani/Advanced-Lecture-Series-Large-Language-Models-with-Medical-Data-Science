@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,49 +78,49 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Pathology Slide Analysis: WSI 분석</div>
+        <div class="title">Pathology Slide Analysis: WSI Analysis</div>
         <div class="wsi-overview">
-            <span class="highlight">WSI (Whole Slide Imaging)</span>: 기가픽셀급 병리 슬라이드를 
-            <span class="highlight">패치 단위로 분할</span>하여 조직 분류 및 병변 검출
+            <span class="highlight">WSI (Whole Slide Imaging)</span>: Gigapixel-level pathology slides 
+            <span class="highlight">divided into patches</span> for tissue classification and lesion detection
         </div>
         <div class="process-grid">
             <div class="process-card">
-                <div class="process-title">1. 슬라이드 스캐닝</div>
+                <div class="process-title">1. Slide Scanning</div>
                 <div class="process-desc">
-                    <div class="bullet">고해상도 디지털 스캔 (20x, 40x)</div>
-                    <div class="bullet">수십 GB 크기의 이미지</div>
-                    <div class="bullet">Multi-resolution pyramid 구조</div>
+                    <div class="bullet">High-resolution digital scanning (20x, 40x)</div>
+                    <div class="bullet">Images of tens of GB in size</div>
+                    <div class="bullet">Multi-resolution pyramid structure</div>
                 </div>
             </div>
             <div class="process-card">
-                <div class="process-title">2. 패치 추출</div>
+                <div class="process-title">2. Patch Extraction</div>
                 <div class="process-desc">
-                    <div class="bullet">256x256 또는 512x512 패치 분할</div>
-                    <div class="bullet">조직 영역 검출 (배경 제거)</div>
-                    <div class="bullet">Stride 조절로 오버랩 설정</div>
+                    <div class="bullet">256x256 or 512x512 patch division</div>
+                    <div class="bullet">Tissue region detection (background removal)</div>
+                    <div class="bullet">Overlap setting via stride adjustment</div>
                 </div>
             </div>
             <div class="process-card">
-                <div class="process-title">3. 패치별 분석</div>
+                <div class="process-title">3. Patch-level Analysis</div>
                 <div class="process-desc">
-                    <div class="bullet">CNN/ViT로 각 패치 특징 추출</div>
-                    <div class="bullet">정상/암/염증 등 조직 타입 분류</div>
+                    <div class="bullet">Feature extraction per patch using CNN/ViT</div>
+                    <div class="bullet">Tissue type classification (normal/cancer/inflammation, etc.)</div>
                     <div class="bullet">Multiple Instance Learning (MIL)</div>
                 </div>
             </div>
             <div class="process-card">
-                <div class="process-title">4. 슬라이드 레벨 통합</div>
+                <div class="process-title">4. Slide-level Integration</div>
                 <div class="process-desc">
-                    <div class="bullet">패치 예측 집계 (평균, 최대, 어텐션)</div>
-                    <div class="bullet">전체 슬라이드 진단 (암 등급, 예후)</div>
-                    <div class="bullet">히트맵 시각화</div>
+                    <div class="bullet">Patch prediction aggregation (mean, max, attention)</div>
+                    <div class="bullet">Whole slide diagnosis (cancer grade, prognosis)</div>
+                    <div class="bullet">Heatmap visualization</div>
                 </div>
             </div>
         </div>
         <div class="applications">
-            <div class="app-box">암 검출 및 등급 분류</div>
-            <div class="app-box">림프절 전이 판정</div>
-            <div class="app-box">Ki-67 증식 지수 측정</div>
+            <div class="app-box">Cancer Detection & Grade Classification</div>
+            <div class="app-box">Lymph Node Metastasis Detection</div>
+            <div class="app-box">Ki-67 Proliferation Index Measurement</div>
         </div>
     </div>
 </body>

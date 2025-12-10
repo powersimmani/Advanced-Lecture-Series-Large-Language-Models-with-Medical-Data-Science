@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +18,12 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
         
         .container {
             width: 960px;
-            height: 540px;
+            max-width: 100%;
             padding: 35px 45px;
             background: white;
         }
@@ -68,7 +69,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 18px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .content-card {
@@ -106,11 +107,34 @@
             text-align: center;
         }
         
+        .context-section {
+            background: #ffffff;
+            border-left: 4px solid #1E64C8;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .context-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 10px;
+        }
+        
+        .context-text {
+            font-size: 15px;
+            color: #444;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
         .key-points {
             background: #f8fbff;
             border: 2px solid #4a90e2;
             border-radius: 8px;
             padding: 18px 22px;
+            margin-top: 20px;
         }
         
         .points-title {
@@ -136,7 +160,7 @@
         }
         
         .point-item::before {
-            content: "â€¢";
+            content: "•";
             position: absolute;
             left: 0;
             color: #1E64C8;
@@ -148,54 +172,71 @@
 <body>
     <div class="container">
         <div class="title">Hands-On: Prompt Engineering</div>
-        <div class="subtitle">실습</div>
+        <div class="subtitle">Practical Workshop</div>
         
         <div class="intro-box">
             <div class="intro-text">
-                <span class="highlight">실습</span>의 핵심 개념과 의료 데이터 과학 적용에 대해 학습합니다.
+                Learn about core concepts of <span class="highlight">Prompt Engineering</span> and its application in medical data science.
             </div>
         </div>
         
         <div class="content-grid">
             <div class="content-card">
                 <div class="card-icon">🎯</div>
-                <div class="card-title">주요 개념</div>
+                <div class="card-title">Key Concepts</div>
                 <div class="card-desc">
-                    실습의 이론적 배경과 핵심 원리
+                    Theoretical background and core principles of the workshop
                 </div>
             </div>
             
             <div class="content-card">
                 <div class="card-icon">🏥</div>
-                <div class="card-title">의료 적용</div>
+                <div class="card-title">Medical Applications</div>
                 <div class="card-desc">
-                    실제 의료 환경에서의 활용 사례
+                    Real-world use cases in healthcare environments
                 </div>
             </div>
             
             <div class="content-card">
                 <div class="card-icon">📊</div>
-                <div class="card-title">성능 평가</div>
+                <div class="card-title">Performance Evaluation</div>
                 <div class="card-desc">
-                    효과성 측정 및 개선 방법론
+                    Effectiveness measurement and improvement methodologies
                 </div>
             </div>
             
             <div class="content-card">
                 <div class="card-icon">🔬</div>
-                <div class="card-title">실습 예제</div>
+                <div class="card-title">Practical Examples</div>
                 <div class="card-desc">
-                    실제 데이터를 활용한 구현
+                    Implementation using real-world data
                 </div>
             </div>
         </div>
         
+        <div class="context-section">
+            <div class="context-title">📝 What is Prompt Engineering?</div>
+            <div class="context-text">
+                Prompt engineering is the technique of systematically designing and optimizing input instructions to effectively communicate with AI language models. 
+                In the medical field, where accuracy and safety are directly linked to patient lives, designing clear, specific, and context-aware prompts is essential.
+            </div>
+        </div>
+        
+        <div class="context-section">
+            <div class="context-title">🏥 Applications in Medical Data Science</div>
+            <div class="context-text">
+                When applying AI to various medical tasks such as patient diagnosis assistance, medical image analysis, clinical note summarization, and drug interaction checking, 
+                proper prompt design significantly enhances model performance. It is also important to write prompts that consider medical ethics, privacy protection, and clinical validity, 
+                while clearly defining the role as a tool to assist healthcare professionals' final judgment.
+            </div>
+        </div>
+        
         <div class="key-points">
-            <div class="points-title">핵심 포인트</div>
+            <div class="points-title">Key Points</div>
             <div class="points-list">
-                <div class="point-item">의료 데이터의 특수성을 고려한 접근</div>
-                <div class="point-item">제한된 데이터 환경에서의 효율적 학습</div>
-                <div class="point-item">안전성과 신뢰성을 보장하는 설계</div>
+                <div class="point-item">Approach considering the specificity of medical data</div>
+                <div class="point-item">Efficient learning in limited data environments</div>
+                <div class="point-item">Design ensuring safety and reliability</div>
             </div>
         </div>
     </div>

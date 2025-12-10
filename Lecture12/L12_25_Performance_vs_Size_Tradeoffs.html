@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -212,57 +212,57 @@
         <div class="title">Performance vs Size Tradeoffs</div>
         
         <div class="tradeoff-intro">
-            <div class="intro-title">성능-크기 트레이드오프</div>
-            <div class="intro-desc">압축 수준에 따른 모델 크기, 정확도, 속도의 균형점 찾기</div>
+            <div class="intro-title">Performance-Size Tradeoffs</div>
+            <div class="intro-desc">Finding the balance between model size, accuracy, and speed according to compression levels</div>
         </div>
         <div class="pareto-chart">
-            <div class="chart-title">파레토 최적 곡선 (Pareto Frontier)</div>
+            <div class="chart-title">Pareto Frontier</div>
             <div class="chart-area">
                 <div class="chart-content">
                     <div class="model-point large">
                         <div class="point-label">Large Model</div>
-                        <div class="point-stats">크기: 500MB<br>정확도: 95%<br>속도: 500ms</div>
+                        <div class="point-stats">Size: 500MB<br>Accuracy: 95%<br>Speed: 500ms</div>
                     </div>
                     <div class="model-point medium">
                         <div class="point-label">Medium Model</div>
-                        <div class="point-stats">크기: 100MB<br>정확도: 93%<br>속도: 100ms</div>
+                        <div class="point-stats">Size: 100MB<br>Accuracy: 93%<br>Speed: 100ms</div>
                     </div>
                     <div class="model-point small">
                         <div class="point-label">Small Model</div>
-                        <div class="point-stats">크기: 20MB<br>정확도: 90%<br>속도: 20ms</div>
+                        <div class="point-stats">Size: 20MB<br>Accuracy: 90%<br>Speed: 20ms</div>
                     </div>
                     <div class="model-point tiny">
                         <div class="point-label">Tiny Model</div>
-                        <div class="point-stats">크기: 5MB<br>정확도: 85%<br>속도: 5ms</div>
+                        <div class="point-stats">Size: 5MB<br>Accuracy: 85%<br>Speed: 5ms</div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="selection-criteria">
-            <div class="criteria-title">모델 선택 기준</div>
+            <div class="criteria-title">Model Selection Criteria</div>
             <div class="criteria-grid">
                 <div class="criteria-card">
-                    <div class="card-header">클라우드 배포</div>
-                    <div class="card-choice">Large/Medium 모델</div>
-                    <div class="card-reason">정확도 최우선</div>
+                    <div class="card-header">Cloud Deployment</div>
+                    <div class="card-choice">Large/Medium Model</div>
+                    <div class="card-reason">Accuracy prioritized</div>
                 </div>
                 <div class="criteria-card">
-                    <div class="card-header">모바일 앱</div>
-                    <div class="card-choice">Medium/Small 모델</div>
-                    <div class="card-reason">균형잡힌 성능</div>
+                    <div class="card-header">Mobile App</div>
+                    <div class="card-choice">Medium/Small Model</div>
+                    <div class="card-reason">Balanced performance</div>
                 </div>
                 <div class="criteria-card">
-                    <div class="card-header">웨어러블</div>
-                    <div class="card-choice">Small/Tiny 모델</div>
-                    <div class="card-reason">크기 최소화</div>
+                    <div class="card-header">Wearable</div>
+                    <div class="card-choice">Small/Tiny Model</div>
+                    <div class="card-reason">Size minimization</div>
                 </div>
             </div>
         </div>
         <div class="decision-note">
-            <span class="highlight">의사결정 가이드:</span><br>
-            1. 최소 허용 정확도 결정<br>
-            2. 목표 디바이스의 제약 조건 파악<br>
-            3. 파레토 곡선 상에서 최적점 선택
+            <span class="highlight">Decision-Making Guide:</span><br>
+            1. Determine minimum acceptable accuracy<br>
+            2. Identify target device constraints<br>
+            3. Select the optimal point on the Pareto curve
         </div>
     </div>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,46 +24,46 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Missing Modality Handling: 누락 모달리티 처리</div>
-        <div class="concept-box">일부 모달리티 부재 시 대체 전략 (zero-padding, imputation, robust fusion) 적용</div>
+        <div class="title">Missing Modality Handling</div>
+        <div class="concept-box">Applying alternative strategies (zero-padding, imputation, robust fusion) when some modalities are absent</div>
         <div class="content-grid">
             <div class="content-card">
                 <div class="card-title">Zero-padding / Masking</div>
-                <div class="card-desc">간단한 기본 전략</div>
-                <div class="bullet">누락 모달: 0으로 채우기</div>
-                <div class="bullet">마스크 토큰 사용</div>
-                <div class="bullet">구현 간단, 빠른 추론</div>
-                <div class="bullet">성능 저하 가능</div>
+                <div class="card-desc">Simple baseline strategy</div>
+                <div class="bullet">Missing modality: Fill with zeros</div>
+                <div class="bullet">Use mask tokens</div>
+                <div class="bullet">Easy implementation, fast inference</div>
+                <div class="bullet">Possible performance degradation</div>
             </div>
             <div class="content-card">
-                <div class="card-title">Imputation (대치)</div>
-                <div class="card-desc">누락 데이터 예측하여 채우기</div>
-                <div class="bullet">평균/중앙값 대치</div>
-                <div class="bullet">K-NN 기반 대치</div>
-                <div class="bullet">생성 모델 (VAE, GAN)</div>
-                <div class="bullet">Cross-modal 예측</div>
+                <div class="card-title">Imputation</div>
+                <div class="card-desc">Predict and fill missing data</div>
+                <div class="bullet">Mean/median imputation</div>
+                <div class="bullet">K-NN based imputation</div>
+                <div class="bullet">Generative models (VAE, GAN)</div>
+                <div class="bullet">Cross-modal prediction</div>
             </div>
             <div class="content-card">
                 <div class="card-title">Robust Fusion</div>
-                <div class="card-desc">누락에 강건한 융합 설계</div>
-                <div class="bullet">Dropout 기반 학습</div>
-                <div class="bullet">Late fusion 활용</div>
-                <div class="bullet">Ensemble 방식</div>
+                <div class="card-desc">Design fusion robust to missing data</div>
+                <div class="bullet">Dropout-based training</div>
+                <div class="bullet">Leverage late fusion</div>
+                <div class="bullet">Ensemble approach</div>
                 <div class="bullet">Gating mechanism</div>
             </div>
             <div class="content-card">
                 <div class="card-title">Knowledge Distillation</div>
-                <div class="card-desc">완전 모델에서 지식 전이</div>
-                <div class="bullet">Teacher: 모든 모달 사용</div>
-                <div class="bullet">Student: 부분 모달 처리</div>
-                <div class="bullet">Soft label 학습</div>
-                <div class="bullet">누락 시나리오 대비</div>
+                <div class="card-desc">Transfer knowledge from complete model</div>
+                <div class="bullet">Teacher: Uses all modalities</div>
+                <div class="bullet">Student: Handles partial modalities</div>
+                <div class="bullet">Soft label learning</div>
+                <div class="bullet">Prepare for missing scenarios</div>
             </div>
         </div>
         <div class="strategies">
-            <div class="strategy-box">훈련 시<br>무작위 드롭</div>
-            <div class="strategy-box">모달별<br>신뢰도 가중치</div>
-            <div class="strategy-box">동적<br>아키텍처 조정</div>
+            <div class="strategy-box">Random dropout<br>during training</div>
+            <div class="strategy-box">Modality-specific<br>confidence weighting</div>
+            <div class="strategy-box">Dynamic<br>architecture adjustment</div>
         </div>
     </div>
 </body>

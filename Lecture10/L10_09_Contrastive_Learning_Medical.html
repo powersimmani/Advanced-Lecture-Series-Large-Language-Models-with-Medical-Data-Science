@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,46 +24,46 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">대조 학습 (Contrastive Learning)</div>
-        <div class="concept-box">양성 쌍(같은 환자의 다른 뷰, 동일 진단)과 음성 쌍을 구별 학습하여 의료 표현 품질 향상</div>
+        <div class="title">Contrastive Learning</div>
+        <div class="concept-box">Learning to distinguish positive pairs (different views of the same patient, same diagnosis) and negative pairs to improve medical representation quality</div>
         <div class="content-grid">
             <div class="content-card">
-                <div class="card-title">양성 쌍 (Positive Pairs)</div>
-                <div class="card-desc">의미적으로 유사한 데이터 쌍</div>
-                <div class="bullet">같은 환자의 다른 시점 영상</div>
-                <div class="bullet">동일 질환의 다른 모달리티</div>
-                <div class="bullet">영상-리포트 매칭 쌍</div>
-                <div class="bullet">데이터 증강된 동일 샘플</div>
+                <div class="card-title">Positive Pairs</div>
+                <div class="card-desc">Semantically similar data pairs</div>
+                <div class="bullet">Images of the same patient at different timepoints</div>
+                <div class="bullet">Different modalities of the same disease</div>
+                <div class="bullet">Image-report matching pairs</div>
+                <div class="bullet">Data augmented same samples</div>
             </div>
             <div class="content-card">
-                <div class="card-title">음성 쌍 (Negative Pairs)</div>
-                <div class="card-desc">의미적으로 다른 데이터 쌍</div>
-                <div class="bullet">다른 환자의 영상</div>
-                <div class="bullet">다른 질환 카테고리</div>
-                <div class="bullet">비매칭 영상-리포트</div>
-                <div class="bullet">배치 내 다른 샘플들</div>
+                <div class="card-title">Negative Pairs</div>
+                <div class="card-desc">Semantically different data pairs</div>
+                <div class="bullet">Images from different patients</div>
+                <div class="bullet">Different disease categories</div>
+                <div class="bullet">Non-matching image-report pairs</div>
+                <div class="bullet">Different samples within batch</div>
             </div>
             <div class="content-card">
                 <div class="card-title">InfoNCE Loss</div>
-                <div class="card-desc">대조 학습의 핵심 손실 함수</div>
-                <div class="bullet">양성 쌍: 높은 유사도 (코사인)</div>
-                <div class="bullet">음성 쌍: 낮은 유사도</div>
-                <div class="bullet">Temperature 파라미터 조정</div>
-                <div class="bullet">Large batch size 필요</div>
+                <div class="card-desc">Core loss function for contrastive learning</div>
+                <div class="bullet">Positive pairs: High similarity (cosine)</div>
+                <div class="bullet">Negative pairs: Low similarity</div>
+                <div class="bullet">Temperature parameter adjustment</div>
+                <div class="bullet">Requires large batch size</div>
             </div>
             <div class="content-card">
-                <div class="card-title">의료 도메인 적용</div>
-                <div class="card-desc">의료 특화 대조 학습 전략</div>
-                <div class="bullet">해부학적 일관성 활용</div>
-                <div class="bullet">시간적 연속성 보존</div>
-                <div class="bullet">임상 메타데이터 통합</div>
-                <div class="bullet">레이블 없이 사전학습</div>
+                <div class="card-title">Medical Domain Application</div>
+                <div class="card-desc">Medical-specialized contrastive learning strategies</div>
+                <div class="bullet">Leveraging anatomical consistency</div>
+                <div class="bullet">Preserving temporal continuity</div>
+                <div class="bullet">Integrating clinical metadata</div>
+                <div class="bullet">Pre-training without labels</div>
             </div>
         </div>
         <div class="applications">
-            <div class="app-box">Self-supervised<br>사전학습</div>
-            <div class="app-box">Few-shot<br>학습 가능</div>
-            <div class="app-box">Transfer<br>Learning 향상</div>
+            <div class="app-box">Self-supervised<br>Pre-training</div>
+            <div class="app-box">Few-shot<br>Learning Enabled</div>
+            <div class="app-box">Enhanced<br>Transfer Learning</div>
         </div>
     </div>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,36 +120,36 @@
         
         <div class="concept-grid">
             <div class="concept-card">
-                <div class="concept-title">🔄 Continual Learning (Continual Learning)</div>
+                <div class="concept-title">🔄 Continual Learning</div>
                 <div class="concept-desc">
-                    새로운 데이터와 지식을 지속적으로 학습하면서 이전 학습 내용을 유지하는 능력
+                    The ability to continuously learn new data and knowledge while maintaining previously learned content
                 </div>
             </div>
             
             <div class="concept-card">
-                <div class="concept-title">🏥 Medical AI의 필요성</div>
+                <div class="concept-title">🏥 Need for Medical AI</div>
                 <div class="concept-desc">
-                    의학 지식과 진료 프로토콜은 지속적으로 변화하며, AI 모델도 이에 적응해야 함
+                    Medical knowledge and clinical protocols continuously change, and AI models must adapt accordingly
                 </div>
             </div>
             
             <div class="concept-card">
-                <div class="concept-title">📊 개념 드리프트</div>
+                <div class="concept-title">📊 Concept Drift</div>
                 <div class="concept-desc">
-                    데이터 분포와 의학적 개념이 Time에 따라 변화하는 현상
+                    The phenomenon where data distribution and medical concepts change over time
                 </div>
             </div>
             
             <div class="concept-card">
                 <div class="concept-title">⚡ Real-time Adaptation</div>
                 <div class="concept-desc">
-                    새로운 질병, 치료법, Patients 특성에 빠르게 적응하는 모델 Updated 메커니즘
+                    Model update mechanism that quickly adapts to new diseases, treatments, and patient characteristics
                 </div>
             </div>
         </div>
         
         <div class="learning-cycle">
-            <div class="cycle-title">🔄 의료 지식 Updated 사이클</div>
+            <div class="cycle-title">🔄 Medical Knowledge Update Cycle</div>
             <div class="cycle-diagram">
                 <svg width="700" height="280" viewBox="0 0 700 280">
                     <!-- Center circle -->
@@ -157,7 +157,7 @@
                     <text x="350" y="145" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">Continual</text>
                     <text x="350" y="160" text-anchor="middle" font-size="14" font-weight="600" fill="#1E64C8">Learning</text>
                     
-                    <!-- Step 1: New Data 수집 (Top) -->
+                    <!-- Step 1: New Data Collection (Top) -->
                     <circle cx="350" cy="40" r="35" fill="#1E64C8"/>
                     <text x="350" y="40" text-anchor="middle" font-size="20" font-weight="700" fill="white">1</text>
                     <text x="350" y="55" text-anchor="middle" font-size="13" font-weight="600" fill="white">New Data</text>
@@ -166,28 +166,28 @@
                     <!-- Arrow 1 to 2 -->
                     <path d="M 380,60 Q 450,100 470,140" fill="none" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead)"/>
                     
-                    <!-- Step 2: 변화 감지 (Right) -->
+                    <!-- Step 2: Change Detection (Right) -->
                     <circle cx="510" cy="140" r="35" fill="#1E64C8"/>
                     <text x="510" y="140" text-anchor="middle" font-size="20" font-weight="700" fill="white">2</text>
-                    <text x="510" y="155" text-anchor="middle" font-size="13" font-weight="600" fill="white">변화 감지</text>
+                    <text x="510" y="155" text-anchor="middle" font-size="13" font-weight="600" fill="white">Detection</text>
                     <text x="610" y="145" text-anchor="middle" font-size="14" font-weight="600" fill="#333">🔍 Drift Detection</text>
                     
                     <!-- Arrow 2 to 3 -->
                     <path d="M 490,170 Q 450,210 380,230" fill="none" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead)"/>
                     
-                    <!-- Step 3: 모델 Updated (Bottom) -->
+                    <!-- Step 3: Model Update (Bottom) -->
                     <circle cx="350" cy="240" r="35" fill="#1E64C8"/>
                     <text x="350" y="240" text-anchor="middle" font-size="20" font-weight="700" fill="white">3</text>
-                    <text x="350" y="255" text-anchor="middle" font-size="13" font-weight="600" fill="white">Updated</text>
+                    <text x="350" y="255" text-anchor="middle" font-size="13" font-weight="600" fill="white">Update</text>
                     <text x="350" y="270" text-anchor="middle" font-size="14" font-weight="600" fill="#333">⚙️ Model Update</text>
                     
                     <!-- Arrow 3 to 4 -->
                     <path d="M 320,230 Q 250,210 210,170" fill="none" stroke="#1E64C8" stroke-width="3" marker-end="url(#arrowhead)"/>
                     
-                    <!-- Step 4: 검증 및 배포 (Left) -->
+                    <!-- Step 4: Validation & Deployment (Left) -->
                     <circle cx="190" cy="140" r="35" fill="#1E64C8"/>
                     <text x="190" y="140" text-anchor="middle" font-size="20" font-weight="700" fill="white">4</text>
-                    <text x="190" y="155" text-anchor="middle" font-size="13" font-weight="600" fill="white">검증·배포</text>
+                    <text x="190" y="155" text-anchor="middle" font-size="13" font-weight="600" fill="white">Deploy</text>
                     <text x="80" y="145" text-anchor="middle" font-size="14" font-weight="600" fill="#333">✅ Validation</text>
                     
                     <!-- Arrow 4 to 1 -->
@@ -204,30 +204,30 @@
         </div>
         
         <div class="timeline">
-            <div class="timeline-title">⏱️ 지식 진화 타임라인</div>
+            <div class="timeline-title">⏱️ Knowledge Evolution Timeline</div>
             <svg class="timeline-svg" viewBox="0 0 800 80">
                 <!-- Timeline line -->
                 <line x1="50" y1="40" x2="750" y2="40" stroke="#1E64C8" stroke-width="3"/>
                 
                 <!-- Point 1 -->
                 <circle cx="100" cy="40" r="8" fill="#1E64C8"/>
-                <text x="100" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#333">초기 학습</text>
-                <text x="100" y="60" text-anchor="middle" font-size="11" fill="#666">기본 모델 훈련</text>
+                <text x="100" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#333">Initial Training</text>
+                <text x="100" y="60" text-anchor="middle" font-size="11" fill="#666">Base Model Training</text>
                 
                 <!-- Point 2 -->
                 <circle cx="300" cy="40" r="8" fill="#1E64C8"/>
-                <text x="300" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#333">새로운 질병</text>
-                <text x="300" y="60" text-anchor="middle" font-size="11" fill="#666">COVID-19 등</text>
+                <text x="300" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#333">New Disease</text>
+                <text x="300" y="60" text-anchor="middle" font-size="11" fill="#666">COVID-19, etc.</text>
                 
                 <!-- Point 3 -->
                 <circle cx="500" cy="40" r="8" fill="#1E64C8"/>
-                <text x="500" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#333">치료법 변화</text>
-                <text x="500" y="60" text-anchor="middle" font-size="11" fill="#666">프로토콜 Updated</text>
+                <text x="500" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#333">Treatment Change</text>
+                <text x="500" y="60" text-anchor="middle" font-size="11" fill="#666">Protocol Update</text>
                 
                 <!-- Point 4 -->
                 <circle cx="700" cy="40" r="8" fill="#1E64C8"/>
-                <text x="700" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#333">지속 개선</text>
-                <text x="700" y="60" text-anchor="middle" font-size="11" fill="#666">Performance 최적화</text>
+                <text x="700" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#333">Continuous Improvement</text>
+                <text x="700" y="60" text-anchor="middle" font-size="11" fill="#666">Performance Optimization</text>
             </svg>
         </div>
     </div>

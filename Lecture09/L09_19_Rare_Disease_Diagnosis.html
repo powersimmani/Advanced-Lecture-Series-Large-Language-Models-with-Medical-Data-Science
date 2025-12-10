@@ -176,80 +176,113 @@
             transform: translateX(3px);
             box-shadow: 0 2px 8px rgba(30, 100, 200, 0.15);
         }
+        
+        .explanation-section {
+            margin-top: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 14px 18px;
+            border-left: 4px solid #1E64C8;
+        }
+        
+        .explanation-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+        
+        .explanation-text:last-child {
+            margin-bottom: 0;
+        }
+        
+        .text-emphasis {
+            color: #1E64C8;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Rare Disease Diagnosis</div>
-        <div class="subtitle">희귀질환 진단</div>
+        <div class="subtitle">Diagnosis of Rare Diseases</div>
         
         <div class="intro-box">
             <div class="intro-text">
-                <span class="highlight">희귀질환 진단</span>의 핵심 개념과 의료 데이터 과학 적용에 대해 학습합니다.
+                Learn about the core concepts of <span class="highlight">Rare Disease Diagnosis</span> and the application of medical data science.
             </div>
         </div>
         
         <div class="pipeline-section">
-            <div class="section-title">진단 파이프라인</div>
+            <div class="section-title">Diagnosis Pipeline</div>
             <div class="pipeline-flow">
                 <div class="pipeline-step">
                     <div class="step-num">1</div>
                     <div class="pipeline-icon">📋</div>
-                    <div class="pipeline-label">증상 수집</div>
+                    <div class="pipeline-label">Symptom Collection</div>
                 </div>
                 
                 <div class="pipeline-step">
                     <div class="step-num">2</div>
                     <div class="pipeline-icon">🔍</div>
-                    <div class="pipeline-label">패턴 분석</div>
+                    <div class="pipeline-label">Pattern Analysis</div>
                 </div>
                 
                 <div class="pipeline-step">
                     <div class="step-num">3</div>
                     <div class="pipeline-icon">🧬</div>
-                    <div class="pipeline-label">유전체 매칭</div>
+                    <div class="pipeline-label">Genome Matching</div>
                 </div>
                 
                 <div class="pipeline-step">
                     <div class="step-num">4</div>
                     <div class="pipeline-icon">🎯</div>
-                    <div class="pipeline-label">후보 질환</div>
+                    <div class="pipeline-label">Candidate Diseases</div>
                 </div>
                 
                 <div class="pipeline-step">
                     <div class="step-num">5</div>
                     <div class="pipeline-icon">✅</div>
-                    <div class="pipeline-label">진단 확정</div>
+                    <div class="pipeline-label">Confirmed Diagnosis</div>
                 </div>
             </div>
         </div>
         
-        <div class="section-title">핵심 요소</div>
+        <div class="section-title">Key Elements</div>
         <div class="challenges-grid">
             <div class="challenge-card">
                 <div class="challenge-title">
                     <span class="challenge-icon">⚠️</span>
-                    <span>도전 과제</span>
+                    <span>Challenges</span>
                 </div>
                 <div class="challenge-items">
-                    <div class="challenge-item">데이터 부족 (희귀성)</div>
-                    <div class="challenge-item">복잡한 증상 패턴</div>
-                    <div class="challenge-item">긴 진단 기간</div>
-                    <div class="challenge-item">전문가 부족</div>
+                    <div class="challenge-item">Data Scarcity (Rarity)</div>
+                    <div class="challenge-item">Complex Symptom Patterns</div>
+                    <div class="challenge-item">Long Diagnosis Period</div>
+                    <div class="challenge-item">Lack of Specialists</div>
                 </div>
             </div>
             
             <div class="challenge-card">
                 <div class="challenge-title">
                     <span class="challenge-icon">💡</span>
-                    <span>AI 솔루션</span>
+                    <span>AI Solutions</span>
                 </div>
                 <div class="challenge-items">
-                    <div class="challenge-item">Few-Shot Learning 적용</div>
-                    <div class="challenge-item">유사 증례 검색</div>
-                    <div class="challenge-item">빠른 초기 진단</div>
-                    <div class="challenge-item">지식 기반 보강</div>
+                    <div class="challenge-item">Few-Shot Learning Application</div>
+                    <div class="challenge-item">Similar Case Retrieval</div>
+                    <div class="challenge-item">Rapid Early Diagnosis</div>
+                    <div class="challenge-item">Knowledge-Based Augmentation</div>
                 </div>
+            </div>
+        </div>
+        
+        <div class="explanation-section">
+            <div class="explanation-text">
+                Rare diseases are very difficult to diagnose due to <span class="text-emphasis">small patient populations and diverse symptoms</span>. On average, it takes <span class="text-emphasis">5-7 years</span> to reach an accurate diagnosis, during which patients cannot receive appropriate treatment.
+            </div>
+            <div class="explanation-text">
+                Recent <span class="text-emphasis">advances in AI technology</span> have made it possible to address these challenges. Few-Shot Learning enables learning with limited data, and similar case retrieval allows utilization of past diagnostic cases. Additionally, integration with medical knowledge graphs has enabled more accurate diagnoses.
             </div>
         </div>
     </div>

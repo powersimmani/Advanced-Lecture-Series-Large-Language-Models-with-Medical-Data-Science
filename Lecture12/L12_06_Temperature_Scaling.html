@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +43,7 @@
         <div class="formula-box">
             <div style="font-size: 18px; color: #555; margin-bottom: 10px;">Softmax with Temperature</div>
             <div class="formula">p<sub>i</sub> = exp(z<sub>i</sub>/T) / Σ exp(z<sub>j</sub>/T)</div>
-            <div style="font-size: 16px; color: #555; margin-top: 10px;">T = Temperature 파라미터</div>
+            <div style="font-size: 16px; color: #555; margin-top: 10px;">T = Temperature Parameter</div>
             
             <!-- Formula visualization -->
             <svg class="formula-visual" width="500" height="100" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg" style="margin: 20px auto; display: block;">
@@ -81,9 +81,9 @@
             <div class="temp-card">
                 <div class="temp-value">T = 1</div>
                 <div class="temp-effect">
-                    일반 Softmax<br><br>
+                    Standard Softmax<br><br>
                     [0.05, 0.10, 0.80, 0.05]<br><br>
-                    Sharp 분포
+                    Sharp Distribution
                 </div>
                 <!-- Distribution visualization -->
                 <svg class="distribution-viz" width="100%" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
@@ -96,9 +96,9 @@
             <div class="temp-card">
                 <div class="temp-value">T = 3~5</div>
                 <div class="temp-effect">
-                    증류에 최적<br><br>
+                    Optimal for Distillation<br><br>
                     [0.15, 0.20, 0.45, 0.20]<br><br>
-                    Soft 분포
+                    Soft Distribution
                 </div>
                 <!-- Distribution visualization -->
                 <svg class="distribution-viz" width="100%" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
@@ -111,9 +111,9 @@
             <div class="temp-card">
                 <div class="temp-value">T → ∞</div>
                 <div class="temp-effect">
-                    극한 케이스<br><br>
+                    Extreme Case<br><br>
                     [0.25, 0.25, 0.25, 0.25]<br><br>
-                    Uniform 분포
+                    Uniform Distribution
                 </div>
                 <!-- Distribution visualization -->
                 <svg class="distribution-viz" width="100%" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
@@ -160,8 +160,8 @@
         
         <div class="practical-note">
             <div class="note-text">
-                <span class="highlight">실전 팁:</span> 의료 영상 분류에서 T=3~4가 효과적<br>
-                높은 T → 클래스 간 관계 정보 풍부 → Student 학습 향상
+                <span class="highlight">Practical Tip:</span> T=3~4 is effective for medical image classification<br>
+                Higher T → Richer inter-class relationship information → Improved Student learning
             </div>
         </div>
     </div>

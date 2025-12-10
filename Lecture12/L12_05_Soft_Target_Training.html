@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,30 +35,30 @@
                 <div class="target-title">Hard Targets</div>
                 <div class="target-visual">
                     [0, 0, 1, 0]<br><br>
-                    <span class="highlight">One-hot 벡터</span><br>
-                    정답 클래스만 1
+                    <span class="highlight">One-hot vector</span><br>
+                    Only correct class is 1
                 </div>
                 <div style="margin-top: 15px; font-size: 16px; color: #555; text-align: center;">
-                    ❌ 클래스 간 관계 정보 없음
+                    ✗ No inter-class relationship information
                 </div>
             </div>
             <div class="target-box">
                 <div class="target-title">Soft Targets</div>
                 <div class="target-visual">
                     [0.05, 0.15, 0.70, 0.10]<br><br>
-                    <span class="highlight">확률 분포</span><br>
-                    모든 클래스에 확률
+                    <span class="highlight">Probability distribution</span><br>
+                    Probabilities for all classes
                 </div>
                 <div style="margin-top: 15px; font-size: 16px; color: #555; text-align: center;">
-                    ✅ 클래스 간 유사도 학습
+                    ✓ Learns inter-class similarity
                 </div>
             </div>
         </div>
         <div class="benefits-box">
-            <div class="benefits-title">Soft Targets의 장점</div>
-            <div class="benefit-item">더 풍부한 정보: Teacher가 학습한 클래스 간 관계 전달</div>
-            <div class="benefit-item">일반화 성능 향상: 과적합 방지</div>
-            <div class="benefit-item">의료 영상: 질병 간 유사성 정보 활용 (예: 양성/악성 경계 케이스)</div>
+            <div class="benefits-title">Benefits of Soft Targets</div>
+            <div class="benefit-item">Richer information: Transfers inter-class relationships learned by Teacher</div>
+            <div class="benefit-item">Improved generalization: Prevents overfitting</div>
+            <div class="benefit-item">Medical imaging: Utilizes disease similarity information (e.g., borderline benign/malignant cases)</div>
         </div>
     </div>
 </body>

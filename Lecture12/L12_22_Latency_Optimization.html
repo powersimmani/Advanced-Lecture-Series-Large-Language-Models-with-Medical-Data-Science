@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta charset="UTF-8">
@@ -65,8 +65,8 @@
         <div class="title">Latency Optimization</div>
         
         <div class="latency-intro">
-            <div class="intro-title">지연시간 최적화 (Latency Optimization)</div>
-            <div class="intro-desc">실시간 의료 응용을 위한 추론 속도 향상 기법</div>
+            <div class="intro-title">Latency Optimization</div>
+            <div class="intro-desc">Inference speed improvement techniques for real-time medical applications</div>
         </div>
         
         <!-- Latency breakdown visualization -->
@@ -79,17 +79,17 @@
                 
                 <!-- Preprocessing -->
                 <rect x="50" y="50" width="100" height="40" fill="#51cf66" opacity="0.7" rx="5"/>
-                <text x="100" y="75" font-family="Aptos" font-size="14" fill="white" text-anchor="middle" font-weight="600">전처리</text>
+                <text x="100" y="75" font-family="Aptos" font-size="14" fill="white" text-anchor="middle" font-weight="600">Preprocessing</text>
                 <text x="100" y="110" font-family="Aptos" font-size="12" fill="#666" text-anchor="middle">5-20ms</text>
                 
                 <!-- Model inference (largest) -->
                 <rect x="150" y="50" width="550" height="40" fill="#ff6b6b" opacity="0.7" rx="5"/>
-                <text x="425" y="75" font-family="Aptos" font-size="14" fill="white" text-anchor="middle" font-weight="600">모델 추론 (최대 병목)</text>
+                <text x="425" y="75" font-family="Aptos" font-size="14" fill="white" text-anchor="middle" font-weight="600">Model Inference (Major Bottleneck)</text>
                 <text x="425" y="110" font-family="Aptos" font-size="12" fill="#ff6b6b" text-anchor="middle" font-weight="700">50-500ms</text>
                 
                 <!-- Postprocessing -->
                 <rect x="700" y="50" width="150" height="40" fill="#ffa500" opacity="0.7" rx="5"/>
-                <text x="775" y="75" font-family="Aptos" font-size="14" fill="white" text-anchor="middle" font-weight="600">후처리</text>
+                <text x="775" y="75" font-family="Aptos" font-size="14" fill="white" text-anchor="middle" font-weight="600">Postprocessing</text>
                 <text x="775" y="110" font-family="Aptos" font-size="12" fill="#666" text-anchor="middle">5-10ms</text>
                 
                 <!-- Time scale -->
@@ -108,26 +108,26 @@
         </div>
         
         <div class="latency-breakdown">
-            <div class="breakdown-title">지연시간 구성 요소</div>
+            <div class="breakdown-title">Latency Components</div>
             <div class="breakdown-items">
                 <div class="breakdown-item">
                     <div>
-                        <div class="item-name">데이터 전처리</div>
-                        <div class="item-tip">이미지 리사이징, 정규화</div>
+                        <div class="item-name">Data Preprocessing</div>
+                        <div class="item-tip">Image resizing, normalization</div>
                     </div>
                     <div class="item-time">5-20ms</div>
                 </div>
                 <div class="breakdown-item" style="background: #fff5f5;">
                     <div>
-                        <div class="item-name">모델 추론</div>
-                        <div class="item-tip">가장 큰 비중</div>
+                        <div class="item-name">Model Inference</div>
+                        <div class="item-tip">Largest proportion</div>
                     </div>
                     <div class="item-time">50-500ms</div>
                 </div>
                 <div class="breakdown-item">
                     <div>
-                        <div class="item-name">후처리</div>
-                        <div class="item-tip">결과 해석, 시각화</div>
+                        <div class="item-name">Postprocessing</div>
+                        <div class="item-tip">Result interpretation, visualization</div>
                     </div>
                     <div class="item-time">5-10ms</div>
                 </div>
@@ -135,7 +135,7 @@
         </div>
         
         <div class="optimization-techniques">
-            <div class="techniques-title">최적화 기법</div>
+            <div class="techniques-title">Optimization Techniques</div>
             <div class="techniques-grid">
                 <div class="technique-card">
                     <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
@@ -145,13 +145,13 @@
                         <path d="M 5 30 L 15 25 M 5 30 L 15 35" stroke="#1E64C8" stroke-width="2"/>
                         <path d="M 55 30 L 45 25 M 55 30 L 45 35" stroke="#1E64C8" stroke-width="2"/>
                     </svg>
-                    <div class="tech-name">모델 압축</div>
+                    <div class="tech-name">Model Compression</div>
                     <div class="tech-methods">
                         • Quantization<br>
                         • Pruning<br>
                         • Distillation
                     </div>
-                    <div class="tech-gain">2-10x 속도 향상</div>
+                    <div class="tech-gain">2-10x speedup</div>
                 </div>
                 <div class="technique-card">
                     <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
@@ -160,13 +160,13 @@
                         <path d="M 30 15 L 35 25 L 30 35 L 25 25 Z" fill="#51cf66"/>
                         <circle cx="30" cy="30" r="3" fill="#51cf66"/>
                     </svg>
-                    <div class="tech-name">추론 엔진</div>
+                    <div class="tech-name">Inference Engine</div>
                     <div class="tech-methods">
                         • TensorRT<br>
                         • ONNX Runtime<br>
                         • TFLite
                     </div>
-                    <div class="tech-gain">1.5-3x 속도 향상</div>
+                    <div class="tech-gain">1.5-3x speedup</div>
                 </div>
                 <div class="technique-card">
                     <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
@@ -175,19 +175,19 @@
                         <circle cx="30" cy="30" r="8" fill="#ffa500"/>
                         <path d="M 30 22 L 30 26 M 30 34 L 30 38 M 22 30 L 26 30 M 34 30 L 38 30" stroke="white" stroke-width="2"/>
                     </svg>
-                    <div class="tech-name">하드웨어 가속</div>
+                    <div class="tech-name">Hardware Acceleration</div>
                     <div class="tech-methods">
                         • GPU<br>
                         • NPU/TPU<br>
                         • FPGA
                     </div>
-                    <div class="tech-gain">5-100x 속도 향상</div>
+                    <div class="tech-gain">5-100x speedup</div>
                 </div>
             </div>
         </div>
         
         <div class="realtime-requirements">
-            <div class="realtime-title">실시간 처리 기준</div>
+            <div class="realtime-title">Real-time Processing Standards</div>
             <div class="realtime-levels">
                 <div class="level-box soft">
                     <svg width="80" height="60" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
@@ -197,7 +197,7 @@
                     </svg>
                     <div class="level-name">Soft Real-time</div>
                     <div class="level-time">< 100ms</div>
-                    <div class="level-app">일반 진단 보조</div>
+                    <div class="level-app">General diagnostic assistance</div>
                 </div>
                 <div class="level-box hard">
                     <svg width="80" height="60" viewBox="0 0 80 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
@@ -208,7 +208,7 @@
                     </svg>
                     <div class="level-name">Hard Real-time</div>
                     <div class="level-time">< 10ms</div>
-                    <div class="level-app">수술 로봇, 응급 시스템</div>
+                    <div class="level-app">Surgical robots, emergency systems</div>
                 </div>
             </div>
         </div>

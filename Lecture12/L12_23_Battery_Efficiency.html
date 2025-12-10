@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -172,14 +172,14 @@
         <div class="title">Battery Efficiency</div>
         
         <div class="battery-intro">
-            <div class="intro-title">배터리 효율성 최적화</div>
-            <div class="intro-desc">모바일/웨어러블 디바이스의 장시간 사용을 위한 전력 소비 최소화</div>
+            <div class="intro-title">Battery Efficiency Optimization</div>
+            <div class="intro-desc">Minimizing power consumption for long-term use of mobile/wearable devices</div>
         </div>
         <div class="power-consumption">
-            <div class="consumption-title">모델 실행 시 전력 소비</div>
+            <div class="consumption-title">Power Consumption During Model Execution</div>
             <div class="consumption-comparison">
                 <div class="power-bar">
-                    <div class="bar-label">FP32 (기본)</div>
+                    <div class="bar-label">FP32 (Baseline)</div>
                     <div class="bar-visual" style="width: 100%; background: #ff6b6b;">
                         <span class="bar-value">100%</span>
                     </div>
@@ -205,41 +205,41 @@
             </div>
         </div>
         <div class="strategies-section">
-            <div class="strategies-title">전력 절감 전략</div>
+            <div class="strategies-title">Power Saving Strategies</div>
             <div class="strategies-list">
                 <div class="strategy-item">
                     <div class="strategy-number">1</div>
                     <div class="strategy-content">
-                        <div class="strategy-name">적극적 양자화</div>
-                        <div class="strategy-desc">INT8/INT4 사용으로 연산량 감소</div>
+                        <div class="strategy-name">Aggressive Quantization</div>
+                        <div class="strategy-desc">Reduce computational load using INT8/INT4</div>
                     </div>
                 </div>
                 <div class="strategy-item">
                     <div class="strategy-number">2</div>
                     <div class="strategy-content">
-                        <div class="strategy-name">온디맨드 추론</div>
-                        <div class="strategy-desc">필요할 때만 모델 실행 (이벤트 기반)</div>
+                        <div class="strategy-name">On-Demand Inference</div>
+                        <div class="strategy-desc">Run model only when needed (event-based)</div>
                     </div>
                 </div>
                 <div class="strategy-item">
                     <div class="strategy-number">3</div>
                     <div class="strategy-content">
-                        <div class="strategy-name">배치 처리</div>
-                        <div class="strategy-desc">여러 샘플 모아서 한 번에 처리</div>
+                        <div class="strategy-name">Batch Processing</div>
+                        <div class="strategy-desc">Collect multiple samples and process at once</div>
                     </div>
                 </div>
                 <div class="strategy-item">
                     <div class="strategy-number">4</div>
                     <div class="strategy-content">
-                        <div class="strategy-name">하드웨어 가속기 활용</div>
-                        <div class="strategy-desc">NPU/DSP 사용 (CPU보다 효율적)</div>
+                        <div class="strategy-name">Hardware Accelerator Utilization</div>
+                        <div class="strategy-desc">Use NPU/DSP (more efficient than CPU)</div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="tradeoff-note">
-            <span class="highlight">트레이드오프:</span> 배터리 수명 vs 모델 성능/정확도<br>
-            의료 응용에서는 안전성을 해치지 않는 선에서 최적화 필수
+            <span class="highlight">Trade-off:</span> Battery life vs Model performance/accuracy<br>
+            In medical applications, optimization must be done without compromising safety
         </div>
     </div>
 </body>

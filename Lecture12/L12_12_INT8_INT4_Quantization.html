@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,49 +118,49 @@
         <div class="title">INT8/INT4 Quantization</div>
         
         <div class="quant-intro">
-            <div class="intro-title">정수 양자화 (Integer Quantization)</div>
-            <div class="intro-desc">부동소수점(FP32/FP16)을 정수(INT8/INT4)로 변환하여 모델 크기 감소</div>
+            <div class="intro-title">Integer Quantization</div>
+            <div class="intro-desc">Converting floating-point (FP32/FP16) to integers (INT8/INT4) to reduce model size</div>
         </div>
         <div class="precision-comparison">
-            <div class="comparison-title">비트 수 비교</div>
+            <div class="comparison-title">Bit Count Comparison</div>
             <div class="precision-grid">
                 <div class="precision-card">
                     <div class="prec-type">FP32</div>
                     <div class="prec-bits">32 bits<br>4 bytes</div>
-                    <div class="prec-note">기본 학습 정밀도</div>
+                    <div class="prec-note">Default training precision</div>
                 </div>
                 <div class="precision-card">
                     <div class="prec-type">INT8</div>
                     <div class="prec-bits">8 bits<br>1 byte</div>
-                    <div class="prec-note">75% 메모리 절감</div>
+                    <div class="prec-note">75% memory reduction</div>
                 </div>
                 <div class="precision-card">
                     <div class="prec-type">INT4</div>
                     <div class="prec-bits">4 bits<br>0.5 bytes</div>
-                    <div class="prec-note">87.5% 메모리 절감</div>
+                    <div class="prec-note">87.5% memory reduction</div>
                 </div>
             </div>
         </div>
         <div class="benefits-box">
-            <div class="benefits-title">양자화의 효과</div>
+            <div class="benefits-title">Benefits of Quantization</div>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">💾</div>
-                    <div class="benefit-text">메모리 사용량 감소</div>
+                    <div class="benefit-text">Reduced memory usage</div>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">⚡</div>
-                    <div class="benefit-text">추론 속도 향상</div>
+                    <div class="benefit-text">Improved inference speed</div>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">🔋</div>
-                    <div class="benefit-text">전력 소비 감소</div>
+                    <div class="benefit-text">Lower power consumption</div>
                 </div>
             </div>
         </div>
         <div class="accuracy-note">
-            <span class="highlight">정확도 트레이드오프:</span> INT8은 일반적으로 1% 미만 정확도 감소<br>
-            INT4는 Quantization-Aware Training 필요
+            <span class="highlight">Accuracy Trade-off:</span> INT8 typically shows less than 1% accuracy degradation<br>
+            INT4 requires Quantization-Aware Training
         </div>
     </div>
 </body>

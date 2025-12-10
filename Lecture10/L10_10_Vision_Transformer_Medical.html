@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,7 +64,7 @@
 <body>
     <div class="container">
         <div class="title">Vision Transformer (ViT) for Medical Imaging</div>
-        <div class="concept-box">패치 임베딩과 위치 인코딩으로 의료 영상을 처리, Self-attention으로 전역 관계 포착</div>
+        <div class="concept-box">Process medical images with patch embedding and positional encoding, capture global relationships through self-attention</div>
         
         <div class="architecture-flow">
             <div class="flow-step">
@@ -78,8 +78,8 @@
                             <line x1="26" y1="2" x2="26" y2="38" stroke="#1E64C8" stroke-width="1"/>
                         </svg>
                     </div>
-                    <div>영상 입력</div>
-                    <div style="font-size: 11px;">(예: 256×256)</div>
+                    <div>Image Input</div>
+                    <div style="font-size: 11px;">(e.g., 256×256)</div>
                 </div>
             </div>
             <div class="arrow">→</div>
@@ -98,7 +98,7 @@
                             <rect x="27" y="27" width="10" height="10" fill="#1E64C8" opacity="0.4" stroke="#1E64C8"/>
                         </svg>
                     </div>
-                    <div>패치 분할</div>
+                    <div>Patch Division</div>
                     <div style="font-size: 11px;">(16×16 patches)</div>
                 </div>
             </div>
@@ -112,8 +112,8 @@
                             <rect x="5" y="27" width="30" height="8" fill="#1E64C8" opacity="0.8" rx="2"/>
                         </svg>
                     </div>
-                    <div>선형 임베딩</div>
-                    <div style="font-size: 11px;">+ 위치 인코딩</div>
+                    <div>Linear Embedding</div>
+                    <div style="font-size: 11px;">+ Positional Encoding</div>
                 </div>
             </div>
             <div class="arrow">→</div>
@@ -145,44 +145,44 @@
                             <path d="M15 20 L18 23 L25 16" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <div>분류/검출</div>
-                    <div style="font-size: 11px;">헤드</div>
+                    <div>Classification/Detection</div>
+                    <div style="font-size: 11px;">Head</div>
                 </div>
             </div>
         </div>
         
         <div class="content-grid">
             <div class="content-card">
-                <div class="card-title">Self-Attention 메커니즘</div>
-                <div class="card-desc">전체 영상의 장거리 의존성 학습</div>
-                <div class="bullet">모든 패치 간 관계 계산</div>
-                <div class="bullet">Query, Key, Value 변환</div>
-                <div class="bullet">병변 간 공간적 관계 포착</div>
+                <div class="card-title">Self-Attention Mechanism</div>
+                <div class="card-desc">Learning long-range dependencies across entire image</div>
+                <div class="bullet">Compute relationships between all patches</div>
+                <div class="bullet">Query, Key, Value transformations</div>
+                <div class="bullet">Capture spatial relationships between lesions</div>
                 <div class="bullet">Multi-head attention</div>
             </div>
             <div class="content-card">
-                <div class="card-title">의료 영상 적용</div>
-                <div class="card-desc">ViT의 의료 도메인 특화</div>
-                <div class="bullet">고해상도 영상 처리</div>
-                <div class="bullet">가변 크기 입력 지원</div>
-                <div class="bullet">3D 볼륨 확장 (3D-ViT)</div>
-                <div class="bullet">Medical-specific 사전학습</div>
+                <div class="card-title">Medical Imaging Applications</div>
+                <div class="card-desc">ViT specialized for medical domain</div>
+                <div class="bullet">High-resolution image processing</div>
+                <div class="bullet">Variable-size input support</div>
+                <div class="bullet">3D volume extension (3D-ViT)</div>
+                <div class="bullet">Medical-specific pre-training</div>
             </div>
             <div class="content-card">
-                <div class="card-title">장점</div>
-                <div class="card-desc">ViT의 강점</div>
-                <div class="bullet">전역 컨텍스트 이해</div>
-                <div class="bullet">확장 가능한 구조</div>
-                <div class="bullet">대규모 사전학습 효과</div>
-                <div class="bullet">다양한 다운스트림 태스크</div>
+                <div class="card-title">Advantages</div>
+                <div class="card-desc">Strengths of ViT</div>
+                <div class="bullet">Global context understanding</div>
+                <div class="bullet">Scalable architecture</div>
+                <div class="bullet">Large-scale pre-training benefits</div>
+                <div class="bullet">Various downstream tasks</div>
             </div>
             <div class="content-card">
-                <div class="card-title">의료 ViT 모델</div>
-                <div class="card-desc">대표적인 의료 특화 ViT</div>
-                <div class="bullet">MedViT: 의료 영상 사전학습</div>
-                <div class="bullet">TransUNet: 세분화 특화</div>
-                <div class="bullet">Swin Transformer: 계층적</div>
-                <div class="bullet">CoTr: CT/MRI 복원</div>
+                <div class="card-title">Medical ViT Models</div>
+                <div class="card-desc">Representative medical-specialized ViT</div>
+                <div class="bullet">MedViT: Medical image pre-training</div>
+                <div class="bullet">TransUNet: Segmentation specialized</div>
+                <div class="bullet">Swin Transformer: Hierarchical</div>
+                <div class="bullet">CoTr: CT/MRI reconstruction</div>
             </div>
         </div>
     </div>

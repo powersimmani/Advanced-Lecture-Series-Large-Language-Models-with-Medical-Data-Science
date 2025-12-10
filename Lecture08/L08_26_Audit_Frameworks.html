@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
     </style>
 </head>
 <body><div class="container">
-        <div class="title">감사 프레임워크 (Audit Frameworks)</div>
+        <div class="title">Audit Frameworks</div>
         
         <div class="diagram-container">
             <svg width="840" height="300" viewBox="0 0 840 300">
@@ -41,78 +41,78 @@
                 
                 <!-- Central Audit circle -->
                 <circle cx="420" cy="150" r="50" fill="#f0f5fc" stroke="#1E64C8" stroke-width="3"/>
-                <text x="420" y="145" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8" text-anchor="middle">AI 감사</text>
-                <text x="420" y="162" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">프로세스</text>
+                <text x="420" y="145" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8" text-anchor="middle">AI Audit</text>
+                <text x="420" y="162" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">Process</text>
                 
-                <!-- Step 1: 모델 문서화 검토 (Top Left) -->
+                <!-- Step 1: Model Documentation Review (Top Left) -->
                 <g>
                     <circle cx="180" cy="80" r="45" fill="url(#auditGrad)" stroke="#1E64C8" stroke-width="2.5"/>
                     <text x="180" y="72" font-family="Aptos, sans-serif" font-size="20" fill="white" text-anchor="middle">📄</text>
-                    <text x="180" y="92" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">1. 문서화</text>
+                    <text x="180" y="92" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">1. Documentation</text>
                     
                     <rect x="100" y="135" width="160" height="50" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
-                    <text x="180" y="153" font-family="Aptos, sans-serif" font-size="12" font-weight="700" fill="#1E64C8" text-anchor="middle">모델 문서화 검토</text>
-                    <text x="180" y="169" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">데이터, 아키텍처,</text>
-                    <text x="180" y="181" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">성능 메트릭</text>
+                    <text x="180" y="153" font-family="Aptos, sans-serif" font-size="12" font-weight="700" fill="#1E64C8" text-anchor="middle">Model Documentation Review</text>
+                    <text x="180" y="169" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">Data, Architecture,</text>
+                    <text x="180" y="181" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">Performance Metrics</text>
                 </g>
                 
                 <!-- Arrow 1 to 2 -->
                 <path d="M 225 80 L 375 80" stroke="#1E64C8" stroke-width="2.5" marker-end="url(#arrow4)"/>
                 
-                <!-- Step 2: 공정성 평가 (Top Right) -->
+                <!-- Step 2: Fairness Assessment (Top Right) -->
                 <g>
                     <circle cx="660" cy="80" r="45" fill="url(#auditGrad)" stroke="#1E64C8" stroke-width="2.5"/>
                     <text x="660" y="72" font-family="Aptos, sans-serif" font-size="20" fill="white" text-anchor="middle">⚖️</text>
-                    <text x="660" y="92" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">2. 공정성</text>
+                    <text x="660" y="92" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">2. Fairness</text>
                     
                     <rect x="580" y="135" width="160" height="50" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
-                    <text x="660" y="153" font-family="Aptos, sans-serif" font-size="12" font-weight="700" fill="#1E64C8" text-anchor="middle">공정성 평가</text>
-                    <text x="660" y="169" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">편향 테스트,</text>
-                    <text x="660" y="181" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">그룹별 성능</text>
+                    <text x="660" y="153" font-family="Aptos, sans-serif" font-size="12" font-weight="700" fill="#1E64C8" text-anchor="middle">Fairness Assessment</text>
+                    <text x="660" y="169" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">Bias Testing,</text>
+                    <text x="660" y="181" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">Group Performance</text>
                 </g>
                 
                 <!-- Arrow 2 to 3 (down right) -->
                 <path d="M 680 125 L 705 200" stroke="#1E64C8" stroke-width="2.5" marker-end="url(#arrow4)"/>
                 
-                <!-- Step 3: 안전성 검증 (Bottom Right) -->
+                <!-- Step 3: Safety Verification (Bottom Right) -->
                 <g>
                     <circle cx="720" cy="220" r="45" fill="url(#auditGrad)" stroke="#1E64C8" stroke-width="2.5"/>
                     <text x="720" y="212" font-family="Aptos, sans-serif" font-size="20" fill="white" text-anchor="middle">🛡️</text>
-                    <text x="720" y="232" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">3. 안전성</text>
+                    <text x="720" y="232" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">3. Safety</text>
                     
-                    <text x="720" y="283" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="#1E64C8" text-anchor="middle">안전성 검증</text>
-                    <text x="720" y="297" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">Red teaming</text>
+                    <text x="720" y="283" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="#1E64C8" text-anchor="middle">Safety Verification</text>
+                    <text x="720" y="297" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">Red Teaming</text>
                 </g>
                 
                 <!-- Arrow 3 to 4 -->
                 <path d="M 675 220 L 535 220" stroke="#1E64C8" stroke-width="2.5" marker-end="url(#arrow4)"/>
                 
-                <!-- Step 4: 규정 준수 (Bottom Center) -->
+                <!-- Step 4: Regulatory Compliance (Bottom Center) -->
                 <g>
                     <circle cx="420" cy="220" r="45" fill="url(#auditGrad)" stroke="#1E64C8" stroke-width="2.5"/>
                     <text x="420" y="212" font-family="Aptos, sans-serif" font-size="20" fill="white" text-anchor="middle">✓</text>
-                    <text x="420" y="232" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">4. 규정</text>
+                    <text x="420" y="232" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">4. Compliance</text>
                     
-                    <text x="420" y="283" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="#1E64C8" text-anchor="middle">규정 준수 확인</text>
+                    <text x="420" y="283" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="#1E64C8" text-anchor="middle">Regulatory Compliance Check</text>
                     <text x="420" y="297" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">GDPR, HIPAA, FDA</text>
                 </g>
                 
                 <!-- Arrow 4 to 5 -->
                 <path d="M 375 220 L 225 220" stroke="#1E64C8" stroke-width="2.5" marker-end="url(#arrow4)"/>
                 
-                <!-- Step 5: 보고서 작성 (Bottom Left) -->
+                <!-- Step 5: Report Writing (Bottom Left) -->
                 <g>
                     <circle cx="120" cy="220" r="45" fill="url(#auditGrad)" stroke="#1E64C8" stroke-width="2.5"/>
                     <text x="120" y="212" font-family="Aptos, sans-serif" font-size="20" fill="white" text-anchor="middle">📝</text>
-                    <text x="120" y="232" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">5. 보고서</text>
+                    <text x="120" y="232" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">5. Reporting</text>
                     
-                    <text x="120" y="283" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="#1E64C8" text-anchor="middle">보고서 작성</text>
-                    <text x="120" y="297" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">발견, 권고, 개선</text>
+                    <text x="120" y="283" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="#1E64C8" text-anchor="middle">Report Writing</text>
+                    <text x="120" y="297" font-family="Aptos, sans-serif" font-size="10" fill="#666" text-anchor="middle">Findings, Recommendations, Improvements</text>
                 </g>
                 
                 <!-- Arrow 5 back to 1 (completing cycle) -->
                 <path d="M 140 185 L 160 125" stroke="#1E64C8" stroke-width="2.5" stroke-dasharray="5,3" marker-end="url(#arrow4)"/>
-                <text x="145" y="155" font-family="Aptos, sans-serif" font-size="11" font-weight="600" fill="#1E64C8">순환</text>
+                <text x="145" y="155" font-family="Aptos, sans-serif" font-size="11" font-weight="600" fill="#1E64C8">Cycle</text>
                 
                 <!-- Connection to center -->
                 <line x1="370" y1="150" x2="260" y2="80" stroke="#1E64C8" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.5"/>
@@ -123,17 +123,17 @@
         
         <div class="content-grid">
             <div style="background: white; border: 2px solid #1E64C8; border-radius: 10px; padding: 15px;">
-                <div style="font-size: 15px; font-weight: 700; color: #1E64C8; margin-bottom: 10px;">📋 체크리스트</div>
+                <div style="font-size: 15px; font-weight: 700; color: #1E64C8; margin-bottom: 10px;">📋 Checklist</div>
                 <div class="item-list">
-                    <div class="list-item">데이터 품질 및 대표성</div>
-                    <div class="list-item">모델 성능 및 강건성</div>
-                    <div class="list-item">설명 가능성</div>
-                    <div class="list-item">보안 및 프라이버시</div>
-                    <div class="list-item">거버넌스 체계</div>
+                    <div class="list-item">Data Quality and Representativeness</div>
+                    <div class="list-item">Model Performance and Robustness</div>
+                    <div class="list-item">Explainability</div>
+                    <div class="list-item">Security and Privacy</div>
+                    <div class="list-item">Governance Framework</div>
                 </div>
             </div>
             <div style="background: white; border: 2px solid #1E64C8; border-radius: 10px; padding: 15px;">
-                <div style="font-size: 15px; font-weight: 700; color: #1E64C8; margin-bottom: 10px;">📊 문서화</div>
+                <div style="font-size: 15px; font-weight: 700; color: #1E64C8; margin-bottom: 10px;">📊 Documentation</div>
                 <div class="item-list">
                     <div class="list-item">Model card</div>
                     <div class="list-item">Datasheet</div>

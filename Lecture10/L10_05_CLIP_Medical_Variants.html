@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -201,12 +201,12 @@
         <div class="clip-overview">
             <div class="clip-text">
                 <span class="clip-highlight">CLIP (Contrastive Language-Image Pre-training)</span>:
-                영상과 텍스트를 공통 임베딩 공간에 정렬하여 <span class="clip-highlight">제로샷 학습</span> 가능
+                Aligns images and text in a common embedding space, enabling <span class="clip-highlight">zero-shot learning</span>
             </div>
         </div>
         
         <div class="architecture-flow">
-            <div class="common-space">공통 임베딩 공간</div>
+            <div class="common-space">Common Embedding Space</div>
             <div class="flow-box">
                 <div class="flow-label">Image Encoder</div>
                 <div class="flow-content">
@@ -220,7 +220,7 @@
                         </svg>
                     </div>
                     <div>ResNet / ViT</div>
-                    <div style="font-size: 12px;">영상 특징 추출</div>
+                    <div style="font-size: 12px;">Image feature extraction</div>
                 </div>
             </div>
             
@@ -235,8 +235,8 @@
                             <circle cx="15" cy="15" r="6" fill="#1E64C8" opacity="0.5"/>
                         </svg>
                     </div>
-                    <div>공통</div>
-                    <div style="font-size: 12px;">임베딩 공간</div>
+                    <div>Common</div>
+                    <div style="font-size: 12px;">Embedding space</div>
                 </div>
             </div>
             
@@ -253,7 +253,7 @@
                         </svg>
                     </div>
                     <div>Transformer</div>
-                    <div style="font-size: 12px;">텍스트 특징 추출</div>
+                    <div style="font-size: 12px;">Text feature extraction</div>
                 </div>
             </div>
         </div>
@@ -261,51 +261,51 @@
         <div class="variants-grid">
             <div class="variant-card">
                 <div class="variant-name">MedCLIP</div>
-                <div class="variant-desc">의료 영상-텍스트 쌍으로 학습, 일반 질환 진단</div>
+                <div class="variant-desc">Trained on medical image-text pairs, general disease diagnosis</div>
             </div>
             
             <div class="variant-card">
                 <div class="variant-name">BiomedCLIP</div>
-                <div class="variant-desc">1500만 생의학 영상-텍스트, 광범위 도메인 커버</div>
+                <div class="variant-desc">15 million biomedical image-text pairs, broad domain coverage</div>
             </div>
             
             <div class="variant-card">
                 <div class="variant-name">PubMedCLIP</div>
-                <div class="variant-desc">PubMed 논문 기반, 과학적 영상 이해</div>
+                <div class="variant-desc">Based on PubMed papers, scientific image understanding</div>
             </div>
             
             <div class="variant-card">
                 <div class="variant-name">RadCLIP</div>
-                <div class="variant-desc">방사선 영상 특화, X-ray/CT 리포트</div>
+                <div class="variant-desc">Specialized in radiology images, X-ray/CT reports</div>
             </div>
             
             <div class="variant-card">
                 <div class="variant-name">PathCLIP</div>
-                <div class="variant-desc">병리 슬라이드 전용, 조직 분류</div>
+                <div class="variant-desc">Dedicated to pathology slides, tissue classification</div>
             </div>
             
             <div class="variant-card">
                 <div class="variant-name">CXR-CLIP</div>
-                <div class="variant-desc">흉부 X-ray 초점, 폐질환 검출</div>
+                <div class="variant-desc">Focused on chest X-rays, lung disease detection</div>
             </div>
         </div>
         
         <div class="learning-section">
             <div class="learning-box">
-                <div class="learning-title">대조 학습 (Contrastive Learning)</div>
+                <div class="learning-title">Contrastive Learning</div>
                 <div class="learning-content">
-                    <div class="bullet">매칭 영상-텍스트 쌍: 높은 유사도</div>
-                    <div class="bullet">비매칭 쌍: 낮은 유사도</div>
-                    <div class="bullet">InfoNCE loss로 구별 학습</div>
+                    <div class="bullet">Matching image-text pairs: high similarity</div>
+                    <div class="bullet">Non-matching pairs: low similarity</div>
+                    <div class="bullet">Discriminative learning with InfoNCE loss</div>
                 </div>
             </div>
             
             <div class="learning-box">
-                <div class="learning-title">영상-텍스트 정렬 효과</div>
+                <div class="learning-title">Image-Text Alignment Effects</div>
                 <div class="learning-content">
-                    <div class="bullet">제로샷 분류 가능</div>
-                    <div class="bullet">텍스트 쿼리로 영상 검색</div>
-                    <div class="bullet">멀티모달 표현 학습</div>
+                    <div class="bullet">Enables zero-shot classification</div>
+                    <div class="bullet">Image retrieval with text queries</div>
+                    <div class="bullet">Multimodal representation learning</div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,14 +23,14 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Hands-on: Multimodal Model 구현 실습</div>
-        <div class="concept-box">PyTorch로 영상+텍스트 융합 모델 구현, 데이터 로더, 학습 루프 작성</div>
+        <div class="title">Hands-on: Multimodal Model Implementation Practice</div>
+        <div class="concept-box">Implement image+text fusion model with PyTorch, data loader, and training loop</div>
         
         <div class="steps-grid">
             <div class="step-card">
                 <div class="step-number">Step 1</div>
-                <div class="step-title">데이터 준비</div>
-                <div class="step-desc">영상과 텍스트 쌍 데이터셋 로드</div>
+                <div class="step-title">Data Preparation</div>
+                <div class="step-desc">Load image and text paired dataset</div>
                 <div class="code-snippet">
 dataset = MultimodalDataset(<br>
 &nbsp;&nbsp;image_dir="./xrays",<br>
@@ -41,8 +41,8 @@ dataset = MultimodalDataset(<br>
             
             <div class="step-card">
                 <div class="step-number">Step 2</div>
-                <div class="step-title">인코더 정의</div>
-                <div class="step-desc">영상/텍스트 각각 인코더 구축</div>
+                <div class="step-title">Define Encoders</div>
+                <div class="step-desc">Build separate encoders for image/text</div>
                 <div class="code-snippet">
 img_encoder = ResNet50()<br>
 text_encoder = BERT()
@@ -51,8 +51,8 @@ text_encoder = BERT()
             
             <div class="step-card">
                 <div class="step-number">Step 3</div>
-                <div class="step-title">융합 레이어</div>
-                <div class="step-desc">특징 결합 및 프로젝션</div>
+                <div class="step-title">Fusion Layer</div>
+                <div class="step-desc">Feature concatenation and projection</div>
                 <div class="code-snippet">
 fusion = nn.Linear(<br>
 &nbsp;&nbsp;img_dim + text_dim,<br>
@@ -63,8 +63,8 @@ fusion = nn.Linear(<br>
             
             <div class="step-card">
                 <div class="step-number">Step 4</div>
-                <div class="step-title">학습 루프</div>
-                <div class="step-desc">손실 함수 및 최적화</div>
+                <div class="step-title">Training Loop</div>
+                <div class="step-desc">Loss function and optimization</div>
                 <div class="code-snippet">
 loss = contrastive_loss(<br>
 &nbsp;&nbsp;img_emb, text_emb<br>
@@ -76,7 +76,7 @@ optimizer.step()
         
         <div class="resources">
             <div class="resource-box">GitHub:<br>Multimodal-Medical</div>
-            <div class="resource-box">Colab Notebook:<br>실습 예제</div>
+            <div class="resource-box">Colab Notebook:<br>Practice Examples</div>
             <div class="resource-box">Dataset:<br>MIMIC-CXR</div>
         </div>
     </div>

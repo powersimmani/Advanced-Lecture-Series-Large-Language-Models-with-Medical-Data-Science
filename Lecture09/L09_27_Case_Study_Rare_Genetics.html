@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +18,11 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px 0;
         }
         
         .container {
             width: 960px;
-            height: 540px;
             padding: 35px 45px;
             background: white;
         }
@@ -111,6 +111,7 @@
             border: 2px solid #4a90e2;
             border-radius: 8px;
             padding: 18px 22px;
+            margin-bottom: 25px;
         }
         
         .points-title {
@@ -136,66 +137,217 @@
         }
         
         .point-item::before {
-            content: "â€¢";
+            content: "•";
             position: absolute;
             left: 0;
             color: #1E64C8;
             font-weight: bold;
             font-size: 20px;
         }
+        
+        .context-section {
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px 30px;
+            margin-bottom: 25px;
+        }
+        
+        .context-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1E64C8;
+        }
+        
+        .context-content {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .example-box {
+            background: #f9f9f9;
+            border-left: 4px solid #1E64C8;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        
+        .example-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .example-text {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .methodology-item {
+            background: #f0f5fc;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #d0e0f0;
+        }
+        
+        .methodology-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .methodology-item p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Case Study: Rare Genetics</div>
-        <div class="subtitle">케이스 스터디</div>
+        <div class="subtitle">Medical Data Science Application</div>
         
         <div class="intro-box">
             <div class="intro-text">
-                <span class="highlight">케이스 스터디</span>의 핵심 개념과 의료 데이터 과학 적용에 대해 학습합니다.
+                Learn about the core concepts of <span class="highlight">case studies</span> and their application in medical data science.
             </div>
         </div>
         
         <div class="content-grid">
             <div class="content-card">
                 <div class="card-icon">🎯</div>
-                <div class="card-title">주요 개념</div>
+                <div class="card-title">Key Concepts</div>
                 <div class="card-desc">
-                    케이스 스터디의 이론적 배경과 핵심 원리
+                    Theoretical background and core principles of case studies
                 </div>
             </div>
             
             <div class="content-card">
                 <div class="card-icon">🏥</div>
-                <div class="card-title">의료 적용</div>
+                <div class="card-title">Medical Application</div>
                 <div class="card-desc">
-                    실제 의료 환경에서의 활용 사례
+                    Real-world use cases in medical environments
                 </div>
             </div>
             
             <div class="content-card">
                 <div class="card-icon">📊</div>
-                <div class="card-title">성능 평가</div>
+                <div class="card-title">Performance Evaluation</div>
                 <div class="card-desc">
-                    효과성 측정 및 개선 방법론
+                    Effectiveness measurement and improvement methodology
                 </div>
             </div>
             
             <div class="content-card">
                 <div class="card-icon">🔬</div>
-                <div class="card-title">실습 예제</div>
+                <div class="card-title">Practical Examples</div>
                 <div class="card-desc">
-                    실제 데이터를 활용한 구현
+                    Implementation using real-world data
                 </div>
             </div>
         </div>
         
         <div class="key-points">
-            <div class="points-title">핵심 포인트</div>
+            <div class="points-title">Key Points</div>
             <div class="points-list">
-                <div class="point-item">의료 데이터의 특수성을 고려한 접근</div>
-                <div class="point-item">제한된 데이터 환경에서의 효율적 학습</div>
-                <div class="point-item">안전성과 신뢰성을 보장하는 설계</div>
+                <div class="point-item">Approach considering the specificity of medical data</div>
+                <div class="point-item">Efficient learning in limited data environments</div>
+                <div class="point-item">Design ensuring safety and reliability</div>
+            </div>
+        </div>
+        
+        <!-- Added Contextual Description Sections -->
+        <div class="context-section">
+            <div class="context-title">📋 Rare Genetics Case Study Overview</div>
+            <div class="context-content">
+                Approximately 7,000 rare genetic diseases are known worldwide, and while individual disease 
+                incidence rates are low, they collectively affect about 6-8% of the population, making them 
+                an important public health issue. This case study covers data science approaches for diagnosing 
+                and treating rare genetic diseases, and teaches methods for building effective analysis and 
+                predictive models in limited data environments.
+            </div>
+            
+            <div class="example-box">
+                <div class="example-title">💡 Real-World Application Examples</div>
+                <div class="example-text">
+                    For certain rare genetic diseases, there may be only a few hundred patients worldwide. 
+                    In such situations, traditional large-scale data-driven machine learning approaches are 
+                    difficult to apply. Therefore, innovative approaches using transfer learning, meta-learning, 
+                    and few-shot learning techniques are necessary.
+                </div>
+            </div>
+        </div>
+        
+        <div class="context-section">
+            <div class="context-title">🔍 Research Methodology</div>
+            
+            <div class="methodology-grid">
+                <div class="methodology-item">
+                    <h4>1. Data Collection & Integration</h4>
+                    <p>Collect and integrate information from various sources (genomic data, clinical records, 
+                    imaging data) to construct comprehensive patient profiles.</p>
+                </div>
+                
+                <div class="methodology-item">
+                    <h4>2. Feature Extraction & Selection</h4>
+                    <p>Identify key biomarkers and genetic variants related to diseases from high-dimensional 
+                    genomic data and apply dimensionality reduction techniques.</p>
+                </div>
+                
+                <div class="methodology-item">
+                    <h4>3. Model Development & Validation</h4>
+                    <p>Use ensemble techniques and regularization methods suitable for small datasets to prevent 
+                    overfitting and improve generalization performance.</p>
+                </div>
+                
+                <div class="methodology-item">
+                    <h4>4. Clinical Application & Evaluation</h4>
+                    <p>Validate developed models in actual clinical settings and evaluate performance using 
+                    metrics such as sensitivity, specificity, and positive predictive value.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="context-section">
+            <div class="context-title">🎓 Learning Objectives & Expected Outcomes</div>
+            <div class="context-content">
+                Through this case study, learners will understand the unique challenges of rare disease research 
+                and develop the ability to perform effective analysis even in limited data situations. 
+                In particular, the following practical skills can be cultivated:
+            </div>
+            
+            <div class="example-box">
+                <div class="example-text">
+                    <strong>▸ Data Augmentation Techniques:</strong> Methods to effectively expand training data from limited samples<br>
+                    <strong>▸ Domain Knowledge Integration:</strong> Strategies to incorporate biological and clinical knowledge into models<br>
+                    <strong>▸ Ensuring Interpretability:</strong> Building explainable AI models that clinicians can trust<br>
+                    <strong>▸ Ethical Considerations:</strong> Compliance with patient privacy protection and data security
+                </div>
+            </div>
+        </div>
+        
+        <div class="context-section">
+            <div class="context-title">🚀 Future Outlook</div>
+            <div class="context-content">
+                The use of AI and data science in the field of rare genetic diseases continues to expand. 
+                Through data sharing via multi-institutional collaborative networks, advances in synthetic data 
+                generation technology, and the introduction of privacy-preserving technologies such as federated 
+                learning, accurate diagnosis and personalized treatment will become available to more patients.
             </div>
         </div>
     </div>

@@ -71,12 +71,12 @@
         <div class="title">Magnitude Pruning</div>
         
         <div class="magnitude-intro">
-            <div class="intro-title">크기 기반 가지치기 (Magnitude Pruning)</div>
-            <div class="intro-desc">작은 가중치 값을 0으로 만들어 희소성(sparsity) 증가</div>
+            <div class="intro-title">Magnitude-Based Pruning</div>
+            <div class="intro-desc">Increase sparsity by setting small weight values to 0</div>
         </div>
         
         <div class="process-steps">
-            <div class="steps-title">가지치기 프로세스</div>
+            <div class="steps-title">Pruning Process</div>
             <div class="steps-flow">
                 <div class="step-box">
                     <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 8px;">
@@ -95,7 +95,7 @@
                         <line x1="45" y1="15" x2="45" y2="45" stroke="#1E64C8" stroke-width="1"/>
                     </svg>
                     <div class="step-num">1</div>
-                    <div class="step-text">모델 학습 완료</div>
+                    <div class="step-text">Model Training<br>Complete</div>
                 </div>
                 <div class="arrow-right">→</div>
                 <div class="step-box">
@@ -105,7 +105,7 @@
                         <text x="30" y="38" font-family="Aptos" font-size="24" fill="#1E64C8" text-anchor="middle" font-weight="700">|w|</text>
                     </svg>
                     <div class="step-num">2</div>
-                    <div class="step-text">가중치 크기 계산<br>|w|</div>
+                    <div class="step-text">Calculate Weight<br>Magnitude |w|</div>
                 </div>
                 <div class="arrow-right">→</div>
                 <div class="step-box">
@@ -117,7 +117,7 @@
                         <rect x="37" y="10" width="8" height="30" fill="#51cf66"/>
                     </svg>
                     <div class="step-num">3</div>
-                    <div class="step-text">임계값 이하<br>가중치 제거</div>
+                    <div class="step-text">Remove Weights<br>Below Threshold</div>
                 </div>
                 <div class="arrow-right">→</div>
                 <div class="step-box">
@@ -172,7 +172,7 @@
         </div>
         
         <div class="threshold-strategy">
-            <div class="strategy-title">임계값 설정 전략</div>
+            <div class="strategy-title">Threshold Setting Strategies</div>
             <div class="strategy-grid">
                 <div class="strat-card">
                     <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
@@ -181,7 +181,7 @@
                         <text x="25" y="25" font-family="Aptos" font-size="14" fill="#1E64C8" text-anchor="middle">θ</text>
                     </svg>
                     <div class="strat-name">Global Threshold</div>
-                    <div class="strat-desc">전체 네트워크 단일 임계값</div>
+                    <div class="strat-desc">Single threshold for entire network</div>
                 </div>
                 <div class="strat-card">
                     <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
@@ -191,7 +191,7 @@
                         <text x="25" y="15" font-family="Aptos" font-size="12" fill="#1E64C8" text-anchor="middle">θ₁ θ₂ θ₃</text>
                     </svg>
                     <div class="strat-name">Layer-wise Threshold</div>
-                    <div class="strat-desc">레이어별 다른 임계값</div>
+                    <div class="strat-desc">Different threshold per layer</div>
                 </div>
                 <div class="strat-card">
                     <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
@@ -202,17 +202,17 @@
                         <text x="25" y="10" font-family="Aptos" font-size="12" fill="#1E64C8" text-anchor="middle">Top-k</text>
                     </svg>
                     <div class="strat-name">Top-k Pruning</div>
-                    <div class="strat-desc">상위 k% 가중치만 유지</div>
+                    <div class="strat-desc">Keep only top k% weights</div>
                 </div>
             </div>
         </div>
         <div class="sparsity-example">
-            <div class="example-title">희소성 예시</div>
+            <div class="example-title">Sparsity Example</div>
             <div class="example-visual">
                 Dense: [0.8, 0.3, -0.5, 0.1, -0.9]<br>
                 ↓ Threshold = 0.4<br>
                 Sparse: [0.8, <span style="color: #999;">0</span>, -0.5, <span style="color: #999;">0</span>, -0.9]<br>
-                <span class="highlight">40% 희소성 달성</span>
+                <span class="highlight">40% Sparsity Achieved</span>
                 
                 <svg width="400" height="80" viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg" style="margin-top: 15px;">
                     <!-- Weight visualization -->

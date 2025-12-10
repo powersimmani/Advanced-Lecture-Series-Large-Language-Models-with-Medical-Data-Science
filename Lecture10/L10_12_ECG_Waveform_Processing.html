@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECG Waveform Processing</title>
+    <title>Audio Lung Sounds Analysis</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Aptos, 'Segoe UI', sans-serif; background: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
@@ -25,46 +24,46 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">ECG Waveform Processing: 심전도 분석</div>
-        <div class="concept-box">12-lead ECG 신호로 부정맥 검출, QRS 복합체, ST 분절 변화 분석</div>
+        <div class="title">Audio: Lung Sounds Analysis</div>
+        <div class="concept-box">Classify respiratory diseases such as pneumonia, asthma, and COPD using CNN after converting auscultation sounds to spectrograms</div>
         <div class="content-grid">
             <div class="content-card">
-                <div class="card-title">ECG 신호 특성</div>
-                <div class="card-desc">심전도 파형의 주요 구성 요소</div>
-                <div class="bullet">P wave: 심방 탈분극</div>
-                <div class="bullet">QRS complex: 심실 탈분극</div>
-                <div class="bullet">T wave: 심실 재분극</div>
-                <div class="bullet">12-lead: 다각도 심장 활동</div>
+                <div class="card-title">Types of Lung Sounds</div>
+                <div class="card-desc">Major auscultation sound patterns</div>
+                <div class="bullet">Normal lung sounds: Vesicular sounds</div>
+                <div class="bullet">Wheezes: Airway constriction</div>
+                <div class="bullet">Crackles: Fluid/inflammation</div>
+                <div class="bullet">Rubs: Pleural inflammation</div>
             </div>
             <div class="content-card">
-                <div class="card-title">전처리 파이프라인</div>
-                <div class="card-desc">ECG 신호 정제 및 표준화</div>
-                <div class="bullet">노이즈 제거 (필터링)</div>
-                <div class="bullet">베이스라인 보정</div>
-                <div class="bullet">정규화 (0-1 scaling)</div>
-                <div class="bullet">R-peak 검출</div>
+                <div class="card-title">Audio Preprocessing</div>
+                <div class="card-desc">Acoustic signal transformation and augmentation</div>
+                <div class="bullet">Spectrogram generation (STFT)</div>
+                <div class="bullet">Mel-frequency transformation</div>
+                <div class="bullet">Noise removal (heart sounds, etc.)</div>
+                <div class="bullet">Time segmentation (windowing)</div>
             </div>
             <div class="content-card">
-                <div class="card-title">딥러닝 모델</div>
-                <div class="card-desc">ECG 분석을 위한 신경망</div>
-                <div class="bullet">1D CNN: 시간축 컨볼루션</div>
-                <div class="bullet">LSTM/GRU: 시계열 패턴</div>
-                <div class="bullet">Residual Network: 깊은 구조</div>
-                <div class="bullet">Transformer: 장거리 의존성</div>
+                <div class="card-title">Deep Learning Architecture</div>
+                <div class="card-desc">Acoustic classification models</div>
+                <div class="bullet">2D CNN: Spectrogram processing</div>
+                <div class="bullet">ResNet: Deep feature extraction</div>
+                <div class="bullet">RNN: Temporal patterns</div>
+                <div class="bullet">Audio Transformer: Attention</div>
             </div>
             <div class="content-card">
-                <div class="card-title">멀티모달 통합</div>
-                <div class="card-desc">ECG와 다른 데이터 융합</div>
-                <div class="bullet">ECG + 흉부 X-ray</div>
-                <div class="bullet">ECG + 임상 노트</div>
-                <div class="bullet">ECG + 심초음파</div>
-                <div class="bullet">시간적 정렬 필요</div>
+                <div class="card-title">Multimodal Fusion</div>
+                <div class="card-desc">Integration of auscultation sounds with other data</div>
+                <div class="bullet">Lung sounds + Chest X-ray</div>
+                <div class="bullet">Lung sounds + Pulmonary function tests</div>
+                <div class="bullet">Lung sounds + Clinical symptoms</div>
+                <div class="bullet">Spatial-acoustic alignment</div>
             </div>
         </div>
         <div class="applications">
-            <div class="app-box">부정맥 분류<br>(AF, VT, VF)</div>
-            <div class="app-box">심근경색 검출<br>(STEMI, NSTEMI)</div>
-            <div class="app-box">급성 심장 이벤트<br>예측</div>
+            <div class="app-box">Early pneumonia detection</div>
+            <div class="app-box">COPD monitoring</div>
+            <div class="app-box">Asthma exacerbation prediction</div>
         </div>
     </div>
 </body>

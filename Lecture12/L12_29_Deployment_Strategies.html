@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -212,104 +212,104 @@
         <div class="title">Deployment Strategies</div>
         
         <div class="deployment-intro">
-            <div class="intro-title">배포 전략 및 체크리스트</div>
-            <div class="intro-desc">압축 모델의 성공적인 프로덕션 배포를 위한 전략</div>
+            <div class="intro-title">Deployment Strategies and Checklist</div>
+            <div class="intro-desc">Strategies for successful production deployment of compressed models</div>
         </div>
         <div class="deployment-flow">
-            <div class="flow-title">배포 워크플로우</div>
+            <div class="flow-title">Deployment Workflow</div>
             <div class="flow-diagram">
                 <div class="flow-stage">
-                    <div class="stage-name">개발</div>
+                    <div class="stage-name">Development</div>
                     <div class="stage-tasks">
-                        • 모델 압축<br>
-                        • 로컬 테스트<br>
-                        • 벤치마킹
+                        • Model compression<br>
+                        • Local testing<br>
+                        • Benchmarking
                     </div>
                 </div>
                 <div class="flow-arrow">→</div>
                 <div class="flow-stage">
-                    <div class="stage-name">검증</div>
+                    <div class="stage-name">Validation</div>
                     <div class="stage-tasks">
-                        • A/B 테스트<br>
-                        • 임상 검증<br>
-                        • 규제 승인
+                        • A/B testing<br>
+                        • Clinical validation<br>
+                        • Regulatory approval
                     </div>
                 </div>
                 <div class="flow-arrow">→</div>
                 <div class="flow-stage">
-                    <div class="stage-name">배포</div>
+                    <div class="stage-name">Deployment</div>
                     <div class="stage-tasks">
-                        • 점진적 출시<br>
-                        • 모니터링<br>
-                        • 피드백 수집
+                        • Gradual rollout<br>
+                        • Monitoring<br>
+                        • Feedback collection
                     </div>
                 </div>
                 <div class="flow-arrow">→</div>
                 <div class="flow-stage">
-                    <div class="stage-name">유지보수</div>
+                    <div class="stage-name">Maintenance</div>
                     <div class="stage-tasks">
-                        • 성능 추적<br>
-                        • 모델 업데이트<br>
-                        • 버전 관리
+                        • Performance tracking<br>
+                        • Model updates<br>
+                        • Version control
                     </div>
                 </div>
             </div>
         </div>
         <div class="checklist-section">
-            <div class="checklist-title">배포 전 체크리스트 ✅</div>
+            <div class="checklist-title">Pre-Deployment Checklist ✅</div>
             <div class="checklist-grid">
                 <div class="checklist-category">
-                    <div class="category-name">성능</div>
-                    <div class="check-item">□ 정확도 목표 달성</div>
-                    <div class="check-item">□ 지연시간 요구사항 충족</div>
-                    <div class="check-item">□ 메모리 제약 내</div>
+                    <div class="category-name">Performance</div>
+                    <div class="check-item">□ Accuracy target achieved</div>
+                    <div class="check-item">□ Latency requirements met</div>
+                    <div class="check-item">□ Within memory constraints</div>
                 </div>
                 <div class="checklist-category">
-                    <div class="category-name">안정성</div>
-                    <div class="check-item">□ Edge case 테스트</div>
-                    <div class="check-item">□ 에러 핸들링</div>
-                    <div class="check-item">□ Fallback 메커니즘</div>
+                    <div class="category-name">Reliability</div>
+                    <div class="check-item">□ Edge case testing</div>
+                    <div class="check-item">□ Error handling</div>
+                    <div class="check-item">□ Fallback mechanism</div>
                 </div>
                 <div class="checklist-category">
-                    <div class="category-name">규제</div>
-                    <div class="check-item">□ FDA/CE 인증 (필요시)</div>
-                    <div class="check-item">□ 개인정보 보호</div>
-                    <div class="check-item">□ 설명 가능성</div>
+                    <div class="category-name">Regulatory</div>
+                    <div class="check-item">□ FDA/CE certification (if required)</div>
+                    <div class="check-item">□ Privacy protection</div>
+                    <div class="check-item">□ Explainability</div>
                 </div>
                 <div class="checklist-category">
-                    <div class="category-name">운영</div>
-                    <div class="check-item">□ 로깅/모니터링</div>
-                    <div class="check-item">□ OTA 업데이트</div>
-                    <div class="check-item">□ 사용자 교육</div>
+                    <div class="category-name">Operations</div>
+                    <div class="check-item">□ Logging/monitoring</div>
+                    <div class="check-item">□ OTA updates</div>
+                    <div class="check-item">□ User training</div>
                 </div>
             </div>
         </div>
         <div class="strategy-matrix">
-            <div class="matrix-title">플랫폼별 권장 전략</div>
+            <div class="matrix-title">Recommended Strategies by Platform</div>
             <div class="matrix-table">
                 <div class="matrix-row header">
-                    <div class="matrix-cell">플랫폼</div>
-                    <div class="matrix-cell">압축 방법</div>
-                    <div class="matrix-cell">프레임워크</div>
+                    <div class="matrix-cell">Platform</div>
+                    <div class="matrix-cell">Compression Method</div>
+                    <div class="matrix-cell">Framework</div>
                 </div>
                 <div class="matrix-row">
                     <div class="matrix-cell">iOS</div>
-                    <div class="matrix-cell">증류 + INT8</div>
+                    <div class="matrix-cell">Distillation + INT8</div>
                     <div class="matrix-cell">Core ML</div>
                 </div>
                 <div class="matrix-row">
                     <div class="matrix-cell">Android</div>
-                    <div class="matrix-cell">증류 + INT8</div>
+                    <div class="matrix-cell">Distillation + INT8</div>
                     <div class="matrix-cell">TF Lite</div>
                 </div>
                 <div class="matrix-row">
                     <div class="matrix-cell">Web</div>
-                    <div class="matrix-cell">경량 압축</div>
+                    <div class="matrix-cell">Lightweight compression</div>
                     <div class="matrix-cell">TensorFlow.js</div>
                 </div>
                 <div class="matrix-row">
                     <div class="matrix-cell">Embedded</div>
-                    <div class="matrix-cell">INT4 + 가지치기</div>
+                    <div class="matrix-cell">INT4 + Pruning</div>
                     <div class="matrix-cell">TF Lite Micro</div>
                 </div>
             </div>

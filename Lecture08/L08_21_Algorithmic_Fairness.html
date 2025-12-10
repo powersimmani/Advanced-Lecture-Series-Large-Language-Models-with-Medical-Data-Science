@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
     </style>
 </head>
 <body><div class="container">
-        <div class="title">알고리즘 공정성 (Algorithmic Fairness)</div>
+        <div class="title">Algorithmic Fairness</div>
         
         <div class="diagram-container">
             <svg width="840" height="300" viewBox="0 0 840 300">
@@ -36,12 +36,12 @@
                 </defs>
                 
                 <!-- Title -->
-                <text x="420" y="22" font-family="Aptos, sans-serif" font-size="17" font-weight="700" fill="#1E64C8" text-anchor="middle">📊 공정성 정의 (Fairness Definitions)</text>
+                <text x="420" y="22" font-family="Aptos, sans-serif" font-size="17" font-weight="700" fill="#1E64C8" text-anchor="middle">📊 Fairness Definitions</text>
                 
                 <!-- Central Fairness Circle -->
                 <circle cx="420" cy="150" r="42" fill="#f0f5fc" stroke="#1E64C8" stroke-width="3"/>
-                <text x="420" y="145" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">알고리즘</text>
-                <text x="420" y="162" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">공정성</text>
+                <text x="420" y="145" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">Algorithmic</text>
+                <text x="420" y="162" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">Fairness</text>
                 
                 <!-- Definition 1: Demographic Parity (Top Left) -->
                 <g>
@@ -53,8 +53,8 @@
                     <text x="120" y="85" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8" text-anchor="middle">Parity</text>
                     
                     <text x="120" y="105" font-family="Aptos, sans-serif" font-size="11" fill="#666" text-anchor="middle">P(Ŷ=1|A) = P(Ŷ=1|B)</text>
-                    <text x="120" y="120" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">그룹별 긍정 예측</text>
-                    <text x="120" y="132" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">비율 동일</text>
+                    <text x="120" y="120" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">Equal positive</text>
+                    <text x="120" y="132" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">prediction rates</text>
                 </g>
                 
                 <!-- Definition 2: Equalized Odds (Top Right) -->
@@ -66,9 +66,9 @@
                     <text x="720" y="70" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8" text-anchor="middle">Equalized</text>
                     <text x="720" y="85" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8" text-anchor="middle">Odds</text>
                     
-                    <text x="720" y="105" font-family="Aptos, sans-serif" font-size="11" fill="#666" text-anchor="middle">TPR, FPR 동일</text>
-                    <text x="720" y="120" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">실제 긍정/부정에</text>
-                    <text x="720" y="132" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">대한 정확도 동일</text>
+                    <text x="720" y="105" font-family="Aptos, sans-serif" font-size="11" fill="#666" text-anchor="middle">Equal TPR, FPR</text>
+                    <text x="720" y="120" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">Equal accuracy for</text>
+                    <text x="720" y="132" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">true positive/negative</text>
                 </g>
                 
                 <!-- Definition 3: Predictive Parity (Bottom Left) -->
@@ -80,9 +80,9 @@
                     <text x="120" y="185" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8" text-anchor="middle">Predictive</text>
                     <text x="120" y="200" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8" text-anchor="middle">Parity</text>
                     
-                    <text x="120" y="220" font-family="Aptos, sans-serif" font-size="11" fill="#666" text-anchor="middle">PPV 그룹별 동일</text>
-                    <text x="120" y="235" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">양성 예측값의</text>
-                    <text x="120" y="247" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">정확도 동일</text>
+                    <text x="120" y="220" font-family="Aptos, sans-serif" font-size="11" fill="#666" text-anchor="middle">Equal PPV by group</text>
+                    <text x="120" y="235" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">Equal accuracy of</text>
+                    <text x="120" y="247" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">positive predictions</text>
                 </g>
                 
                 <!-- Definition 4: Individual Fairness (Bottom Right) -->
@@ -94,9 +94,9 @@
                     <text x="720" y="185" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8" text-anchor="middle">Individual</text>
                     <text x="720" y="200" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#1E64C8" text-anchor="middle">Fairness</text>
                     
-                    <text x="720" y="220" font-family="Aptos, sans-serif" font-size="11" fill="#666" text-anchor="middle">유사한 개인은</text>
-                    <text x="720" y="235" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">유사한 대우</text>
-                    <text x="720" y="247" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">개별 수준의 공정성</text>
+                    <text x="720" y="220" font-family="Aptos, sans-serif" font-size="11" fill="#666" text-anchor="middle">Similar individuals</text>
+                    <text x="720" y="235" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">treated similarly</text>
+                    <text x="720" y="247" font-family="Aptos, sans-serif" font-size="10" fill="#999" text-anchor="middle">Individual-level fairness</text>
                 </g>
                 
                 <!-- Connecting lines to center -->
@@ -107,7 +107,7 @@
                 
                 <!-- Bottom note -->
                 <rect x="240" y="265" width="360" height="30" rx="6" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
-                <text x="420" y="285" font-family="Aptos, sans-serif" font-size="12" font-weight="700" fill="#856404" text-anchor="middle">⚠️ 모든 공정성 기준을 동시에 만족하기는 불가능</text>
+                <text x="420" y="285" font-family="Aptos, sans-serif" font-size="12" font-weight="700" fill="#856404" text-anchor="middle">⚠️ Impossible to satisfy all fairness criteria simultaneously</text>
             </svg>
         </div>
         
@@ -115,18 +115,18 @@
             <div style="background: white; border: 2px solid #1E64C8; border-radius: 10px; padding: 18px;">
                 <div style="font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 12px;">⚠️ Trade-offs</div>
                 <div class="item-list">
-                    <div class="list-item">공정성 기준들은 동시에 만족 불가능</div>
-                    <div class="list-item">정확도 vs 공정성 트레이드오프</div>
-                    <div class="list-item">그룹 공정성 vs 개인 공정성</div>
-                    <div class="list-item">단기 vs 장기 공정성</div>
+                    <div class="list-item">Fairness criteria cannot be satisfied simultaneously</div>
+                    <div class="list-item">Accuracy vs fairness trade-offs</div>
+                    <div class="list-item">Group fairness vs individual fairness</div>
+                    <div class="list-item">Short-term vs long-term fairness</div>
                 </div>
             </div>
             <div style="background: white; border: 2px solid #1E64C8; border-radius: 10px; padding: 18px;">
-                <div style="font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 12px;">🛠️ 구현 방법</div>
+                <div style="font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 12px;">🛠️ Implementation Methods</div>
                 <div class="item-list">
-                    <div class="list-item">Pre-processing: 데이터 재샘플링</div>
-                    <div class="list-item">In-processing: 공정성 제약 학습</div>
-                    <div class="list-item">Post-processing: 결과 조정</div>
+                    <div class="list-item">Pre-processing: Data resampling</div>
+                    <div class="list-item">In-processing: Fairness-constrained learning</div>
+                    <div class="list-item">Post-processing: Result adjustment</div>
                     <div class="list-item">Hybrid approaches</div>
                 </div>
             </div>

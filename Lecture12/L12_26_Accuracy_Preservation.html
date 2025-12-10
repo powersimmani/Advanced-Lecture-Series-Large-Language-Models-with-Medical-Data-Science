@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -212,60 +212,60 @@
         <div class="title">Accuracy Preservation</div>
         
         <div class="preservation-intro">
-            <div class="intro-title">정확도 유지 (Accuracy Preservation)</div>
-            <div class="intro-desc">압축 과정에서 모델 성능을 최대한 보존하는 방법</div>
+            <div class="intro-title">Accuracy Preservation</div>
+            <div class="intro-desc">Methods to maximally preserve model performance during compression</div>
         </div>
         <div class="degradation-curve">
-            <div class="curve-title">압축률에 따른 정확도 변화</div>
+            <div class="curve-title">Accuracy Changes by Compression Rate</div>
             <div class="curve-visual">
                 <div class="curve-row">
-                    <div class="compression-level">압축 없음</div>
+                    <div class="compression-level">No Compression</div>
                     <div class="accuracy-bar" style="width: 95%; background: #51cf66;">95%</div>
                 </div>
                 <div class="curve-row">
-                    <div class="compression-level">경량 압축</div>
+                    <div class="compression-level">Light Compression</div>
                     <div class="accuracy-bar" style="width: 93%; background: #69db7c;">93%</div>
                 </div>
                 <div class="curve-row">
-                    <div class="compression-level">중간 압축</div>
+                    <div class="compression-level">Medium Compression</div>
                     <div class="accuracy-bar" style="width: 90%; background: #ffa500;">90%</div>
                 </div>
                 <div class="curve-row critical">
-                    <div class="compression-level">고강도 압축</div>
+                    <div class="compression-level">High Compression</div>
                     <div class="accuracy-bar" style="width: 85%; background: #ff6b6b;">85%</div>
                 </div>
-                <div class="critical-line">← 임계점 (Critical Threshold)</div>
+                <div class="critical-line">← Critical Threshold</div>
             </div>
         </div>
         <div class="preservation-strategies">
-            <div class="strategies-title">정확도 유지 전략</div>
+            <div class="strategies-title">Accuracy Preservation Strategies</div>
             <div class="strategies-list">
                 <div class="strategy-box">
                     <div class="strategy-num">1️⃣</div>
                     <div class="strategy-info">
                         <div class="strategy-name">Quantization-Aware Training (QAT)</div>
-                        <div class="strategy-desc">학습 중 양자화 시뮬레이션 → 정확도 손실 최소화</div>
+                        <div class="strategy-desc">Simulating quantization during training → Minimizing accuracy loss</div>
                     </div>
                 </div>
                 <div class="strategy-box">
                     <div class="strategy-num">2️⃣</div>
                     <div class="strategy-info">
                         <div class="strategy-name">Fine-tuning after Compression</div>
-                        <div class="strategy-desc">압축 후 재학습으로 성능 회복</div>
+                        <div class="strategy-desc">Performance recovery through retraining after compression</div>
                     </div>
                 </div>
                 <div class="strategy-box">
                     <div class="strategy-num">3️⃣</div>
                     <div class="strategy-info">
                         <div class="strategy-name">Sensitivity Analysis</div>
-                        <div class="strategy-desc">레이어별 민감도 분석 후 선택적 압축</div>
+                        <div class="strategy-desc">Selective compression after layer-wise sensitivity analysis</div>
                     </div>
                 </div>
                 <div class="strategy-box">
                     <div class="strategy-num">4️⃣</div>
                     <div class="strategy-info">
                         <div class="strategy-name">Knowledge Distillation</div>
-                        <div class="strategy-desc">Teacher 지식 활용으로 정확도 보존</div>
+                        <div class="strategy-desc">Accuracy preservation by leveraging teacher knowledge</div>
                     </div>
                 </div>
             </div>
@@ -273,9 +273,9 @@
         <div class="medical-warning">
             <span class="warning-icon">⚠️</span>
             <span class="warning-text">
-                <strong>의료 AI 특수 고려사항:</strong><br>
-                정확도 하락이 환자 안전에 직결 → 엄격한 임계값 설정 필수<br>
-                FDA/CE 승인 기준 충족 여부 확인
+                <strong>Special Considerations for Medical AI:</strong><br>
+                Accuracy degradation directly affects patient safety → Strict threshold setting required<br>
+                Verify compliance with FDA/CE approval standards
             </span>
         </div>
     </div>

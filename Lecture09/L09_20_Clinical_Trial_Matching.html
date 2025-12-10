@@ -169,26 +169,48 @@
             color: #555;
             line-height: 1.3;
         }
+        
+        .explanation-section {
+            margin-top: 18px;
+            background: #f9f9f9;
+            border-left: 4px solid #1E64C8;
+            border-radius: 6px;
+            padding: 14px 18px;
+        }
+        
+        .explanation-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        
+        .explanation-text {
+            font-size: 13px;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="title">Clinical Trial Matching</div>
-        <div class="subtitle">임상시험 매칭</div>
+        <div class="subtitle">Connecting Patients with Appropriate Clinical Trials</div>
         
         <div class="intro-box">
             <div class="intro-text">
-                <span class="highlight">임상시험 매칭</span>의 핵심 개념과 의료 데이터 과학 적용에 대해 학습합니다.
+                Learn about the core concepts of <span class="highlight">Clinical Trial Matching</span> and its application in medical data science.
             </div>
         </div>
         
         <div class="matching-process">
-            <div class="section-title">매칭 프로세스</div>
+            <div class="section-title">Matching Process</div>
             <div class="process-flow">
                 <div class="process-box">
                     <div class="process-icon">👤</div>
                     <div class="process-label">Patient Profile</div>
-                    <div class="process-desc">환자 정보 분석</div>
+                    <div class="process-desc">Analyze patient information</div>
                 </div>
                 
                 <div class="arrow-match">→</div>
@@ -196,7 +218,7 @@
                 <div class="process-box">
                     <div class="process-icon">🔍</div>
                     <div class="process-label">Trial Search</div>
-                    <div class="process-desc">시험 검색</div>
+                    <div class="process-desc">Search for trials</div>
                 </div>
                 
                 <div class="arrow-match">→</div>
@@ -204,7 +226,7 @@
                 <div class="process-box">
                     <div class="process-icon">⚖️</div>
                     <div class="process-label">Eligibility</div>
-                    <div class="process-desc">적격성 평가</div>
+                    <div class="process-desc">Assess eligibility</div>
                 </div>
                 
                 <div class="arrow-match">→</div>
@@ -212,41 +234,54 @@
                 <div class="process-box">
                     <div class="process-icon">✅</div>
                     <div class="process-label">Match Result</div>
-                    <div class="process-desc">매칭 결과</div>
+                    <div class="process-desc">Matching results</div>
                 </div>
             </div>
         </div>
         
-        <div class="section-title">매칭 기준</div>
+        <div class="section-title">Matching Criteria</div>
         <div class="criteria-grid">
             <div class="criteria-card">
                 <div class="criteria-icon">🏥</div>
-                <div class="criteria-label">의학적 기준</div>
+                <div class="criteria-label">Medical Criteria</div>
                 <div class="criteria-items">
-                    <div class="criteria-item">진단명</div>
-                    <div class="criteria-item">질병 단계</div>
-                    <div class="criteria-item">생체지표</div>
+                    <div class="criteria-item">Diagnosis</div>
+                    <div class="criteria-item">Disease Stage</div>
+                    <div class="criteria-item">Biomarkers</div>
                 </div>
             </div>
             
             <div class="criteria-card">
                 <div class="criteria-icon">👥</div>
-                <div class="criteria-label">인구통계학</div>
+                <div class="criteria-label">Demographics</div>
                 <div class="criteria-items">
-                    <div class="criteria-item">연령 범위</div>
-                    <div class="criteria-item">성별</div>
-                    <div class="criteria-item">민족성</div>
+                    <div class="criteria-item">Age Range</div>
+                    <div class="criteria-item">Gender</div>
+                    <div class="criteria-item">Ethnicity</div>
                 </div>
             </div>
             
             <div class="criteria-card">
                 <div class="criteria-icon">💊</div>
-                <div class="criteria-label">치료 이력</div>
+                <div class="criteria-label">Treatment History</div>
                 <div class="criteria-items">
-                    <div class="criteria-item">이전 치료</div>
-                    <div class="criteria-item">약물 반응</div>
-                    <div class="criteria-item">부작용</div>
+                    <div class="criteria-item">Prior Treatments</div>
+                    <div class="criteria-item">Drug Response</div>
+                    <div class="criteria-item">Adverse Effects</div>
                 </div>
+            </div>
+        </div>
+        
+        <div class="explanation-section">
+            <div class="explanation-title">💡 What is Clinical Trial Matching?</div>
+            <div class="explanation-text">
+                Clinical trial matching is a system that automatically identifies eligible clinical trials for patients by analyzing their medical information. 
+                It extracts data such as diagnosis, disease stage, and biomarkers from patient profiles, then compares this information against the inclusion and exclusion criteria of clinical trials 
+                to recommend suitable trials. Medical data science technologies enable efficient and accurate matching throughout this process.
+            </div>
+            <div class="explanation-text">
+                Through a data science approach, the most appropriate options for patients can be quickly identified from thousands of clinical trials, 
+                which helps expand treatment opportunities for patients and increase participation rates in clinical trials.
             </div>
         </div>
     </div>

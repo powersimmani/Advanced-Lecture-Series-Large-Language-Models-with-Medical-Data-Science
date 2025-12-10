@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,59 +118,59 @@
         <div class="title">Dynamic Sparsity</div>
         
         <div class="dynamic-intro">
-            <div class="intro-title">동적 희소성 (Dynamic Sparsity)</div>
-            <div class="intro-desc">학습 중 가지치기 패턴을 동적으로 조정하여 최적 희소 구조 탐색</div>
+            <div class="intro-title">Dynamic Sparsity</div>
+            <div class="intro-desc">Dynamically adjusting pruning patterns during training to explore optimal sparse structures</div>
         </div>
         <div class="comparison-table">
-            <div class="comparison-title">정적 vs 동적 희소성</div>
+            <div class="comparison-title">Static vs Dynamic Sparsity</div>
             <div class="comparison-grid">
                 <div class="comp-card">
                     <div class="comp-type">Static Sparsity</div>
                     <div class="comp-desc">
-                        • 한 번 가지치기 → 고정<br>
-                        • 간단하지만 비최적<br>
-                        • 성능 제한적
+                        • Prune once → Fixed<br>
+                        • Simple but suboptimal<br>
+                        • Performance limitations
                     </div>
                 </div>
                 <div class="comp-card highlight-card">
                     <div class="comp-type">Dynamic Sparsity</div>
                     <div class="comp-desc">
-                        • 학습 중 지속적 재구성<br>
-                        • 복잡하지만 최적화<br>
-                        • 더 나은 성능
+                        • Continuous reconstruction during training<br>
+                        • Complex but optimized<br>
+                        • Better performance
                     </div>
                 </div>
             </div>
         </div>
         <div class="methods-section">
-            <div class="methods-title">동적 가지치기 방법</div>
+            <div class="methods-title">Dynamic Pruning Methods</div>
             <div class="methods-grid">
                 <div class="method-box">
                     <div class="method-name">RigL</div>
                     <div class="method-desc">
                         Random Sparse Training<br>
-                        주기적으로 가중치 grow/prune
+                        Periodic weight grow/prune
                     </div>
                 </div>
                 <div class="method-box">
                     <div class="method-name">SET</div>
                     <div class="method-desc">
                         Sparse Evolutionary Training<br>
-                        진화 알고리즘 기반
+                        Evolutionary algorithm based
                     </div>
                 </div>
                 <div class="method-box">
                     <div class="method-name">DST</div>
                     <div class="method-desc">
                         Dynamic Sparse Training<br>
-                        gradient 기반 재구성
+                        Gradient-based reconstruction
                     </div>
                 </div>
             </div>
         </div>
         <div class="advantage-note">
-            <span class="highlight">장점:</span> 학습 초기부터 희소성 유지 → 학습 비용 감소<br>
-            최종 희소 구조가 더 효율적
+            <span class="highlight">Advantages:</span> Maintain sparsity from early training → Reduced training cost<br>
+            Final sparse structure is more efficient
         </div>
     </div>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,10 +95,10 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Cross-Modal Alignment: 모달 간 정렬</div>
+        <div class="title">Cross-Modal Alignment: Inter-Modal Alignment</div>
         <div class="concept-box">
-            <span class="highlight">공통 임베딩 공간</span>에서 서로 다른 모달리티를 
-            <span class="highlight">의미적으로 가까운 위치</span>에 배치하여 상호 이해 및 검색 가능
+            By placing different modalities at <span class="highlight">semantically close positions</span> 
+            in a <span class="highlight">shared embedding space</span>, mutual understanding and retrieval become possible
         </div>
         
         <div class="alignment-visual">
@@ -111,7 +111,7 @@
             
             <div class="embedding-space">
                 <div class="space-circle">
-                    <div class="space-label">공통<br>임베딩<br>공간</div>
+                    <div class="space-label">Shared<br>Embedding<br>Space</div>
                 </div>
                 <div class="embedding-dot dot1" title="Image 1"></div>
                 <div class="embedding-dot dot2" title="Text 1"></div>
@@ -131,44 +131,44 @@
             <div class="align-card">
                 <div class="align-title">Projection Layers</div>
                 <div class="align-desc">
-                    각 모달리티를 동일 차원의 공통 공간으로 투영하는 선형/비선형 변환
+                    Linear/non-linear transformations that project each modality into a shared space of the same dimension
                 </div>
-                <div class="bullet">선형 레이어로 차원 매칭</div>
-                <div class="bullet">MLP로 비선형 변환</div>
-                <div class="bullet">L2 정규화로 단위 구 상에 배치</div>
+                <div class="bullet">Dimension matching with linear layers</div>
+                <div class="bullet">Non-linear transformation with MLP</div>
+                <div class="bullet">Placement on unit sphere via L2 normalization</div>
             </div>
             <div class="align-card">
                 <div class="align-title">Contrastive Loss</div>
                 <div class="align-desc">
-                    매칭 쌍은 가깝게, 비매칭 쌍은 멀게 학습하여 정렬 품질 향상
+                    Improves alignment quality by learning to bring matching pairs closer and push non-matching pairs apart
                 </div>
-                <div class="bullet">InfoNCE Loss 사용</div>
-                <div class="bullet">Temperature scaling 적용</div>
+                <div class="bullet">Using InfoNCE Loss</div>
+                <div class="bullet">Applying temperature scaling</div>
                 <div class="bullet">Hard negative mining</div>
             </div>
             <div class="align-card">
                 <div class="align-title">Triplet Loss</div>
                 <div class="align-desc">
-                    Anchor, Positive, Negative 샘플로 상대적 거리 학습
+                    Learning relative distances with Anchor, Positive, and Negative samples
                 </div>
-                <div class="bullet">동일 환자 데이터: Positive</div>
-                <div class="bullet">다른 환자 데이터: Negative</div>
-                <div class="bullet">마진 기반 거리 최적화</div>
+                <div class="bullet">Same patient data: Positive</div>
+                <div class="bullet">Different patient data: Negative</div>
+                <div class="bullet">Margin-based distance optimization</div>
             </div>
             <div class="align-card">
                 <div class="align-title">Cross-Attention</div>
                 <div class="align-desc">
-                    Transformer 기반 어텐션으로 모달 간 상호작용 강화
+                    Enhancing inter-modal interaction through Transformer-based attention
                 </div>
-                <div class="bullet">Query-Key-Value 메커니즘</div>
-                <div class="bullet">모달 간 정보 교환</div>
-                <div class="bullet">동적 가중치 학습</div>
+                <div class="bullet">Query-Key-Value mechanism</div>
+                <div class="bullet">Information exchange between modalities</div>
+                <div class="bullet">Dynamic weight learning</div>
             </div>
         </div>
         <div class="methods">
-            <div class="method-box">Zero-shot 분류</div>
-            <div class="method-box">텍스트→영상 검색</div>
-            <div class="method-box">영상→텍스트 검색</div>
+            <div class="method-box">Zero-shot Classification</div>
+            <div class="method-box">Text→Image Retrieval</div>
+            <div class="method-box">Image→Text Retrieval</div>
         </div>
     </div>
 </body>

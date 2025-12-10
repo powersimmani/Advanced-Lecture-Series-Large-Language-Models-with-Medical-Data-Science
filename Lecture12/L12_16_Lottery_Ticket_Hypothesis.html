@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,10 +53,10 @@
         <div class="title">Lottery Ticket Hypothesis</div>
         
         <div class="hypothesis-intro">
-            <div class="intro-title">복권 티켓 가설 (Lottery Ticket Hypothesis)</div>
+            <div class="intro-title">Lottery Ticket Hypothesis</div>
             <div class="intro-desc">
-                큰 네트워크에는 처음부터 학습해도 좋은 성능을 내는<br>
-                작은 서브네트워크("winning ticket")가 존재한다
+                A large network contains small subnetworks ("winning tickets")<br>
+                that can achieve good performance when trained from scratch
             </div>
             
             <!-- Visual metaphor -->
@@ -104,15 +104,15 @@
         </div>
         
         <div class="discovery-process">
-            <div class="process-title">Winning Ticket 찾기</div>
+            <div class="process-title">Finding the Winning Ticket</div>
             <div class="process-steps">
                 <div class="proc-step">
                     <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="20" cy="20" r="15" fill="#1E64C8" opacity="0.2"/>
                         <path d="M 12 20 L 18 26 L 28 14" stroke="#1E64C8" stroke-width="2" fill="none"/>
                     </svg>
-                    <div class="proc-num">① 무작위 초기화</div>
-                    <div class="proc-desc">네트워크를 무작위로 초기화</div>
+                    <div class="proc-num">① Random Init</div>
+                    <div class="proc-desc">Initialize the network randomly</div>
                 </div>
                 <div style="text-align: center; color: #1E64C8; font-size: 20px;">↓</div>
                 <div class="proc-step">
@@ -121,8 +121,8 @@
                         <rect x="10" y="20" width="20" height="3" fill="#1E64C8" opacity="0.5"/>
                         <rect x="10" y="25" width="20" height="3" fill="#1E64C8" opacity="0.8"/>
                     </svg>
-                    <div class="proc-num">② 학습</div>
-                    <div class="proc-desc">전체 네트워크를 학습</div>
+                    <div class="proc-num">② Train</div>
+                    <div class="proc-desc">Train the entire network</div>
                 </div>
                 <div style="text-align: center; color: #1E64C8; font-size: 20px;">↓</div>
                 <div class="proc-step">
@@ -131,8 +131,8 @@
                         <line x1="15" y1="25" x2="25" y2="15" stroke="#ff6b6b" stroke-width="2"/>
                         <circle cx="20" cy="20" r="15" fill="none" stroke="#ff6b6b" stroke-width="2"/>
                     </svg>
-                    <div class="proc-num">③ 가지치기</div>
-                    <div class="proc-desc">중요하지 않은 가중치 제거</div>
+                    <div class="proc-num">③ Prune</div>
+                    <div class="proc-desc">Remove unimportant weights</div>
                 </div>
                 <div style="text-align: center; color: #1E64C8; font-size: 20px;">↓</div>
                 <div class="proc-step">
@@ -140,8 +140,8 @@
                         <path d="M 20 8 L 25 18 L 32 18 L 27 25 L 30 35 L 20 28 L 10 35 L 13 25 L 8 18 L 15 18 Z" 
                               fill="#ffd700" stroke="#1E64C8" stroke-width="1"/>
                     </svg>
-                    <div class="proc-num">④ 재초기화</div>
-                    <div class="proc-desc">원래 초기값으로 되돌림</div>
+                    <div class="proc-num">④ Reset</div>
+                    <div class="proc-desc">Rewind to original initialization</div>
                 </div>
                 <div style="text-align: center; color: #1E64C8; font-size: 20px;">↓</div>
                 <div class="proc-step" style="border-color: #51cf66; border-width: 3px;">
@@ -150,8 +150,8 @@
                         <path d="M 20 10 L 22 15 L 27 15 L 23 19 L 25 24 L 20 21 L 15 24 L 17 19 L 13 15 L 18 15 Z" 
                               fill="#51cf66"/>
                     </svg>
-                    <div class="proc-num">⑤ 재학습</div>
-                    <div class="proc-desc">서브네트워크만 학습 (Winning Ticket!)</div>
+                    <div class="proc-num">⑤ Retrain</div>
+                    <div class="proc-desc">Train only the subnetwork (Winning Ticket!)</div>
                 </div>
             </div>
         </div>
@@ -227,19 +227,19 @@
         </div>
         
         <div class="findings-box">
-            <div class="findings-title">주요 발견</div>
+            <div class="findings-title">Key Findings</div>
             <div class="findings-list">
                 <div class="finding-item">
                     <span class="finding-icon">🎯</span>
-                    <span class="finding-text">10-20%의 가중치만으로도 원래 성능 달성 가능</span>
+                    <span class="finding-text">Can achieve original performance with only 10-20% of weights</span>
                 </div>
                 <div class="finding-item">
                     <span class="finding-icon">⚡</span>
-                    <span class="finding-text">학습 속도도 빨라짐</span>
+                    <span class="finding-text">Training speed is also faster</span>
                 </div>
                 <div class="finding-item">
                     <span class="finding-icon">🔑</span>
-                    <span class="finding-text">초기화 방법이 매우 중요</span>
+                    <span class="finding-text">Initialization method is crucial</span>
                 </div>
             </div>
         </div>

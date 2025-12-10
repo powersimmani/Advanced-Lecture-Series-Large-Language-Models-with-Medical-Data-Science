@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,24 +118,24 @@
         <div class="title">Structured Pruning</div>
         
         <div class="pruning-intro">
-            <div class="intro-title">구조적 가지치기 (Structured Pruning)</div>
-            <div class="intro-desc">전체 채널, 필터, 또는 레이어를 제거하여 구조적으로 압축</div>
+            <div class="intro-title">Structured Pruning</div>
+            <div class="intro-desc">Structural compression by removing entire channels, filters, or layers</div>
         </div>
         <div class="pruning-types">
-            <div class="types-title">구조적 가지치기 유형</div>
+            <div class="types-title">Types of Structured Pruning</div>
             <div class="types-grid">
                 <div class="type-card">
                     <div class="type-name">Channel Pruning</div>
                     <div class="type-visual">
                         [■][■][□][■]<br>
-                        채널 단위 제거
+                        Channel-level removal
                     </div>
                 </div>
                 <div class="type-card">
                     <div class="type-name">Filter Pruning</div>
                     <div class="type-visual">
                         Filter 1: ■■■■<br>
-                        Filter 2: ☐☐☐☐<br>
+                        Filter 2: ☓☓☓☓<br>
                         Filter 3: ■■■■
                     </div>
                 </div>
@@ -143,23 +143,23 @@
                     <div class="type-name">Layer Pruning</div>
                     <div class="type-visual">
                         Layer 1 → ■<br>
-                        Layer 2 → ☐<br>
+                        Layer 2 → ☓<br>
                         Layer 3 → ■
                     </div>
                 </div>
             </div>
         </div>
         <div class="advantages-box">
-            <div class="adv-title">구조적 가지치기의 장점</div>
+            <div class="adv-title">Advantages of Structured Pruning</div>
             <div class="adv-list">
-                <div class="adv-item">✓ 하드웨어 친화적: 특수 하드웨어 불필요</div>
-                <div class="adv-item">✓ 실제 속도 향상: dense matrix 연산 유지</div>
-                <div class="adv-item">✓ 메모리 감소: 실제 파라미터 수 감소</div>
+                <div class="adv-item">✓ Hardware-friendly: No special hardware required</div>
+                <div class="adv-item">✓ Real speed improvement: Maintains dense matrix operations</div>
+                <div class="adv-item">✓ Memory reduction: Actual reduction in parameter count</div>
             </div>
         </div>
         <div class="medical-example">
-            <span class="highlight">의료 응용:</span> X-ray 분류 모델에서 40% 채널 제거 → 
-            2배 빠른 추론, 정확도 98.5% → 97.8% (1% 미만 감소)
+            <span class="highlight">Medical Application:</span> X-ray classification model with 40% channel removal → 
+            2x faster inference, accuracy 98.5% → 97.8% (less than 1% decrease)
         </div>
     </div>
 </body>

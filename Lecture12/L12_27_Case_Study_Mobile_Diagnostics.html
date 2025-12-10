@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -212,35 +212,37 @@
         <div class="title">Case Study: Mobile Diagnostics</div>
         
         <div class="case-intro">
-            <div class="intro-title">사례 연구: 모바일 피부암 진단 앱</div>
-            <div class="intro-desc">딥러닝 모델 압축을 통한 실시간 모바일 진단 시스템 구현</div>
+            <div class="intro-title">Case Study: Mobile Skin Cancer Diagnosis App</div>
+            <div class="intro-desc">Implementing a real-time mobile diagnostic system through deep learning model compression</div>
         </div>
+        
         <div class="problem-statement">
-            <div class="statement-title">문제 정의</div>
+            <div class="statement-title">Problem Definition</div>
             <div class="statement-content">
                 <div class="problem-item">
                     <span class="problem-icon">🎯</span>
-                    <span class="problem-text"><strong>목표:</strong> 피부 병변 사진으로 양성/악성 분류</span>
+                    <span class="problem-text"><strong>Goal:</strong> Classify benign/malignant from skin lesion images</span>
                 </div>
                 <div class="problem-item">
                     <span class="problem-icon">📱</span>
-                    <span class="problem-text"><strong>플랫폼:</strong> iOS/Android 모바일 앱</span>
+                    <span class="problem-text"><strong>Platform:</strong> iOS/Android mobile app</span>
                 </div>
                 <div class="problem-item">
                     <span class="problem-icon">⚡</span>
-                    <span class="problem-text"><strong>요구사항:</strong> 3초 이내 결과, 오프라인 동작</span>
+                    <span class="problem-text"><strong>Requirements:</strong> Results within 3 seconds, offline operation</span>
                 </div>
             </div>
         </div>
+        
         <div class="approach-timeline">
-            <div class="timeline-title">압축 접근법</div>
+            <div class="timeline-title">Compression Approach</div>
             <div class="timeline-steps">
                 <div class="timeline-step">
                     <div class="step-header">Step 1: Base Model</div>
                     <div class="step-content">
                         ResNet-50 (98MB, FP32)<br>
-                        정확도: 94.5%<br>
-                        추론: 2.5초
+                        Accuracy: 94.5%<br>
+                        Inference: 2.5s
                     </div>
                 </div>
                 <div class="arrow-down">↓</div>
@@ -248,44 +250,45 @@
                     <div class="step-header">Step 2: Knowledge Distillation</div>
                     <div class="step-content">
                         MobileNetV3 Student<br>
-                        크기: 24MB<br>
-                        정확도: 93.2%
+                        Size: 24MB<br>
+                        Accuracy: 93.2%
                     </div>
                 </div>
                 <div class="arrow-down">↓</div>
                 <div class="timeline-step">
                     <div class="step-header">Step 3: INT8 Quantization</div>
                     <div class="step-content">
-                        크기: 6MB (75% 감소)<br>
-                        정확도: 92.8%<br>
-                        추론: 0.8초
+                        Size: 6MB (75% reduction)<br>
+                        Accuracy: 92.8%<br>
+                        Inference: 0.8s
                     </div>
                 </div>
                 <div class="arrow-down">↓</div>
                 <div class="timeline-step success">
                     <div class="step-header">Final: TFLite Optimization</div>
                     <div class="step-content">
-                        최종 크기: 5.2MB<br>
-                        정확도: 92.5%<br>
-                        추론: 0.6초 ✅
+                        Final Size: 5.2MB<br>
+                        Accuracy: 92.5%<br>
+                        Inference: 0.6s ✅
                     </div>
                 </div>
             </div>
         </div>
+        
         <div class="results-summary">
-            <div class="results-title">최종 결과</div>
+            <div class="results-title">Final Results</div>
             <div class="results-metrics">
                 <div class="metric-box">
                     <div class="metric-value">94.7%</div>
-                    <div class="metric-label">크기 감소</div>
+                    <div class="metric-label">Size Reduction</div>
                 </div>
                 <div class="metric-box">
                     <div class="metric-value">76%</div>
-                    <div class="metric-label">속도 향상</div>
+                    <div class="metric-label">Speed Improvement</div>
                 </div>
                 <div class="metric-box">
                     <div class="metric-value">-2.0%</div>
-                    <div class="metric-label">정확도 변화</div>
+                    <div class="metric-label">Accuracy Change</div>
                 </div>
             </div>
         </div>

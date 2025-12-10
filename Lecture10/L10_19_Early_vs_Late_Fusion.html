@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -164,8 +164,8 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Early vs Late Fusion: 융합 시점 전략</div>
-        <div class="concept-box">Early Fusion: 특징 추출 전 결합 / Late Fusion: 각 모달 독립 처리 후 통합</div>
+        <div class="title">Early vs Late Fusion: Fusion Timing Strategies</div>
+        <div class="concept-box">Early Fusion: Combine before feature extraction / Late Fusion: Integrate after independent processing of each modality</div>
         
         <div class="fusion-visual">
             <div class="fusion-diagram">
@@ -176,14 +176,14 @@
                         <div class="modality-box text">📝 Text</div>
                     </div>
                     <div class="arrow-down">↓</div>
-                    <div class="fusion-point">융합</div>
+                    <div class="fusion-point">Fusion</div>
                     <div class="arrow-down">↓</div>
                     <div class="layer">
-                        <div class="modality-box combined">공동 특징 추출</div>
+                        <div class="modality-box combined">Joint Feature Extraction</div>
                     </div>
                     <div class="arrow-down">↓</div>
                     <div class="layer">
-                        <div class="modality-box output">예측</div>
+                        <div class="modality-box output">Prediction</div>
                     </div>
                 </div>
             </div>
@@ -197,14 +197,14 @@
                     </div>
                     <div class="arrow-down">↓</div>
                     <div class="layer">
-                        <div class="modality-box image">특징 1</div>
-                        <div class="modality-box text">특징 2</div>
+                        <div class="modality-box image">Feature 1</div>
+                        <div class="modality-box text">Feature 2</div>
                     </div>
                     <div class="arrow-down">↓</div>
-                    <div class="fusion-point">융합</div>
+                    <div class="fusion-point">Fusion</div>
                     <div class="arrow-down">↓</div>
                     <div class="layer">
-                        <div class="modality-box output">예측</div>
+                        <div class="modality-box output">Prediction</div>
                     </div>
                 </div>
             </div>
@@ -218,16 +218,16 @@
                     </div>
                     <div class="arrow-down">↓</div>
                     <div class="layer">
-                        <div class="modality-box image">특징 1</div>
-                        <div class="modality-box text">특징 2</div>
+                        <div class="modality-box image">Feature 1</div>
+                        <div class="modality-box text">Feature 2</div>
                     </div>
                     <div class="arrow-down">↓</div>
                     <div class="layer">
-                        <div class="modality-box image">예측 1</div>
-                        <div class="modality-box text">예측 2</div>
+                        <div class="modality-box image">Prediction 1</div>
+                        <div class="modality-box text">Prediction 2</div>
                     </div>
                     <div class="arrow-down">↓</div>
-                    <div class="fusion-point">융합</div>
+                    <div class="fusion-point">Fusion</div>
                 </div>
             </div>
         </div>
@@ -235,45 +235,45 @@
         <div class="fusion-grid">
             <div class="fusion-card">
                 <div class="card-title">Early Fusion</div>
-                <div class="card-desc">입력 레벨 결합</div>
-                <div class="bullet">원시 데이터 또는 초기 특징 결합</div>
-                <div class="bullet">단일 모델로 공동 학습</div>
-                <div class="card-desc" style="margin-top: 8px;"><strong>장점:</strong> 강한 통합</div>
-                <div class="card-desc"><strong>단점:</strong> 차원의 저주</div>
+                <div class="card-desc">Input-level combination</div>
+                <div class="bullet">Combine raw data or early features</div>
+                <div class="bullet">Joint learning with single model</div>
+                <div class="card-desc" style="margin-top: 8px;"><strong>Pros:</strong> Strong integration</div>
+                <div class="card-desc"><strong>Cons:</strong> Curse of dimensionality</div>
             </div>
             
             <div class="fusion-card">
                 <div class="card-title">Intermediate Fusion</div>
-                <div class="card-desc">중간 레벨 결합</div>
-                <div class="bullet">각 모달 부분 처리 후 결합</div>
-                <div class="bullet">중간 표현 수준 통합</div>
-                <div class="card-desc" style="margin-top: 8px;"><strong>장점:</strong> 균형잡힌 접근</div>
-                <div class="card-desc"><strong>단점:</strong> 설계 복잡도</div>
+                <div class="card-desc">Mid-level combination</div>
+                <div class="bullet">Combine after partial processing of each modality</div>
+                <div class="bullet">Integration at intermediate representation level</div>
+                <div class="card-desc" style="margin-top: 8px;"><strong>Pros:</strong> Balanced approach</div>
+                <div class="card-desc"><strong>Cons:</strong> Design complexity</div>
             </div>
             
             <div class="fusion-card">
                 <div class="card-title">Late Fusion</div>
-                <div class="card-desc">결정 레벨 결합</div>
-                <div class="bullet">각 모달 독립 완전 처리</div>
-                <div class="bullet">고수준 예측 결합</div>
-                <div class="card-desc" style="margin-top: 8px;"><strong>장점:</strong> 모달 독립성</div>
-                <div class="card-desc"><strong>단점:</strong> 약한 통합</div>
+                <div class="card-desc">Decision-level combination</div>
+                <div class="bullet">Complete independent processing of each modality</div>
+                <div class="bullet">Combine high-level predictions</div>
+                <div class="card-desc" style="margin-top: 8px;"><strong>Pros:</strong> Modality independence</div>
+                <div class="card-desc"><strong>Cons:</strong> Weak integration</div>
             </div>
         </div>
         
         <div class="comparison">
             <div class="compare-box">
-                <div class="compare-title">의료 적용 예시</div>
-                <div class="compare-item"><strong>Early:</strong> CT + PET 픽셀 레벨 융합</div>
-                <div class="compare-item"><strong>Intermediate:</strong> X-ray + 텍스트 특징 결합</div>
-                <div class="compare-item"><strong>Late:</strong> 영상/유전자/임상 예측 통합</div>
+                <div class="compare-title">Medical Application Examples</div>
+                <div class="compare-item"><strong>Early:</strong> CT + PET pixel-level fusion</div>
+                <div class="compare-item"><strong>Intermediate:</strong> X-ray + text feature combination</div>
+                <div class="compare-item"><strong>Late:</strong> Integration of imaging/genomic/clinical predictions</div>
             </div>
             
             <div class="compare-box">
-                <div class="compare-title">선택 기준</div>
-                <div class="compare-item"><strong>Early:</strong> 모달 크기/형식 유사, 밀접 관련</div>
-                <div class="compare-item"><strong>Late:</strong> 이질적 모달, 누락 가능성</div>
-                <div class="compare-item"><strong>Hybrid:</strong> 복잡한 멀티모달 시스템</div>
+                <div class="compare-title">Selection Criteria</div>
+                <div class="compare-item"><strong>Early:</strong> Similar modality size/format, closely related</div>
+                <div class="compare-item"><strong>Late:</strong> Heterogeneous modalities, missing data possible</div>
+                <div class="compare-item"><strong>Hybrid:</strong> Complex multimodal systems</div>
             </div>
         </div>
     </div>

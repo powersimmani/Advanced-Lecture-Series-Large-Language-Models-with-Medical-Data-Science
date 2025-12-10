@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,45 +25,45 @@
 <body>
     <div class="container">
         <div class="title">Time Series: Vital Signs Monitoring</div>
-        <div class="concept-box">ICU 생체 신호(HR, BP, SpO2)를 RNN/LSTM/Transformer로 시계열 모델링하여 악화 예측</div>
+        <div class="concept-box">Modeling ICU vital signals (HR, BP, SpO2) with RNN/LSTM/Transformer for deterioration prediction</div>
         <div class="content-grid">
             <div class="content-card">
-                <div class="card-title">주요 생체 신호</div>
-                <div class="card-desc">모니터링되는 바이탈 사인</div>
-                <div class="bullet">심박수 (HR): 분당 박동수</div>
-                <div class="bullet">혈압 (BP): 수축기/이완기</div>
-                <div class="bullet">산소포화도 (SpO2): 혈중 산소</div>
-                <div class="bullet">호흡수 (RR): 분당 호흡</div>
+                <div class="card-title">Key Vital Signs</div>
+                <div class="card-desc">Monitored vital signs</div>
+                <div class="bullet">Heart Rate (HR): Beats per minute</div>
+                <div class="bullet">Blood Pressure (BP): Systolic/Diastolic</div>
+                <div class="bullet">Oxygen Saturation (SpO2): Blood oxygen</div>
+                <div class="bullet">Respiratory Rate (RR): Breaths per minute</div>
             </div>
             <div class="content-card">
-                <div class="card-title">시계열 특성</div>
-                <div class="card-desc">생체 신호의 시간적 패턴</div>
-                <div class="bullet">불규칙 샘플링 간격</div>
-                <div class="bullet">결측값 (센서 오류)</div>
-                <div class="bullet">트렌드와 주기성</div>
-                <div class="bullet">급격한 변화 (이벤트)</div>
+                <div class="card-title">Time Series Characteristics</div>
+                <div class="card-desc">Temporal patterns of vital signals</div>
+                <div class="bullet">Irregular sampling intervals</div>
+                <div class="bullet">Missing values (sensor errors)</div>
+                <div class="bullet">Trends and periodicity</div>
+                <div class="bullet">Abrupt changes (events)</div>
             </div>
             <div class="content-card">
-                <div class="card-title">딥러닝 모델</div>
-                <div class="card-desc">시계열 예측 아키텍처</div>
-                <div class="bullet">LSTM: 장기 의존성</div>
-                <div class="bullet">GRU: 경량 순환 네트워크</div>
-                <div class="bullet">Temporal CNN: 확장 컨볼루션</div>
-                <div class="bullet">Transformer: 어텐션 기반</div>
+                <div class="card-title">Deep Learning Models</div>
+                <div class="card-desc">Time series prediction architectures</div>
+                <div class="bullet">LSTM: Long-term dependencies</div>
+                <div class="bullet">GRU: Lightweight recurrent network</div>
+                <div class="bullet">Temporal CNN: Dilated convolutions</div>
+                <div class="bullet">Transformer: Attention-based</div>
             </div>
             <div class="content-card">
-                <div class="card-title">멀티모달 통합</div>
-                <div class="card-desc">생체 신호와 다른 데이터</div>
-                <div class="bullet">바이탈 + 실험실 검사</div>
-                <div class="bullet">바이탈 + 약물 투여 기록</div>
-                <div class="bullet">바이탈 + 임상 노트</div>
-                <div class="bullet">시간 정렬 필수</div>
+                <div class="card-title">Multimodal Integration</div>
+                <div class="card-desc">Vital signals and other data</div>
+                <div class="bullet">Vitals + Laboratory tests</div>
+                <div class="bullet">Vitals + Medication records</div>
+                <div class="bullet">Vitals + Clinical notes</div>
+                <div class="bullet">Time alignment required</div>
             </div>
         </div>
         <div class="applications">
-            <div class="app-box">패혈증 조기 경보</div>
-            <div class="app-box">심정지 위험 예측</div>
-            <div class="app-box">ICU 재원기간 추정</div>
+            <div class="app-box">Early Sepsis Warning</div>
+            <div class="app-box">Cardiac Arrest Risk Prediction</div>
+            <div class="app-box">ICU Length of Stay Estimation</div>
         </div>
     </div>
 </body>

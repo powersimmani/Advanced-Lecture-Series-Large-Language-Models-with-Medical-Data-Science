@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -212,13 +212,13 @@
         <div class="title">Hands-on: Model Compression</div>
         
         <div class="handson-intro">
-            <div class="intro-title">실습: 모델 압축 파이프라인</div>
-            <div class="intro-desc">PyTorch를 이용한 Knowledge Distillation 및 Quantization 실습</div>
+            <div class="intro-title">Practice: Model Compression Pipeline</div>
+            <div class="intro-desc">Knowledge Distillation and Quantization Practice using PyTorch</div>
         </div>
         <div class="code-example">
-            <div class="code-title">1. Knowledge Distillation 코드</div>
+            <div class="code-title">1. Knowledge Distillation Code</div>
             <div class="code-block">
-# Teacher-Student 증류 손실<br>
+# Teacher-Student distillation loss<br>
 def distillation_loss(student_logits, teacher_logits, labels, T=3):<br>
 &nbsp;&nbsp;&nbsp;&nbsp;# Soft targets<br>
 &nbsp;&nbsp;&nbsp;&nbsp;soft_loss = nn.KLDivLoss()(F.log_softmax(student_logits/T, dim=1),<br>
@@ -229,21 +229,21 @@ def distillation_loss(student_logits, teacher_logits, labels, T=3):<br>
             </div>
         </div>
         <div class="code-example">
-            <div class="code-title">2. INT8 Quantization 코드</div>
+            <div class="code-title">2. INT8 Quantization Code</div>
             <div class="code-block">
 import torch.quantization<br>
 <br>
-# 정적 양자화<br>
+# Static quantization<br>
 model.qconfig = torch.quantization.get_default_qconfig('qnnpack')<br>
 model_prepared = torch.quantization.prepare(model)<br>
-# 캘리브레이션<br>
+# Calibration<br>
 model_prepared(calibration_data)<br>
-# 양자화 적용<br>
+# Apply quantization<br>
 model_quantized = torch.quantization.convert(model_prepared)
             </div>
         </div>
         <div class="tools-section">
-            <div class="tools-title">유용한 도구 및 라이브러리</div>
+            <div class="tools-title">Useful Tools and Libraries</div>
             <div class="tools-grid">
                 <div class="tool-card">
                     <div class="tool-name">PyTorch</div>
@@ -259,14 +259,14 @@ model_quantized = torch.quantization.convert(model_prepared)
                 </div>
                 <div class="tool-card">
                     <div class="tool-name">Hugging Face</div>
-                    <div class="tool-desc">Optimum<br>Transformer 최적화</div>
+                    <div class="tool-desc">Optimum<br>Transformer Optimization</div>
                 </div>
             </div>
         </div>
         <div class="practice-note">
-            <span class="highlight">실습 과제:</span><br>
-            CIFAR-10 데이터셋으로 ResNet 모델 압축해보기<br>
-            (증류 + 양자화 파이프라인 구현)
+            <span class="highlight">Practice Assignment:</span><br>
+            Compress ResNet model with CIFAR-10 dataset<br>
+            (Implement distillation + quantization pipeline)
         </div>
     </div>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +51,7 @@
         
         /* Section titles */
         .comparison-title, .benefits-title, .example-title, .types-title, .adv-title, .steps-title, 
-        .strategy-title, .example-title, .process-title, .findings-title, .methods-title, .comparison-title {
+        .strategy-title, .example-title, .process-title, .findings-title, .methods-title, .comparison-title, .analysis-title, .tools-title {
             font-size: 20px; font-weight: 700; color: #1E64C8; margin-bottom: 15px; text-align: center;
         }
         
@@ -118,46 +118,46 @@
         <div class="title">Mixed Precision Strategies</div>
         
         <div class="mixed-intro">
-            <div class="intro-title">혼합 정밀도 전략</div>
-            <div class="intro-desc">레이어별로 다른 정밀도를 사용하여 성능과 효율성의 균형 달성</div>
+            <div class="intro-title">Mixed Precision Strategy</div>
+            <div class="intro-desc">Achieving a balance between performance and efficiency by using different precision levels for each layer</div>
         </div>
         <div class="strategy-examples">
-            <div class="example-title">전략 예시</div>
+            <div class="example-title">Strategy Examples</div>
             <div class="strategy-grid">
                 <div class="strategy-card">
-                    <div class="strategy-name">입력층</div>
+                    <div class="strategy-name">Input Layer</div>
                     <div class="strategy-precision">INT8/FP16</div>
-                    <div class="strategy-reason">빠른 처리 가능</div>
+                    <div class="strategy-reason">Fast processing enabled</div>
                 </div>
                 <div class="strategy-card">
-                    <div class="strategy-name">중간층</div>
+                    <div class="strategy-name">Hidden Layers</div>
                     <div class="strategy-precision">INT8</div>
-                    <div class="strategy-reason">대부분의 연산</div>
+                    <div class="strategy-reason">Most computations</div>
                 </div>
                 <div class="strategy-card">
-                    <div class="strategy-name">출력층</div>
+                    <div class="strategy-name">Output Layer</div>
                     <div class="strategy-precision">FP16/FP32</div>
-                    <div class="strategy-reason">정확한 확률 계산</div>
+                    <div class="strategy-reason">Accurate probability calculation</div>
                 </div>
             </div>
         </div>
         <div class="sensitivity-analysis">
-            <div class="analysis-title">레이어 민감도 분석</div>
+            <div class="analysis-title">Layer Sensitivity Analysis</div>
             <div class="analysis-content">
                 <div class="analysis-item">
-                    <span class="layer-name">민감한 레이어</span>
+                    <span class="layer-name">Sensitive Layers</span>
                     <span class="arrow">→</span>
-                    <span class="precision-choice">FP16/FP32 유지</span>
+                    <span class="precision-choice">Maintain FP16/FP32</span>
                 </div>
                 <div class="analysis-item">
-                    <span class="layer-name">덜 민감한 레이어</span>
+                    <span class="layer-name">Less Sensitive Layers</span>
                     <span class="arrow">→</span>
-                    <span class="precision-choice">INT8/INT4 적용</span>
+                    <span class="precision-choice">Apply INT8/INT4</span>
                 </div>
             </div>
         </div>
         <div class="tools-box">
-            <div class="tools-title">도구</div>
+            <div class="tools-title">Tools</div>
             <div class="tools-text">PyTorch Quantization, TensorRT, ONNX Runtime</div>
         </div>
     </div>

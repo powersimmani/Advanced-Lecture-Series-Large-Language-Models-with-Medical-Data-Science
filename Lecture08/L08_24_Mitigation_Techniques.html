@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +19,7 @@
     </style>
 </head>
 <body><div class="container">
-        <div class="title">편향 완화 기법 (Bias Mitigation Techniques)</div>
+        <div class="title">Bias Mitigation Techniques</div>
         
         <div class="diagram-container">
             <svg width="840" height="310" viewBox="0 0 840 310">
@@ -43,13 +43,13 @@
                 </defs>
                 
                 <!-- Title -->
-                <text x="420" y="22" font-family="Aptos, sans-serif" font-size="17" font-weight="700" fill="#1E64C8" text-anchor="middle">🛠️ ML 파이프라인 단계별 완화 방법</text>
+                <text x="420" y="22" font-family="Aptos, sans-serif" font-size="17" font-weight="700" fill="#1E64C8" text-anchor="middle">🛠️ Mitigation Methods by ML Pipeline Stage</text>
                 
                 <!-- Data Input -->
                 <g>
                     <rect x="20" y="100" width="90" height="60" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
                     <text x="65" y="125" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8" text-anchor="middle">Raw Data</text>
-                    <text x="65" y="142" font-family="Aptos, sans-serif" font-size="12" fill="#666" text-anchor="middle">원본 데이터</text>
+                    <text x="65" y="142" font-family="Aptos, sans-serif" font-size="12" fill="#666" text-anchor="middle">Original Data</text>
                     <text x="65" y="175" font-family="Aptos, sans-serif" font-size="20" text-anchor="middle">📊</text>
                 </g>
                 
@@ -64,10 +64,10 @@
                     
                     <foreignObject x="160" y="105" width="160" height="90">
                         <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 11px; color: #666; line-height: 1.5;">
-                            • 데이터 재샘플링<br/>
-                            • 특성 선택<br/>
-                            • 데이터 증강<br/>
-                            • 라벨 보정
+                            • Data resampling<br/>
+                            • Feature selection<br/>
+                            • Data augmentation<br/>
+                            • Label correction
                         </div>
                     </foreignObject>
                 </g>
@@ -83,10 +83,10 @@
                     
                     <foreignObject x="380" y="105" width="160" height="90">
                         <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 11px; color: #666; line-height: 1.5;">
-                            • 공정성 제약 학습<br/>
+                            • Fairness-constrained learning<br/>
                             • Adversarial debiasing<br/>
-                            • 정규화 기법<br/>
-                            • 멀티태스크 학습
+                            • Regularization techniques<br/>
+                            • Multi-task learning
                         </div>
                     </foreignObject>
                 </g>
@@ -102,10 +102,10 @@
                     
                     <foreignObject x="600" y="105" width="160" height="90">
                         <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 11px; color: #666; line-height: 1.5;">
-                            • 임계값 최적화<br/>
-                            • 결과 재보정<br/>
-                            • 앙상블 조정<br/>
-                            • 예측 재랭킹
+                            • Threshold optimization<br/>
+                            • Output recalibration<br/>
+                            • Ensemble adjustment<br/>
+                            • Prediction re-ranking
                         </div>
                     </foreignObject>
                 </g>
@@ -126,16 +126,16 @@
                 
                 <g transform="translate(160, 235)">
                     <rect x="0" y="0" width="290" height="55" rx="6" fill="#d4edda" stroke="#28a745" stroke-width="2"/>
-                    <text x="145" y="18" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#155724" text-anchor="middle">✓ 효과성</text>
-                    <text x="145" y="35" font-family="Aptos, sans-serif" font-size="11" fill="#155724" text-anchor="middle">편향 감소: 15-40%</text>
-                    <text x="145" y="49" font-family="Aptos, sans-serif" font-size="11" fill="#155724" text-anchor="middle">공정성 향상: 20-50% | 정확도 손실: 1-5%</text>
+                    <text x="145" y="18" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#155724" text-anchor="middle">✓ Effectiveness</text>
+                    <text x="145" y="35" font-family="Aptos, sans-serif" font-size="11" fill="#155724" text-anchor="middle">Bias reduction: 15-40%</text>
+                    <text x="145" y="49" font-family="Aptos, sans-serif" font-size="11" fill="#155724" text-anchor="middle">Fairness improvement: 20-50% | Accuracy loss: 1-5%</text>
                 </g>
                 
                 <g transform="translate(460, 235)">
                     <rect x="0" y="0" width="290" height="55" rx="6" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
-                    <text x="145" y="18" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#856404" text-anchor="middle">⚠️ 고려사항</text>
-                    <text x="145" y="35" font-family="Aptos, sans-serif" font-size="11" fill="#856404" text-anchor="middle">성능 vs 공정성 트레이드오프</text>
-                    <text x="145" y="49" font-family="Aptos, sans-serif" font-size="11" fill="#856404" text-anchor="middle">방법 선택 기준 | 지속적 모니터링 필요</text>
+                    <text x="145" y="18" font-family="Aptos, sans-serif" font-size="13" font-weight="700" fill="#856404" text-anchor="middle">⚠️ Considerations</text>
+                    <text x="145" y="35" font-family="Aptos, sans-serif" font-size="11" fill="#856404" text-anchor="middle">Performance vs Fairness Trade-off</text>
+                    <text x="145" y="49" font-family="Aptos, sans-serif" font-size="11" fill="#856404" text-anchor="middle">Method selection criteria | Continuous monitoring required</text>
                 </g>
                 
                 <!-- Timeline arrow at bottom -->

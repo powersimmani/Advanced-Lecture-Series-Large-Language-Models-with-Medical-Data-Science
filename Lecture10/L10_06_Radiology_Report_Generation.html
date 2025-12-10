@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -182,13 +182,13 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">Radiology Report Generation: 자동 의료 리포트 작성</div>
+        <div class="title">Radiology Report Generation: Automated Medical Report Writing</div>
         
         <div class="pipeline-flow">
             <div class="pipeline-step">
                 <div class="step-box">
                     <div class="step-icon">🩻</div>
-                    <div>의료 영상 입력</div>
+                    <div>Medical Image Input</div>
                     <div style="font-size: 12px;">(X-ray, CT, MRI)</div>
                 </div>
             </div>
@@ -202,7 +202,7 @@
                             <rect x="20" y="7" width="8" height="16" fill="#1E64C8" opacity="0.7" rx="1"/>
                         </svg>
                     </div>
-                    <div>영상 인코더</div>
+                    <div>Image Encoder</div>
                     <div style="font-size: 12px;">(CNN/ViT)</div>
                 </div>
             </div>
@@ -215,7 +215,7 @@
                             <circle cx="15" cy="15" r="3" fill="#1E64C8"/>
                         </svg>
                     </div>
-                    <div>특징 추출</div>
+                    <div>Feature Extraction</div>
                     <div style="font-size: 12px;">(Visual Features)</div>
                 </div>
             </div>
@@ -229,7 +229,7 @@
                             <rect x="3" y="18" width="22" height="3" fill="#1E64C8" opacity="0.8" rx="1"/>
                         </svg>
                     </div>
-                    <div>텍스트 디코더</div>
+                    <div>Text Decoder</div>
                     <div style="font-size: 12px;">(Transformer)</div>
                 </div>
             </div>
@@ -237,8 +237,8 @@
             <div class="pipeline-step">
                 <div class="step-box">
                     <div class="step-icon">📋</div>
-                    <div>구조화된</div>
-                    <div style="font-size: 12px;">진단 보고서</div>
+                    <div>Structured</div>
+                    <div style="font-size: 12px;">Diagnostic Report</div>
                 </div>
             </div>
         </div>
@@ -247,47 +247,47 @@
             <div class="modality-card">
                 <div class="modality-icon">🫁</div>
                 <div class="modality-name">Chest X-ray</div>
-                <div class="modality-desc">폐렴, 결핵, 흉수 등 흉부 질환 자동 기술</div>
+                <div class="modality-desc">Automated description of chest diseases like pneumonia, tuberculosis, pleural effusion</div>
             </div>
             
             <div class="modality-card">
                 <div class="modality-icon">🧠</div>
                 <div class="modality-name">CT Scan</div>
-                <div class="modality-desc">장기별 병변 위치, 크기, 특성 상세 설명</div>
+                <div class="modality-desc">Detailed description of lesion location, size, and characteristics by organ</div>
             </div>
             
             <div class="modality-card">
                 <div class="modality-icon">🔬</div>
                 <div class="modality-name">MRI</div>
-                <div class="modality-desc">뇌, 척추, 관절 이상 소견 문장 생성</div>
+                <div class="modality-desc">Text generation for abnormal findings in brain, spine, and joints</div>
             </div>
             
             <div class="modality-card">
                 <div class="modality-icon">🎗️</div>
                 <div class="modality-name">Mammography</div>
-                <div class="modality-desc">유방 석회화, 종괴 판독 보고서</div>
+                <div class="modality-desc">Report interpretation of breast calcification and masses</div>
             </div>
             
             <div class="modality-card">
                 <div class="modality-icon">📡</div>
                 <div class="modality-name">Ultrasound</div>
-                <div class="modality-desc">초음파 소견 자동 문서화</div>
+                <div class="modality-desc">Automated documentation of ultrasound findings</div>
             </div>
             
             <div class="modality-card">
                 <div class="modality-icon">👁️</div>
                 <div class="modality-name">Multi-View</div>
-                <div class="modality-desc">여러 각도 영상 통합 분석</div>
+                <div class="modality-desc">Integrated analysis of multiple angle images</div>
             </div>
         </div>
         
         <div class="report-structure">
-            <div class="report-title">구조화된 보고서 섹션</div>
+            <div class="report-title">Structured Report Sections</div>
             <div class="report-sections">
-                <div class="section-box">Findings<br>(소견)</div>
-                <div class="section-box">Impression<br>(판단)</div>
-                <div class="section-box">Comparison<br>(비교)</div>
-                <div class="section-box">Recommendation<br>(권고)</div>
+                <div class="section-box">Findings</div>
+                <div class="section-box">Impression</div>
+                <div class="section-box">Comparison</div>
+                <div class="section-box">Recommendation</div>
             </div>
         </div>
     </div>

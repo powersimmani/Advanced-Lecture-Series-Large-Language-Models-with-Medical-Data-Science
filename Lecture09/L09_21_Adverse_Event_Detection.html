@@ -18,11 +18,12 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
         
         .container {
             width: 960px;
-            height: 540px;
+            max-width: 100%;
             padding: 35px 45px;
             background: white;
         }
@@ -136,12 +137,40 @@
         }
         
         .point-item::before {
-            content: "â€¢";
+            content: "•";
             position: absolute;
             left: 0;
             color: #1E64C8;
             font-weight: bold;
             font-size: 20px;
+        }
+        
+        .context-section {
+            background: white;
+            border: 2px solid #4a90e2;
+            border-radius: 8px;
+            padding: 20px 25px;
+            margin-top: 20px;
+        }
+        
+        .context-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        
+        .context-text {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 14px;
+        }
+        
+        .context-text:last-child {
+            margin-bottom: 0;
         }
     </style>
 </head>
@@ -196,6 +225,21 @@
                 <div class="point-item">의료 데이터의 특수성을 고려한 접근</div>
                 <div class="point-item">제한된 데이터 환경에서의 효율적 학습</div>
                 <div class="point-item">안전성과 신뢰성을 보장하는 설계</div>
+            </div>
+        </div>
+        
+        <div class="context-section">
+            <div class="context-title">부작용 탐지의 중요성</div>
+            <div class="context-text">
+                부작용 탐지(Adverse Event Detection)는 의료 데이터 과학에서 환자 안전을 보장하는 핵심 기술입니다. 
+                전자건강기록(EHR)과 같은 대규모 의료 데이터에서 약물이나 치료와 관련된 예상치 못한 부작용을 
+                조기에 발견함으로써, 의료진은 신속한 대응과 치료 계획 수정을 통해 환자의 건강을 보호할 수 있습니다.
+            </div>
+            <div class="context-text">
+                머신러닝과 자연어 처리 기술을 활용하여 임상 노트, 검사 결과, 투약 기록 등 다양한 형태의 
+                의료 데이터를 분석하고, 패턴 인식을 통해 잠재적 위험 신호를 자동으로 식별합니다. 
+                이는 기존의 수동적 보고 시스템의 한계를 극복하고, 보다 포괄적이고 즉각적인 약물 감시 체계를 
+                구축하는 데 기여합니다.
             </div>
         </div>
     </div>
