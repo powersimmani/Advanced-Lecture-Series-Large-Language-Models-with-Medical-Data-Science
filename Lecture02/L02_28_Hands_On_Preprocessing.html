@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,13 +23,13 @@
         <div class="title">Hands-on: Preprocessing with MIMIC-III</div>
         
         <div class="card">
-            <div class="card-title">Python 코드 예제</div>
+            <div class="card-title">Python Code Example</div>
             <div class="code-box">
 import pandas as pd<br>
 from presidio_analyzer import AnalyzerEngine<br>
 from presidio_anonymizer import AnonymizerEngine<br>
 <br>
-# PHI 제거<br>
+# PHI Removal<br>
 analyzer = AnalyzerEngine()<br>
 anonymizer = AnonymizerEngine()<br>
 <br>
@@ -37,21 +37,21 @@ text = "Patient John Doe, MRN 123456"<br>
 results = analyzer.analyze(text, language='en')<br>
 anonymized = anonymizer.anonymize(text, results)<br>
 <br>
-# 약어 확장<br>
+# Abbreviation Expansion<br>
 abbrev_dict = {'BP': 'blood pressure', 'HR': 'heart rate'}<br>
 text = text.replace('BP', abbrev_dict['BP'])<br>
 <br>
-# LOINC 매핑<br>
+# LOINC Mapping<br>
 loinc_code = '2339-0'  # Glucose [Mass/volume] in Blood
             </div>
         </div>
         <div class="checklist">
-            <div class="check-item">PHI 탐지 및 제거</div>
-            <div class="check-item">텍스트 정규화</div>
-            <div class="check-item">약어 확장</div>
-            <div class="check-item">부정 탐지</div>
-            <div class="check-item">개념 링킹</div>
-            <div class="check-item">품질 검증</div>
+            <div class="check-item">PHI Detection and Removal</div>
+            <div class="check-item">Text Normalization</div>
+            <div class="check-item">Abbreviation Expansion</div>
+            <div class="check-item">Negation Detection</div>
+            <div class="check-item">Concept Mapping</div>
+            <div class="check-item">Quality Validation</div>
         </div>
     
     </div>

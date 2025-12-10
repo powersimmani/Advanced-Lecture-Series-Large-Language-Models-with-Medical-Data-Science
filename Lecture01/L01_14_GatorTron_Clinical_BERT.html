@@ -9,12 +9,19 @@
         body {
             font-family: Aptos, 'Segoe UI', sans-serif;
             background: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            padding: 40px 20px;
         }
-        .container { width: 960px; height: 540px; padding: 40px 50px; }
+        .container { 
+            max-width: 960px; 
+            margin: 0 auto;
+        }
+        .slide {
+            min-height: 540px;
+            padding: 40px 50px;
+            margin-bottom: 40px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+        }
         .title {
             font-size: 32px;
             font-weight: 700;
@@ -22,34 +29,335 @@
             margin-bottom: 30px;
             text-align: center;
         }
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1E64C8;
+            margin: 30px 0 20px 0;
+            border-bottom: 2px solid #1E64C8;
+            padding-bottom: 10px;
+        }
+        .diagram-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        .flow-box {
+            background: white;
+            border: 2px solid #1E64C8;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+        .arrow {
+            text-align: center;
+            color: #1E64C8;
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .explanation-box {
+            background: #f0f7ff;
+            border-left: 4px solid #1E64C8;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .key-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .arch-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .example-box {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="title">GatorTron - Clinical BERT</div>
-        
-        <div style="background:linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);color:white;border-radius:10px;padding:25px;margin-bottom:20px;">
-            <h3 style="font-size:24px;text-align:center;margin-bottom:15px;">8.9B Parameter Clinical Language Model</h3>
-            <div style="text-align:center;font-size:16px;">Trained on 90 billion words from UF Health clinical notes</div>
+        <!-- Slide 1: Original Content -->
+        <div class="slide">
+            <div class="title">GatorTron - Clinical BERT</div>
+            
+            <div style="background:linear-gradient(135deg, #1E64C8 0%, #2874d8 100%);color:white;border-radius:10px;padding:25px;margin-bottom:20px;">
+                <h3 style="font-size:24px;text-align:center;margin-bottom:15px;">8.9B Parameter Clinical Language Model</h3>
+                <div style="text-align:center;font-size:16px;">Trained on 90 billion words from UF Health clinical notes</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:15px;">
+                <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;border-radius:8px;">
+                    <h4 style="color:#1E64C8;margin-bottom:8px;">NER Performance</h4>
+                    <div style="font-size:32px;font-weight:700;color:#28a745;">96%</div>
+                    <div style="font-size:13px;color:#666;">F1 Score</div>
+                </div>
+                <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;border-radius:8px;">
+                    <h4 style="color:#1E64C8;margin-bottom:8px;">Relation Extract</h4>
+                    <div style="font-size:32px;font-weight:700;color:#28a745;">94%</div>
+                    <div style="font-size:13px;color:#666;">F1 Score</div>
+                </div>
+                <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;border-radius:8px;">
+                    <h4 style="color:#1E64C8;margin-bottom:8px;">Parameters</h4>
+                    <div style="font-size:32px;font-weight:700;color:#1E64C8;">8.9B</div>
+                    <div style="font-size:13px;color:#666;">Largest clinical</div>
+                </div>
+            </div>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:15px;">
-            <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;border-radius:8px;">
-                <h4 style="color:#1E64C8;margin-bottom:8px;">NER Performance</h4>
-                <div style="font-size:32px;font-weight:700;color:#28a745;">96%</div>
-                <div style="font-size:13px;color:#666;">F1 Score</div>
+
+        <!-- Slide 2: Architecture & Working Principles -->
+        <div class="slide">
+            <div class="title">GatorTron Architecture & Working Principles</div>
+            
+            <div class="section-title">Model Architecture Flow</div>
+            <div class="diagram-container">
+                <div class="flow-box" style="background: #e3f2fd;">
+                    <strong>Input Layer</strong><br>
+                    Clinical Text Tokenization
+                </div>
+                <div class="arrow">↓</div>
+                <div class="flow-box" style="background: #f3e5f5;">
+                    <strong>Transformer Encoder Stack</strong><br>
+                    24 Layers × 8.9B Parameters
+                </div>
+                <div class="arrow">↓</div>
+                <div class="flow-box" style="background: #fff3e0;">
+                    <strong>Attention Mechanism</strong><br>
+                    Self-Attention + Multi-Head Attention
+                </div>
+                <div class="arrow">↓</div>
+                <div class="flow-box" style="background: #e8f5e9;">
+                    <strong>Output Layer</strong><br>
+                    Task-Specific Predictions
+                </div>
             </div>
-            <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;border-radius:8px;">
-                <h4 style="color:#1E64C8;margin-bottom:8px;">Relation Extract</h4>
-                <div style="font-size:32px;font-weight:700;color:#28a745;">94%</div>
-                <div style="font-size:13px;color:#666;">F1 Score</div>
-            </div>
-            <div style="background:#f8f9fa;border-left:5px solid #1E64C8;padding:15px;border-radius:8px;">
-                <h4 style="color:#1E64C8;margin-bottom:8px;">Parameters</h4>
-                <div style="font-size:32px;font-weight:700;color:#1E64C8;">8.9B</div>
-                <div style="font-size:13px;color:#666;">Largest clinical</div>
+
+            <div class="architecture-grid">
+                <div class="arch-box">
+                    <div style="font-size: 28px; margin-bottom: 10px;">📊</div>
+                    <strong>Pre-training</strong><br>
+                    <small>Masked Language Modeling on 90B words</small>
+                </div>
+                <div class="arch-box">
+                    <div style="font-size: 28px; margin-bottom: 10px;">🔄</div>
+                    <strong>Fine-tuning</strong><br>
+                    <small>Task-specific adaptation</small>
+                </div>
+                <div class="arch-box">
+                    <div style="font-size: 28px; margin-bottom: 10px;">🎯</div>
+                    <strong>Inference</strong><br>
+                    <small>Clinical NLP tasks</small>
+                </div>
             </div>
         </div>
-        
+
+        <!-- Slide 3: Detailed Working Principles -->
+        <div class="slide">
+            <div class="title">How GatorTron Works: Core Mechanisms</div>
+            
+            <div class="section-title">1. Pre-training Phase</div>
+            <div class="explanation-box">
+                <strong>Masked Language Modeling (MLM)</strong><br><br>
+                GatorTron learns contextual representations by predicting masked tokens in clinical text. During training, 15% of input tokens are randomly masked, and the model learns to predict them based on surrounding context.
+            </div>
+
+            <div class="example-box">
+                <strong>Example:</strong><br>
+                <div style="margin: 10px 0; padding: 10px; background: white; border-radius: 5px;">
+                    Input: "Patient presents with [MASK] pain and elevated blood pressure"<br>
+                    Model Predicts: "chest" (based on clinical context)
+                </div>
+            </div>
+
+            <div class="section-title">2. Attention Mechanism</div>
+            <div class="explanation-box">
+                <strong>Multi-Head Self-Attention</strong><br><br>
+                The model uses multiple attention heads to capture different aspects of word relationships. Each head learns different patterns in clinical text, such as symptom-disease associations, medication-dosage relationships, and temporal sequences.
+            </div>
+
+            <div class="diagram-container">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                    <div style="background: #ffebee; padding: 15px; border-radius: 5px; text-align: center;">
+                        <strong>Head 1</strong><br>
+                        Symptom ↔ Disease
+                    </div>
+                    <div style="background: #e3f2fd; padding: 15px; border-radius: 5px; text-align: center;">
+                        <strong>Head 2</strong><br>
+                        Drug ↔ Dosage
+                    </div>
+                    <div style="background: #f3e5f5; padding: 15px; border-radius: 5px; text-align: center;">
+                        <strong>Head 3</strong><br>
+                        Temporal Relations
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">3. Transfer Learning Process</div>
+            <div class="explanation-box">
+                <strong>Domain Adaptation Strategy</strong><br><br>
+                GatorTron leverages transfer learning by first pre-training on massive clinical text, then fine-tuning on specific downstream tasks like Named Entity Recognition (NER) or Relation Extraction. This two-stage approach allows the model to learn general clinical language patterns and then specialize for particular applications.
+            </div>
+
+            <div class="key-point">
+                <strong>⚡ Key Innovation:</strong> GatorTron's scale (8.9B parameters) and clinical-specific training data enable it to understand complex medical terminology, abbreviations, and clinical reasoning patterns better than general-purpose language models.
+            </div>
+        </div>
+
+        <!-- Slide 4: Practical Application Example -->
+        <div class="slide">
+            <div class="title">Practical Application: NER in Clinical Text</div>
+            
+            <div class="section-title">Named Entity Recognition Example</div>
+            
+            <div class="example-box">
+                <strong>Input Clinical Note:</strong>
+                <div style="margin: 15px 0; padding: 15px; background: white; border-radius: 5px; font-family: monospace;">
+                    "68-year-old male patient admitted with acute myocardial infarction. Administered aspirin 325mg and started on metoprolol 50mg BID. Troponin levels elevated at 2.4 ng/mL."
+                </div>
+            </div>
+
+            <div class="diagram-container">
+                <strong>GatorTron Entity Extraction:</strong>
+                <div style="margin-top: 15px;">
+                    <div style="display: flex; align-items: center; margin: 10px 0;">
+                        <div style="background: #e3f2fd; padding: 10px 15px; border-radius: 5px; margin-right: 10px; min-width: 200px;">
+                            <strong>Age:</strong> 68-year-old
+                        </div>
+                        <div style="background: #f0f0f0; padding: 5px 10px; border-radius: 3px;">Demographics</div>
+                    </div>
+                    <div style="display: flex; align-items: center; margin: 10px 0;">
+                        <div style="background: #ffebee; padding: 10px 15px; border-radius: 5px; margin-right: 10px; min-width: 200px;">
+                            <strong>Diagnosis:</strong> acute myocardial infarction
+                        </div>
+                        <div style="background: #f0f0f0; padding: 5px 10px; border-radius: 3px;">Disease</div>
+                    </div>
+                    <div style="display: flex; align-items: center; margin: 10px 0;">
+                        <div style="background: #e8f5e9; padding: 10px 15px; border-radius: 5px; margin-right: 10px; min-width: 200px;">
+                            <strong>Medication:</strong> aspirin, metoprolol
+                        </div>
+                        <div style="background: #f0f0f0; padding: 5px 10px; border-radius: 3px;">Drug</div>
+                    </div>
+                    <div style="display: flex; align-items: center; margin: 10px 0;">
+                        <div style="background: #fff3e0; padding: 10px 15px; border-radius: 5px; margin-right: 10px; min-width: 200px;">
+                            <strong>Dosage:</strong> 325mg, 50mg BID
+                        </div>
+                        <div style="background: #f0f0f0; padding: 5px 10px; border-radius: 3px;">Dosage</div>
+                    </div>
+                    <div style="display: flex; align-items: center; margin: 10px 0;">
+                        <div style="background: #f3e5f5; padding: 10px 15px; border-radius: 5px; margin-right: 10px; min-width: 200px;">
+                            <strong>Lab Value:</strong> Troponin 2.4 ng/mL
+                        </div>
+                        <div style="background: #f0f0f0; padding: 5px 10px; border-radius: 3px;">Test Result</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">Relation Extraction Example</div>
+            <div class="explanation-box">
+                <strong>Identified Relationships:</strong>
+                <ul style="margin-top: 10px; line-height: 1.8;">
+                    <li><strong>Drug-Disease:</strong> aspirin → treats → acute myocardial infarction</li>
+                    <li><strong>Drug-Dosage:</strong> metoprolol → administered_as → 50mg BID</li>
+                    <li><strong>Test-Result:</strong> Troponin → measured_at → 2.4 ng/mL (elevated)</li>
+                    <li><strong>Disease-Symptom:</strong> myocardial infarction → indicated_by → elevated troponin</li>
+                </ul>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Clinical Impact:</strong> GatorTron's accurate entity recognition and relationship extraction enable automated clinical decision support, reducing manual chart review time by up to 80% while maintaining high accuracy for critical medical information.
+            </div>
+        </div>
+
+        <!-- Slide 5: Technical Deep Dive -->
+        <div class="slide">
+            <div class="title">Technical Deep Dive: Training & Optimization</div>
+            
+            <div class="section-title">Training Dataset Composition</div>
+            <div class="diagram-container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px;">
+                        <strong style="font-size: 20px;">90 Billion Words</strong><br>
+                        <small>From UF Health clinical notes</small>
+                        <div style="margin-top: 10px; font-size: 14px;">
+                            • Progress notes<br>
+                            • Discharge summaries<br>
+                            • Radiology reports<br>
+                            • Pathology reports
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 20px; border-radius: 8px;">
+                        <strong style="font-size: 20px;">De-identified Data</strong><br>
+                        <small>HIPAA compliant processing</small>
+                        <div style="margin-top: 10px; font-size: 14px;">
+                            • Protected Health Info removed<br>
+                            • Preserves clinical semantics<br>
+                            • Ethical AI development<br>
+                            • Privacy-first approach
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">Optimization Techniques</div>
+            <div class="explanation-box">
+                <strong>Advanced Training Strategies:</strong>
+                <div style="margin-top: 15px; line-height: 1.8;">
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 5px;">
+                        <strong>1. Mixed Precision Training:</strong> Uses FP16 and FP32 computations to accelerate training while maintaining numerical stability
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 5px;">
+                        <strong>2. Gradient Accumulation:</strong> Enables effective large batch training on limited GPU memory
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 5px;">
+                        <strong>3. Layer-wise Learning Rate Decay:</strong> Different learning rates for different transformer layers for optimal convergence
+                    </div>
+                    <div style="background: white; padding: 10px; margin: 5px 0; border-radius: 5px;">
+                        <strong>4. Warmup and Decay Schedule:</strong> Gradual learning rate increase followed by cosine decay
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">Performance Benchmarks</div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 20px;">
+                <div class="example-box">
+                    <strong>🏆 Advantages over General Models:</strong>
+                    <ul style="margin-top: 10px; line-height: 1.8;">
+                        <li>+12% F1 score on clinical NER tasks</li>
+                        <li>Better understanding of medical abbreviations</li>
+                        <li>Superior context handling in long clinical notes</li>
+                        <li>Robust to clinical text variations</li>
+                    </ul>
+                </div>
+                <div class="example-box" style="background: #fff3cd; border-color: #ffc107;">
+                    <strong>⚠️ Limitations & Considerations:</strong>
+                    <ul style="margin-top: 10px; line-height: 1.8;">
+                        <li>Requires significant computational resources</li>
+                        <li>Domain-specific: optimized for clinical text</li>
+                        <li>Needs task-specific fine-tuning</li>
+                        <li>Training data limited to UF Health system</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

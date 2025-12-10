@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,33 +26,33 @@
         
         <div class="grid-2" style="margin-bottom:20px;">
             <div class="card">
-                <div class="card-title">ECG (심전도)</div>
+                <div class="card-title">ECG (Electrocardiogram)</div>
                 <div class="card-content">
-                    • 샘플링: 250-500 Hz<br>
-                    • P, QRS, T 파형 탐지<br>
-                    • 부정맥 분류<br>
-                    • R-R 간격 계산
+                    • Sampling: 250-500 Hz<br>
+                    • P, QRS, T wave detection<br>
+                    • Arrhythmia classification<br>
+                    • R-R interval calculation
                 </div>
             </div>
             <div class="card">
-                <div class="card-title">EEG (뇌파)</div>
+                <div class="card-title">EEG (Electroencephalogram)</div>
                 <div class="card-content">
-                    • 샘플링: 256-512 Hz<br>
-                    • 주파수 대역 분석<br>
-                    • 아티팩트 제거<br>
-                    • 발작 탐지
+                    • Sampling: 256-512 Hz<br>
+                    • Frequency band analysis<br>
+                    • Artifact removal<br>
+                    • Seizure detection
                 </div>
             </div>
         </div>
         
         <svg class="pipeline-svg" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
             <!-- Title -->
-            <text x="450" y="30" text-anchor="middle" font-family="Aptos, sans-serif" font-size="18" font-weight="700" fill="#1E64C8">신호 처리 파이프라인</text>
+            <text x="450" y="30" text-anchor="middle" font-family="Aptos, sans-serif" font-size="18" font-weight="700" fill="#1E64C8">Signal Processing Pipeline</text>
             
             <!-- Raw Signal -->
             <g id="raw-signal">
                 <rect x="50" y="60" width="150" height="180" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="3"/>
-                <text x="125" y="90" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">원본 신호</text>
+                <text x="125" y="90" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">Raw Signal</text>
                 
                 <!-- Simulated noisy waveform -->
                 <path d="M 70 150 Q 85 130 100 150 T 130 150 T 160 150 T 180 150" 
@@ -60,7 +60,7 @@
                 <circle cx="75" cy="155" r="2" fill="#dc3545"/>
                 <circle cx="95" cy="145" r="2" fill="#dc3545"/>
                 <circle cx="140" cy="152" r="2" fill="#dc3545"/>
-                <text x="125" y="220" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">노이즈 포함</text>
+                <text x="125" y="220" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">Contains Noise</text>
             </g>
             
             <!-- Step 1: Preprocessing -->
@@ -69,7 +69,7 @@
                 <rect x="250" y="60" width="150" height="180" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
                 <circle cx="325" cy="90" r="15" fill="#1E64C8"/>
                 <text x="325" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="white">1</text>
-                <text x="325" y="120" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">전처리</text>
+                <text x="325" y="120" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">Preprocessing</text>
                 <text x="325" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#555">Bandpass Filter</text>
                 <text x="325" y="163" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">(0.5-40 Hz)</text>
                 
@@ -84,7 +84,7 @@
                 <rect x="450" y="60" width="150" height="180" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
                 <circle cx="525" cy="90" r="15" fill="#1E64C8"/>
                 <text x="525" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="white">2</text>
-                <text x="525" y="120" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">노이즈 제거</text>
+                <text x="525" y="120" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">Noise Removal</text>
                 <text x="525" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#555">Notch Filter</text>
                 <text x="525" y="163" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">(60 Hz)</text>
                 
@@ -99,7 +99,7 @@
                 <rect x="650" y="60" width="200" height="85" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
                 <circle cx="750" cy="85" r="15" fill="#1E64C8"/>
                 <text x="750" y="90" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="white">3</text>
-                <text x="750" y="115" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">특징 추출</text>
+                <text x="750" y="115" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">Feature Extraction</text>
                 <text x="750" y="135" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Peak Detection, FFT</text>
             </g>
             
@@ -108,7 +108,7 @@
                 <rect x="650" y="155" width="200" height="85" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
                 <circle cx="750" cy="180" r="15" fill="#1E64C8"/>
                 <text x="750" y="185" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="white">4</text>
-                <text x="750" y="210" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">정규화</text>
+                <text x="750" y="210" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">Normalization</text>
                 <text x="750" y="230" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Z-score Normalization</text>
             </g>
             

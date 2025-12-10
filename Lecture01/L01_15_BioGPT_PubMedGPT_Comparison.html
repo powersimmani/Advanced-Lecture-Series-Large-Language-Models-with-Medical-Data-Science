@@ -14,7 +14,7 @@
             align-items: center;
             min-height: 100vh;
         }
-        .container { width: 960px; height: 540px; padding: 40px 50px; }
+        .container { width: 960px; min-height: 540px; padding: 40px 50px; }
         .title {
             font-size: 32px;
             font-weight: 700;
@@ -154,6 +154,111 @@
             margin: 20px 0;
             grid-column: 1 / -1;
         }
+        .principles-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 3px solid #1E64C8;
+        }
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .architecture-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .architecture-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #1E64C8;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .architecture-box.pubmed-arch {
+            border-color: #28a745;
+        }
+        .arch-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .architecture-box.pubmed-arch .arch-title {
+            color: #28a745;
+        }
+        .pipeline-diagram {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .pipeline-step {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 13px;
+        }
+        .step-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1E64C8, #5088d4);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .architecture-box.pubmed-arch .step-icon {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+        .arrow {
+            text-align: center;
+            color: #1E64C8;
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .architecture-box.pubmed-arch .arrow {
+            color: #28a745;
+        }
+        .key-differences {
+            background: #fff8e1;
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+        .diff-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #f57c00;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .diff-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .diff-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .diff-label {
+            font-weight: 700;
+            color: #f57c00;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -249,6 +354,112 @@
                     <div class="bar-container">
                         <div class="bar biogpt" style="width: 70%;">Good</div>
                         <div class="bar pubmedgpt" style="width: 95%;">Excellent</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Architectural Principles Section -->
+        <div class="principles-section">
+            <div class="section-title">🔬 Architectural Principles & Working Mechanisms</div>
+            
+            <div class="architecture-container">
+                <!-- BioGPT Architecture -->
+                <div class="architecture-box">
+                    <div class="arch-title">BioGPT Architecture</div>
+                    <div class="pipeline-diagram">
+                        <div class="pipeline-step">
+                            <div class="step-icon">1</div>
+                            <span><strong>Input:</strong> Medical query or prompt</span>
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="pipeline-step">
+                            <div class="step-icon">2</div>
+                            <span><strong>Tokenization:</strong> Breaking text into medical tokens</span>
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="pipeline-step">
+                            <div class="step-icon">3</div>
+                            <span><strong>Transformer Layers:</strong> 24 layers with self-attention</span>
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="pipeline-step">
+                            <div class="step-icon">4</div>
+                            <span><strong>Context Integration:</strong> PubMed abstract patterns</span>
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="pipeline-step">
+                            <div class="step-icon">5</div>
+                            <span><strong>Output:</strong> Generated biomedical text</span>
+                        </div>
+                    </div>
+                    <div style="font-size: 12px; color: #555; line-height: 1.5;">
+                        <strong>Key Principle:</strong> BioGPT uses a GPT-2 based architecture pre-trained on 15 million PubMed abstracts. 
+                        It employs unidirectional attention mechanisms optimized for generating coherent biomedical text. 
+                        The model excels at understanding medical terminology and relationships learned from abstract-level information.
+                    </div>
+                </div>
+                
+                <!-- PubMedGPT Architecture -->
+                <div class="architecture-box pubmed-arch">
+                    <div class="arch-title">PubMedGPT Architecture</div>
+                    <div class="pipeline-diagram">
+                        <div class="pipeline-step">
+                            <div class="step-icon">1</div>
+                            <span><strong>Input:</strong> Complex medical research query</span>
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="pipeline-step">
+                            <div class="step-icon">2</div>
+                            <span><strong>Enhanced Tokenization:</strong> Full-text vocabulary</span>
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="pipeline-step">
+                            <div class="step-icon">3</div>
+                            <span><strong>Deep Transformer:</strong> 32 layers with extended context</span>
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="pipeline-step">
+                            <div class="step-icon">4</div>
+                            <span><strong>Full-Text Knowledge:</strong> Detailed methodology patterns</span>
+                        </div>
+                        <div class="arrow">↓</div>
+                        <div class="pipeline-step">
+                            <div class="step-icon">5</div>
+                            <span><strong>Output:</strong> Comprehensive scientific response</span>
+                        </div>
+                    </div>
+                    <div style="font-size: 12px; color: #555; line-height: 1.5;">
+                        <strong>Key Principle:</strong> PubMedGPT utilizes a larger GPT-3 based architecture trained on 3M+ full-text papers. 
+                        Its extended context window and deeper layers enable understanding of complex experimental methodologies, 
+                        results interpretation, and nuanced scientific reasoning found in complete research articles.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Key Technical Differences -->
+            <div class="key-differences">
+                <div class="diff-title">⚙️ Key Technical Differences</div>
+                <div class="diff-grid">
+                    <div class="diff-item">
+                        <div class="diff-label">🔢 Attention Mechanism</div>
+                        <strong>BioGPT:</strong> Standard causal attention with 1024 token context window
+                        <br><strong>PubMedGPT:</strong> Extended attention with 2048+ token context for longer documents
+                    </div>
+                    <div class="diff-item">
+                        <div class="diff-label">📚 Training Strategy</div>
+                        <strong>BioGPT:</strong> Pre-training on abstracts with task-specific fine-tuning
+                        <br><strong>PubMedGPT:</strong> Multi-stage training on full papers with section-aware learning
+                    </div>
+                    <div class="diff-item">
+                        <div class="diff-label">🎯 Optimization Focus</div>
+                        <strong>BioGPT:</strong> Optimized for quick inference and concise outputs
+                        <br><strong>PubMedGPT:</strong> Optimized for comprehensive analysis and detailed generation
+                    </div>
+                    <div class="diff-item">
+                        <div class="diff-label">🧠 Knowledge Representation</div>
+                        <strong>BioGPT:</strong> Surface-level medical concepts and terminology
+                        <br><strong>PubMedGPT:</strong> Deep methodological understanding and research workflows
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,95 +105,95 @@
         <div class="methods-grid">
             <div class="method-card">
                 <div class="method-name">Safe Harbor Method</div>
-                <div class="method-desc">18가지 식별자를 제거하는 HIPAA 표준 방법</div>
+                <div class="method-desc">HIPAA standard method that removes 18 identifiers</div>
                 <div class="method-features">
-                    <div class="feature-item">이름, 주소, 날짜 등 명시된 항목 제거</div>
-                    <div class="feature-item">구현이 상대적으로 간단</div>
-                    <div class="feature-item">규정 준수 용이</div>
+                    <div class="feature-item">Removes specified items such as names, addresses, dates</div>
+                    <div class="feature-item">Relatively simple implementation</div>
+                    <div class="feature-item">Easy regulatory compliance</div>
                 </div>
             </div>
             
             <div class="method-card">
                 <div class="method-name">Expert Determination</div>
-                <div class="method-desc">전문가가 재식별 위험을 매우 낮은 수준으로 판단</div>
+                <div class="method-desc">Expert judges re-identification risk to be very low</div>
                 <div class="method-features">
-                    <div class="feature-item">통계적 방법 활용</div>
-                    <div class="feature-item">더 많은 데이터 활용 가능</div>
-                    <div class="feature-item">전문가 검증 필요</div>
+                    <div class="feature-item">Utilizes statistical methods</div>
+                    <div class="feature-item">Allows use of more data</div>
+                    <div class="feature-item">Requires expert verification</div>
                 </div>
             </div>
             
             <div class="method-card">
                 <div class="method-name">Rule-based Pattern Matching</div>
-                <div class="method-desc">정규표현식을 사용한 자동 탐지</div>
+                <div class="method-desc">Automatic detection using regular expressions</div>
                 <div class="method-features">
-                    <div class="feature-item">날짜 패턴: \d{2}/\d{2}/\d{4}</div>
-                    <div class="feature-item">전화번호: \d{3}-\d{3}-\d{4}</div>
-                    <div class="feature-item">빠른 처리 속도</div>
+                    <div class="feature-item">Date pattern: \d{2}/\d{2}/\d{4}</div>
+                    <div class="feature-item">Phone number: \d{3}-\d{3}-\d{4}</div>
+                    <div class="feature-item">Fast processing speed</div>
                 </div>
             </div>
             
             <div class="method-card">
                 <div class="method-name">ML-based Detection</div>
-                <div class="method-desc">머신러닝 기반 NER 모델 활용</div>
+                <div class="method-desc">Utilizing machine learning-based NER models</div>
                 <div class="method-features">
-                    <div class="feature-item">BiLSTM-CRF, BERT 모델</div>
-                    <div class="feature-item">문맥 기반 탐지 가능</div>
-                    <div class="feature-item">F1 score 95%+ 달성</div>
+                    <div class="feature-item">BiLSTM-CRF, BERT models</div>
+                    <div class="feature-item">Context-based detection possible</div>
+                    <div class="feature-item">Achieves F1 score of 95%+</div>
                 </div>
             </div>
         </div>
         
         <svg class="comparison-svg" viewBox="0 0 900 180" xmlns="http://www.w3.org/2000/svg">
             <!-- Title -->
-            <text x="450" y="25" text-anchor="middle" font-family="Aptos, sans-serif" font-size="17" font-weight="700" fill="#1E64C8">정확도 메트릭 비교</text>
+            <text x="450" y="25" text-anchor="middle" font-family="Aptos, sans-serif" font-size="17" font-weight="700" fill="#1E64C8">Accuracy Metrics Comparison</text>
             
             <!-- Precision -->
             <g id="precision">
                 <rect x="50" y="50" width="180" height="110" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
                 <text x="140" y="75" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8">Precision</text>
-                <text x="140" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">정밀도</text>
+                <text x="140" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">Precision</text>
                 
                 <!-- Bar -->
                 <rect x="70" y="110" width="140" height="15" rx="4" fill="#e0e0e0"/>
                 <rect x="70" y="110" width="126" height="15" rx="4" fill="#28a745"/>
-                <text x="140" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#333">탐지된 항목 중 실제 PHI 비율</text>
+                <text x="140" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#333">Ratio of actual PHI among detected items</text>
             </g>
             
             <!-- Recall -->
             <g id="recall">
                 <rect x="250" y="50" width="180" height="110" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
                 <text x="340" y="75" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8">Recall</text>
-                <text x="340" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">재현율</text>
+                <text x="340" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">Recall</text>
                 
                 <!-- Bar -->
                 <rect x="270" y="110" width="140" height="15" rx="4" fill="#e0e0e0"/>
                 <rect x="270" y="110" width="119" height="15" rx="4" fill="#007bff"/>
-                <text x="340" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#333">실제 PHI 중 탐지된 비율</text>
+                <text x="340" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#333">Ratio of detected among actual PHI</text>
             </g>
             
             <!-- F1 Score -->
             <g id="f1">
                 <rect x="450" y="50" width="180" height="110" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
                 <text x="540" y="75" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8">F1 Score</text>
-                <text x="540" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">조화 평균</text>
+                <text x="540" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">Harmonic Mean</text>
                 
                 <!-- Bar -->
                 <rect x="470" y="110" width="140" height="15" rx="4" fill="#e0e0e0"/>
                 <rect x="470" y="110" width="133" height="15" rx="4" fill="#ffc107"/>
-                <text x="540" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#333">Precision과 Recall의 조화 평균</text>
+                <text x="540" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#333">Harmonic mean of Precision and Recall</text>
             </g>
             
             <!-- False Positive Rate -->
             <g id="fpr">
                 <rect x="650" y="50" width="180" height="110" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
                 <text x="740" y="75" text-anchor="middle" font-family="Aptos, sans-serif" font-size="15" font-weight="700" fill="#1E64C8">FP Rate</text>
-                <text x="740" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">오탐률</text>
+                <text x="740" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#666">False Positive Rate</text>
                 
                 <!-- Bar -->
                 <rect x="670" y="110" width="140" height="15" rx="4" fill="#e0e0e0"/>
                 <rect x="670" y="110" width="42" height="15" rx="4" fill="#dc3545"/>
-                <text x="740" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#333">비PHI가 PHI로 잘못 탐지</text>
+                <text x="740" y="145" text-anchor="middle" font-family="Aptos, sans-serif" font-size="13" font-weight="600" fill="#333">Non-PHI incorrectly detected as PHI</text>
             </g>
         </svg>
     </div>

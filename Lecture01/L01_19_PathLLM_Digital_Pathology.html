@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +9,15 @@
         body {
             font-family: Aptos, 'Segoe UI', sans-serif;
             background: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
         }
-        .container { width: 960px; height: 540px; padding: 35px 50px; }
+        .slide {
+            width: 960px;
+            height: 540px;
+            padding: 35px 50px;
+            margin: 20px auto;
+            border: 1px solid #e0e0e0;
+            page-break-after: always;
+        }
         .header {
             text-align: center;
             margin-bottom: 35px;
@@ -62,32 +65,467 @@
             color: #333;
             font-weight: 500;
         }
+        
+        /* Detail slide styles */
+        .detail-header {
+            background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        .detail-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .detail-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 360px;
+        }
+        .visual-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .diagram-placeholder {
+            width: 100%;
+            height: 200px;
+            background: white;
+            border: 2px dashed #1E64C8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .visual-caption {
+            font-size: 13px;
+            color: #666;
+            text-align: center;
+            font-weight: 500;
+        }
+        .text-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .info-block {
+            background: #f0f5fc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #1E64C8;
+        }
+        .info-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 8px;
+        }
+        .info-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .info-list {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+            margin-left: 20px;
+        }
+        
+        /* Visual representations */
+        .cells-diagram {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+            gap: 3px;
+            padding: 10px;
+        }
+        .cell {
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+        .cell.cancer { background: #e74c3c; }
+        .cell.normal { background: #3498db; }
+        .cell.detected { 
+            background: #e74c3c;
+            border: 3px solid #f39c12;
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.6);
+        }
+        
+        .grading-visual {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 15px;
+        }
+        .grade-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .grade-label {
+            width: 80px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .bar {
+            flex: 1;
+            height: 25px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .grade1 { background: #27ae60; }
+        .grade2 { background: #f39c12; }
+        .grade3 { background: #e74c3c; }
+        
+        .segmentation-visual {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2px;
+            padding: 10px;
+        }
+        .tissue-segment {
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+        }
+        .epithelial { background: #9b59b6; }
+        .stroma { background: #3498db; }
+        .necrosis { background: #34495e; }
+        .adipose { background: #f1c40f; color: #333; }
+        
+        .report-visual {
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .report-line {
+            background: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 11px;
+            border-left: 3px solid #1E64C8;
+        }
+        .report-header {
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        .report-content {
+            color: #555;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Slide 1: Overview -->
+    <div class="slide">
         <div class="header">
             <div class="icon">🔬</div>
             <div class="title">PathLLM</div>
             <div class="subtitle">Digital Pathology</div>
         </div>
         <div class="data-box">
-            📊 Whole Slide Image (WSI) processing
+            📊 Whole Slide Image (WSI) Processing
         </div>
         <div class="tasks-grid">
             <div class="task-card">
-                <div class="task-text">✓ Cancer grading & classification</div>
+                <div class="task-text">✓ Cancer Grading & Classification</div>
             </div>
             <div class="task-card">
-                <div class="task-text">✓ Cell counting & detection</div>
+                <div class="task-text">✓ Cell Counting & Detection</div>
             </div>
             <div class="task-card">
-                <div class="task-text">✓ Tissue segmentation</div>
+                <div class="task-text">✓ Tissue Segmentation</div>
             </div>
             <div class="task-card">
-                <div class="task-text">✓ Histopathology report generation</div>
+                <div class="task-text">✓ Histopathology Report Generation</div>
             </div>
         </div>
     </div>
+
+    <!-- Slide 2: Cancer Grading & Classification -->
+    <div class="slide">
+        <div class="detail-header">
+            <div class="detail-title">🎯 Cancer Grading & Classification</div>
+            <div class="detail-subtitle">Automated tumor grade assessment and cancer type identification</div>
+        </div>
+        <div class="content-grid">
+            <div class="visual-section">
+                <div class="diagram-placeholder">
+                    <div class="grading-visual">
+                        <div class="grade-bar">
+                            <div class="grade-label">Grade I</div>
+                            <div class="bar grade1">Well-differentiated</div>
+                        </div>
+                        <div class="grade-bar">
+                            <div class="grade-label">Grade II</div>
+                            <div class="bar grade2">Moderately-differentiated</div>
+                        </div>
+                        <div class="grade-bar">
+                            <div class="grade-label">Grade III</div>
+                            <div class="bar grade3">Poorly-differentiated</div>
+                        </div>
+                        <div style="margin-top: 15px; font-size: 12px; text-align: center; color: #666;">
+                            Prognosis: Better ← → Worse
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-caption">Tumor grading spectrum based on differentiation</div>
+            </div>
+            <div class="text-section">
+                <div class="info-block">
+                    <div class="info-title">Overview</div>
+                    <div class="info-text">
+                        Automated assessment of tumor aggressiveness and classification into cancer subtypes using deep learning models trained on pathologist-annotated slides.
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="info-title">Key Applications</div>
+                    <div class="info-list">
+                        • Gleason scoring for prostate cancer<br>
+                        • Breast cancer grade determination<br>
+                        • Lung cancer subtype classification<br>
+                        • Lymphoma classification
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="info-title">Clinical Impact</div>
+                    <div class="info-text">
+                        Reduces inter-observer variability, provides consistent grading standards, and assists in treatment planning decisions.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Cell Counting & Detection -->
+    <div class="slide">
+        <div class="detail-header">
+            <div class="detail-title">🔍 Cell Counting & Detection</div>
+            <div class="detail-subtitle">Precise identification and quantification of cellular components</div>
+        </div>
+        <div class="content-grid">
+            <div class="visual-section">
+                <div class="diagram-placeholder">
+                    <div class="cells-diagram">
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                        
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell normal"></div>
+                        <div class="cell detected"></div>
+                        <div class="cell normal"></div>
+                    </div>
+                </div>
+                <div class="visual-caption">
+                    <span style="color: #3498db;">●</span> Normal cells &nbsp;&nbsp;
+                    <span style="color: #e74c3c;">●</span> Detected abnormal cells (highlighted)
+                </div>
+            </div>
+            <div class="text-section">
+                <div class="info-block">
+                    <div class="info-title">Overview</div>
+                    <div class="info-text">
+                        Automated detection and counting of specific cell types in tissue samples using computer vision and deep learning algorithms for quantitative analysis.
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="info-title">Key Applications</div>
+                    <div class="info-list">
+                        • Mitotic figure counting<br>
+                        • Tumor-infiltrating lymphocyte (TIL) analysis<br>
+                        • Ki-67 proliferation index calculation<br>
+                        • Immunohistochemistry (IHC) scoring
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="info-title">Clinical Impact</div>
+                    <div class="info-text">
+                        Provides objective quantification, eliminates counting errors, and enables large-scale biomarker analysis for precision medicine.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Tissue Segmentation -->
+    <div class="slide">
+        <div class="detail-header">
+            <div class="detail-title">🧩 Tissue Segmentation</div>
+            <div class="detail-subtitle">Precise delineation of tissue structures and regions</div>
+        </div>
+        <div class="content-grid">
+            <div class="visual-section">
+                <div class="diagram-placeholder">
+                    <div class="segmentation-visual">
+                        <div class="tissue-segment epithelial">Epithelial</div>
+                        <div class="tissue-segment stroma">Stroma</div>
+                        <div class="tissue-segment epithelial">Epithelial</div>
+                        
+                        <div class="tissue-segment stroma">Stroma</div>
+                        <div class="tissue-segment necrosis">Necrotic</div>
+                        <div class="tissue-segment stroma">Stroma</div>
+                        
+                        <div class="tissue-segment adipose">Adipose</div>
+                        <div class="tissue-segment stroma">Stroma</div>
+                        <div class="tissue-segment adipose">Adipose</div>
+                    </div>
+                </div>
+                <div class="visual-caption">
+                    Multi-class tissue segmentation showing different tissue types
+                </div>
+            </div>
+            <div class="text-section">
+                <div class="info-block">
+                    <div class="info-title">Overview</div>
+                    <div class="info-text">
+                        Pixel-level classification of tissue regions into distinct anatomical or pathological categories using semantic segmentation models.
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="info-title">Key Applications</div>
+                    <div class="info-list">
+                        • Tumor vs. normal tissue delineation<br>
+                        • Gland structure segmentation<br>
+                        • Necrotic region identification<br>
+                        • Tumor microenvironment analysis
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="info-title">Clinical Impact</div>
+                    <div class="info-text">
+                        Enables precise tumor margin assessment, quantifies tissue composition, and supports spatial analysis of the tumor microenvironment.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Histopathology Report Generation -->
+    <div class="slide">
+        <div class="detail-header">
+            <div class="detail-title">📋 Histopathology Report Generation</div>
+            <div class="detail-subtitle">Automated synthesis of diagnostic findings into comprehensive reports</div>
+        </div>
+        <div class="content-grid">
+            <div class="visual-section">
+                <div class="diagram-placeholder">
+                    <div class="report-visual">
+                        <div class="report-line report-header">PATHOLOGY REPORT</div>
+                        <div class="report-line report-content">Specimen: Breast biopsy, left upper quadrant</div>
+                        <div class="report-line report-content">Diagnosis: Invasive ductal carcinoma</div>
+                        <div class="report-line report-content">Grade: Nottingham Grade II (3+2+2=7)</div>
+                        <div class="report-line report-content">Size: 1.8 cm maximum dimension</div>
+                        <div class="report-line report-content">Margins: Clear, nearest margin 3mm</div>
+                        <div class="report-line report-content">IHC: ER(+), PR(+), HER2(-), Ki-67: 18%</div>
+                        <div class="report-line report-content">Stage: pT1c pN0</div>
+                    </div>
+                </div>
+                <div class="visual-caption">Sample automated pathology report with structured findings</div>
+            </div>
+            <div class="text-section">
+                <div class="info-block">
+                    <div class="info-title">Overview</div>
+                    <div class="info-text">
+                        Natural language processing and vision-language models synthesize visual findings into structured, comprehensive diagnostic reports following standardized protocols.
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="info-title">Key Applications</div>
+                    <div class="info-list">
+                        • Structured reporting (CAP protocols)<br>
+                        • Diagnostic summary generation<br>
+                        • Finding synthesis and correlation<br>
+                        • Quality assurance and completeness check
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="info-title">Clinical Impact</div>
+                    <div class="info-text">
+                        Standardizes reporting format, reduces turnaround time, ensures completeness of essential diagnostic elements, and improves communication with clinicians.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

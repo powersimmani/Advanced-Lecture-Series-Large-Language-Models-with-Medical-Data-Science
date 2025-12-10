@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
         <div class="title">Lab Value Normalization</div>
         <div class="grid-2" style="margin-bottom:20px;">
             <div class="card">
-                <div class="card-title">단위 통일</div>
+                <div class="card-title">Unit Standardization</div>
                 <div class="card-content">
                     • <strong>Glucose</strong>: mg/dL ↔ mmol/L<br>
                     • <strong>Hemoglobin</strong>: g/dL ↔ g/L<br>
@@ -35,21 +35,145 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-title">정상 범위 표준화</div>
+                <div class="card-title">Reference Range Standardization</div>
                 <div class="card-content">
-                    • 연령별 기준값<br>
-                    • 성별 기준값<br>
-                    • 임신 기준값<br>
-                    • Z-score 계산
+                    • Age-specific reference values<br>
+                    • Sex-specific reference values<br>
+                    • Pregnancy reference values<br>
+                    • Z-score calculation
                 </div>
             </div>
         </div>
         <div class="card">
-            <div class="card-title">이상치 탐지 및 시계열 정렬</div>
+            <div class="card-title">Outlier Detection & Time Series Alignment</div>
             <div class="card-content">
-                • IQR (Interquartile Range) 방법<br>
+                • IQR (Interquartile Range) method<br>
                 • 3-sigma rule<br>
-                • 시간 동기화 및 결측값 처리
+                • Time synchronization and missing value handling
+            </div>
+        </div>
+
+        <!-- Detailed Explanation Section -->
+        <div class="card" style="margin-top:30px;">
+            <div class="card-title">1. Unit Conversion</div>
+            <div class="card-content">
+                <p style="margin-bottom:15px;"><strong>Conversion Formulas for Key Lab Tests:</strong></p>
+                <div style="background:#f8f9fa;padding:15px;border-radius:6px;margin-bottom:15px;">
+                    <p style="margin-bottom:8px;">• <strong>Glucose</strong>: mg/dL × 0.0555 = mmol/L</p>
+                    <p style="margin-bottom:8px;">• <strong>Hemoglobin</strong>: g/dL × 10 = g/L</p>
+                    <p style="margin-bottom:8px;">• <strong>Creatinine</strong>: mg/dL × 88.4 = μmol/L</p>
+                    <p>• <strong>Cholesterol</strong>: mg/dL × 0.0259 = mmol/L</p>
+                </div>
+                <p style="color:#666;">When integrating multinational data, standardization to SI units is recommended.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">2. Z-Score Normalization</div>
+            <div class="card-content">
+                <div style="background:#f0f7ff;padding:20px;border-radius:6px;margin-bottom:15px;text-align:center;">
+                    <p style="font-size:18px;font-weight:600;color:#1E64C8;margin-bottom:10px;">Z = (X - μ) / σ</p>
+                    <p style="font-size:14px;color:#666;">X: measured value, μ: mean, σ: standard deviation</p>
+                </div>
+                <p style="margin-bottom:10px;"><strong>Application Examples:</strong></p>
+                <p style="margin-bottom:8px;">• Z > 2 or Z < -2: Suspected outlier</p>
+                <p style="margin-bottom:8px;">• Apply age/sex-specific reference ranges</p>
+                <p>• Enable comparison across multiple lab tests</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">3. Outlier Detection Methods</div>
+            <div class="card-content">
+                <div class="grid-2" style="gap:20px;">
+                    <div>
+                        <p style="font-weight:600;color:#1E64C8;margin-bottom:10px;">IQR Method</p>
+                        <div style="background:#f8f9fa;padding:12px;border-radius:6px;font-size:14px;">
+                            <p style="margin-bottom:6px;">Q1 = 25th percentile</p>
+                            <p style="margin-bottom:6px;">Q3 = 75th percentile</p>
+                            <p style="margin-bottom:6px;">IQR = Q3 - Q1</p>
+                            <p style="color:#d32f2f;font-weight:600;">Outliers: < Q1-1.5×IQR or > Q3+1.5×IQR</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-weight:600;color:#1E64C8;margin-bottom:10px;">3-Sigma Rule</p>
+                        <div style="background:#f8f9fa;padding:12px;border-radius:6px;font-size:14px;">
+                            <p style="margin-bottom:6px;">μ ± σ: Contains 68.3%</p>
+                            <p style="margin-bottom:6px;">μ ± 2σ: Contains 95.4%</p>
+                            <p style="margin-bottom:6px;">μ ± 3σ: Contains 99.7%</p>
+                            <p style="color:#d32f2f;font-weight:600;">Outliers: |X - μ| > 3σ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">4. Time Series Data Processing</div>
+            <div class="card-content">
+                <p style="margin-bottom:15px;"><strong>Missing Value Handling Strategies:</strong></p>
+                <div class="grid-3">
+                    <div style="background:#e3f2fd;padding:15px;border-radius:6px;text-align:center;">
+                        <p style="font-weight:600;color:#1976d2;margin-bottom:8px;">Forward Fill</p>
+                        <p style="font-size:13px;color:#555;">Fill with previous value</p>
+                    </div>
+                    <div style="background:#e8f5e9;padding:15px;border-radius:6px;text-align:center;">
+                        <p style="font-weight:600;color:#388e3c;margin-bottom:8px;">Interpolation</p>
+                        <p style="font-size:13px;color:#555;">Linear interpolation</p>
+                    </div>
+                    <div style="background:#fff3e0;padding:15px;border-radius:6px;text-align:center;">
+                        <p style="font-weight:600;color:#f57c00;margin-bottom:8px;">Mean/Median</p>
+                        <p style="font-size:13px;color:#555;">Replace with mean/median</p>
+                    </div>
+                </div>
+                <p style="margin-top:15px;color:#666;font-size:14px;">For clinical data, expert review is recommended rather than simple imputation.</p>
+            </div>
+        </div>
+
+        <!-- Visualization -->
+        <div class="card" style="margin-top:30px;">
+            <div class="card-title">Normalization Process Visualization</div>
+            <div class="card-content">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:20px;background:linear-gradient(to right,#f5f5f5,#e3f2fd,#f5f5f5);border-radius:8px;">
+                    <div style="text-align:center;flex:1;">
+                        <div style="width:80px;height:80px;background:#ff7043;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;">Raw<br>Data</div>
+                        <p style="font-size:13px;color:#666;">Various units<br>Non-uniform range</p>
+                    </div>
+                    <div style="font-size:24px;color:#1E64C8;font-weight:700;">→</div>
+                    <div style="text-align:center;flex:1;">
+                        <div style="width:80px;height:80px;background:#42a5f5;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;">Unit<br>Conversion</div>
+                        <p style="font-size:13px;color:#666;">Standard units<br>(SI units)</p>
+                    </div>
+                    <div style="font-size:24px;color:#1E64C8;font-weight:700;">→</div>
+                    <div style="text-align:center;flex:1;">
+                        <div style="width:80px;height:80px;background:#26a69a;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;">Normalization</div>
+                        <p style="font-size:13px;color:#666;">Z-score<br>Min-Max</p>
+                    </div>
+                    <div style="font-size:24px;color:#1E64C8;font-weight:700;">→</div>
+                    <div style="text-align:center;flex:1;">
+                        <div style="width:80px;height:80px;background:#66bb6a;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:14px;">Quality<br>Control</div>
+                        <p style="font-size:13px;color:#666;">Outlier removal<br>Missing value handling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical Tips -->
+        <div class="card" style="background:#fffde7;border-color:#fbc02d;">
+            <div class="card-title" style="color:#f57f17;">💡 Practical Application Checklist</div>
+            <div class="card-content">
+                <div class="grid-2" style="gap:15px;">
+                    <div>
+                        <p style="margin-bottom:8px;">✓ Verify units by data source</p>
+                        <p style="margin-bottom:8px;">✓ Preserve reference range metadata</p>
+                        <p style="margin-bottom:8px;">✓ Check distribution before normalization</p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom:8px;">✓ Document conversion history</p>
+                        <p style="margin-bottom:8px;">✓ Specify outlier handling criteria</p>
+                        <p style="margin-bottom:8px;">✓ Ensure reversibility of conversions</p>
+                    </div>
+                </div>
             </div>
         </div>
     

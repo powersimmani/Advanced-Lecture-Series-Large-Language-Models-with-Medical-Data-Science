@@ -25,16 +25,16 @@
         
         <div class="grid-2" style="margin-bottom:20px;">
             <div class="card">
-                <div class="card-title">편향 유형</div>
+                <div class="card-title">Bias Types</div>
                 <div class="card-content">
-                    • <strong>인구통계 편향</strong>: 특정 인종/성별 과소표집<br>
-                    • <strong>선택 편향</strong>: 비무작위 샘플링<br>
-                    • <strong>측정 편향</strong>: 측정 도구 차이<br>
-                    • <strong>라벨 편향</strong>: 주석자 편견
+                    • <strong>Demographic Bias</strong>: Underrepresentation of specific race/gender<br>
+                    • <strong>Selection Bias</strong>: Non-random sampling<br>
+                    • <strong>Measurement Bias</strong>: Differences in measurement tools<br>
+                    • <strong>Label Bias</strong>: Annotator prejudice
                 </div>
             </div>
             <div class="card">
-                <div class="card-title">공정성 메트릭</div>
+                <div class="card-title">Fairness Metrics</div>
                 <div class="card-content">
                     • <strong>Demographic Parity</strong><br>
                     • <strong>Equalized Odds</strong><br>
@@ -44,14 +44,177 @@
             </div>
         </div>
         <div class="card">
-            <div class="card-title">완화 기법</div>
+            <div class="card-title">Mitigation Techniques</div>
             <div class="card-content">
-                • 재샘플링 (over/under sampling)<br>
-                • 가중치 조정<br>
-                • 공정성 제약 조건 추가<br>
-                • 편향 완화 후처리
+                • Resampling (over/under sampling)<br>
+                • Weight adjustment<br>
+                • Adding fairness constraints<br>
+                • Post-processing for bias mitigation
             </div>
         </div>
+
+        <!-- 상세 설명 섹션 -->
+        <div class="card" style="margin-top:30px;">
+            <div class="card-title">Bias Detection Process</div>
+            <div class="card-content">
+                <strong>Step 1: Data Collection and Analysis</strong><br>
+                • Identify protected attributes (gender, race, age, etc.)<br>
+                • Check data distribution by group<br>
+                • Measure degree of imbalance<br><br>
+                
+                <strong>Step 2: Model Training and Evaluation</strong><br>
+                • Train baseline model<br>
+                • Measure performance metrics by group<br>
+                • Fairness Metrics 계산<br><br>
+                
+                <strong>Step 3: Apply Bias Mitigation</strong><br>
+                • 적절한 Mitigation Techniques 선택<br>
+                • Mitigation Techniques 적용 및 재Evaluation<br>
+                • Analyze performance-fairness trade-offs
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Fairness Metrics 상세</div>
+            <div class="card-content">
+                <div class="grid-2">
+                    <div>
+                        <strong>Demographic Parity</strong><br>
+                        P(Ŷ=1|A=0) = P(Ŷ=1|A=1)<br>
+                        Equal positive prediction rates across all groups<br><br>
+                        
+                        <strong>Equalized Odds</strong><br>
+                        Equal TPR and FPR across all groups<br>
+                        P(Ŷ=1|Y=y, A=0) = P(Ŷ=1|Y=y, A=1)
+                    </div>
+                    <div>
+                        <strong>Disparate Impact</strong><br>
+                        Ratio = P(Ŷ=1|A=0) / P(Ŷ=1|A=1)<br>
+                        Generally considered fair if ≥ 0.8<br><br>
+                        
+                        <strong>Individual Fairness</strong><br>
+                        Similar individuals should receive similar predictions<br>
+                        d(x₁, x₂) ≈ 0 → d(f(x₁), f(x₂)) ≈ 0
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 시각적 다이어그램 -->
+        <div class="card">
+            <div class="card-title">Bias Mitigation Pipeline</div>
+            <div class="card-content">
+                <svg width="100%" height="200" viewBox="0 0 900 200">
+                    <!-- Pre-processing -->
+                    <rect x="20" y="60" width="150" height="80" fill="#E8F4F8" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                    <text x="95" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E64C8">Pre-processing</text>
+                    <text x="95" y="115" text-anchor="middle" font-size="12" fill="#333">Resampling</text>
+                    <text x="95" y="130" text-anchor="middle" font-size="12" fill="#333">Data Augmentation</text>
+                    
+                    <!-- Arrow -->
+                    <path d="M 170 100 L 230 100" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- In-processing -->
+                    <rect x="230" y="60" width="150" height="80" fill="#E8F4F8" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                    <text x="305" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E64C8">In-processing</text>
+                    <text x="305" y="115" text-anchor="middle" font-size="12" fill="#333">Fairness Constraints</text>
+                    <text x="305" y="130" text-anchor="middle" font-size="12" fill="#333">Regularization</text>
+                    
+                    <!-- Arrow -->
+                    <path d="M 380 100 L 440 100" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Post-processing -->
+                    <rect x="440" y="60" width="150" height="80" fill="#E8F4F8" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                    <text x="515" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E64C8">Post-processing</text>
+                    <text x="515" y="115" text-anchor="middle" font-size="12" fill="#333">Threshold Adjustment</text>
+                    <text x="515" y="130" text-anchor="middle" font-size="12" fill="#333">Prediction Calibration</text>
+                    
+                    <!-- Arrow -->
+                    <path d="M 590 100 L 650 100" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Evaluation -->
+                    <rect x="650" y="60" width="150" height="80" fill="#D4E8F0" stroke="#1E64C8" stroke-width="2" rx="5"/>
+                    <text x="725" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E64C8">Evaluation</text>
+                    <text x="725" y="115" text-anchor="middle" font-size="12" fill="#333">Metric Measurement</text>
+                    <text x="725" y="130" text-anchor="middle" font-size="12" fill="#333">Monitoring</text>
+                    
+                    <!-- Arrow marker definition -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#1E64C8"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+
+        <!-- 실전 예제 -->
+        <div class="card">
+            <div class="card-title">Real-World Application Examples</div>
+            <div class="card-content">
+                <div class="grid-2">
+                    <div style="background:#f0f5fc;padding:15px;border-radius:5px;">
+                        <strong style="color:#1E64C8;">Hiring System</strong><br>
+                        <strong>Problem:</strong> 특정 성별이 과소Evaluation됨<br>
+                        <strong>Solution:</strong> Remove gender + Equalized Odds<br>
+                        <strong>Result:</strong> Group acceptance rate gap: 15% → 3%
+                    </div>
+                    <div style="background:#f0f5fc;padding:15px;border-radius:5px;">
+                        <strong style="color:#1E64C8;">Loan Approval</strong><br>
+                        <strong>Problem:</strong> Racial approval rate disparity<br>
+                        <strong>Solution:</strong> Resampling + Threshold Adjustment<br>
+                        <strong>Result:</strong> Disparate Impact 0.65 → 0.85
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 주요 고려사항 -->
+        <div class="card">
+            <div class="card-title">Implementation Considerations</div>
+            <div class="card-content">
+                <div class="grid-4">
+                    <div class="metric-box">
+                        <div class="metric-label">Trade-off</div>
+                        <div class="metric-value">⚖️</div>
+                        <div style="font-size:12px;margin-top:8px;color:#555;">Balance between performance and fairness</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Transparency</div>
+                        <div class="metric-value">🔍</div>
+                        <div style="font-size:12px;margin-top:8px;color:#555;">Explainability of decision process</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Monitoring</div>
+                        <div class="metric-value">📊</div>
+                        <div style="font-size:12px;margin-top:8px;color:#555;">Continuous bias monitoring</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-label">Legal Compliance</div>
+                        <div class="metric-value">⚖️</div>
+                        <div style="font-size:12px;margin-top:8px;color:#555;">Regulatory and ethical standards</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 도구 및 라이브러리 -->
+        <div class="card">
+            <div class="card-title">Tools and Libraries</div>
+            <div class="card-content">
+                <strong style="color:#1E64C8;">Python Libraries:</strong><br>
+                • <strong>Fairlearn</strong>: Microsoft의 공정성 Evaluation 및 완화 도구<br>
+                • <strong>AIF360</strong>: IBM's AI Fairness 360 toolkit<br>
+                • <strong>What-If Tool</strong>: Google's visual analysis tool<br>
+                • <strong>Themis-ML</strong>: Fairness-aware machine learning<br><br>
+                
+                <strong style="color:#1E64C8;">Evaluation 프레임워크:</strong><br>
+                • Fairness Indicators (TensorFlow)<br>
+                • FairTest<br>
+                • Aequitas
+            </div>
+        </div>
+    
     
     </div>
 </body>

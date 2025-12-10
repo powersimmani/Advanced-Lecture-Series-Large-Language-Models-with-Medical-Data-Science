@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multimodal Medical Models</title>
+    <title>Multimodal Medical Models - Detailed Guide</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: Aptos, 'Segoe UI', sans-serif;
-            background: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background: #f8f9fa;
+            padding: 40px 20px;
         }
-        .container { width: 960px; height: 540px; padding: 35px 50px; }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
         .title {
-            font-size: 32px;
+            font-size: 42px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         .modalities {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-bottom: 18px;
+            gap: 20px;
+            margin-bottom: 30px;
         }
         .modality-card {
             background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
             color: white;
-            border-radius: 12px;
-            padding: 16px;
+            border-radius: 15px;
+            padding: 25px;
             text-align: center;
             transition: all 0.3s;
             cursor: pointer;
@@ -57,35 +63,35 @@
         }
         .modality-card:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 25px rgba(30, 100, 200, 0.4);
+            box-shadow: 0 15px 35px rgba(30, 100, 200, 0.4);
         }
         .modality-icon {
-            font-size: 32px;
-            margin-bottom: 8px;
+            font-size: 48px;
+            margin-bottom: 15px;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
         .modality-type {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
         .modality-example {
-            font-size: 11px;
-            line-height: 1.3;
+            font-size: 14px;
+            line-height: 1.5;
             opacity: 0.95;
         }
         .fusion-box {
             background: #f0f5fc;
             border: 3px solid #1E64C8;
-            border-radius: 12px;
-            padding: 18px;
-            height: 265px;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 50px;
         }
         .fusion-title {
-            font-size: 20px;
+            font-size: 28px;
             font-weight: 700;
             color: #1E64C8;
-            margin-bottom: 12px;
+            margin-bottom: 25px;
             text-align: center;
         }
         .fusion-svg {
@@ -179,11 +185,172 @@
             fill: #666;
             text-anchor: middle;
         }
+
+        /* New styles for detailed sections */
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #1E64C8, transparent);
+            margin: 60px 0 40px 0;
+        }
+        .detailed-section {
+            margin-bottom: 60px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1E64C8 0%, #5088d4 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        .section-number {
+            font-size: 48px;
+            font-weight: 700;
+            opacity: 0.9;
+        }
+        .section-title-text {
+            flex: 1;
+        }
+        .section-title-text h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .section-title-text p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .content-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #1E64C8;
+        }
+        .content-box h3 {
+            color: #1E64C8;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .content-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .content-box li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+            color: #333;
+        }
+        .content-box li::before {
+            content: "▸";
+            color: #1E64C8;
+            font-weight: bold;
+            position: absolute;
+            left: 5px;
+        }
+        .example-diagram {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #e0e0e0;
+            margin-top: 20px;
+        }
+        .diagram-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-bottom: 20px;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .comparison-table th {
+            background: #1E64C8;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .comparison-table tr:hover {
+            background: #f8f9fa;
+        }
+        .metric-good {
+            color: #2ecc71;
+            font-weight: 600;
+        }
+        .metric-medium {
+            color: #f39c12;
+            font-weight: 600;
+        }
+        .metric-low {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        .medical-example {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #e74c3c;
+            margin-top: 20px;
+        }
+        .medical-example h4 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .medical-example p {
+            color: #555;
+            line-height: 1.7;
+        }
+        .code-example {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+        .highlight {
+            background: rgba(30, 100, 200, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #1E64C8;
+            margin: 15px 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="title">Multimodal Medical Models</div>
+        <div class="title">🏥 Multimodal Medical Models</div>
+        
         <div class="modalities">
             <div class="modality-card">
                 <div class="modality-icon">📝➕📷</div>
@@ -201,6 +368,7 @@
                 <div class="modality-example">Surgical procedures, endoscopy, ultrasound</div>
             </div>
         </div>
+        
         <div class="fusion-box">
             <div class="fusion-title">🔗 Fusion Strategies Comparison</div>
             <svg class="fusion-svg" viewBox="0 0 860 200">
@@ -359,6 +527,825 @@
                 </g>
             </svg>
         </div>
+
+        <!-- DETAILED SECTIONS START HERE -->
+        <div class="section-divider"></div>
+
+        <!-- SECTION 1: EARLY FUSION -->
+        <div class="detailed-section">
+            <div class="section-header">
+                <div class="section-number">1️⃣</div>
+                <div class="section-title-text">
+                    <h2>Early Fusion (Input-Level Fusion)</h2>
+                    <p>Combine raw inputs before any processing - the simplest approach</p>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-box">
+                    <h3>✅ Advantages</h3>
+                    <ul>
+                        <li>Computationally efficient - single model processes everything</li>
+                        <li>Simple architecture - easy to implement and debug</li>
+                        <li>Low latency - fastest inference time</li>
+                        <li>Learns joint representations from the start</li>
+                        <li>Minimal memory overhead</li>
+                    </ul>
+                </div>
+
+                <div class="content-box">
+                    <h3>❌ Disadvantages</h3>
+                    <ul>
+                        <li>May lose modality-specific features</li>
+                        <li>Harder to pretrain on unimodal data</li>
+                        <li>Less flexible - can't swap out modality encoders</li>
+                        <li>Potential for one modality to dominate</li>
+                        <li>Difficult to handle missing modalities</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-diagram">
+                <div class="diagram-title">🔍 Early Fusion Architecture Example</div>
+                <svg viewBox="0 0 800 300" style="width: 100%; height: 300px;">
+                    <defs>
+                        <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
+                        </marker>
+                        <linearGradient id="inputGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#2ecc71;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Input Layer -->
+                    <rect x="50" y="40" width="120" height="60" rx="8" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="110" y="65" text-anchor="middle" fill="white" font-weight="bold" font-size="14">Text Input</text>
+                    <text x="110" y="85" text-anchor="middle" fill="white" font-size="11">"Patient has fever"</text>
+                    
+                    <rect x="230" y="40" width="120" height="60" rx="8" fill="#2ecc71" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="290" y="65" text-anchor="middle" fill="white" font-weight="bold" font-size="14">Image Input</text>
+                    <text x="290" y="85" text-anchor="middle" fill="white" font-size="11">Chest X-Ray</text>
+                    
+                    <rect x="410" y="40" width="120" height="60" rx="8" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="470" y="65" text-anchor="middle" fill="white" font-weight="bold" font-size="14">Signal Input</text>
+                    <text x="470" y="85" text-anchor="middle" fill="white" font-size="11">ECG Waveform</text>
+                    
+                    <!-- Arrows to concatenation -->
+                    <path d="M 110 100 L 290 140" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrow2)"/>
+                    <path d="M 290 100 L 290 140" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrow2)"/>
+                    <path d="M 470 100 L 290 140" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrow2)"/>
+                    
+                    <!-- Concatenation -->
+                    <rect x="230" y="150" width="120" height="50" rx="8" fill="url(#inputGrad)" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="290" y="170" text-anchor="middle" fill="white" font-weight="bold" font-size="14">Concatenate</text>
+                    <text x="290" y="188" text-anchor="middle" fill="white" font-size="11">[Text|Image|Signal]</text>
+                    
+                    <!-- Arrow to unified model -->
+                    <path d="M 290 200 L 290 220" stroke="#1E64C8" stroke-width="3" fill="none" marker-end="url(#arrow2)"/>
+                    
+                    <!-- Unified Model -->
+                    <rect x="200" y="220" width="180" height="50" rx="8" fill="#9b59b6" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="290" y="240" text-anchor="middle" fill="white" font-weight="bold" font-size="14">Unified Neural Network</text>
+                    <text x="290" y="258" text-anchor="middle" fill="white" font-size="11">Single Model Processing</text>
+                    
+                    <!-- Dimension labels -->
+                    <text x="600" y="70" fill="#666" font-size="12">dim: 768</text>
+                    <text x="600" y="175" fill="#666" font-size="12">dim: 2304 (768×3)</text>
+                    <text x="600" y="245" fill="#666" font-size="12">Output: Diagnosis</text>
+                </svg>
+            </div>
+
+            <div class="medical-example">
+                <h4>🏥 Medical Application Example</h4>
+                <p><strong>Scenario:</strong> Pneumonia Detection System</p>
+                <p style="margin-top: 10px;">
+                    A hospital implements an early fusion model that takes a chest X-ray image and concatenates it with patient vital signs (temperature, heart rate, oxygen saturation) and clinical notes. All inputs are combined into a single vector before being fed into one unified deep learning model. This approach achieves real-time inference (< 100ms) which is crucial for emergency room triage, though it may miss subtle correlations between modalities that later fusion methods could capture.
+                </p>
+            </div>
+
+            <div class="code-example">
+# Early Fusion Implementation Example
+import torch
+import torch.nn as nn
+
+class EarlyFusionModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        # Concatenate all inputs at the beginning
+        self.fusion_layer = nn.Linear(text_dim + image_dim + signal_dim, 512)
+        self.classifier = nn.Sequential(
+            nn.ReLU(),
+            nn.Linear(512, 256),
+            nn.ReLU(),
+            nn.Linear(256, num_classes)
+        )
+    
+    def forward(self, text, image, signal):
+        # Immediate concatenation
+        combined = torch.cat([text, image, signal], dim=-1)
+        fused = self.fusion_layer(combined)
+        output = self.classifier(fused)
+        return output
+            </div>
+        </div>
+
+        <!-- SECTION 2: LATE FUSION -->
+        <div class="detailed-section">
+            <div class="section-header">
+                <div class="section-number">2️⃣</div>
+                <div class="section-title-text">
+                    <h2>Late Fusion (Decision-Level Fusion)</h2>
+                    <p>Process each modality independently, then combine predictions</p>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-box">
+                    <h3>✅ Advantages</h3>
+                    <ul>
+                        <li>Modular design - easy to upgrade individual components</li>
+                        <li>Can leverage pretrained models for each modality</li>
+                        <li>Handles missing modalities gracefully</li>
+                        <li>Each modality can use specialized architectures</li>
+                        <li>Easier to interpret - can see each modality's contribution</li>
+                    </ul>
+                </div>
+
+                <div class="content-box">
+                    <h3>❌ Disadvantages</h3>
+                    <ul>
+                        <li>Higher computational cost - multiple models running</li>
+                        <li>May miss early interaction patterns between modalities</li>
+                        <li>Requires careful fusion strategy design</li>
+                        <li>More complex training pipeline</li>
+                        <li>Higher memory requirements</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-diagram">
+                <div class="diagram-title">🔍 Late Fusion Architecture Example</div>
+                <svg viewBox="0 0 800 350" style="width: 100%; height: 350px;">
+                    <defs>
+                        <marker id="arrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
+                        </marker>
+                    </defs>
+                    
+                    <!-- Text Branch -->
+                    <g>
+                        <rect x="30" y="20" width="100" height="50" rx="8" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="80" y="45" text-anchor="middle" fill="white" font-weight="bold" font-size="13">Text Input</text>
+                        
+                        <path d="M 80 70 L 80 100" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow3)"/>
+                        
+                        <rect x="30" y="100" width="100" height="60" rx="8" fill="#3498db" opacity="0.8" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="80" y="120" text-anchor="middle" fill="white" font-weight="bold" font-size="12">BERT</text>
+                        <text x="80" y="138" text-anchor="middle" fill="white" font-size="10">Language Model</text>
+                        <text x="80" y="152" text-anchor="middle" fill="white" font-size="9">768-dim features</text>
+                        
+                        <path d="M 80 160 L 80 200" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow3)"/>
+                        
+                        <rect x="30" y="200" width="100" height="40" rx="6" fill="#3498db" opacity="0.6" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="80" y="218" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Classifier-T</text>
+                        <text x="80" y="232" text-anchor="middle" fill="white" font-size="9">P(disease|text)</text>
+                    </g>
+                    
+                    <!-- Image Branch -->
+                    <g>
+                        <rect x="180" y="20" width="100" height="50" rx="8" fill="#2ecc71" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="230" y="45" text-anchor="middle" fill="white" font-weight="bold" font-size="13">Image Input</text>
+                        
+                        <path d="M 230 70 L 230 100" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow3)"/>
+                        
+                        <rect x="180" y="100" width="100" height="60" rx="8" fill="#2ecc71" opacity="0.8" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="230" y="120" text-anchor="middle" fill="white" font-weight="bold" font-size="12">ResNet50</text>
+                        <text x="230" y="138" text-anchor="middle" fill="white" font-size="10">Vision Model</text>
+                        <text x="230" y="152" text-anchor="middle" fill="white" font-size="9">2048-dim features</text>
+                        
+                        <path d="M 230 160 L 230 200" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow3)"/>
+                        
+                        <rect x="180" y="200" width="100" height="40" rx="6" fill="#2ecc71" opacity="0.6" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="230" y="218" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Classifier-I</text>
+                        <text x="230" y="232" text-anchor="middle" fill="white" font-size="9">P(disease|image)</text>
+                    </g>
+                    
+                    <!-- Signal Branch -->
+                    <g>
+                        <rect x="330" y="20" width="100" height="50" rx="8" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="380" y="45" text-anchor="middle" fill="white" font-weight="bold" font-size="13">Signal Input</text>
+                        
+                        <path d="M 380 70 L 380 100" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow3)"/>
+                        
+                        <rect x="330" y="100" width="100" height="60" rx="8" fill="#e74c3c" opacity="0.8" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="380" y="120" text-anchor="middle" fill="white" font-weight="bold" font-size="12">LSTM</text>
+                        <text x="380" y="138" text-anchor="middle" fill="white" font-size="10">Temporal Model</text>
+                        <text x="380" y="152" text-anchor="middle" fill="white" font-size="9">512-dim features</text>
+                        
+                        <path d="M 380 160 L 380 200" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow3)"/>
+                        
+                        <rect x="330" y="200" width="100" height="40" rx="6" fill="#e74c3c" opacity="0.6" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="380" y="218" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Classifier-S</text>
+                        <text x="380" y="232" text-anchor="middle" fill="white" font-size="9">P(disease|signal)</text>
+                    </g>
+                    
+                    <!-- Fusion arrows -->
+                    <path d="M 80 240 L 230 280" stroke="#9b59b6" stroke-width="3" fill="none" marker-end="url(#arrow3)"/>
+                    <path d="M 230 240 L 230 280" stroke="#9b59b6" stroke-width="3" fill="none" marker-end="url(#arrow3)"/>
+                    <path d="M 380 240 L 230 280" stroke="#9b59b6" stroke-width="3" fill="none" marker-end="url(#arrow3)"/>
+                    
+                    <!-- Final fusion -->
+                    <ellipse cx="230" cy="290" rx="80" ry="35" fill="#9b59b6" stroke="#2c3e50" stroke-width="2"/>
+                    <text x="230" y="285" text-anchor="middle" fill="white" font-weight="bold" font-size="13">Fusion Layer</text>
+                    <text x="230" y="302" text-anchor="middle" fill="white" font-size="10">Weighted Average</text>
+                    
+                    <!-- Fusion strategies -->
+                    <g transform="translate(500, 100)">
+                        <text x="0" y="0" fill="#1E64C8" font-weight="bold" font-size="14">Fusion Strategies:</text>
+                        <text x="0" y="25" fill="#555" font-size="12">• Average: P = (P₁+P₂+P₃)/3</text>
+                        <text x="0" y="45" fill="#555" font-size="12">• Weighted: P = w₁P₁+w₂P₂+w₃P₃</text>
+                        <text x="0" y="65" fill="#555" font-size="12">• Max: P = max(P₁, P₂, P₃)</text>
+                        <text x="0" y="85" fill="#555" font-size="12">• Learned: MLP([P₁, P₂, P₃])</text>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="medical-example">
+                <h4>🏥 Medical Application Example</h4>
+                <p><strong>Scenario:</strong> Cardiac Risk Assessment</p>
+                <p style="margin-top: 10px;">
+                    A cardiology department uses late fusion for comprehensive heart disease diagnosis. Three specialized models run independently: (1) a BERT model analyzes clinical notes and patient history, (2) a ResNet analyzes echocardiogram images, and (3) an LSTM processes ECG time series. Each model provides a risk score, which are then combined using learned weights. This allows the system to work even when one modality is missing, and doctors can see which modality contributed most to the final decision.
+                </p>
+            </div>
+
+            <div class="code-example">
+# Late Fusion Implementation Example
+class LateFusionModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        # Separate encoders for each modality
+        self.text_encoder = BERTEncoder()
+        self.image_encoder = ResNet50()
+        self.signal_encoder = LSTMEncoder()
+        
+        # Individual classifiers
+        self.text_classifier = nn.Linear(768, num_classes)
+        self.image_classifier = nn.Linear(2048, num_classes)
+        self.signal_classifier = nn.Linear(512, num_classes)
+        
+        # Learned fusion weights
+        self.fusion_weights = nn.Parameter(torch.ones(3))
+    
+    def forward(self, text, image, signal):
+        # Process each modality independently
+        text_features = self.text_encoder(text)
+        image_features = self.image_encoder(image)
+        signal_features = self.signal_encoder(signal)
+        
+        # Get predictions from each modality
+        text_pred = self.text_classifier(text_features)
+        image_pred = self.image_classifier(image_features)
+        signal_pred = self.signal_classifier(signal_features)
+        
+        # Weighted fusion of predictions
+        weights = F.softmax(self.fusion_weights, dim=0)
+        final_pred = (weights[0] * text_pred + 
+                     weights[1] * image_pred + 
+                     weights[2] * signal_pred)
+        return final_pred
+            </div>
+        </div>
+
+        <!-- SECTION 3: CROSS-ATTENTION FUSION -->
+        <div class="detailed-section">
+            <div class="section-header">
+                <div class="section-number">3️⃣</div>
+                <div class="section-title-text">
+                    <h2>Cross-Attention Fusion</h2>
+                    <p>Enable modalities to attend to each other dynamically</p>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-box">
+                    <h3>✅ Advantages</h3>
+                    <ul>
+                        <li>Captures fine-grained inter-modal relationships</li>
+                        <li>State-of-the-art performance on complex tasks</li>
+                        <li>Interpretable attention weights show modal interactions</li>
+                        <li>Flexible - can attend to relevant parts of each modality</li>
+                        <li>Works well with transformer architectures</li>
+                    </ul>
+                </div>
+
+                <div class="content-box">
+                    <h3>❌ Disadvantages</h3>
+                    <ul>
+                        <li>Computationally expensive - quadratic complexity</li>
+                        <li>Requires more training data to learn attention patterns</li>
+                        <li>Longer training time</li>
+                        <li>Higher memory consumption</li>
+                        <li>May require careful regularization to prevent overfitting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-diagram">
+                <div class="diagram-title">🔍 Cross-Attention Mechanism Example</div>
+                <svg viewBox="0 0 800 400" style="width: 100%; height: 400px;">
+                    <defs>
+                        <marker id="arrow4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#9b59b6" />
+                        </marker>
+                        <linearGradient id="attentionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#9b59b6;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#e74c3c;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Text Features -->
+                    <g transform="translate(50, 30)">
+                        <rect x="0" y="0" width="120" height="50" rx="8" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="60" y="25" text-anchor="middle" fill="white" font-weight="bold" font-size="13">Text Features</text>
+                        <text x="60" y="40" text-anchor="middle" fill="white" font-size="10">[T₁, T₂, ..., Tₙ]</text>
+                        
+                        <!-- Query generation -->
+                        <rect x="10" y="70" width="100" height="30" rx="6" fill="#3498db" opacity="0.7" stroke="#2c3e50" stroke-width="1"/>
+                        <text x="60" y="90" text-anchor="middle" fill="white" font-size="11">Query (Q)</text>
+                    </g>
+                    
+                    <!-- Image Features -->
+                    <g transform="translate(250, 30)">
+                        <rect x="0" y="0" width="120" height="50" rx="8" fill="#2ecc71" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="60" y="25" text-anchor="middle" fill="white" font-weight="bold" font-size="13">Image Features</text>
+                        <text x="60" y="40" text-anchor="middle" fill="white" font-size="10">[I₁, I₂, ..., Iₘ]</text>
+                        
+                        <!-- Key & Value generation -->
+                        <rect x="0" y="70" width="50" height="30" rx="6" fill="#2ecc71" opacity="0.7" stroke="#2c3e50" stroke-width="1"/>
+                        <text x="25" y="90" text-anchor="middle" fill="white" font-size="11">Key (K)</text>
+                        
+                        <rect x="60" y="70" width="60" height="30" rx="6" fill="#2ecc71" opacity="0.7" stroke="#2c3e50" stroke-width="1"/>
+                        <text x="90" y="90" text-anchor="middle" fill="white" font-size="11">Value (V)</text>
+                    </g>
+                    
+                    <!-- Attention Score Calculation -->
+                    <g transform="translate(150, 140)">
+                        <rect x="0" y="0" width="180" height="60" rx="10" fill="url(#attentionGrad)" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="90" y="25" text-anchor="middle" fill="white" font-weight="bold" font-size="13">Attention Scores</text>
+                        <text x="90" y="42" text-anchor="middle" fill="white" font-size="11">Aᵢⱼ = softmax(QᵢKⱼᵀ / √d)</text>
+                    </g>
+                    
+                    <!-- Arrows showing attention flow -->
+                    <path d="M 110 100 L 150 140" stroke="#9b59b6" stroke-width="2" fill="none" marker-end="url(#arrow4)" stroke-dasharray="5,5"/>
+                    <path d="M 285 100 L 240 140" stroke="#9b59b6" stroke-width="2" fill="none" marker-end="url(#arrow4)" stroke-dasharray="5,5"/>
+                    <path d="M 335 100 L 300 140" stroke="#9b59b6" stroke-width="2" fill="none" marker-end="url(#arrow4)" stroke-dasharray="5,5"/>
+                    
+                    <!-- Attention weights visualization -->
+                    <g transform="translate(450, 50)">
+                        <text x="0" y="0" fill="#9b59b6" font-weight="bold" font-size="13">Attention Matrix:</text>
+                        
+                        <!-- Heatmap representation -->
+                        <rect x="0" y="10" width="20" height="20" fill="#9b59b6" opacity="0.9"/>
+                        <rect x="25" y="10" width="20" height="20" fill="#9b59b6" opacity="0.3"/>
+                        <rect x="50" y="10" width="20" height="20" fill="#9b59b6" opacity="0.6"/>
+                        <rect x="75" y="10" width="20" height="20" fill="#9b59b6" opacity="0.2"/>
+                        
+                        <rect x="0" y="35" width="20" height="20" fill="#9b59b6" opacity="0.4"/>
+                        <rect x="25" y="35" width="20" height="20" fill="#9b59b6" opacity="0.8"/>
+                        <rect x="50" y="35" width="20" height="20" fill="#9b59b6" opacity="0.5"/>
+                        <rect x="75" y="35" width="20" height="20" fill="#9b59b6" opacity="0.7"/>
+                        
+                        <rect x="0" y="60" width="20" height="20" fill="#9b59b6" opacity="0.2"/>
+                        <rect x="25" y="60" width="20" height="20" fill="#9b59b6" opacity="0.5"/>
+                        <rect x="50" y="60" width="20" height="20" fill="#9b59b6" opacity="0.9"/>
+                        <rect x="75" y="60" width="20" height="20" fill="#9b59b6" opacity="0.4"/>
+                        
+                        <text x="0" y="100" fill="#666" font-size="10">Text tokens →</text>
+                        <text x="0" y="112" fill="#666" font-size="10">Image patches ↓</text>
+                    </g>
+                    
+                    <!-- Weighted output -->
+                    <g transform="translate(150, 230)">
+                        <path d="M 90 0 L 90 20" stroke="#9b59b6" stroke-width="2" fill="none" marker-end="url(#arrow4)"/>
+                        
+                        <rect x="0" y="20" width="180" height="50" rx="10" fill="#2ecc71" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="90" y="40" text-anchor="middle" fill="white" font-weight="bold" font-size="13">Attended Output</text>
+                        <text x="90" y="57" text-anchor="middle" fill="white" font-size="11">Output = Σ(Aᵢⱼ × Vⱼ)</text>
+                    </g>
+                    
+                    <!-- Multi-head visualization -->
+                    <g transform="translate(450, 180)">
+                        <text x="0" y="0" fill="#1E64C8" font-weight="bold" font-size="13">Multi-Head Attention:</text>
+                        
+                        <circle cx="30" cy="25" r="15" fill="#3498db" opacity="0.7" stroke="#2c3e50" stroke-width="1"/>
+                        <text x="30" y="30" text-anchor="middle" fill="white" font-size="10" font-weight="bold">H1</text>
+                        
+                        <circle cx="70" cy="25" r="15" fill="#2ecc71" opacity="0.7" stroke="#2c3e50" stroke-width="1"/>
+                        <text x="70" y="30" text-anchor="middle" fill="white" font-size="10" font-weight="bold">H2</text>
+                        
+                        <circle cx="110" cy="25" r="15" fill="#e74c3c" opacity="0.7" stroke="#2c3e50" stroke-width="1"/>
+                        <text x="110" y="30" text-anchor="middle" fill="white" font-size="10" font-weight="bold">H3</text>
+                        
+                        <circle cx="150" cy="25" r="15" fill="#f39c12" opacity="0.7" stroke="#2c3e50" stroke-width="1"/>
+                        <text x="150" y="30" text-anchor="middle" fill="white" font-size="10" font-weight="bold">H4</text>
+                        
+                        <text x="0" y="60" fill="#666" font-size="11">Different heads focus on</text>
+                        <text x="0" y="75" fill="#666" font-size="11">different relationships</text>
+                    </g>
+                    
+                    <!-- Formula explanation -->
+                    <g transform="translate(50, 320)">
+                        <rect x="0" y="0" width="700" height="60" rx="8" fill="#f8f9fa" stroke="#ddd" stroke-width="1"/>
+                        <text x="10" y="20" fill="#1E64C8" font-weight="bold" font-size="12">Key Equations:</text>
+                        <text x="10" y="40" fill="#555" font-size="11">1. Attention(Q, K, V) = softmax(QKᵀ/√dₖ) × V</text>
+                        <text x="10" y="55" fill="#555" font-size="11">2. MultiHead(Q,K,V) = Concat(head₁,...,headₕ)W^O where headᵢ = Attention(QWᵢᵠ, KWᵢᵏ, VWᵢᵛ)</text>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="medical-example">
+                <h4>🏥 Medical Application Example</h4>
+                <p><strong>Scenario:</strong> Pathology Report Generation</p>
+                <p style="margin-top: 10px;">
+                    An AI pathology assistant uses cross-attention to generate diagnostic reports from histopathology images. The model learns to attend to specific regions in the microscopy image (like cellular structures) when generating corresponding text descriptions. For instance, when writing "mitotic figures are abundant," the attention mechanism focuses on the relevant cellular regions in the image. This creates interpretable AI where pathologists can see exactly which image regions influenced each part of the generated report, improving trust and adoption in clinical settings.
+                </p>
+            </div>
+
+            <div class="code-example">
+# Cross-Attention Implementation Example
+class CrossAttentionFusion(nn.Module):
+    def __init__(self, d_model=512, n_heads=8):
+        super().__init__()
+        self.text_encoder = TextEncoder()
+        self.image_encoder = ImageEncoder()
+        
+        # Multi-head cross-attention
+        self.cross_attention = nn.MultiheadAttention(
+            embed_dim=d_model, 
+            num_heads=n_heads,
+            batch_first=True
+        )
+        
+        self.norm = nn.LayerNorm(d_model)
+        self.classifier = nn.Linear(d_model, num_classes)
+    
+    def forward(self, text, image):
+        # Encode each modality
+        text_features = self.text_encoder(text)  # [B, seq_len, d_model]
+        image_features = self.image_encoder(image)  # [B, num_patches, d_model]
+        
+        # Cross-attention: text attends to image
+        attended_output, attention_weights = self.cross_attention(
+            query=text_features,
+            key=image_features,
+            value=image_features
+        )
+        
+        # Residual connection and normalization
+        output = self.norm(text_features + attended_output)
+        
+        # Classification
+        pooled = output.mean(dim=1)
+        prediction = self.classifier(pooled)
+        
+        return prediction, attention_weights  # Return weights for visualization
+            </div>
+        </div>
+
+        <!-- SECTION 4: JOINT EMBEDDING SPACE -->
+        <div class="detailed-section">
+            <div class="section-header">
+                <div class="section-number">4️⃣</div>
+                <div class="section-title-text">
+                    <h2>Joint Embedding Space Fusion</h2>
+                    <p>Map different modalities into a shared semantic space</p>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-box">
+                    <h3>✅ Advantages</h3>
+                    <ul>
+                        <li>Enables cross-modal retrieval (text → image, image → text)</li>
+                        <li>Semantically meaningful representations</li>
+                        <li>Zero-shot capabilities for unseen combinations</li>
+                        <li>Efficient similarity search across modalities</li>
+                        <li>Works well with contrastive learning</li>
+                    </ul>
+                </div>
+
+                <div class="content-box">
+                    <h3>❌ Disadvantages</h3>
+                    <ul>
+                        <li>Requires large paired datasets for training</li>
+                        <li>May lose modality-specific information</li>
+                        <li>Challenging to optimize - needs careful loss design</li>
+                        <li>Embedding space dimensionality choice is critical</li>
+                        <li>Can struggle with fine-grained distinctions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="example-diagram">
+                <div class="diagram-title">🔍 Joint Embedding Space Architecture</div>
+                <svg viewBox="0 0 800 420" style="width: 100%; height: 420px;">
+                    <defs>
+                        <marker id="arrow5" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#1E64C8" />
+                        </marker>
+                        <linearGradient id="spaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3498db;stop-opacity:0.3" />
+                            <stop offset="50%" style="stop-color:#9b59b6;stop-opacity:0.3" />
+                            <stop offset="100%" style="stop-color:#2ecc71;stop-opacity:0.3" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Text pathway -->
+                    <g transform="translate(50, 30)">
+                        <rect x="0" y="0" width="100" height="50" rx="8" fill="#3498db" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="50" y="25" text-anchor="middle" fill="white" font-weight="bold" font-size="12">Text Input</text>
+                        <text x="50" y="40" text-anchor="middle" fill="white" font-size="9">"Lung opacity"</text>
+                        
+                        <path d="M 50 50 L 50 90" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow5)"/>
+                        
+                        <rect x="0" y="90" width="100" height="60" rx="8" fill="#3498db" opacity="0.8" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="50" y="112" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Text Encoder</text>
+                        <text x="50" y="127" text-anchor="middle" fill="white" font-size="9">Transformer</text>
+                        <text x="50" y="140" text-anchor="middle" fill="white" font-size="8">fₜ: X → Rᵈ</text>
+                        
+                        <path d="M 50 150 L 200 230" stroke="#9b59b6" stroke-width="3" fill="none" marker-end="url(#arrow5)"/>
+                    </g>
+                    
+                    <!-- Image pathway -->
+                    <g transform="translate(200, 30)">
+                        <rect x="0" y="0" width="100" height="50" rx="8" fill="#2ecc71" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="50" y="25" text-anchor="middle" fill="white" font-weight="bold" font-size="12">Image Input</text>
+                        <text x="50" y="40" text-anchor="middle" fill="white" font-size="9">Chest X-Ray</text>
+                        
+                        <path d="M 250 50 L 250 90" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow5)"/>
+                        
+                        <rect x="200" y="90" width="100" height="60" rx="8" fill="#2ecc71" opacity="0.8" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="250" y="112" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Image Encoder</text>
+                        <text x="250" y="127" text-anchor="middle" fill="white" font-size="9">CNN/ViT</text>
+                        <text x="250" y="140" text-anchor="middle" fill="white" font-size="8">fᵢ: Y → Rᵈ</text>
+                        
+                        <path d="M 250 150 L 280 230" stroke="#9b59b6" stroke-width="3" fill="none" marker-end="url(#arrow5)"/>
+                    </g>
+                    
+                    <!-- Signal pathway -->
+                    <g transform="translate(350, 30)">
+                        <rect x="0" y="0" width="100" height="50" rx="8" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="50" y="25" text-anchor="middle" fill="white" font-weight="bold" font-size="12">Signal Input</text>
+                        <text x="50" y="40" text-anchor="middle" fill="white" font-size="9">ECG data</text>
+                        
+                        <path d="M 400 50 L 400 90" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow5)"/>
+                        
+                        <rect x="350" y="90" width="100" height="60" rx="8" fill="#e74c3c" opacity="0.8" stroke="#2c3e50" stroke-width="2"/>
+                        <text x="400" y="112" text-anchor="middle" fill="white" font-weight="bold" font-size="11">Signal Encoder</text>
+                        <text x="400" y="127" text-anchor="middle" fill="white" font-size="9">1D-CNN</text>
+                        <text x="400" y="140" text-anchor="middle" fill="white" font-size="8">fₛ: Z → Rᵈ</text>
+                        
+                        <path d="M 400 150 L 360 230" stroke="#9b59b6" stroke-width="3" fill="none" marker-end="url(#arrow5)"/>
+                    </g>
+                    
+                    <!-- Joint Embedding Space -->
+                    <ellipse cx="280" cy="280" rx="140" ry="80" fill="url(#spaceGrad)" stroke="#9b59b6" stroke-width="3"/>
+                    <text x="280" y="270" text-anchor="middle" fill="#2c3e50" font-weight="bold" font-size="15">Shared Embedding Space</text>
+                    <text x="280" y="290" text-anchor="middle" fill="#555" font-size="11">d-dimensional (e.g., 512-D)</text>
+                    
+                    <!-- Embedding points visualization -->
+                    <circle cx="220" cy="260" r="6" fill="#3498db" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="210" y="255" text-anchor="end" fill="#3498db" font-size="9">T₁</text>
+                    
+                    <circle cx="260" cy="300" r="6" fill="#2ecc71" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="250" y="315" text-anchor="end" fill="#2ecc71" font-size="9">I₁</text>
+                    
+                    <circle cx="300" cy="270" r="6" fill="#e74c3c" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="315" y="275" text-anchor="start" fill="#e74c3c" font-size="9">S₁</text>
+                    
+                    <circle cx="340" cy="295" r="6" fill="#3498db" stroke="#2c3e50" stroke-width="1"/>
+                    <text x="355" y="300" text-anchor="start" fill="#3498db" font-size="9">T₂</text>
+                    
+                    <!-- Similarity line -->
+                    <line x1="220" y1="260" x2="260" y2="300" stroke="#f39c12" stroke-width="2" stroke-dasharray="3,3"/>
+                    <text x="240" y="275" text-anchor="middle" fill="#f39c12" font-size="9">cos(θ)</text>
+                    
+                    <!-- Loss function -->
+                    <g transform="translate(480, 200)">
+                        <rect x="0" y="0" width="280" height="100" rx="8" fill="#f8f9fa" stroke="#1E64C8" stroke-width="2"/>
+                        <text x="10" y="20" fill="#1E64C8" font-weight="bold" font-size="12">Contrastive Loss:</text>
+                        <text x="10" y="40" fill="#555" font-size="10">ℒ = -log(exp(sim(tᵢ,iᵢ)/τ) / Σⱼexp(sim(tᵢ,iⱼ)/τ))</text>
+                        <text x="10" y="60" fill="#555" font-size="10">• Maximize: sim(text, matching_image)</text>
+                        <text x="10" y="75" fill="#555" font-size="10">• Minimize: sim(text, non_matching_image)</text>
+                        <text x="10" y="90" fill="#555" font-size="10">• τ: temperature parameter (0.07)</text>
+                    </g>
+                    
+                    <!-- Applications -->
+                    <g transform="translate(50, 380)">
+                        <text x="0" y="0" fill="#1E64C8" font-weight="bold" font-size="13">Applications:</text>
+                        <text x="0" y="20" fill="#555" font-size="11">🔍 Search X-rays by text description → cos_similarity(embed_text, embed_image)</text>
+                        <text x="0" y="35" fill="#555" font-size="11">🏷️ Zero-shot classification → find closest text label in embedding space</text>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="medical-example">
+                <h4>🏥 Medical Application Example</h4>
+                <p><strong>Scenario:</strong> Medical Image Retrieval System</p>
+                <p style="margin-top: 10px;">
+                    A hospital implements a CLIP-style model trained on 100,000 radiology report-image pairs. Radiologists can now search the entire image database using natural language: "show me chest X-rays with bilateral infiltrates and cardiomegaly." The system maps both the text query and all stored images into the same 512-dimensional embedding space, then retrieves images with highest cosine similarity. This revolutionizes clinical workflow, reducing search time from minutes to seconds and helping doctors find relevant prior cases for comparison and learning.
+                </p>
+            </div>
+
+            <div class="code-example">
+# Joint Embedding Space Implementation (CLIP-style)
+class JointEmbeddingModel(nn.Module):
+    def __init__(self, embed_dim=512):
+        super().__init__()
+        self.text_encoder = TextTransformer(output_dim=embed_dim)
+        self.image_encoder = VisionTransformer(output_dim=embed_dim)
+        
+        # Temperature parameter for scaling
+        self.temperature = nn.Parameter(torch.ones([]) * np.log(1 / 0.07))
+    
+    def forward(self, text, image):
+        # Project to shared embedding space
+        text_features = self.text_encoder(text)  # [B, embed_dim]
+        image_features = self.image_encoder(image)  # [B, embed_dim]
+        
+        # Normalize features
+        text_features = F.normalize(text_features, dim=-1)
+        image_features = F.normalize(image_features, dim=-1)
+        
+        return text_features, image_features
+    
+    def contrastive_loss(self, text_features, image_features):
+        # Cosine similarity as logits
+        logits = (text_features @ image_features.T) * self.temperature.exp()
+        
+        # Symmetric cross-entropy loss
+        labels = torch.arange(len(logits)).to(logits.device)
+        loss_t = F.cross_entropy(logits, labels)
+        loss_i = F.cross_entropy(logits.T, labels)
+        
+        return (loss_t + loss_i) / 2
+    
+    def retrieve(self, query_text, image_database):
+        """Retrieve most similar images for a text query"""
+        query_embed = self.text_encoder(query_text)
+        query_embed = F.normalize(query_embed, dim=-1)
+        
+        # Compute similarities
+        db_embeds = torch.stack([self.image_encoder(img) for img in image_database])
+        db_embeds = F.normalize(db_embeds, dim=-1)
+        
+        similarities = query_embed @ db_embeds.T
+        top_k_indices = similarities.topk(k=5).indices
+        
+        return top_k_indices
+            </div>
+        </div>
+
+        <!-- COMPARISON TABLE -->
+        <div class="section-divider"></div>
+        
+        <div class="detailed-section">
+            <h2 style="text-align: center; color: #1E64C8; font-size: 28px; margin-bottom: 30px;">📊 Comprehensive Comparison</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Criterion</th>
+                        <th>Early Fusion</th>
+                        <th>Late Fusion</th>
+                        <th>Cross-Attention</th>
+                        <th>Joint Embedding</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Computational Cost</strong></td>
+                        <td class="metric-good">Low ⚡⚡⚡</td>
+                        <td class="metric-medium">Medium ⚡⚡</td>
+                        <td class="metric-low">High ⚡</td>
+                        <td class="metric-medium">Medium ⚡⚡</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Performance</strong></td>
+                        <td class="metric-medium">Medium ⭐⭐</td>
+                        <td class="metric-good">Good ⭐⭐⭐</td>
+                        <td class="metric-good">Excellent ⭐⭐⭐⭐⭐</td>
+                        <td class="metric-good">Very Good ⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interpretability</strong></td>
+                        <td class="metric-low">Low</td>
+                        <td class="metric-good">High</td>
+                        <td class="metric-good">Very High</td>
+                        <td class="metric-medium">Medium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Missing Modality</strong></td>
+                        <td class="metric-low">Poor</td>
+                        <td class="metric-good">Excellent</td>
+                        <td class="metric-medium">Moderate</td>
+                        <td class="metric-good">Good</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Training Data</strong></td>
+                        <td class="metric-good">Moderate</td>
+                        <td class="metric-good">Moderate</td>
+                        <td class="metric-low">Large</td>
+                        <td class="metric-low">Very Large</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modularity</strong></td>
+                        <td class="metric-low">Low</td>
+                        <td class="metric-good">Very High</td>
+                        <td class="metric-medium">Medium</td>
+                        <td class="metric-medium">Medium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cross-Modal Retrieval</strong></td>
+                        <td class="metric-low">No</td>
+                        <td class="metric-low">No</td>
+                        <td class="metric-low">Limited</td>
+                        <td class="metric-good">Excellent</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Best Use Case</strong></td>
+                        <td>Real-time, resource-constrained</td>
+                        <td>Modular systems, missing data</td>
+                        <td>High accuracy critical tasks</td>
+                        <td>Search, retrieval, zero-shot</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Medical Example</strong></td>
+                        <td>ER triage systems</td>
+                        <td>Multi-source diagnosis</td>
+                        <td>Report generation</td>
+                        <td>Image database search</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- KEY TAKEAWAYS -->
+        <div class="section-divider"></div>
+        
+        <div class="detailed-section">
+            <h2 style="text-align: center; color: #1E64C8; font-size: 28px; margin-bottom: 30px;">💡 Key Takeaways & Best Practices</h2>
+            
+            <div class="highlight">
+                <h3 style="color: #1E64C8; margin-bottom: 15px;">🎯 Choosing the Right Fusion Strategy</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #1E64C8; font-weight: bold;">▸</span>
+                        <strong>Early Fusion</strong> when you need speed and have limited compute resources
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #1E64C8; font-weight: bold;">▸</span>
+                        <strong>Late Fusion</strong> when you have pre-trained models for each modality and need flexibility
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #1E64C8; font-weight: bold;">▸</span>
+                        <strong>Cross-Attention</strong> when accuracy is paramount and you have sufficient computational resources
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #1E64C8; font-weight: bold;">▸</span>
+                        <strong>Joint Embedding</strong> when you need cross-modal search or zero-shot capabilities
+                    </li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 12px;">
+                <h3 style="color: #1E64C8; margin-bottom: 15px;">🔬 Practical Implementation Tips</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div style="background: white; padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #2ecc71; margin-bottom: 10px;">✓ Do's</h4>
+                        <ul style="font-size: 14px; line-height: 1.8;">
+                            <li>Start simple (early/late fusion) before trying complex methods</li>
+                            <li>Normalize features before fusion</li>
+                            <li>Use appropriate data augmentation for each modality</li>
+                            <li>Monitor individual modality performance</li>
+                            <li>Implement ablation studies to validate fusion benefit</li>
+                        </ul>
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #e74c3c; margin-bottom: 10px;">✗ Don'ts</h4>
+                        <ul style="font-size: 14px; line-height: 1.8;">
+                            <li>Don't ignore modality imbalance in training</li>
+                            <li>Don't assume more complex = better performance</li>
+                            <li>Don't forget to handle missing modalities at inference</li>
+                            <li>Don't neglect computational constraints in deployment</li>
+                            <li>Don't skip validation with domain experts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

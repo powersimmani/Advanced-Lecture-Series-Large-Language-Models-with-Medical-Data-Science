@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,22 +28,22 @@
             <!-- DICOM File Structure -->
             <g id="dicom-structure">
                 <rect x="50" y="20" width="250" height="240" rx="8" fill="#f0f5fc" stroke="#1E64C8" stroke-width="3"/>
-                <text x="175" y="50" text-anchor="middle" font-family="Aptos, sans-serif" font-size="18" font-weight="700" fill="#1E64C8">DICOM 파일 구조</text>
+                <text x="175" y="50" text-anchor="middle" font-family="Aptos, sans-serif" font-size="18" font-weight="700" fill="#1E64C8">DICOM File Structure</text>
                 
                 <!-- Metadata section -->
                 <rect x="70" y="70" width="210" height="70" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
-                <text x="175" y="90" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">메타데이터</text>
+                <text x="175" y="90" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">Metadata</text>
                 <text x="85" y="110" font-family="Aptos, sans-serif" font-size="12" fill="#333">• Patient Info</text>
                 <text x="85" y="126" font-family="Aptos, sans-serif" font-size="12" fill="#333">• Study/Series ID</text>
                 
                 <!-- Tags section -->
                 <rect x="70" y="150" width="210" height="40" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
-                <text x="85" y="170" font-family="Aptos, sans-serif" font-size="12" fill="#333">태그: (0010,0010)</text>
+                <text x="85" y="170" font-family="Aptos, sans-serif" font-size="12" fill="#333">Tag: (0010,0010)</text>
                 <text x="85" y="184" font-family="Aptos, sans-serif" font-size="12" fill="#333">Patient Name</text>
                 
                 <!-- Pixel Data section -->
                 <rect x="70" y="200" width="210" height="45" rx="6" fill="white" stroke="#1E64C8" stroke-width="2"/>
-                <text x="175" y="220" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">픽셀 데이터</text>
+                <text x="175" y="220" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">Pixel Data</text>
                 <text x="175" y="237" text-anchor="middle" font-family="Aptos, sans-serif" font-size="12" fill="#333">Image Bytes</text>
             </g>
             
@@ -53,13 +53,13 @@
             <!-- Processing Pipeline -->
             <g id="processing-steps">
                 <rect x="380" y="20" width="470" height="240" rx="8" fill="white" stroke="#1E64C8" stroke-width="3"/>
-                <text x="615" y="50" text-anchor="middle" font-family="Aptos, sans-serif" font-size="18" font-weight="700" fill="#1E64C8">처리 파이프라인</text>
+                <text x="615" y="50" text-anchor="middle" font-family="Aptos, sans-serif" font-size="18" font-weight="700" fill="#1E64C8">Processing Pipeline</text>
                 
                 <!-- Step 1 -->
                 <g>
                     <rect x="400" y="70" width="200" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
                     <circle cx="420" cy="87.5" r="10" fill="#1E64C8"/>
-                    <text x="435" y="93" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">1. DICOM 파일 읽기</text>
+                    <text x="435" y="93" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">1. Read DICOM File</text>
                 </g>
                 
                 <path d="M 500 110 L 500 125" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow-small)"/>
@@ -68,7 +68,7 @@
                 <g>
                     <rect x="400" y="130" width="200" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
                     <circle cx="420" cy="147.5" r="10" fill="#1E64C8"/>
-                    <text x="435" y="153" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">2. 태그 추출/파싱</text>
+                    <text x="435" y="153" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">2. Extract/Parse Tags</text>
                 </g>
                 
                 <path d="M 500 170 L 500 185" stroke="#1E64C8" stroke-width="2" fill="none" marker-end="url(#arrow-small)"/>
@@ -77,14 +77,14 @@
                 <g>
                     <rect x="400" y="190" width="200" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
                     <circle cx="420" cy="207.5" r="10" fill="#1E64C8"/>
-                    <text x="435" y="213" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">3. 픽셀 데이터 처리</text>
+                    <text x="435" y="213" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">3. Process Pixel Data</text>
                 </g>
                 
                 <!-- Step 4 -->
                 <g>
                     <rect x="630" y="130" width="200" height="35" rx="6" fill="#f0f5fc" stroke="#1E64C8" stroke-width="2"/>
                     <circle cx="650" cy="147.5" r="10" fill="#1E64C8"/>
-                    <text x="665" y="153" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">4. 익명화 (PHI 제거)</text>
+                    <text x="665" y="153" font-family="Aptos, sans-serif" font-size="14" font-weight="600" fill="#333">4. Anonymize (Remove PHI)</text>
                 </g>
                 
                 <!-- Connecting arrows -->
@@ -103,7 +103,7 @@
         </svg>
         
         <div class="card">
-            <div class="card-title">Python 라이브러리: pydicom</div>
+            <div class="card-title">Python Library: pydicom</div>
             <div class="card-content">
                 <code style="background:#f0f5fc;padding:12px;display:block;border-radius:4px;font-family:monospace;">
                 import pydicom<br>

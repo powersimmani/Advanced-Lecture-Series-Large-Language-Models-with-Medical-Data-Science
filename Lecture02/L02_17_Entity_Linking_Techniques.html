@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entity Linking Techniques</title>
     <style>
         * {margin:0;padding:0;box-sizing:border-box;}
-        body{font-family:Aptos,'Segoe UI',sans-serif;background:white;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+        body{font-family:Aptos,'Segoe UI',sans-serif;background:white;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;}
         .container{width:960px;padding:35px 45px;}
         .title{font-size:20px;font-weight:600;color:#1E64C8;margin-bottom:25px;text-align:center;}
         .card{background:white;border:2.5px solid #1E64C8;border-radius:8px;padding:20px;margin-bottom:15px;}
@@ -15,6 +15,28 @@
         .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
         .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
         .highlight{background:#f0f5fc;border-left:4px solid #1E64C8;padding:15px;border-radius:6px;margin-bottom:20px;}
+        .section-title{font-size:18px;font-weight:600;color:#1E64C8;margin:30px 0 15px 0;padding-bottom:8px;border-bottom:2px solid #1E64C8;}
+        .explanation{background:#f8f9fa;border-radius:8px;padding:20px;margin-bottom:15px;font-size:14px;line-height:1.8;color:#444;}
+        .example-box{background:#fff;border:2px solid #e0e0e0;border-radius:6px;padding:15px;margin:10px 0;font-family:'Courier New',monospace;font-size:13px;}
+        .flow-diagram{background:white;border:2px solid #1E64C8;border-radius:8px;padding:25px;margin:20px 0;text-align:center;}
+        .flow-step{display:inline-block;background:#1E64C8;color:white;padding:12px 20px;border-radius:6px;margin:5px;font-size:14px;font-weight:600;}
+        .flow-arrow{display:inline-block;color:#1E64C8;font-size:24px;margin:0 10px;}
+        .technique-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin:20px 0;}
+        .technique-item{background:#f0f5fc;border-left:4px solid #1E64C8;padding:15px;border-radius:4px;}
+        .technique-name{font-weight:700;color:#1E64C8;margin-bottom:8px;}
+        .technique-desc{font-size:13px;color:#555;line-height:1.6;}
+        .comparison-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;}
+        .comparison-table th{background:#1E64C8;color:white;padding:12px;text-align:left;}
+        .comparison-table td{border:1px solid #ddd;padding:10px;}
+        .comparison-table tr:nth-child(even){background:#f8f9fa;}
+        .process-flow{display:flex;flex-direction:column;gap:10px;margin:20px 0;}
+        .process-step{display:flex;align-items:center;background:#f0f5fc;padding:15px;border-radius:6px;border-left:4px solid #1E64C8;}
+        .step-number{background:#1E64C8;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin-right:15px;flex-shrink:0;}
+        .step-content{flex:1;}
+        .visual-example{background:#fff;border:2px dashed #1E64C8;border-radius:8px;padding:20px;margin:15px 0;text-align:center;}
+        .entity-box{display:inline-block;background:#1E64C8;color:white;padding:8px 16px;border-radius:20px;margin:5px;font-size:14px;}
+        .kb-box{display:inline-block;background:#4CAF50;color:white;padding:8px 16px;border-radius:20px;margin:5px;font-size:14px;}
+        .link-line{display:inline-block;width:60px;height:2px;background:#666;margin:0 10px;vertical-align:middle;}
     </style>
 </head>
 <body>
@@ -23,27 +45,219 @@
         
         <div class="grid-2" style="margin-bottom:20px;">
             <div class="card">
-                <div class="card-title">문자열 매칭</div>
+                <div class="card-title">String Matching</div>
                 <div class="card-content">
                     • Exact matching<br>• Fuzzy matching<br>• Levenshtein distance<br>• Soundex, Metaphone
                 </div>
             </div>
             <div class="card">
-                <div class="card-title">의미 유사도</div>
+                <div class="card-title">Semantic Similarity</div>
                 <div class="card-content">
                     • Word embeddings<br>• BERT embeddings<br>• Cosine similarity<br>• Semantic distance
                 </div>
             </div>
         </div>
         <div class="card">
-            <div class="card-title">문맥 기반 링킹 (앙상블)</div>
+            <div class="card-title">Context-based Linking (Ensemble)</div>
             <div class="card-content">
-                규칙 기반 + 문자열 매칭 + 의미 유사도를 결합<br>
-                주변 단어와 문맥 고려<br>
-                정확도 90%+ 달성 가능
+                Combining rule-based + string matching + semantic similarity<br>
+                Considering surrounding words and context<br>
+                Can achieve 90%+ accuracy
             </div>
         </div>
-    
+
+        <!-- Additional Explanation Section -->
+        <div class="section-title">📊 Entity Linking Process</div>
+        
+        <div class="flow-diagram">
+            <div style="margin-bottom:20px;">
+                <div class="flow-step">Text Input</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Entity Recognition</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Candidate Generation</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Ranking</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">KB Linking</div>
+            </div>
+        </div>
+
+        <div class="section-title">🔍 Detailed Technique Descriptions</div>
+
+        <div class="technique-grid">
+            <div class="technique-item">
+                <div class="technique-name">1. String Matching</div>
+                <div class="technique-desc">
+                    <strong>Exact Matching:</strong> Perfect match search<br>
+                    Example: "Apple" → "Apple Inc."<br><br>
+                    <strong>Fuzzy Matching:</strong> Allows typos<br>
+                    Example: "Microsft" → "Microsoft"<br><br>
+                    <strong>Levenshtein Distance:</strong> Edit distance calculation<br>
+                    Measures insert/delete/replace operations
+                </div>
+            </div>
+
+            <div class="technique-item">
+                <div class="technique-name">2. Semantic Similarity</div>
+                <div class="technique-desc">
+                    <strong>Word Embeddings:</strong> Word vectorization<br>
+                    Utilizing Word2Vec, GloVe<br><br>
+                    <strong>BERT Embeddings:</strong> Context-based embeddings<br>
+                    Can distinguish homonyms<br><br>
+                    <strong>Cosine Similarity:</strong> Vector similarity<br>
+                    Range -1 to 1, closer to 1 means more similar
+                </div>
+            </div>
+
+            <div class="technique-item">
+                <div class="technique-name">3. Rule-based</div>
+                <div class="technique-desc">
+                    <strong>Naming Rules:</strong> Proper noun patterns<br>
+                    Capital letter start, special formats<br><br>
+                    <strong>Domain Knowledge:</strong> Field-specific rules<br>
+                    Medical, legal, technical terms<br><br>
+                    <strong>Context Rules:</strong> Surrounding word patterns<br>
+                    "CEO of", "located in", etc.
+                </div>
+            </div>
+
+            <div class="technique-item">
+                <div class="technique-name">4. Ensemble Methods</div>
+                <div class="technique-desc">
+                    <strong>Weighted Combination:</strong> Summing scores from each technique<br>
+                    α·string + β·semantic + γ·rule<br><br>
+                    <strong>Voting Approach:</strong> Majority decision<br>
+                    Combining predictions from multiple models<br><br>
+                    <strong>Sequential Application:</strong> Stepwise filtering<br>
+                    High confidence → low confidence order
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">💡 Real-world Application Example</div>
+
+        <div class="visual-example">
+            <div style="margin-bottom:15px;font-weight:600;color:#333;">Sentence: "Apple's CEO Tim Cook announced a new iPhone"</div>
+            
+            <div style="margin:20px 0;">
+                <div class="entity-box">Apple</div>
+                <span class="link-line"></span>
+                <div class="kb-box">Apple Inc. (Company)</div>
+            </div>
+            
+            <div style="margin:20px 0;">
+                <div class="entity-box">Tim Cook</div>
+                <span class="link-line"></span>
+                <div class="kb-box">Tim Cook (Person)</div>
+            </div>
+            
+            <div style="margin:20px 0;">
+                <div class="entity-box">iPhone</div>
+                <span class="link-line"></span>
+                <div class="kb-box">iPhone (Product)</div>
+            </div>
+        </div>
+
+        <div class="section-title">⚙️ Step-by-Step Processing</div>
+
+        <div class="process-flow">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <strong>Entity Extraction</strong><br>
+                    Identify entities from text through NER → Person names, organization names, place names, etc.
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <strong>Candidate Generation</strong><br>
+                    Select similar entities from knowledge base as candidates → Maximum 10-20 candidates
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <strong>Context Analysis</strong><br>
+                    Analyze surrounding words and sentence structure to understand meaning
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <strong>Ranking</strong><br>
+                    Calculate confidence score for each candidate by combining multiple techniques
+                </div>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <strong>Final Linking</strong><br>
+                    Select the candidate with the highest score and link to KB entity
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">📈 Technique Comparison</div>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Technique</th>
+                    <th>Advantages</th>
+                    <th>Disadvantages</th>
+                    <th>Use Cases</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>String Matching</strong></td>
+                    <td>Fast processing speed<br>Simple implementation</td>
+                    <td>Cannot distinguish homonyms<br>No context consideration</td>
+                    <td>Proper noun search<br>Initial filtering</td>
+                </tr>
+                <tr>
+                    <td><strong>Semantic Similarity</strong></td>
+                    <td>Context understanding<br>Excellent synonym handling</td>
+                    <td>High computational cost<br>Requires embedding training</td>
+                    <td>Natural language understanding<br>Semantic search</td>
+                </tr>
+                <tr>
+                    <td><strong>Rule-based</strong></td>
+                    <td>Domain specialization<br>High interpretability</td>
+                    <td>Difficult maintenance<br>Limited scalability</td>
+                    <td>Specialized domains<br>Structured data</td>
+                </tr>
+                <tr>
+                    <td><strong>Ensemble</strong></td>
+                    <td>High accuracy<br>Excellent robustness</td>
+                    <td>Increased complexity<br>Requires tuning</td>
+                    <td>Production systems<br>High accuracy requirements</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="explanation">
+            <strong>💡 Practical Tips:</strong><br>
+            • Initial Prototype: Start with string matching<br>
+            • Accuracy Improvement: Add semantic similarity<br>
+            • Optimization: Apply domain-specific rules<br>
+            • Production: Integrate with ensemble methods<br>
+            • Continuous monitoring and feedback incorporation essential
+        </div>
+
+        <div class="highlight">
+            <strong>🎯 Key Summary</strong><br><br>
+            Entity Linking is the process of connecting entities in text with structured entities in a knowledge base. 
+            It uses various techniques from simple string matching to deep learning-based semantic analysis, 
+            and in real systems, multiple methods are ensembled to achieve accuracy rates over 90%.
+        </div>
+
     </div>
 </body>
 </html>

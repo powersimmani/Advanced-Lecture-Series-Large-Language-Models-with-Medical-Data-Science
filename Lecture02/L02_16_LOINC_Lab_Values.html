@@ -26,7 +26,7 @@
         <div class="title">LOINC Lab Values</div>
         
         <div class="highlight">
-            <strong style="color:#1E64C8;">96,000+</strong> 검사 코드 | <strong style="color:#1E64C8;">6개 축</strong> 구조
+            <strong style="color:#1E64C8;">96,000+</strong> Test Codes | <strong style="color:#1E64C8;">6-Part</strong> Structure
         </div>
         
         <svg class="structure-svg" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +46,7 @@
                 <circle cx="120" cy="70" r="12" fill="#1E64C8"/>
                 <text x="120" y="75" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="white">1</text>
                 <text x="120" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">Component</text>
-                <text x="120" y="112" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">측정 대상</text>
+                <text x="120" y="112" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Analyte</text>
                 <path d="M 190 85 L 320 145" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3"/>
             </g>
             
@@ -56,7 +56,7 @@
                 <circle cx="300" cy="70" r="12" fill="#1E64C8"/>
                 <text x="300" y="75" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="white">2</text>
                 <text x="300" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">Property</text>
-                <text x="300" y="112" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">속성 유형</text>
+                <text x="300" y="112" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Property Type</text>
                 <path d="M 335 120 L 380 130" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3"/>
             </g>
             
@@ -66,7 +66,7 @@
                 <circle cx="480" cy="70" r="12" fill="#1E64C8"/>
                 <text x="480" y="75" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="white">3</text>
                 <text x="480" y="95" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">Time</text>
-                <text x="480" y="112" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">시점</text>
+                <text x="480" y="112" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Timing</text>
                 <path d="M 515 120 L 520 130" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3"/>
             </g>
             
@@ -76,7 +76,7 @@
                 <circle cx="300" cy="220" r="12" fill="#1E64C8"/>
                 <text x="300" y="225" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="white">4</text>
                 <text x="300" y="245" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">System</text>
-                <text x="300" y="262" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">검체</text>
+                <text x="300" y="262" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Specimen</text>
                 <path d="M 335 220 L 380 180" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3"/>
             </g>
             
@@ -86,7 +86,7 @@
                 <circle cx="480" cy="220" r="12" fill="#1E64C8"/>
                 <text x="480" y="225" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="white">5</text>
                 <text x="480" y="245" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">Scale</text>
-                <text x="480" y="262" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">척도</text>
+                <text x="480" y="262" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Scale Type</text>
                 <path d="M 515 220 L 520 180" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3"/>
             </g>
             
@@ -96,7 +96,7 @@
                 <circle cx="660" cy="220" r="12" fill="#1E64C8"/>
                 <text x="660" y="225" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" font-weight="700" fill="white">6</text>
                 <text x="660" y="245" text-anchor="middle" font-family="Aptos, sans-serif" font-size="14" font-weight="700" fill="#1E64C8">Method</text>
-                <text x="660" y="262" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">검사 방법</text>
+                <text x="660" y="262" text-anchor="middle" font-family="Aptos, sans-serif" font-size="11" fill="#666">Test Method</text>
                 <path d="M 630 220 L 580 175" stroke="#1E64C8" stroke-width="2" stroke-dasharray="5,3"/>
             </g>
             
@@ -106,6 +106,126 @@
                 <tspan font-weight="700" fill="#1E64C8">Example:</tspan> Glucose:Mass/Vol:Pt:Serum:Qn:Enzymatic
             </text>
         </svg>
+        
+        <div class="card">
+            <div class="card-title">1. Component (Analyte)</div>
+            <div class="card-content">
+                The substance or entity being measured or observed in the test.
+                <br><br>
+                <strong>Examples:</strong>
+                <ul style="margin-left: 20px; margin-top: 8px;">
+                    <li>Glucose</li>
+                    <li>Hemoglobin</li>
+                    <li>Creatinine</li>
+                    <li>Sodium</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">2. Property (Property Type)</div>
+            <div class="card-content">
+                The characteristic or type of the measured value.
+                <br><br>
+                <strong>Key Properties:</strong>
+                <ul style="margin-left: 20px; margin-top: 8px;">
+                    <li><strong>Mass/Vol (MCnc)</strong> - Mass Concentration</li>
+                    <li><strong>Substance/Vol (SCnc)</strong> - Substance Concentration</li>
+                    <li><strong>Arbitrary/Vol (ACnc)</strong> - Arbitrary Concentration</li>
+                    <li><strong>Presence (Prid)</strong> - Presence/Absence</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">3. Time (Timing)</div>
+            <div class="card-content">
+                The temporal characteristic of when the test was performed.
+                <br><br>
+                <strong>Time Types:</strong>
+                <ul style="margin-left: 20px; margin-top: 8px;">
+                    <li><strong>Pt (Point in time)</strong> - Single point in time</li>
+                    <li><strong>24H</strong> - 24-hour collection</li>
+                    <li><strong>8H</strong> - 8-hour collection</li>
+                    <li><strong>Random</strong> - Random time point</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">4. System (Specimen)</div>
+            <div class="card-content">
+                The type of biological sample being tested.
+                <br><br>
+                <strong>Specimen Types:</strong>
+                <ul style="margin-left: 20px; margin-top: 8px;">
+                    <li><strong>Serum</strong> - Blood serum</li>
+                    <li><strong>Plasma</strong> - Blood plasma</li>
+                    <li><strong>Blood</strong> - Whole blood</li>
+                    <li><strong>Urine</strong> - Urine</li>
+                    <li><strong>CSF</strong> - Cerebrospinal fluid</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">5. Scale (Scale Type)</div>
+            <div class="card-content">
+                The data type of the measurement result.
+                <br><br>
+                <strong>Scale Types:</strong>
+                <ul style="margin-left: 20px; margin-top: 8px;">
+                    <li><strong>Qn (Quantitative)</strong> - Numeric values</li>
+                    <li><strong>Ord (Ordinal)</strong> - Ordered categories</li>
+                    <li><strong>Nom (Nominal)</strong> - Named categories</li>
+                    <li><strong>Nar (Narrative)</strong> - Text description</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">6. Method (Test Method)</div>
+            <div class="card-content">
+                The specific method or technique used to perform the test. (Optional)
+                <br><br>
+                <strong>Method Examples:</strong>
+                <ul style="margin-left: 20px; margin-top: 8px;">
+                    <li><strong>Enzymatic</strong> - Enzymatic method</li>
+                    <li><strong>Immunoassay</strong> - Immunoassay method</li>
+                    <li><strong>Chromatography</strong> - Chromatography</li>
+                    <li><strong>Electrophoresis</strong> - Electrophoresis</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="highlight" style="margin-top: 25px;">
+            <div style="font-size: 16px; font-weight: 700; color: #1E64C8; margin-bottom: 12px;">Real LOINC Code Examples</div>
+            <div style="font-size: 14px; line-height: 1.8;">
+                <strong>2339-0</strong><br>
+                Glucose:MCnc:Pt:Ser:Qn:Enzymatic<br>
+                <span style="color: #666;">→ Quantitative measurement of glucose mass concentration in serum at a point in time using enzymatic method</span>
+                <br><br>
+                <strong>718-7</strong><br>
+                Hemoglobin:MCnc:Pt:Bld:Qn<br>
+                <span style="color: #666;">→ Quantitative measurement of hemoglobin mass concentration in whole blood at a point in time</span>
+                <br><br>
+                <strong>2160-0</strong><br>
+                Creatinine:MCnc:Pt:Ser/Plas:Qn<br>
+                <span style="color: #666;">→ Quantitative measurement of creatinine mass concentration in serum/plasma at a point in time</span>
+            </div>
+        </div>
+        
+        <div class="card" style="background: #f8f9fa; border-color: #6c757d;">
+            <div class="card-title" style="color: #495057;">💡 Benefits of Using LOINC</div>
+            <div class="card-content" style="color: #495057;">
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li><strong>Standardization:</strong> Consistent interpretation of test results across healthcare institutions</li>
+                    <li><strong>Interoperability:</strong> Easy data exchange between different systems</li>
+                    <li><strong>Accuracy:</strong> Clear definition of test items prevents misunderstandings</li>
+                    <li><strong>Efficiency:</strong> Enables automated data processing and analysis</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>

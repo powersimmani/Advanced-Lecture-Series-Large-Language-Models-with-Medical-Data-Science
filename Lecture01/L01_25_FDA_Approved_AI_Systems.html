@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,26 +9,29 @@
         body {
             font-family: Aptos, 'Segoe UI', sans-serif;
             background: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            padding: 40px 20px;
         }
-        .container { width: 960px; height: 540px; padding: 40px 50px; }
-        .header {
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        /* Header Section */
+        .header-section {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            padding: 40px 50px;
         }
         .icon { font-size: 72px; margin-bottom: 15px; }
         .title {
             font-size: 34px;
             font-weight: 700;
             color: #1E64C8;
+            margin-bottom: 40px;
         }
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
         }
         .metric-card {
             background: linear-gradient(135deg, #f0f5fc 0%, #ffffff 100%);
@@ -48,27 +51,275 @@
             font-weight: 600;
             line-height: 1.5;
         }
+
+        /* Detailed Sections */
+        .detailed-sections {
+            margin-top: 60px;
+        }
+        .section {
+            margin-bottom: 50px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 40px;
+            border-left: 6px solid #1E64C8;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .section-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1E64C8;
+            margin-right: 15px;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1E64C8;
+        }
+        .section-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+        .visual-box {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .visual-icon {
+            font-size: 80px;
+            margin-bottom: 15px;
+        }
+        .visual-label {
+            font-size: 16px;
+            color: #666;
+            font-weight: 600;
+            text-align: center;
+        }
+        .description {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .description h3 {
+            font-size: 20px;
+            color: #1E64C8;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .description p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 12px;
+        }
+        .key-features {
+            margin-top: 20px;
+        }
+        .key-features h4 {
+            font-size: 17px;
+            color: #1E64C8;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .feature-list li {
+            font-size: 15px;
+            color: #555;
+            padding: 6px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 5px;
+            color: #1E64C8;
+            font-weight: bold;
+        }
+
+        @media (max-width: 968px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-content {
+                grid-template-columns: 1fr;
+            }
+            .visual-box {
+                margin: 0 auto;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <!-- Original Header Section -->
+        <div class="header-section">
             <div class="icon">✅</div>
             <div class="title">FDA Approved AI Systems</div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-text">520+ FDA cleared devices</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-text">IDx-DR (diabetic retinopathy)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-text">Caption Health (echocardiography)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-text">Rapid regulatory growth</div>
+                </div>
+            </div>
         </div>
-        <div class="metrics-grid">
-            <div class="metric-card">
-                <div class="metric-text">520+ FDA cleared devices</div>
+
+        <!-- Detailed Sections -->
+        <div class="detailed-sections">
+            
+            <!-- Section 1: 520+ FDA Cleared Devices -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <div class="section-title">520+ FDA Cleared Devices</div>
+                </div>
+                <div class="section-content">
+                    <div class="visual-box">
+                        <div class="visual-icon">📊</div>
+                        <div class="visual-label">Growing AI Medical Device Portfolio</div>
+                    </div>
+                    <div class="description">
+                        <h3>Explosive Growth in AI Medical Devices</h3>
+                        <p>The FDA has cleared over 520 AI/ML-enabled medical devices, representing a remarkable acceleration in healthcare innovation. This number has grown exponentially from just a handful of devices a decade ago to hundreds today.</p>
+                        <p>These devices span multiple medical specialties including radiology, cardiology, neurology, pathology, and ophthalmology. The majority focus on diagnostic imaging analysis, where AI algorithms can detect patterns and abnormalities that might be missed by human observers.</p>
+                        <div class="key-features">
+                            <h4>Key Application Areas:</h4>
+                            <ul class="feature-list">
+                                <li>Radiology image analysis (CT, MRI, X-ray)</li>
+                                <li>Cardiovascular disease detection</li>
+                                <li>Oncology screening and diagnosis</li>
+                                <li>Diabetic retinopathy screening</li>
+                                <li>Neurological disorder assessment</li>
+                                <li>Clinical decision support systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="metric-card">
-                <div class="metric-text">IDx-DR (diabetic retinopathy)</div>
+
+            <!-- Section 2: IDx-DR -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <div class="section-title">IDx-DR: Diabetic Retinopathy Detection</div>
+                </div>
+                <div class="section-content">
+                    <div class="visual-box">
+                        <div class="visual-icon">👁️</div>
+                        <div class="visual-label">Autonomous AI Diagnostic System</div>
+                    </div>
+                    <div class="description">
+                        <h3>First FDA-Authorized Autonomous AI Diagnostic System</h3>
+                        <p>IDx-DR made history in 2018 as the first FDA-authorized AI system that can make a diagnostic decision without physician oversight. This groundbreaking device screens for diabetic retinopathy, a leading cause of blindness in working-age adults.</p>
+                        <p>The system analyzes retinal images captured with a specialized camera and can detect more than mild diabetic retinopathy with high accuracy. It provides a binary result: either "more than mild diabetic retinopathy detected" or "negative for more than mild diabetic retinopathy."</p>
+                        <div class="key-features">
+                            <h4>Clinical Significance:</h4>
+                            <ul class="feature-list">
+                                <li>87% sensitivity and 90% specificity in clinical trials</li>
+                                <li>Can be operated by non-specialist healthcare providers</li>
+                                <li>Enables screening in primary care settings</li>
+                                <li>Reduces burden on ophthalmologists</li>
+                                <li>Improves access to diabetic eye disease screening</li>
+                                <li>Results available in minutes, not weeks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="metric-card">
-                <div class="metric-text">Caption Health (echocardiography)</div>
+
+            <!-- Section 3: Caption Health -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <div class="section-title">Caption Health: AI-Guided Echocardiography</div>
+                </div>
+                <div class="section-content">
+                    <div class="visual-box">
+                        <div class="visual-icon">❤️</div>
+                        <div class="visual-label">Real-Time Ultrasound Guidance</div>
+                    </div>
+                    <div class="description">
+                        <h3>Democratizing Cardiac Ultrasound Imaging</h3>
+                        <p>Caption Health (acquired by GE HealthCare) developed the first FDA-cleared AI-guided ultrasound system that enables healthcare providers with minimal cardiac ultrasound training to capture diagnostic-quality cardiac images.</p>
+                        <p>The system uses real-time AI to guide users through the scanning process, providing instant feedback on probe positioning and image quality. This technology addresses the significant shortage of trained sonographers and expands access to cardiac imaging in underserved areas.</p>
+                        <div class="key-features">
+                            <h4>Revolutionary Features:</h4>
+                            <ul class="feature-list">
+                                <li>Real-time guidance for probe positioning</li>
+                                <li>Automatic image quality assessment</li>
+                                <li>Reduces training time from years to hours</li>
+                                <li>Enables point-of-care cardiac screening</li>
+                                <li>Automatically measures left ventricular ejection fraction</li>
+                                <li>Improves diagnostic consistency across operators</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="metric-card">
-                <div class="metric-text">Rapid regulatory growth</div>
+
+            <!-- Section 4: Rapid Regulatory Growth -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <div class="section-title">Rapid Regulatory Growth</div>
+                </div>
+                <div class="section-content">
+                    <div class="visual-box">
+                        <div class="visual-icon">🚀</div>
+                        <div class="visual-label">Accelerating Innovation</div>
+                    </div>
+                    <div class="description">
+                        <h3>Evolving Regulatory Framework for AI in Healthcare</h3>
+                        <p>The FDA has adapted its regulatory approach to keep pace with rapid AI innovation. The agency has cleared an average of 50+ AI medical devices annually in recent years, compared to just 2-3 devices per year a decade ago.</p>
+                        <p>In response to the unique challenges of AI/ML-based devices that can continuously learn and adapt, the FDA has proposed a new regulatory framework focused on "Software as a Medical Device" (SaMD) and "predetermined change control plans" that allow for algorithm updates without requiring full re-authorization.</p>
+                        <div class="key-features">
+                            <h4>Regulatory Developments:</h4>
+                            <ul class="feature-list">
+                                <li>New Digital Health Center of Excellence established</li>
+                                <li>Expedited review pathways for breakthrough devices</li>
+                                <li>Predetermined Change Control Plans (PCCP) framework</li>
+                                <li>Good Machine Learning Practice (GMLP) principles</li>
+                                <li>International harmonization efforts underway</li>
+                                <li>Post-market surveillance and real-world monitoring</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </body>
