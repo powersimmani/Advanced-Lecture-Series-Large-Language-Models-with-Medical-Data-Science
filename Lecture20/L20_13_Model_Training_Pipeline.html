@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,8 +79,8 @@
                     <rect x="25" y="0" width="20" height="15" class="icon-element"/>
                     <path d="M 10 20 L 10 30 M 35 20 L 35 30" class="icon-element"/>
                 </g>
-                <text x="215" y="62" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">데이터 로딩</text>
-                <text x="215" y="78" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">& 전처리</text>
+                <text x="215" y="62" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">Data Loading</text>
+                <text x="215" y="78" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">& Preprocessing</text>
             </g>
             
             <!-- Model Training (Top Right) -->
@@ -91,8 +91,8 @@
                     <circle cx="25" cy="15" r="7" class="icon-element"/>
                     <circle cx="25" cy="15" r="3" fill="#1E64C8"/>
                 </g>
-                <text x="665" y="62" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">모델 학습</text>
-                <text x="665" y="78" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">& 검증</text>
+                <text x="665" y="62" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">Model Training</text>
+                <text x="665" y="78" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">& Validation</text>
             </g>
             
             <!-- Hyperparameter Tuning (Bottom Right) -->
@@ -103,8 +103,8 @@
                     <path d="M 25 5 L 30 15 L 25 25 L 20 15 Z" class="icon-element"/>
                     <path d="M 35 5 L 40 15 L 35 25 L 30 15 Z" class="icon-element"/>
                 </g>
-                <text x="665" y="192" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">하이퍼파라미터</text>
-                <text x="665" y="208" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">튜닝</text>
+                <text x="665" y="192" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">Hyperparameter</text>
+                <text x="665" y="208" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">Tuning</text>
             </g>
             
             <!-- Checkpoint & Evaluation (Bottom Left) -->
@@ -114,8 +114,8 @@
                     <path d="M 5 5 L 45 5 L 45 30 L 5 30 Z" class="icon-element"/>
                     <path d="M 15 15 L 22 22 L 35 10" class="icon-element" stroke-width="2.5"/>
                 </g>
-                <text x="215" y="192" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">체크포인트</text>
-                <text x="215" y="208" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">& 평가</text>
+                <text x="215" y="192" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">Checkpoint</text>
+                <text x="215" y="208" class="process-text" text-anchor="middle" font-size="13" fill="#1E64C8">& Evaluation</text>
             </g>
             
             <!-- Arrows connecting the cycle -->
@@ -141,37 +141,37 @@
             <g transform="translate(780, 100)">
                 <rect x="0" y="0" width="70" height="45" rx="4" fill="none" stroke="#1E64C8" stroke-width="1.5"/>
                 <path d="M 10 25 L 20 15 L 30 30 L 40 10 L 50 20 L 60 15" fill="none" stroke="#1E64C8" stroke-width="2"/>
-                <text x="35" y="62" text-anchor="middle" font-size="11" fill="#666" font-family="Aptos, 'Segoe UI', sans-serif">모니터링</text>
+                <text x="35" y="62" text-anchor="middle" font-size="11" fill="#666" font-family="Aptos, 'Segoe UI', sans-serif">Monitoring</text>
             </g>
         </svg>
         
         <div class="info-grid">
             <div class="info-box">
-                <div class="info-title">학습 프로세스</div>
+                <div class="info-title">Training Process</div>
                 <div class="info-content">
-                    <div class="bullet">데이터 로딩 및 전처리</div>
-                    <div class="bullet">모델 학습 및 검증</div>
-                    <div class="bullet">하이퍼파라미터 튜닝</div>
+                    <div class="bullet">Data loading and preprocessing</div>
+                    <div class="bullet">Model training and validation</div>
+                    <div class="bullet">Hyperparameter tuning</div>
                 </div>
             </div>
             <div class="info-box">
-                <div class="info-title">파이프라인 구성</div>
+                <div class="info-title">Pipeline Configuration</div>
                 <div class="info-content">
-                    <div class="bullet">자동화된 학습 워크플로우</div>
-                    <div class="bullet">체크포인트 저장</div>
+                    <div class="bullet">Automated training workflow</div>
+                    <div class="bullet">Checkpoint saving</div>
                     <div class="bullet">Early Stopping</div>
                 </div>
             </div>
             <div class="info-box">
-                <div class="info-title">모니터링</div>
+                <div class="info-title">Monitoring</div>
                 <div class="info-content">
-                    <div class="bullet">학습 손실 추적</div>
-                    <div class="bullet">검증 메트릭 모니터링</div>
-                    <div class="bullet">리소스 사용량 확인</div>
+                    <div class="bullet">Training loss tracking</div>
+                    <div class="bullet">Validation metrics monitoring</div>
+                    <div class="bullet">Resource usage monitoring</div>
                 </div>
             </div>
             <div class="info-box">
-                <div class="info-title">도구 활용</div>
+                <div class="info-title">Tools & Utilities</div>
                 <div class="info-content">
                     <div class="bullet">PyTorch Lightning</div>
                     <div class="bullet">MLflow</div>
